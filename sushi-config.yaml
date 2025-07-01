@@ -17,13 +17,13 @@ releaseLabel: ci-build
 # jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
   name: IKNL
-  url: http://example.org/example-publisher
-  # email: test@example.org
+  url: https://iknl.nl/
+  email: info@iknl.nl
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
-#
+
 dependencies:
    nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.1
 
@@ -77,6 +77,13 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  PZP Background: 
+    Background: background.html
+    Use Cases: usecases.html
+    Naming Conventions: namingconventions.html
+  PZP Specification:
+    Data Model Overview: fhirdatamodel.html
+    Transaction Groups: transactionsgroups.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
