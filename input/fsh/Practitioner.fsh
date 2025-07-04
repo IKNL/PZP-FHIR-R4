@@ -28,3 +28,18 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name[nameInformation].family -> "398" "Geslachtsnaam"
 * name[nameInformation].family.extension[prefix] -> "399" "Voorvoegsels"
 * name[nameInformation].family.extension[lastName] -> "400" "Achternaam"
+* address -> "364" "Adresgegevens"
+
+
+Instance: F1-ACP-HealthProfessional-Practitioner-DrVanHuissen
+InstanceOf: ACPHealthProfessionalPractitioner
+Title: "Dr. van Huissen"
+Usage: #example
+* name.use = #official
+* name.text = "van Huissen"
+* name.family = "van Huissen"
+* name.family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+* name.family.extension[=].valueString = "van"
+* name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name.family.extension[=].valueString = "Huissen"
+* name.prefix = "Dr."

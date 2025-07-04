@@ -10,7 +10,7 @@ Description: "[TO-DO]"
 * valueCodeableConcept only CodeableConcept
 * valueCodeableConcept MS
 * valueCodeableConcept ^definition = "Response to the question “Position regarding euthanesia” as recorded in the ACP form."
-* valueCodeableConcept from ACPEuthanasiaStatement (extensible)
+* valueCodeableConcept from ACPEuthanasiaStatementVS (extensible)
 * note MS
 * note ^short = "Comment, Toelichting"
 * note ^definition = "Comment accompanying the response to the question “Position regarding euthanesia” as recorded in the ACP form."

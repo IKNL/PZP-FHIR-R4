@@ -1,4 +1,4 @@
-ValueSet: ACPDesiredPlaceOfDeath
+ValueSet: ACPDesiredPlaceOfDeathVS
 Id: ACP-DesiredPlaceDeath
 Title: "ACP Desired Place Of Death"
 Description: "Valueset for desired place of death"
@@ -10,7 +10,7 @@ Description: "Valueset for desired place of death"
 * $v3-NullFlavor#OTH "Anders"
 * $v3-NullFlavor#UNK "Onbekend"
 
-ValueSet: ACPEuthanasiaStatement
+ValueSet: ACPEuthanasiaStatementVS
 Id: ACP-EuthanasiaStatement
 Title: "ACP Euthanasia Statement"
 Description: "What is the patient's position regarding euthanasia and does the patient have a euthanasia statement?"
@@ -20,17 +20,18 @@ Description: "What is the patient's position regarding euthanasia and does the p
 * $snomed#340201000146103 "wil geen euthanasie (bevinding)"
 * $v3-NullFlavor#UNK "Onbekend"
 
-ValueSet: ACPGoal
-Id: ACP-Goal
-Title: "ACP Goal"
-Description: "[TO-DO]"
+ValueSet: MedicalPolicyGoalVS
+Id: medical-policy-goal-vs
+Title: "Most Important Agreed-upon Goal of Medical Policy"
+Description: "A set of codes representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
 * $snomed#385987000 "Curatief / actief ziektebeleid"
 * $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
 * $snomed#713148004 "Voorkomen en behandelen van symptomen (verrichting)"
 * $v3-NullFlavor#UNK "Nog onbekend"
 
-ValueSet: ACPLivingWillType
+
+ValueSet: ACPLivingWillTypeVS
 Id: ACP-LivingWillType
 Title: "ACP Living Will Type"
 Description: "What type of living will does the patient have?"
@@ -40,7 +41,7 @@ Description: "What type of living will does the patient have?"
 * urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1#LW "Levenswensverklaring"
 * urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1#DO "Verklaring donorschap"
 
-ValueSet: ACPTreatmentType
+ValueSet: ACPTreatmentTypeVS
 Id: ACP-TreatmentType
 Title: "ACP Treatment Type"
 Description: "Valueset for treatment type"

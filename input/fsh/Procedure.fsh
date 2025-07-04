@@ -4,14 +4,16 @@ Id: ACP-FreedomRestrictingIntervention
 Title: "ACP FreedomRestrictingIntervention"
 Description: """Freedom restricting interventions are interventions that are used against the will of the person concerned and that consciously restrict the person's freedom to protect the person or his environment. This definition includes many forms of freedom restriction, such as (not exhaustive)."""
 * extension[legallyCapable] 1..1
-* code 1..1
+// * code 1..1 // TODO -- this is mandatory in zib/dataset but not appicable in in the form. 
+// Start is mandatory by de zib, but not applicable in the form ?
+/*
 * performed[x] ^slicing.discriminator.type = #type
 * performed[x] ^slicing.discriminator.path = "$this"
 * performed[x] ^slicing.rules = #open
 * performedPeriod only Period
 * performedPeriod ^sliceName = "performedPeriod"
 * performedPeriod.start 1..1
-
+*/
 
 Mapping: MapACDFreedomRestrictingIntervention
 Id: pall-izppz-v2025-03-11
@@ -28,3 +30,16 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * reasonCode -> "437" "RedenVanToepassen"
 * reasonReference[legalSituation-LegalStatus] -> "435" "JuridischeSituatie"
 * reasonReference[legalSituation-Representation] -> "435" "JuridischeSituatie"
+
+
+Instance: F1-ACP-FreedomRestrictingIntervention-Wilsbekwaam
+InstanceOf: ACDFreedomRestrictingIntervention
+Title: "Dr. van Huissen"
+Usage: #example
+* extension[0].extension[0].url = "legallyCapable"
+* extension[=].extension[=].valueBoolean = true
+* extension[=].url = "http://nictiz.nl/fhir/StructureDefinition/ext-FreedomRestrictingIntervention.LegallyCapable"
+* status = #completed
+* category = $snomed#225317005 "beperking van bewegingsvrijheid"
+* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* subject.type = "Patient"

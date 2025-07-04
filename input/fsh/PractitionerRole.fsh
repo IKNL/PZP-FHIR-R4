@@ -16,3 +16,13 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "391" "Gesprek gevoerd door (Zorgverlener)"
 * specialty[specialty]  -> "405" "Specialisme"
 // TODO "430" "ZorgverlenerRol" is not yet implemented in the Nictiz FHIR profiles, because this is mapped in the resources that refer to the PractitionerRole. It is not mapped in PractitionerRole.code. Decide what to do.
+
+
+Instance: F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen
+InstanceOf: ACPHealthProfessionalPractitionerRole
+Title: "Dr. van Huissen"
+Usage: #example
+* practitioner = Reference(F1-ACP-HealthProfessional-Practitioner-DrVanHuissen) "Healthcare professional (person), van Huissen"
+* practitioner.type = "Practitioner"
+* specialty.coding.version = "2020-10-23T00:00:00"
+* specialty.coding = urn:oid:2.16.840.1.113883.2.4.6.7#0100 "Huisartsen, niet nader gespecificeerd"
