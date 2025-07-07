@@ -1,0 +1,52 @@
+---
+title: ACP Data Model overview
+---
+flowchart TB
+    Encounter["`**Encounter**
+        (ACP-Encounter)
+       _xxx_`"]
+    Patient["`**Patient**
+        (ACP-Patient)
+        _xxx_`"]
+    ContactPerson["`**RelatedPerson**
+        (ACP-ContactPerson)
+        _xxx_`"]
+    HealthProfessional-Practitioner["`**Practitioner**
+        (ACP-HealthProfessional-Practitioner)
+        _xxx_`"]
+    HealthProfessional-PractitionerRole["`**PractitionerRole**
+        (ACP-HealthProfessional-PractitionerRole)
+        _xxx_`"]
+    TreatmentDirective["`**Consent**
+        (ACP-TreatmentDirective)
+        _xxx_`"]
+    AdvanceDirective["`**Consent**
+        (ACP-AdvanceDirective)
+        _xxx_`"]
+    QuestionnaireResponse["`**QuestionnaireResponse**
+        (ACP-QuestionnaireResponse)
+        _xxx_`"]        
+    MedicalDevice["`**DeviceUseStatement**
+        (ACP-MedicalDevice)
+        _xxx_`"]   
+    MedicalDeviceProductICD["`**Device**
+        (ACP-MedicalDeviceProductICD)
+        _xxx_`"]   
+
+
+
+
+    Encounter -- .participant.individual --> Patient
+    Encounter -- .participant.individual --> HealthProfessional-PractitionerRole
+    Encounter -- .participant.individual --> ContactPerson
+    HealthProfessional-PractitionerRole -- .Practitioner --> HealthProfessional-Practitioner
+
+    TreatmentDirective -- .Patient --> Patient
+    AdvanceDirective -- .Patient --> Patient
+
+    MedicalDevice -- .subject --> Patient
+    MedicalDevice -- .device --> MedicalDeviceProductICD
+
+    QuestionnaireResponse -- .subject --> Patient
+
+
