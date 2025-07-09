@@ -15,6 +15,8 @@ Description: "A contact is any interaction, regardless of the situation, between
 // TODO Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient)
 * participant[contactPerson].individual only Reference(RelatedPerson) //TODO BUG can't set (ACPContactPerson) here
 
+// TODO - do we need a code to classify the encounter and using it for searching?
+
 Mapping: MapACPEncounter
 Id: pall-izppz-v2025-03-11
 Title: "ACP Gesprek & Gesprek gevoerd in bijzijn van"

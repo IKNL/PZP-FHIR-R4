@@ -79,7 +79,7 @@ menu:
   Home: index.html
   PZP Background: 
     Background: background.html
-    Use Cases: use-cases.html
+    Functioneel Ontwerp: functioneel-ontwerp.html
     Naming Conventions: naming-conventions.html
   PZP Specification:
     Data Model Overview: fhir-data-model.html
