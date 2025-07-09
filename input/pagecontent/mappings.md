@@ -1,6 +1,6 @@
-### Mappings by Resource
+## Mappings by Resource
 
-| Resource (profile) | FHIR element | Functional ID | Functional name |
+| Resource | FHIR element | Functional ID | Functional name |
 |---|---|---|---|
 | Consent (ACPAdvanceDirective) | `` | 690 | Euthanasieverklaring (Wilsverklaring) |
 | Consent (ACPAdvanceDirective) | `` | 700 | Keuze orgaandonatie vastgelegd (Wilsverklaring) |
@@ -127,130 +127,296 @@
 | Consent (ACPTreatmentDirectiveICD) | `sourceReference` | 644 | Wilsverklaring |
 
 
-### Mappings by Functional ID
+## Mappings by Functional ID
 
-| Functional ID | Functional name | Resource (profile) | FHIR element  |
+| Functional ID | Resource | FHIR element | Functional name |
 |---|---|---|---|
-| 351 | Patient | Patient (ACPPatient) | ``   |
-| 352 | Naamgegevens | Patient (ACPPatient) | `name`   |
-| 364 | Adresgegevens | Patient (ACPPatient) | `address`   |
-| 376 | Contactgegevens | Patient (ACPPatient) | `telecom`   |
-| 385 | Identificatienummer | Patient (ACPPatient) | `identifier`   |
-| 386 | Geboortedatum | Patient (ACPPatient) | `birthDate`   |
-| 387 | Geslacht | Patient (ACPPatient) | `gender`   |
-| 387 | Geslacht | Patient (ACPPatient) | `gender.extension[genderCodelist].value[x]`   |
-| 391 | Gesprek gevoerd door (Zorgverlener) | Practitioner (ACPHealthProfessionalPractitioner) | ``   |
-| 391 | Gesprek gevoerd door (Zorgverlener) | PractitionerRole (ACPHealthProfessionalPractitionerRole) | ``   |
-| 392 | ZorgverlenerIdentificatienummer | Practitioner (ACPHealthProfessionalPractitioner) | `identifier`   |
-| 394 | Voornamen | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation-GivenName].given`   |
-| 398 | Geslachtsnaam | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family`   |
-| 399 | Voorvoegsels | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family.extension[prefix]`   |
-| 400 | Achternaam | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family.extension[lastName]`   |
-| 405 | Specialisme | PractitionerRole (ACPHealthProfessionalPractitionerRole) | `specialty[specialty]`   |
-| 431 | Wilsbekwaamheid (VrijheidsbeperkendeInterventie) | Procedure (ACPFreedomRestrictingIntervention) | ``   |
-| 432 | Wilsbekwaam | Procedure (ACPFreedomRestrictingIntervention) | `extension[legallyCapable]`   |
-| 433 | WilsbekwaamToelichting | Procedure (ACPFreedomRestrictingIntervention) | `extension[legallyCapable]`   |
-| 435 | JuridischeSituatie | Procedure (ACPFreedomRestrictingIntervention) | `reasonReference[legalSituation-LegalStatus]`   |
-| 435 | JuridischeSituatie | Procedure (ACPFreedomRestrictingIntervention) | `reasonReference[legalSituation-Representation]`   |
-| 436 | SoortInterventie | Procedure (ACPFreedomRestrictingIntervention) | `code`   |
-| 437 | RedenVanToepassen | Procedure (ACPFreedomRestrictingIntervention) | `reasonCode`   |
-| 439 | Begin | Procedure (ACPFreedomRestrictingIntervention) | `performedPeriod.start`   |
-| 439 | Begin | Procedure (ACPFreedomRestrictingIntervention) | `performedDateTime`   |
-| 440 | Einde | Procedure (ACPFreedomRestrictingIntervention) | `performedPeriod.end`   |
-| 441 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson (ACPContactPerson) | ``   |
-| 442 | Naamgegevens | RelatedPerson (ACPContactPerson) | `name`   |
-| 454 | Contactgegevens | RelatedPerson (ACPContactPerson) | `telecom`   |
-| 463 | Adresgegevens | RelatedPerson (ACPContactPerson) | `address`   |
-| 475 | Rol | RelatedPerson (ACPContactPerson) | `relationship[role]`   |
-| 476 | Relatie | RelatedPerson (ACPContactPerson) | `relationship[relationship]`   |
-| 477 | Vertegenwoordiger is contactpersoon | Patient (ACPPatient) | `contact.extension[relatedPerson]`   |
-| 514 | Gesprek gevoerd in bijzijn van (Patient) | Encounter (ACPEncounter) | `subject`   |
-| 554 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Encounter (ACPEncounter) | `participant[contactPerson].individual`   |
-| 590 | Belangrijkste doel van behandeling ([Meting]) | Goal (ACPMedicalPolicyGoal) | ``   |
-| 591 | Belangrijkste doel van behandeling ([MetingNaam]) | Goal (ACPMedicalPolicyGoal) | `description`   |
-| 602 | Behandelgrens (BehandelAanwijzing) | Consent (ACPTreatmentDirective) | ``   |
-| 603 | BehandelBesluit | Consent (ACPTreatmentDirective) | `provision.type`   |
-| 604 | Behandeling | Consent (ACPTreatmentDirective) | `provision.code`   |
-| 605 | SpecificatieAnders | Consent (ACPTreatmentDirective) | `modifierExtension[specificationOther]`   |
-| 606 | MeestRecenteBespreekdatum | Consent (ACPTreatmentDirective) | `dateTime`   |
-| 607 | DatumBeeindigd | Consent (ACPTreatmentDirective) | `provision.period.end`   |
-| 608 | RedenBeeindigd | Consent (ACPTreatmentDirective) | `provision.extension[reasonForEnding]`   |
-| 609 | Wilsverklaring | Consent (ACPTreatmentDirective) | `sourceReference`   |
-| 611 | AfspraakPartij | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty]`   |
-| 612 | Patient | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference`   |
-| 614 | Vertegenwoordiger | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference`   |
-| 616 | Zorgverlener | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference`   |
-| 618 | Toelichting | Consent (ACPTreatmentDirective) | `extension[comment].value[x]`   |
-| 618 | Toelichting | Consent (ACPTreatmentDirectiveICD) | `extension[comment].value[x]`   |
-| 620 | ICD (MedischHulpmiddel) | Device (ACPMedicalDeviceProductICD) | ``   |
-| 620 | ICD (MedischHulpmiddel) | DeviceUseStatement (ACPMedicalDevice) | ``   |
-| 622 | ProductID | Device (ACPMedicalDeviceProductICD) | `identifier[gs1ProductID]`   |
-| 622 | ProductID | Device (ACPMedicalDeviceProductICD) | `identifier[hibcProductID]`   |
-| 622 | ProductID | Device (ACPMedicalDeviceProductICD) | `udiCarrier[gs1UdiCarrier].carrierHRF`   |
-| 622 | ProductID | Device (ACPMedicalDeviceProductICD) | `udiCarrier[hibcUdiCarrier].carrierHRF`   |
-| 623 | ProductType van ICD | Device (ACPMedicalDeviceProductICD) | `type`   |
-| 624 | ProductOmschrijving | Device (ACPMedicalDeviceProductICD) | `note.text`   |
-| 625 | AnatomischeLocatie | DeviceUseStatement (ACPMedicalDevice) | `bodySite`   |
-| 628 | Indicatie | DeviceUseStatement (ACPMedicalDevice) | `reasonReference[indication]`   |
-| 630 | BeginDatum | DeviceUseStatement (ACPMedicalDevice) | `timingPeriod.start`   |
-| 631 | EndDate | DeviceUseStatement (ACPMedicalDevice) | `timingPeriod.end`   |
-| 632 | Toelichting | DeviceUseStatement (ACPMedicalDevice) | `note.text`   |
-| 633 | Locatie | DeviceUseStatement (ACPMedicalDevice) | `extension[location]`   |
-| 635 | Zorgverlener | DeviceUseStatement (ACPMedicalDevice) | `extension[healthProfessional]`   |
-| 637 | Afspraak uitzetten ICD (BehandelAanwijzing) | Consent (ACPTreatmentDirectiveICD) | ``   |
-| 638 | Afspraak uitzetten ICD (BehandelBesluit) | Consent (ACPTreatmentDirectiveICD) | `provision.type`   |
-| 639 | Behandeling van ICD (Behandeling) | Consent (ACPTreatmentDirectiveICD) | `provision.code`   |
-| 641 | MeestRecenteBespreekdatum | Consent (ACPTreatmentDirectiveICD) | `dateTime`   |
-| 642 | DatumBeeindigd | Consent (ACPTreatmentDirectiveICD) | `provision.period.end`   |
-| 643 | RedenBeeindigd | Consent (ACPTreatmentDirectiveICD) | `provision.extension[reasonForEnding]`   |
-| 644 | Wilsverklaring | Consent (ACPTreatmentDirectiveICD) | `sourceReference`   |
-| 646 | AfspraakPartij | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty]`   |
-| 647 | Patient | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference`   |
-| 649 | Vertegenwoordiger | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference`   |
-| 651 | Zorgverlener | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference`   |
-| 654 | Specifieke wensen ([Meting]) | Observation (ACPSpecificCareWishes) | ``   |
-| 655 | Wens en verwachting patient ([MetingNaam]) | Observation (ACPSpecificCareWishes) | `code`   |
-| 656 | Wens en verwachting patient ([MetingWaarde]) | Observation (ACPSpecificCareWishes) | `valueString`   |
-| 657 | Vaststellen wens en verwachting patiënt ([MeetMethode]) | Observation (ACPSpecificCareWishes) | `method`   |
-| 660 | [MeetDatumBeginTijd] | Observation (ACPSpecificCareWishes) | `effective[x]`   |
-| 666 | Gewenste plek van overlijden ([Meting])) | Observation (ACPPreferredPlaceOfDeath) | ``   |
-| 667 | Gewenste plek van overlijden ([Meting]) | Observation (ACPPreferredPlaceOfDeath) | `code`   |
-| 668 | Voorkeursplek ([MetingWaarde]) | Observation (ACPPreferredPlaceOfDeath) | `valueCodeableConcept`   |
-| 672 | [MeetDatumBeginTijd] | Observation (ACPPreferredPlaceOfDeath) | `effective[x]`   |
-| 674 | [Toelichting] | Observation (ACPPreferredPlaceOfDeath) | `note.text`   |
-| 678 | Euthanasie standpunt ([Meting]) | Observation (ACPPositionRegardingEuthanasia) | ``   |
-| 679 | Euthanasie standpunt ([MetingNaam]) | Observation (ACPPositionRegardingEuthanasia) | `code`   |
-| 680 | Euthanasie standpunt ([MetingWaarde]) | Observation (ACPPositionRegardingEuthanasia) | `valueCodeableConcept`   |
-| 684 | [MeetDatumBeginTijd] | Observation (ACPPositionRegardingEuthanasia) | `effective[x]`   |
-| 686 | [Toelichting] | Observation (ACPPositionRegardingEuthanasia) | `note.text`   |
-| 690 | Euthanasieverklaring (Wilsverklaring) | Consent (ACPAdvanceDirective) | ``   |
-| 691 | Euthanasieverklaring (WilsverklaringType) | Consent (ACPAdvanceDirective) | `provision.code`   |
-| 692 | WilsverklaringDatum | Consent (ACPAdvanceDirective) | `dateTime`   |
-| 693 | Aandoening | Consent (ACPAdvanceDirective) | `extension[disorder]`   |
-| 693 | Vertegenwoordiger | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference`   |
-| 697 | WilsverklaringDocument | Consent (ACPAdvanceDirective) | `sourceAttachment`   |
-| 698 | Toelichting | Consent (ACPAdvanceDirective) | `extension[comment].value[x]`   |
-| 700 | Keuze orgaandonatie vastgelegd (Wilsverklaring) | Consent (ACPAdvanceDirective) | ``   |
-| 701 | Orgaandonatie (WilsverklaringType) | Consent (ACPAdvanceDirective) | `provision.code`   |
-| 702 | WilsverklaringDatum | Consent (ACPAdvanceDirective) | `dateTime`   |
-| 703 | Aandoening | Consent (ACPAdvanceDirective) | `extension[disorder]`   |
-| 705 | Vertegenwoordiger | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference`   |
-| 705 | Vertegenwoordiger | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference`   |
-| 707 | WilsverklaringDocument | Consent (ACPAdvanceDirective) | `sourceAttachment`   |
-| 708 | Toelichting | Consent (ACPAdvanceDirective) | `extension[comment].value[x]`   |
-| 709 | Wat verder nog belangrijk is ([Meting]) | Observation (ACPOtherImportantInformation) | ``   |
-| 710 | Wat verder nog belangrijk is ([MetingNaam]) | Observation (ACPOtherImportantInformation) | `code`   |
-| 711 | Wat verder nog belangrijk is ([MetingWaarde]) | Observation (ACPOtherImportantInformation) | `valueString`   |
-| 715 | [MeetDatumBeginTijd] | Observation (ACPOtherImportantInformation) | `effective[x]`   |
-| 721 | Eerder vastgelegde behandelafspraken (Wilsverklaring) | Consent (ACPAdvanceDirective) | ``   |
-| 722 | WilsverklaringType | Consent (ACPAdvanceDirective) | `provision.code`   |
-| 723 | WilsverklaringDatum | Consent (ACPAdvanceDirective) | `dateTime`   |
-| 724 | Aandoening | Consent (ACPAdvanceDirective) | `extension[disorder]`   |
-| 728 | WilsverklaringDocument | Consent (ACPAdvanceDirective) | `sourceAttachment`   |
-| 729 | Toelichting | Consent (ACPAdvanceDirective) | `extension[comment].value[x]`   |
-| 736 | Datum van invullen | Encounter (ACPEncounter) | `period.start`   |
-| 736 | Datum van invullen | Goal (ACPMedicalPolicyGoal) | `statusDate`   |
-| 746 | Keuze orgaandonatie vastgelegd in donorregister? ([Meting]) | Observation (ACPDonorRegistration) | ``   |
-| 747 | Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam]) | Observation (ACPDonorRegistration) | `code`   |
-| 748 | Keuze orgaandonatie in donorregister ([MetingWaarde]) | Observation (ACPDonorRegistration) | `valueCodeableConcept`   |
-| 752 | [MeetDatumBeginTijd] | Observation (ACPDonorRegistration) | `effective[x]`   |
+| 351 | Patient (ACPPatient) | `` | Patient |
+| 352 | Patient (ACPPatient) | `name` | Naamgegevens |
+| 364 | Patient (ACPPatient) | `address` | Adresgegevens |
+| 376 | Patient (ACPPatient) | `telecom` | Contactgegevens |
+| 385 | Patient (ACPPatient) | `identifier` | Identificatienummer |
+| 386 | Patient (ACPPatient) | `birthDate` | Geboortedatum |
+| 387 | Patient (ACPPatient) | `gender` | Geslacht |
+| 387 | Patient (ACPPatient) | `gender.extension[genderCodelist].value[x]` | Geslacht |
+| 391 | Practitioner (ACPHealthProfessionalPractitioner) | `` | Gesprek gevoerd door (Zorgverlener) |
+| 391 | PractitionerRole (ACPHealthProfessionalPractitionerRole) | `` | Gesprek gevoerd door (Zorgverlener) |
+| 392 | Practitioner (ACPHealthProfessionalPractitioner) | `identifier` | ZorgverlenerIdentificatienummer |
+| 394 | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation-GivenName].given` | Voornamen |
+| 398 | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family` | Geslachtsnaam |
+| 399 | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family.extension[prefix]` | Voorvoegsels |
+| 400 | Practitioner (ACPHealthProfessionalPractitioner) | `name[nameInformation].family.extension[lastName]` | Achternaam |
+| 405 | PractitionerRole (ACPHealthProfessionalPractitionerRole) | `specialty[specialty]` | Specialisme |
+| 431 | Procedure (ACPFreedomRestrictingIntervention) | `` | Wilsbekwaamheid (VrijheidsbeperkendeInterventie) |
+| 432 | Procedure (ACPFreedomRestrictingIntervention) | `extension[legallyCapable]` | Wilsbekwaam |
+| 433 | Procedure (ACPFreedomRestrictingIntervention) | `extension[legallyCapable]` | WilsbekwaamToelichting |
+| 435 | Procedure (ACPFreedomRestrictingIntervention) | `reasonReference[legalSituation-LegalStatus]` | JuridischeSituatie |
+| 435 | Procedure (ACPFreedomRestrictingIntervention) | `reasonReference[legalSituation-Representation]` | JuridischeSituatie |
+| 436 | Procedure (ACPFreedomRestrictingIntervention) | `code` | SoortInterventie |
+| 437 | Procedure (ACPFreedomRestrictingIntervention) | `reasonCode` | RedenVanToepassen |
+| 439 | Procedure (ACPFreedomRestrictingIntervention) | `performedPeriod.start` | Begin |
+| 439 | Procedure (ACPFreedomRestrictingIntervention) | `performedDateTime` | Begin |
+| 440 | Procedure (ACPFreedomRestrictingIntervention) | `performedPeriod.end` | Einde |
+| 441 | RelatedPerson (ACPContactPerson) | `` | Wettelijk vertegenwoordiger (Contactpersoon) |
+| 442 | RelatedPerson (ACPContactPerson) | `name` | Naamgegevens |
+| 454 | RelatedPerson (ACPContactPerson) | `telecom` | Contactgegevens |
+| 463 | RelatedPerson (ACPContactPerson) | `address` | Adresgegevens |
+| 475 | RelatedPerson (ACPContactPerson) | `relationship[role]` | Rol |
+| 476 | RelatedPerson (ACPContactPerson) | `relationship[relationship]` | Relatie |
+| 477 | Patient (ACPPatient) | `contact.extension[relatedPerson]` | Vertegenwoordiger is contactpersoon |
+| 514 | Encounter (ACPEncounter) | `subject` | Gesprek gevoerd in bijzijn van (Patient) |
+| 554 | Encounter (ACPEncounter) | `participant[contactPerson].individual` | Gesprek gevoerd in bijzijn van (Contactpersoon) |
+| 590 | Goal (ACPMedicalPolicyGoal) | `` | Belangrijkste doel van behandeling ([Meting]) |
+| 591 | Goal (ACPMedicalPolicyGoal) | `description` | Belangrijkste doel van behandeling ([MetingNaam]) |
+| 602 | Consent (ACPTreatmentDirective) | `` | Behandelgrens (BehandelAanwijzing) |
+| 603 | Consent (ACPTreatmentDirective) | `provision.type` | BehandelBesluit |
+| 604 | Consent (ACPTreatmentDirective) | `provision.code` | Behandeling |
+| 605 | Consent (ACPTreatmentDirective) | `modifierExtension[specificationOther]` | SpecificatieAnders |
+| 606 | Consent (ACPTreatmentDirective) | `dateTime` | MeestRecenteBespreekdatum |
+| 607 | Consent (ACPTreatmentDirective) | `provision.period.end` | DatumBeeindigd |
+| 608 | Consent (ACPTreatmentDirective) | `provision.extension[reasonForEnding]` | RedenBeeindigd |
+| 609 | Consent (ACPTreatmentDirective) | `sourceReference` | Wilsverklaring |
+| 611 | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty]` | AfspraakPartij |
+| 612 | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference` | Patient |
+| 614 | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference` | Vertegenwoordiger |
+| 616 | Consent (ACPTreatmentDirective) | `provision.actor[agreementParty].reference` | Zorgverlener |
+| 618 | Consent (ACPTreatmentDirective) | `extension[comment].value[x]` | Toelichting |
+| 618 | Consent (ACPTreatmentDirectiveICD) | `extension[comment].value[x]` | Toelichting |
+| 620 | Device (ACPMedicalDeviceProductICD) | `` | ICD (MedischHulpmiddel) |
+| 620 | DeviceUseStatement (ACPMedicalDevice) | `` | ICD (MedischHulpmiddel) |
+| 622 | Device (ACPMedicalDeviceProductICD) | `identifier[gs1ProductID]` | ProductID |
+| 622 | Device (ACPMedicalDeviceProductICD) | `identifier[hibcProductID]` | ProductID |
+| 622 | Device (ACPMedicalDeviceProductICD) | `udiCarrier[gs1UdiCarrier].carrierHRF` | ProductID |
+| 622 | Device (ACPMedicalDeviceProductICD) | `udiCarrier[hibcUdiCarrier].carrierHRF` | ProductID |
+| 623 | Device (ACPMedicalDeviceProductICD) | `type` | ProductType van ICD |
+| 624 | Device (ACPMedicalDeviceProductICD) | `note.text` | ProductOmschrijving |
+| 625 | DeviceUseStatement (ACPMedicalDevice) | `bodySite` | AnatomischeLocatie |
+| 628 | DeviceUseStatement (ACPMedicalDevice) | `reasonReference[indication]` | Indicatie |
+| 630 | DeviceUseStatement (ACPMedicalDevice) | `timingPeriod.start` | BeginDatum |
+| 631 | DeviceUseStatement (ACPMedicalDevice) | `timingPeriod.end` | EndDate |
+| 632 | DeviceUseStatement (ACPMedicalDevice) | `note.text` | Toelichting |
+| 633 | DeviceUseStatement (ACPMedicalDevice) | `extension[location]` | Locatie |
+| 635 | DeviceUseStatement (ACPMedicalDevice) | `extension[healthProfessional]` | Zorgverlener |
+| 637 | Consent (ACPTreatmentDirectiveICD) | `` | Afspraak uitzetten ICD (BehandelAanwijzing) |
+| 638 | Consent (ACPTreatmentDirectiveICD) | `provision.type` | Afspraak uitzetten ICD (BehandelBesluit) |
+| 639 | Consent (ACPTreatmentDirectiveICD) | `provision.code` | Behandeling van ICD (Behandeling) |
+| 641 | Consent (ACPTreatmentDirectiveICD) | `dateTime` | MeestRecenteBespreekdatum |
+| 642 | Consent (ACPTreatmentDirectiveICD) | `provision.period.end` | DatumBeeindigd |
+| 643 | Consent (ACPTreatmentDirectiveICD) | `provision.extension[reasonForEnding]` | RedenBeeindigd |
+| 644 | Consent (ACPTreatmentDirectiveICD) | `sourceReference` | Wilsverklaring |
+| 646 | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty]` | AfspraakPartij |
+| 647 | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference` | Patient |
+| 649 | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference` | Vertegenwoordiger |
+| 651 | Consent (ACPTreatmentDirectiveICD) | `provision.actor[agreementParty].reference` | Zorgverlener |
+| 654 | Observation (ACPSpecificCareWishes) | `` | Specifieke wensen ([Meting]) |
+| 655 | Observation (ACPSpecificCareWishes) | `code` | Wens en verwachting patient ([MetingNaam]) |
+| 656 | Observation (ACPSpecificCareWishes) | `valueString` | Wens en verwachting patient ([MetingWaarde]) |
+| 657 | Observation (ACPSpecificCareWishes) | `method` | Vaststellen wens en verwachting patiënt ([MeetMethode]) |
+| 660 | Observation (ACPSpecificCareWishes) | `effective[x]` | [MeetDatumBeginTijd] |
+| 666 | Observation (ACPPreferredPlaceOfDeath) | `` | Gewenste plek van overlijden ([Meting])) |
+| 667 | Observation (ACPPreferredPlaceOfDeath) | `code` | Gewenste plek van overlijden ([Meting]) |
+| 668 | Observation (ACPPreferredPlaceOfDeath) | `valueCodeableConcept` | Voorkeursplek ([MetingWaarde]) |
+| 672 | Observation (ACPPreferredPlaceOfDeath) | `effective[x]` | [MeetDatumBeginTijd] |
+| 674 | Observation (ACPPreferredPlaceOfDeath) | `note.text` | [Toelichting] |
+| 678 | Observation (ACPPositionRegardingEuthanasia) | `` | Euthanasie standpunt ([Meting]) |
+| 679 | Observation (ACPPositionRegardingEuthanasia) | `code` | Euthanasie standpunt ([MetingNaam]) |
+| 680 | Observation (ACPPositionRegardingEuthanasia) | `valueCodeableConcept` | Euthanasie standpunt ([MetingWaarde]) |
+| 684 | Observation (ACPPositionRegardingEuthanasia) | `effective[x]` | [MeetDatumBeginTijd] |
+| 686 | Observation (ACPPositionRegardingEuthanasia) | `note.text` | [Toelichting] |
+| 690 | Consent (ACPAdvanceDirective) | `` | Euthanasieverklaring (Wilsverklaring) |
+| 691 | Consent (ACPAdvanceDirective) | `provision.code` | Euthanasieverklaring (WilsverklaringType) |
+| 692 | Consent (ACPAdvanceDirective) | `dateTime` | WilsverklaringDatum |
+| 693 | Consent (ACPAdvanceDirective) | `extension[disorder]` | Aandoening |
+| 693 | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference` | Vertegenwoordiger |
+| 697 | Consent (ACPAdvanceDirective) | `sourceAttachment` | WilsverklaringDocument |
+| 698 | Consent (ACPAdvanceDirective) | `extension[comment].value[x]` | Toelichting |
+| 700 | Consent (ACPAdvanceDirective) | `` | Keuze orgaandonatie vastgelegd (Wilsverklaring) |
+| 701 | Consent (ACPAdvanceDirective) | `provision.code` | Orgaandonatie (WilsverklaringType) |
+| 702 | Consent (ACPAdvanceDirective) | `dateTime` | WilsverklaringDatum |
+| 703 | Consent (ACPAdvanceDirective) | `extension[disorder]` | Aandoening |
+| 705 | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference` | Vertegenwoordiger |
+| 705 | Consent (ACPAdvanceDirective) | `provision.actor[representative].reference` | Vertegenwoordiger |
+| 707 | Consent (ACPAdvanceDirective) | `sourceAttachment` | WilsverklaringDocument |
+| 708 | Consent (ACPAdvanceDirective) | `extension[comment].value[x]` | Toelichting |
+| 709 | Observation (ACPOtherImportantInformation) | `` | Wat verder nog belangrijk is ([Meting]) |
+| 710 | Observation (ACPOtherImportantInformation) | `code` | Wat verder nog belangrijk is ([MetingNaam]) |
+| 711 | Observation (ACPOtherImportantInformation) | `valueString` | Wat verder nog belangrijk is ([MetingWaarde]) |
+| 715 | Observation (ACPOtherImportantInformation) | `effective[x]` | [MeetDatumBeginTijd] |
+| 721 | Consent (ACPAdvanceDirective) | `` | Eerder vastgelegde behandelafspraken (Wilsverklaring) |
+| 722 | Consent (ACPAdvanceDirective) | `provision.code` | WilsverklaringType |
+| 723 | Consent (ACPAdvanceDirective) | `dateTime` | WilsverklaringDatum |
+| 724 | Consent (ACPAdvanceDirective) | `extension[disorder]` | Aandoening |
+| 728 | Consent (ACPAdvanceDirective) | `sourceAttachment` | WilsverklaringDocument |
+| 729 | Consent (ACPAdvanceDirective) | `extension[comment].value[x]` | Toelichting |
+| 736 | Encounter (ACPEncounter) | `period.start` | Datum van invullen |
+| 736 | Goal (ACPMedicalPolicyGoal) | `statusDate` | Datum van invullen |
+| 746 | Observation (ACPDonorRegistration) | `` | Keuze orgaandonatie vastgelegd in donorregister? ([Meting]) |
+| 747 | Observation (ACPDonorRegistration) | `code` | Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam]) |
+| 748 | Observation (ACPDonorRegistration) | `valueCodeableConcept` | Keuze orgaandonatie in donorregister ([MetingWaarde]) |
+| 752 | Observation (ACPDonorRegistration) | `effective[x]` | [MeetDatumBeginTijd] |
+
+
+## Overview of Unmapped Elements
+
+| ID | Name |
+|---|---|
+| 350 | Informatiestandaard o.b.v. zibs2020 |
+| 353 | Voornamen |
+| 354 | Initialen |
+| 355 | Roepnaam |
+| 356 | Naamgebruik |
+| 357 | Geslachtsnaam |
+| 358 | Voorvoegsels |
+| 359 | Achternaam |
+| 360 | GeslachtsnaamPartner |
+| 361 | VoorvoegselsPartner |
+| 362 | AchternaamPartner |
+| 363 | Titels |
+| 365 | Straat |
+| 366 | Huisnummer |
+| 367 | Huisnummerletter |
+| 368 | Huisnummertoevoeging |
+| 369 | AanduidingBijNummer |
+| 370 | Postcode |
+| 371 | Woonplaats |
+| 372 | Gemeente |
+| 373 | Land |
+| 374 | AdditioneleInformatie |
+| 375 | AdresSoort |
+| 377 | Telefoonnummers |
+| 378 | Telefoonnummer |
+| 379 | TelecomType |
+| 380 | NummerSoort |
+| 381 | Toelichting |
+| 382 | EmailAdressen |
+| 383 | EmailAdres |
+| 384 | EmailSoort |
+| 393 | Naamgegevens |
+| 430 | ZorgverlenerRol |
+| 434 | JuridischeSituatie |
+| 438 | Instemming |
+| 443 | Voornamen |
+| 444 | Initialen |
+| 445 | Roepnaam |
+| 446 | Naamgebruik |
+| 447 | Geslachtsnaam |
+| 448 | Voorvoegsels |
+| 449 | Achternaam |
+| 450 | GeslachtsnaamPartner |
+| 451 | VoorvoegselsPartner |
+| 452 | AchternaamPartner |
+| 453 | Titels |
+| 455 | Telefoonnummers |
+| 456 | Telefoonnummer |
+| 457 | TelecomType |
+| 458 | NummerSoort |
+| 459 | Toelichting |
+| 460 | EmailAdressen |
+| 461 | EmailAdres |
+| 462 | EmailSoort |
+| 464 | Straat |
+| 465 | Huisnummer |
+| 466 | Huisnummerletter |
+| 467 | Huisnummertoevoeging |
+| 468 | AanduidingBijNummer |
+| 469 | Postcode |
+| 470 | Woonplaats |
+| 471 | Gemeente |
+| 472 | Land |
+| 473 | AdditioneleInformatie |
+| 474 | AdresSoort |
+| 478 | Eerste contactpersoon (Contactpersoon) |
+| 479 | Naamgegevens |
+| 480 | Voornamen |
+| 481 | Initialen |
+| 482 | Roepnaam |
+| 483 | Naamgebruik |
+| 484 | Geslachtsnaam |
+| 485 | Voorvoegsels |
+| 486 | Achternaam |
+| 487 | GeslachtsnaamPartner |
+| 488 | VoorvoegselsPartner |
+| 489 | AchternaamPartner |
+| 490 | Titels |
+| 491 | Contactgegevens |
+| 492 | Telefoonnummers |
+| 493 | Telefoonnummer |
+| 494 | TelecomType |
+| 495 | NummerSoort |
+| 496 | Toelichting |
+| 497 | EmailAdressen |
+| 498 | EmailAdres |
+| 499 | EmailSoort |
+| 500 | Adresgegevens |
+| 501 | Straat |
+| 502 | Huisnummer |
+| 503 | Huisnummerletter |
+| 504 | Huisnummertoevoeging |
+| 505 | AanduidingBijNummer |
+| 506 | Postcode |
+| 507 | Woonplaats |
+| 508 | Gemeente |
+| 509 | Land |
+| 510 | AdditioneleInformatie |
+| 511 | AdresSoort |
+| 512 | Rol |
+| 513 | Relatie |
+| 515 | Naamgegevens |
+| 516 | Voornamen |
+| 517 | Initialen |
+| 518 | Roepnaam |
+| 519 | Naamgebruik |
+| 520 | Geslachtsnaam |
+| 521 | Voorvoegsels |
+| 522 | Achternaam |
+| 523 | GeslachtsnaamPartner |
+| 524 | VoorvoegselsPartner |
+| 525 | AchternaamPartner |
+| 526 | Titels |
+| 555 | Naamgegevens |
+| 556 | Voornamen |
+| 557 | Initialen |
+| 558 | Roepnaam |
+| 559 | Naamgebruik |
+| 560 | Geslachtsnaam |
+| 561 | Voorvoegsels |
+| 562 | Achternaam |
+| 563 | GeslachtsnaamPartner |
+| 564 | VoorvoegselsPartner |
+| 565 | AchternaamPartner |
+| 566 | Titels |
+| 588 | Rol |
+| 589 | Relatie |
+| 592 | Doel ([MetingWaarde]) |
+| 596 | [MeetDatumBeginTijd] |
+| 598 | [Toelichting] |
+| 610 | Wilsverklaring |
+| 613 | Patient |
+| 615 | Contactpersoon |
+| 617 | Zorgverlener |
+| 619 | Heeft de patiënt een ICD? |
+| 621 | Product |
+| 626 | Locatie |
+| 627 | Lateraliteit |
+| 629 | Probleem |
+| 634 | Zorgaanbieder |
+| 636 | Zorgverlener |
+| 645 | Wilsverklaring |
+| 648 | Patient |
+| 650 | Contactpersoon |
+| 652 | Zorgverlener |
+| 653 | Toelichting |
+| 694 | Probleem |
+| 695 | Vertegenwoordiger |
+| 696 | Contactpersoon |
+| 704 | Probleem |
+| 706 | Contactpersoon |
+| 725 | Probleem |
+| 726 | Vertegenwoordiger |
+| 727 | Contactpersoon |
+| 730 | Heeft de patiënt eerder behandelafspraken vastgelegd? |
+| 731 | Heeft de patiënt eerder behandelafspraken vastgelegd? |
+| 732 | Toelichting |
+| 733 | Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring? |
+| 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? |
+| 735 | Patiënt gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners |

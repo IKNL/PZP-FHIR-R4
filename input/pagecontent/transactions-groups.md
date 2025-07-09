@@ -4,7 +4,7 @@
 
 A search on the `/QuestionnaireResponse` end point
 
-> GET [base]/QuestionnaireResponse?code=SNOMED|1234234
+> GET [base]/QuestionnaireResponse?questionnaire=https://fhir.iknl.nl/fhir/ACP/Questionnaire/ACP-Form
 
 
 
@@ -16,7 +16,7 @@ To get all the TreatmentDirective:
 
 To get all the AdvanceDirectives:
 
-> GET [base]/Consent?scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009
+> GET [base]/Consent?scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd
 
 > GET [base]/Encounter
 

@@ -65,6 +65,7 @@ Usage: #example
 * status = #final
 * code =  $snomed#395091006
 * valueCodeableConcept = $v3-NullFlavor#UNK
+* dataAbsentReason = $DataAbsentReason#asked-unknown // TODO  This seems like a good fit for "Nog Onbekend". Add mapping to element? Could leave out valueCodeableConcept and use dataAbsentReason only.
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 

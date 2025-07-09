@@ -25,4 +25,4 @@ Instance: F1-ACP-MedicalDevice.Product-ICD
 InstanceOf: ACPMedicalDeviceProductICD
 Title: "MedicalDevice.Product ICD"
 Usage: #example
-* type = $snomed#72506001
+* type = $snomed#72506001 "Implantable defibrillator, device (physical object)"
