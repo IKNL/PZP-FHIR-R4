@@ -4,6 +4,7 @@ Id: ACP-Medical-Policy-Goal
 Title: "ACP Medical Policy Goal"
 Description: "A profile on the FHIR Goal resource to represent the primary, agreed-upon goal of a patient's medical treatment policy."
 * description from MedicalPolicyGoalVS (required)
+* subject only Reference(Patient)
 
 
 Mapping: MapACPMedicalPolicyGoal

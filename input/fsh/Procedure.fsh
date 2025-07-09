@@ -1,9 +1,10 @@
-Profile: ACDFreedomRestrictingIntervention
+Profile: ACPFreedomRestrictingIntervention
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-FreedomRestrictingIntervention
 Id: ACP-FreedomRestrictingIntervention
 Title: "ACP FreedomRestrictingIntervention"
 Description: """Freedom restricting interventions are interventions that are used against the will of the person concerned and that consciously restrict the person's freedom to protect the person or his environment. This definition includes many forms of freedom restriction, such as (not exhaustive)."""
 * extension[legallyCapable] 1..1
+* subject only Reference(ACP-Patient)
 // * code 1..1 // TODO -- this is mandatory in zib/dataset but not appicable in in the form. 
 // Start is mandatory by de zib, but not applicable in the form ?
 /*
@@ -18,7 +19,7 @@ Description: """Freedom restricting interventions are interventions that are use
 Mapping: MapACDFreedomRestrictingIntervention
 Id: pall-izppz-v2025-03-11
 Title: "Wilsbekwaamheid (VrijheidsbeperkendeInterventie)"
-Source: ACDFreedomRestrictingIntervention
+Source: ACPFreedomRestrictingIntervention
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "431" "Wilsbekwaamheid (VrijheidsbeperkendeInterventie)"
 * extension[legallyCapable] -> "432" "Wilsbekwaam" // TODO need to add this inside complex extension on the right sub extension
@@ -33,7 +34,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 
 Instance: F1-ACP-FreedomRestrictingIntervention-Wilsbekwaam
-InstanceOf: ACDFreedomRestrictingIntervention
+InstanceOf: ACPFreedomRestrictingIntervention
 Title: "Dr. van Huissen"
 Usage: #example
 * extension[0].extension[0].url = "legallyCapable"

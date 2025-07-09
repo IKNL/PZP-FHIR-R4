@@ -3,7 +3,6 @@ Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter
 Id: ACP-Encounter
 Title: "ACP Encounter"
 Description: "A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions."
-
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * participant ^slicing.discriminator.type = #profile
@@ -14,7 +13,7 @@ Description: "A contact is any interaction, regardless of the situation, between
 * participant[healthProfessional].individual only Reference(ACPHealthProfessionalPractitionerRole)
 * participant[healthProfessional].individual ^comment = "Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance.\r\n\r\nIn rare circumstances, there is only a Practitioner instance, in which case it is that instance which can be referenced on the `Encounter.participant` element (due to open slicing). Since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile."
 // TODO Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient)
-* participant[contactPerson].individual only Reference(http://hl7.org/fhir/StructureDefinition/RelatedPerson) //TODO BUG can't set (ACPContactPerson) here
+* participant[contactPerson].individual only Reference(RelatedPerson) //TODO BUG can't set (ACPContactPerson) here
 
 Mapping: MapACPEncounter
 Id: pall-izppz-v2025-03-11

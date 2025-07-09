@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: iknl.fhir.r4.pzp
-canonical: https://fhir.iknl.nl/fhir/
+canonical: https://fhir.iknl.nl/fhir
 name: PZP
 # title: Example Title
 # description: Example Implementation Guide for getting started with SUSHI
@@ -79,11 +79,11 @@ menu:
   Home: index.html
   PZP Background: 
     Background: background.html
-    Use Cases: usecases.html
-    Naming Conventions: namingconventions.html
+    Use Cases: use-cases.html
+    Naming Conventions: naming-conventions.html
   PZP Specification:
-    Data Model Overview: fhirdatamodel.html
-    Transaction Groups: transactionsgroups.html
+    Data Model Overview: fhir-data-model.html
+    Transaction Groups: transactions-groups.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

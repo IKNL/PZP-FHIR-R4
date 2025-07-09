@@ -5,7 +5,7 @@ Title: "ACP MedicalDevice"
 Description: "Medical devices are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease."
 * insert MetaRules
 * subject only Reference(ACPPatient)
-* device only Reference(ACPMedicalDeviceProductICD or Device)
+* device only Reference(ACPMedicalDeviceProductICD or http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product)
 
 Mapping: MapACPMedicalDevice
 Id: pall-izppz-v2025-03-11
@@ -21,3 +21,12 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * bodySite -> "625" "AnatomischeLocatie"
 * note.text -> "632" "Toelichting"
 
+Instance: F1-ACP-MedicalDevice-ICD
+InstanceOf: ACPMedicalDevice
+Title: "MedicalDevice ICD"
+Usage: #example
+* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* device = Reference(F1-ACP-MedicalDevice.Product-ICD)
+* status = #active
+* timingPeriod.start = "2018"
+* note.text = "Geïmplanteerd in 2018"

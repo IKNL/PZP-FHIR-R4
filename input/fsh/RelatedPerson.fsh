@@ -5,6 +5,7 @@ Id: ACP-ContactPerson
 Title: "ACP ContactPerson"
 Description: "A contact is a person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives."
 * insert MetaRules
+* patient only Reference(ACPPatient)
 * relationship 1..*
 * relationship[role] ^sliceName = "role"
 * relationship[role] 1..1

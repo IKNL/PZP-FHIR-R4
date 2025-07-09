@@ -28,7 +28,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name[nameInformation].family -> "398" "Geslachtsnaam"
 * name[nameInformation].family.extension[prefix] -> "399" "Voorvoegsels"
 * name[nameInformation].family.extension[lastName] -> "400" "Achternaam"
-* address -> "364" "Adresgegevens"
 
 
 Instance: F1-ACP-HealthProfessional-Practitioner-DrVanHuissen

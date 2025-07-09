@@ -19,3 +19,10 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * udiCarrier[hibcUdiCarrier].carrierHRF -> "622" "ProductID"
 * type -> "623" "ProductType van ICD"
 * note.text -> "624" "ProductOmschrijving"
+
+
+Instance: F1-ACP-MedicalDevice.Product-ICD
+InstanceOf: ACPMedicalDeviceProductICD
+Title: "MedicalDevice.Product ICD"
+Usage: #example
+* type = $snomed#72506001
