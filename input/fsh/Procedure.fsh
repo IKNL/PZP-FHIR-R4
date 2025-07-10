@@ -44,6 +44,6 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "1dfa6db9-0e94-4338-a91c-f3d20bdbf929"
 * status = #completed
-* category = $snomed#225317005 "beperking van bewegingsvrijheid"
+* category = $snomed#225317005 "Restriction of movement"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * subject.type = "Patient"

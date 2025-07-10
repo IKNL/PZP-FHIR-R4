@@ -28,6 +28,7 @@ Title: "F1 ACP Specific Care Wishes"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#153851000146100
 * valueString = "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
@@ -67,6 +68,7 @@ Usage: #example
 * identifier.value = "023ba125-94c3-492c-8379-958ac9fbb9d6"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#395091006
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
@@ -108,6 +110,7 @@ Usage: #example
 * identifier.value = "f2314b60-1b52-4f29-b231-8b74869fc34b"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#340171000146104
 * valueCodeableConcept = $v3-NullFlavor#UNK
@@ -146,6 +149,7 @@ Usage: #example
 * identifier.value = "31952dca-757c-4e4e-b7f6-fab66a79deba"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#TODO
 * valueCodeableConcept = $snomed#373066001
@@ -185,6 +189,7 @@ Usage: #example
 * identifier.value = "eef80c58-5721-45fa-8f05-210f9e1f0b63"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#247751003
 * valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"

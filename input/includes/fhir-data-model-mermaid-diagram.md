@@ -2,22 +2,22 @@
 flowchart TB
 
     %% ---- Profile Definitions ----
-    AdvanceDirective["`**Consent**<br>(ACPAdvanceDirective)`"]
-    ContactPerson["`**RelatedPerson**<br>(ACPContactPerson)`"]
-    Encounter["`**Encounter**<br>(ACPEncounter)`"]
-    FreedomRestrictingIntervention["`**Procedure**<br>(ACPFreedomRestrictingIntervention)`"]
-    HealthProfessionalPractitioner["`**Practitioner**<br>(ACPHealthProfessionalPractitioner)`"]
-    HealthProfessionalPractitionerRole["`**PractitionerRole**<br>(ACPHealthProfessionalPractitionerRole)`"]
-    MedicalDevice["`**DeviceUseStatement**<br>(ACPMedicalDevice)`"]
-    MedicalDeviceProductICD["`**Device**<br>(ACPMedicalDeviceProductICD)`"]
-    MedicalPolicyGoal["`**Goal**<br>(ACPMedicalPolicyGoal)`"]
-    OrganDonationChoiceRegistration["`**Observation**<br>(ACPOrganDonationChoiceRegistration)`"]
-    OtherImportantInformation["`**Observation**<br>(ACPOtherImportantInformation)`"]
-    Patient["`**Patient**<br>(ACPPatient)`"]
-    PositionRegardingEuthanasia["`**Observation**<br>(ACPPositionRegardingEuthanasia)`"]
-    PreferredPlaceOfDeath["`**Observation**<br>(ACPPreferredPlaceOfDeath)`"]
-    SpecificCareWishes["`**Observation**<br>(ACPSpecificCareWishes)`"]
-    TreatmentDirective["`**Consent**<br>(ACPTreatmentDirective)`"]
+    AdvanceDirective["`**Consent**(ACPAdvanceDirective)`"]
+    ContactPerson["`**RelatedPerson**(ACPContactPerson)`"]
+    Encounter["`**Encounter**(ACPEncounter)`"]
+    FreedomRestrictingIntervention["`**Procedure**(ACPFreedomRestrictingIntervention)`"]
+    HealthProfessionalPractitioner["`**Practitioner**(ACPHealthProfessionalPractitioner)`"]
+    HealthProfessionalPractitionerRole["`**PractitionerRole**(ACPHealthProfessionalPractitionerRole)`"]
+    MedicalDevice["`**DeviceUseStatement**(ACPMedicalDevice)`"]
+    MedicalDeviceProductICD["`**Device**(ACPMedicalDeviceProductICD)`"]
+    MedicalPolicyGoal["`**Goal**(ACPMedicalPolicyGoal)`"]
+    OrganDonationChoiceRegistration["`**Observation**(ACPOrganDonationChoiceRegistration)`"]
+    OtherImportantInformation["`**Observation**(ACPOtherImportantInformation)`"]
+    Patient["`**Patient**(ACPPatient)`"]
+    PositionRegardingEuthanasia["`**Observation**(ACPPositionRegardingEuthanasia)`"]
+    PreferredPlaceOfDeath["`**Observation**(ACPPreferredPlaceOfDeath)`"]
+    SpecificCareWishes["`**Observation**(ACPSpecificCareWishes)`"]
+    TreatmentDirective["`**Consent**(ACPTreatmentDirective)`"]
 
     %% ---- Reference Definitions ----
     AdvanceDirective -- .patient --> Patient

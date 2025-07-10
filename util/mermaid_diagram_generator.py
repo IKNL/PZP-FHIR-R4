@@ -140,7 +140,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
                 node_id = clean_name.replace('-', '_')
                 profile_to_node_id[name] = node_id
                 
-                node_label = f'"`**{resource_type}**<br>({name})`"'
+                node_label = f'"`**{resource_type}**({name})`"'
                 f.write(f'    {node_id}[{node_label}]\n')
 
             f.write("\n    %% ---- Reference Definitions ----\n")
