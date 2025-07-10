@@ -1,6 +1,6 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
 Id: ACP-PreferredPlaceOfDeath
-Title: "ACP Desired Place Of Death"
+Title: "Desired Place Of Death"
 Description: "Valueset for preferred place of death"
 * insert MetaRules
 * $v3-NullFlavor#OTH "Anders"
@@ -93,7 +93,7 @@ Description: "Valueset for preferred place of death"
 
 ValueSet: ACPEuthanasiaStatementVS
 Id: ACP-EuthanasiaStatement
-Title: "ACP Euthanasia Statement"
+Title: "Euthanasia Statement"
 Description: "What is the patient's position regarding euthanasia and does the patient have a euthanasia statement?"
 * insert MetaRules
 * $v3-NullFlavor#UNK "Nog onbekend"
@@ -114,17 +114,17 @@ Description: "A set of codes representing the primary agreed-upon goal of a pati
 * $snomed#713148004 "Voorkomen en behandelen van symptomen (verrichting)"
 * $v3-NullFlavor#UNK "Nog onbekend"
 
-ValueSet: ACPProductTypeICDVS
-Id: ACP-ProductType-ICD
-Title: "ProductType ICD"
-Description: "ProductType ICD"
+ValueSet: ACPMedicalDeviceProductTypeICDVS
+Id: ACP-MedicalDeviceProductType-ICD
+Title: "MedicalDevice ProductType ICD"
+Description: "MedicalDevice ProductType ICD"
 * insert MetaRules
 * include codes from system urn:oid:2.16.840.1.1138836.96 where concept descendent-of #72506001
 
 ValueSet: ACPTreatmentDirectiveICDVS
 Id: ACP-TreatmentDirective-ICD
-Title: "TreatmentDirective treatment of ICD"
-Description: "TreatmentDirective treatment of ICD"
+Title: "TreatmentDirective ICD"
+Description: "TreatmentDirective ICD"
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
 * $snomed#400231000146108 "uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting)"

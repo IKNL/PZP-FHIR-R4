@@ -127,7 +127,7 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
             f.write("\n\n")
 
             f.write("## Mappings by Functional ID\n\n")
-            f.write("| Functional ID | Resource | FHIR element | Functional name |\n")
+            f.write("| Functional ID | Functional name | Resource | FHIR element |\n")
             f.write("|---|---|---|---|\n")
 
             def sort_key(item):
@@ -138,7 +138,7 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
 
             for mapping in sorted(all_mappings, key=sort_key):
                 resource_display = f"{mapping[0]} ({mapping[1]})"
-                f.write(f"| {mapping[3]} | {resource_display} | `{mapping[2]}` | {mapping[4]} |\n")
+                f.write(f"| {mapping[3]} | {mapping[4]} | {resource_display} | `{mapping[2]}`  |\n")
         else:
             f.write("No mappings were found.\n")
 

@@ -1,5 +1,3 @@
-# Functioneel Ontwerp: Informatiestandaard Proactieve Zorgplanning v0.1.3 (Beta)
- 
 ### Inleiding
 #### Algemeen
 In dit document wordt het functioneel ontwerp voor de informatiestandaard Proactieve Zorgplanning (PZP) beschreven. Voor de bijbehorende technische producten, zoals scenario’s en templates, zijn verwijzingen opgenomen naar de bijbehorende documentatie. 

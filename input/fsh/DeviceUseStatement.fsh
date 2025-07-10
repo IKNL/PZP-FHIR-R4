@@ -1,7 +1,7 @@
 Profile: ACPMedicalDevice
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice
 Id: ACP-MedicalDevice
-Title: "ACP MedicalDevice"
+Title: "MedicalDevice"
 Description: "Medical devices are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease."
 * insert MetaRules
 * subject only Reference(ACPPatient)
@@ -23,7 +23,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-MedicalDevice-ICD
 InstanceOf: ACPMedicalDevice
-Title: "MedicalDevice ICD"
+Title: "F1 ACP MedicalDevice ICD"
 Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * device = Reference(F1-ACP-MedicalDevice.Product-ICD)

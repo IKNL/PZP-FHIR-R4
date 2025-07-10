@@ -1,10 +1,10 @@
 Profile: ACPMedicalDeviceProductICD
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product
 Id: ACP-MedicalDevice.Product-ICD
-Title: "ACP MedicalDevice Product ICD"
-Description: " TODO"
+Title: "Medical Device Product ICD"
+Description: "ICD MedicalDevice Product."
 * insert MetaRules
-* type from ACPProductTypeICDVS (required)
+* type from ACPMedicalDeviceProductTypeICDVS (required)
 
 
 Mapping: MapACPMedicalDeviceProductICD
@@ -23,6 +23,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-MedicalDevice.Product-ICD
 InstanceOf: ACPMedicalDeviceProductICD
-Title: "MedicalDevice.Product ICD"
+Title: "F1 ACP MedicalDevice.Product ICD"
 Usage: #example
 * type = $snomed#72506001 "Implantable defibrillator, device (physical object)"

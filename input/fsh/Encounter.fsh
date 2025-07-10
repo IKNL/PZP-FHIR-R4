@@ -1,7 +1,7 @@
 Profile: ACPEncounter
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter
 Id: ACP-Encounter
-Title: "ACP Encounter"
+Title: "Encounter"
 Description: "A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions."
 * insert MetaRules
 * subject only Reference(ACPPatient)
@@ -19,7 +19,7 @@ Description: "A contact is any interaction, regardless of the situation, between
 
 Mapping: MapACPEncounter
 Id: pall-izppz-v2025-03-11
-Title: "ACP Gesprek & Gesprek gevoerd in bijzijn van"
+Title: "Gesprek & Gesprek gevoerd in bijzijn van"
 Source: ACPEncounter
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * subject -> "514" "Gesprek gevoerd in bijzijn van (Patient)" // TODO in R5 patient is added to .participant.individual. For now, if present at .subject, we assume the patient was present. Also clear from the definition of the subject element: "The patient or group present at the encounter" 
@@ -28,7 +28,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-Encounter-01-10-2020
 InstanceOf: ACPEncounter
-Title: "ACP gesprek 01-10-2020"
+Title: "F1 ACP Encounter 01-10-2020"
 Usage: #example
 * status = #finished
 * class = $v3-ActCode#IMP "Inpatient"

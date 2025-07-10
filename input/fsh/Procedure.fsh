@@ -1,7 +1,7 @@
 Profile: ACPFreedomRestrictingIntervention
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-FreedomRestrictingIntervention
 Id: ACP-FreedomRestrictingIntervention
-Title: "ACP FreedomRestrictingIntervention"
+Title: "FreedomRestrictingIntervention"
 Description: """Freedom restricting interventions are interventions that are used against the will of the person concerned and that consciously restrict the person's freedom to protect the person or his environment. This definition includes many forms of freedom restriction, such as (not exhaustive)."""
 * extension[legallyCapable] 1..1
 * subject only Reference(ACP-Patient)
@@ -35,7 +35,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-FreedomRestrictingIntervention-Wilsbekwaam
 InstanceOf: ACPFreedomRestrictingIntervention
-Title: "Dr. van Huissen"
+Title: "F1 ACP FreedomRestrictingIntervention Wilsbekwaam"
 Usage: #example
 * extension[0].extension[0].url = "legallyCapable"
 * extension[=].extension[=].valueBoolean = true

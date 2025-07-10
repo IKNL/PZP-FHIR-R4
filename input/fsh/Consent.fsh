@@ -1,7 +1,7 @@
 Profile: ACPAdvanceDirective
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective
 Id: ACP-AdvanceDirective
-Title: "ACP AdvanceDirective"
+Title: "AdvanceDirective"
 Description: "A living will is a verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider."
 * insert MetaRules
 * provision.code ^comment = " The following codes are in scope of this profile:
@@ -39,7 +39,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 Profile: ACPTreatmentDirective
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2
 Id: ACP-TreatmentDirective
-Title: "ACP TreatmentDirective"
+Title: "TreatmentDirective"
 Description: "A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary."
 * insert MetaRules
 * patient only Reference(ACPPatient)
@@ -66,7 +66,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 Profile: ACPTreatmentDirectiveICD
 Parent: ACPTreatmentDirective
 Id: ACP-TreatmentDirective-ICD
-Title: "ACP TreatmentDirective ICD"
+Title: "TreatmentDirective ICD"
 Description: "A treatment directive regarding a ICD."
 * insert MetaRules
 * patient only Reference(ACPPatient)
@@ -96,12 +96,13 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 305351004"
+Title: "F1 ACP TreatmentDirective 305351004"
 Usage: #example
 // TODO: add an identifier too? For showing good practice.
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -111,11 +112,12 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-89666000
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 89666000"
+Title: "F1 ACP TreatmentDirective 89666000"
 Usage: #example
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -125,11 +127,12 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-40617009
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 40617009"
+Title: "F1 ACP TreatmentDirective 40617009"
 Usage: #example
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -139,11 +142,12 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-116762002
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 116762002"
+Title: "F1 ACP TreatmentDirective 116762002"
 Usage: #example
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -153,11 +157,12 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-281789004
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 281789004"
+Title: "F1 ACP TreatmentDirective 281789004"
 Usage: #example
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -167,11 +172,12 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-32485007
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective 32485007"
+Title: "F1 ACP TreatmentDirective 32485007"
 Usage: #example
 * status = #active
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
@@ -181,12 +187,13 @@ Usage: #example
 
 Instance: F1-ACP-TreatmentDirective-400231000146108
 InstanceOf: ACPTreatmentDirective
-Title: "TreatmentDirective ICD"
+Title: "F1 ACP TreatmentDirective ICD"
 Usage: #example
 * modifierExtension[specificationOther].valueString = "Niet besproken" // TODO check if this is ok...
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #active
 * dateTime = 2020-10-01
+* policy.uri = "https://wetten.overheid.nl/"
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"

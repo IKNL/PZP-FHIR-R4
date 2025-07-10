@@ -1,7 +1,7 @@
 Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
-Title: "ACP Patient"
+Title: "Patient"
 Description: "A person who receives medical, psychological, paramedical or nursing care."
 * insert MetaRules
 * name 1..* // In scenario Naamgegevens is 1..1, but because the zib nameinformation does not mapp 1..1 to FHIR we will set this to 1..* instead of 1..1
@@ -39,7 +39,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-Patient-HendrikHartman
 InstanceOf: ACPPatient
-Title: "Patient Hendrik Hartman"
+Title: "F1 ACP Patient Hendrik Hartman"
 Usage: #example
 * name[nameInformation].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
 * name[nameInformation].extension.valueCode = #NL1
@@ -58,7 +58,7 @@ Usage: #example
 * contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-HendrikHartman)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
-* contact.relationship[+] = $v3-RoleCode#BRO "Broer"
+* contact.relationship[+] = $v3-RoleCode#BRO "brother"
 * contact.name.extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
 * contact.name.extension.valueCode = #NL1
 * contact.name.use = #official
@@ -66,7 +66,6 @@ Usage: #example
 * contact.name.family = "Hartman"
 * contact.name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
 * contact.name.family.extension[=].valueString = "Hartman"
-* contact.name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix"
 * contact.name.given[0] = "Michiel"
 * contact.name.given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
 * contact.name.given[=].extension.valueCode = #BR

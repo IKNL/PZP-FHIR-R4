@@ -21,7 +21,7 @@ The following naming conventions apply to the FHIR ACP profiles defined in this 
 
 **1. Logical ID**
 
-The **logical id** of the profile shall be in the form **[ResourceType]-ACP-[BusinessName]** e.g.
+The **logical id** of the profile shall be in the form **ACP-[BusinessName]** e.g.
 * StructureDefinition-ACP-AgreedMedicalPolicty
 * StructureDefinition-ACP-Patient
 

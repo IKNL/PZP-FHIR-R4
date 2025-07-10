@@ -77,13 +77,10 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  PZP Background: 
-    Background: background.html
-    Functioneel Ontwerp: functioneel-ontwerp.html
-    Naming Conventions: naming-conventions.html
-  PZP Specification:
+  PZP Functioneel Ontwerp: functioneel-ontwerp.html
+  PZP FHIR Specification:
     Data Model Overview: fhir-data-model.html
-    Transaction Groups: transactions-groups.html
+    Interactions: interactions.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

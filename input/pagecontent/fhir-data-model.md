@@ -1,5 +1,3 @@
-## Data Model Overview
-
 To provide guidance on how to map ACP data concepts to HL7 FHIR, several ACP profiles have been created. These profiles have a traceable relationship with their ART-DECOR dataset counterpart(s) based on the element mapping mechanism in FHIR. The version of the ART-DECOR dataset used for the mapping is registered in the `StructureDefinition.mapping.identity` element. To relate a FHIR profile element to a concept from the ART-DECOR dataset, the item ID is defined in the `ElementDefinition.mapping`. 
 
 The diagram below shows the FHIR data model. It provides an overview which FHIR profiles are needed and how they’re connected for collecting and processing ACP data. Since the data model is fairly complex with many links between profiles, the data model is divided into three categories: **ACP Consultation**, **ACP Agreements**, and **Supporting Information**.

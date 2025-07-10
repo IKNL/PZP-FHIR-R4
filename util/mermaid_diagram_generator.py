@@ -105,7 +105,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
                 node_id = clean_name.replace('-', '_')
                 
                 # The label uses Markdown for formatting within the node
-                node_label = f'"`**{resource_type}**<br>({name})`"'
+                node_label = f'"`**{resource_type}**({name})`"'
                 f.write(f'    {node_id}[{node_label}]\n')
 
             # Define all the links (references)

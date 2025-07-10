@@ -1,7 +1,7 @@
 Profile: ACPHealthProfessionalPractitioner
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner
 Id: ACP-HealthProfessional-Practitioner
-Title: "ACP Practitioner"
+Title: "HealthProfessional Practitioner"
 Description: "In the context of Advance Care Planning (ACP), a Practitioner refers to a healthcare professional who engages in discussions and makes agreements with the Patient and/or their Legal Representative. Depending on the specific stage or pathway of the ACP process, multiple Practitioners may be involved, each responsible for facilitating conversations and documenting decisions in accordance with their role."
 * insert MetaRules
 // TODO: check if uzi and agb are correct to label as mustSupport -- they are not mentioned in dataset
@@ -32,7 +32,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-HealthProfessional-Practitioner-DrVanHuissen
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "Dr. van Huissen"
+Title: "F1 ACP HealthProfessional Practitioner Dr. van Huissen"
 Usage: #example
 * name.use = #official
 * name.text = "van Huissen"

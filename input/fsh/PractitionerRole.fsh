@@ -1,7 +1,7 @@
 Profile: ACPHealthProfessionalPractitionerRole
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole
 Id: ACP-HealthProfessional-PractitionerRole
-Title: "ACP HealthProfessional PractitionerRole"
+Title: "HealthProfessional PractitionerRole"
 Description: "A health professional is a person who is authorized to perform actions in the field of individual healthcare."
 * insert MetaRules
 * practitioner only Reference(ACPHealthProfessionalPractitioner)
@@ -21,7 +21,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen
 InstanceOf: ACPHealthProfessionalPractitionerRole
-Title: "Dr. van Huissen"
+Title: "F1 ACP HealthProfessional PractitionerRole Dr. van Huissen"
 Usage: #example
 * practitioner = Reference(F1-ACP-HealthProfessional-Practitioner-DrVanHuissen) "Healthcare professional (person), van Huissen"
 * practitioner.type = "Practitioner"

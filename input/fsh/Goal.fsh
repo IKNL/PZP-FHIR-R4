@@ -1,7 +1,7 @@
 Profile: ACPMedicalPolicyGoal
 Parent: Goal
 Id: ACP-Medical-Policy-Goal
-Title: "ACP Medical Policy Goal"
+Title: "Medical Policy Goal"
 Description: "A profile on the FHIR Goal resource to represent the primary, agreed-upon goal of a patient's medical treatment policy."
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(Patient)
@@ -19,7 +19,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-Medical-Policy-Goal
 InstanceOf: ACPMedicalPolicyGoal
-Title: "Medical Policy Goal -Life-sustaining treatment (regime/therapy)"
+Title: "F1 ACP Medical Policy Goal - Life-sustaining treatment"
 Usage: #example
 * lifecycleStatus = #accepted
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"

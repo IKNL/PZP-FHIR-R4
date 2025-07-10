@@ -1,7 +1,7 @@
 Profile: ACPSpecificCareWishes
 Parent: Observation
 Id: ACP-SpecificCareWishes
-Title: "ACP Specific Care Wishes"
+Title: "Specific Care Wishes"
 Description: "What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)? The patient's wishes and expectations concerning their treatment, based on the [Measurement] building block"
 * insert MetaRules
 * encounter only Reference(Encounter)
@@ -23,7 +23,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-SpecificCareWishes
 InstanceOf: ACPSpecificCareWishes
-Title: "Specific Care Wishes"
+Title: "F1 ACP Specific Care Wishes"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
@@ -33,10 +33,11 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 * method = $snomed#370819000
 
+
 Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
-Title: "ACP Preferred Place Of Death"
+Title: "Preferred Place Of Death"
 Description: "The preferred place of death as recorded in the ACP form. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, or another location."
 * insert MetaRules
 * encounter only Reference(Encounter)
@@ -58,13 +59,13 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-PreferredPlaceOfDeath-Unknown
 InstanceOf: ACPPreferredPlaceOfDeath
-Title: "Preferred Place Of Death"
+Title: "F1 ACP Preferred Place Of Death Unknown"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final
 * code =  $snomed#395091006
-* valueCodeableConcept = $v3-NullFlavor#UNK
+// * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown // TODO  This seems like a good fit for "Nog Onbekend". Add mapping to element? Could leave out valueCodeableConcept and use dataAbsentReason only.
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
@@ -72,7 +73,7 @@ Usage: #example
 Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
-Title: "ACP Position Regarding Euthanasia"
+Title: "Position Regarding Euthanasia"
 Description: "Position Regarding Euthanasia"
 * insert MetaRules
 * encounter only Reference(Encounter)
@@ -97,7 +98,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-PositionRegardingEuthanasia-Unknown
 InstanceOf: ACPPositionRegardingEuthanasia
-Title: "Position Regarding Euthanasia"
+Title: "F1 ACP Position Regarding Euthanasia Unknown"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
@@ -110,7 +111,7 @@ Usage: #example
 Profile: ACPDonorRegistration
 Parent: Observation
 Id: ACP-DonorRegistration
-Title: "ACP Donor Registration"
+Title: "Donor Registration"
 Description: "Donor Registration"
 * insert MetaRules
 * encounter only Reference(Encounter)
@@ -132,7 +133,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-DonorRegistration-Yes
 InstanceOf: ACPDonorRegistration
-Title: "Donor Registration"
+Title: "F1 ACP Donor Registration Yes"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
@@ -145,7 +146,7 @@ Usage: #example
 Profile: ACPOtherImportantInformation
 Parent: Observation
 Id: ACP-OtherImportantInformation
-Title: "ACP Other Important Information"
+Title: "Other Important Information"
 Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
 * insert MetaRules
 * encounter only Reference(Encounter)
@@ -168,13 +169,13 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-OtherImportantInformation
 InstanceOf: ACPOtherImportantInformation
-Title: "Other Important Information"
+Title: "F1 ACP Other Important Information"
 Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final
 * code =  $snomed#247751003
-* valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek "
+* valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"
 
 
