@@ -14,12 +14,11 @@ Description: "A contact is a person not being a healthcare professional who is i
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-v2025-03-11
-Title: "ContactPerson"
+Title: "PZP dataset"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)" // TODO  how to know/decide if someone is a wettelijk vertegenwoordiger or not? If the relationship code is 24, then it is a wettelijk vertegenwoordiger? -- discuss with Lonneke, add some guidance in the dataset?
 * name -> "442" "Naamgegevens"
-// TODO: add mappings inside the data type profiles
 * telecom -> "454" "Contactgegevens"
 * address -> "463" "Adresgegevens"
 * relationship[role] -> "475" "Rol"
@@ -41,6 +40,9 @@ Instance: F1-ACP-ContactPerson-HendrikHartman
 InstanceOf: ACPContactPerson
 Title: "F1 ACP ContactPerson Hendrik Hartman"
 Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "ebe579d0-fda9-4440-ac6c-6afb0b338006"
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"

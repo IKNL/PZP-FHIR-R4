@@ -138,7 +138,7 @@ def main():
     )
     parser.add_argument(
         '--output-file',
-        default='input/pagecontent/fhir-data-model-mermaid-diagram.md',
+        default='input/includes/fhir-data-model-mermaid-diagram.md',
         help="The path for the output Mermaid diagram Markdown file.\n(default: 'input/pagecontent/profile-diagram.md')"
     )
     args = parser.parse_args()

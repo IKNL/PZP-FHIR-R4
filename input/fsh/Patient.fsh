@@ -11,7 +11,7 @@ Description: "A person who receives medical, psychological, paramedical or nursi
 
 Mapping: MapACPPatient
 Id: pall-izppz-v2025-03-11
-Title: "Patient"
+Title: "PZP dataset"
 Source: ACPPatient
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "351" "Patient"
@@ -31,6 +31,8 @@ Instance: F1-ACP-Patient-HendrikHartman
 InstanceOf: ACPPatient
 Title: "F1 ACP Patient Hendrik Hartman"
 Usage: #example
+* identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
+* identifier.value = "999911120"
 * name[nameInformation].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
 * name[nameInformation].extension.valueCode = #NL1
 * name[nameInformation].use = #official

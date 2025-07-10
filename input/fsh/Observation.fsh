@@ -2,7 +2,7 @@ Profile: ACPSpecificCareWishes
 Parent: Observation
 Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
-Description: "What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)? The patient's wishes and expectations concerning their treatment, based on the [Measurement] building block"
+Description: "What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)? The patient's wishes and expectations concerning their treatment."
 * insert MetaRules
 * encounter only Reference(Encounter)
 * subject only Reference(Patient)
@@ -12,7 +12,7 @@ Description: "What, according to the patient, should healthcare providers know t
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-v2025-03-11
-Title: "Specifieke wensen ([Meting])"
+Title: "PZP dataset"
 Source: ACPSpecificCareWishes
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "654" "Specifieke wensen ([Meting])"
@@ -38,7 +38,7 @@ Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
 Title: "Preferred Place Of Death"
-Description: "The preferred place of death as recorded in the ACP form. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, or another location."
+Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, or another location."
 * insert MetaRules
 * encounter only Reference(Encounter)
 * subject only Reference(Patient)
@@ -48,7 +48,7 @@ Description: "The preferred place of death as recorded in the ACP form. This is 
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-v2025-03-11
-Title: "Gewenste plek van overlijden ([Meting])"
+Title: "PZP dataset"
 Source: ACPPreferredPlaceOfDeath
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "666" "Gewenste plek van overlijden ([Meting]))"
@@ -61,6 +61,9 @@ Instance: F1-ACP-PreferredPlaceOfDeath-Unknown
 InstanceOf: ACPPreferredPlaceOfDeath
 Title: "F1 ACP Preferred Place Of Death Unknown"
 Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "023ba125-94c3-492c-8379-958ac9fbb9d6"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final
@@ -80,14 +83,13 @@ Description: "Position Regarding Euthanasia"
 * subject only Reference(Patient)
 * code = $snomed#340171000146104 // TODO -- check if there is a international code for this?
 * value[x] only CodeableConcept
-* value[x] ^definition = "Response to the question “Position regarding euthanesia” as recorded in the ACP form."
+* value[x] ^definition = "Position regarding euthanesia."
 * value[x] from ACPEuthanasiaStatementVS (extensible) // TODO - there is no binding strenght in dataset.
-* note.text ^short = "Comment, Toelichting"
-* note.text ^definition = "Comment accompanying the response to the question “Position regarding euthanesia” as recorded in the ACP form."
+* note.text ^definition = "Comment accompanying position regarding euthanesia."
 
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-v2025-03-11
-Title: "Euthanasie standpunt ([Meting])"
+Title: "PZP dataset"
 Source: ACPPositionRegardingEuthanasia
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "678" "Euthanasie standpunt ([Meting])"
@@ -100,6 +102,9 @@ Instance: F1-ACP-PositionRegardingEuthanasia-Unknown
 InstanceOf: ACPPositionRegardingEuthanasia
 Title: "F1 ACP Position Regarding Euthanasia Unknown"
 Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "f2314b60-1b52-4f29-b231-8b74869fc34b"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final
@@ -108,33 +113,36 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 
-Profile: ACPDonorRegistration
+Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
-Id: ACP-DonorRegistration
-Title: "Donor Registration"
-Description: "Donor Registration"
+Id: ACP-OrganDonationChoiceRegistration
+Title: "Donor donation choice registration in donor register"
+Description: "Donor donation choice registration in donor register."
 * insert MetaRules
 * encounter only Reference(Encounter)
 * subject only Reference(Patient)
 * code = $snomed#TODO // TODO -- no code in dataset?
 * value[x] only CodeableConcept
-* value[x] ^definition = "Response to the question “Donor Registration” as recorded in the ACP form."
+* value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required) // TODO - there is no binding strenght in dataset.
 
-Mapping: MapACPDonorRegistration
+Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-v2025-03-11
-Title: "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
-Source: ACPDonorRegistration
+Title: "PZP dataset"
+Source: ACPOrganDonationChoiceRegistration
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "746" "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
 * code -> "747" "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
 * valueCodeableConcept -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
 * effective[x] -> "752" "[MeetDatumBeginTijd]"
 
-Instance: F1-ACP-DonorRegistration-Yes
-InstanceOf: ACPDonorRegistration
+Instance: F1-ACP-OrganDonationChoiceRegistration-Yes
+InstanceOf: ACPOrganDonationChoiceRegistration
 Title: "F1 ACP Donor Registration Yes"
 Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "31952dca-757c-4e4e-b7f6-fab66a79deba"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final
@@ -158,7 +166,7 @@ Description: "Other relevant and important information related to the Patient’
 
 Mapping: MapACPOtherImportantInformation
 Id: pall-izppz-v2025-03-11
-Title: "Wat verder nog belangrijk is ([Meting])"
+Title: "PZP dataset"
 Source: ACPOtherImportantInformation
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "709" "Wat verder nog belangrijk is ([Meting])"
@@ -171,6 +179,9 @@ Instance: F1-ACP-OtherImportantInformation
 InstanceOf: ACPOtherImportantInformation
 Title: "F1 ACP Other Important Information"
 Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "eef80c58-5721-45fa-8f05-210f9e1f0b63"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #final

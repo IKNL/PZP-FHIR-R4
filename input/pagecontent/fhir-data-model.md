@@ -37,4 +37,6 @@ It is important to note that the Questionnaire instances provide limited capabil
 ### Mapping ArtDecor dataset to FHIR
 
 
-<a href="mappings.html">Mappings</a>
+{% include mappings.md %}
+
+

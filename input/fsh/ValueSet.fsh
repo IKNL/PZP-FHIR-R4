@@ -112,7 +112,6 @@ Description: "A set of codes representing the primary agreed-upon goal of a pati
 * $snomed#385987000 "Curatief / actief ziektebeleid"
 * $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
 * $snomed#713148004 "Voorkomen en behandelen van symptomen (verrichting)"
-* $v3-NullFlavor#UNK "Nog onbekend"
 
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
@@ -120,21 +119,6 @@ Title: "MedicalDevice ProductType ICD"
 Description: "MedicalDevice ProductType ICD"
 * insert MetaRules
 * include codes from system urn:oid:2.16.840.1.1138836.96 where concept descendent-of #72506001
-
-ValueSet: ACPTreatmentDirectiveICDVS
-Id: ACP-TreatmentDirective-ICD
-Title: "TreatmentDirective ICD"
-Description: "TreatmentDirective ICD"
-* insert MetaRules
-* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
-* $snomed#400231000146108 "uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting)"
-* $snomed#400231000146108 ^designation[0].language = #nl-NL
-* $snomed#400231000146108 ^designation[=].use = $snomed#900000000000013009 "Synonym"
-* $snomed#400231000146108 ^designation[=].value = "uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting)"
-* $snomed#400231000146108 ^designation[+].language = #nl-NL
-* $snomed#400231000146108 ^designation[=].use = $snomed#900000000000013009 "Synonym"
-* $snomed#400231000146108 ^designation[=].value = "uitzetten van cardioverter-defibrillator in laatste levensfase"
-
 
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
