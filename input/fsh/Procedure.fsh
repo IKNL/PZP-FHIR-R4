@@ -37,7 +37,6 @@ Instance: F1-ACP-FreedomRestrictingIntervention-Wilsbekwaam
 InstanceOf: ACPFreedomRestrictingIntervention
 Title: "F1 ACP FreedomRestrictingIntervention Wilsbekwaam"
 Usage: #example
-
 * extension[0].extension[0].url = "legallyCapable"
 * extension[=].extension[=].valueBoolean = true
 * extension[=].url = "http://nictiz.nl/fhir/StructureDefinition/ext-FreedomRestrictingIntervention.LegallyCapable"
