@@ -10,11 +10,13 @@ A patient's ACP preferences can be captured using a structured form, such as the
 
 
 #### FHIR Data Model
-The diagram below shows the FHIR data model, organized into three categories for clarity: ACP Consultation, ACP Agreements, and Supporting Information.
+The following diagram illustrates the FHIR data model for this implementation guide. To enhance clarity, the resources are grouped into four distinct categories: Agreements, Individuals, Supporting Information, and Consultation. Each category represents a logical component of the Advance Care Planning (ACP) process.
 
-* ACP Consultation: Captures the event where ACP is discussed, whether through a conversation or by completing the questionnaire.
-* ACP Agreements: Documents the patient's specific wishes. When gathered from a conversation, resources like Observation are used. When gathered from the form, the data is stored in a QuestionnaireResponse resource.
-* Supporting Information: Contains contextual information about the individuals involved
+* Agreements. This category encompasses the documented outcomes of the ACP process, including the patient's goals, preferences, and formal consent or advance directives.
+* Individuals. Includes all persons and professional roles involved in the care process, such as the patient, healthcare practitioners, and the patient's designated contacts or legal representatives.
+* Supporting Information. Provides additional clinical context relevant to the patient's agreements, such as related medical procedures or the use of specific medical devices.
+* Consultation. Represents the core event where the advance care plan is discussed, whether through a direct conversation or the completion of a questionnaire.
+
 
 {% include fhir-data-model-mermaid-diagram.md %}
 

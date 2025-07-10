@@ -1,46 +1,106 @@
 ```mermaid
 flowchart TB
 
-    %% ---- Profile Definitions ----
-    AdvanceDirective["`**Consent**(ACPAdvanceDirective)`"]
-    ContactPerson["`**RelatedPerson**(ACPContactPerson)`"]
-    Encounter["`**Encounter**(ACPEncounter)`"]
-    FreedomRestrictingIntervention["`**Procedure**(ACPFreedomRestrictingIntervention)`"]
-    HealthProfessionalPractitioner["`**Practitioner**(ACPHealthProfessionalPractitioner)`"]
-    HealthProfessionalPractitionerRole["`**PractitionerRole**(ACPHealthProfessionalPractitionerRole)`"]
-    MedicalDevice["`**DeviceUseStatement**(ACPMedicalDevice)`"]
-    MedicalDeviceProductICD["`**Device**(ACPMedicalDeviceProductICD)`"]
-    MedicalPolicyGoal["`**Goal**(ACPMedicalPolicyGoal)`"]
-    OrganDonationChoiceRegistration["`**Observation**(ACPOrganDonationChoiceRegistration)`"]
-    OtherImportantInformation["`**Observation**(ACPOtherImportantInformation)`"]
-    Patient["`**Patient**(ACPPatient)`"]
-    PositionRegardingEuthanasia["`**Observation**(ACPPositionRegardingEuthanasia)`"]
-    PreferredPlaceOfDeath["`**Observation**(ACPPreferredPlaceOfDeath)`"]
-    SpecificCareWishes["`**Observation**(ACPSpecificCareWishes)`"]
-    TreatmentDirective["`**Consent**(ACPTreatmentDirective)`"]
+    %% ---- Style Definitions for Categories ----
+    classDef C0 fill:#e6f3ff,stroke:#b3d9ff,color:#000
+    classDef C1 fill:#e6ffe6,stroke:#b3ffb3,color:#000
+    classDef C2 fill:#fff5e6,stroke:#ffddb3,color:#000
+    classDef C3 fill:#f0e6ff,stroke:#d9b3ff,color:#000
+    classDef C4 fill:#f2f2f2,stroke:#cccccc,color:#000
 
-    %% ---- Reference Definitions ----
-    AdvanceDirective -- .patient --> Patient
-    ContactPerson -- .patient --> Patient
-    Encounter -- .participant --> ContactPerson
-    Encounter -- .participant --> HealthProfessionalPractitionerRole
-    Encounter -- .subject --> Patient
-    FreedomRestrictingIntervention -- .subject --> Patient
-    HealthProfessionalPractitionerRole -- .practitioner --> HealthProfessionalPractitioner
-    MedicalDevice -- .device --> MedicalDeviceProductICD
-    MedicalDevice -- .subject --> Patient
-    MedicalPolicyGoal -- .subject --> Patient
-    OrganDonationChoiceRegistration -- .encounter --> Encounter
-    OrganDonationChoiceRegistration -- .subject --> Patient
-    OtherImportantInformation -- .encounter --> Encounter
-    OtherImportantInformation -- .subject --> Patient
-    PositionRegardingEuthanasia -- .encounter --> Encounter
-    PositionRegardingEuthanasia -- .subject --> Patient
-    PreferredPlaceOfDeath -- .encounter --> Encounter
-    PreferredPlaceOfDeath -- .subject --> Patient
-    SpecificCareWishes -- .encounter --> Encounter
-    SpecificCareWishes -- .subject --> Patient
-    TreatmentDirective -- .patient --> Patient
-    TreatmentDirective -- .provision.actor --> HealthProfessionalPractitionerRole
-    TreatmentDirective -- .provision.actor --> Patient
+    %% ---- Subgraph Definitions ----
+    subgraph "Consent"
+        direction TB
+        ACPAdvanceDirective
+        ACPTreatmentDirective
+    end
+
+    subgraph "Device"
+        direction TB
+        ACPMedicalDeviceProductICD
+    end
+
+    subgraph "DeviceUseStatement"
+        direction TB
+        ACPMedicalDevice
+    end
+
+    subgraph "Encounter"
+        direction TB
+        ACPEncounter
+    end
+
+    subgraph "Goal"
+        direction TB
+        ACPMedicalPolicyGoal
+    end
+
+    subgraph "Observation"
+        direction TB
+        ACPOrganDonationChoiceRegistration
+        ACPOtherImportantInformation
+        ACPPositionRegardingEuthanasia
+        ACPPreferredPlaceOfDeath
+        ACPSpecificCareWishes
+    end
+
+    subgraph "Patient"
+        direction TB
+        ACPPatient
+    end
+
+    subgraph "Practitioner"
+        direction TB
+        ACPHealthProfessionalPractitioner
+    end
+
+    subgraph "PractitionerRole"
+        direction TB
+        ACPHealthProfessionalPractitionerRole
+    end
+
+    subgraph "Procedure"
+        direction TB
+        ACPFreedomRestrictingIntervention
+    end
+
+    subgraph "RelatedPerson"
+        direction TB
+        ACPContactPerson
+    end
+
+    %% ---- Style Assignments ----
+    class ACPAdvanceDirective C0
+    class ACPTreatmentDirective C0
+    class ACPMedicalDeviceProductICD C2
+    class ACPMedicalDevice C2
+    class ACPEncounter C3
+    class ACPMedicalPolicyGoal C0
+    class ACPSpecificCareWishes C0
+    class ACPPreferredPlaceOfDeath C0
+    class ACPPositionRegardingEuthanasia C0
+    class ACPOrganDonationChoiceRegistration C0
+    class ACPOtherImportantInformation C0
+    class ACPPatient C1
+    class ACPHealthProfessionalPractitioner C1
+    class ACPHealthProfessionalPractitionerRole C1
+    class ACPFreedomRestrictingIntervention C2
+    class ACPContactPerson C1
+
+    %% ---- Resource Type References ----
+    Consent -- "patient, provision.actor" --> Patient
+    Consent -- "provision.actor" --> PractitionerRole
+    DeviceUseStatement -- "device" --> Device
+    DeviceUseStatement -- "subject" --> Patient
+    Encounter -- "subject" --> Patient
+    Encounter -- "participant" --> PractitionerRole
+    Encounter -- "participant" --> RelatedPerson
+    Goal -- "subject" --> Patient
+    Observation -- "encounter" --> Encounter
+    Observation -- "subject" --> Patient
+    Observation -- "performer" --> PractitionerRole
+    Patient -- "contact.extension" --> RelatedPerson
+    PractitionerRole -- "practitioner" --> Practitioner
+    Procedure -- "subject" --> Patient
+    RelatedPerson -- "patient" --> Patient
 ```
