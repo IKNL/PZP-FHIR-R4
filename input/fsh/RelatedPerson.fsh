@@ -7,18 +7,19 @@ Description: "A contact is a person not being a healthcare professional who is i
 * insert MetaRules
 * patient only Reference(ACPPatient)
 * relationship 1..*
-* relationship[role] 1..1
+* relationship[role] 1..*
 // TODO: relationship[relationship] contains distinct codes for curator/mentor and brother/sister while the form allows only the option to select them both. From the form is not possible then to map this to FHIR as you would not know which code to use. 
-* relationship[relationship] ^comment = "When someone is or **will be** a legal representative (as indicated on the form), then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
+// 20250710 - Use the zib values / dataset in the profiles and we should document the incompatability in the IG.
+* relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-v2025-03-11
 Title: "ContactPerson"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
-* -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)" // TODO how to know/decide if someone is a wettelijk vertegenwoordiger or not? If the relationship code is 24, then it is a wettelijk vertegenwoordiger?
+* -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)" // TODO  how to know/decide if someone is a wettelijk vertegenwoordiger or not? If the relationship code is 24, then it is a wettelijk vertegenwoordiger? -- discuss with Lonneke, add some guidance in the dataset?
 * name -> "442" "Naamgegevens"
-// TODO: decide if we want to go into providing mappings inside these data type profiles. 
+// TODO: add mappings inside the data type profiles
 * telecom -> "454" "Contactgegevens"
 * address -> "463" "Adresgegevens"
 * relationship[role] -> "475" "Rol"
@@ -27,13 +28,13 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * name -> "479" "Naamgegevens"
 * telecom -> "454" "Contactgegevens"
-* address -> "500" "Adresgegevens" // TODO why is Adresgegevens 0..1 in scenario/dataset here? While for Wettelijke vertegenwoordiger is 0..*?
+* address -> "500" "Adresgegevens" // TODO why is Adresgegevens 0..1 in scenario/dataset here? While for Wettelijke vertegenwoordiger is 0..*? Discuss with Lonneke. Likely needs to be set to 0..*
 * relationship[role] -> "512" "Rol"
 * relationship[relationship] -> "513" "Relatie"
 
 * -> "554" "Gesprek gevoerd in bijzijn van (Contactpersoon)" 
 * name -> "555" "Naamgegevens"
-* relationship[role] -> "588" "Rol" // TODO because this is 0..* in the scenario/dataset, do we need to have two profiles for ContactPerson?
+* relationship[role] -> "588" "Rol"
 * relationship[relationship] -> "589" "Relatie"
 
 Instance: F1-ACP-ContactPerson-HendrikHartman

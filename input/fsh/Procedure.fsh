@@ -5,7 +5,7 @@ Title: "FreedomRestrictingIntervention"
 Description: """Freedom restricting interventions are interventions that are used against the will of the person concerned and that consciously restrict the person's freedom to protect the person or his environment. This definition includes many forms of freedom restriction, such as (not exhaustive)."""
 * extension[legallyCapable] 1..1
 * subject only Reference(ACP-Patient)
-// * code 1..1 // TODO -- this is mandatory in zib/dataset but not appicable in in the form. 
+// * code 1..1 // TODO -- this is mandatory in zib/dataset but not appicable in in the form.  
 // Start is mandatory by de zib, but not applicable in the form ?
 /*
 * performed[x] ^slicing.discriminator.type = #type

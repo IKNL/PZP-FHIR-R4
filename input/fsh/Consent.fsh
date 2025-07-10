@@ -63,7 +63,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
 * provision.code -> "604" "Behandeling"
 
-Profile: ACPTreatmentDirectiveICD
+Profile: ACPTreatmentDirectiveICD //TODO profile samenvoegen met ACPTreatmentDirective
 Parent: ACPTreatmentDirective
 Id: ACP-TreatmentDirective-ICD
 Title: "TreatmentDirective ICD"
@@ -90,7 +90,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "647" "Patient"
 * provision.actor[agreementParty].reference -> "649" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "651" "Zorgverlener"
-* provision.code -> "639" "Behandeling van ICD (Behandeling)" //TODO check if this matches the binding strength of zib, which is required. 
+* provision.code.text -> "639" "Behandeling van ICD (Behandeling)" //TODO check if this matches the binding strength of zib, which is required. 
 
 
 
