@@ -15,6 +15,8 @@ Description: "A contact is any interaction, regardless of the situation, between
 // TODO Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient)
 * participant[contactPerson].individual only Reference(RelatedPerson) //TODO BUG can't set (ACPContactPerson) here
 // TODO - do we need a code to classify the encounter and using it for searching?
+// TODO - HK Moeten we ergens specificeren wat we verwachten in de data items met een kardinaliteit 1..1 of 1..* die niet de dataset ziten (status & class)
+
 
 Mapping: MapACPEncounter
 Id: pall-izppz-v2025-03-11
