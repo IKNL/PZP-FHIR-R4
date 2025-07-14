@@ -21,6 +21,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 // * name[nameInformation-GivenName].given -> "358" "Voornamen"
 // * name[nameInformation].family -> "357" "Geslachtsnaam"
 * telecom -> "376" "Contactgegevens"
+// TODO - HK contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* bespreken met lonneke 
 * gender -> "387" "Geslacht"
 * gender.extension[genderCodelist].value[x] -> "387" "Geslacht"
 * birthDate -> "386" "Geboortedatum"

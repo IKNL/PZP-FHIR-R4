@@ -5,7 +5,7 @@ Title: "Medical Policy Goal"
 Description: "A profile on the FHIR Goal resource to represent the primary, agreed-upon goal of a patient's medical treatment policy."
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(Patient)
-
+// Besluit: besproken met lonneke en mapping op goal ipv observation is akkoord en passend
 Mapping: MapACPMedicalPolicyGoal
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"

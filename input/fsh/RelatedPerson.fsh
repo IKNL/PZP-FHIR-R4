@@ -35,7 +35,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name -> "555" "Naamgegevens"
 * relationship[role] -> "588" "Rol"
 * relationship[relationship] -> "589" "Relatie"
-
+// TODO - HK Besloten: Bij gesprek gevoerd in bijzijn van is de kardinaliteit op relationship 0..* terwijl bij eerste contactpersoon en wettelijk vertegenwoordiger hier 1..* staat. Mogen we in het profiel de kardinaliteit 0..* aanhouden zodat we met 1 profiel voor contactpersonen uitkomen. Als dit niet kan hebben we twee keer hetzelfde profiel nodig met een andere kardinaliteit. We kunnen via conformance statements oid. wel aangeven dat deze gevuld moet zijn in het geval eerste contactpersoon en wettelijk vertegenwoordiger. 
 Instance: F1-ACP-ContactPerson-HendrikHartman
 InstanceOf: ACPContactPerson
 Title: "F1 ACP ContactPerson Hendrik Hartman"
