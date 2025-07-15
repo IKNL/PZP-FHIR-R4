@@ -17,6 +17,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "391" "Gesprek gevoerd door (Zorgverlener)"
 * specialty[specialty]  -> "405" "Specialisme"
 // TODO "430" "ZorgverlenerRol" is not yet implemented in the Nictiz FHIR profiles, because this is mapped in the resources that refer to the PractitionerRole. It is not mapped in PractitionerRole.code. Decide what to do.
+// TODO MM: zorgverlenersrol gaat eruit, is nu ook doorgevoerd in Art-Decor. Mapping dus niet nodig
 
 
 Instance: F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen

@@ -5,6 +5,7 @@ Title: "Patient"
 Description: "A person who receives medical, psychological, paramedical or nursing care."
 * insert MetaRules
 * name 1..* // In scenario Naamgegevens is 1..1, but because the zib nameinformation does not mapp 1..1 to FHIR we will set this to 1..* instead of 1..1
+// TODO MM check kardinaliteit met Lonneke
 * name[nameInformation] ^sliceName = "nameInformation"
 * name[nameInformation] 1..2
 * name[nameInformation].family 1.. // TODO discuss with Lonneke what the correct cardinality is
@@ -19,13 +20,19 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name -> "352" "Naamgegevens"
 // TODO add complete ArtDecor mapping 
 // * name[nameInformation-GivenName].given -> "358" "Voornamen"
+// * TODO MM opmerken dat mapping niet klopt; Voornamen = 353
 // * name[nameInformation].family -> "357" "Geslachtsnaam"
 * telecom -> "376" "Contactgegevens"
+<<<<<<< HEAD
 // TODO - HK contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* bespreken met lonneke 
+=======
+// TODO MM add and check complete ArtDecor mapping
+>>>>>>> develop
 * gender -> "387" "Geslacht"
-* gender.extension[genderCodelist].value[x] -> "387" "Geslacht"
+* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" // TODO MM check binding codelijst
 * birthDate -> "386" "Geboortedatum"
 * address -> "364" "Adresgegevens"
+// TODO MM add and check complete ArtDecor mapping
 * contact.extension[relatedPerson] -> "477" "Vertegenwoordiger is contactpersoon" // TODO check this mapping... should likely be in combination with the relationship coding urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24
 
 Instance: F1-ACP-Patient-HendrikHartman
