@@ -15,6 +15,8 @@ Description: """Freedom restricting interventions are interventions that are use
 * performedPeriod ^sliceName = "performedPeriod"
 * performedPeriod.start 1..1
 */
+// MM: 14/7 besloten dat we de wilsbekwaamheid niet op de zib mappen omdat dat niet past. Het wordt een boolean
+// MM: TODO Ardon: bedenken hoe we dit dan naar FHIR vertalen
 
 Mapping: MapACDFreedomRestrictingIntervention
 Id: pall-izppz-v2025-03-11
