@@ -1,4 +1,4 @@
-## Mappings by dataset ID
+##### Mappings by dataset ID
 
 | Dataset ID | Dataset name | Resource | FHIR element |
 |---|---|---|---|
@@ -242,7 +242,7 @@
 | 763 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision].extension[legallyCapableComment].valueString`  |
 
 
-## Overview of Unmapped Elements
+##### Overview of Unmapped Elements
 
 | ID | Name |
 |---|---|

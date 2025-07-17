@@ -59,11 +59,6 @@ flowchart TB
         ACPHealthProfessionalPractitionerRole
     end
 
-    subgraph "Procedure"
-        direction TB
-        ACPFreedomRestrictingIntervention
-    end
-
     subgraph "RelatedPerson"
         direction TB
         ACPContactPerson
@@ -84,7 +79,6 @@ flowchart TB
     class ACPPatient C1
     class ACPHealthProfessionalPractitioner C1
     class ACPHealthProfessionalPractitionerRole C1
-    class ACPFreedomRestrictingIntervention C2
     class ACPContactPerson C1
 
     %% ---- Resource Type References ----
@@ -101,6 +95,5 @@ flowchart TB
     Observation -- "performer" --> PractitionerRole
     Patient -- "contact.extension" --> RelatedPerson
     PractitionerRole -- "practitioner" --> Practitioner
-    Procedure -- "subject" --> Patient
     RelatedPerson -- "patient" --> Patient
 ```

@@ -20,7 +20,6 @@ The following diagram illustrates the FHIR data model for this implementation gu
 
 {% include fhir-data-model-mermaid-diagram.md %}
 
-
 #### Associating dataset to FHIR - Mapping overview
 The FHIR profiles in this guide have a traceable mapping to their ART-DECOR dataset counterparts.
 The version of the ART-DECOR dataset used is registered in the `StructureDefinition.mapping.identity` element. The mapping for each individual data element is defined in its `ElementDefinition.mapping`. A user-friendly rendering of these mappings is available on the "Mappings" tab of each profile page.

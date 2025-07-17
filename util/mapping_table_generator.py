@@ -158,7 +158,7 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
         if all_mappings:
-            f.write("## Mappings by dataset ID\n\n")
+            f.write("##### Mappings by dataset ID\n\n")
             f.write("| Dataset ID | Dataset name | Resource | FHIR element |\n")
             f.write("|---|---|---|---|\n")
 
@@ -179,7 +179,7 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
         print(f"\nChecking for unmapped concepts in {json_file_path}...")
         unmapped_ids = {k: v['name'] for k, v in json_concepts.items() if k not in mapped_ids}
 
-        f.write("\n\n## Overview of Unmapped Elements\n\n")
+        f.write("\n\n##### Overview of Unmapped Elements\n\n")
         if unmapped_ids:
             f.write("| ID | Name |\n")
             f.write("|---|---|\n")
