@@ -10,6 +10,8 @@ Description: "A person who receives medical, psychological, paramedical or nursi
 * name[nameInformation] 1..2
 * name[nameInformation].family 1.. // TODO discuss with Lonneke what the correct cardinality is
 
+// TODO add wilsbewkaamheid extension and invariant to check if yes then there needs to be a wettelijke vertegenwoordiger
+// TODO discuss with Lonneke if we need to add this to ARTDECO too
 Mapping: MapACPPatient
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
