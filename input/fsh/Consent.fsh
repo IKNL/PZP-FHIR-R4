@@ -6,7 +6,7 @@ Description: "A living will is a verbal or written description of the patient’
 * insert MetaRules
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
-- For Organ Donation, code _DO_ (Verklaring donorschap)." //TODO discuss if we need a custom profile or not.
+- For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss if we need a custom profile or not.
 * patient only Reference(ACPPatient)
 
 Mapping: MapACPAdvanceDirective
@@ -44,7 +44,7 @@ Description: "A treatment directive contains a joint decision between a health p
 * insert MetaRules
 * patient only Reference(ACPPatient)
 * provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." //TODO check if we want a ConceptMap? 
-* provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, it cannot contain a value that is not in the binding. For values not in the listed in the ValueSet binding, for example for SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase) the `.text` field is used."
+* provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 
 Mapping: MapACPTreatmentDirective
 Id: pall-izppz-v2025-03-11

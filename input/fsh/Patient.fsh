@@ -4,20 +4,31 @@ Id: ACP-Patient
 Title: "Patient"
 Description: "A person who receives medical, psychological, paramedical or nursing care."
 * insert MetaRules
-* name 1..* // In scenario Naamgegevens is 1..1, but because the zib nameinformation does not mapp 1..1 to FHIR we will set this to 1..* instead of 1..1
-// TODO MM check kardinaliteit met Lonneke
+* obeys ACP-Patient-1
+* extension contains
+    ExtLegallyCapableTreatmentDecision  named LegallyCapableTreatmentDecision 0..1
+* extension[LegallyCapableTreatmentDecision] ^condition = "ACP-Patient-1"
+* name 1..* // TODO MM check kardinaliteit met Lonneke - In scenario Naamgegevens is 1..1, but because the zib nameinformation does not mapp 1..1 to FHIR we will set this to 1..* instead of 1..1
 * name[nameInformation] ^sliceName = "nameInformation"
 * name[nameInformation] 1..2
 * name[nameInformation].family 1.. // TODO discuss with Lonneke what the correct cardinality is
+* contact ^condition = "ACP-Patient-1"
+* contact.relationship ^condition = "ACP-Patient-1"
 
-// TODO add wilsbewkaamheid extension and invariant to check if yes then there needs to be a wettelijke vertegenwoordiger
-// TODO discuss with Lonneke if we need to add this to ARTDECO too
+Invariant: ACP-Patient-1
+Description: "If the patient is not legally capable, there needs to be a legal representative"
+* severity = #error
+* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-TreatmentDecision').where(url='legallyCapableComment').value = false implies contact.where(relationship.coding.code = '24').exists()" // TODO needs to be tested and TODO discuss with Lonneke if we need to add this to ARTDECOR too
+
 Mapping: MapACPPatient
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
 Source: ACPPatient
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "351" "Patient"
+* extension[LegallyCapableTreatmentDecision] -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen" 
+* extension[LegallyCapableTreatmentDecision].extension[legallyCapable].valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* extension[LegallyCapableTreatmentDecision].extension[legallyCapableComment].valueString -> "763" "Toelichting"
 * identifier -> "385" "Identificatienummer"
 * name -> "352" "Naamgegevens"
 // TODO add complete ArtDecor mapping 
