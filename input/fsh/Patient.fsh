@@ -23,11 +23,8 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 // * TODO MM opmerken dat mapping niet klopt; Voornamen = 353
 // * name[nameInformation].family -> "357" "Geslachtsnaam"
 * telecom -> "376" "Contactgegevens"
-<<<<<<< HEAD
 // TODO - HK contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* bespreken met lonneke 
-=======
 // TODO MM add and check complete ArtDecor mapping
->>>>>>> develop
 * gender -> "387" "Geslacht"
 * gender.extension[genderCodelist].value[x] -> "387" "Geslacht" // TODO MM check binding codelijst
 * birthDate -> "386" "Geboortedatum"
