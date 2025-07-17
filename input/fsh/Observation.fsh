@@ -21,7 +21,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * method -> "657" "Vaststellen wens en verwachting patiënt ([MeetMethode])"
 * effective[x] -> "660" "[MeetDatumBeginTijd]"
 
-
 Instance: F1-ACP-SpecificCareWishes
 InstanceOf: ACPSpecificCareWishes
 Title: "F1 ACP Specific Care Wishes"

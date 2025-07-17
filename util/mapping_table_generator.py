@@ -207,7 +207,7 @@ def main():
     )
     parser.add_argument(
         '--json-file',
-        default='util/DS_pzp_dataset_vastleggen_(download_2025-07-07T05_47_26)-zib2020.json',
+        default='util/DS_pzp_dataset_vastleggen_(download_2025-07-17T15_40_47)-zib2020.json',
         help="Path to the JSON dataset file to check for unmapped concepts."
     )
     args = parser.parse_args()
