@@ -1,5 +1,3 @@
-# Advance Care Planning
-
 ## Project Description and Scope
 This Implementation Guide (IG) supports the Advance Care Planning (ACP) information standard (Dutch: Palliatieve Zorg Planning) and is intended for use within the palliative care domain in the Netherlands. This domain involves care for patients with an incurable illness or condition from which they are expected to die.
 

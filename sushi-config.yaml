@@ -6,8 +6,8 @@
 id: iknl.fhir.r4.pzp
 canonical: https://fhir.iknl.nl/fhir
 name: PZP
-# title: Example Title
-# description: Example Implementation Guide for getting started with SUSHI
+title: Advance Care Planning (PZP)
+description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -78,7 +78,7 @@ dependencies:
 menu:
   Home: index.html
   PZP Functioneel Ontwerp: functioneel-ontwerp.html
-  PZP FHIR Specification: fhir-specification.html
+  PZP FHIR Specification: FHIR-specification.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

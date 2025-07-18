@@ -12,10 +12,10 @@ A patient's ACP preferences can be captured using a structured form, such as the
 #### FHIR Data Model
 The following diagram illustrates the FHIR data model for this implementation guide. To enhance clarity, the resources are grouped into four distinct categories: Agreements, Individuals, Supporting Information, and Consultation. Each category represents a logical component of the Advance Care Planning (ACP) process.
 
-* Agreements. This category encompasses the documented outcomes of the ACP process, including the patient's goals, preferences, and formal consent or advance directives.
-* Individuals. Includes all persons and professional roles involved in the care process, such as the patient, healthcare practitioners, and the patient's designated contacts or legal representatives.
-* Supporting Information. Provides additional clinical context relevant to the patient's agreements, such as related medical procedures or the use of specific medical devices.
-* Consultation. Represents the core event where the advance care plan is discussed, whether through a direct conversation or the completion of a questionnaire.
+* **Consultation**: Represents the core event where the advance care plan is discussed, whether through a direct conversation or the completion of a questionnaire.
+* **Agreements**: This category encompasses the documented outcomes of the ACP process, including the patient's goals, preferences, and formal consent or advance directives.
+* **Individuals**: Includes all persons and professional involved in the care process, such as the patient, healthcare practitioners, and the patient's designated contacts or legal representatives.
+* **Supporting Information**: Provides additional clinical context relevant to the patient's agreements, such as related medical procedures or the use of specific medical devices.
 
 
 {% include fhir-data-model-mermaid-diagram.md %}
@@ -24,12 +24,10 @@ The following diagram illustrates the FHIR data model for this implementation gu
 The FHIR profiles in this guide have a traceable mapping to their ART-DECOR dataset counterparts.
 The version of the ART-DECOR dataset used is registered in the `StructureDefinition.mapping.identity` element. The mapping for each individual data element is defined in its `ElementDefinition.mapping`. A user-friendly rendering of these mappings is available on the "Mappings" tab of each profile page.
 
-
 {% include mappings.md %}
 
-
 ### Exchanging ACP information
-The following sections specify how ACP information is exchanged between actors. Here are some **general considerations**.
+The following sections specify how ACP information is exchanged between actors. Here are general considerations**.
 
 #### Authorization
 Accessing ACP information is subject to strict privacy rules. All API requests MUST be properly authenticated and authorized. The client application is expected to use a secure mechanism to obtain an access token with the necessary scopes to read the patient's clinical data.
@@ -68,9 +66,9 @@ This approach is useful for applications that need to query specific parts of a 
 |-|-|
 |Treatment Directives (e.g., limitations)| GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope\|treatment|
 |AdvanceDirectives|GET [base]/Consent?patient=[id]&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes\|acd|
-|ACP Conversations (and who was involved)|GET [base]/Encounter?patient=[id]_include=Encounter:participant|
+|ACP Consultation (and who was involved)|GET [base]/Encounter?patient=[id]_include=Encounter:participant|
 |Patient's Stated Goals|GET [base]/Goal?patient=[id]|
 | Specific Wishes & Plans (as observations)
 Codes for: patient wishes, end of life plan, treatment wishes, resuscitation wishes |GET [base]/Observation?patient=[id]&code=http://snomed.info/sct\|153851000146100,395091006,340171000146104,247751003
-|Related Medical Devices (e.g., ICD)|GET [base]/DeviceUseStatement?patient=[id]|
+|Related Medical Devices (e.g., ICD)|GET [base]/DeviceUseStatement?patient=[id]&_has:Device:device:type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD |
 |ContactPersons | GET [base]/RelatedPerson|

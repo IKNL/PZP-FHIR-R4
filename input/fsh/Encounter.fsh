@@ -14,7 +14,10 @@ Description: "A contact is any interaction, regardless of the situation, between
 * participant[healthProfessional].individual ^comment = "Each occurrence of the zib HealthProfessional is normally represented by _two_ FHIR resources: a PractitionerRole resource (instance of [nl-core-HealthProfessional-PractitionerRole](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole)) and a Practitioner resource (instance of [nl-core-HealthProfessional-Practitioner](http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner)). The Practitioner resource is referenced from the PractitionerRole instance. For this reason, sending systems should fill the reference to the PractitionerRole instance here, and not the Practitioner resource. Receiving systems can then retrieve the reference to the Practitioner resource from that PractitionerRole instance.\r\n\r\nIn rare circumstances, there is only a Practitioner instance, in which case it is that instance which can be referenced on the `Encounter.participant` element (due to open slicing). Since this should be the exception, the nl-core-HealthProfessional-Practitioner profile is not explicitly mentioned as a target profile."
 // TODO Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient)
 * participant[contactPerson].individual only Reference(RelatedPerson) //TODO BUG can't set (ACPContactPerson) here
-// TODO - do we need a code to classify the encounter and using it for searching?
+// TODO How do we distingues the Encoutners that are used for ACP?
+// option 1: link AdvanceDirective, TreatmentDirective and Goal to the Encounter with an extension
+// option 2: use the code element of the Encounter to classify the encounter (e.g. in Encounter.type)
+// option 3: use Provenance to link the AdvanceDirective and TreatmentDirective to the Encounter, using a preadopt extension from R5 with the Encounter reference (Overkill...)
 
 
 Mapping: MapACPEncounter
