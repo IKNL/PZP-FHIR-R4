@@ -17,10 +17,12 @@ def find_concepts_with_depth(data, depth=0):
 def extract_all_json_ids(json_file_path):
     """
     Extracts all concept IDs, names, and depths from the JSON dataset
-    that match the specific OID prefix and structure.
-    Returns a dictionary: {id: {'name': str, 'depth': int}}
+    that match the specific OID prefix and structure, starting from the
+    'informatiestandaard_obv_zibs2020' root concept.
+    Returns an ordered list of concept dictionaries.
     """
-    all_json_concepts = {}
+    ordered_concepts = []
+    root_concept_id = "2.16.840.1.113883.2.4.3.11.60.117.2.350"
     oid_prefix = "2.16.840.1.113883.2.4.3.11.60.117.2."
     
     try:
@@ -33,17 +35,28 @@ def extract_all_json_ids(json_file_path):
         print(f"Error: Could not decode JSON from '{json_file_path}'. Make sure it is a valid JSON file.")
         return None
 
-    # Start depth at -1 to effectively remove one level of indentation.
-    for concept, depth in find_concepts_with_depth(data, depth=-1):
+    # Find the specific root concept
+    root_concept_node = None
+    for concept, depth in find_concepts_with_depth(data):
+        if concept.get('id') == root_concept_id:
+            root_concept_node = concept
+            break
+            
+    if not root_concept_node:
+        print(f"Error: Root concept with ID '{root_concept_id}' not found in the JSON file.")
+        return []
+
+    # Process only the children of the found root concept, starting their depth at 0
+    for concept, depth in find_concepts_with_depth(root_concept_node, depth=0):
         concept_id = concept.get('id')
         if concept_id and concept_id.startswith(oid_prefix):
             remaining_part = concept_id[len(oid_prefix):]
             if '.' not in remaining_part:
                 name = next((n.get('#text', '') for n in concept.get('name', []) if n.get('language') == 'nl-NL'), '')
                 if name:
-                    all_json_concepts[remaining_part] = {'name': name, 'depth': depth}
+                    ordered_concepts.append({'id': remaining_part, 'name': name, 'depth': depth})
 
-    return all_json_concepts
+    return ordered_concepts
 
 def extract_profile_ids(fsh_directory):
     """
@@ -82,7 +95,8 @@ def extract_profile_ids(fsh_directory):
 def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_path):
     """
     Parses all .fsh files in a directory, extracts mapping information,
-    and generates Markdown tables with indentation and hyperlinks.
+    and generates Markdown tables with indentation and hyperlinks, with the
+    order of the mappings following the order in the JSON file.
     """
     mapping_rule_pattern = re.compile(r'^\*\s*(.*?)\s*->\s*"([^"]+)"(?:\s*"([^"]+)")?')
     top_level_keyword_pattern = re.compile(r"^(Alias|Profile|Extension|Logical|Resource|Mapping|ValueSet|CodeSystem|Instance|RuleSet):")
@@ -92,8 +106,7 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
     if json_concepts is None:
         return
 
-    all_mappings = []
-    mapped_ids = set()
+    mappings_map = {}
 
     print("Scanning for Mappings...")
     if not os.path.isdir(fsh_directory):
@@ -137,19 +150,9 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
                             fhir_element = rule_match.group(1).strip()
                             functional_id = rule_match.group(2).strip()
                             
-                            concept_data = json_concepts.get(functional_id)
-                            if concept_data:
-                                depth = concept_data['depth']
-                                # Only add indentation if depth is positive
-                                indentation = "&emsp;" * depth if depth > 0 else ""
-                                dataset_name = indentation + concept_data['name']
-                            else:
-                                dataset_name = "Name not found in JSON"
-                            
-                            all_mappings.append((resource_type_from_file, current_source_profile, fhir_element, functional_id, dataset_name))
-                            mapped_ids.add(functional_id)
+                            mappings_map[functional_id] = (resource_type_from_file, current_source_profile, fhir_element)
 
-    print(f"\nFound a total of {len(all_mappings)} mapping entries.")
+    print(f"\nFound a total of {len(mappings_map)} mapping entries.")
     
     output_dir = os.path.dirname(output_markdown_file)
     if output_dir and not os.path.exists(output_dir):
@@ -157,34 +160,40 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
         print(f"Created output directory: {output_dir}")
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
-        if all_mappings:
-            f.write("##### Mappings by dataset ID\n\n")
-            f.write("| Dataset ID | Dataset name | Resource | FHIR element |\n")
-            f.write("|---|---|---|---|\n")
+        f.write("##### Mappings by dataset ID\n\n")
+        f.write("| ID | Dataset name | Resource | FHIR element |\n")
+        f.write("|---|---|---|---|\n")
 
-            def sort_key(item):
-                try:
-                    return int(item[3])
-                except (ValueError, TypeError):
-                    return (float('inf'), item[3])
+        mapped_ids = set()
+        unmapped_concepts = []
 
-            for mapping in sorted(all_mappings, key=sort_key):
-                resource_type, profile_name, fhir_element, functional_id, dataset_name = mapping
+        for concept in json_concepts:
+            functional_id = concept['id']
+            if functional_id in mappings_map:
+                resource_type, profile_name, fhir_element = mappings_map[functional_id]
+                
+                depth = concept['depth']
+                indentation = "&emsp;" * depth if depth > 0 else ""
+                dataset_name = indentation + concept['name']
+                
                 profile_id = profile_ids.get(profile_name, profile_name)
                 resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
                 f.write(f"| {functional_id} | {dataset_name} | {resource_display} | `{fhir_element}`  |\n")
-        else:
-            f.write("No mappings were found.\n")
+                mapped_ids.add(functional_id)
+            else:
+                unmapped_concepts.append(concept)
+                
+        if not mapped_ids:
+            # Use a Markdown table row for the message
+            f.write("| | No mappings were found. | | |\n")
 
-        print(f"\nChecking for unmapped concepts in {json_file_path}...")
-        unmapped_ids = {k: v['name'] for k, v in json_concepts.items() if k not in mapped_ids}
 
         f.write("\n\n##### Overview of Unmapped Elements\n\n")
-        if unmapped_ids:
+        if unmapped_concepts:
             f.write("| ID | Name |\n")
             f.write("|---|---|\n")
-            for oid_suffix, name in sorted(unmapped_ids.items()):
-                f.write(f"| {oid_suffix} | {name} |\n")
+            for concept in unmapped_concepts:
+                f.write(f"| {concept['id']} | {concept['name']} |\n")
         else:
             f.write("All relevant elements from the JSON dataset are mapped.\n")
     

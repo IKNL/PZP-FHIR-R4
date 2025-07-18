@@ -1,7 +1,8 @@
 ##### Mappings by dataset ID
 
-| Dataset ID | Dataset name | Resource | FHIR element |
+| ID | Dataset name | Resource | FHIR element |
 |---|---|---|---|
+| 736 | Datum van invullen | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
 | 351 | Patient | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | ``  |
 | 352 | &emsp;Naamgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name`  |
 | 353 | &emsp;&emsp;Voornamen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name[nameInformation].given`  |
@@ -24,12 +25,10 @@
 | 372 | &emsp;&emsp;Gemeente | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `address.district`  |
 | 373 | &emsp;&emsp;Land | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `address.country.extension[countryCode].valueCodeableConcept`  |
 | 374 | &emsp;&emsp;AdditioneleInformatie | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `address.line.extension[additionalInformation].valueString`  |
-| 375 | &emsp;&emsp;AdresSoort | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `address.use`  |
 | 375 | &emsp;&emsp;AdresSoort | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `address.type`  |
 | 376 | &emsp;Contactgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom`  |
 | 377 | &emsp;&emsp;Telefoonnummers | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers]`  |
 | 378 | &emsp;&emsp;&emsp;Telefoonnummer | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers].value`  |
-| 379 | &emsp;&emsp;&emsp;TelecomType | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers].system`  |
 | 379 | &emsp;&emsp;&emsp;TelecomType | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept`  |
 | 380 | &emsp;&emsp;&emsp;NummerSoort | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers].use`  |
 | 381 | &emsp;&emsp;&emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[telephoneNumbers].extension[comment].valueString`  |
@@ -38,9 +37,7 @@
 | 384 | &emsp;&emsp;&emsp;EmailSoort | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `telecom[emailAddresses].system`  |
 | 385 | &emsp;Identificatienummer | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `identifier`  |
 | 386 | &emsp;Geboortedatum | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `birthDate`  |
-| 387 | &emsp;Geslacht | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `gender`  |
 | 387 | &emsp;Geslacht | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `gender.extension[genderCodelist].value[x]`  |
-| 391 | Gesprek gevoerd door (Zorgverlener) | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | ``  |
 | 391 | Gesprek gevoerd door (Zorgverlener) | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | ``  |
 | 392 | &emsp;ZorgverlenerIdentificatienummer | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `identifier`  |
 | 393 | &emsp;Naamgegevens | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `name`  |
@@ -49,6 +46,9 @@
 | 399 | &emsp;&emsp;&emsp;Voorvoegsels | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `name[nameInformation].family.extension[prefix]`  |
 | 400 | &emsp;&emsp;&emsp;Achternaam | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `name[nameInformation].family.extension[lastName]`  |
 | 405 | &emsp;Functie (Specialisme) | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | `specialty[specialty]`  |
+| 761 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision]`  |
+| 762 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision].extension[legallyCapable].valueBoolean`  |
+| 763 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision].extension[legallyCapableComment].valueString`  |
 | 441 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 442 | &emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name`  |
 | 443 | &emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name[nameInformation].given`  |
@@ -63,7 +63,6 @@
 | 454 | &emsp;Contactgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom`  |
 | 455 | &emsp;&emsp;Telefoonnummers | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers]`  |
 | 456 | &emsp;&emsp;&emsp;Telefoonnummer | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].value`  |
-| 457 | &emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].system`  |
 | 457 | &emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept`  |
 | 458 | &emsp;&emsp;&emsp;NummerSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].use`  |
 | 459 | &emsp;&emsp;&emsp;Toelichting | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].extension[comment].valueString`  |
@@ -81,7 +80,6 @@
 | 471 | &emsp;&emsp;Gemeente | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.district`  |
 | 472 | &emsp;&emsp;Land | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.country.extension[countryCode].valueCodeableConcept`  |
 | 473 | &emsp;&emsp;AdditioneleInformatie | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.line.extension[additionalInformation].valueString`  |
-| 474 | &emsp;&emsp;AdresSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.use`  |
 | 474 | &emsp;&emsp;AdresSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.type`  |
 | 475 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[role]`  |
 | 476 | &emsp;Relatie | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[relationship]`  |
@@ -100,7 +98,6 @@
 | 491 | &emsp;Contactgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom`  |
 | 492 | &emsp;&emsp;Telefoonnummers | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers]`  |
 | 493 | &emsp;&emsp;&emsp;Telefoonnummer | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].value`  |
-| 494 | &emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].system`  |
 | 494 | &emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept`  |
 | 495 | &emsp;&emsp;&emsp;NummerSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].use`  |
 | 496 | &emsp;&emsp;&emsp;Toelichting | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `telecom[telephoneNumbers].extension[comment].valueString`  |
@@ -118,7 +115,6 @@
 | 508 | &emsp;&emsp;Gemeente | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.district`  |
 | 509 | &emsp;&emsp;Land | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.country.extension[countryCode].valueCodeableConcept`  |
 | 510 | &emsp;&emsp;AdditioneleInformatie | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.line.extension[additionalInformation].valueString`  |
-| 511 | &emsp;&emsp;AdresSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.use`  |
 | 511 | &emsp;&emsp;AdresSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `address.type`  |
 | 512 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[role]`  |
 | 513 | &emsp;Relatie | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[relationship]`  |
@@ -133,7 +129,6 @@
 | 524 | &emsp;&emsp;&emsp;VoorvoegselsPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name[nameInformation].family.extension[partnerPrefix].valueString`  |
 | 525 | &emsp;&emsp;&emsp;AchternaamPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name[nameInformation].family.extension[partnerLastName].valueString`  |
 | 526 | &emsp;&emsp;Titels | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name[nameInformation].suffix`  |
-| 554 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `participant[contactPerson].individual`  |
 | 554 | Gesprek gevoerd in bijzijn van (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 555 | &emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name`  |
 | 556 | &emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name[nameInformation].given`  |
@@ -165,12 +160,7 @@
 | 614 | &emsp;&emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.actor[agreementParty].reference`  |
 | 616 | &emsp;&emsp;Zorgverlener | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.actor[agreementParty].reference`  |
 | 618 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `extension[comment].value[x]`  |
-| 618 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `extension[comment].value[x]`  |
-| 620 | ICD (MedischHulpmiddel) | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | ``  |
 | 620 | ICD (MedischHulpmiddel) | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | ``  |
-| 622 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `identifier[gs1ProductID]`  |
-| 622 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `identifier[hibcProductID]`  |
-| 622 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `udiCarrier[gs1UdiCarrier].carrierHRF`  |
 | 622 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `udiCarrier[hibcUdiCarrier].carrierHRF`  |
 | 623 | &emsp;&emsp;ProductType van ICD | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `type`  |
 | 624 | &emsp;ProductOmschrijving | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `note.text`  |
@@ -210,15 +200,17 @@
 | 690 | Euthanasieverklaring (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
 | 691 | &emsp;Euthanasieverklaring (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.code`  |
 | 692 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `dateTime`  |
-| 693 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[disorder]`  |
 | 693 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.actor[representative].reference`  |
 | 697 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 698 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
+| 746 | Keuze orgaandonatie vastgelegd in donorregister? ([Meting]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | ``  |
+| 747 | &emsp;Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `code`  |
+| 748 | &emsp;Keuze orgaandonatie in donorregister ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `valueCodeableConcept`  |
+| 752 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `effective[x]`  |
 | 700 | Keuze orgaandonatie vastgelegd (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
 | 701 | &emsp;Orgaandonatie (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.code`  |
 | 702 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `dateTime`  |
 | 703 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[disorder]`  |
-| 705 | &emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.actor[representative].reference`  |
 | 705 | &emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.actor[representative].reference`  |
 | 707 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 708 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
@@ -232,21 +224,12 @@
 | 724 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[disorder]`  |
 | 728 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 729 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
-| 736 | Datum van invullen | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
-| 746 | Keuze orgaandonatie vastgelegd in donorregister? ([Meting]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | ``  |
-| 747 | &emsp;Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `code`  |
-| 748 | &emsp;Keuze orgaandonatie in donorregister ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `valueCodeableConcept`  |
-| 752 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `effective[x]`  |
-| 761 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision]`  |
-| 762 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision].extension[legallyCapable].valueBoolean`  |
-| 763 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[LegallyCapableTreatmentDecision].extension[legallyCapableComment].valueString`  |
 
 
 ##### Overview of Unmapped Elements
 
 | ID | Name |
 |---|---|
-| 350 | Informatiestandaard o.b.v. zibs2020 |
 | 357 | Geslachtsnaam |
 | 360 | GeslachtsnaamPartner |
 | 447 | Geslachtsnaam |
