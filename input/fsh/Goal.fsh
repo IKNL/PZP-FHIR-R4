@@ -6,6 +6,7 @@ Description: "A profile on the FHIR Goal resource to represent the primary, agre
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(Patient)
 // Besluit: besproken met lonneke en mapping op goal ipv observation is akkoord en passend
+// TODO would be good to add category code or reference to encounter to distingush the ACP made Goal."
 
 Mapping: MapACPMedicalPolicyGoal
 Id: pall-izppz-v2025-03-11
