@@ -1,6 +1,6 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
 Id: ACP-PreferredPlaceOfDeath
-Title: "Desired Place Of Death"
+Title: "Preferred Place Of Death"
 Description: "Valueset for preferred place of death"
 * insert MetaRules
 * $v3-NullFlavor#OTH "Anders"

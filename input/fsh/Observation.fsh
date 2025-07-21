@@ -46,6 +46,8 @@ Description: "The preferred place of death. This is the place where the patient 
 * code = $snomed#395091006 
 * value[x] only CodeableConcept 
 * value[x] from ACPPreferredPlaceOfDeathVS (extensible) // TODO - there is no binding strenght in dataset.
+//MM: discussed with Lonneke: should indeed be extensible binding
+//MM: check if title of valueset is correct (changed in Review from Desired to Preferred)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-v2025-03-11
@@ -72,6 +74,7 @@ Usage: #example
 * code =  $snomed#395091006
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown // TODO  This seems like a good fit for "Nog Onbekend". Add mapping to element? Could leave out valueCodeableConcept and use dataAbsentReason only.
+// MM: probably yes, discuss details with Lonneke on 22/7
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 
@@ -87,6 +90,7 @@ Description: "Position Regarding Euthanasia"
 * value[x] only CodeableConcept
 * value[x] ^definition = "Position regarding euthanesia."
 * value[x] from ACPEuthanasiaStatementVS (extensible) // TODO - there is no binding strenght in dataset.
+// MM binding strength added: required. TODO: change this
 * note.text ^definition = "Comment accompanying position regarding euthanesia."
 
 Mapping: MapACPPositionRegardingEuthanasia
@@ -125,9 +129,11 @@ Description: "Donor donation choice registration in donor register."
 * encounter only Reference(Encounter)
 * subject only Reference(Patient)
 * code = $snomed#TODO // TODO -- no code in dataset?
+//MM: code is in dataset: 	570801000146104
 * value[x] only CodeableConcept
 * value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required) // TODO - there is no binding strenght in dataset.
+//MM: binding added in dataset, indeed required
 
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-v2025-03-11
