@@ -6,7 +6,7 @@ Description: "A living will is a verbal or written description of the patient’
 * insert MetaRules
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
-- For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss if we need a custom profile or not.
+- For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss with Lonneke if we need a custom profile or not.
 * patient only Reference(ACPPatient)
 
 Mapping: MapACPAdvanceDirective
@@ -67,6 +67,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
 * extension[comment].value[x] -> "618" "Toelichting"
 // TODO SpecificationOther is not in the dataset for Afspraak uitzetten ICD. May be needed to communicate it has not be decided yet? See example.
+// MM: in dataset this is covered by the valueset for 'Behandelbesluit': 'Wel uitvoeren', 'Nee, nog geen besluit genomen', 'Niet besproken'
 * dateTime -> "641" "MeestRecenteBespreekdatum"
 * sourceReference -> "644" "Wilsverklaring"
 * provision.type -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
@@ -77,6 +78,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "649" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "651" "Zorgverlener"
 * provision.code.text -> "639" "Behandeling van ICD (Behandeling)" 
+// TODO MM: add mapping to comment ("653" "Toelichting")?
 
 Instance: F1-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
@@ -194,6 +196,7 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "b56faf40-f7d7-40a8-869e-a5683d0e1004"
 * modifierExtension[specificationOther].valueString = "Niet besproken" // TODO check if this is ok to explicitly indicate it has not been dicussed yet. ? Perhaps leave it out
+// TODO MM: discuss with Lonneke
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #active
 * dateTime = 2020-10-01
@@ -204,3 +207,4 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
 * provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. TODO create zib ticket to extent the zib or make valueset extensible.
+// MM: is this necessary, as there is also an option 'Other' included?
