@@ -82,14 +82,17 @@ flowchart TB
     class ACPContactPerson C1
 
     %% ---- Resource Type References ----
+    Consent -- "extension" --> Encounter
     Consent -- "patient, provision.actor" --> Patient
     Consent -- "provision.actor" --> PractitionerRole
     Consent -- "provision.actor" --> RelatedPerson
     DeviceUseStatement -- "device" --> Device
+    DeviceUseStatement -- "extension" --> Encounter
     DeviceUseStatement -- "subject" --> Patient
     Encounter -- "subject" --> Patient
     Encounter -- "participant" --> PractitionerRole
     Encounter -- "participant" --> RelatedPerson
+    Goal -- "extension" --> Encounter
     Goal -- "subject" --> Patient
     Observation -- "encounter" --> Encounter
     Observation -- "subject" --> Patient

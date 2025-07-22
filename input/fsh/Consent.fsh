@@ -4,6 +4,9 @@ Id: ACP-AdvanceDirective
 Title: "AdvanceDirective"
 Description: "A living will is a verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider."
 * insert MetaRules
+* extension contains
+    ExtEncounterReference  named encounter 0..1
+* extension[encounter].valueReference only Reference(ACPEncounter) 
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
 - For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss with Lonneke if we need a custom profile or not.
@@ -42,6 +45,9 @@ Id: ACP-TreatmentDirective
 Title: "TreatmentDirective"
 Description: "A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary."
 * insert MetaRules
+* extension contains
+    ExtEncounterReference  named encounter 0..1
+* extension[encounter].valueReference only Reference(ACPEncounter) 
 * patient only Reference(ACPPatient)
 * provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." //TODO check if we want a ConceptMap? 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
@@ -85,6 +91,7 @@ Instance: F1-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 305351004"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d543b9f3-4b87-4f10-bbbb-1425d66f451c"
@@ -103,6 +110,7 @@ Instance: F1-ACP-TreatmentDirective-89666000
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 89666000"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "943eff64-86a4-4057-b41c-08a849e244c4"
@@ -121,6 +129,7 @@ Instance: F1-ACP-TreatmentDirective-40617009
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 40617009"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "4db3052d-370a-40e6-b3a8-0c48347747f2"
@@ -139,6 +148,7 @@ Instance: F1-ACP-TreatmentDirective-116762002
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 116762002"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d023ee6f-88d6-4a1e-99a7-40118b4cea45"
@@ -157,6 +167,7 @@ Instance: F1-ACP-TreatmentDirective-281789004
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 281789004"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "e2ad3d52-a925-4f82-9c39-e036fc7190a4"
@@ -175,6 +186,7 @@ Instance: F1-ACP-TreatmentDirective-32485007
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 32485007"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "23b43ae7-b092-47ef-b992-8c54e716531c"
@@ -193,6 +205,7 @@ Instance: F1-ACP-TreatmentDirective-400231000146108
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "b56faf40-f7d7-40a8-869e-a5683d0e1004"
@@ -207,7 +220,7 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
-* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/NSM-3041
+* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
 // MM: is this necessary, as there is also an option 'Other' included?
 
 
@@ -216,6 +229,7 @@ Instance: F2-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
 Title: "F2 ACP TreatmentDirective 305351004"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d543b9f3-4b87-4f10-bbbb-1425d66f485c"

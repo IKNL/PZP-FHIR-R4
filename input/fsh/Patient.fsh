@@ -6,8 +6,8 @@ Description: "A person who receives medical, psychological, paramedical, or nurs
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
-    ExtLegallyCapableMedicalTreatmentDecisions  named LegallyCapableMedicalTreatmentDecisions 0..1
-* extension[LegallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
+    ExtLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
+* extension[legallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
 * contact ^condition = "ACP-Patient-1"
 * contact.extension[relatedPerson] ^condition = "ACP-Patient-1"
@@ -28,9 +28,9 @@ Title: "PZP dataset"
 Source: ACPPatient
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "351" "Patient"
-* extension[LegallyCapableMedicalTreatmentDecisions] -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen" 
-* extension[LegallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-* extension[LegallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString -> "763" "Toelichting"
+* extension[legallyCapableMedicalTreatmentDecisions] -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen" 
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString -> "763" "Toelichting"
 * identifier -> "385" "Identificatienummer"
 * name -> "352" "Naamgegevens"
 * name[nameInformation].given -> "353" "Voornamen"
@@ -88,7 +88,7 @@ Instance: F1-ACP-Patient-HendrikHartman
 InstanceOf: ACPPatient
 Title: "F1 ACP Patient Hendrik Hartman"
 Usage: #example
-* extension[LegallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
 * identifier.value = "999911120"
 * name[nameInformation].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"

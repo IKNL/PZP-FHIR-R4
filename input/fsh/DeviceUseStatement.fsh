@@ -4,6 +4,9 @@ Id: ACP-MedicalDevice
 Title: "MedicalDevice"
 Description: "Medical devices are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease."
 * insert MetaRules
+* extension contains
+    ExtEncounterReference  named encounter 0..1
+* extension[encounter].valueReference only Reference(ACPEncounter) 
 * subject only Reference(ACPPatient)
 * device only Reference(ACPMedicalDeviceProductICD or http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product)
 
@@ -25,6 +28,7 @@ Instance: F1-ACP-MedicalDevice-ICD
 InstanceOf: ACPMedicalDevice
 Title: "F1 ACP MedicalDevice ICD"
 Usage: #example
+* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "99a671c0-f756-4c29-bba2-ad8d6f05a5fe"
