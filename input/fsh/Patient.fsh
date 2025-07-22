@@ -2,7 +2,7 @@ Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
 Title: "Patient"
-Description: "A person who receives medical, psychological, paramedical or nursing care."
+Description: "A person who receives medical, psychological, paramedical, or nursing care."
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
@@ -10,13 +10,17 @@ Description: "A person who receives medical, psychological, paramedical or nursi
 * extension[LegallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
 * contact ^condition = "ACP-Patient-1"
+* contact.extension[relatedPerson] ^condition = "ACP-Patient-1"
+* contact.extension[relatedPerson] ^comment = "All information regarding the patient's contact persons should preferably be stored in the RelatedPerson resource, and optionally in `Patient.contact`. The http://hl7.org/fhir/StructureDefinition/patient-relatedPerson extension is used to link the contact person to the Patient and to emphasize that the related person is also a contact person of the patient."
+* contact.extension[relatedPerson].valueReference only Reference(ACPContactPerson)
 * contact.relationship ^condition = "ACP-Patient-1"
+
 
 Invariant: ACP-Patient-1
 Description: "If the patient is not legally capable, there should be a legal representative."
 * severity = #warning
-* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapableComment').value = false implies contact.where(relationship.coding.code = '24').exists()" // TODO needs to be tested and TODO discuss with Lonneke if we need to add this to ARTDECOR too
-// TODO currently all the mappings are set inside relatedperson... perhaps the invariant should be set to check if there is a reference set to the relatedperson? Or duplicate mappings.
+* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapableComment').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
+
 
 Mapping: MapACPPatient
 Id: pall-izppz-v2025-03-11
@@ -52,7 +56,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name[nameInformation].family.extension[partnerPrefix].valueString -> "524" "VoorvoegselsPartner"
 * name[nameInformation].family.extension[partnerLastName].valueString -> "525" "AchternaamPartner"
 * name[nameInformation].suffix -> "526" "Titels"
-* telecom -> "376" "Contactgegevens" // TODO - HK contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* bespreken met lonneke - Besproken 22/07/25: akkoord.
+* telecom -> "376" "Contactgegevens" 
 * telecom[telephoneNumbers] -> "377" "Telefoonnummers"
 * telecom[telephoneNumbers].value -> "378" "Telefoonnummer"
 * telecom[telephoneNumbers].system -> "379" "TelecomType"
@@ -63,7 +67,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * telecom[emailAddresses].value -> "383" "EmailAdres"
 * telecom[emailAddresses].system -> "384" "EmailSoort"
 * gender -> "387" "Geslacht"
-* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" // TODO MM check binding codelijst - besproken 22/07/25: https://nictiz.atlassian.net/browse/ZIBFHIR-356 
+* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" // TODO - check if reference from ValueSet in dependency (zib / nl-core) resolve correctly. https://nictiz.atlassian.net/browse/ZIBFHIR-356 
 * birthDate -> "386" "Geboortedatum"
 * address -> "364" "Adresgegevens"
 * address.line.extension[streetName].valueString -> "365" "Straat"
@@ -78,7 +82,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * address.line.extension[additionalInformation].valueString -> "374" "AdditioneleInformatie"
 * address.use -> "375" "AdresSoort"
 * address.type -> "375" "AdresSoort"
-// TODO move to RelatedPerson profile  * contact.extension[relatedPerson] -> "477" "Vertegenwoordiger is contactpersoon" // TODO check this mapping... should likely be in combination with the relationship coding urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24
 
 
 Instance: F1-ACP-Patient-HendrikHartman

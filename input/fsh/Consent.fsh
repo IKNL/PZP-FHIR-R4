@@ -45,6 +45,8 @@ Description: "A treatment directive contains a joint decision between a health p
 * patient only Reference(ACPPatient)
 * provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." //TODO check if we want a ConceptMap? 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
+* provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
+
 
 Mapping: MapACPTreatmentDirective
 Id: pall-izppz-v2025-03-11
@@ -65,7 +67,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
 * provision.code -> "604" "Behandeling"
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
-* extension[comment].value[x] -> "618" "Toelichting"
+* extension[comment].value[x] -> "653" "Toelichting"
 // TODO SpecificationOther is not in the dataset for Afspraak uitzetten ICD. May be needed to communicate it has not be decided yet? See example.
 // MM: in dataset this is covered by the valueset for 'Behandelbesluit': 'Wel uitvoeren', 'Nee, nog geen besluit genomen', 'Niet besproken'
 * dateTime -> "641" "MeestRecenteBespreekdatum"
@@ -78,7 +80,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "649" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "651" "Zorgverlener"
 * provision.code.text -> "639" "Behandeling van ICD (Behandeling)" 
-// TODO MM: add mapping to comment ("653" "Toelichting")?
 
 Instance: F1-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
@@ -206,5 +207,27 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
-* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. TODO create zib ticket to extent the zib or make valueset extensible.
+* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/NSM-3041
 // MM: is this necessary, as there is also an option 'Other' included?
+
+
+
+Instance: F2-ACP-TreatmentDirective-305351004
+InstanceOf: ACPTreatmentDirective
+Title: "F2 ACP TreatmentDirective 305351004"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "d543b9f3-4b87-4f10-bbbb-1425d66f485c"
+* status = #active
+* patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* dateTime = 2022-11-08
+* policy.uri = "https://wetten.overheid.nl/"
+* provision.type = #permit
+* provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][=].reference.type = "Patient"
+* provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][=].reference.type = "PractitionerRole"
+* provision.actor[agreementParty][+].reference = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][=].reference.type = "RelatedPerson"
+* provision.code = $snomed#305351004 "Admit to ITU"

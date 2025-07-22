@@ -4,8 +4,8 @@ Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
 Description: "What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)? The patient's wishes and expectations concerning their treatment."
 * insert MetaRules
-* encounter only Reference(Encounter)
-* subject only Reference(Patient)
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
 * code = $snomed#153851000146100 // TODO -- check if there is a international code for this?
 * value[x] only string
 * method = $snomed#370819000 // TODO -- check if we want this code to be present and if it actually maps to Observation.method Display: "Vaststellen van persoonlijke waarden en wensen met betrekking tot zorg" 
@@ -41,13 +41,11 @@ Id: ACP-PreferredPlaceOfDeath
 Title: "Preferred Place Of Death"
 Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, or another location."
 * insert MetaRules
-* encounter only Reference(Encounter)
-* subject only Reference(Patient)
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
 * code = $snomed#395091006 
 * value[x] only CodeableConcept 
-* value[x] from ACPPreferredPlaceOfDeathVS (extensible) // TODO - there is no binding strenght in dataset.
-//MM: discussed with Lonneke: should indeed be extensible binding
-//MM: check if title of valueset is correct (changed in Review from Desired to Preferred)
+* value[x] from ACPPreferredPlaceOfDeathVS (extensible)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-v2025-03-11
@@ -84,8 +82,8 @@ Id: ACP-PositionRegardingEuthanasia
 Title: "Position Regarding Euthanasia"
 Description: "Position Regarding Euthanasia"
 * insert MetaRules
-* encounter only Reference(Encounter)
-* subject only Reference(Patient)
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
 * code = $snomed#340171000146104 // TODO -- check if there is a international code for this?
 * value[x] only CodeableConcept
 * value[x] ^definition = "Position regarding euthanesia."
@@ -126,8 +124,8 @@ Id: ACP-OrganDonationChoiceRegistration
 Title: "Donor donation choice registration in donor register"
 Description: "Donor donation choice registration in donor register."
 * insert MetaRules
-* encounter only Reference(Encounter)
-* subject only Reference(Patient)
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
 * code = $snomed#TODO // TODO -- no code in dataset?
 //MM: code is in dataset: 	570801000146104
 * value[x] only CodeableConcept
@@ -167,8 +165,8 @@ Id: ACP-OtherImportantInformation
 Title: "Other Important Information"
 Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
 * insert MetaRules
-* encounter only Reference(Encounter)
-* subject only Reference(Patient)
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
 * code = $snomed#247751003 // TODO -- check if snomed code 247751003 is correct: "Gevoel van zingeving (waarneembare entiteit)"
 * value[x] only string
 * value[x] ^definition = "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."

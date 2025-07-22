@@ -84,6 +84,7 @@ flowchart TB
     %% ---- Resource Type References ----
     Consent -- "patient, provision.actor" --> Patient
     Consent -- "provision.actor" --> PractitionerRole
+    Consent -- "provision.actor" --> RelatedPerson
     DeviceUseStatement -- "device" --> Device
     DeviceUseStatement -- "subject" --> Patient
     Encounter -- "subject" --> Patient

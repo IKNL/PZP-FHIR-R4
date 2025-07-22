@@ -7,9 +7,7 @@ Description: "A contact is a person not being a healthcare professional who is i
 * insert MetaRules
 * patient only Reference(ACPPatient)
 * relationship 1..*
-* relationship[role] 1..*
-// relationship[relationship] contains distinct codes for curator/mentor and brother/sister while the form allows only the option to select them both. From the form is not possible then to map this to FHIR as you would not know which code to use. 
-// 20250710 - Use the zib values / dataset in the profiles and we should document the incompatability in the IG.
+* relationship[role] 1..* 
 * relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
 Mapping: MapACPContactPerson
@@ -54,6 +52,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * address.use -> "474" "AdresSoort"
 * address.type -> "474" "AdresSoort"
 * relationship[role] -> "475" "Rol"
+* relationship[role] -> "477" "Vertegenwoordiger is contactpersoon"
 * relationship[relationship] -> "476" "Relatie"
 * -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * name -> "479" "Naamgegevens"

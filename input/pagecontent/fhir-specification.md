@@ -61,11 +61,11 @@ This approach is useful for applications that need to query specific parts of a 
 |-|-|
 |Treatment Directives | GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope\|treatment&category=http://snomed.info/sct\|129125009|
 |AdvanceDirectives|GET [base]/Consent?patient=[id]&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes\|acd|
-|ACP Consultation |GET [base]/Encounter?patient=[id]_include=Encounter:participant|
-|ContactPersons | GET [base]/RelatedPerson|
+|ACP Consultation and participants involed |GET [base]/Encounter?patient=[id]_include=Encounter:participant|
+|ContactPersons | GET [base]/RelatedPerson?patient=[id]|
 |Patient's Stated Goals|GET [base]/Goal?patient=[id]|
-| Specific Wishes & Plans |GET [base]/Observation?patient=[id]&code=http://snomed.info/sct\|153851000146100,395091006,340171000146104,247751003
-| Related Medical Devices (e.g., ICD)|GET [base]/DeviceUseStatement?patient=[id]&_has:Device:device:type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD |
+|Specific Wishes & Plans |GET [base]/Observation?patient=[id]&code=http://snomed.info/sct\|153851000146100,395091006,340171000146104,247751003
+|Related Medical Devices (e.g., ICD)|GET [base]/DeviceUseStatement?patient=[id]&_has:Device:device:type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD |
 
 
 ##### Server Response

@@ -21,3 +21,14 @@ Context: Patient
 * extension[legallyCapableComment].value[x] ^definition = "A comment regarding the patient's legal capacity regarding medical treatment decisions."
 * extension[legallyCapableComment].value[x] ^alias = "WilsbekwaamToelichting"
 
+Extension: ExtEncounter
+Id: ext-Encounter
+Title: "ext Encounter"
+Description: "An extension to link the healthcare event during which this resource is made."
+Context: Consent, Goal, DeviceUseStatement
+* ^purpose = "For some resources it may be important to know the link between the resource and a particular encounter."
+* insert MetaRules
+* value[x] only Reference(Encounter)
+* value[x] ^short = "Encounter"
+* value[x] ^definition = "The healthcare event during which this resource is made." 
+* value[x] ^comment = "This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. completing the administrative registration after the encounter)."
