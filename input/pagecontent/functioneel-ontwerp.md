@@ -4,10 +4,12 @@ In dit document wordt het functioneel ontwerp voor de informatiestandaard Proact
 Deze informatiestandaard is van toepassing op het palliatieve zorgdomein binnen Nederland, waarbinnen men zich bezighoudt met de zorg voor patiënten met een (ongeneeslijke) ziekte of andere aandoening waaraan de patiënt naar verwachting zal komen te overlijden. De ontwikkeling van deze informatiestandaard heeft zich voornamelijk geconcentreerd op het faciliteren van netwerkzorg.
 
 Het functioneel ontwerp (FO) beschrijft voor alle vastlegging- en uitwisselscenario's (in dit document use cases genoemd) uit de informatiestandaard de transacties, transactiegroepen, de systemen, de systeemrollen en de bedrijfsrollen van zorgverleners of patiënten. Daarvoor worden de eisen gegeven voor het vastleggen, sturen of ontvangen van gegevens. In hoofdstuk 2 wordt verder ingegaan op wat een use case inhoudt. Per use case zijn de nadere details beschreven. Voor meer informatie over informatiestandaarden en hoe deze worden ontwikkeld, zie de Nictiz webpagina voor informatiestandaarden. Voor de verklaring van de begrippen die voorkomen in het functioneel ontwerp wordt verwezen naar het begrippenoverzicht op de Nictiz website
+
 #### Doelgroep
 De doelgroep voor dit document bestaat uit:
 * 	Productmanagers, architecten, ontwerpers, beheerders en testers van ziekenhuizen, XIS-leveranciers, regio-organisaties, (kwaliteits)registraties en Nictiz; 
 * 	Zorgverleners en vertegenwoordigers van zorgverleners.
+
 ####	Kaders en uitgangspunten
 Op deze informatiestandaard zijn de uitgangspunten en gebruikersrechten van toepassing zoals deze gelden voor alle informatiestandaarden die ontwikkeld zijn volgens de methodiek van IKNL
 
@@ -23,6 +25,7 @@ Het gaat daarbij om het proces van:
 
 ######	Wettelijke kaders
 Bij de implementatie van deze informatiestandaard dient voldaan te worden aan de wettelijke kaders van de AVG en de toekomstige Wet elektronische gegevensuitwisseling in de zorg (Wegiz). Ook wordt er gekeken naar de impact van de European Health Data Space (EHDS) die voortbouwt op bestaande Europese wetgeving.
+
 ####	Kwalificatie (optioneel)
 Op basis van dit FO en de daarbij behorende dataset wordt een kwalificatiescript opgesteld. Het opstellen van kwalificatiescripts valt buiten de scope van dit FO. Voor meer informatie zie de webpagina over Nictiz kwalificaties.
 
@@ -44,6 +47,7 @@ De volledige dataset van deze informatiestandaard is hier te vinden.
 Dit hoofdstuk vervolgt met de volgende use cases: 
 -	Vastleggen PZP (PZP-EDIT);
 -	Raadplegen PZP (PZP-VIEW).
+
 ###	Vastleggen van PZP informatie
 ####	Doel en relevantie
 Het doel van deze use case is het vastleggen van PZP informatie op basis van een gesprek over de wensen en grenzen van een patiënt. Zorgverleners registreren deze gegevens voor hun eigen dossiervoering, maar ook om deze te kunnen delen met collega zorgverleners binnen en buiten hun organisatie. Om dit effectief te doen moet PZP informatie eenduidig volgens de informatiestandaard worden geregistreerd.

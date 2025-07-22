@@ -5,8 +5,6 @@ Title: "HealthProfessional PractitionerRole"
 Description: "A health professional is a person who is authorized to perform actions in the field of individual healthcare."
 * insert MetaRules
 * practitioner only Reference(ACPHealthProfessionalPractitioner)
-* specialty[specialty] ^sliceName = "specialty"
-* specialty[specialty] ^mustSupport = true
 
 
 Mapping: MapACPHealthProfessionalPractitionerRole

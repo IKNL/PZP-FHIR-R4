@@ -59,7 +59,7 @@ This approach is useful for applications that need to query specific parts of a 
 
 | Information | Search URL|
 |-|-|
-|Treatment Directives | GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope\|treatment|
+|Treatment Directives | GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope\|treatment&category=http://snomed.info/sct\|129125009|
 |AdvanceDirectives|GET [base]/Consent?patient=[id]&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes\|acd|
 |ACP Consultation |GET [base]/Encounter?patient=[id]_include=Encounter:participant|
 |ContactPersons | GET [base]/RelatedPerson|

@@ -61,7 +61,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.period.end -> "607" "DatumBeeindigd"
 * provision.actor[agreementParty] -> "611" "AfspraakPartij"
 * provision.actor[agreementParty].reference -> "612" "Patient"
-* provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger"
+* provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger" // TODO make sure this reference is also set in the diagram
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
 * provision.code -> "604" "Behandeling"
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"

@@ -8,7 +8,7 @@ Description: "A contact is a person not being a healthcare professional who is i
 * patient only Reference(ACPPatient)
 * relationship 1..*
 * relationship[role] 1..*
-// TODO: relationship[relationship] contains distinct codes for curator/mentor and brother/sister while the form allows only the option to select them both. From the form is not possible then to map this to FHIR as you would not know which code to use. 
+// relationship[relationship] contains distinct codes for curator/mentor and brother/sister while the form allows only the option to select them both. From the form is not possible then to map this to FHIR as you would not know which code to use. 
 // 20250710 - Use the zib values / dataset in the profiles and we should document the incompatability in the IG.
 * relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
@@ -17,7 +17,7 @@ Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
-* -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)" // TODO  how to know/decide if someone is a wettelijk vertegenwoordiger or not? If the relationship code is 24, then it is a wettelijk vertegenwoordiger? -- discuss with Lonneke, add some guidance in the dataset?
+* -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)"
 * name -> "442" "Naamgegevens"
 * name[nameInformation].given -> "443" "Voornamen"
 * name[nameInformation].given -> "444" "Initialen"
