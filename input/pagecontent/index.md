@@ -11,3 +11,7 @@ This implementation guide is a work in progress, and its quality and utility dep
 
 1. The <a href="StructureDefinition-ext-EncounterReference.html">EncounterReference extension</a>.
 2. The <a href="StructureDefinition-ACP-Communciation.html">Communication profile</a> for xxx.
+
+
+### Dependencies
+{% include dependency-table.xhtml %}
