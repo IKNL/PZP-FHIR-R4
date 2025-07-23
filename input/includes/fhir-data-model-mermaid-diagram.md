@@ -51,6 +51,10 @@ flowchart TB
         ACPHealthProfessionalPractitionerRole
     end
 
+    subgraph "Procedure"
+        ACPProcedure
+    end
+
     subgraph "RelatedPerson"
         ACPContactPerson
     end
@@ -70,6 +74,7 @@ flowchart TB
     class ACPPatient C1
     class ACPHealthProfessionalPractitioner C1
     class ACPHealthProfessionalPractitionerRole C1
+    class ACPProcedure C3
     class ACPContactPerson C1
 
     %% ---- Resource Type References ----
@@ -90,5 +95,9 @@ flowchart TB
     Observation -- "performer" --> PractitionerRole
     Patient -- "contact.extension" --> RelatedPerson
     PractitionerRole -- "practitioner" --> Practitioner
+    Procedure -- "encounter" --> Encounter
+    Procedure -- "performer, subject" --> Patient
+    Procedure -- "performer" --> PractitionerRole
+    Procedure -- "performer" --> RelatedPerson
     RelatedPerson -- "patient" --> Patient
 ```

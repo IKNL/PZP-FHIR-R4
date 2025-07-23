@@ -192,8 +192,8 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 630 | &emsp;BeginDatum | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `timingPeriod.start`  |
 | 631 | &emsp;EindDatum | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `timingPeriod.end`  |
 | 632 | &emsp;Toelichting | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `note.text`  |
-| 633 | &emsp;Locatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `extension[location]`  |
-| 635 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `extension[healthProfessional]`  |
+| 633 | &emsp;Locatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `extension[location].value[x]`  |
+| 635 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `extension[healthProfessional].value[x]`  |
 | 636 | &emsp;&emsp;Zorgverlener | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | ``  |
 | 637 | Afspraak uitzetten ICD (BehandelAanwijzing2) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | ``  |
 | 638 | &emsp;Afspraak uitzetten ICD (BehandelBesluit) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.type`  |
@@ -280,4 +280,6 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 
 ##### Overview of Orphan Mappings
 
-No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).
+| ID | Resource | FHIR element |
+|---|---|---|
+| 000 | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | `` |

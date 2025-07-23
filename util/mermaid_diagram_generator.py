@@ -21,6 +21,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         "DeviceUseStatement": "ACP Supporting information",
         "Device": "ACP Supporting information",
         "Encounter": "ACP Consultation",
+        "Procedure": "ACP Consultation",
     }
 
     category_styles = {
