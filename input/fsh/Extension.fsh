@@ -21,6 +21,7 @@ Context: Patient
 * extension[legallyCapableComment].value[x] ^definition = "A comment regarding the patient's legal capacity regarding medical treatment decisions."
 * extension[legallyCapableComment].value[x] ^alias = "WilsbekwaamToelichting"
 
+
 Extension: ExtEncounterReference
 Id: ext-EncounterReference
 Title: "ext Encounter Reference"

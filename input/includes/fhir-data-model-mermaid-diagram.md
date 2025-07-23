@@ -10,6 +10,10 @@ flowchart TB
     classDef C4 fill:#f2f2f2,stroke:#cccccc,color:#000
 
     %% ---- Subgraph Definitions ----
+    subgraph "Communication"
+        ACPCommunication
+    end
+
     subgraph "Consent"
         ACPAdvanceDirective
         ACPTreatmentDirective
@@ -60,6 +64,7 @@ flowchart TB
     end
 
     %% ---- Style Assignments ----
+    class ACPCommunication C2
     class ACPAdvanceDirective C0
     class ACPTreatmentDirective C0
     class ACPMedicalDeviceProductICD C2
@@ -78,6 +83,8 @@ flowchart TB
     class ACPContactPerson C1
 
     %% ---- Resource Type References ----
+    Communication -- "recipient, subject" --> Patient
+    Communication -- "sender" --> PractitionerRole
     Consent -- "extension" --> Encounter
     Consent -- "patient, provision.actor" --> Patient
     Consent -- "provision.actor" --> PractitionerRole

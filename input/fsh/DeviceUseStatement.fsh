@@ -10,6 +10,7 @@ Description: "Medical devices are any internally implanted and external devices 
 * subject only Reference(ACPPatient)
 * device only Reference(ACPMedicalDeviceProductICD or http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product)
 
+
 Mapping: MapACPMedicalDevice
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -26,6 +27,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * bodySite -> "626" "Locatie"
 * bodySite.extension[laterality].valueCodeableConcept -> "627" "Lateraliteit"
 * note.text -> "632" "Toelichting"
+
 
 Instance: F1-ACP-MedicalDevice-ICD
 InstanceOf: ACPMedicalDevice

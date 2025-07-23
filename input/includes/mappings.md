@@ -259,6 +259,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 727 | &emsp;&emsp;Contactpersoon | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 728 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 729 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
+| 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? | Communication (<a href="StructureDefinition-ACP-Communication-responsibility-to-discuss-treatment-agreements.html">ACPCommunicationResponsibilityToDiscussTreatmentAgreements</a>) | ``  |
 
 
 ##### Overview of Unmapped Elements
@@ -274,7 +275,6 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 731 | Heeft de patient eerder behandelafspraken vastgelegd? |
 | 732 | Toelichting |
 | 733 | Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring? |
-| 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? |
 | 735 | Patient gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners |
 
 
