@@ -20,6 +20,8 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "690" "Euthanasieverklaring (Wilsverklaring)"
 * -> "700" "Keuze orgaandonatie vastgelegd (Wilsverklaring)"
 * -> "721" "Eerder vastgelegde behandelafspraken (Wilsverklaring)"
+* -> "610" "Wilsverklaring"
+* -> "645" "Wilsverklaring"
 * extension[comment].value[x] -> "698" "Toelichting"
 * extension[comment].value[x] -> "708" "Toelichting"
 * extension[comment].value[x] -> "729" "Toelichting"
@@ -32,9 +34,9 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * sourceAttachment -> "697" "WilsverklaringDocument"   
 * sourceAttachment -> "707" "WilsverklaringDocument"   
 * sourceAttachment -> "728" "WilsverklaringDocument"   
-* provision.actor[representative].reference -> "693" "Vertegenwoordiger"
+* provision.actor[representative].reference -> "695" "Vertegenwoordiger"
 * provision.actor[representative].reference -> "705" "Vertegenwoordiger"
-* provision.actor[representative].reference -> "705" "Vertegenwoordiger"
+* provision.actor[representative].reference -> "726" "Vertegenwoordiger"
 * provision.code -> "691" "Euthanasieverklaring (WilsverklaringType)"
 * provision.code -> "701" "Orgaandonatie (WilsverklaringType)"
 * provision.code -> "722" "WilsverklaringType"
@@ -48,7 +50,9 @@ Description: "A treatment directive contains a joint decision between a health p
 * extension contains
     ExtEncounterReference  named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
+* extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
 * patient only Reference(ACPPatient)
+* source[x][sourceReference] only Reference(ACPAdvanceDirective)
 * provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." //TODO check if we want a ConceptMap? 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
@@ -62,6 +66,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "602" "Behandelgrens (BehandelAanwijzing)"
 * modifierExtension[specificationOther] -> "605" "SpecificatieAnders"
 * extension[comment].value[x] -> "618" "Toelichting"
+* extension[additionalAdvanceDirective].valueReference -> "644" "Wilsverklaring"
 * dateTime -> "606" "MeestRecenteBespreekdatum"
 * sourceReference -> "609" "Wilsverklaring"
 * provision.type -> "603" "BehandelBesluit"

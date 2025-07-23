@@ -23,6 +23,8 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * timingPeriod.end -> "631" "EndDate"
 * reasonReference[indication] -> "628" "Indicatie"
 * bodySite -> "625" "AnatomischeLocatie"
+* bodySite -> "626" "Locatie"
+* bodySite.extension[laterality].valueCodeableConcept -> "627" "Lateraliteit"
 * note.text -> "632" "Toelichting"
 
 Instance: F1-ACP-MedicalDevice-ICD
