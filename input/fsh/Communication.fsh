@@ -28,6 +28,7 @@ Usage: #example
 * topic = $snomed#223449006 "Recommendation regarding contacting someone (procedure)"
 * topic.text = "Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * status = #completed
+* sent = "2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * recipient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * sender = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
