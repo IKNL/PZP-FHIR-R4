@@ -17,6 +17,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * udiCarrier[gs1UdiCarrier].carrierHRF -> "622" "ProductID"
 * udiCarrier[hibcUdiCarrier].carrierHRF -> "622" "ProductID"
 * type -> "623" "ProductType van ICD"
+* type -> "619" "Heeft de patient een ICD?"
 * note.text -> "624" "ProductOmschrijving"
 
 

@@ -3,6 +3,13 @@ import re
 import argparse
 import json
 
+# --- Configuration ---
+# Add any concept IDs here that you want to exclude from the "Unmapped Elements" table.
+UNMAPPED_IGNORE_LIST = [
+    '357', '360', '447', '450', '484', '487',
+    '520', '523', '560', '563'
+]
+
 def find_concepts_with_depth(data, depth=0):
     """
     Recursively finds all 'concept' objects and their nesting depth.
@@ -35,7 +42,6 @@ def extract_all_json_ids(json_file_path):
         print(f"Error: Could not decode JSON from '{json_file_path}'. Make sure it is a valid JSON file.")
         return None
 
-    # Find the specific root concept
     root_concept_node = None
     for concept, depth in find_concepts_with_depth(data):
         if concept.get('id') == root_concept_id:
@@ -46,7 +52,6 @@ def extract_all_json_ids(json_file_path):
         print(f"Error: Root concept with ID '{root_concept_id}' not found in the JSON file.")
         return []
 
-    # Process only the children of the found root concept, starting their depth at 0
     for concept, depth in find_concepts_with_depth(root_concept_node, depth=0):
         concept_id = concept.get('id')
         if concept_id and concept_id.startswith(oid_prefix):
@@ -94,9 +99,8 @@ def extract_profile_ids(fsh_directory):
 
 def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_path):
     """
-    Parses all .fsh files in a directory, extracts mapping information,
-    and generates Markdown tables with indentation and hyperlinks, with the
-    order of the mappings following the order in the JSON file.
+    Parses all .fsh files, extracts mappings, and generates Markdown tables
+    for mapped, unmapped, and orphan mappings, handling multiple mappings per ID.
     """
     mapping_rule_pattern = re.compile(r'^\*\s*(.*?)\s*->\s*"([^"]+)"(?:\s*"([^"]+)")?')
     top_level_keyword_pattern = re.compile(r"^(Alias|Profile|Extension|Logical|Resource|Mapping|ValueSet|CodeSystem|Instance|RuleSet):")
@@ -106,6 +110,8 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
     if json_concepts is None:
         return
 
+    json_concept_ids = {concept['id'] for concept in json_concepts}
+    # Change mappings_map to hold a list of mappings for each ID
     mappings_map = {}
 
     print("Scanning for Mappings...")
@@ -113,26 +119,24 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
         print(f"Error: Input directory '{fsh_directory}' not found.")
         return
 
+    total_mappings_count = 0
     for filename in sorted(os.listdir(fsh_directory)):
         if filename.endswith(".fsh"):
             resource_type_from_file = os.path.splitext(filename)[0]
             filepath = os.path.join(fsh_directory, filename)
             print(f"Processing file: {filename} (ResourceType: {resource_type_from_file})...")
             
-            in_mapping_block = False
-            current_source_profile = None
+            in_mapping_block, current_source_profile = False, None
             
             with open(filepath, 'r', encoding='utf-8') as f:
                 for line in f:
                     stripped_line = line.strip()
 
                     if (top_level_keyword_pattern.match(stripped_line) and not stripped_line.startswith("Mapping:")) or not stripped_line:
-                        in_mapping_block = False
-                        current_source_profile = None
+                        in_mapping_block, current_source_profile = False, None
                     
                     if stripped_line.startswith("Mapping:"):
-                        in_mapping_block = True
-                        current_source_profile = None
+                        in_mapping_block, current_source_profile = True, None
                         continue
 
                     if not in_mapping_block:
@@ -147,12 +151,16 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
                     if current_source_profile:
                         rule_match = mapping_rule_pattern.match(line)
                         if rule_match:
-                            fhir_element = rule_match.group(1).strip()
-                            functional_id = rule_match.group(2).strip()
+                            fhir_element, functional_id, _ = rule_match.groups()
+                            mapping_details = (resource_type_from_file, current_source_profile, fhir_element.strip())
                             
-                            mappings_map[functional_id] = (resource_type_from_file, current_source_profile, fhir_element)
+                            # If the ID is new, create a list. Otherwise, append to the existing list.
+                            if functional_id not in mappings_map:
+                                mappings_map[functional_id] = []
+                            mappings_map[functional_id].append(mapping_details)
+                            total_mappings_count += 1
 
-    print(f"\nFound a total of {len(mappings_map)} mapping entries.")
+    print(f"\nFound a total of {total_mappings_count} mapping entries.")
     
     output_dir = os.path.dirname(output_markdown_file)
     if output_dir and not os.path.exists(output_dir):
@@ -166,27 +174,29 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
 
         mapped_ids = set()
         unmapped_concepts = []
+        rows_written = 0
 
         for concept in json_concepts:
             functional_id = concept['id']
             if functional_id in mappings_map:
-                resource_type, profile_name, fhir_element = mappings_map[functional_id]
-                
-                depth = concept['depth']
-                indentation = "&emsp;" * depth if depth > 0 else ""
-                dataset_name = indentation + concept['name']
-                
-                profile_id = profile_ids.get(profile_name, profile_name)
-                resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
-                f.write(f"| {functional_id} | {dataset_name} | {resource_display} | `{fhir_element}`  |\n")
+                # Iterate over all mappings for this ID
+                for mapping in mappings_map[functional_id]:
+                    resource_type, profile_name, fhir_element = mapping
+                    
+                    depth = concept['depth']
+                    indentation = "&emsp;" * depth if depth > 0 else ""
+                    dataset_name = indentation + concept['name']
+                    
+                    profile_id = profile_ids.get(profile_name, profile_name)
+                    resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
+                    f.write(f"| {functional_id} | {dataset_name} | {resource_display} | `{fhir_element}`  |\n")
+                    rows_written += 1
                 mapped_ids.add(functional_id)
-            else:
+            elif functional_id not in UNMAPPED_IGNORE_LIST:
                 unmapped_concepts.append(concept)
                 
-        if not mapped_ids:
-            # Use a Markdown table row for the message
-            f.write("| | No mappings were found. | | |\n")
-
+        if rows_written == 0:
+            f.write("| | No mappings were found matching the JSON dataset. | | |\n")
 
         f.write("\n\n##### Overview of Unmapped Elements\n\n")
         if unmapped_concepts:
@@ -195,30 +205,33 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
             for concept in unmapped_concepts:
                 f.write(f"| {concept['id']} | {concept['name']} |\n")
         else:
-            f.write("All relevant elements from the JSON dataset are mapped.\n")
-    
+            f.write("All relevant elements from the JSON dataset are mapped or ignored.\n")
+
+        f.write("\n\n##### Overview of Orphan Mappings\n\n")
+        orphan_mappings = {fid: data for fid, data in mappings_map.items() if fid not in json_concept_ids}
+        
+        if orphan_mappings:
+            f.write("| ID | Resource | FHIR element |\n")
+            f.write("|---|---|---|\n")
+            for functional_id, mappings in sorted(orphan_mappings.items()):
+                for mapping in mappings:
+                    resource_type, profile_name, fhir_element = mapping
+                    profile_id = profile_ids.get(profile_name, profile_name)
+                    resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
+                    f.write(f"| {functional_id} | {resource_display} | `{fhir_element}` |\n")
+        else:
+            f.write("No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).\n")
+
     print(f"Successfully generated Markdown file at: {output_markdown_file}")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Extracts FHIR Shorthand (FSH) mappings to a Markdown file and checks for unmapped concepts.",
+        description="Extracts FHIR Shorthand (FSH) mappings to a Markdown file.",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument(
-        '--fsh-dir',
-        default='input/fsh',
-        help="The directory containing the .fsh source files.\n(default: 'input/fsh')"
-    )
-    parser.add_argument(
-        '--output-file',
-        default='input/includes/mappings.md',
-        help="The path for the output Markdown file.\n(default: 'input/pagecontent/mappings.md')"
-    )
-    parser.add_argument(
-        '--json-file',
-        default='util/DS_pzp_dataset_vastleggen_(download_2025-07-17T15_40_47)-zib2020.json',
-        help="Path to the JSON dataset file to check for unmapped concepts."
-    )
+    parser.add_argument('--fsh-dir', default='input/fsh', help="Directory containing .fsh files.\n(default: 'input/fsh')")
+    parser.add_argument('--output-file', default='input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'input/includes/mappings.md')")
+    parser.add_argument('--json-file', default='util/DS_pzp_dataset_vastleggen_(download_2025-07-17T15_40_47)-zib2020.json', help="Path to the JSON dataset file.")
     args = parser.parse_args()
     extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file)
 
