@@ -22,7 +22,7 @@ Context: Patient
 * extension[legallyCapableComment].value[x] ^alias = "WilsbekwaamToelichting"
 
 Extension: ExtEncounterReference
-Id: ext-ExtEncounterReference
+Id: ext-EncounterReference
 Title: "ext Encounter Reference"
 Description: "An extension to link the Encounter during which the Consent, Goal or DeviceUseStatement was created or to which the creation is tightly associated."
 Context: Consent, Goal, DeviceUseStatement

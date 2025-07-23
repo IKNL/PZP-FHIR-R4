@@ -1,3 +1,4 @@
+#### Data Model Overview Diagram
 ```mermaid
 flowchart TB
 
@@ -10,33 +11,27 @@ flowchart TB
 
     %% ---- Subgraph Definitions ----
     subgraph "Consent"
-        direction TB
         ACPAdvanceDirective
         ACPTreatmentDirective
     end
 
     subgraph "Device"
-        direction TB
         ACPMedicalDeviceProductICD
     end
 
     subgraph "DeviceUseStatement"
-        direction TB
         ACPMedicalDevice
     end
 
     subgraph "Encounter"
-        direction TB
         ACPEncounter
     end
 
     subgraph "Goal"
-        direction TB
         ACPMedicalPolicyGoal
     end
 
     subgraph "Observation"
-        direction TB
         ACPOrganDonationChoiceRegistration
         ACPOtherImportantInformation
         ACPPositionRegardingEuthanasia
@@ -45,22 +40,18 @@ flowchart TB
     end
 
     subgraph "Patient"
-        direction TB
         ACPPatient
     end
 
     subgraph "Practitioner"
-        direction TB
         ACPHealthProfessionalPractitioner
     end
 
     subgraph "PractitionerRole"
-        direction TB
         ACPHealthProfessionalPractitionerRole
     end
 
     subgraph "RelatedPerson"
-        direction TB
         ACPContactPerson
     end
 

@@ -1,4 +1,6 @@
-##### Mappings by dataset ID
+#### Mappings by dataset ID
+
+This table provides an overview of all dataset elements that are mapped to FHIR profiles in this implementation guide.
 
 | ID | Dataset name | Resource | FHIR element |
 |---|---|---|---|

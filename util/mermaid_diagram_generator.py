@@ -120,6 +120,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
                 resource_references[(source_resource, target_resource)].add(element_path)
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
+        f.write("#### Data Model Overview Diagram\n")
         f.write("```mermaid\n")
         f.write("flowchart TB\n\n")
 
@@ -134,7 +135,6 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         f.write("    %% ---- Subgraph Definitions ----\n")
         for resource_type, profile_list in sorted(resource_to_profiles.items()):
             f.write(f'    subgraph "{resource_type}"\n')
-            f.write('        direction TB\n')
             for profile_name in sorted(profile_list):
                 f.write(f'        {profile_name}\n')
             f.write("    end\n\n")

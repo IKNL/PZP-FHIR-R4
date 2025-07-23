@@ -79,7 +79,8 @@ dependencies:
 menu:
   Home: index.html
   PZP Functioneel Ontwerp: functioneel-ontwerp.html
-  PZP FHIR Specification: FHIR-specification.html
+  Data Model: data-model.html
+  Data Exchange: data-exchange.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

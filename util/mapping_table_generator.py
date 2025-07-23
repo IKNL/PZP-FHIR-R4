@@ -168,7 +168,8 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
         print(f"Created output directory: {output_dir}")
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
-        f.write("##### Mappings by dataset ID\n\n")
+        f.write("#### Mappings by dataset ID\n\n")
+        f.write("This table provides an overview of all dataset elements that are mapped to FHIR profiles in this implementation guide.\n\n")
         f.write("| ID | Dataset name | Resource | FHIR element |\n")
         f.write("|---|---|---|---|\n")
 
