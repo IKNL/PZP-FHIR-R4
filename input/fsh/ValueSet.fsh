@@ -91,6 +91,7 @@ Description: "Valueset for preferred place of death"
 * $snomed#284546000 ^designation[=].use = $snomed#900000000000013009 "Synonym"
 * $snomed#284546000 ^designation[=].value = "hospice"
 
+
 ValueSet: ACPEuthanasiaStatementVS
 Id: ACP-EuthanasiaStatement
 Title: "Euthanasia Statement"
@@ -104,6 +105,7 @@ Description: "What is the patient's position regarding euthanasia and does the p
 * $snomed#340201000146103 "Wenst geen euthanasie"
 * $snomed#340191000146100 "Geen euthanasieverklaring, zou wel verzoek kunnen doen in bepaalde situaties"
 
+
 ValueSet: MedicalPolicyGoalVS
 Id: ACP-MedicalPolicyGoal
 Title: "Most Important Agreed-upon Goal of Medical Policy"
@@ -113,12 +115,14 @@ Description: "A set of codes representing the primary agreed-upon goal of a pati
 * $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
 * $snomed#713148004 "Voorkomen en behandelen van symptomen (verrichting)"
 
+
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
 Title: "MedicalDevice ProductType ICD"
 Description: "MedicalDevice ProductType ICD"
 * insert MetaRules
 * include codes from system urn:oid:2.16.840.1.1138836.96 where concept descendent-of #72506001
+
 
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS

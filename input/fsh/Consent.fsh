@@ -12,6 +12,7 @@ Description: "A living will is a verbal or written description of the patient’
 - For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss with Lonneke if we need a custom profile or not.
 * patient only Reference(ACPPatient)
 
+
 Mapping: MapACPAdvanceDirective
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -41,6 +42,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.code -> "701" "Orgaandonatie (WilsverklaringType)"
 * provision.code -> "722" "WilsverklaringType"
 
+
 Profile: ACPTreatmentDirective
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2
 Id: ACP-TreatmentDirective
@@ -53,7 +55,7 @@ Description: "A treatment directive contains a joint decision between a health p
 * extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
 * patient only Reference(ACPPatient)
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
-* provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." //TODO check if we want a ConceptMap? 
+* provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
@@ -74,7 +76,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.period.end -> "607" "DatumBeeindigd"
 * provision.actor[agreementParty] -> "611" "AfspraakPartij"
 * provision.actor[agreementParty].reference -> "612" "Patient"
-* provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger" // TODO make sure this reference is also set in the diagram
+* provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
 * provision.code -> "604" "Behandeling"
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
@@ -91,6 +93,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "649" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "651" "Zorgverlener"
 * provision.code.text -> "639" "Behandeling van ICD (Behandeling)" 
+
 
 Instance: F1-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
@@ -111,6 +114,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#305351004 "Admit to ITU"
 
+
 Instance: F1-ACP-TreatmentDirective-89666000
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 89666000"
@@ -129,6 +133,7 @@ Usage: #example
 * provision.actor[agreementParty].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty].reference.type = "PractitionerRole"
 * provision.code = $snomed#89666000 "Cardiopulmonary resuscitation"
+
 
 Instance: F1-ACP-TreatmentDirective-40617009
 InstanceOf: ACPTreatmentDirective
@@ -149,6 +154,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#40617009 "Artificial respiration"
 
+
 Instance: F1-ACP-TreatmentDirective-116762002
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 116762002"
@@ -167,6 +173,7 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#116762002 "administration of blood product"
+
 
 Instance: F1-ACP-TreatmentDirective-281789004
 InstanceOf: ACPTreatmentDirective
@@ -187,6 +194,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#281789004 "Antibiotic therapy"
 
+
 Instance: F1-ACP-TreatmentDirective-32485007
 InstanceOf: ACPTreatmentDirective
 Title: "F1 ACP TreatmentDirective 32485007"
@@ -205,6 +213,7 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#32485007 "Hospital admission"
+
 
 Instance: F1-ACP-TreatmentDirective-400231000146108
 InstanceOf: ACPTreatmentDirective
@@ -227,7 +236,6 @@ Usage: #example
 * provision.code = $v3-NullFlavor#OTH
 * provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
 // MM: is this necessary, as there is also an option 'Other' included?
-
 
 
 Instance: F2-ACP-TreatmentDirective-305351004

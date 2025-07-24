@@ -10,6 +10,7 @@ Description: "A contact is a person not being a healthcare professional who is i
 * relationship[role] 1..* 
 * relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
+
 Mapping: MapACPContactPerson
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -112,7 +113,10 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * name[nameInformation].suffix -> "566" "Titels"
 * relationship[role] -> "588" "Rol"
 * relationship[relationship] -> "589" "Relatie"
-// TODO - HK Besloten: Bij gesprek gevoerd in bijzijn van is de kardinaliteit op relationship 0..* terwijl bij eerste contactpersoon en wettelijk vertegenwoordiger hier 1..* staat. Mogen we in het profiel de kardinaliteit 0..* aanhouden zodat we met 1 profiel voor contactpersonen uitkomen. Als dit niet kan hebben we twee keer hetzelfde profiel nodig met een andere kardinaliteit. We kunnen via conformance statements oid. wel aangeven dat deze gevuld moet zijn in het geval eerste contactpersoon en wettelijk vertegenwoordiger. 
+// TODO - HK Besloten: Bij gesprek gevoerd in bijzijn van is de kardinaliteit op relationship 0..* terwijl bij eerste contactpersoon en wettelijk vertegenwoordiger hier 1..* staat. 
+// Mogen we in het profiel de kardinaliteit 0..* aanhouden zodat we met 1 profiel voor contactpersonen uitkomen. Als dit niet kan hebben we twee keer hetzelfde profiel nodig met een andere kardinaliteit. We kunnen via conformance statements oid. 
+// wel aangeven dat deze gevuld moet zijn in het geval eerste contactpersoon en wettelijk vertegenwoordiger. 
+
 
 Instance: F1-ACP-ContactPerson-HendrikHartman
 InstanceOf: ACPContactPerson

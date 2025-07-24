@@ -10,6 +10,7 @@ Description: "What, according to the patient, should healthcare providers know t
 * value[x] only string
 * method = $snomed#370819000 // TODO -- check if we want this code to be present and if it actually maps to Observation.method Display: "Vaststellen van persoonlijke waarden en wensen met betrekking tot zorg" 
 
+
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -20,6 +21,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * valueString -> "656" "Wens en verwachting patient ([MetingWaarde])"
 * method -> "657" "Vaststellen wens en verwachting patiënt ([MeetMethode])"
 * effective[x] -> "660" "[MeetDatumBeginTijd]"
+
 
 Instance: F1-ACP-SpecificCareWishes
 InstanceOf: ACPSpecificCareWishes
@@ -35,6 +37,8 @@ Usage: #example
 * method = $snomed#370819000
 
 
+// TODO: in R5/build of FHIR at CarePlan this is noted: Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken. This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive. Informal advance directives could be represented as a Goal, such as "I want to die at home."
+// Should be map this to Goal resource?
 Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
@@ -47,6 +51,7 @@ Description: "The preferred place of death. This is the place where the patient 
 * value[x] only CodeableConcept 
 * value[x] from ACPPreferredPlaceOfDeathVS (extensible)
 
+
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -57,6 +62,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * valueCodeableConcept -> "668" "Voorkeursplek ([MetingWaarde])"
 * effective[x] -> "672" "[MeetDatumBeginTijd]"
 * note.text -> "674" "[Toelichting]"
+
 
 Instance: F1-ACP-PreferredPlaceOfDeath-Unknown
 InstanceOf: ACPPreferredPlaceOfDeath
@@ -76,6 +82,7 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 
+
 Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
@@ -91,6 +98,7 @@ Description: "Position Regarding Euthanasia"
 // MM binding strength added: required. TODO: change this
 * note.text ^definition = "Comment accompanying position regarding euthanesia."
 
+
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -101,6 +109,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * valueCodeableConcept -> "680" "Euthanasie standpunt ([MetingWaarde])"
 * effective[x] -> "684" "[MeetDatumBeginTijd]"
 * note.text -> "686" "[Toelichting]"
+
 
 Instance: F1-ACP-PositionRegardingEuthanasia-Unknown
 InstanceOf: ACPPositionRegardingEuthanasia
@@ -118,6 +127,7 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 
+
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
@@ -133,6 +143,7 @@ Description: "Donor donation choice registration in donor register."
 * value[x] from ACPYesNoUnknownVS (required) // TODO - there is no binding strenght in dataset.
 //MM: binding added in dataset, indeed required
 
+
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
@@ -142,6 +153,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * code -> "747" "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
 * valueCodeableConcept -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
 * effective[x] -> "752" "[MeetDatumBeginTijd]"
+
 
 Instance: F1-ACP-OrganDonationChoiceRegistration-Yes
 InstanceOf: ACPOrganDonationChoiceRegistration
