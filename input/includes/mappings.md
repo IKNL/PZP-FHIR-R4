@@ -4,6 +4,16 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 
 | ID | Dataset name | Resource | FHIR element |
 |---|---|---|---|
+| 808 | Contact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | ``  |
+| 809 | &emsp;ContactType | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `class`  |
+| 810 | &emsp;ContactMet | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `participant`  |
+| 842 | &emsp;&emsp;Gesprek gevoerd door (Zorgverlener) | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `participant[healthProfessional].individual`  |
+| 814 | &emsp;BeginDatumTijd | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
+| 819 | &emsp;&emsp;Verrichting | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonReference[procedure]`  |
+| 820 | &emsp;&emsp;&emsp;Verrichting | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | ``  |
+| 827 | &emsp;&emsp;&emsp;&emsp;PZP gesprek (VerrichtingType) | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | `code`  |
+| 822 | &emsp;&emsp;ToelichtingRedenContact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonReference.extension[commentContactReason].value[x]`  |
+| 822 | &emsp;&emsp;ToelichtingRedenContact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonCode[deviatingResult].extension[commentContactReason].value[x]`  |
 | 736 | Datum van invullen | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
 | 351 | Patient | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | ``  |
 | 352 | &emsp;Naamgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `name`  |
@@ -156,7 +166,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 590 | Belangrijkste doel van behandeling ([Meting]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | ``  |
 | 591 | &emsp;Belangrijkste doel van behandeling ([MetingNaam]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | ``  |
 | 592 | &emsp;Doel ([MetingWaarde]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `description`  |
-| 596 | &emsp;[MeetDatumBeginTijd] | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `statusDate`  |
+| 596 | &emsp;[MeetDatumBeginTijd] | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `startDate`  |
 | 598 | &emsp;[Toelichting] | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `note.text`  |
 | 602 | Behandelgrens (BehandelAanwijzing2) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | ``  |
 | 603 | &emsp;BehandelBesluit | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.type`  |
@@ -196,8 +206,9 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 635 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `extension[healthProfessional].value[x]`  |
 | 636 | &emsp;&emsp;Zorgverlener | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | ``  |
 | 637 | Afspraak uitzetten ICD (BehandelAanwijzing2) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | ``  |
+| 638 | &emsp;Afspraak uitzetten ICD (BehandelBesluit) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `modifierExtension[specificationOther].value[x]`  |
 | 638 | &emsp;Afspraak uitzetten ICD (BehandelBesluit) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.type`  |
-| 639 | &emsp;Behandeling van ICD (Behandeling) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.code.text`  |
+| 639 | &emsp;Behandeling van uitzetten ICD (Behandeling) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.code.text`  |
 | 641 | &emsp;MeestRecenteBespreekdatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `dateTime`  |
 | 642 | &emsp;DatumBeeindigd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.period.end`  |
 | 643 | &emsp;RedenBeeindigd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.extension[reasonForEnding]`  |
@@ -215,16 +226,19 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 654 | Specifieke wensen ([Meting]) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | ``  |
 | 655 | &emsp;Wens en verwachting patient ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `code`  |
 | 656 | &emsp;Wens en verwachting patient ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `valueString`  |
+| 656 | &emsp;Wens en verwachting patient ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `dataAbsentReason`  |
 | 657 | &emsp;Vaststellen wens en verwachting patiënt ([MeetMethode]) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `method`  |
 | 660 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `effective[x]`  |
 | 666 | Gewenste plek van overlijden ([Meting]) | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | ``  |
 | 667 | &emsp;Gewenste plek van overlijden ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | `code`  |
 | 668 | &emsp;Voorkeursplek ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | `valueCodeableConcept`  |
+| 668 | &emsp;Voorkeursplek ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | `dataAbsentReason`  |
 | 672 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | `effective[x]`  |
 | 674 | &emsp;[Toelichting] | Observation (<a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACPPreferredPlaceOfDeath</a>) | `note.text`  |
 | 678 | Euthanasie standpunt ([Meting]) | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | ``  |
 | 679 | &emsp;Euthanasie standpunt ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `code`  |
 | 680 | &emsp;Euthanasie standpunt ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `valueCodeableConcept`  |
+| 680 | &emsp;Euthanasie standpunt ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `dataAbsentReason`  |
 | 684 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `effective[x]`  |
 | 686 | &emsp;[Toelichting] | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `note.text`  |
 | 690 | Euthanasieverklaring (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
@@ -238,6 +252,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 746 | Keuze orgaandonatie vastgelegd in donorregister? ([Meting]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | ``  |
 | 747 | &emsp;Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `code`  |
 | 748 | &emsp;Keuze orgaandonatie in donorregister ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `valueCodeableConcept`  |
+| 748 | &emsp;Keuze orgaandonatie in donorregister ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `dataAbsentReason`  |
 | 752 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `effective[x]`  |
 | 700 | Keuze orgaandonatie vastgelegd (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
 | 701 | &emsp;Orgaandonatie (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.code`  |
@@ -250,6 +265,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 709 | Wat verder nog belangrijk is ([Meting]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | ``  |
 | 710 | &emsp;Wat verder nog belangrijk is ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `code`  |
 | 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `valueString`  |
+| 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `dataAbsentReason`  |
 | 715 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `effective[x]`  |
 | 721 | Eerder vastgelegde behandelafspraken (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
 | 722 | &emsp;WilsverklaringType | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.code`  |
@@ -259,7 +275,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 727 | &emsp;&emsp;Contactpersoon | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 728 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 729 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
-| 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? | Communication (<a href="StructureDefinition-ACP-Communication-responsibility-to-discuss-treatment-agreements.html">ACPCommunicationResponsibilityToDiscussTreatmentAgreements</a>) | ``  |
+| 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? | Communication (<a href="StructureDefinition-ACP-Communication.html">ACPCommunication</a>) | ``  |
 
 
 ##### Overview of Unmapped Elements
@@ -280,6 +296,4 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 
 ##### Overview of Orphan Mappings
 
-| ID | Resource | FHIR element |
-|---|---|---|
-| 000 | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | `` |
+No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).

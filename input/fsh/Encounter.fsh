@@ -20,9 +20,18 @@ Id: pall-izppz-v2025-03-11
 Title: "PZP dataset"
 Source: ACPEncounter
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+* -> "808" "Contact"
+* class -> "809" "ContactType"
 * subject -> "514" "Gesprek gevoerd in bijzijn van (Patient)" // In R5 patient is added to .participant.individual. For now, if present at .subject, we assume the patient was present. Also clear from the definition of the subject element: "The patient or group present at the encounter" 
+* participant -> "810" "ContactMet"
 * participant[contactPerson].individual -> "554" "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+* participant[healthProfessional].individual -> "842" "Gesprek gevoerd door (Zorgverlener)"
+* period.start -> "814" "BeginDatumTijd"
 * period.start -> "736" "Datum van invullen"
+* reasonReference[procedure] -> "819" "Verrichting"
+* reasonReference.extension[commentContactReason].value[x] -> "822" "ToelichtingRedenContact"
+* reasonCode[deviatingResult].extension[commentContactReason].value[x] -> "822" "ToelichtingRedenContact"
+
 
 Instance: F1-ACP-Encounter-01-10-2020
 InstanceOf: ACPEncounter
@@ -40,5 +49,6 @@ Usage: #example
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"
+* reasonReference = Reference(F1-ACP-Procedure-01-10-2020) "Procedure, ACP"
 
 

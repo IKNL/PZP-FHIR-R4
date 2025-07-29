@@ -7,7 +7,7 @@ import json
 # Add any concept IDs here that you want to exclude from the "Unmapped Elements" table.
 UNMAPPED_IGNORE_LIST = [
     '357', '360', '447', '450', '484', '487',
-    '520', '523', '560', '563'
+    '520', '523', '560', '563', '816'
 ]
 
 def find_concepts_with_depth(data, depth=0):
@@ -232,7 +232,7 @@ def main():
     )
     parser.add_argument('--fsh-dir', default='input/fsh', help="Directory containing .fsh files.\n(default: 'input/fsh')")
     parser.add_argument('--output-file', default='input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'input/includes/mappings.md')")
-    parser.add_argument('--json-file', default='util/DS_pzp_dataset_vastleggen_(download_2025-07-17T15_40_47)-zib2020.json', help="Path to the JSON dataset file.")
+    parser.add_argument('--json-file', default='util/DS_pzp_dataset_raadplegen_(download_2025-07-29T11_58_18).json', help="Path to the JSON dataset file.")
     args = parser.parse_args()
     extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file)
 
