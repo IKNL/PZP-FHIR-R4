@@ -55,7 +55,9 @@ The below listed search request show how all the relevant ACP **Consultation**, 
 ```
 Consultation
 
-1 GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
+1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
+
+1b GET [base]/Encounter?patient=[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include:Encounter:reason-reference
 
 Agreements
 
@@ -74,22 +76,25 @@ Supporting information
 7 GET [base]/Communication?patient=[id]&reason-code=http://snomed.info/sct|713603004
 ```
 
-1. Retrieves `Procedure` resources that are advance care planning procedures and include the `Encounter` resource in which the advance care planning procedure took place.
-2. Retrieves `Consent` resources that are TreatmentDirectives and include the agreement parties (Patient and/or ContactPersons and HealthProfessionals).
-3. Retrieves `Consent` resources AdvanceDirectives and include the representatives (ContactPersons).
-4. Retrieves `Goal` resources that have a Medical Policy Goal code as `Goal.description`.
-5. Retrieves `Observation` resources that are about specific wishes and plans as defined by profiles defined in the IG.
-6. Retrieves `DeviceUseStatement` resources that have a `Device` that represent an ICD and include the `Device`.
-7. Retrieves `Communicaton` resources that represent all communication events related to the advance care planning procedure.
+1. Both requests are designed to retrieve the same information, but with different approaches:
+    * A) Retrieves `Procedure` resources representing advance care planning procedures and includes the associated `Encounter` resource where the procedure took place.
+    * B) Retrieves `Encounter` resources that list an advance care planning procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
+2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, Contact Persons, and Health Professionals).
+3. Retrieves `Consent` resources for Advance Directives and includes the representatives (Contact Persons).
+4. Retrieves `Goal` resources with a Medical Policy Goal code in the `Goal.description`.
+5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
+6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
+7. Retrieves `Communication` resources representing all communication events related to the advance care planning procedure.
 
-#### Advanced Search Parameters to be supported
+#### Advanced Search Parameters Supported
+
 Custom search parameters:
-* The `reason-code` parameter to search on `Communication.reasonCode`. See the custom `SearchParemeter` resource definition in the artifacts tab.
+* The `reason-code` parameter allows searching on `Communication.reasonCode`. See the custom `SearchParameter` resource definition in the artifacts tab.
 
-The queries above utilize several search parameters types and modifiers:
-
-* `_include`: Used to also return the referenced resources in the same `Bundle`, reducing the need for subsequent API calls.
-* `in`: A modifier that allows searching against a ValueSet. In this client requests mentioned above, it checks if the device's type is in the specified ValueSet of ICD products.
+The queries above use several search parameter types and modifiers:
+* `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
+* `in`: A modifier that enables searching against a ValueSet. In the client requests above, it checks if the device type is included in the specified ValueSet of ICD products.
+* Chained parameters: Used for searching within referenced resources. For example, to find `DeviceUseStatement` resources with a specific `Device`, or `Encounter` resources that have an advance care planning `Procedure` as their reason.
 
 #### Server Response
 
