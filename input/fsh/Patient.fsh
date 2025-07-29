@@ -69,7 +69,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * telecom[emailAddresses].value -> "383" "EmailAdres"
 * telecom[emailAddresses].system -> "384" "EmailSoort"
 * gender -> "387" "Geslacht"
-* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" // TODO - check if reference from ValueSet in dependency (zib / nl-core) resolve correctly. https://nictiz.atlassian.net/browse/ZIBFHIR-356 
+* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" 
 * birthDate -> "386" "Geboortedatum"
 * address -> "364" "Adresgegevens"
 * address.line.extension[streetName].valueString -> "365" "Straat"

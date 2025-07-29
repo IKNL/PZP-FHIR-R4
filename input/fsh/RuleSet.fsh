@@ -7,5 +7,4 @@ RuleSet: MetaRules
 * ^contact.telecom.system = #email
 * ^contact.telecom.value = "info@iknl.nl"
 * ^contact.telecom.use = #work
-// TODO Do we want a copyright statement?
 * ^copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise."

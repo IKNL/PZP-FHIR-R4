@@ -4,7 +4,7 @@ Id: ACP-Communication
 Title: "Communication"
 Description: "Communication events that have taken place in context of Advance Care Planning."
 * insert MetaRules
-* topic ^comment = "For information patient about own responsibility the following text may be added to the `topic.text` element: Informing the patient about their own responsibility to discuss these treatment agreements with relatives." // TODO add code here?
+* topic ^comment = "For information patient about own responsibility the following text may be added to the `topic.text` element: Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * subject only Reference(ACPPatient)
 * recipient only Reference(ACPPatient)
 * sender only Reference(ACPHealthProfessionalPractitionerRole)
@@ -28,7 +28,7 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "dd6d7146-1014-4ef4-9145-e8207364c942"
-* topic = $snomed#223449006 "Recommendation regarding contacting someone (procedure)"
+* topic = $snomed#223449006 "Recommendation to inform someone (procedure)"
 * topic.text = "Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * status = #completed
 * sent = "2020-10-01"

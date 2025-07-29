@@ -9,7 +9,6 @@ Description: "A profile on the FHIR Goal resource to represent the primary, agre
 * extension[encounter].valueReference only Reference(ACPEncounter) 
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
-* category = $snomed#713603004 // "Advance care planning (procedure)" // TODO would be good to add category code or reference to encounter to distingush the ACP made Goal."
 
 Mapping: MapACPMedicalPolicyGoal
 Id: pall-izppz-v2025-03-11
@@ -19,7 +18,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "590" "Belangrijkste doel van behandeling ([Meting])"
 * -> "591" "Belangrijkste doel van behandeling ([MetingNaam])"
 * description -> "592" "Doel ([MetingWaarde])"
-* statusDate -> "596" "[MeetDatumBeginTijd]" // TODO check this if this is ok.
+* startDate -> "596" "[MeetDatumBeginTijd]"
 * note.text -> "598" "[Toelichting]"
 
 
@@ -32,7 +31,6 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
 * lifecycleStatus = #active
-* category = $snomed#713603004 "Advance care planning (procedure)"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * description = $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
 * statusDate = "2020-10-01"

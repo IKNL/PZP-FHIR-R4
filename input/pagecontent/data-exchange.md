@@ -63,7 +63,7 @@ Agreements
 
 3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=[id]&category=http://snomed.info/sct|713603004
+4 GET [base]/Goal?patient=[id]&description:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal
 
 5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
@@ -77,7 +77,7 @@ Supporting information
 1. Retrieves `Procedure` resources that are advance care planning procedures and include the `Encounter` resource in which the advance care planning procedure took place.
 2. Retrieves `Consent` resources that are TreatmentDirectives and include the agreement parties (Patient and/or ContactPersons and HealthProfessionals).
 3. Retrieves `Consent` resources AdvanceDirectives and include the representatives (ContactPersons).
-4. Retrieves `Goal` resources that relate to advance care planning.
+4. Retrieves `Goal` resources that have a Medical Policy Goal code as `Goal.description`.
 5. Retrieves `Observation` resources that are about specific wishes and plans as defined by profiles defined in the IG.
 6. Retrieves `DeviceUseStatement` resources that have a `Device` that represent an ICD and include the `Device`.
 7. Retrieves `Communicaton` resources that represent all communication events related to the advance care planning procedure.

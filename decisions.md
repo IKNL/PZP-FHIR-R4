@@ -12,3 +12,12 @@
 - Patient contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* - discussed with Lonekke and ok. Leave as it profiled in nl-core.
 - ACPPreferredPlaceOfDeath binding is set to extensible both in ArtDecor and FHIR.
 - On the question how to distingues the Encounter that took place for ACP: we will use both Encounter and Procedure with `Procedure.code` = SNOMED CT 713603004 - Advance care planning (procedure)
+
+## 29/07/2025
+- The SNOMED code 713603004 for Medical Policy Goal in `Goal.category` is not a good fit, as it is too restrictive. Goals created outside the ACP context are also in scope. Therefore, we will not use a category code for now. Searching and retrieving Goals will be based on the input parameter for the bound ValueSet.
+- PreferredPlaceOfDeath is mapped to `Observation`. Although FHIR R5 suggests using `Goal` in `CarePlan` for advance directive agreements, we have decided to continue using `Observation` for this version.
+- The `Observation.dataAbsentReason` element is a suitable way to communicate unknown or not-asked information. We will add mappings to these elements as well.
+- For "Afspraak uitzetten ICD (BehandelAanwijzing)", we will reuse nl-core-TreatmentDirective2 and provide additional specifications on how "Afspraak uitzetten ICD (BehandelBesluit)" maps to `Consent.provision.type` and `Consent.modifierExtension[specificationOther].value[x]`. Implementers will be directed to this profiling in the call for feedback section on the main page.
+- References to externally hosted ValueSets, such as GeslachtCodelijst, are not provided correctly by the IG publisher. See: https://nictiz.atlassian.net/browse/ZIBFHIR-356. If this issue persists upon publishing, we can mitigate it by removing `ValueSet.meta.source` from the zib package.
+
+

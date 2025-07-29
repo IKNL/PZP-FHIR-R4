@@ -9,7 +9,7 @@ Description: "A living will is a verbal or written description of the patient’
 * extension[encounter].valueReference only Reference(ACPEncounter) 
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
-- For Organ Donation, code _DO_ (Verklaring donorschap)." // TODO discuss with Lonneke if we need a custom profile or not.
+- For Organ Donation, code _DO_ (Verklaring donorschap)."
 * patient only Reference(ACPPatient)
 
 
@@ -53,10 +53,19 @@ Description: "A treatment directive contains a joint decision between a health p
     ExtEncounterReference  named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
 * extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
+* modifierExtension[specificationOther].value[x] ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
 * patient only Reference(ACPPatient)
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
-* provision.type ^comment = "BehandelBesluit values _yes_ equals _permit_, _no_ equals _deny_. If _unknown_, then the value is not set." 
-* provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are allowed. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
+* provision.type ^comment = "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance: 
+- BehandelBesluit (dataset id 603) values: 
+    - _Ja_ -> _permit_
+    - _Nee_ -> _deny_
+    - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.
+- Afspraak uitzetten ICD (dataset id 638) values: 
+    - _Wel uitvoeren_ -> _permit_ 
+    - No value is mapped to _deny_
+    - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element." 
+* provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
 
@@ -66,8 +75,11 @@ Title: "PZP dataset"
 Source: ACPTreatmentDirective
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "602" "Behandelgrens (BehandelAanwijzing)"
+* -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
 * modifierExtension[specificationOther].value[x]  -> "605" "SpecificatieAnders"
+* modifierExtension[specificationOther].value[x]  -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
 * extension[comment].value[x] -> "618" "Toelichting"
+* extension[comment].value[x] -> "653" "Toelichting"
 * extension[additionalAdvanceDirective].valueReference -> "644" "Wilsverklaring"
 * dateTime -> "606" "MeestRecenteBespreekdatum"
 * sourceReference -> "609" "Wilsverklaring"
@@ -79,10 +91,6 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
 * provision.code -> "604" "Behandeling"
-* -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
-* extension[comment].value[x] -> "653" "Toelichting"
-// TODO SpecificationOther is not in the dataset for Afspraak uitzetten ICD. May be needed to communicate it has not be decided yet? See example.
-// MM: in dataset this is covered by the valueset for 'Behandelbesluit': 'Wel uitvoeren', 'Nee, nog geen besluit genomen', 'Niet besproken'
 * dateTime -> "641" "MeestRecenteBespreekdatum"
 * sourceReference -> "644" "Wilsverklaring"
 * provision.type -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
@@ -223,8 +231,7 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "b56faf40-f7d7-40a8-869e-a5683d0e1004"
-* modifierExtension[specificationOther].valueString = "Niet besproken" // TODO check if this is ok to explicitly indicate it has not been dicussed yet. ? Perhaps leave it out
-// TODO MM: discuss with Lonneke
+* modifierExtension[specificationOther].valueString = "Niet besproken" 
 * patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * status = #active
 * dateTime = 2020-10-01
@@ -235,7 +242,6 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
 * provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
-// MM: is this necessary, as there is also an option 'Other' included?
 
 
 Instance: F2-ACP-TreatmentDirective-305351004

@@ -6,9 +6,12 @@ Description: "What, according to the patient, should healthcare providers know t
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#153851000146100 // TODO -- check if there is a international code for this?
+* code = $snomed#153851000146100 
 * value[x] only string
-* method = $snomed#370819000 // TODO -- check if we want this code to be present and if it actually maps to Observation.method Display: "Vaststellen van persoonlijke waarden en wensen met betrekking tot zorg" 
+* dataAbsentReason ^comment = "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: 
+- if the question has been asked but the source does not know the value (code = _asked-unknown_) 
+- if the question has not been asked (code = _not-asked_) "
+* method = $snomed#370819000
 
 
 Mapping: MapACPSpecificCareWishes
@@ -19,6 +22,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "654" "Specifieke wensen ([Meting])"
 * code -> "655" "Wens en verwachting patient ([MetingNaam])"
 * valueString -> "656" "Wens en verwachting patient ([MetingWaarde])"
+* dataAbsentReason -> "656" "Wens en verwachting patient ([MetingWaarde])"
 * method -> "657" "Vaststellen wens en verwachting patiënt ([MeetMethode])"
 * effective[x] -> "660" "[MeetDatumBeginTijd]"
 
@@ -34,11 +38,14 @@ Usage: #example
 * code =  $snomed#153851000146100
 * valueString = "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
 * effectiveDateTime = "2020-10-01"
-* method = $snomed#370819000
+* method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
 
 
-// TODO: in R5/build of FHIR at CarePlan this is noted: Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken. This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive. Informal advance directives could be represented as a Goal, such as "I want to die at home."
-// Should be map this to Goal resource?
+// In R5/build of FHIR at CarePlan this is noted: 
+//  "Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken. 
+//  This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive. 
+//  Informal advance directives could be represented as a Goal, such as "I want to die at home."
+// For future versions of the IG on R5/R6 onwards, we should consider using Goal instead of Observation. 
 Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
@@ -60,6 +67,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "666" "Gewenste plek van overlijden ([Meting]))"
 * code -> "667" "Gewenste plek van overlijden ([Meting])"
 * valueCodeableConcept -> "668" "Voorkeursplek ([MetingWaarde])"
+* dataAbsentReason -> "668" "Voorkeursplek ([MetingWaarde])"
 * effective[x] -> "672" "[MeetDatumBeginTijd]"
 * note.text -> "674" "[Toelichting]"
 
@@ -77,8 +85,7 @@ Usage: #example
 * status = #final
 * code =  $snomed#395091006
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
-* dataAbsentReason = $DataAbsentReason#asked-unknown // TODO  This seems like a good fit for "Nog Onbekend". Add mapping to element? Could leave out valueCodeableConcept and use dataAbsentReason only.
-// MM: probably yes, discuss details with Lonneke on 22/7
+* dataAbsentReason = $DataAbsentReason#asked-unknown 
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
 
@@ -91,11 +98,10 @@ Description: "Position Regarding Euthanasia"
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#340171000146104 // TODO -- check if there is a international code for this?
+* code = $snomed#340171000146104 
 * value[x] only CodeableConcept
 * value[x] ^definition = "Position regarding euthanesia."
-* value[x] from ACPEuthanasiaStatementVS (extensible) // TODO - there is no binding strenght in dataset.
-// MM binding strength added: required. TODO: change this
+* value[x] from ACPEuthanasiaStatementVS (required)
 * note.text ^definition = "Comment accompanying position regarding euthanesia."
 
 
@@ -107,6 +113,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "678" "Euthanasie standpunt ([Meting])"
 * code -> "679" "Euthanasie standpunt ([MetingNaam])"
 * valueCodeableConcept -> "680" "Euthanasie standpunt ([MetingWaarde])"
+* dataAbsentReason -> "680" "Euthanasie standpunt ([MetingWaarde])"
 * effective[x] -> "684" "[MeetDatumBeginTijd]"
 * note.text -> "686" "[Toelichting]"
 
@@ -131,17 +138,15 @@ Usage: #example
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
-Title: "Donor donation choice registration in donor register"
-Description: "Donor donation choice registration in donor register."
+Title: "Organ donation choice registration in donor register"
+Description: "Organ donation choice registration in donor register."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#TODO // TODO -- no code in dataset?
-//MM: code is in dataset: 	570801000146104
+* code = $snomed#570801000146104
 * value[x] only CodeableConcept
 * value[x] ^definition = "Organ donation choice recorded in donor register."
-* value[x] from ACPYesNoUnknownVS (required) // TODO - there is no binding strenght in dataset.
-//MM: binding added in dataset, indeed required
+* value[x] from ACPYesNoUnknownVS (required)
 
 
 Mapping: MapACPOrganDonationChoiceRegistration
@@ -152,6 +157,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "746" "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
 * code -> "747" "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
 * valueCodeableConcept -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
+* dataAbsentReason -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
 * effective[x] -> "752" "[MeetDatumBeginTijd]"
 
 
@@ -166,7 +172,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#TODO
+* code = $snomed#570801000146104 "geregistreerd in orgaan donorregister (bevinding)"
 * valueCodeableConcept = $snomed#373066001
 * effectiveDateTime = "2020-10-01"
 
@@ -179,7 +185,7 @@ Description: "Other relevant and important information related to the Patient’
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#247751003 // TODO -- check if snomed code 247751003 is correct: "Gevoel van zingeving (waarneembare entiteit)"
+* code = $snomed#247751003 // SNOMED code 247751003 may seem strange but is agreed upon by experts.
 * value[x] only string
 * value[x] ^definition = "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
 
@@ -192,6 +198,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 * -> "709" "Wat verder nog belangrijk is ([Meting])"
 * code -> "710" "Wat verder nog belangrijk is ([MetingNaam])"
 * valueString -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
+* dataAbsentReason -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
 * effective[x] -> "715" "[MeetDatumBeginTijd]"
 
 
