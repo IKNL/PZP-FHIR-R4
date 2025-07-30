@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/EntryDefinition" alias EntryDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EntryDefinition" alias EntryDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group EntryDefinition(source src : EntryDefinitionR3, target tgt : EntryDefinition) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.orderable as vs -> tgt.orderable as vt then string(vs, vt);
+  src.referencedItem as vs -> tgt.referencedItem as vt then string(vs, vt);
+  src.additionalIdentifier as vs -> tgt.additionalIdentifier as vt then string(vs, vt);
+  src.classification as vs -> tgt.classification as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.validityPeriod as vs -> tgt.validityPeriod as vt then string(vs, vt);
+  src.lastUpdated as vs -> tgt.lastUpdated as vt then instant(vs, vt);
+  src.additionalCharacteristic as vs -> tgt.additionalCharacteristic as vt then string(vs, vt);
+  src.additionalClassification as vs -> tgt.additionalClassification as vt then string(vs, vt);
+  src.relatedEntry as s -> tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s, t);
+}
+
+group EntryDefinitionRelatedEntry(source src, target tgt) extends BackboneElement {
+  src.relationtype as vs -> tgt.relationtype as vt then string(vs, vt);
+  src.item as vs -> tgt.item as vt then string(vs, vt);
+}
+

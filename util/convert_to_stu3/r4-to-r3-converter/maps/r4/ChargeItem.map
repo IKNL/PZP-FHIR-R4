@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/ChargeItem4to3" = "R4 to R3 Conversion for ChargeItem"
+
+uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItem as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItem" alias ChargeItemR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ChargeItem(source src : ChargeItemR3, target tgt : ChargeItem) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.definitionUri -> tgt.definition;
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.context as vs -> tgt.context as vt then Reference(vs, vt);
+  src.occurrence as vs -> tgt.occurrence as vt then string(vs, vt);
+  src.performer as s -> tgt.participant as t then ChargeItemPerformer(s, t);
+  src.performingOrganization as vs -> tgt.performingOrganization as vt then string(vs, vt);
+  src.requestingOrganization as vs -> tgt.requestingOrganization as vt then string(vs, vt);
+  src.costCenter as vs -> tgt.costCenter as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.bodysite as vs -> tgt.bodysite as vt then string(vs, vt);
+  src.factorOverride as vs -> tgt.factorOverride as vt then string(vs, vt);
+  src.priceOverride as vs -> tgt.priceOverride as vt then string(vs, vt);
+  src.overrideReason as vs -> tgt.overrideReason as vt then string(vs, vt);
+  src.enterer as vs -> tgt.enterer as vt then string(vs, vt);
+  src.enteredDate as vs -> tgt.enteredDate as vt then string(vs, vt);
+  src.reason as vs -> tgt.reason as vt then string(vs, vt);
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.product as vs -> tgt.product as vt then string(vs, vt);
+  src.account as vs -> tgt.account as vt then string(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.supportingInformation as vs -> tgt.supportingInformation as vt then string(vs, vt);
+}
+
+group ChargeItemPerformer(source src, target tgt) extends BackboneElement {
+  src.function -> tgt.role;
+  src.actor as vs -> tgt.actor as vt then string(vs, vt);
+}
+

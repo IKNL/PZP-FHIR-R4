@@ -1,0 +1,148 @@
+map "http://hl7.org/fhir/StructureMap/TestScript4to3" = "R4 to R3 Conversion for TestScript"
+
+uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestScript" alias TestScriptR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group TestScript(source src : TestScript, target tgt : TestScriptR3) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.origin as vs0 -> tgt.origin as vt0 then origin(vs0, vt0);
+  src.destination as vs0 -> tgt.destination as vt0 then origin(vs0, vt0);
+  src.metadata as vs0 -> tgt.metadata as vt0 then metadata(vs0, vt0);
+  src.fixture as vs0 -> tgt.fixture as vt0 then fixture(vs0, vt0);
+  src.profile as vs -> tgt.profile as vt then canonical(vs, vt);
+  src.variable as vs0 -> tgt.variable as vt0 then variable(vs0, vt0);
+  src.setup as vs0 -> tgt.setup as vt0 then setup(vs0, vt0);
+  src.test as vs0 -> tgt.test as vt0 then test(vs0, vt0);
+  src.teardown as vs0 -> tgt.teardown as vt0 then teardown(vs0, vt0);
+}
+
+group origin(source src, target tgt) extends BackboneElement {
+  src.index as vs -> tgt.index as vt then string(vs, vt);
+  src.profile as vs -> tgt.profile as vt then canonical(vs, vt);
+}
+
+group metadata(source src, target tgt) extends BackboneElement {
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+  src.capability as vs0 -> tgt.capability as vt0 then capability(vs0, vt0);
+}
+
+group link(source src, target tgt) extends BackboneElement {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+}
+
+group capability(source src, target tgt) extends BackboneElement {
+  src.required as vs -> tgt.required as vt then string(vs, vt);
+  src.validated as vs -> tgt.validated as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.origin as vs -> tgt.origin as vt then string(vs, vt);
+  src.destination as vs -> tgt.destination as vt then string(vs, vt);
+  src.link -> tgt.link;
+  src.capabilities as vs -> tgt.capabilities as vt then string(vs, vt);
+}
+
+group fixture(source src, target tgt) extends BackboneElement {
+  src.autocreate as vs -> tgt.autocreate as vt then string(vs, vt);
+  src.autodelete as vs -> tgt.autodelete as vt then string(vs, vt);
+  src.resource as vs -> tgt.resource as vt then string(vs, vt);
+}
+
+group variable(source src, target tgt) extends BackboneElement {
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.defaultValue as vs -> tgt.defaultValue as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.expression as vs -> tgt.expression as vt then string(vs, vt);
+  src.headerField as vs -> tgt.headerField as vt then string(vs, vt);
+  src.hint as vs -> tgt.hint as vt then string(vs, vt);
+  src.path as vs -> tgt.path as vt then string(vs, vt);
+  src.sourceId as vs -> tgt.sourceId as vt then string(vs, vt);
+}
+
+group setup(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.assert as vs0 -> tgt.assert as vt0 then assert(vs0, vt0);
+}
+
+group actionNA(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+}
+
+group test(source src, target tgt) extends BackboneElement {
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group teardown(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then actionNA(vs0, vt0);
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.resource as vs -> tgt.resource as vt then string(vs, vt);
+  src.label as vs -> tgt.label as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.accept as vs -> tgt.accept as vt then string(vs, vt);
+  src.contentType as vs -> tgt.contentType as vt then string(vs, vt);
+  src.destination as vs -> tgt.destination as vt then string(vs, vt);
+  src.encodeRequestUrl as vs -> tgt.encodeRequestUrl as vt then string(vs, vt);
+  src.origin as vs -> tgt.origin as vt then string(vs, vt);
+  src.params as vs -> tgt.params as vt then string(vs, vt);
+  src.requestHeader as vs0 -> tgt.requestHeader as vt0 then header(vs0, vt0);
+  src.requestId as vs -> tgt.requestId as vt then string(vs, vt);
+  src.responseId as vs -> tgt.responseId as vt then string(vs, vt);
+  src.sourceId as vs -> tgt.sourceId as vt then string(vs, vt);
+  src.targetId as vs -> tgt.targetId as vt then string(vs, vt);
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+}
+
+group header(source src, target tgt) extends BackboneElement {
+  src.field as vs -> tgt.field as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group assert(source src, target tgt) extends BackboneElement {
+  src.label as vs -> tgt.label as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.direction as vs -> tgt.direction as vt then string(vs, vt);
+  src.compareToSourceId as vs -> tgt.compareToSourceId as vt then string(vs, vt);
+  src.compareToSourceExpression as vs -> tgt.compareToSourceExpression as vt then string(vs, vt);
+  src.compareToSourcePath as vs -> tgt.compareToSourcePath as vt then string(vs, vt);
+  src.contentType as vs -> tgt.contentType as vt then string(vs, vt);
+  src.expression as vs -> tgt.expression as vt then string(vs, vt);
+  src.headerField as vs -> tgt.headerField as vt then string(vs, vt);
+  src.minimumId as vs -> tgt.minimumId as vt then string(vs, vt);
+  src.navigationLinks as vs -> tgt.navigationLinks as vt then string(vs, vt);
+  src.operator as vs -> tgt.operator as vt then string(vs, vt);
+  src.path as vs -> tgt.path as vt then string(vs, vt);
+  src.requestMethod as vs -> tgt.requestMethod as vt then string(vs, vt);
+  src.requestURL as vs -> tgt.requestURL as vt then string(vs, vt);
+  src.resource as vs -> tgt.resource as vt then string(vs, vt);
+  src.response as vs -> tgt.response as vt then string(vs, vt);
+  src.responseCode as vs -> tgt.responseCode as vt then string(vs, vt);
+  src.sourceId as vs -> tgt.sourceId as vt then string(vs, vt);
+  src.validateProfileId as vs -> tgt.validateProfileId as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+  src.warningOnly as vs -> tgt.warningOnly as vt then string(vs, vt);
+}
+

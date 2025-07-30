@@ -1,0 +1,962 @@
+{
+  "resourceType" : "ConceptMap",
+  "id" : "resources-4to3",
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Mapping from <a href=\"http://hl7.org/fhir/R4/codesystem-resource-types.html\">http://hl7.org/fhir/4.0/resource-types</a> to http://hl7.org/fhir/3.0/resource-types</p><p>ACTIVE. Published on 2024-02-01 by HL7 (<a href=\"http://www.hl7.org/Special/committees/fiwg\">http://www.hl7.org/Special/com...</a>). </p><br/><p><b>Group 1</b>Mapping from <a href=\"http://hl7.org/fhir/R4/codesystem-resource-types.html\">ResourceType</a> to <code>http://hl7.org/fhir/3.0/resource-types</code></p><table class=\"grid\"><tr><td colspan=\"2\"><b>Source Concept Details</b></td><td><b>Relationship</b></td><td colspan=\"2\"><b>Target Concept Details</b></td><td colspan=\"2\"><b>Properties</b></td></tr><tr><td colspan=\"2\"><b>Codes</b> from <a href=\"http://hl7.org/fhir/R4/codesystem-resource-types.html\" title=\"http://hl7.org/fhir/4.0/resource-types\">ResourceType</a></td><td/><td colspan=\"2\"><b>Codes</b> from http://hl7.org/fhir/3.0/resource-types</td></tr><tr><td style=\"border-right-width: 0px\">Account</td><td style=\"border-left-width: 0px\">Account</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Account</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ActivityDefinition</td><td style=\"border-left-width: 0px\">ActivityDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ActivityDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">AdverseEvent</td><td style=\"border-left-width: 0px\">AdverseEvent</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">AdverseEvent</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">AllergyIntolerance</td><td style=\"border-left-width: 0px\">AllergyIntolerance</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">AllergyIntolerance</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Appointment</td><td style=\"border-left-width: 0px\">Appointment</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Appointment</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">AppointmentResponse</td><td style=\"border-left-width: 0px\">AppointmentResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">AppointmentResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">AuditEvent</td><td style=\"border-left-width: 0px\">AuditEvent</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">AuditEvent</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Basic</td><td style=\"border-left-width: 0px\">Basic</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Basic</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Binary</td><td style=\"border-left-width: 0px\">Binary</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Binary</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">BiologicallyDerivedProduct</td><td style=\"border-left-width: 0px\">BiologicallyDerivedProduct</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">BodyStructure</td><td style=\"border-left-width: 0px\">BodyStructure</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">BodySite</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Bundle</td><td style=\"border-left-width: 0px\">Bundle</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Bundle</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CapabilityStatement</td><td style=\"border-left-width: 0px\">CapabilityStatement</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CapabilityStatement</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CarePlan</td><td style=\"border-left-width: 0px\">CarePlan</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CarePlan</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CareTeam</td><td style=\"border-left-width: 0px\">CareTeam</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CareTeam</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">CatalogEntry</td><td style=\"border-left-width: 0px\">CatalogEntry</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">ChargeItem</td><td style=\"border-left-width: 0px\">ChargeItem</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ChargeItem</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">ChargeItemDefinition</td><td style=\"border-left-width: 0px\">ChargeItemDefinition</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">Claim</td><td style=\"border-left-width: 0px\">Claim</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Claim</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ClaimResponse</td><td style=\"border-left-width: 0px\">ClaimResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ClaimResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ClinicalImpression</td><td style=\"border-left-width: 0px\">ClinicalImpression</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ClinicalImpression</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CodeSystem</td><td style=\"border-left-width: 0px\">CodeSystem</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CodeSystem</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Communication</td><td style=\"border-left-width: 0px\">Communication</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Communication</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CommunicationRequest</td><td style=\"border-left-width: 0px\">CommunicationRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CommunicationRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CompartmentDefinition</td><td style=\"border-left-width: 0px\">CompartmentDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">CompartmentDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Composition</td><td style=\"border-left-width: 0px\">Composition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Composition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ConceptMap</td><td style=\"border-left-width: 0px\">ConceptMap</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ConceptMap</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Condition</td><td style=\"border-left-width: 0px\">Condition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Condition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Consent</td><td style=\"border-left-width: 0px\">Consent</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Consent</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Contract</td><td style=\"border-left-width: 0px\">Contract</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Contract</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Coverage</td><td style=\"border-left-width: 0px\">Coverage</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Coverage</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CoverageEligibilityRequest</td><td style=\"border-left-width: 0px\">CoverageEligibilityRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">EligibilityRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">CoverageEligibilityResponse</td><td style=\"border-left-width: 0px\">CoverageEligibilityResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">EligibilityResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DetectedIssue</td><td style=\"border-left-width: 0px\">DetectedIssue</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DetectedIssue</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Device</td><td style=\"border-left-width: 0px\">Device</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Device</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">DeviceDefinition</td><td style=\"border-left-width: 0px\">DeviceDefinition</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">DeviceMetric</td><td style=\"border-left-width: 0px\">DeviceMetric</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DeviceMetric</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DeviceRequest</td><td style=\"border-left-width: 0px\">DeviceRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DeviceRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DeviceUseStatement</td><td style=\"border-left-width: 0px\">DeviceUseStatement</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DeviceUseStatement</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DiagnosticReport</td><td style=\"border-left-width: 0px\">DiagnosticReport</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DiagnosticReport</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DocumentManifest</td><td style=\"border-left-width: 0px\">DocumentManifest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DocumentManifest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">DocumentReference</td><td style=\"border-left-width: 0px\">DocumentReference</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">DocumentReference</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">EffectEvidenceSynthesis</td><td style=\"border-left-width: 0px\">EffectEvidenceSynthesis</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">Encounter</td><td style=\"border-left-width: 0px\">Encounter</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Encounter</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Endpoint</td><td style=\"border-left-width: 0px\">Endpoint</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Endpoint</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">EnrollmentRequest</td><td style=\"border-left-width: 0px\">EnrollmentRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">EnrollmentRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">EnrollmentResponse</td><td style=\"border-left-width: 0px\">EnrollmentResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">EnrollmentResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">EpisodeOfCare</td><td style=\"border-left-width: 0px\">EpisodeOfCare</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">EpisodeOfCare</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">EventDefinition</td><td style=\"border-left-width: 0px\">EventDefinition</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">ExampleScenario</td><td style=\"border-left-width: 0px\">ExampleScenario</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">ExplanationOfBenefit</td><td style=\"border-left-width: 0px\">ExplanationOfBenefit</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ExplanationOfBenefit</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">FamilyMemberHistory</td><td style=\"border-left-width: 0px\">FamilyMemberHistory</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">FamilyMemberHistory</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Flag</td><td style=\"border-left-width: 0px\">Flag</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Flag</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Goal</td><td style=\"border-left-width: 0px\">Goal</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Goal</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">GraphDefinition</td><td style=\"border-left-width: 0px\">GraphDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">GraphDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Group</td><td style=\"border-left-width: 0px\">Group</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Group</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">GuidanceResponse</td><td style=\"border-left-width: 0px\">GuidanceResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">GuidanceResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">HealthcareService</td><td style=\"border-left-width: 0px\">HealthcareService</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">HealthcareService</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ImagingStudy</td><td style=\"border-left-width: 0px\">ImagingStudy</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ImagingStudy</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Immunization</td><td style=\"border-left-width: 0px\">Immunization</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Immunization</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">ImmunizationEvaluation</td><td style=\"border-left-width: 0px\">ImmunizationEvaluation</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">ImmunizationRecommendation</td><td style=\"border-left-width: 0px\">ImmunizationRecommendation</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ImmunizationRecommendation</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ImplementationGuide</td><td style=\"border-left-width: 0px\">ImplementationGuide</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ImplementationGuide</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">InsurancePlan</td><td style=\"border-left-width: 0px\">InsurancePlan</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">Invoice</td><td style=\"border-left-width: 0px\">Invoice</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">Library</td><td style=\"border-left-width: 0px\">Library</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Library</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Linkage</td><td style=\"border-left-width: 0px\">Linkage</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Linkage</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">List</td><td style=\"border-left-width: 0px\">List</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">List</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Location</td><td style=\"border-left-width: 0px\">Location</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Location</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Measure</td><td style=\"border-left-width: 0px\">Measure</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Measure</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MeasureReport</td><td style=\"border-left-width: 0px\">MeasureReport</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MeasureReport</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Media</td><td style=\"border-left-width: 0px\">Media</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Media</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Medication</td><td style=\"border-left-width: 0px\">Medication</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Medication</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MedicationAdministration</td><td style=\"border-left-width: 0px\">MedicationAdministration</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MedicationAdministration</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MedicationDispense</td><td style=\"border-left-width: 0px\">MedicationDispense</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MedicationDispense</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicationKnowledge</td><td style=\"border-left-width: 0px\">MedicationKnowledge</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">MedicationRequest</td><td style=\"border-left-width: 0px\">MedicationRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MedicationRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MedicationStatement</td><td style=\"border-left-width: 0px\">MedicationStatement</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MedicationStatement</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProduct</td><td style=\"border-left-width: 0px\">MedicinalProduct</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductAuthorization</td><td style=\"border-left-width: 0px\">MedicinalProductAuthorization</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductContraindication</td><td style=\"border-left-width: 0px\">MedicinalProductContraindication</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductIndication</td><td style=\"border-left-width: 0px\">MedicinalProductIndication</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductIngredient</td><td style=\"border-left-width: 0px\">MedicinalProductIngredient</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductInteraction</td><td style=\"border-left-width: 0px\">MedicinalProductInteraction</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductManufactured</td><td style=\"border-left-width: 0px\">MedicinalProductManufactured</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductPackaged</td><td style=\"border-left-width: 0px\">MedicinalProductPackaged</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductPharmaceutical</td><td style=\"border-left-width: 0px\">MedicinalProductPharmaceutical</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">MedicinalProductUndesirableEffect</td><td style=\"border-left-width: 0px\">MedicinalProductUndesirableEffect</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">MessageDefinition</td><td style=\"border-left-width: 0px\">MessageDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MessageDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MessageHeader</td><td style=\"border-left-width: 0px\">MessageHeader</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">MessageHeader</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">MolecularSequence</td><td style=\"border-left-width: 0px\">MolecularSequence</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Sequence</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">NamingSystem</td><td style=\"border-left-width: 0px\">NamingSystem</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">NamingSystem</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">NutritionOrder</td><td style=\"border-left-width: 0px\">NutritionOrder</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">NutritionOrder</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Observation</td><td style=\"border-left-width: 0px\">Observation</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Observation</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">ObservationDefinition</td><td style=\"border-left-width: 0px\">ObservationDefinition</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">OperationDefinition</td><td style=\"border-left-width: 0px\">OperationDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">OperationDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">OperationOutcome</td><td style=\"border-left-width: 0px\">OperationOutcome</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">OperationOutcome</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Organization</td><td style=\"border-left-width: 0px\">Organization</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Organization</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">OrganizationAffiliation</td><td style=\"border-left-width: 0px\">OrganizationAffiliation</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">Parameters</td><td style=\"border-left-width: 0px; border-bottom-style: none\">Parameters</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Parameters</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-top-style: none\"/><td style=\"border-top-style: none; border-left-width: 0px\"/><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ExpansionProfile</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Patient</td><td style=\"border-left-width: 0px\">Patient</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Patient</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">PaymentNotice</td><td style=\"border-left-width: 0px\">PaymentNotice</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">PaymentNotice</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">PaymentReconciliation</td><td style=\"border-left-width: 0px\">PaymentReconciliation</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">PaymentReconciliation</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Person</td><td style=\"border-left-width: 0px\">Person</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Person</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">PlanDefinition</td><td style=\"border-left-width: 0px\">PlanDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">PlanDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Practitioner</td><td style=\"border-left-width: 0px\">Practitioner</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Practitioner</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">PractitionerRole</td><td style=\"border-left-width: 0px\">PractitionerRole</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">PractitionerRole</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Procedure</td><td style=\"border-left-width: 0px\">Procedure</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Procedure</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Provenance</td><td style=\"border-left-width: 0px\">Provenance</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Provenance</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Questionnaire</td><td style=\"border-left-width: 0px\">Questionnaire</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Questionnaire</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">QuestionnaireResponse</td><td style=\"border-left-width: 0px\">QuestionnaireResponse</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">QuestionnaireResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">RelatedPerson</td><td style=\"border-left-width: 0px\">RelatedPerson</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">RelatedPerson</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">RequestGroup</td><td style=\"border-left-width: 0px\">RequestGroup</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">RequestGroup</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ResearchStudy</td><td style=\"border-left-width: 0px\">ResearchStudy</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ResearchStudy</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ResearchSubject</td><td style=\"border-left-width: 0px\">ResearchSubject</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ResearchSubject</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">RiskAssessment</td><td style=\"border-left-width: 0px\">RiskAssessment</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">RiskAssessment</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Schedule</td><td style=\"border-left-width: 0px\">Schedule</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Schedule</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SearchParameter</td><td style=\"border-left-width: 0px\">SearchParameter</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">SearchParameter</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ServiceRequest</td><td style=\"border-left-width: 0px\">ServiceRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#source-is-broader-than-target\" title=\"source-is-broader-than-target\">is broader than</a></td><td style=\"border-right-width: 0px\">ProcedureRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ServiceRequest</td><td style=\"border-left-width: 0px\">ServiceRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#source-is-broader-than-target\" title=\"source-is-broader-than-target\">is broader than</a></td><td style=\"border-right-width: 0px\">ReferralRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Slot</td><td style=\"border-left-width: 0px\">Slot</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Slot</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Specimen</td><td style=\"border-left-width: 0px\">Specimen</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Specimen</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SpecimenDefinition</td><td style=\"border-left-width: 0px\">SpecimenDefinition</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">StructureDefinition</td><td style=\"border-left-width: 0px\">StructureDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">StructureDefinition</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">StructureDefinition</td><td style=\"border-left-width: 0px\">StructureDefinition</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#source-is-broader-than-target\" title=\"source-is-broader-than-target\">is broader than</a></td><td style=\"border-right-width: 0px\">DataElement</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">StructureMap</td><td style=\"border-left-width: 0px\">StructureMap</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">StructureMap</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Subscription</td><td style=\"border-left-width: 0px\">Subscription</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Subscription</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">Substance</td><td style=\"border-left-width: 0px\">Substance</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Substance</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SubstancePolymer</td><td style=\"border-left-width: 0px\">SubstancePolymer</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SubstanceReferenceInformation</td><td style=\"border-left-width: 0px\">SubstanceReferenceInformation</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">SubstanceSpecification</td><td style=\"border-left-width: 0px\">SubstanceSpecification</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">SupplyDelivery</td><td style=\"border-left-width: 0px\">SupplyDelivery</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">SupplyDelivery</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">SupplyRequest</td><td style=\"border-left-width: 0px\">SupplyRequest</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">SupplyRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">Task</td><td style=\"border-left-width: 0px; border-bottom-style: none\">Task</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">Task</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-top-style: none; border-bottom-style: none\"/><td style=\"border-left-width: 0px; border-top-style: none; border-bottom-style: none\"/><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#source-is-broader-than-target\" title=\"source-is-broader-than-target\">is broader than</a></td><td style=\"border-right-width: 0px\">ProcessRequest</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-top-style: none\"/><td style=\"border-top-style: none; border-left-width: 0px\"/><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#source-is-broader-than-target\" title=\"source-is-broader-than-target\">is broader than</a></td><td style=\"border-right-width: 0px\">ProcessResponse</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">TerminologyCapabilities</td><td style=\"border-left-width: 0px\">TerminologyCapabilities</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">TestReport</td><td style=\"border-left-width: 0px\">TestReport</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">TestReport</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">TestScript</td><td style=\"border-left-width: 0px\">TestScript</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">TestScript</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px\">ValueSet</td><td style=\"border-left-width: 0px\">ValueSet</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">ValueSet</td><td style=\"border-left-width: 0px\"></td></tr><tr><td style=\"border-right-width: 0px; border-bottom-style: none\">VerificationResult</td><td style=\"border-left-width: 0px\">VerificationResult</td><td colspan=\"4\" style=\"background-color: #efefef\">(not mapped)</td></tr><tr><td style=\"border-right-width: 0px\">VisionPrescription</td><td style=\"border-left-width: 0px\">VisionPrescription</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent\" title=\"equivalent\">is equivalent to</a></td><td style=\"border-right-width: 0px\">VisionPrescription</td><td style=\"border-left-width: 0px\"></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "fhir"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+    "valueInteger" : 1,
+    "_valueInteger" : {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom",
+        "valueCanonical" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.xver"
+      }]
+    }
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft",
+    "_valueCode" : {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom",
+        "valueCanonical" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.xver"
+      }]
+    }
+  }],
+  "url" : "http://hl7.org/fhir/cross-version/ConceptMap/resources-4to3",
+  "version" : "0.1.0",
+  "name" : "Resources4to3",
+  "title" : "Resource Map R4 to R3",
+  "status" : "active",
+  "date" : "2024-02-01",
+  "publisher" : "HL7",
+  "contact" : [{
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/fiwg"
+    }]
+  }],
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "code" : "001"
+    }]
+  }],
+  "sourceScopeUri" : "http://hl7.org/fhir/4.0/resource-types",
+  "targetScopeUri" : "http://hl7.org/fhir/3.0/resource-types",
+  "group" : [{
+    "source" : "http://hl7.org/fhir/4.0/resource-types",
+    "target" : "http://hl7.org/fhir/3.0/resource-types",
+    "element" : [{
+      "code" : "Account",
+      "target" : [{
+        "code" : "Account",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ActivityDefinition",
+      "target" : [{
+        "code" : "ActivityDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "AdverseEvent",
+      "target" : [{
+        "code" : "AdverseEvent",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "AllergyIntolerance",
+      "target" : [{
+        "code" : "AllergyIntolerance",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Appointment",
+      "target" : [{
+        "code" : "Appointment",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "AppointmentResponse",
+      "target" : [{
+        "code" : "AppointmentResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "AuditEvent",
+      "target" : [{
+        "code" : "AuditEvent",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Basic",
+      "target" : [{
+        "code" : "Basic",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Binary",
+      "target" : [{
+        "code" : "Binary",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "BiologicallyDerivedProduct",
+      "noMap" : true
+    },
+    {
+      "code" : "BodyStructure",
+      "target" : [{
+        "code" : "BodySite",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Bundle",
+      "target" : [{
+        "code" : "Bundle",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CapabilityStatement",
+      "target" : [{
+        "code" : "CapabilityStatement",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CarePlan",
+      "target" : [{
+        "code" : "CarePlan",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CareTeam",
+      "target" : [{
+        "code" : "CareTeam",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CatalogEntry",
+      "noMap" : true
+    },
+    {
+      "code" : "ChargeItem",
+      "target" : [{
+        "code" : "ChargeItem",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ChargeItemDefinition",
+      "noMap" : true
+    },
+    {
+      "code" : "Claim",
+      "target" : [{
+        "code" : "Claim",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ClaimResponse",
+      "target" : [{
+        "code" : "ClaimResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ClinicalImpression",
+      "target" : [{
+        "code" : "ClinicalImpression",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CodeSystem",
+      "target" : [{
+        "code" : "CodeSystem",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Communication",
+      "target" : [{
+        "code" : "Communication",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CommunicationRequest",
+      "target" : [{
+        "code" : "CommunicationRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CompartmentDefinition",
+      "target" : [{
+        "code" : "CompartmentDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Composition",
+      "target" : [{
+        "code" : "Composition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ConceptMap",
+      "target" : [{
+        "code" : "ConceptMap",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Condition",
+      "target" : [{
+        "code" : "Condition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Consent",
+      "target" : [{
+        "code" : "Consent",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Contract",
+      "target" : [{
+        "code" : "Contract",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Coverage",
+      "target" : [{
+        "code" : "Coverage",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CoverageEligibilityRequest",
+      "target" : [{
+        "code" : "EligibilityRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "CoverageEligibilityResponse",
+      "target" : [{
+        "code" : "EligibilityResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DetectedIssue",
+      "target" : [{
+        "code" : "DetectedIssue",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Device",
+      "target" : [{
+        "code" : "Device",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DeviceDefinition",
+      "noMap" : true
+    },
+    {
+      "code" : "DeviceMetric",
+      "target" : [{
+        "code" : "DeviceMetric",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DeviceRequest",
+      "target" : [{
+        "code" : "DeviceRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DeviceUseStatement",
+      "target" : [{
+        "code" : "DeviceUseStatement",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DiagnosticReport",
+      "target" : [{
+        "code" : "DiagnosticReport",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentManifest",
+      "target" : [{
+        "code" : "DocumentManifest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "DocumentReference",
+      "target" : [{
+        "code" : "DocumentReference",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "EffectEvidenceSynthesis",
+      "noMap" : true
+    },
+    {
+      "code" : "Encounter",
+      "target" : [{
+        "code" : "Encounter",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Endpoint",
+      "target" : [{
+        "code" : "Endpoint",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "EnrollmentRequest",
+      "target" : [{
+        "code" : "EnrollmentRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "EnrollmentResponse",
+      "target" : [{
+        "code" : "EnrollmentResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "EpisodeOfCare",
+      "target" : [{
+        "code" : "EpisodeOfCare",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "EventDefinition",
+      "noMap" : true
+    },
+    {
+      "code" : "ExampleScenario",
+      "noMap" : true
+    },
+    {
+      "code" : "ExplanationOfBenefit",
+      "target" : [{
+        "code" : "ExplanationOfBenefit",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "FamilyMemberHistory",
+      "target" : [{
+        "code" : "FamilyMemberHistory",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Flag",
+      "target" : [{
+        "code" : "Flag",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Goal",
+      "target" : [{
+        "code" : "Goal",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "GraphDefinition",
+      "target" : [{
+        "code" : "GraphDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Group",
+      "target" : [{
+        "code" : "Group",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "GuidanceResponse",
+      "target" : [{
+        "code" : "GuidanceResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "HealthcareService",
+      "target" : [{
+        "code" : "HealthcareService",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ImagingStudy",
+      "target" : [{
+        "code" : "ImagingStudy",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Immunization",
+      "target" : [{
+        "code" : "Immunization",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ImmunizationEvaluation",
+      "noMap" : true
+    },
+    {
+      "code" : "ImmunizationRecommendation",
+      "target" : [{
+        "code" : "ImmunizationRecommendation",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ImplementationGuide",
+      "target" : [{
+        "code" : "ImplementationGuide",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "InsurancePlan",
+      "noMap" : true
+    },
+    {
+      "code" : "Invoice",
+      "noMap" : true
+    },
+    {
+      "code" : "Library",
+      "target" : [{
+        "code" : "Library",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Linkage",
+      "target" : [{
+        "code" : "Linkage",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "List",
+      "target" : [{
+        "code" : "List",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Location",
+      "target" : [{
+        "code" : "Location",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Measure",
+      "target" : [{
+        "code" : "Measure",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MeasureReport",
+      "target" : [{
+        "code" : "MeasureReport",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Media",
+      "target" : [{
+        "code" : "Media",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Medication",
+      "target" : [{
+        "code" : "Medication",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MedicationAdministration",
+      "target" : [{
+        "code" : "MedicationAdministration",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MedicationDispense",
+      "target" : [{
+        "code" : "MedicationDispense",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MedicationKnowledge",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicationRequest",
+      "target" : [{
+        "code" : "MedicationRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MedicationStatement",
+      "target" : [{
+        "code" : "MedicationStatement",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MedicinalProduct",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductAuthorization",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductContraindication",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductIndication",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductIngredient",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductInteraction",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductManufactured",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductPackaged",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductPharmaceutical",
+      "noMap" : true
+    },
+    {
+      "code" : "MedicinalProductUndesirableEffect",
+      "noMap" : true
+    },
+    {
+      "code" : "MessageDefinition",
+      "target" : [{
+        "code" : "MessageDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MessageHeader",
+      "target" : [{
+        "code" : "MessageHeader",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "MolecularSequence",
+      "target" : [{
+        "code" : "Sequence",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "NamingSystem",
+      "target" : [{
+        "code" : "NamingSystem",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "NutritionOrder",
+      "target" : [{
+        "code" : "NutritionOrder",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Observation",
+      "target" : [{
+        "code" : "Observation",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ObservationDefinition",
+      "noMap" : true
+    },
+    {
+      "code" : "OperationDefinition",
+      "target" : [{
+        "code" : "OperationDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "OperationOutcome",
+      "target" : [{
+        "code" : "OperationOutcome",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Organization",
+      "target" : [{
+        "code" : "Organization",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "OrganizationAffiliation",
+      "noMap" : true
+    },
+    {
+      "code" : "Parameters",
+      "target" : [{
+        "code" : "Parameters",
+        "relationship" : "equivalent"
+      },
+      {
+        "code" : "ExpansionProfile",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Patient",
+      "target" : [{
+        "code" : "Patient",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "PaymentNotice",
+      "target" : [{
+        "code" : "PaymentNotice",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "PaymentReconciliation",
+      "target" : [{
+        "code" : "PaymentReconciliation",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Person",
+      "target" : [{
+        "code" : "Person",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "PlanDefinition",
+      "target" : [{
+        "code" : "PlanDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Practitioner",
+      "target" : [{
+        "code" : "Practitioner",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "PractitionerRole",
+      "target" : [{
+        "code" : "PractitionerRole",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Procedure",
+      "target" : [{
+        "code" : "Procedure",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Provenance",
+      "target" : [{
+        "code" : "Provenance",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Questionnaire",
+      "target" : [{
+        "code" : "Questionnaire",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "QuestionnaireResponse",
+      "target" : [{
+        "code" : "QuestionnaireResponse",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "RelatedPerson",
+      "target" : [{
+        "code" : "RelatedPerson",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "RequestGroup",
+      "target" : [{
+        "code" : "RequestGroup",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ResearchStudy",
+      "target" : [{
+        "code" : "ResearchStudy",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ResearchSubject",
+      "target" : [{
+        "code" : "ResearchSubject",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "RiskAssessment",
+      "target" : [{
+        "code" : "RiskAssessment",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Schedule",
+      "target" : [{
+        "code" : "Schedule",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SearchParameter",
+      "target" : [{
+        "code" : "SearchParameter",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ServiceRequest",
+      "target" : [{
+        "code" : "ProcedureRequest",
+        "relationship" : "source-is-broader-than-target"
+      }]
+    },
+    {
+      "code" : "ServiceRequest",
+      "target" : [{
+        "code" : "ReferralRequest",
+        "relationship" : "source-is-broader-than-target"
+      }]
+    },
+    {
+      "code" : "Slot",
+      "target" : [{
+        "code" : "Slot",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Specimen",
+      "target" : [{
+        "code" : "Specimen",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SpecimenDefinition",
+      "noMap" : true
+    },
+    {
+      "code" : "StructureDefinition",
+      "target" : [{
+        "code" : "StructureDefinition",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "StructureDefinition",
+      "target" : [{
+        "code" : "DataElement",
+        "relationship" : "source-is-broader-than-target"
+      }]
+    },
+    {
+      "code" : "StructureMap",
+      "target" : [{
+        "code" : "StructureMap",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Subscription",
+      "target" : [{
+        "code" : "Subscription",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Substance",
+      "target" : [{
+        "code" : "Substance",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SubstancePolymer",
+      "noMap" : true
+    },
+    {
+      "code" : "SubstanceReferenceInformation",
+      "noMap" : true
+    },
+    {
+      "code" : "SubstanceSpecification",
+      "noMap" : true
+    },
+    {
+      "code" : "SupplyDelivery",
+      "target" : [{
+        "code" : "SupplyDelivery",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "SupplyRequest",
+      "target" : [{
+        "code" : "SupplyRequest",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "Task",
+      "target" : [{
+        "code" : "Task",
+        "relationship" : "equivalent"
+      },
+      {
+        "code" : "ProcessRequest",
+        "relationship" : "source-is-broader-than-target"
+      },
+      {
+        "code" : "ProcessResponse",
+        "relationship" : "source-is-broader-than-target"
+      }]
+    },
+    {
+      "code" : "TerminologyCapabilities",
+      "noMap" : true
+    },
+    {
+      "code" : "TestReport",
+      "target" : [{
+        "code" : "TestReport",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "TestScript",
+      "target" : [{
+        "code" : "TestScript",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "ValueSet",
+      "target" : [{
+        "code" : "ValueSet",
+        "relationship" : "equivalent"
+      }]
+    },
+    {
+      "code" : "VerificationResult",
+      "noMap" : true
+    },
+    {
+      "code" : "VisionPrescription",
+      "target" : [{
+        "code" : "VisionPrescription",
+        "relationship" : "equivalent"
+      }]
+    }]
+  }]
+}

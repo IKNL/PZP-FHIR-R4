@@ -1,0 +1,37 @@
+map "http://hl7.org/fhir/StructureMap/OrganizationRole4to3" = "R4 to R3 Conversion for OrganizationRole"
+
+uses "http://hl7.org/fhir/StructureDefinition/OrganizationRole" alias OrganizationRole as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/OrganizationRole" alias OrganizationRoleR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group OrganizationRole(source src : OrganizationRoleR3, target tgt : OrganizationRole) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.active as vs -> tgt.active as vt then boolean(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.organization as vs -> tgt.organization as vt then string(vs, vt);
+  src.participatingOrganization as vs -> tgt.participatingOrganization as vt then string(vs, vt);
+  src.network as vs -> tgt.network as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.specialty as vs -> tgt.specialty as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.healthcareService as vs -> tgt.healthcareService as vt then string(vs, vt);
+  src.telecom as vs -> tgt.telecom as vt then ContactPoint(vs, vt);
+  src.availableTime as s -> tgt.availableTime as t then OrganizationRoleAvailableTime(s, t);
+  src.notAvailable as s -> tgt.notAvailable as t then OrganizationRoleNotAvailable(s, t);
+  src.availabilityExceptions as vs -> tgt.availabilityExceptions as vt then string(vs, vt);
+  src.endpoint as vs -> tgt.endpoint as vt then string(vs, vt);
+}
+
+group OrganizationRoleAvailableTime(source src, target tgt) extends BackboneElement {
+  src.daysOfWeek as vs -> tgt.daysOfWeek as vt then string(vs, vt);
+  src.allDay as vs -> tgt.allDay as vt then string(vs, vt);
+  src.availableStartTime as vs -> tgt.availableStartTime as vt then string(vs, vt);
+  src.availableEndTime as vs -> tgt.availableEndTime as vt then string(vs, vt);
+}
+
+group OrganizationRoleNotAvailable(source src, target tgt) extends BackboneElement {
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.during as vs -> tgt.during as vt then string(vs, vt);
+}
+

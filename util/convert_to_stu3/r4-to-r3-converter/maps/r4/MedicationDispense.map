@@ -1,0 +1,53 @@
+map "http://hl7.org/fhir/StructureMap/MedicationDispense4to3" = "R4 to R3 Conversion for MedicationDispense"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationDispense" alias MedicationDispenseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MedicationDispense(source src : MedicationDispense, target tgt : MedicationDispenseR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.context as vs -> tgt.context as vt then Reference(vs, vt);
+  src.supportingInformation as vs -> tgt.supportingInformation as vt then string(vs, vt);
+  src.performer as vs0 -> tgt.performer as vt0 then actor(vs0, vt0);
+  src.authorizingPrescription as vs -> tgt.authorizingPrescription as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.daysSupply as vs -> tgt.daysSupply as vt then string(vs, vt);
+  src.whenPrepared as vs -> tgt.whenPrepared as vt then string(vs, vt);
+  src.whenHandedOver as vs -> tgt.whenHandedOver as vt then string(vs, vt);
+  src.destination as vs -> tgt.destination as vt then string(vs, vt);
+  src.receiver as vs -> tgt.receiver as vt then string(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.dosageInstruction as vs -> tgt.dosageInstruction as vt then string(vs, vt);
+  src.substitution as vs0 -> tgt.substitution as vt0 then subst(vs0, vt0);
+  src.detectedIssue as vs -> tgt.detectedIssue as vt then string(vs, vt);
+  src.eventHistory as vs -> tgt.eventHistory as vt then string(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDone' then {
+    e.value -> tgt.notDone;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.notDoneReason' then {
+    e.value -> tgt.notDoneReason;
+  };
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.actor as vs -> tgt.actor as vt then string(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+
+group subst(source src, target tgt) extends BackboneElement {
+  src.wasSubstituted as vs -> tgt.wasSubstituted as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.reason as vs -> tgt.reason as vt then string(vs, vt);
+  src.responsibleParty as vs -> tgt.responsibleParty as vt then string(vs, vt);
+}
+

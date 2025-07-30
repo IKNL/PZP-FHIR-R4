@@ -1,0 +1,74 @@
+map "http://hl7.org/fhir/StructureMap/CodeSystem4to3" = "R4 to R3 Conversion for CodeSystem"
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystem as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CodeSystem(source src : CodeSystem, target tgt : CodeSystemR3) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.caseSensitive as vs -> tgt.caseSensitive as vt then string(vs, vt);
+  src.valueSet as vs -> tgt.valueSet as vt then string(vs, vt);
+  src.hierarchyMeaning as vs -> tgt.hierarchyMeaning as vt then string(vs, vt);
+  src.compositional as vs -> tgt.compositional as vt then string(vs, vt);
+  src.versionNeeded as vs -> tgt.versionNeeded as vt then string(vs, vt);
+  src.content as vs -> tgt.content as vt then string(vs, vt);
+  src.count as vs -> tgt.count as vt then string(vs, vt);
+  src.filter as vs0 -> tgt.filter as vt0 then filter(vs0, vt0);
+  src.property as vs0 -> tgt.property as vt0 then property(vs0, vt0);
+  src.concept as vs0 -> tgt.concept as vt0 then concept(vs0, vt0);
+}
+
+group filter(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.operator as vs -> tgt.operator as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group property(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.uri as vs -> tgt.uri as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+}
+
+group concept(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.display as vs -> tgt.display as vt then string(vs, vt);
+  src.definition as vs -> tgt.definition as vt then string(vs, vt);
+  src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
+  src.property as vs0 -> tgt.property as vt0 then propertyC(vs0, vt0);
+  src.concept as vs0 -> tgt.concept as vt0 then concept(vs0, vt0);
+}
+
+group designation(source src, target tgt) extends BackboneElement {
+  src.language as vs -> tgt.language as vt then code(vs, vt);
+  src.use as vs -> tgt.use as vt then code(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group propertyC(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.value : code as vs0 -> tgt.value = create('code') as vt0 then code(vs0, vt0) "valueCode";
+  src.value : Coding as vs0 -> tgt.value = create('Coding') as vt0 then Coding(vs0, vt0) "valueCoding";
+  src.value : string as vs0 -> tgt.value = create('string') as vt0 then string(vs0, vt0) "valueString";
+  src.value : integer as vs0 -> tgt.value = create('integer') as vt0 then integer(vs0, vt0) "valueInteger";
+  src.value : boolean as vs0 -> tgt.value = create('boolean') as vt0 then boolean(vs0, vt0) "valueBoolean";
+  src.value : dateTime as vs0 -> tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0) "valueDateTime";
+}
+

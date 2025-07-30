@@ -1,0 +1,45 @@
+map "http://hl7.org/fhir/StructureMap/MedicationStatement4to3" = "R4 to R3 Conversion for MedicationStatement"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationStatement" alias MedicationStatementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group MedicationStatement(source src : MedicationStatement, target tgt : MedicationStatementR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+  src.context as vs -> tgt.context as vt then Reference(vs, vt);
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status').exists() then statusR3(src, tgt) "status1";
+  src where src.extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status').empty() then statusNR3(src, tgt) "status2";
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.medication : CodeableConcept as vs -> tgt.medication = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create('Reference') as vt then Reference(vs, vt);
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.dateAsserted as vs -> tgt.dateAsserted as vt then string(vs, vt);
+  src.informationSource as vs -> tgt.informationSource as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.derivedFrom as vs -> tgt.derivedFrom as vt then string(vs, vt);
+  src.reasonCode where src.status = 'not-taken' -> tgt.reasonNotTaken;
+  src.reasonCode where src.status != 'not-taken' -> tgt.reasonCode;
+  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.dosage as vs -> tgt.dosage as vt then string(vs, vt);
+}
+
+group statusR3(source src, target tgt) {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.taken' then {
+    e.value -> tgt.taken;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status' then {
+    e.value -> tgt.status;
+  };
+}
+
+group statusNR3(source src, target tgt) {
+  src.status where (value in ('not-taken' | 'unknown')).not() -> tgt.status;
+  src.status where value = 'not-taken' ->  tgt.status = 'completed',  tgt.taken = 'n';
+  src.status where value = 'unknown' ->  tgt.status = 'completed',  tgt.taken = 'unk';
+}
+

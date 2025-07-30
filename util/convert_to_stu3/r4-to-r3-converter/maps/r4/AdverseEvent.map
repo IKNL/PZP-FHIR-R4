@@ -1,0 +1,45 @@
+map "http://hl7.org/fhir/StructureMap/AdverseEvent4to3" = "R4 to R3 Conversion for AdverseEvent"
+
+uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEvent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/AdverseEvent" alias AdverseEventR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group AdverseEvent(source src : AdverseEventR3, target tgt : AdverseEvent) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.actuality as vs -> tgt.actuality as vt then string(vs, vt);
+  src.category as vs then {
+    vs.coding as c where system = 'http://terminology.hl7.org/CodeSystem/adverse-event-category' then {
+      c.code -> tgt.category;
+    };
+  };
+  src.event -> tgt.type;
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.detected as vs -> tgt.detected as vt then string(vs, vt);
+  src.recordedDate as vs -> tgt.recordedDate as vt then string(vs, vt);
+  src.resultingCondition as vs -> tgt.resultingCondition as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.seriousness as vs -> tgt.seriousness as vt then string(vs, vt);
+  src.severity as vs -> tgt.severity as vt then string(vs, vt);
+  src.outcome as vs -> tgt.outcome as vt then string(vs, vt);
+  src.recorder as vs -> tgt.recorder as vt then string(vs, vt);
+  src.contributor as vs -> tgt.contributor as vt then string(vs, vt);
+  src.suspectEntity as s -> tgt.suspectEntity as t then AdverseEventSuspectEntity(s, t);
+  src.subjectMedicalHistory as vs -> tgt.subjectMedicalHistory as vt then string(vs, vt);
+  src.referenceDocument as vs -> tgt.referenceDocument as vt then string(vs, vt);
+  src.study as vs -> tgt.study as vt then string(vs, vt);
+}
+
+group AdverseEventSuspectEntity(source src, target tgt) extends BackboneElement {
+  src.instance as vs -> tgt.instance as vt then string(vs, vt);
+  src.causality as s -> tgt.causality as t then AdverseEventSuspectEntityCausality(s, t);
+}
+
+group AdverseEventSuspectEntityCausality(source src, target tgt) extends BackboneElement {
+  src.assessment as vs -> tgt.assessment as vt then string(vs, vt);
+  src.productRelatedness as vs -> tgt.productRelatedness as vt then string(vs, vt);
+  src.author as vs -> tgt.author as vt then string(vs, vt);
+  src.method as vs -> tgt.method as vt then CodeableConcept(vs, vt);
+}
+

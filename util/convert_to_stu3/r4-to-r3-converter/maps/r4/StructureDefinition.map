@@ -1,0 +1,45 @@
+map "http://hl7.org/fhir/StructureMap/StructureDefinition4to3" = "R4 to R3 Conversion for StructureDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as source
+uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group StructureDefinition(source src : StructureDefinition, target tgt : StructureDefinitionR3) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.keyword as vs -> tgt.keyword as vt then string(vs, vt);
+  src.fhirVersion as vs -> tgt.fhirVersion as vt then string(vs, vt);
+  src.mapping as vs0 -> tgt.mapping as vt0 then {
+    vs0.identity -> vt0.identity;
+    vs0.uri -> vt0.uri;
+    vs0.name -> vt0.name;
+    vs0.comment -> vt0.comment;
+  };
+  src.kind as vs -> tgt.kind as vt then string(vs, vt);
+  src.abstract as vs -> tgt.abstract as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.baseDefinition as vs -> tgt.baseDefinition as vt then string(vs, vt);
+  src.contextInvariant as vs -> tgt.contextInvariant as vt then string(vs, vt);
+  src.derivation as vs -> tgt.derivation as vt then string(vs, vt);
+  src.snapshot as vs0 -> tgt.snapshot as vt0 then {
+    vs0.element -> vt0.element;
+  };
+  src.differential as vs0 -> tgt.differential as vt0 then {
+    vs0.element -> vt0.element;
+  };
+}
+

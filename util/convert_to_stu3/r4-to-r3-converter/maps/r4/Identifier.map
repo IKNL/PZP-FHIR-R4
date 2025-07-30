@@ -1,0 +1,23 @@
+map "http://hl7.org/fhir/StructureMap/Identifier4to3" = "R4 to R3 Conversion for Identifier"
+
+uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias Identifier as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Identifier" alias IdentifierR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Identifier(source src : Identifier, target tgt : IdentifierR3) extends Element <<type+>> {
+  src.use as vs -> tgt.use as vt then code(vs, vt);
+  src.type as vs -> tgt.type as vt then CodeableConcept(vs, vt);
+  src.system as vs -> tgt.system as vt then uri(vs, vt);
+  src.value as vs -> tgt.value as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then Period(vs, vt);
+  src.assigner as vs -> tgt.assigner as vt then Reference(vs, vt);
+}
+
+group Codeable2Identifier(source src, target tgt) extends Element {
+  src.coding as c then {
+    c.system -> tgt.system;
+    c.code -> tgt.value;
+  };
+}
+

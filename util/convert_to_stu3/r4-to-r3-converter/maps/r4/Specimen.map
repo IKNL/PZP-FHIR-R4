@@ -1,0 +1,49 @@
+map "http://hl7.org/fhir/StructureMap/Specimen4to3" = "R4 to R3 Conversion for Specimen"
+
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias Specimen as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Specimen" alias SpecimenR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Specimen(source src : Specimen, target tgt : SpecimenR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.accessionIdentifier as vs -> tgt.accessionIdentifier as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.receivedTime as vs -> tgt.receivedTime as vt then string(vs, vt);
+  src.parent as vs -> tgt.parent as vt then string(vs, vt);
+  src.request as vs -> tgt.request as vt then string(vs, vt);
+  src.collection as vs0 -> tgt.collection as vt0 then collection(vs0, vt0);
+  src.processing as vs0 -> tgt.processing as vt0 then processing(vs0, vt0);
+  src.container as vs0 -> tgt.container as vt0 then container(vs0, vt0);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+}
+
+group collection(source src, target tgt) extends BackboneElement {
+  src.collector as vs -> tgt.collector as vt then string(vs, vt);
+  src.collected : dateTime as vs -> tgt.collected = create('dateTime') as vt then dateTime(vs, vt);
+  src.collected : Period as vs -> tgt.collected = create('Period') as vt then Period(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.method as vs -> tgt.method as vt then CodeableConcept(vs, vt);
+  src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
+}
+
+group processing(source src, target tgt) extends BackboneElement {
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.procedure as vs -> tgt.procedure as vt then string(vs, vt);
+  src.additive as vs -> tgt.additive as vt then string(vs, vt);
+  src.time : dateTime as vs -> tgt.time = create('dateTime') as vt then dateTime(vs, vt);
+  src.time : Period as vs -> tgt.time = create('Period') as vt then Period(vs, vt);
+}
+
+group container(source src, target tgt) extends BackboneElement {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.capacity as vs -> tgt.capacity as vt then string(vs, vt);
+  src.specimenQuantity as vs -> tgt.specimenQuantity as vt then string(vs, vt);
+  src.additive : CodeableConcept as vs -> tgt.additive = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.additive : Reference as vs -> tgt.additive = create('Reference') as vt then Reference(vs, vt);
+}
+

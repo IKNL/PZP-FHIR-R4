@@ -1,0 +1,22 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "Communication-reason-code",
+  "url": "https://fhir.iknl.nl/fhir/SearchParameter/Communication-reason-code",
+  "version": "4.0.1",
+  "name": "ReasonCode",
+  "status": "draft",
+  "experimental": false,
+  "date": "2025-07-24T15:21:02+11:00",
+  "publisher": "IKNL",
+  "contact": [ {
+    "telecom": [ {
+      "system": "email",
+      "value": "info@iknl.nl"
+    } ]
+  } ],
+  "code": "reason-code",
+  "base": [ "Communication" ],
+  "type": "token",
+  "description": "ReasonCode for the Communication",
+  "expression": "Communication.reasonCode"
+}

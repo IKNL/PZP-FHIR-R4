@@ -1,0 +1,57 @@
+map "http://hl7.org/fhir/StructureMap/CoverageEligibilityResponse4to3" = "R4 to R3 Conversion for (Coverage)EligibilityResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse" alias CoverageEligibilityResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityResponse" alias EligibilityResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CoverageEligibilityResponse(source src : CoverageEligibilityResponseR3, target tgt : EligibilityResponse) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.patient as vs -> tgt.patient as vt then string(vs, vt);
+  src.serviced as vs -> tgt.serviced as vt then string(vs, vt);
+  src.created as vs -> tgt.created as vt then dateTime(vs, vt);
+  src.requestor -> tgt.requestProvider;
+  src.request as vs -> tgt.request as vt then string(vs, vt);
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
+  src.disposition as vs -> tgt.disposition as vt then string(vs, vt);
+  src.insurer as vs -> tgt.insurer as vt then string(vs, vt);
+  src.insurance as s -> tgt.insurance as t then CoverageEligibilityResponseInsurance(s, t);
+  src.preAuthRef as vs -> tgt.preAuthRef as vt then string(vs, vt);
+  src.form as vs -> tgt.form as vt then string(vs, vt);
+  src.error as s -> tgt.error as t then CoverageEligibilityResponseError(s, t);
+}
+
+group CoverageEligibilityResponseInsurance(source src, target tgt) extends BackboneElement {
+  src.coverage as vs -> tgt.coverage as vt then string(vs, vt);
+  src.contract as vs -> tgt.contract as vt then string(vs, vt);
+  src.item as s -> tgt.benefitBalance as t then CoverageEligibilityResponseInsuranceDetail(s, t);
+}
+
+group CoverageEligibilityResponseInsuranceDetail(source src, target tgt) extends BackboneElement {
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.provider as vs -> tgt.provider as vt then string(vs, vt);
+  src.excluded as vs -> tgt.excluded as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.network as vs -> tgt.network as vt then string(vs, vt);
+  src.unit as vs -> tgt.unit as vt then string(vs, vt);
+  src.term as vs -> tgt.term as vt then string(vs, vt);
+  src.benefit as s -> tgt.benefit as t then CoverageEligibilityResponseInsuranceDetailBenefit(s, t);
+  src.authorizationRequired as vs -> tgt.authorizationRequired as vt then string(vs, vt);
+  src.authorizationSupporting as vs -> tgt.authorizationSupporting as vt then string(vs, vt);
+  src.authorizationUrl as vs -> tgt.authorizationUrl as vt then string(vs, vt);
+}
+
+group CoverageEligibilityResponseInsuranceDetailBenefit(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.allowed as vs -> tgt.allowed as vt then string(vs, vt);
+  src.used as vs -> tgt.used as vt then string(vs, vt);
+}
+
+group CoverageEligibilityResponseError(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+}
+

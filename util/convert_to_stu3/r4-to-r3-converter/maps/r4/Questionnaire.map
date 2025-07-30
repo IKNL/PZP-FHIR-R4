@@ -1,0 +1,72 @@
+map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
+
+uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Questionnaire(source src : Questionnaire, target tgt : QuestionnaireR3) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.approvalDate as vs -> tgt.approvalDate as vt then string(vs, vt);
+  src.lastReviewDate as vs -> tgt.lastReviewDate as vt then string(vs, vt);
+  src.effectivePeriod as vs -> tgt.effectivePeriod as vt then string(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.subjectType as vs -> tgt.subjectType as vt then string(vs, vt);
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group item(source src, target tgt) extends BackboneElement {
+  src.linkId as vs -> tgt.linkId as vt then string(vs, vt);
+  src.definition as vs -> tgt.definition as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.prefix as vs -> tgt.prefix as vt then string(vs, vt);
+  src.text as vs -> tgt.text as vt then Narrative(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.enableWhen as s -> tgt.enableWhen as t then enableWhen(s, t);
+  src.required as vs -> tgt.required as vt then string(vs, vt);
+  src.repeats as vs -> tgt.repeats as vt then string(vs, vt);
+  src.readOnly as vs -> tgt.readOnly as vt then string(vs, vt);
+  src.maxLength as vs -> tgt.maxLength as vt then string(vs, vt);
+  src.answerValueSet -> tgt.options;
+  src.answerOption as s -> tgt.option as t then option(s, t);
+  src.initial as s then initial(s, tgt);
+  src.item as s -> tgt.item as t then item(s, t);
+}
+
+group enableWhen(source src, target tgt) extends BackboneElement {
+  src.question as vs -> tgt.question as vt then string(vs, vt);
+  src.answer as v where src.operator = 'exists' -> tgt.hasAnswer = v;
+  src.answer : boolean as vs where src.operator = '=' -> tgt.answer = create('boolean') as vt then boolean(vs, vt);
+  src.answer : decimal as vs where src.operator = '=' -> tgt.answer = create('decimal') as vt then decimal(vs, vt);
+  src.answer : integer as vs where src.operator = '=' -> tgt.answer = create('integer') as vt then integer(vs, vt);
+  src.answer : date as vs where src.operator = '=' -> tgt.answer = create('date') as vt then date(vs, vt);
+  src.answer : dateTime as vs where src.operator = '=' -> tgt.answer = create('dateTime') as vt then dateTime(vs, vt);
+  src.answer : time as vs where src.operator = '=' -> tgt.answer = create('time') as vt then time(vs, vt);
+  src.answer : string as vs where src.operator = '=' -> tgt.answer = create('string') as vt then string(vs, vt);
+  src.answer : Coding as vs where src.operator = '=' -> tgt.answer = create('Coding') as vt then Coding(vs, vt);
+  src.answer : Quantity as vs where src.operator = '=' -> tgt.answer = create('Quantity') as vt then Quantity(vs, vt);
+  src.answer : Reference as vs where src.operator = '=' -> tgt.answer = create('Reference') as vt then Reference(vs, vt);
+}
+
+group option(source src, target tgt) extends BackboneElement {
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group initial(source src, target tgt) extends BackboneElement {
+  src.value -> tgt.initial;
+}
+

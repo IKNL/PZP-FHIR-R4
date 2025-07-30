@@ -1,0 +1,64 @@
+map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
+
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.patient as vs -> tgt.patient as vt then string(vs, vt);
+  src.dateTime as vs -> tgt.dateTime as vt then string(vs, vt);
+  src.performer -> tgt.consentingParty;
+  src.organization as vs -> tgt.organization as vt then string(vs, vt);
+  src.source as vs -> tgt.source as vt then string(vs, vt);
+  src.policy as vs -> tgt.policy as vt then policy(vs, vt);
+  src.policyRule as cc then {
+    cc.coding as c where system = 'urn:ietf:rfc:3986' then {
+      c.code -> tgt.policyRule;
+    };
+  };
+  src.provision as vs then baseProvision(vs, tgt);
+}
+
+group baseProvision(source src, target tgt) {
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action as vs -> tgt.action as vt then string(vs, vt);
+  src.securityLabel as vs -> tgt.securityLabel as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.dataPeriod as vs -> tgt.dataPeriod as vt then string(vs, vt);
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+  src.provision as vs -> tgt.except as vt then provision(vs, vt);
+}
+
+group policy(source src, target tgt) extends BackboneElement {
+  src.authority as vs -> tgt.authority as vt then string(vs, vt);
+  src.uri as vs -> tgt.uri as vt then string(vs, vt);
+}
+
+group provision(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action as vs -> tgt.action as vt then string(vs, vt);
+  src.securityLabel as vs -> tgt.securityLabel as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.class as vs -> tgt.class as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.dataPeriod as vs -> tgt.dataPeriod as vt then string(vs, vt);
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+}
+
+group actor(source src, target tgt) extends BackboneElement {
+  src.role as vs -> tgt.role as vt then string(vs, vt);
+  src.reference as vs -> tgt.reference as vt then string(vs, vt);
+}
+
+group data(source src, target tgt) extends BackboneElement {
+  src.meaning as vs -> tgt.meaning as vt then string(vs, vt);
+  src.reference as vs -> tgt.reference as vt then string(vs, vt);
+}
+

@@ -1,0 +1,43 @@
+{
+  "resourceType": "Observation",
+  "id": "F1-ACP-SpecificCareWishes",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes"
+    ]
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+      "display": "Healthcare professional (role), van Huissen"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "153851000146100",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "method": {
+    "coding": [
+      {
+        "code": "370819000",
+        "system": "http://snomed.info/sct",
+        "display": "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
+      }
+    ]
+  },
+  "encounter": {
+    "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+    "display": "Encounter, 2020-10-01"
+  },
+  "subject": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "status": "final",
+  "valueString": "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik",
+  "effectiveDateTime": "2020-10-01"
+}

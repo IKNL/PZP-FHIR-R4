@@ -1,0 +1,25 @@
+map "http://hl7.org/fhir/StructureMap/DeviceUseStatement4to3" = "R4 to R3 Conversion for DeviceUseStatement"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DeviceUseStatement(source src : DeviceUseStatement, target tgt : DeviceUseStatementR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DeviceUseStatement.whenUsed' then {
+    e.value -> tgt.whenUsed;
+  };
+  src.timing : Timing as vs -> tgt.timing = create('Timing') as vt then Timing(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create('Period') as vt then Period(vs, vt);
+  src.timing : dateTime as vs -> tgt.timing = create('dateTime') as vt then dateTime(vs, vt);
+  src.recordedOn as vs -> tgt.recordedOn as vt then string(vs, vt);
+  src.source as vs -> tgt.source as vt then string(vs, vt);
+  src.device as vs -> tgt.device as vt then Reference(vs, vt);
+  src.reasonCode -> tgt.indication "indication";
+  src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+}
+

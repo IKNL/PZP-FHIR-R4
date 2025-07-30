@@ -1,0 +1,33 @@
+map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation4to3" = "R4 to R3 Conversion for ImmunizationRecommendation"
+
+uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.patient as vs -> tgt.patient as vt then string(vs, vt);
+  src.recommendation as s -> tgt.recommendation as t then recommendation(s, t, src);
+}
+
+group recommendation(source src, target tgt, source res) extends BackboneElement {
+  res.date -> tgt.date;
+  src.vaccineCode as vs -> tgt.vaccineCode as vt then string(vs, vt);
+  src.targetDisease as vs -> tgt.targetDisease as vt then string(vs, vt);
+  src.doseNumber : positiveInt as vs -> tgt.doseNumber as vt then positiveInt(vs, vt);
+  src.forecastStatus as vs -> tgt.forecastStatus as vt then string(vs, vt);
+  src.dateCriterion as s -> tgt.dateCriterion as t then dateCriterion(s, t);
+  src.description as v ->  tgt.protocol as t,  t.description = v;
+  src.seriesDoses : positiveInt as v ->  tgt.protocol as t,  t.doseSequence = v;
+  res.authority as v ->  tgt.protocol as t,  t.authority = v;
+  src.series as v ->  tgt.protocol as t,  t.series = v;
+  src.supportingImmunization as vs -> tgt.supportingImmunization as vt then string(vs, vt);
+  src.supportingPatientInformation as vs -> tgt.supportingPatientInformation as vt then string(vs, vt);
+}
+
+group dateCriterion(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+

@@ -1,0 +1,38 @@
+map "http://hl7.org/fhir/StructureMap/DeviceRequest4to3" = "R4 to R3 Conversion for DeviceRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceRequest" alias DeviceRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DeviceRequest(source src : DeviceRequestR3, target tgt : DeviceRequest) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.priorRequest as vs -> tgt.priorRequest as vt then string(vs, vt);
+  src.groupIdentifier as vs -> tgt.groupIdentifier as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.intent as vs ->  tgt.intent as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/request-intent',  c.code = vs;
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.code : CodeableConcept as vs -> tgt.code = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.code : Reference as vs -> tgt.code = create('Reference') as vt then Reference(vs, vt);
+  src.parameter as s -> tgt.parameter as t then DeviceRequestParameter(s, t);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.occurrence as vs -> tgt.occurrence as vt then string(vs, vt);
+  src.authoredOn as vs -> tgt.authoredOn as vt then string(vs, vt);
+  src.requester as vs ->  tgt.requester as vt,  vt.agent = vs;
+  src.performerType as vs -> tgt.performerType as vt then string(vs, vt);
+  src.performer as vs -> tgt.performer as vt then Reference(vs, vt);
+  src.reasonCode as vs -> tgt.reasonCode as vt then string(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.insurance as vs -> tgt.insurance as vt then string(vs, vt);
+  src.supportingInfo as vs -> tgt.supportingInfo as vt then string(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.relevantHistory as vs -> tgt.relevantHistory as vt then string(vs, vt);
+}
+
+group DeviceRequestParameter(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+

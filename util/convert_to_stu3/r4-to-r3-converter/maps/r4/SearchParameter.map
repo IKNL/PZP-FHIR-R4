@@ -1,0 +1,37 @@
+map "http://hl7.org/fhir/StructureMap/SearchParameter4to3" = "R4 to R3 Conversion for SearchParameter"
+
+uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SearchParameter" alias SearchParameterR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SearchParameter(source src : SearchParameter, target tgt : SearchParameterR3) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.base as vs -> tgt.base as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.derivedFrom as vs -> tgt.derivedFrom as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.expression as vs -> tgt.expression as vt then string(vs, vt);
+  src.xpath as vs -> tgt.xpath as vt then string(vs, vt);
+  src.xpathUsage as vs -> tgt.xpathUsage as vt then string(vs, vt);
+  src.target as vs -> tgt.target as vt then string(vs, vt);
+  src.comparator as vs -> tgt.comparator as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.chain as vs -> tgt.chain as vt then string(vs, vt);
+  src.component as vs0 -> tgt.component as vt0 then {
+    vs0.definition -> vt0.definition;
+    vs0.expression -> vt0.expression;
+  };
+}
+

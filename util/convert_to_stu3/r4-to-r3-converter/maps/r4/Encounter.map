@@ -1,0 +1,71 @@
+map "http://hl7.org/fhir/StructureMap/Encounter4to3" = "R4 to R3 Conversion for Encounter"
+
+uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Encounter" alias EncounterR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Encounter(source src : Encounter, target tgt : EncounterR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.statusHistory as vs0 -> tgt.statusHistory as vt0 then statusHistory(vs0, vt0);
+  src.class as vs -> tgt.class as vt then string(vs, vt);
+  src.classHistory as vs0 -> tgt.classHistory as vt0 then classHistory(vs0, vt0);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.episodeOfCare as vs -> tgt.episodeOfCare as vt then string(vs, vt);
+  src.basedOn -> tgt.incomingReferral;
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.appointment as vs -> tgt.appointment as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.length as vs -> tgt.length as vt then string(vs, vt);
+  src.reasonCode -> tgt.reason;
+  src.diagnosis as vs0 -> tgt.diagnosis as vt0 then diagnosis(vs0, vt0);
+  src.account as vs -> tgt.account as vt then string(vs, vt);
+  src.hospitalization as vs0 -> tgt.hospitalization as vt0 then hospitalization(vs0, vt0);
+  src.location as vs0 -> tgt.location as vt0 then location(vs0, vt0);
+  src.serviceProvider as vs -> tgt.serviceProvider as vt then string(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+}
+
+group statusHistory(source src, target tgt) extends BackboneElement {
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+}
+
+group classHistory(source src, target tgt) extends BackboneElement {
+  src.class as vs -> tgt.class as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.individual as vs -> tgt.individual as vt then string(vs, vt);
+}
+
+group diagnosis(source src, target tgt) extends BackboneElement {
+  src.condition as vs -> tgt.condition as vt then string(vs, vt);
+  src.use -> tgt.role;
+  src.rank as vs -> tgt.rank as vt then string(vs, vt);
+}
+
+group hospitalization(source src, target tgt) extends BackboneElement {
+  src.preAdmissionIdentifier as vs -> tgt.preAdmissionIdentifier as vt then string(vs, vt);
+  src.origin as vs -> tgt.origin as vt then string(vs, vt);
+  src.admitSource as vs -> tgt.admitSource as vt then string(vs, vt);
+  src.reAdmission as vs -> tgt.reAdmission as vt then string(vs, vt);
+  src.dietPreference as vs -> tgt.dietPreference as vt then string(vs, vt);
+  src.specialCourtesy as vs -> tgt.specialCourtesy as vt then string(vs, vt);
+  src.specialArrangement as vs -> tgt.specialArrangement as vt then string(vs, vt);
+  src.destination as vs -> tgt.destination as vt then string(vs, vt);
+  src.dischargeDisposition as vs -> tgt.dischargeDisposition as vt then string(vs, vt);
+}
+
+group location(source src, target tgt) extends BackboneElement {
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+}
+

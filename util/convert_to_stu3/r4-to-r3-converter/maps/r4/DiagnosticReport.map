@@ -1,0 +1,40 @@
+map "http://hl7.org/fhir/StructureMap/DiagnosticReport4to3" = "R4 to R3 Conversion for DiagnosticReport"
+
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group DiagnosticReport(source src : DiagnosticReport, target tgt : DiagnosticReportR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
+  src.issued as vs -> tgt.issued as vt then instant(vs, vt);
+  src.performer as vs0 -> tgt.performer as vt0 then performer(vs0, vt0);
+  src.specimen as vs -> tgt.specimen as vt then Reference(vs, vt);
+  src.result as vs -> tgt.result as vt then string(vs, vt);
+  src.imagingStudy as vs -> tgt.imagingStudy as vt then string(vs, vt);
+  src.media as vs0 -> tgt.image as vt0 then image(vs0, vt0);
+  src.conclusion as vs -> tgt.conclusion as vt then string(vs, vt);
+  src.conclusionCode -> tgt.codedDiagnosis;
+  src.presentedForm as vs -> tgt.presentedForm as vt then string(vs, vt);
+}
+
+group performer(source src, target tgt) {
+  src -> tgt.actor as vt then Reference(src, vt) "actor";
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-DiagnosticReport.performer.role' then {
+    e.value -> tgt.role;
+  };
+}
+
+group image(source src, target tgt) extends BackboneElement {
+  src.comment as vs -> tgt.comment as vt then string(vs, vt);
+  src.link -> tgt.link;
+}
+

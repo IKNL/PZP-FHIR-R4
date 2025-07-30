@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/CareTeam4to3" = "R4 to R3 Conversion for CareTeam"
+
+uses "http://hl7.org/fhir/StructureDefinition/CareTeam" alias CareTeam as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CareTeam" alias CareTeamR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group CareTeam(source src : CareTeam, target tgt : CareTeamR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.reasonCode as vs -> tgt.reasonCode as vt then string(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.managingOrganization as vs -> tgt.managingOrganization as vt then Reference(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.role as vs -> tgt.role as vt then string(vs, vt);
+  src.member as vs -> tgt.member as vt then string(vs, vt);
+  src.onBehalfOf as vs -> tgt.onBehalfOf as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+}
+

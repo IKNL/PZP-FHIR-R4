@@ -1,0 +1,63 @@
+map "http://hl7.org/fhir/StructureMap/TestReport4to3" = "R4 to R3 Conversion for TestReport"
+
+uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReport as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestReport" alias TestReportR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group TestReport(source src : TestReport, target tgt : TestReportR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.testScript as vs -> tgt.testScript as vt then string(vs, vt);
+  src.result as vs -> tgt.result as vt then string(vs, vt);
+  src.score as vs -> tgt.score as vt then string(vs, vt);
+  src.tester as vs -> tgt.tester as vt then string(vs, vt);
+  src.issued as vs -> tgt.issued as vt then instant(vs, vt);
+  src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
+  src.setup as vs0 -> tgt.setup as vt0 then setup(vs0, vt0);
+  src.test as vs0 -> tgt.test as vt0 then test(vs0, vt0);
+  src.teardown as vs0 -> tgt.teardown as vt0 then teardown(vs0, vt0);
+}
+
+group participant(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.uri as vs -> tgt.uri as vt then string(vs, vt);
+  src.display as vs -> tgt.display as vt then string(vs, vt);
+}
+
+group setup(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group teardown(source src, target tgt) extends BackboneElement {
+  src.action as vs0 -> tgt.action as vt0 then actionNA(vs0, vt0);
+}
+
+group test(source src, target tgt) extends BackboneElement {
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.action as vs0 -> tgt.action as vt0 then action(vs0, vt0);
+}
+
+group action(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+  src.assert as vs0 -> tgt.assert as vt0 then assert(vs0, vt0);
+}
+
+group actionNA(source src, target tgt) extends BackboneElement {
+  src.operation as vs0 -> tgt.operation as vt0 then operation(vs0, vt0);
+}
+
+group operation(source src, target tgt) extends BackboneElement {
+  src.result as vs -> tgt.result as vt then string(vs, vt);
+  src.message as vs -> tgt.message as vt then string(vs, vt);
+  src.detail as vs -> tgt.detail as vt then string(vs, vt);
+}
+
+group assert(source src, target tgt) extends BackboneElement {
+  src.result as vs -> tgt.result as vt then string(vs, vt);
+  src.message as vs -> tgt.message as vt then string(vs, vt);
+  src.detail as vs -> tgt.detail as vt then string(vs, vt);
+}
+
