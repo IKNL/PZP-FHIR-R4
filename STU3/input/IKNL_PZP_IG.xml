@@ -2,249 +2,149 @@
 <!-- Start by finding all references to "myig" and updating to appropriate text for your IG,
 including changing realm -->
 <ImplementationGuide xmlns="http://hl7.org/fhir"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R3/fhir-single.xsd">
-  <id value="iknl.fhir.stu3.pzp" />
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R3/fhir-single.xsd">
+  <id value="iknl.fhir.stu3.pzp"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/standards-status">
-    <valueCode value="informative" />
+      <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/fmm">
-    <valueInteger value="1" />
+      <valueInteger value="1"/>
   </extension>
   <!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
-  <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp" />
+  <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp"/>
   <!-- This version will propagate to all artifacts unless the "propagate-version" extension is
   overridden -->
-  <version value="0.1.0" />
-  <name value="PZP" />
-  <title value="IKNL PZP " />
-  <status value="draft" />
-  <experimental value="false" />
-  <publisher value="IKNL" />
+  <version value="0.1.0"/>
+  <name value="PZP"/>
+  <title value="IKNL PZP "/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="IKNL"/>
   <contact>
-    <telecom>
+      <telecom>
       <!-- Or whatever URL and/or email address(es) are appropriate -->
-      <system value="url" />
-      <value value="https://www.iknl.nl" />
-    </telecom>
+         <system value="url"/>
+         <value value="https://www.iknl.nl"/>
+      </telecom>
   </contact>
-  <description value="TODO" />
+  <description value="TODO"/>
   <jurisdiction>
     <!-- This first repetition will drive SNOMED release used -->
-    <coding>
-      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm" />
-      <!-- This is the code for universal -->
-      <code value="001" />
-    </coding>
+      <coding>
+         <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+         <!-- This is the code for universal -->
+         <code value="001"/>
+      </coding>
   </jurisdiction>
-  <packageId value="iknl.fhir.stu3.pzp" />
+  <packageId value="iknl.fhir.stu3.pzp"/>
   <!-- This should be changed to 'not-open-source' or another license if appropriate for
   non-HL7-published content -->
-  <license value="CC0-1.0" />
+  <license value="CC0-1.0"/>
   <!-- This is whatever FHIR version(s) the IG artifacts are targeting (not the version of this
   file, which should always be 'current release') -->
-  <fhirVersion value="3.0.2" />
+  <fhirVersion value="3.0.2"/>
   <dependsOn>
-    <uri value="https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/2.2.20" />
-    <packageId value="nictiz.fhir.nl.stu3.zib2017" />
-    <version value="2.2.20" />
+      <uri value="https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/2.2.20"/>
+      <packageId value="nictiz.fhir.nl.stu3.zib2017"/>
+      <version value="2.2.20"/>
   </dependsOn>
   <definition>
     <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only
     need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-AdvanceDirective" />
-      </reference>
-      <description value="Profile for ACP AdvanceDirective" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-TreatmentDirective" />
-      </reference>
-      <description value="Profile for ACP Treatment Directive" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-AgreedMedicalPolicy" />
-      </reference>
-      <description value="Profile for ACP Agreed Medical Policy" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-DesiredPlaceOfDeath" />
-      </reference>
-      <description value="Profile for ACP Desired Place Of Death" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Encounter" />
-      </reference>
-      <description value="Profile for ACP Encounter" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/Extension-ACP-ICDrelatedToTreatment" />
-      </reference>
-      <description value="Extension for ACP ICD related To Treatment" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/Extension-ACP-Treatment" />
-      </reference>
-      <description value="Extension for ACP Treatment" />
-    </resource>
+    
+    
+    
+    
+    
+    
+    
     <!--<resource>
         <reference>
           <reference value="resources/Questionnaire-ACP-form"/>
         </reference>
         <description value="Questionnaire-ACP-form"/>
       </resource> -->
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-ICD" />
-      </reference>
-      <description value="Profile for ACP ICD" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-ICDpresent" />
-      </reference>
-      <description value="Profile for ACP ICD present" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Patient" />
-      </reference>
-      <description value="Profile for ACP Patient" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-PositionRegardingEuthanasia" />
-      </reference>
-      <description value="Profile for ACP Position Regarding Euthanasia" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Practitioner" />
-      </reference>
-      <description value="Profile for ACP Practitioner" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-PractitionerRole" />
-      </reference>
-      <description value="Profile for ACP Practitioner Role" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-RelatedPerson" />
-      </reference>
-      <description value="Profile for ACP Related Person" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-SpecificCareWishes" />
-      </reference>
-      <description value="Profile for ACP Specific Wishes" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ValueSet-ACP-DesiredPlaceDeath" />
-      </reference>
-      <description value="ValueSet for ACP Desired Place of Death" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ValueSet-ACP-EuthanasiaStatement" />
-      </reference>
-      <description value="ValueSet for ACP Euthanasia Statement" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ValueSet-ACP-Goal" />
-      </reference>
-      <description value="ValueSet for ACP Goal" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ValueSet-ACP-LivingWillType" />
-      </reference>
-      <description value="ValueSet for ACP Living Will Type" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ValueSet-ACP-TreatmentType" />
-      </reference>
-      <description value="ValueSet for ACP Treatment Type" />
-    </resource>
-    <page>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
-      <nameUrl value="toc.html" />
-      <title value="Table of Contents" />
-      <generation value="html" />
-      <page>
-        <nameUrl value="index.html" />
-        <title value="PZP IG Home page" />
-        <generation value="html" />
+         <nameUrl value="toc.html"/>
+         <title value="Table of Contents"/>
+         <generation value="html"/>
+         <page>
+            <nameUrl value="index.html"/>
+            <title value="PZP IG Home page"/>
+            <generation value="html"/>
+         </page>
+         <page>
+            <nameUrl value="background.html"/>
+            <title value="General Background"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <nameUrl value="usecases.html"/>
+            <title value="Use Cases"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <nameUrl value="fhirdatamodel.html"/>
+            <title value="ACP FHIR Data Model"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <nameUrl value="transactionsgroups.html"/>
+            <title value="Transaction Groups"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <nameUrl value="namingconventions.html"/>
+            <title value="Naming Conventions"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <nameUrl value="downloads.html"/>
+            <title value="Useful Downloads"/>
+            <generation value="html"/>
+         </page>
       </page>
-      <page>
-        <nameUrl value="background.html" />
-        <title value="General Background" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="usecases.html" />
-        <title value="Use Cases" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="fhirdatamodel.html" />
-        <title value="ACP FHIR Data Model" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="transactionsgroups.html" />
-        <title value="Transaction Groups" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="namingconventions.html" />
-        <title value="Naming Conventions" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="downloads.html" />
-        <title value="Useful Downloads" />
-        <generation value="html" />
-      </page>
-    </page>
-    <!-- copyright year is a mandatory parameter -->
-    <parameter>
-      <code value="copyrightyear" />
-      <value value="2025+" />
-    </parameter>
-    <!-- releaselabel should be the ballot status for HL7-published IGs. -->
-    <parameter>
-      <code value="releaselabel" />
-      <value value="CI Build" />
-    </parameter>
-    <parameter>
-      <code value="find-other-resources" />
-      <value value="true" />
-    </parameter>
-    <parameter>
-      <code value="path-liquid" />
-      <value value="templates\liquid" />
-    </parameter>
-    <parameter>
-      <code value="shownav" />
-      <value value="true" />
-    </parameter>
-    <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to
+      <!-- copyright year is a mandatory parameter -->
+      <parameter>
+         <code value="copyrightyear"/>
+         <value value="2025+"/>
+      </parameter>
+      <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+      <parameter>
+         <code value="releaselabel"/>
+         <value value="CI Build"/>
+      </parameter>
+      <parameter>
+         <code value="find-other-resources"/>
+         <value value="true"/>
+      </parameter>
+      <parameter>
+         <code value="path-liquid"/>
+         <value value="templates\liquid"/>
+      </parameter>
+      <parameter>
+         <code value="shownav"/>
+         <value value="true"/>
+      </parameter>
+      <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to
     disable the display of mappings
     <parameter>
       <code value="excludexml"/>
@@ -262,17 +162,337 @@ including changing realm -->
       <code value="excludemap"/>
       <value value="true"/>
     </parameter>-->
-    <parameter>
-      <code value="showsource" />
-      <value value="true" />
-    </parameter>
-    <parameter>
-      <code value="i18n-default-lang" />
-      <value value="en" />
-    </parameter>
-    <parameter>
-      <code value="fcp-approved-specification" />
-      <value value="false" />
-    </parameter>
+      <parameter>
+         <code value="showsource"/>
+         <value value="true"/>
+      </parameter>
+      <parameter>
+         <code value="i18n-default-lang"/>
+         <value value="en"/>
+      </parameter>
+      <parameter>
+         <code value="fcp-approved-specification"/>
+         <value value="false"/>
+      </parameter>
   </definition>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-ContactPerson"/>
+      </reference>
+      <name value="ACPContactPerson"/>
+      <description value="ContactPerson"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-SpecificCareWishes"/>
+      </reference>
+      <name value="ACPSpecificCareWishes"/>
+      <description value="Specific Care Wishes"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-MedicalDevice"/>
+      </reference>
+      <name value="ACPMedicalDevice"/>
+      <description value="MedicalDevice"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ValueSet/ACP-EuthanasiaStatement"/>
+      </reference>
+      <name value="ACPEuthanasiaStatementVS"/>
+      <description value="Euthanasia Statement"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Observation/F1-ACP-PositionRegardingEuthanasia-Unknown"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Observation/F1-ACP-OrganDonationChoiceRegistration-Yes"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-116762002"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-400231000146108"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-Patient"/>
+      </reference>
+      <name value="ACPPatient"/>
+      <description value="Patient"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-HealthProfessional-Practitioner"/>
+      </reference>
+      <name value="ACPHealthProfessionalPractitioner"/>
+      <description value="HealthProfessional Practitioner"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-MedicalDevice.Product-ICD"/>
+      </reference>
+      <name value="ACPMedicalDeviceProductICD"/>
+      <description value="MedicalDevice Product ICD"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Device/F1-ACP-MedicalDevice.Product-ICD"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-OtherImportantInformation"/>
+      </reference>
+      <name value="ACPOtherImportantInformation"/>
+      <description value="Other Important Information"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-Communication"/>
+      </reference>
+      <name value="ACPCommunication"/>
+      <description value="Communication"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ValueSet/ACP-PreferredPlaceOfDeath"/>
+      </reference>
+      <name value="ACPPreferredPlaceOfDeathVS"/>
+      <description value="Preferred Place Of Death"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="DeviceUseStatement/F1-ACP-MedicalDevice-ICD"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-Encounter"/>
+      </reference>
+      <name value="ACPEncounter"/>
+      <description value="Encounter"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-Procedure"/>
+      </reference>
+      <name value="ACPProcedure"/>
+      <description value="Advance Care Planning Procedure"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ext-EncounterReference"/>
+      </reference>
+      <name value="ExtEncounterReference"/>
+      <description value="ext Encounter Reference"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-HealthProfessional-PractitionerRole"/>
+      </reference>
+      <name value="ACPHealthProfessionalPractitionerRole"/>
+      <description value="HealthProfessional PractitionerRole"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Observation/F1-ACP-OtherImportantInformation"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-AdvanceDirective"/>
+      </reference>
+      <name value="ACPAdvanceDirective"/>
+      <description value="AdvanceDirective"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Encounter/F1-ACP-Encounter-01-10-2020"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-281789004"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-32485007"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ImplementationGuide/iknl.fhir.r4.pzp"/>
+      </reference>
+      <name value="PZP"/>
+      <description value="Advance Care Planning (PZP)"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Observation/F1-ACP-PreferredPlaceOfDeath-Unknown"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F2-ACP-TreatmentDirective-305351004"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Goal/F1-ACP-Medical-Policy-Goal"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="SearchParameter/Communication-reason-code"/>
+      </reference>
+      <name value="ReasonCode"/>
+      <description value="ReasonCode"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-TreatmentDirective"/>
+      </reference>
+      <name value="ACPTreatmentDirective"/>
+      <description value="TreatmentDirective"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Communication/F1-ACP-Communication-01-10-2020"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-89666000"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"/>
+      </reference>
+      <name value="ExtLegallyCapableMedicalTreatmentDecisions"/>
+      <description value="ext LegallyCapable regarding medical treatment decisions"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Procedure/F1-ACP-Procedure-01-10-2020"/>
+      </reference>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-OrganDonationChoiceRegistration"/>
+      </reference>
+      <name value="ACPOrganDonationChoiceRegistration"/>
+      <description value="Organ donation choice registration in donor register"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-305351004"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ValueSet/ACP-MedicalDeviceProductType-ICD"/>
+      </reference>
+      <name value="ACPMedicalDeviceProductTypeICDVS"/>
+      <description value="MedicalDevice ProductType ICD"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-Medical-Policy-Goal"/>
+      </reference>
+      <name value="ACPMedicalPolicyGoal"/>
+      <description value="Medical Policy Goal"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ValueSet/ACP-MedicalPolicyGoal"/>
+      </reference>
+      <name value="MedicalPolicyGoalVS"/>
+      <description value="Most Important Agreed-upon Goal of Medical Policy"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Observation/F1-ACP-SpecificCareWishes"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="Consent/F1-ACP-TreatmentDirective-40617009"/>
+      </reference>
+      <exampleBoolean value="true"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="ValueSet/ACP-YesNoUnknownVS"/>
+      </reference>
+      <name value="ACPYesNoUnknownVS"/>
+      <description value="Yes, No, Unknown valueSet"/>
+      <exampleBoolean value="false"/>
+   </resource>
+   <resource>
+      <reference>
+         <reference value="StructureDefinition/ACP-PositionRegardingEuthanasia"/>
+      </reference>
+      <name value="ACPPositionRegardingEuthanasia"/>
+      <description value="Position Regarding Euthanasia"/>
+      <exampleBoolean value="false"/>
+   </resource>
 </ImplementationGuide>

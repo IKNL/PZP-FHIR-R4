@@ -2,6 +2,7 @@ import fhir.converter.StructureMapFhirConverter;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import org.hl7.fhir.instance.model.api.IBaseResource;
+import main.java.IgXmlUpdater;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,8 +15,8 @@ public class FhirBatchConverter {
         System.out.println("=" + "=".repeat(60));
         
         String mapsDir = "../maps/r4";
-        String sourceDir = "../source/";
-        String outputDir = "../output/";
+        String sourceDir = "../../../R4/fsh-generated/resources/";
+        String outputDir = "../../../STU3/input/resources/";
         
         // Create output directory if it doesn't exist
         File outputDirectory = new File(outputDir);
@@ -195,6 +196,13 @@ public class FhirBatchConverter {
         }
         
         System.out.println("\n📁 Output files saved to: " + new File(outputDir).getAbsolutePath());
+        
+        // Update STU3 ImplementationGuide XML with converted resources
+        if (successCount > 0) {
+            System.out.println();
+            IgXmlUpdater.updateIgXml();
+        }
+        
         System.out.println("=" + "=".repeat(80));
     }
     

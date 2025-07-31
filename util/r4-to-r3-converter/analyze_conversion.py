@@ -86,8 +86,8 @@ def get_field_description(field_name):
 
 def analyze_all_files():
     """Analyze all source and output files and generate a markdown report."""
-    source_dir = Path("./source")
-    output_dir = Path("./output")
+    source_dir = Path("../../R4/fsh-generated/resources")
+    output_dir = Path("../../STU3/input/resources")
 
     if not source_dir.exists() or not output_dir.exists():
         print("Error: Source or output directory not found!")

@@ -40,22 +40,29 @@ java -cp "target/classes:target/dependency/*" FhirBatchConverter
 ```
 
 ### First-Time Setup
-1. **Place your FHIR R4 files** in the `../source/` directory
+1. **Ensure R4 IG is built** and has generated resources in `R4/fsh-generated/resources/`
 2. **Ensure StructureMap files** are present in `../maps/r4/` directory
 3. **Run the converter** using one of the methods above
-4. **Check results** in the `../output/` directory
+4. **Check results** in the `STU3/input/resources/` directory
 
 ## Directory Structure
 
 ```
-fhirconverter/
-├── src/main/java/
-│   ├── FhirBatchConverter.java     # Main converter application
-│   └── fhir/converter/             # Core converter classes
-├── ../source/                      # Input FHIR R4 JSON files
-├── ../output/                      # Output STU3 JSON files
-├── ../maps/r4/                     # StructureMap transformation rules
-└── convert.bat                     # Windows batch script
+repository-root/
+├── R4/                              # R4 Implementation Guide
+│   ├── fsh-generated/
+│   │   └── resources/               # Source FHIR R4 JSON files
+│   ├── input/                       # R4 IG input
+│   └── sushi-config.yaml            # R4 IG configuration
+├── STU3/                            # STU3 Implementation Guide
+│   ├── input/
+│   │   └── resources/               # Target STU3 JSON files
+│   └── ig.ini                       # STU3 IG configuration
+└── util/
+    └── r4-to-r3-converter/
+        ├── fhirconverter/           # This converter application
+        ├── maps/r4/                 # StructureMap transformation rules
+        └── analyze_conversion.py    # Analysis tool
 ```
 
 ## Successfully Converted Resource Types

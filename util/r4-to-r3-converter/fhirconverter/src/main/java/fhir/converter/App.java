@@ -22,8 +22,8 @@ public class App {
         
         // --- Configuration ---
         final String MAPS_DIRECTORY = "../maps/r4/"; 
-        final String SOURCE_DIRECTORY = "../source/";
-        final String OUTPUT_DIRECTORY = "../output/";
+        final String SOURCE_DIRECTORY = "../../../R4/fsh-generated/resources/";
+        final String OUTPUT_DIRECTORY = "../../../STU3/input/resources/";
         final String MAP_URL = "http://hl7.org/fhir/StructureMap/StructureDefinition4to3";
 
         System.out.println("=======================================");

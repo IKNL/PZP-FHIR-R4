@@ -11,7 +11,7 @@ from collections import defaultdict
 
 def get_used_resource_types():
     """Extract resource types from source JSON files."""
-    source_dir = Path("r4-to-r3-converter/source")
+    source_dir = Path("../../../../R4/fsh-generated/resources")
     used_types = set()
     
     if not source_dir.exists():
