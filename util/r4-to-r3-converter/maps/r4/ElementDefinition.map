@@ -210,8 +210,8 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0) "ElementDefinition-binding";
   src.mapping as vs0 -> tgt.mapping as vt0 then {
     vs0.identity as vs1 -> vt0.identity as vt1 then id(vs1, vt1);
-    vs0.uri as vs1 -> vt0.uri as vt1 then uri(vs1, vt1);
-    vs0.name as vs1 -> vt0.name as vt1 then string(vs1, vt1);
+    vs0.language as vs1 -> vt0.language as vt1 then code(vs1, vt1)
+    vs0.map as vs1 -> vt0.map as vt1 then string(vs1, vt1);
     vs0.comment as vs1 -> vt0.comment as vt1 then string(vs1, vt1);
   };
 }
