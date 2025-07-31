@@ -3,7 +3,7 @@
 ## Overview
 This report analyzes the changes made during the conversion of 49 FHIR R4 resources to STU3 format using the StructureMap-based R4-to-R3 converter.
 
-*Generated on: 2025-07-31 12:36:34*
+*Generated on: 2025-07-31 13:42:46*
 
 ## Summary Statistics
 - **Total files analyzed**: 49 file pairs
@@ -19,11 +19,11 @@ This report analyzes the changes made during the conversion of 49 FHIR R4 resour
 The most substantial changes occurred in **Consent** resources, where R4-specific elements were removed:
 
 **Removed elements:**
-- `provision.actor.role.coding.system` - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision` - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.actor.reference.reference` - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.code.coding` - R4's detailed provision structure replaced STU3's simpler consent terms
-- `scope.coding.system` - R4 introduced consent scope, not available in STU3
+- `provision.actor.role.coding.code` - R4's detailed provision structure replaced STU3's simpler consent terms
+- `provision.code.coding.system` - R4's detailed provision structure replaced STU3's simpler consent terms
+- `scope.coding` - R4 introduced consent scope, not available in STU3
+- `provision.actor.role.coding` - R4's detailed provision structure replaced STU3's simpler consent terms
+- `scope` - R4 introduced consent scope, not available in STU3
 
 **Impact:** Each Consent resource lost ~20 fields (42% reduction in field count)
 
@@ -31,11 +31,11 @@ The most substantial changes occurred in **Consent** resources, where R4-specifi
 The most substantial changes occurred in **ImplementationGuide** resources, where R4-specific elements were removed:
 
 **Removed elements:**
-- `definition.page.page.nameUrl` - Field structure changed between FHIR versions
-- `definition.page.page.title` - Field structure changed between FHIR versions
-- `definition.page.page.generation` - Field structure changed between FHIR versions
-- `dependsOn` - Field structure changed between FHIR versions
+- `definition.page.nameUrl` - Field structure changed between FHIR versions
 - `definition.parameter.value` - Field structure changed between FHIR versions
+- `definition.page.title` - Field structure changed between FHIR versions
+- `dependsOn` - Field structure changed between FHIR versions
+- `definition.page.page` - Field structure changed between FHIR versions
 
 **Impact:** Each ImplementationGuide resource lost ~25 fields (62% reduction in field count)
 
@@ -43,8 +43,8 @@ The most substantial changes occurred in **ImplementationGuide** resources, wher
 The most substantial changes occurred in **Observation** resources, where R4-specific elements were removed:
 
 **Removed elements:**
-- `encounter` - Direct encounter references moved/changed between versions
 - `encounter.reference` - Direct encounter references moved/changed between versions
+- `encounter` - Direct encounter references moved/changed between versions
 - `encounter.display` - Direct encounter references moved/changed between versions
 - `note.text` - Note structure changed between versions
 - `note` - Note structure changed between versions
@@ -56,9 +56,9 @@ The most substantial changes occurred in **StructureDefinition** resources, wher
 
 **Removed elements:**
 - `differential.element.binding.valueSet` - ValueSet binding syntax changed
+- `context.expression` - Extension context definition structure changed
 - `context.type` - Extension context definition structure changed
 - `context` - Extension context definition structure changed
-- `context.expression` - Extension context definition structure changed
 
 **Impact:** Each StructureDefinition resource lost ~1 fields (0% reduction in field count)
 
@@ -66,15 +66,15 @@ The most substantial changes occurred in **StructureDefinition** resources, wher
 
 #### Communication Resources (1 files)
 **Removed elements:**
-- `topic.coding.code` - R4's topic structure not compatible with STU3
-- `topic` - R4's topic structure not compatible with STU3
+- `topic.coding.system` - R4's topic structure not compatible with STU3
 - `topic.coding` - R4's topic structure not compatible with STU3
+- `topic.text` - R4's topic structure not compatible with STU3
 
 #### Encounter Resources (1 files)
 **Removed elements:**
-- `participant.individual.type` - Field structure changed between FHIR versions
-- `reasonReference.reference` - Reference structure changes
 - `reasonReference` - Reference structure changes
+- `reasonReference.reference` - Reference structure changes
+- `participant.individual.type` - Field structure changed between FHIR versions
 
 #### Goal Resources (1 files)
 **Removed elements:**
@@ -138,16 +138,16 @@ The converter uses a **StructureMap-based transformation** approach:
 
 ### Most Common Field Changes
 The following fields were most commonly removed across all resource types:
-- `provision.actor.role.coding.system` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.actor.reference.reference` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.code.coding` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `scope.coding.system` (removed from 8 files) - R4 introduced consent scope, not available in STU3
+- `provision.actor.role.coding.code` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
 - `provision.code.coding.system` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.actor.role` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
+- `scope.coding` (removed from 8 files) - R4 introduced consent scope, not available in STU3
 - `provision.actor.role.coding` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
+- `scope` (removed from 8 files) - R4 introduced consent scope, not available in STU3
 - `provision.code.coding.code` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
-- `provision.actor` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
+- `scope.coding.code` (removed from 8 files) - R4 introduced consent scope, not available in STU3
+- `provision.actor.reference.reference` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
+- `provision.actor.role.coding.system` (removed from 8 files) - R4's detailed provision structure replaced STU3's simpler consent terms
+- `provision.actor.reference.type` (removed from 8 files) - R4's typed references not in STU3
 
 
 ### File Processing Results
