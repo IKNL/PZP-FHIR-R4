@@ -7,21 +7,21 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
   src.path as vs -> tgt.path as vt then string(vs, vt);
-  src.representation as vs -> tgt.representation as vt then string(vs, vt);
+  src.representation as vs -> tgt.representation as vt then code(vs, vt);
   src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
   src.label as vs -> tgt.label as vt then string(vs, vt);
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then Coding(vs, vt);
   src.slicing as vs0 -> tgt.slicing as vt0 then slicing(vs0, vt0);
   src.short as vs -> tgt.short as vt then string(vs, vt);
-  src.definition as vs -> tgt.definition as vt then string(vs, vt);
-  src.comment as vs -> tgt.comment as vt then string(vs, vt);
-  src.requirements as vs -> tgt.requirements as vt then string(vs, vt);
+  src.definition as vs -> tgt.definition as vt then markdown(vs, vt);
+  src.comment as vs -> tgt.comment as vt then markdown(vs, vt);
+  src.requirements as vs -> tgt.requirements as vt then markdown(vs, vt);
   src.alias as vs -> tgt.alias as vt then string(vs, vt);
-  src.min as vs -> tgt.min as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
   src.max as vs -> tgt.max as vt then string(vs, vt);
   src.base as vs0 -> tgt.base as vt0 then base(vs0, vt0);
   src.type as vs0 -> tgt.type as vt0 then type(vs0, vt0);
-  src.contentReference as vs -> tgt.contentReference as vt then string(vs, vt);
+  src.contentReference as vs -> tgt.contentReference as vt then uri(vs, vt);
   src.defaultValue : base64Binary as vs -> tgt.defaultValue = create('base64Binary') as vt then base64Binary(vs, vt);
   src.defaultValue : boolean as vs -> tgt.defaultValue = create('boolean') as vt then boolean(vs, vt);
   src.defaultValue : code as vs -> tgt.defaultValue = create('code') as vt then code(vs, vt);
@@ -204,9 +204,9 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
     vs0.xpath -> vt0.xpath;
     vs0.source -> vt0.source;
   };
-  src.mustSupport as vs -> tgt.mustSupport as vt then string(vs, vt);
-  src.isModifier as vs -> tgt.isModifier as vt then string(vs, vt);
-  src.isSummary as vs -> tgt.isSummary as vt then string(vs, vt);
+  src.mustSupport as vs -> tgt.mustSupport as vt then boolean(vs, vt);
+  src.isModifier as vs -> tgt.isModifier as vt then boolean(vs, vt);
+  src.isSummary as vs -> tgt.isSummary as vt then boolean(vs, vt);
   src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0) "ElementDefinition-binding";
   src.mapping as vs0 -> tgt.mapping as vt0 then {
     vs0.identity -> vt0.identity;
@@ -218,34 +218,34 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
 
 group slicing(source src, target tgt) extends Element {
   src.discriminator as vs0 -> tgt.discriminator as vt0 then discriminator(vs0, vt0);
-  src.description as vs -> tgt.description as vt then markdown(vs, vt);
-  src.ordered as vs -> tgt.ordered as vt then string(vs, vt);
-  src.rules as vs -> tgt.rules as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then string(vs, vt);
+  src.ordered as vs -> tgt.ordered as vt then boolean(vs, vt);
+  src.rules as vs -> tgt.rules as vt then code(vs, vt);
 }
 
 group discriminator(source src, target tgt) extends Element {
-  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then code(vs, vt);
   src.path as vs -> tgt.path as vt then string(vs, vt);
 }
 
 group binding(source src, target tgt) extends Element {
-  src.strength as vs -> tgt.strength as vt then string(vs, vt);
-  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.strength as vs -> tgt.strength as vt then code(vs, vt);
+  src.description as vs -> tgt.description as vt then string(vs, vt);
   src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0) "binding-valueSetU";
   src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "binding-valueSetR";
 }
 
 group base(source src, target tgt) extends Element {
   src.path as vs -> tgt.path as vt then string(vs, vt);
-  src.min as vs -> tgt.min as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
   src.max as vs -> tgt.max as vt then string(vs, vt);
 }
 
 group type(source src, target tgt) extends Element {
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
-  src.profile as vs -> tgt.profile as vt then canonical(vs, vt);
-  src.targetProfile as vs -> tgt.targetProfile as vt then string(vs, vt);
-  src.aggregation as vs -> tgt.aggregation as vt then string(vs, vt);
-  src.versioning as vs -> tgt.versioning as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then uri(vs, vt);
+  src.profile as vs -> tgt.profile as vt then uri(vs, vt);
+  src.targetProfile as vs -> tgt.targetProfile as vt then uri(vs, vt);
+  src.aggregation as vs -> tgt.aggregation as vt then code(vs, vt);
+  src.versioning as vs -> tgt.versioning as vt then code(vs, vt);
 }
 

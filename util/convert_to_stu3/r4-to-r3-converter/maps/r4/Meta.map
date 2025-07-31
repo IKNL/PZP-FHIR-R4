@@ -9,7 +9,7 @@ group Meta(source src : Meta, target tgt : MetaR3) extends Element <<type+>> {
   src.versionId as vs -> tgt.versionId as vt then id(vs, vt);
   src.lastUpdated as vs -> tgt.lastUpdated as vt then instant(vs, vt);
   src.security as vs -> tgt.security as vt then Coding(vs, vt);
-  src.profile as vs -> tgt.profile as vt then canonical(vs, vt);
+  src.profile as vs -> tgt.profile as vt then uri(vs, vt);
   src.tag as vs -> tgt.tag as vt then Coding(vs, vt);
 }
 

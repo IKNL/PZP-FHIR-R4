@@ -6,10 +6,10 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ContactPoint" alias ContactPoi
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group ContactPoint(source src : ContactPoint, target tgt : ContactPointR3) extends Element <<type+>> {
-  src.system as vs -> tgt.system as vt then string(vs, vt);
-  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+  src.system as vs -> tgt.system as vt then code(vs, vt);
+  src.value as vs -> tgt.value as vt then string(vs, vt);
   src.use as vs -> tgt.use as vt then code(vs, vt);
-  src.rank as vs -> tgt.rank as vt then string(vs, vt);
-  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.rank as vs -> tgt.rank as vt then positiveInt(vs, vt);
+  src.period as vs -> tgt.period as vt then Period(vs, vt);
 }
 

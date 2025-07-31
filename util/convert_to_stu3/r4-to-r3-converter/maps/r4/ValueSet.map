@@ -15,7 +15,7 @@ group ValueSet(source src : ValueSet, target tgt : ValueSetR3) extends DomainRes
   src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
   src.date as vs -> tgt.date as vt then dateTime(vs, vt);
   src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
-  src.contact -> tgt.contact;
+  src.contact as vs -> tgt.contact as vt then ContactDetail(vs, vt);
   src.description as vs -> tgt.description as vt then markdown(vs, vt);
   src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
   src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
@@ -45,21 +45,21 @@ group include(source src, target tgt) extends BackboneElement {
 }
 
 group concept(source src, target tgt) extends BackboneElement {
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then code(vs, vt);
   src.display as vs -> tgt.display as vt then string(vs, vt);
   src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
 }
 
 group designation(source src, target tgt) extends BackboneElement {
   src.language as vs -> tgt.language as vt then code(vs, vt);
-  src.use as vs -> tgt.use as vt then code(vs, vt);
-  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+  src.use as vs -> tgt.use as vt then Coding(vs, vt);
+  src.value as vs -> tgt.value as vt then string(vs, vt);
 }
 
 group filter(source src, target tgt) extends BackboneElement {
   src.property as vs -> tgt.property as vt then string(vs, vt);
   src.op as vs -> tgt.op as vt then string(vs, vt);
-  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+  src.value as vs -> tgt.value as vt then string(vs, vt);
 }
 
 group expansion(source src, target tgt) extends BackboneElement {
@@ -87,7 +87,7 @@ group contains(source src, target tgt) extends BackboneElement {
   src.abstract as vs -> tgt.abstract as vt then string(vs, vt);
   src.inactive as vs -> tgt.inactive as vt then string(vs, vt);
   src.version as vs -> tgt.version as vt then string(vs, vt);
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then code(vs, vt);
   src.display as vs -> tgt.display as vt then string(vs, vt);
   src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
   src.contains as vs0 -> tgt.contains as vt0 then contains(vs0, vt0);

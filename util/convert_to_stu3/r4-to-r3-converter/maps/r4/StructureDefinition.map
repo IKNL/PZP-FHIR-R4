@@ -15,7 +15,7 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
   src.date as vs -> tgt.date as vt then dateTime(vs, vt);
   src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
-  src.contact -> tgt.contact;
+  src.contact as vs -> tgt.contact as vt then ContactDetail(vs, vt);
   src.description as vs -> tgt.description as vt then markdown(vs, vt);
   src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
   src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
@@ -32,14 +32,14 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.kind as vs -> tgt.kind as vt then string(vs, vt);
   src.abstract as vs -> tgt.abstract as vt then string(vs, vt);
   src.type as vs -> tgt.type as vt then string(vs, vt);
-  src.baseDefinition as vs -> tgt.baseDefinition as vt then string(vs, vt);
+  src.baseDefinition as vs -> tgt.baseDefinition as vt then uri(vs, vt);
   src.contextInvariant as vs -> tgt.contextInvariant as vt then string(vs, vt);
   src.derivation as vs -> tgt.derivation as vt then string(vs, vt);
   src.snapshot as vs0 -> tgt.snapshot as vt0 then {
-    vs0.element -> vt0.element;
+    vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
   };
   src.differential as vs0 -> tgt.differential as vt0 then {
-    vs0.element -> vt0.element;
+    vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
   };
 }
 
