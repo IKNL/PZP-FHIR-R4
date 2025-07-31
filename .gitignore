@@ -3,16 +3,16 @@
 # ================================
 
 # FSH Generated content
-/fsh-generated/
+*/fsh-generated/
 
 # FHIR IG Publisher cache and output
-/input-cache/
-/output/
-/temp/
+*/input-cache/
+*/output/
+*/temp/
 
 # Template files (usually auto-downloaded)
-/template/
-/local-template/
+*/template/
+
 
 # ================================
 # Java/Maven Build Files
