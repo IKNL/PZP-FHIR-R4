@@ -1,5 +1,3 @@
-package fhir.converter;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,12 +6,13 @@ import java.nio.file.Paths;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import org.hl7.fhir.instance.model.api.IBaseResource;
+import fhir.converter.StructureMapFhirConverter;
 
-public class StructureMapBatchApp {
+public class StructureDefinitionTest {
     public static void main(String[] args) {
         String sourceDir = "../source";
-        String outputDir = "../output-structuremap-fixed";
-        String mapsDir = "../maps/r4"; // Path to StructureMap files
+        String outputDir = "../output-structuredefinition-test";
+        String mapsDir = "../maps/r4";
         
         // Create output directory if it doesn't exist
         File outputDirFile = new File(outputDir);
@@ -31,12 +30,13 @@ public class StructureMapBatchApp {
             IParser r4Parser = r4Context.newJsonParser();
             IParser dstu3Parser = dstu3Context.newJsonParser();
             
-            // Process all JSON files in source directory
+            // Process all StructureDefinition JSON files in source directory
             File sourceDirFile = new File(sourceDir);
-            File[] jsonFiles = sourceDirFile.listFiles((dir, name) -> name.toLowerCase().endsWith(".json"));
+            File[] jsonFiles = sourceDirFile.listFiles((dir, name) -> 
+                name.toLowerCase().startsWith("structuredefinition") && name.toLowerCase().endsWith(".json"));
             
-            if (jsonFiles == null) {
-                System.err.println("No JSON files found in " + sourceDir);
+            if (jsonFiles == null || jsonFiles.length == 0) {
+                System.err.println("No StructureDefinition JSON files found in " + sourceDir);
                 return;
             }
             
@@ -44,13 +44,13 @@ public class StructureMapBatchApp {
             int successCount = 0;
             int errorCount = 0;
             
-            System.out.println("Processing " + totalFiles + " files with StructureMap converter...");
+            System.out.println("Processing " + totalFiles + " StructureDefinition files with StructureMap converter...");
             
             for (File file : jsonFiles) {
                 try {
                     String fileName = file.getName();
                     String baseName = fileName.substring(0, fileName.lastIndexOf('.'));
-                    String outputFileName = baseName + "-StructureMapFixed-STU3.json";
+                    String outputFileName = baseName + "-StructureDefinitionTest-STU3.json";
                     String outputPath = outputDir + "/" + outputFileName;
                     
                     System.out.print("Converting " + fileName + "... ");
@@ -64,6 +64,8 @@ public class StructureMapBatchApp {
                     // Determine the appropriate map URL based on resource type
                     String resourceType = r4Resource.fhirType();
                     String mapUrl = "http://hl7.org/fhir/StructureMap/" + resourceType + "4to3";
+                    
+                    System.out.print("using map: " + mapUrl + " ... ");
                     
                     // Convert using StructureMap
                     org.hl7.fhir.dstu3.model.Resource dstu3Resource = converter.convert(r4Resource, mapUrl);
@@ -84,7 +86,7 @@ public class StructureMapBatchApp {
                 }
             }
             
-            System.out.println("\n=== CONVERSION SUMMARY ===");
+            System.out.println("\n=== STRUCTUREDEFINITION CONVERSION SUMMARY ===");
             System.out.println("Total files: " + totalFiles);
             System.out.println("Successful: " + successCount);
             System.out.println("Errors: " + errorCount);
