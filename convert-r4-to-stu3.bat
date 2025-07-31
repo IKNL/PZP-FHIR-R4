@@ -9,6 +9,36 @@ REM into the IG development workflow.
 echo =====================================
 echo FHIR IG R4-to-STU3 Integration
 echo =====================================
+echo.
+
+REM Validate StructureMap files first
+echo 🔍 Validating StructureMap files...
+cd util\r4-to-r3-converter\fhirconverter
+java -cp target/classes fhir.converter.MapFileValidator >nul 2>&1
+if %ERRORLEVEL% neq 0 (
+    echo ⚠️  StructureMap validation warnings detected!
+    echo    Running detailed validation...
+    echo.
+    java -cp target/classes fhir.converter.MapFileValidator
+    echo.
+    echo ❓ Continue with conversion anyway? [Y/N]
+    set /p choice=
+    if /i not "%choice%"=="Y" (
+        echo Conversion cancelled.
+        cd ..\..\..
+        pause
+        exit /b 1
+    )
+    echo.
+) else (
+    echo ✅ All StructureMap files are valid
+    echo.
+)
+
+cd ..\..\..
+
+echo =====================================
+echo =====================================
 
 REM Navigate to the converter directory
 cd /d "%~dp0\util\r4-to-r3-converter\fhirconverter"

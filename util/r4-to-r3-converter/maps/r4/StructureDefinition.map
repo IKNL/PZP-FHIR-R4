@@ -9,7 +9,7 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.url as vs -> tgt.url as vt then uri(vs, vt);
   src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
   src.version as vs -> tgt.version as vt then string(vs, vt);
-  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.name as vs -> tgt.name = 'test';
   src.title as vs -> tgt.title as vt then string(vs, vt);
   src.status as vs -> tgt.status as vt then code(vs, vt);
   src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
@@ -24,15 +24,25 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.keyword as vs -> tgt.keyword as vt then string(vs, vt);
   src.fhirVersion as vs -> tgt.fhirVersion as vt then string(vs, vt);
   src.mapping as vs0 -> tgt.mapping as vt0 then {
-    vs0.identity -> vt0.identity;
-    vs0.uri -> vt0.uri;
-    vs0.name -> vt0.name;
-    vs0.comment -> vt0.comment;
+    vs0.identity as vs1 -> vt0.identity as vt1 then id(vs1, vt1);
+    vs0.uri as vs1 -> vt0.uri as vt1 then uri(vs1, vt1);
+    vs0.name as vs1 -> vt0.name as vt1 then string(vs1, vt1);
+    vs0.comment as vs1 -> vt0.comment as vt1 then string(vs1, vt1);
   };
   src.kind as vs -> tgt.kind as vt then string(vs, vt);
   src.abstract as vs -> tgt.abstract as vt then string(vs, vt);
   src.type as vs -> tgt.type as vt then string(vs, vt);
-  src.baseDefinition as vs -> tgt.baseDefinition as vt then uri(vs, vt);
+  src.baseDefinition where $this = 'http://hl7.org/fhir/StructureDefinition/Observation' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-Encounter';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-Procedure';
+  src.baseDefinition where $this = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective';
+  src.baseDefinition as vs -> tgt.baseDefinition as vt then canonical(vs, vt);
   src.contextInvariant as vs -> tgt.contextInvariant as vt then string(vs, vt);
   src.derivation as vs -> tgt.derivation as vt then string(vs, vt);
   src.snapshot as vs0 -> tgt.snapshot as vt0 then {
@@ -42,4 +52,3 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
     vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
   };
 }
-
