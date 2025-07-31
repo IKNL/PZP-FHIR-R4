@@ -12,19 +12,38 @@ A comprehensive Java application for converting FHIR R4 resources to STU3 using 
 
 ## Quick Start
 
-### Windows
+### Prerequisites
+Before running the converter, ensure you have:
+- **Java 8+** installed and available in PATH
+- **Maven 3.6+** installed for building the project
+- FHIR R4 JSON files in the `../source/` directory
+
+### For Windows Users (Recommended)
 ```bash
+# Navigate to the fhirconverter directory
+cd util\r4-to-r3-converter\fhirconverter
+
+# Run the automated batch script
 convert.bat
 ```
 
-### Manual Execution
+### For Other Operating Systems
 ```bash
-# Compile the project
-mvn compile
+# Navigate to the fhirconverter directory
+cd util/r4-to-r3-converter/fhirconverter
+
+# Install dependencies and compile
+mvn clean compile dependency:copy-dependencies
 
 # Run the converter
-java -cp "target/classes;target/dependency/*" FhirBatchConverter
+java -cp "target/classes:target/dependency/*" FhirBatchConverter
 ```
+
+### First-Time Setup
+1. **Place your FHIR R4 files** in the `../source/` directory
+2. **Ensure StructureMap files** are present in `../maps/r4/` directory
+3. **Run the converter** using one of the methods above
+4. **Check results** in the `../output/` directory
 
 ## Directory Structure
 
@@ -62,20 +81,33 @@ The converter has been tested and successfully converts:
 
 **Total: 49 files with 100% success rate**
 
-## Output
+## Post-Conversion Analysis
 
-The converter generates:
+After running the converter, you can analyze the conversion results using the provided Python analysis tool.
 
-### Console Output
-- Real-time processing status for each file
-- Comprehensive statistics by resource type
-- Detailed error analysis (if any errors occur)
-- Success/failure summary
+### Running the Analysis Tool
 
-### File Output
-- All converted files saved to `../output/` directory
-- Files named with `-STU3.json` suffix
-- Original R4 structure preserved in STU3 format
+#### Prerequisites for Analysis
+- **Python 3.7+** installed
+- No additional Python packages required (uses standard library only)
+
+#### Windows
+```bash
+# Navigate to the converter directory (one level up from fhirconverter)
+cd ..\
+
+# Run the analysis script
+python analyze_conversion.py
+```
+
+#### Linux/macOS
+```bash
+# Navigate to the converter directory (one level up from fhirconverter)
+cd ../
+
+# Run the analysis script
+python3 analyze_conversion.py
+```
 
 ## Error Handling
 
@@ -109,12 +141,38 @@ The following StructureMap transformation issues have been resolved:
 
 ## Troubleshooting
 
+### Common Issues and Solutions
+
+#### Converter Issues
 If conversions fail:
 
-1. Check the console output for specific error messages
-2. Review the StructureMap files in `../maps/r4/` directory
-3. Ensure all dependencies are properly installed
-4. Verify input files are valid FHIR R4 JSON
+1. **Check console output** for specific error messages
+2. **Verify Java installation**: Run `java -version` (requires Java 8+)
+3. **Check Maven installation**: Run `mvn -version` (if building manually)
+4. **Review StructureMap files** in `../maps/r4/` directory
+5. **Ensure input files are valid** FHIR R4 JSON format
+6. **Check file permissions** for reading source and writing output files
+
+#### Analysis Tool Issues
+If the analysis script fails:
+
+1. **Check Python installation**: Run `python --version` (requires Python 3.7+)
+2. **Verify directory structure**: Ensure you're running from the correct directory
+3. **Check that conversion completed**: Ensure `../output/` directory contains STU3 files
+4. **File encoding issues**: Ensure all JSON files use UTF-8 encoding
+
+#### Performance Issues
+If processing is slow:
+
+1. **Use the cleanup tools** to remove unused StructureMap files
+2. **Process files in smaller batches** if dealing with large datasets
+3. **Increase Java heap size**: Add `-Xmx2g` to java command for larger memory allocation
+
+#### Getting Help
+- Check the generated `CONVERSION_ANALYSIS_REPORT.md` for detailed insights
+- Review console output for specific error patterns
+- Ensure all dependencies are correctly installed
+- Verify that your FHIR files are valid R4 format
 
 ## Development
 
