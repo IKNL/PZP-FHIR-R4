@@ -89,6 +89,20 @@
         <configuration>
            <mainClass>FhirBatchConverter</mainClass>
         </configuration>
+        <executions>
+          <execution>
+            <id>validate-maps</id>
+            <configuration>
+              <mainClass>fhir.converter.MapFileValidator</mainClass>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test-structure-definitions</id>
+            <configuration>
+              <mainClass>fhir.converter.StructureDefinitionTester</mainClass>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

@@ -79,7 +79,8 @@ public class FhirBatchConverter {
     private static ConversionResult performConversionWithCapture(
             StructureMapFhirConverter converter, 
             IBaseResource r4Resource, 
-            String mapUrl) {
+            String mapUrl,
+            String fileName) {
         
         // Capture both stdout and stderr during conversion
         ByteArrayOutputStream capturedOutput = new ByteArrayOutputStream();
@@ -89,13 +90,46 @@ public class FhirBatchConverter {
         
         org.hl7.fhir.dstu3.model.Resource result = null;
         
+        // Add explicit debug logging before conversion
+        System.out.println("DEBUG: Starting conversion for " + fileName);
+        System.out.println("DEBUG: Resource type: " + r4Resource.fhirType());
+        System.out.println("DEBUG: Map URL: " + mapUrl);
+        
         try {
             // Redirect output streams
             System.setOut(captureStream);
             System.setErr(captureStream);
             
+            // Add debug output to captured stream
+            captureStream.println("=== CONVERSION START ===");
+            captureStream.println("File: " + fileName);
+            captureStream.println("Resource Type: " + r4Resource.fhirType());
+            captureStream.println("Map URL: " + mapUrl);
+            captureStream.println("=========================");
+            
+            // Enable verbose logging by redirecting logger output
+            // This is a hack to capture SLF4J logger output
+            java.util.logging.Logger rootLogger = java.util.logging.Logger.getLogger("");
+            java.util.logging.Handler[] handlers = rootLogger.getHandlers();
+            java.util.logging.StreamHandler streamHandler = new java.util.logging.StreamHandler(captureStream, new java.util.logging.SimpleFormatter());
+            streamHandler.setLevel(java.util.logging.Level.ALL);
+            rootLogger.addHandler(streamHandler);
+            rootLogger.setLevel(java.util.logging.Level.ALL);
+            
             // Perform the conversion
             result = converter.convert(r4Resource, mapUrl);
+            
+            // Remove the custom handler
+            rootLogger.removeHandler(streamHandler);
+            
+            // Add debug output after conversion
+            captureStream.println("=== CONVERSION END ===");
+            captureStream.println("Result: " + (result != null ? "SUCCESS" : "NULL"));
+            if (result != null) {
+                captureStream.println("Result Type: " + result.getClass().getSimpleName());
+                captureStream.println("Result Resource Type: " + result.fhirType());
+            }
+            captureStream.println("=====================");
             
         } finally {
             // Always restore original streams
@@ -106,7 +140,116 @@ public class FhirBatchConverter {
         // Get captured output
         String captured = capturedOutput.toString();
         
+        // Add more debug info
+        System.out.println("DEBUG: Captured " + captured.length() + " characters of output");
+        
+        // Save captured output to file for debugging
+        saveDebugLog(fileName, mapUrl, captured, r4Resource, result);
+        
         return new ConversionResult(result, captured);
+    }
+    
+    /**
+     * Saves the complete StructureMap logging output to a debug file
+     */
+    private static void saveDebugLog(String fileName, String mapUrl, String capturedOutput, 
+                                   IBaseResource sourceResource, org.hl7.fhir.dstu3.model.Resource resultResource) {
+        try {
+            // Create debug logs directory
+            File debugDir = new File("debug-logs");
+            if (!debugDir.exists()) {
+                debugDir.mkdirs();
+            }
+            
+            // Create debug file name based on source file and resource type
+            String resourceType = extractResourceTypeFromMapUrl(mapUrl);
+            String debugFileName = fileName.replace(".json", "") + "-" + resourceType + "-debug.txt";
+            File debugFile = new File(debugDir, debugFileName);
+            
+            // Prepare debug content
+            StringBuilder debugContent = new StringBuilder();
+            debugContent.append("=".repeat(80)).append("\n");
+            debugContent.append("STRUCTUREMAP DEBUG LOG\n");
+            debugContent.append("=".repeat(80)).append("\n");
+            debugContent.append("Source File: ").append(fileName).append("\n");
+            debugContent.append("Map URL: ").append(mapUrl).append("\n");
+            debugContent.append("Resource Type: ").append(resourceType).append("\n");
+            debugContent.append("Timestamp: ").append(new java.util.Date()).append("\n");
+            
+            // Add source resource info
+            if (sourceResource != null) {
+                debugContent.append("Source Resource Type: ").append(sourceResource.fhirType()).append("\n");
+                debugContent.append("Source Resource Class: ").append(sourceResource.getClass().getSimpleName()).append("\n");
+            }
+            
+            // Add result resource info
+            if (resultResource != null) {
+                debugContent.append("Result Resource Type: ").append(resultResource.fhirType()).append("\n");
+                debugContent.append("Result Resource Class: ").append(resultResource.getClass().getSimpleName()).append("\n");
+                debugContent.append("Conversion Status: SUCCESS\n");
+            } else {
+                debugContent.append("Conversion Status: FAILED (null result)\n");
+            }
+            
+            debugContent.append("=".repeat(80)).append("\n\n");
+            
+            if (capturedOutput != null && !capturedOutput.trim().isEmpty()) {
+                debugContent.append("CAPTURED OUTPUT:\n");
+                debugContent.append("-".repeat(40)).append("\n");
+                debugContent.append(capturedOutput);
+                debugContent.append("\n").append("-".repeat(40)).append("\n");
+            } else {
+                debugContent.append("NO OUTPUT CAPTURED\n");
+                debugContent.append("-".repeat(40)).append("\n");
+                debugContent.append("This could indicate:\n");
+                debugContent.append("1. StructureMap execution is silent\n");
+                debugContent.append("2. Conversion is using basic fallback\n");
+                debugContent.append("3. Logging level is not verbose enough\n");
+                debugContent.append("4. Output is going to a different stream\n");
+                debugContent.append("-".repeat(40)).append("\n");
+            }
+            
+            // Add analysis of what might be happening
+            if (resultResource != null && (capturedOutput == null || capturedOutput.trim().isEmpty())) {
+                debugContent.append("\n📊 ANALYSIS:\n");
+                debugContent.append("Conversion succeeded but no StructureMap output was captured.\n");
+                debugContent.append("This suggests the conversion may be using basic fallback instead of StructureMap.\n");
+                debugContent.append("Check if the StructureMap file exists and is being loaded correctly.\n");
+                
+                if ("StructureDefinition".equals(resourceType)) {
+                    debugContent.append("\n🔍 STRUCTUREDEFINITION SPECIFIC:\n");
+                    debugContent.append("For StructureDefinition transformations, check:\n");
+                    debugContent.append("- Is StructureDefinition.map loaded?\n");
+                    debugContent.append("- Are the baseDefinition mappings being applied?\n");
+                    debugContent.append("- Is fhirVersion being set to '3.0.2'?\n");
+                }
+            }
+            
+            debugContent.append("\nEND OF DEBUG LOG\n");
+            debugContent.append("=".repeat(80)).append("\n");
+            
+            // Write to file
+            Files.write(debugFile.toPath(), debugContent.toString().getBytes());
+            
+        } catch (Exception e) {
+            // Don't let debug logging failure break the main process
+            System.err.println("Warning: Failed to save debug log for " + fileName + ": " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Extracts resource type from map URL
+     */
+    private static String extractResourceTypeFromMapUrl(String mapUrl) {
+        if (mapUrl != null && mapUrl.contains("/")) {
+            String[] parts = mapUrl.split("/");
+            String lastPart = parts[parts.length - 1];
+            if (lastPart.contains("4to3")) {
+                return lastPart.replace("4to3", "");
+            }
+            return lastPart;
+        }
+        return "Unknown";
     }
     
     public static void main(String[] args) throws Exception {
@@ -128,6 +271,33 @@ public class FhirBatchConverter {
         // Initialize converter
         System.out.println("🔧 Initializing StructureMap converter...");
         StructureMapFhirConverter converter = new StructureMapFhirConverter(mapsDir);
+        
+        // Debug: Check what StructureMaps are loaded
+        System.out.println("🔍 Checking loaded StructureMaps...");
+        try {
+            // Use reflection to access the structureMaps field
+            java.lang.reflect.Field structureMapsField = converter.getClass().getDeclaredField("structureMaps");
+            structureMapsField.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            java.util.Map<String, Object> loadedMaps = (java.util.Map<String, Object>) structureMapsField.get(converter);
+            
+            System.out.println("📋 Loaded " + loadedMaps.size() + " StructureMaps:");
+            for (String mapUrl : loadedMaps.keySet()) {
+                System.out.println("  • " + mapUrl);
+            }
+            
+            // Check specifically for StructureDefinition map
+            String structureDefMapUrl = "http://hl7.org/fhir/StructureMap/StructureDefinition4to3";
+            if (loadedMaps.containsKey(structureDefMapUrl)) {
+                System.out.println("✅ StructureDefinition4to3 map is loaded");
+            } else {
+                System.out.println("❌ StructureDefinition4to3 map is NOT loaded");
+                System.out.println("🔍 This explains why StructureDefinition conversions use basic fallback");
+            }
+            
+        } catch (Exception e) {
+            System.out.println("⚠️  Could not inspect loaded StructureMaps: " + e.getMessage());
+        }
         
         // Get FHIR contexts for parsing
         FhirContext r4Context = converter.getR4Context();
@@ -161,6 +331,7 @@ public class FhirBatchConverter {
         List<String> structureMapIssues = new ArrayList<>(); // Track StructureMap-specific issues
         
         System.out.println("📁 Processing " + totalFiles + " JSON files...");
+        System.out.println("🔍 Debug logs will be saved to: debug-logs/ directory");
         System.out.println("=" + "=".repeat(80));
         
         for (File file : jsonFiles) {
@@ -182,7 +353,7 @@ public class FhirBatchConverter {
                 System.out.print(String.format("%-50s [%s] ", fileName, resourceType));
                 
                 // Attempt conversion with output capture
-                ConversionResult conversionResult = performConversionWithCapture(converter, r4Resource, mapUrl);
+                ConversionResult conversionResult = performConversionWithCapture(converter, r4Resource, mapUrl, fileName);
                 
                 if (conversionResult.resource != null) {
                     // Convert to JSON and save
@@ -340,6 +511,8 @@ public class FhirBatchConverter {
         }
         
         System.out.println("\n📁 Output files saved to: " + new File(outputDir).getAbsolutePath());
+        System.out.println("🔍 Debug logs saved to: " + new File("debug-logs").getAbsolutePath());
+        System.out.println("💡 Check debug logs to analyze StructureMap execution details");
         
         // Update STU3 ImplementationGuide XML with converted resources
         if (successCount > 0) {

@@ -113,6 +113,17 @@ public class StructureMapFhirConverter {
                     logger.debug("Parsing .map file: {}", mapFile.getFileName());
                     String mapContent = Files.readString(mapFile);
                     
+                    // Special handling for StructureDefinition.map to get detailed error info
+                    boolean isStructureDefinitionMap = mapFile.getFileName().toString().equals("StructureDefinition.map");
+                    
+                    if (isStructureDefinitionMap) {
+                        logger.info("=== PARSING STRUCTUREDEFINITION.MAP ===");
+                        logger.info("File path: {}", mapFile.toAbsolutePath());
+                        logger.info("File size: {} characters", mapContent.length());
+                        logger.info("First 200 characters: {}", 
+                                  mapContent.length() > 200 ? mapContent.substring(0, 200) + "..." : mapContent);
+                    }
+                    
                     // Try to parse using StructureMapUtilities
                     StructureMap structureMap = smu.parse(mapContent, mapFile.toString());
                     
@@ -120,11 +131,51 @@ public class StructureMapFhirConverter {
                         structureMaps.put(structureMap.getUrl(), structureMap);
                         context.cacheResource(structureMap);
                         logger.debug("Successfully parsed .map file: {}", structureMap.getUrl());
+                        
+                        if (isStructureDefinitionMap) {
+                            logger.info("✅ StructureDefinition.map SUCCESSFULLY PARSED!");
+                            logger.info("Map URL: {}", structureMap.getUrl());
+                            logger.info("Map Name: {}", structureMap.getName());
+                            logger.info("Number of groups: {}", structureMap.getGroup().size());
+                        }
+                    } else {
+                        if (isStructureDefinitionMap) {
+                            logger.error("❌ StructureDefinition.map parsed but result is null or has no URL");
+                            logger.error("StructureMap object: {}", structureMap);
+                            if (structureMap != null) {
+                                logger.error("StructureMap URL: {}", structureMap.getUrl());
+                                logger.error("StructureMap Name: {}", structureMap.getName());
+                            }
+                        }
                     }
                     
                 } catch (Exception e) {
-                    logger.debug("Could not parse .map file {}: {} (this is expected for some files)", 
-                               mapFile.getFileName(), e.getMessage());
+                    boolean isStructureDefinitionMap = mapFile.getFileName().toString().equals("StructureDefinition.map");
+                    
+                    if (isStructureDefinitionMap) {
+                        logger.error("❌ FAILED TO PARSE STRUCTUREDEFINITION.MAP!");
+                        logger.error("File: {}", mapFile.toAbsolutePath());
+                        logger.error("Error type: {}", e.getClass().getSimpleName());
+                        logger.error("Error message: {}", e.getMessage());
+                        logger.error("Full stack trace:", e);
+                        
+                        // Try to show where the parsing failed
+                        try {
+                            String mapContent = Files.readString(mapFile);
+                            String[] lines = mapContent.split("\n");
+                            logger.error("Map file has {} lines", lines.length);
+                            
+                            // Show first few lines for context
+                            for (int i = 0; i < Math.min(10, lines.length); i++) {
+                                logger.error("Line {}: {}", i + 1, lines[i]);
+                            }
+                        } catch (Exception readError) {
+                            logger.error("Could not even read the map file content: {}", readError.getMessage());
+                        }
+                    } else {
+                        logger.debug("Could not parse .map file {}: {} (this is expected for some files)", 
+                                   mapFile.getFileName(), e.getMessage());
+                    }
                 }
             }
         }
