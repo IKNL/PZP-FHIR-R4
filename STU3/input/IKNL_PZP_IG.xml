@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Start by finding all references to "myig" and updating to appropriate text for your IG,
+including changing realm -->
+<ImplementationGuide xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R3/fhir-single.xsd">
+  <id value="iknl.fhir.stu3.pzp" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/standards-status">
+    <valueCode value="informative" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/fmm">
+    <valueInteger value="1" />
+  </extension>
+  <!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
+    <valueString value="resources-spreadsheet.xml"/>
+  </extension>-->
+  <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp" />
+  <!-- This version will propagate to all artifacts unless the "propagate-version" extension is
+  overridden -->
+  <version value="0.1.0" />
+  <name value="PZP" />
+  <title value="IKNL PZP " />
+  <status value="draft" />
+  <experimental value="false" />
+  <publisher value="IKNL" />
+  <contact>
+    <telecom>
+      <!-- Or whatever URL and/or email address(es) are appropriate -->
+      <system value="url" />
+      <value value="https://www.iknl.nl" />
+    </telecom>
+  </contact>
+  <description value="TODO" />
+  <jurisdiction>
+    <!-- This first repetition will drive SNOMED release used -->
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm" />
+      <!-- This is the code for universal -->
+      <code value="001" />
+    </coding>
+  </jurisdiction>
+  <packageId value="iknl.fhir.stu3.pzp" />
+  <!-- This should be changed to 'not-open-source' or another license if appropriate for
+  non-HL7-published content -->
+  <license value="CC0-1.0" />
+  <!-- This is whatever FHIR version(s) the IG artifacts are targeting (not the version of this
+  file, which should always be 'current release') -->
+  <fhirVersion value="3.0.2" />
+  <dependsOn>
+    <uri value="https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/2.2.20" />
+    <packageId value="nictiz.fhir.nl.stu3.zib2017" />
+    <version value="2.2.20" />
+  </dependsOn>
+  <definition>
+    <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only
+    need to do so if your IG is 'special' and it's
+      inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-AdvanceDirective" />
+      </reference>
+      <description value="Profile for ACP AdvanceDirective" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-TreatmentDirective" />
+      </reference>
+      <description value="Profile for ACP Treatment Directive" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-AgreedMedicalPolicy" />
+      </reference>
+      <description value="Profile for ACP Agreed Medical Policy" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-DesiredPlaceOfDeath" />
+      </reference>
+      <description value="Profile for ACP Desired Place Of Death" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-Encounter" />
+      </reference>
+      <description value="Profile for ACP Encounter" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/Extension-ACP-ICDrelatedToTreatment" />
+      </reference>
+      <description value="Extension for ACP ICD related To Treatment" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/Extension-ACP-Treatment" />
+      </reference>
+      <description value="Extension for ACP Treatment" />
+    </resource>
+    <!--<resource>
+        <reference>
+          <reference value="resources/Questionnaire-ACP-form"/>
+        </reference>
+        <description value="Questionnaire-ACP-form"/>
+      </resource> -->
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-ICD" />
+      </reference>
+      <description value="Profile for ACP ICD" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-ICDpresent" />
+      </reference>
+      <description value="Profile for ACP ICD present" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-Patient" />
+      </reference>
+      <description value="Profile for ACP Patient" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-PositionRegardingEuthanasia" />
+      </reference>
+      <description value="Profile for ACP Position Regarding Euthanasia" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-Practitioner" />
+      </reference>
+      <description value="Profile for ACP Practitioner" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-PractitionerRole" />
+      </reference>
+      <description value="Profile for ACP Practitioner Role" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-RelatedPerson" />
+      </reference>
+      <description value="Profile for ACP Related Person" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ACP-SpecificCareWishes" />
+      </reference>
+      <description value="Profile for ACP Specific Wishes" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ValueSet-ACP-DesiredPlaceDeath" />
+      </reference>
+      <description value="ValueSet for ACP Desired Place of Death" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ValueSet-ACP-EuthanasiaStatement" />
+      </reference>
+      <description value="ValueSet for ACP Euthanasia Statement" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ValueSet-ACP-Goal" />
+      </reference>
+      <description value="ValueSet for ACP Goal" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ValueSet-ACP-LivingWillType" />
+      </reference>
+      <description value="ValueSet for ACP Living Will Type" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ValueSet-ACP-TreatmentType" />
+      </reference>
+      <description value="ValueSet for ACP Treatment Type" />
+    </resource>
+    <page>
+      <!-- The root will always be toc.html - the template will force it if you don't do it -->
+      <nameUrl value="toc.html" />
+      <title value="Table of Contents" />
+      <generation value="html" />
+      <page>
+        <nameUrl value="index.html" />
+        <title value="PZP IG Home page" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="background.html" />
+        <title value="General Background" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="usecases.html" />
+        <title value="Use Cases" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="fhirdatamodel.html" />
+        <title value="ACP FHIR Data Model" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="transactionsgroups.html" />
+        <title value="Transaction Groups" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="namingconventions.html" />
+        <title value="Naming Conventions" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="downloads.html" />
+        <title value="Useful Downloads" />
+        <generation value="html" />
+      </page>
+    </page>
+    <!-- copyright year is a mandatory parameter -->
+    <parameter>
+      <code value="copyrightyear" />
+      <value value="2025+" />
+    </parameter>
+    <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+    <parameter>
+      <code value="releaselabel" />
+      <value value="CI Build" />
+    </parameter>
+    <parameter>
+      <code value="find-other-resources" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="path-liquid" />
+      <value value="templates\liquid" />
+    </parameter>
+    <parameter>
+      <code value="shownav" />
+      <value value="true" />
+    </parameter>
+    <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to
+    disable the display of mappings
+    <parameter>
+      <code value="excludexml"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="excludejson"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="excludettl"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="excludemap"/>
+      <value value="true"/>
+    </parameter>-->
+    <parameter>
+      <code value="showsource" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="i18n-default-lang" />
+      <value value="en" />
+    </parameter>
+    <parameter>
+      <code value="fcp-approved-specification" />
+      <value value="false" />
+    </parameter>
+  </definition>
+</ImplementationGuide>
