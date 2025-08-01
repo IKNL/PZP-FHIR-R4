@@ -12,8 +12,7 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  //src.encounter as vs -> tgt.context as vt then Reference(vs, vt) "Observation-context-reference";
-  src.encounter : Reference as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt) "Observation-context-reference";
+  src.encounter as vs -> create('Reference') as vt then Reference(vs, vt), tgt.context = vt "Observation-context-reference";
   src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
   src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
   src.issued as vs -> tgt.issued as vt then instant(vs, vt);

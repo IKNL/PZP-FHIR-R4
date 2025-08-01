@@ -12,7 +12,8 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
   src.patient as vs -> tgt.patient as vt then Reference(vs, vt);
   // no period in stu3
   src.dateTime as vs -> tgt.dateTime as vt then string(vs, vt);
-  // TODO need to map this accordingly src.performer as vs-> tgt.consentingParty as vt then Reference(vs, vt) "Consent-consentingParty-reference";
+
+  src.performer as vs-> tgt.consentingParty as vt then Reference(vs, vt) "Consent-consentingParty-reference";
   src.organization as vs -> tgt.organization as vt then Reference(vs, vt);
   src.source : Attachment as vs -> tgt.source = create('Attachment') as vt then Attachment(vs, vt);
   src.source : Identifier as vs -> tgt.source = create('Identifier') as vt then Identifier(vs, vt);
@@ -28,7 +29,7 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
 }
 
 group baseProvision(source src, target tgt) {
-  src.type as vs -> tgt.type as vt then code(vs, vt);
+  //src.type as vs -> tgt.type as vt then code(vs, vt);
   src.period as vs -> tgt.period as vt then Period(vs, vt);
   src.actor as vs -> tgt.actor as vt then actor(vs, vt);
   src.action as vs -> tgt.action as vt then string(vs, vt);

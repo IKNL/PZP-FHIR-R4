@@ -11,8 +11,7 @@ group Communication(source src : CommunicationR4, target tgt : CommunicationR3) 
   src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
   src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
   src.status as vs where value != 'not-done' -> tgt.status as vt then code(vs, vt);
-  src.status as v where value = 'not-done' ->  tgt.status = 'completed';
-  // src.status as v where value = 'not-done' ->  tgt.notDone = true;
+  src.status as v where value = 'not-done' ->  tgt.status = 'completed', tgt.notDone = true "Communication-notDone-true";
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.medium as vs -> tgt.medium as vt then string(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt) "Communication-subject-reference";

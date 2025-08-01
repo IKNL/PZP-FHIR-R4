@@ -89,6 +89,7 @@ public class FhirBatchConverter {
         PrintStream originalErr = System.err;
         
         org.hl7.fhir.dstu3.model.Resource result = null;
+        Exception conversionException = null;
         
         // Add explicit debug logging before conversion
         System.out.println("DEBUG: Starting conversion for " + fileName);
@@ -116,8 +117,24 @@ public class FhirBatchConverter {
             rootLogger.addHandler(streamHandler);
             rootLogger.setLevel(java.util.logging.Level.ALL);
             
-            // Perform the conversion
-            result = converter.convert(r4Resource, mapUrl);
+            try {
+                // Perform the conversion
+                result = converter.convert(r4Resource, mapUrl);
+                
+                // Check if result is null - this indicates conversion failure
+                if (result == null) {
+                    captureStream.println("CONVERSION ERROR: converter.convert() returned null");
+                    captureStream.println("This indicates all conversion methods failed");
+                }
+                
+            } catch (Exception e) {
+                // Capture any exception thrown during conversion
+                conversionException = e;
+                captureStream.println("CONVERSION EXCEPTION: " + e.getClass().getSimpleName());
+                captureStream.println("EXCEPTION MESSAGE: " + e.getMessage());
+                captureStream.println("STACK TRACE:");
+                e.printStackTrace(captureStream);
+            }
             
             // Remove the custom handler
             rootLogger.removeHandler(streamHandler);
@@ -128,6 +145,9 @@ public class FhirBatchConverter {
             if (result != null) {
                 captureStream.println("Result Type: " + result.getClass().getSimpleName());
                 captureStream.println("Result Resource Type: " + result.fhirType());
+            }
+            if (conversionException != null) {
+                captureStream.println("Exception during conversion: " + conversionException.getMessage());
             }
             captureStream.println("=====================");
             
@@ -142,9 +162,20 @@ public class FhirBatchConverter {
         
         // Add more debug info
         System.out.println("DEBUG: Captured " + captured.length() + " characters of output");
+        if (conversionException != null) {
+            System.out.println("DEBUG: Exception occurred during conversion: " + conversionException.getMessage());
+        }
+        if (result == null && conversionException == null) {
+            System.out.println("DEBUG: Conversion returned null without throwing exception");
+        }
         
         // Save captured output to file for debugging
         saveDebugLog(fileName, mapUrl, captured, r4Resource, result);
+        
+        // If there was an exception and no result, re-throw the exception
+        if (result == null && conversionException != null) {
+            throw new RuntimeException("Conversion failed with exception: " + conversionException.getMessage(), conversionException);
+        }
         
         return new ConversionResult(result, captured);
     }

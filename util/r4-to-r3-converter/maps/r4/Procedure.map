@@ -32,7 +32,7 @@ group Procedure(source src : Procedure, target tgt : ProcedureR3) extends Domain
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  src.encounter : Reference as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt);
+  src.encounter create('Reference') as vs -> tgt.context =  as vt then Reference(vs, vt);
   src.performed : dateTime as vs -> tgt.performed = create('dateTime') as vt then dateTime(vs, vt);
   src.performed : Period as vs -> tgt.performed = create('Period') as vt then Period(vs, vt);
   // No mapping for:
