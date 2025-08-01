@@ -9,11 +9,11 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group Annotation(source src : Annotation, target tgt : AnnotationR3) extends Element <<type+>> {
   src.author : Reference as vs -> tgt.author = create('Reference') as vt then Reference(vs, vt);
   src.author : string as vs -> tgt.author = create('string') as vt then string(vs, vt);
-  src.time as vs -> tgt.time as vt then string(vs, vt);
-  src.text as vs -> tgt.text as vt then Narrative(vs, vt);
+  src.time as vs -> tgt.time as vt then dateTime(vs, vt);
+  src.text as vs -> tgt.text as vt then string(vs, vt);
 }
 
 group Annotation2string(source src : Annotation, target tgt : stringR3) extends Element <<types>> {
-  src.text as vs0 then string(vs0, tgt);
+  src.text as vs0 -> tgt as vt0 then string(vs0, vt0);
 }
 
