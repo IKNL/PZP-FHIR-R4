@@ -8,14 +8,14 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group RelatedPerson(source src : RelatedPersonR3, target tgt : RelatedPerson) extends DomainResource <<type+>> {
   src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
   src.active as vs -> tgt.active as vt then boolean(vs, vt);
-  src.patient as vs -> tgt.patient as vt then string(vs, vt);
-  src.relationship as vs -> tgt.relationship as vt then string(vs, vt);
-  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.patient as vs -> tgt.patient as vt then Reference(vs, vt);
+  src.relationship as vs -> tgt.relationship as vt then CodeableConcept(vs, vt);
+  src.name as vs -> tgt.name as vt then HumanName(vs, vt);
   src.telecom as vs -> tgt.telecom as vt then ContactPoint(vs, vt);
   src.gender as vs -> tgt.gender as vt then code(vs, vt);
   src.birthDate as vs -> tgt.birthDate as vt then date(vs, vt);
   src.address as vs -> tgt.address as vt then Address(vs, vt);
   src.photo as vs -> tgt.photo as vt then Attachment(vs, vt);
-  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then Period(vs, vt);
 }
 

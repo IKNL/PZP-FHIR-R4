@@ -6,9 +6,9 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Reference" alias ReferenceR3 a
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Reference(source src : Reference, target tgt : ReferenceR3) extends Element <<type+>> {
-  src.reference as vs -> tgt.reference as vt then string(vs, vt);
-  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
-  src.display as vs -> tgt.display as vt then string(vs, vt);
+  src.reference as vs -> tgt.reference as vt then string(vs, vt) "Reference-reference";
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt) "Reference-identifier";
+  src.display as vs -> tgt.display as vt then string(vs, vt) "Reference-display";
 }
 
 group ReferenceNoIdentifier(source src : Reference, target tgt : ReferenceR3) extends Element {

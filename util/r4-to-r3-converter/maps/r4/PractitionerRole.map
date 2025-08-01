@@ -8,25 +8,25 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 group PractitionerRole(source src : PractitionerRole, target tgt : PractitionerRoleR3) extends DomainResource <<type+>> {
   src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
   src.active as vs -> tgt.active as vt then boolean(vs, vt);
-  src.period as vs -> tgt.period as vt then string(vs, vt);
-  src.practitioner as vs -> tgt.practitioner as vt then string(vs, vt);
-  src.organization as vs -> tgt.organization as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then Period(vs, vt);
+  src.practitioner as vs -> tgt.practitioner as vt then Reference(vs, vt);
+  src.organization as vs -> tgt.organization as vt then Reference(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
-  src.specialty as vs -> tgt.specialty as vt then string(vs, vt);
-  src.location as vs -> tgt.location as vt then string(vs, vt);
-  src.healthcareService as vs -> tgt.healthcareService as vt then string(vs, vt);
+  src.specialty as vs -> tgt.specialty as vt then CodeableConcept(vs, vt);
+  src.location as vs -> tgt.location as vt then Reference(vs, vt);
+  src.healthcareService as vs -> tgt.healthcareService as vt then Reference(vs, vt);
   src.telecom as vs -> tgt.telecom as vt then ContactPoint(vs, vt);
   src.availableTime as vs0 -> tgt.availableTime as vt0 then {
-    vs0.daysOfWeek -> vt0.daysOfWeek;
-    vs0.allDay -> vt0.allDay;
-    vs0.availableStartTime -> vt0.availableStartTime;
-    vs0.availableEndTime -> vt0.availableEndTime;
+    vs0.daysOfWeek as vs1 -> vt0.daysOfWeek as vt1 then code(vs1, vt1);
+    vs0.allDay as vs1 -> vt0.allDay as vt1 then boolean(vs1, vt1);
+    vs0.availableStartTime as vs1 -> vt0.availableStartTime as vt1 then time(vs1, vt1);
+    vs0.availableEndTime as vs1 -> vt0.availableEndTime as vt1 then time(vs1, vt1);
   };
   src.notAvailable as vs0 -> tgt.notAvailable as vt0 then {
-    vs0.description -> vt0.description;
-    vs0.during -> vt0.during;
+    vs0.description as vs1 -> vt0.description as vt1 then string(vs1, vt1);
+    vs0.during as vs1 -> vt0.during as vt1 then Period(vs1, vt1);
   };
   src.availabilityExceptions as vs -> tgt.availabilityExceptions as vt then string(vs, vt);
-  src.endpoint as vs -> tgt.endpoint as vt then string(vs, vt);
+  src.endpoint as vs -> tgt.endpoint as vt then Reference(vs, vt);
 }
 

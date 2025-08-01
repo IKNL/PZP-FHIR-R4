@@ -13,21 +13,21 @@ group SearchParameter(source src : SearchParameter, target tgt : SearchParameter
   src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
   src.date as vs -> tgt.date as vt then dateTime(vs, vt);
   src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
-  src.contact -> tgt.contact;
+  src.contact as vs -> tgt.contact as vt then ContactDetail(vs, vt);
   src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
   src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
   src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then code(vs, vt);
   src.base as vs -> tgt.base as vt then string(vs, vt);
   src.type as vs -> tgt.type as vt then string(vs, vt);
-  src.derivedFrom as vs -> tgt.derivedFrom as vt then string(vs, vt);
+  src.derivedFrom as vs -> tgt.derivedFrom as vt then uri(vs, vt);
   src.description as vs -> tgt.description as vt then markdown(vs, vt);
   src.expression as vs -> tgt.expression as vt then string(vs, vt);
   src.xpath as vs -> tgt.xpath as vt then string(vs, vt);
-  src.xpathUsage as vs -> tgt.xpathUsage as vt then string(vs, vt);
-  src.target as vs -> tgt.target as vt then string(vs, vt);
-  src.comparator as vs -> tgt.comparator as vt then string(vs, vt);
-  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.xpathUsage as vs -> tgt.xpathUsage as vt then code(vs, vt);
+  src.target as vs -> tgt.target as vt then code(vs, vt);
+  src.comparator as vs -> tgt.comparator as vt then code(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then code(vs, vt);
   src.chain as vs -> tgt.chain as vt then string(vs, vt);
   src.component as vs0 -> tgt.component as vt0 then {
     vs0.definition -> vt0.definition;

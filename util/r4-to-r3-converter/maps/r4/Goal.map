@@ -15,23 +15,23 @@ group Goal(source src : Goal, target tgt : GoalR3) extends DomainResource <<type
   src.achievementStatus where coding.where((system = 'http://terminology.hl7.org/CodeSystem/goal-achievement') and (code = 'improving')) -> tgt.status = 'ahead-of-target';
   src.achievementStatus where coding.where((system = 'http://terminology.hl7.org/CodeSystem/goal-achievement') and (code = 'worsening')) -> tgt.status = 'behind-target';
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
-  src.priority as vs -> tgt.priority as vt then string(vs, vt);
-  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.priority as vs -> tgt.priority as vt then CodeableConcept(vs, vt);
+  src.description as vs -> tgt.description as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
   src.start : date as vs -> tgt.start = create('date') as vt then date(vs, vt);
   src.start : CodeableConcept as vs -> tgt.start = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
   src.target as vs0 -> tgt.target as vt0 then target(vs0, vt0);
-  src.statusDate as vs -> tgt.statusDate as vt then string(vs, vt);
+  src.statusDate as vs -> tgt.statusDate as vt then date(vs, vt);
   src.statusReason as vs -> tgt.statusReason as vt then string(vs, vt);
-  src.expressedBy as vs -> tgt.expressedBy as vt then string(vs, vt);
-  src.addresses as vs -> tgt.addresses as vt then string(vs, vt);
+  src.expressedBy as vs -> tgt.expressedBy as vt then Reference(vs, vt);
+  src.addresses as vs -> tgt.addresses as vt then Reference(vs, vt);
   src.note as vs -> tgt.note as vt then Annotation(vs, vt);
-  src.outcomeCode as vs -> tgt.outcomeCode as vt then string(vs, vt);
-  src.outcomeReference as vs -> tgt.outcomeReference as vt then string(vs, vt);
+  src.outcomeCode as vs -> tgt.outcomeCode as vt then CodeableConcept(vs, vt);
+  src.outcomeReference as vs -> tgt.outcomeReference as vt then Reference(vs, vt);
 }
 
 group target(source src, target tgt) extends BackboneElement {
-  src.measure as vs -> tgt.measure as vt then string(vs, vt);
+  src.measure as vs -> tgt.measure as vt then CodeableConcept(vs, vt);
   src.detail : Quantity as vs -> tgt.detail = create('Quantity') as vt then Quantity(vs, vt);
   src.detail : Range as vs -> tgt.detail = create('Range') as vt then Range(vs, vt);
   src.detail : CodeableConcept as vs -> tgt.detail = create('CodeableConcept') as vt then CodeableConcept(vs, vt);

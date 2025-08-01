@@ -7,12 +7,13 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group Observation(source src : Observation, target tgt : ObservationR3) extends DomainResource <<type+>> {
   src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
-  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.basedOn as vs -> tgt.basedOn as vt then Reference(vs, vt);
   src.status as vs -> tgt.status as vt then code(vs, vt);
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  src.encounter -> tgt.context;
+  //src.encounter as vs -> tgt.context as vt then Reference(vs, vt) "Observation-context-reference";
+  src.encounter : Reference as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt) "Observation-context-reference";
   src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
   src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
   src.issued as vs -> tgt.issued as vt then instant(vs, vt);
@@ -49,12 +50,12 @@ group relatedExt(source src, target tgt) {
 }
 
 group referenceRange(source src, target tgt) extends BackboneElement {
-  src.low as vs -> tgt.low as vt then string(vs, vt);
-  src.high as vs -> tgt.high as vt then string(vs, vt);
-  src.type as vs -> tgt.type as vt then string(vs, vt);
-  src.appliesTo as vs -> tgt.appliesTo as vt then string(vs, vt);
-  src.age as vs -> tgt.age as vt then string(vs, vt);
-  src.text as vs -> tgt.text as vt then Narrative(vs, vt);
+  src.low as vs -> tgt.low as vt then SimpleQuantity(vs, vt);
+  src.high as vs -> tgt.high as vt then SimpleQuantity(vs, vt);
+  src.type as vs -> tgt.type as vt then CodeableConcept(vs, vt);
+  src.appliesTo as vs -> tgt.appliesTo as vt then CodeableConcept(vs, vt);
+  src.age as vs -> tgt.age as vt then Range(vs, vt);
+  src.text as vs -> tgt.text as vt then string(vs, vt);
 }
 
 group component(source src, target tgt) extends BackboneElement {

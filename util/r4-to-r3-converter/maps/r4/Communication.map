@@ -15,7 +15,7 @@ group Communication(source src : CommunicationR4, target tgt : CommunicationR3) 
   // src.status as v where value = 'not-done' ->  tgt.notDone = true;
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.medium as vs -> tgt.medium as vt then string(vs, vt);
-  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt) "Communication-subject-reference";
   src.recipient as vs -> tgt.recipient as vt then Reference(vs, vt);
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic' then {
     e.value -> tgt.topic;

@@ -20,7 +20,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/Procedure" alias ProcedureR3 a
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group Procedure(source src : ProcedureR3, target tgt : Procedure) extends DomainResource <<type+>> {
+group Procedure(source src : Procedure, target tgt : ProcedureR3) extends DomainResource <<type+>> {
   src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
   src.instantiatesCanonical as vs -> tgt.instantiatesCanonical as vt then string(vs, vt);
   src.instantiatesUri as vs -> tgt.instantiatesUri as vt then string(vs, vt);
@@ -33,27 +33,32 @@ group Procedure(source src : ProcedureR3, target tgt : Procedure) extends Domain
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
   src.encounter : Reference as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt);
-  src.performed as vs -> tgt.performed as vt then string(vs, vt);
-  src.recorder as vs -> tgt.recorder as vt then string(vs, vt);
-  src.asserter as vs -> tgt.asserter as vt then string(vs, vt);
+  src.performed : dateTime as vs -> tgt.performed = create('dateTime') as vt then dateTime(vs, vt);
+  src.performed : Period as vs -> tgt.performed = create('Period') as vt then Period(vs, vt);
+  // No mapping for:
+  // src.performed : string as vs -> tgt.performed = create('string') as vt then string(vs, vt);
+  // src.performed : Age as vs -> tgt.performed = create('Age') as vt then Age(vs, vt);
+  // src.performed : Range as vs -> tgt.performed = create('Range') as vt then Range(vs, vt);
+  src.recorder as vs -> tgt.recorder as vt then Reference(vs, vt);
+  src.asserter as vs -> tgt.asserter as vt then Reference(vs, vt);
   src.performer as s -> tgt.performer as t then ProcedurePerformer(s, t);
-  src.location as vs -> tgt.location as vt then string(vs, vt);
-  src.reasonCode as vs -> tgt.reasonCode as vt then string(vs, vt);
-  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then Reference(vs, vt);
+  src.reasonCode as vs -> tgt.reasonCode as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then Reference(vs, vt);
   src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
-  src.outcome as vs -> tgt.outcome as vt then string(vs, vt);
-  src.report as vs -> tgt.report as vt then string(vs, vt);
+  src.outcome as vs -> tgt.outcome as vt then CodeableConcept(vs, vt);
+  src.report as vs -> tgt.report as vt then Reference(vs, vt);
   src.complication as vs -> tgt.complication as vt then string(vs, vt);
-  src.complicationDetail as vs -> tgt.complicationDetail as vt then string(vs, vt);
-  src.followUp as vs -> tgt.followUp as vt then string(vs, vt);
+  src.complicationDetail as vs -> tgt.complicationDetail as vt then Reference(vs, vt);
+  src.followUp as vs -> tgt.followUp as vt then CodeableConcept(vs, vt);
   src.note as vs -> tgt.note as vt then Annotation(vs, vt);
   src.focalDevice as s -> tgt.focalDevice as t then ProcedureFocalDevice(s, t);
-  src.usedReference as vs -> tgt.usedReference as vt then string(vs, vt);
-  src.usedCode as vs -> tgt.usedCode as vt then string(vs, vt);
+  src.usedReference as vs -> tgt.usedReference as vt then Reference(vs, vt);
+  src.usedCode as vs -> tgt.usedCode as vt then CodeableConcept(vs, vt);
 }
 
 group ProcedurePerformer(source src, target tgt) extends BackboneElement {
-  src.function -> tgt.role;
+  src.function as vs -> tgt.role as vt then CodeableConcept(vs, vt);
   src.actor as vs -> tgt.actor as vt then string(vs, vt);
   src.onBehalfOf as vs -> tgt.onBehalfOf as vt then string(vs, vt);
 }

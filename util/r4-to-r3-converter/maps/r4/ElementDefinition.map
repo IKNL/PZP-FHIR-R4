@@ -210,7 +210,7 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0) "ElementDefinition-binding";
   src.mapping as vs0 -> tgt.mapping as vt0 then {
     vs0.identity as vs1 -> vt0.identity as vt1 then id(vs1, vt1);
-    vs0.language as vs1 -> vt0.language as vt1 then code(vs1, vt1)
+    vs0.language as vs1 -> vt0.language as vt1 then code(vs1, vt1);
     vs0.map as vs1 -> vt0.map as vt1 then string(vs1, vt1);
     vs0.comment as vs1 -> vt0.comment as vt1 then string(vs1, vt1);
   };
@@ -231,8 +231,9 @@ group discriminator(source src, target tgt) extends Element {
 group binding(source src, target tgt) extends Element {
   src.strength as vs -> tgt.strength as vt then code(vs, vt);
   src.description as vs -> tgt.description as vt then string(vs, vt);
-  src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0) "binding-valueSetU";
+  // src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0) "binding-valueSetU";
   src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "binding-valueSetR";
+  src.valueSet as vs0 where value.startsWith('https://fhir.iknl.nl/') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "binding-valueSetR"
 }
 
 group base(source src, target tgt) extends Element {

@@ -27,6 +27,7 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "64627bfa-f127-4d3a-2387-39426d7937dc"
 * status = #completed 
+* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 01-10-2020"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[0].actor = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"

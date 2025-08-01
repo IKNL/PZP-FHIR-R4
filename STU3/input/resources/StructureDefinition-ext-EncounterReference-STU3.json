@@ -19,7 +19,7 @@
   "description": "An extension to link the Encounter during which the Consent, Goal or DeviceUseStatement was created or to which the creation is tightly associated.",
   "purpose": "For some resources it may be important to know the link between the resource and a particular encounter while this is not part of the base resource. This extension allows to link the resource to the Encounter context.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
-  "fhirVersion": "3.0.2",
+  "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
   "type": "Extension",

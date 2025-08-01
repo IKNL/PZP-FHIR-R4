@@ -18,7 +18,7 @@
   } ],
   "description": "Advance Care Planning Procedure",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
-  "fhirVersion": "3.0.2",
+  "fhirVersion": "4.0.1",
   "mapping": [ {
     "identity": "pall-izppz-v2025-03-11",
     "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
@@ -27,7 +27,7 @@
   "kind": "resource",
   "abstract": false,
   "type": "Procedure",
-  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-Procedure",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event",
   "derivation": "constraint",
   "differential": {
     "element": [ {

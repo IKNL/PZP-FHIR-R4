@@ -7,8 +7,8 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 group DomainResource(source src : DomainResource, target tgt : DomainResourceR3) extends Resource <<type+>> {
   src.text as vs -> tgt.text as vt then Narrative(vs, vt);
-  src.contained -> tgt.contained;
-  src.extension where url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/patient-animal') -> tgt.extension;
+  src.contained as vs -> tgt.contained;
+  src.extension as vs where url.startsWith('http://hl7.org/fhir/3.0/StructureDefinition').not() and (url != 'http://hl7.org/fhir/StructureDefinition/patient-animal') -> tgt.extension as vt then Extension(vs, vt);
   src.modifierExtension as vs -> tgt.modifierExtension as vt then Extension(vs, vt);
 }
 

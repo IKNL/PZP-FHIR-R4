@@ -19,7 +19,7 @@
   "description": "An extension to indicate the patient's legal capacity (LegallyCapable) regarding medical treatment decisions, and to provide a comment on the decisions for which the patient is legally capable.",
   "purpose": "This extension is based on the [extension FreedomRestrictingIntervention.LegallyCapable](http://nictiz.nl/fhir/StructureDefinition/ext-FreedomRestrictingIntervention.LegallyCapable), but is adapted for the ACP context by allowing its use on the Patient resource and specifying its application to treatment decisions.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
-  "fhirVersion": "3.0.2",
+  "fhirVersion": "4.0.1",
   "kind": "complex-type",
   "abstract": false,
   "type": "Extension",

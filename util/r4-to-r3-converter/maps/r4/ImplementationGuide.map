@@ -13,7 +13,7 @@ group ImplementationGuide(source src : ImplementationGuideR3, target tgt : Imple
   src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
   src.date as vs -> tgt.date as vt then dateTime(vs, vt);
   src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
-  src.contact -> tgt.contact;
+  src.contact as vs -> tgt.contact as vt then ContactDetail(vs, vt);
   src.description as vs -> tgt.description as vt then markdown(vs, vt);
   src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
   src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
