@@ -48,6 +48,9 @@ util/r4-to-r3-converter/CONVERSION_ANALYSIS_REPORT.md
 # Validator CLI JAR (if downloaded separately)
 util/convert_to_stu3/validator_cli.jar
 
+# Debug and log files
+util/r4-to-r3-converter/fhirconverter/debug-logs/
+
 # ================================
 # Python Files
 # ================================
