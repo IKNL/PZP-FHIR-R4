@@ -197,7 +197,7 @@ public class StructureMapFhirConverter {
             }
 
             // Convert HAPI resource to HL7 FHIR R4 resource
-            IParser r4Parser = r4Context.newJsonParser();
+            IParser r4Parser = r4Context.newJsonParser().setPrettyPrint(true);
             String resourceJson = r4Parser.encodeResourceToString(sourceResource);
             
             // Parse as HL7 FHIR R4 resource
@@ -214,10 +214,10 @@ public class StructureMapFhirConverter {
             smu.transform(null, sourceBase, map, targetBase);
 
             // Convert the R4 result to STU3
-            IParser r4Parser2 = r4Context.newJsonParser();
+            IParser r4Parser2 = r4Context.newJsonParser().setPrettyPrint(true);
             String resultJson = r4Parser2.encodeResourceToString(r4TargetResource);
             
-            IParser dstu3Parser = dstu3Context.newJsonParser();
+            IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
             org.hl7.fhir.dstu3.model.Resource finalResult = 
                 (org.hl7.fhir.dstu3.model.Resource) dstu3Parser.parseResource(resultJson);
 
@@ -354,10 +354,10 @@ public class StructureMapFhirConverter {
         
         try {
             // Fall back to basic conversion approach
-            IParser r4Parser = r4Context.newJsonParser();
+            IParser r4Parser = r4Context.newJsonParser().setPrettyPrint(true);
             String resourceJson = r4Parser.encodeResourceToString(sourceResource);
             
-            IParser dstu3Parser = dstu3Context.newJsonParser();
+            IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
             IBaseResource dstu3Resource = dstu3Parser.parseResource(resourceJson);
             
             return (org.hl7.fhir.dstu3.model.Resource) dstu3Resource;

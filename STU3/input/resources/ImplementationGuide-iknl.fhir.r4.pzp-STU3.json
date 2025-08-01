@@ -1,1 +1,22 @@
-{"resourceType":"ImplementationGuide","id":"iknl.fhir.r4.pzp","title":"Advance Care Planning (PZP)","url":"https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.r4.pzp","version":"0.1.0","name":"PZP","status":"draft","publisher":"IKNL","contact":[{"name":"IKNL","telecom":[{"system":"url","value":"https://iknl.nl/"},{"system":"email","value":"info@iknl.nl"}]}],"description":"Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020","fhirVersion":"4.0.1"}
+{
+  "resourceType": "ImplementationGuide",
+  "id": "iknl.fhir.r4.pzp",
+  "title": "Advance Care Planning (PZP)",
+  "url": "https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.r4.pzp",
+  "version": "0.1.0",
+  "name": "PZP",
+  "status": "draft",
+  "publisher": "IKNL",
+  "contact": [ {
+    "name": "IKNL",
+    "telecom": [ {
+      "system": "url",
+      "value": "https://iknl.nl/"
+    }, {
+      "system": "email",
+      "value": "info@iknl.nl"
+    } ]
+  } ],
+  "description": "Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020",
+  "fhirVersion": "4.0.1"
+}

@@ -302,8 +302,8 @@ public class FhirBatchConverter {
         // Get FHIR contexts for parsing
         FhirContext r4Context = converter.getR4Context();
         FhirContext dstu3Context = converter.getDstu3Context();
-        IParser r4Parser = r4Context.newJsonParser();
-        IParser dstu3Parser = dstu3Context.newJsonParser();
+        IParser r4Parser = r4Context.newJsonParser().setPrettyPrint(true);
+        IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
         
         // Get all JSON files from source directory
         File sourceDirFile = new File(sourceDir);
