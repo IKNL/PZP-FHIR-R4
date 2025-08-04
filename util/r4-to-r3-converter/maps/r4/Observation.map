@@ -12,7 +12,7 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  src.encounter as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt);
+  src.encounter as vs -> tgt.extension as ext then createObservationContextExtension(vs, ext) "context-extension-rule";
   src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
   src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
   src.issued as vs -> tgt.issued as vt then instant(vs, vt);
@@ -73,3 +73,7 @@ group component(source src, target tgt) extends BackboneElement {
   src.referenceRange as vs0 -> tgt.referenceRange as vt0 then referenceRange(vs0, vt0);
 }
 
+group createObservationContextExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.context' "context-url";
+  src -> ext.value = true "context-value";
+}
