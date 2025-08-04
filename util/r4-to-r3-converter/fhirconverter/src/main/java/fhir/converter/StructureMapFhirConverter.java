@@ -111,13 +111,20 @@ public class StructureMapFhirConverter {
             
             logger.info("Found {} .map files", mapFiles.size());
             
+            int successfullyParsed = 0;
+            int failedToParse = 0;
+            
+            // Track failed files for detailed reporting
+            Map<String, String> failedFiles = new HashMap<>();
+            
             for (Path mapFile : mapFiles) {
                 try {
-                    logger.debug("Parsing .map file: {}", mapFile.getFileName());
+                    String fileName = mapFile.getFileName().toString();
+                    logger.debug("🔄 Parsing .map file: {}", fileName);
                     String mapContent = Files.readString(mapFile);
                     
                     // Special handling for StructureDefinition.map to get detailed error info
-                    boolean isStructureDefinitionMap = mapFile.getFileName().toString().equals("StructureDefinition.map");
+                    boolean isStructureDefinitionMap = fileName.equals("StructureDefinition.map");
                     
                     if (isStructureDefinitionMap) {
                         logger.info("=== PARSING STRUCTUREDEFINITION.MAP ===");
@@ -133,7 +140,8 @@ public class StructureMapFhirConverter {
                     if (structureMap != null && structureMap.getUrl() != null) {
                         structureMaps.put(structureMap.getUrl(), structureMap);
                         context.cacheResource(structureMap);
-                        logger.debug("Successfully parsed .map file: {}", structureMap.getUrl());
+                        successfullyParsed++;
+                        logger.debug("✅ Successfully parsed .map file: {} -> {}", fileName, structureMap.getUrl());
                         
                         if (isStructureDefinitionMap) {
                             logger.info("✅ StructureDefinition.map SUCCESSFULLY PARSED!");
@@ -142,6 +150,10 @@ public class StructureMapFhirConverter {
                             logger.info("Number of groups: {}", structureMap.getGroup().size());
                         }
                     } else {
+                        failedToParse++;
+                        String reason = "Parsed but result is null or has no URL";
+                        failedFiles.put(fileName, reason);
+                        
                         if (isStructureDefinitionMap) {
                             logger.error("❌ StructureDefinition.map parsed but result is null or has no URL");
                             logger.error("StructureMap object: {}", structureMap);
@@ -149,11 +161,18 @@ public class StructureMapFhirConverter {
                                 logger.error("StructureMap URL: {}", structureMap.getUrl());
                                 logger.error("StructureMap Name: {}", structureMap.getName());
                             }
+                        } else {
+                            logger.warn("❌ Failed to parse {}: {}", fileName, reason);
                         }
                     }
                     
                 } catch (Exception e) {
-                    boolean isStructureDefinitionMap = mapFile.getFileName().toString().equals("StructureDefinition.map");
+                    failedToParse++;
+                    String fileName = mapFile.getFileName().toString();
+                    String reason = e.getClass().getSimpleName() + ": " + e.getMessage();
+                    failedFiles.put(fileName, reason);
+                    
+                    boolean isStructureDefinitionMap = fileName.equals("StructureDefinition.map");
                     
                     if (isStructureDefinitionMap) {
                         logger.error("❌ FAILED TO PARSE STRUCTUREDEFINITION.MAP!");
@@ -176,10 +195,32 @@ public class StructureMapFhirConverter {
                             logger.error("Could not even read the map file content: {}", readError.getMessage());
                         }
                     } else {
-                        logger.debug("Could not parse .map file {}: {} (this is expected for some files)", 
-                                   mapFile.getFileName(), e.getMessage());
+                        logger.warn("❌ Failed to parse {}: {}", fileName, reason);
                     }
                 }
+            }
+            
+            // Comprehensive summary report
+            logger.info("📊 === MAP FILE PARSING SUMMARY ===");
+            logger.info("📁 Total .map files found: {}", mapFiles.size());
+            logger.info("✅ Successfully parsed: {}", successfullyParsed);
+            logger.info("❌ Failed to parse: {}", failedToParse);
+            
+            if (failedToParse > 0) {
+                logger.warn("🚨 === DETAILED FAILURE REPORT ===");
+                logger.warn("The following {} .map files could not be parsed:", failedToParse);
+                
+                for (Map.Entry<String, String> failed : failedFiles.entrySet()) {
+                    logger.warn("❌ {}: {}", failed.getKey(), failed.getValue());
+                }
+                
+                logger.warn("💡 TROUBLESHOOTING TIPS:");
+                logger.warn("   • Check FHIR Mapping Language syntax in failed files");
+                logger.warn("   • Verify map declarations have valid URLs and names");
+                logger.warn("   • Ensure 'uses' statements reference valid StructureDefinitions");
+                logger.warn("   • Check for syntax errors in group definitions and rules");
+                logger.warn("   • Validate that all referenced concepts exist in the FHIR version");
+                logger.warn("   • Consider using FHIR validator or mapping tools for syntax checking");
             }
         }
     }
