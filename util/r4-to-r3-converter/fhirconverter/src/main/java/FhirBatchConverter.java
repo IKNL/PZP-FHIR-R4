@@ -380,6 +380,9 @@ public class FhirBatchConverter {
         int totalFiles = jsonFiles.length;
         int successCount = 0;
         int errorCount = 0;
+        int structureMapCount = 0;  // Track StructureMap conversions
+        int basicCount = 0;         // Track Basic conversions
+        int excludedCount = 0;      // Track excluded files
         
         // Track conversion statistics
         Map<String, Integer> resourceTypeStats = new HashMap<>();
@@ -416,6 +419,7 @@ public class FhirBatchConverter {
                 
                 if (conversionResult.wasExcluded) {
                     System.out.println("❌ EXCLUDED (not processed)");
+                    excludedCount++;
                     // Don't count as success or failure, just skip
                     continue;
                 }
@@ -440,6 +444,13 @@ public class FhirBatchConverter {
                             System.out.println("    🚨 " + error);
                             structureMapIssues.add(fileName + ": " + error);
                         }
+                    }
+                    
+                    // Track conversion method
+                    if ("STRUCTUREMAP".equals(conversionResult.conversionMethod)) {
+                        structureMapCount++;
+                    } else if ("BASIC".equals(conversionResult.conversionMethod)) {
+                        basicCount++;
                     }
                     
                     successCount++;
@@ -495,7 +506,12 @@ public class FhirBatchConverter {
         System.out.println("  📤 Output directory: " + outputDir);
         System.out.println("  📋 Total files processed: " + totalFiles);
         System.out.println("  ✅ Successful conversions: " + successCount);
+        System.out.println("    🗺️  StructureMap conversions: " + structureMapCount);
+        System.out.println("    📋 Basic conversions: " + basicCount);
         System.out.println("  ❌ Failed conversions: " + errorCount);
+        if (excludedCount > 0) {
+            System.out.println("  ⏭️  Excluded files: " + excludedCount);
+        }
         System.out.println("  📈 Success rate: " + String.format("%.1f%%", (successCount * 100.0 / totalFiles)));
         
         System.out.println("\n📈 RESOURCE TYPE STATISTICS:");
@@ -512,13 +528,40 @@ public class FhirBatchConverter {
         
         if (successCount > 0) {
             System.out.println("\n✅ SUCCESSFUL CONVERSIONS (" + successCount + "):");
-            successfulFiles.forEach(file -> System.out.println("  ✓ " + file));
+            System.out.println("  🗺️  StructureMap conversions: " + structureMapCount);
+            System.out.println("  📋 Basic conversions: " + basicCount);
         }
         
         if (!structureMapIssues.isEmpty()) {
             System.out.println("\n🚨 STRUCTUREMAP ISSUES DETECTED (" + structureMapIssues.size() + "):");
             System.out.println("These files converted successfully but had StructureMap execution problems:");
-            structureMapIssues.forEach(issue -> System.out.println("  ⚠️  " + issue));
+            
+            // Group issues by filename and extract meaningful error messages
+            Map<String, Set<String>> issuesByFile = new HashMap<>();
+            
+            for (String issue : structureMapIssues) {
+                String[] parts = issue.split(": ", 2);
+                if (parts.length > 1) {
+                    String fileName = parts[0];
+                    String errorMessage = parts[1];
+                    
+                    // Extract only meaningful error messages, filter out stack traces and redundant info
+                    String meaningfulError = extractMeaningfulError(errorMessage);
+                    if (meaningfulError != null && !meaningfulError.trim().isEmpty()) {
+                        issuesByFile.computeIfAbsent(fileName, k -> new LinkedHashSet<>()).add(meaningfulError);
+                    }
+                }
+            }
+            
+            // Display grouped issues by filename
+            for (Map.Entry<String, Set<String>> entry : issuesByFile.entrySet()) {
+                String fileName = entry.getKey();
+                Set<String> errors = entry.getValue();
+                
+                for (String error : errors) {
+                    System.out.println("  ⚠️  [" + fileName + "] " + error);
+                }
+            }
             
             System.out.println("\n🔍 COMMON STRUCTUREMAP PATTERNS:");
             Map<String, Integer> structureMapPatterns = new HashMap<>();
@@ -589,6 +632,59 @@ public class FhirBatchConverter {
         }
         
         System.out.println("=" + "=".repeat(80));
+    }
+    
+    /**
+     * Extracts meaningful error messages from StructureMap issue logs,
+     * filtering out stack traces and redundant information
+     */
+    private static String extractMeaningfulError(String errorMessage) {
+        if (errorMessage == null || errorMessage.trim().isEmpty()) {
+            return null;
+        }
+        
+        // Skip stack trace indicators and redundant messages
+        if (errorMessage.contains("Full stack trace:") ||
+            errorMessage.contains("Error type:") ||
+            errorMessage.contains("❌ STRUCTUREMAP FAILED:") ||
+            errorMessage.trim().equals("Falling back to basic conversion")) {
+            return null;
+        }
+        
+        // Extract meaningful error messages
+        if (errorMessage.startsWith("StructureMapFhirConverter ERROR: Error message: ")) {
+            return "StructureMapFhirConverter ERROR: " + errorMessage.substring("StructureMapFhirConverter ERROR: Error message: ".length());
+        }
+        
+        if (errorMessage.startsWith("StructureMapFhirConverter ERROR: ")) {
+            String remainder = errorMessage.substring("StructureMapFhirConverter ERROR: ".length());
+            // Skip the intermediate error type and failed messages
+            if (remainder.startsWith("❌") || remainder.startsWith("Error type:")) {
+                return null;
+            }
+            return "StructureMapFhirConverter ERROR: " + remainder;
+        }
+        
+        if (errorMessage.startsWith("StructureMap issue: ")) {
+            String remainder = errorMessage.substring("StructureMap issue: ".length());
+            if (!remainder.trim().equals("Falling back to basic conversion")) {
+                return "StructureMap issue: " + remainder;
+            }
+            return null;
+        }
+        
+        if (errorMessage.startsWith("General error: ")) {
+            return errorMessage; // Keep general errors as-is
+        }
+        
+        // For any other meaningful error messages that don't match patterns above
+        if (!errorMessage.contains("stack trace") && 
+            !errorMessage.contains("Error type:") &&
+            !errorMessage.trim().isEmpty()) {
+            return errorMessage;
+        }
+        
+        return null;
     }
     
     private static String extractStructureMapPattern(String issue) {
