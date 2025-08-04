@@ -4,6 +4,10 @@
   "meta": {
     "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication" ]
   },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.notDone",
+    "valueBoolean": true
+  } ],
   "identifier": [ {
     "type": {
       "coding": [ {
@@ -15,6 +19,7 @@
     "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
     "value": "dd6d7146-1014-4ef4-9145-e8207364c942"
   } ],
+  "status": "completed",
   "subject": {
     "reference": "Patient/F1-ACP-Patient-HendrikHartman",
     "display": "Patient, Hendrik Hartman"

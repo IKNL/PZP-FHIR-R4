@@ -20,7 +20,7 @@ if not exist "target\classes" (
 echo Starting FHIR conversion...
 echo.
 
-call mvn exec:java -Dexec.mainClass="FhirBatchConverter" -q
+call mvn exec:java -Dexec.mainClass="FhirBatchConverter"
 
 echo.
 echo ========================================

@@ -32,18 +32,22 @@ public class FhirBatchConverter {
         public final String capturedOutput;
         public final List<String> detectedErrors;
         public final boolean hasStructureMapErrors;
+        public final String conversionMethod;
+        public final boolean wasExcluded;
         
         public ConversionResult(org.hl7.fhir.dstu3.model.Resource resource, String capturedOutput) {
             this.resource = resource;
             this.capturedOutput = capturedOutput;
             this.detectedErrors = new ArrayList<>();
             
-            // Analyze captured output for error patterns
+            // Analyze captured output for error patterns and conversion method
             if (capturedOutput != null && !capturedOutput.trim().isEmpty()) {
                 analyzeOutput(capturedOutput);
             }
             
             this.hasStructureMapErrors = !detectedErrors.isEmpty();
+            this.conversionMethod = determineConversionMethod(capturedOutput);
+            this.wasExcluded = resource == null && capturedOutput != null && capturedOutput.contains("EXCLUDED:");
         }
         
         private void analyzeOutput(String output) {
@@ -70,6 +74,30 @@ public class FhirBatchConverter {
                     detectedErrors.add("General error: " + line.trim());
                 }
             }
+        }
+        
+        private String determineConversionMethod(String output) {
+            if (output == null || output.trim().isEmpty()) {
+                return "UNKNOWN";
+            }
+            
+            if (output.contains("EXCLUDED:")) {
+                return "EXCLUDED";
+            }
+            
+            if (output.contains("STRUCTUREMAP SUCCESS:") || output.contains("STRUCTUREMAP CONVERSION:")) {
+                return "STRUCTUREMAP";
+            }
+            
+            if (output.contains("BASIC SUCCESS:") || output.contains("BASIC CONVERSION:")) {
+                return "BASIC";
+            }
+            
+            if (output.contains("STRUCTUREMAP FAILED:") || output.contains("BASIC FAILED:")) {
+                return "FAILED";
+            }
+            
+            return "UNKNOWN";
         }
     }
     
@@ -386,6 +414,12 @@ public class FhirBatchConverter {
                 // Attempt conversion with output capture
                 ConversionResult conversionResult = performConversionWithCapture(converter, r4Resource, mapUrl, fileName);
                 
+                if (conversionResult.wasExcluded) {
+                    System.out.println("❌ EXCLUDED (not processed)");
+                    // Don't count as success or failure, just skip
+                    continue;
+                }
+                
                 if (conversionResult.resource != null) {
                     // Convert to JSON and save
                     String outputJson = dstu3Parser.encodeResourceToString(conversionResult.resource);
@@ -394,15 +428,18 @@ public class FhirBatchConverter {
                     
                     Files.write(Paths.get(outputPath), outputJson.getBytes());
                     
-                    // Check for StructureMap issues even on successful conversion
+                    // Show conversion method and any issues
+                    String methodIcon = getMethodIcon(conversionResult.conversionMethod);
+                    String statusText = conversionResult.hasStructureMapErrors ? "SUCCESS (with issues)" : "SUCCESS";
+                    
+                    System.out.println(String.format("%s %s [%s] → %s", 
+                        methodIcon, statusText, conversionResult.conversionMethod, outputFileName));
+                    
                     if (conversionResult.hasStructureMapErrors) {
-                        System.out.println("⚠️  SUCCESS (with issues) → " + outputFileName);
                         for (String error : conversionResult.detectedErrors) {
                             System.out.println("    🚨 " + error);
                             structureMapIssues.add(fileName + ": " + error);
                         }
-                    } else {
-                        System.out.println("✓ SUCCESS → " + outputFileName);
                     }
                     
                     successCount++;
@@ -600,6 +637,21 @@ public class FhirBatchConverter {
             // Return first 50 characters of error for pattern recognition
             return errorMessage.length() > 50 ? 
                 errorMessage.substring(0, 50) + "..." : errorMessage;
+        }
+    }
+    
+    private static String getMethodIcon(String conversionMethod) {
+        switch (conversionMethod) {
+            case "STRUCTUREMAP":
+                return "🗺️";      // Map icon for StructureMap conversion
+            case "BASIC":
+                return "📋";       // Clipboard icon for basic conversion
+            case "EXCLUDED":
+                return "⏭️";       // Skip icon for excluded resources
+            case "FAILED":
+                return "❌";       // X for failed conversions
+            default:
+                return "❓";       // Question mark for unknown method
         }
     }
 }

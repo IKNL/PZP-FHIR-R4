@@ -22,6 +22,9 @@ import ca.uhn.fhir.parser.IParser;
 
 /**
  * A FHIR converter that uses HAPI FHIR StructureMapUtilities for R4 to STU3 conversion.
+ * 
+ * EXCLUDED RESOURCES:
+ * - ImplementationGuide: Not converted as these resources are not used/needed in our context
  */
 public class StructureMapFhirConverter {
 
@@ -182,24 +185,31 @@ public class StructureMapFhirConverter {
     }
 
     public <T extends IBaseResource> org.hl7.fhir.dstu3.model.Resource convert(T sourceResource, String mapUrl) {
-        logger.info("Converting with StructureMap: {}", mapUrl);
+        String resourceType = getResourceType(sourceResource);
+        logger.info("🔄 Starting conversion for {} resource", resourceType);
+        
+        // Check if this resource type is excluded
+        if ("ImplementationGuide".equals(resourceType)) {
+            logger.info("❌ EXCLUDED: ImplementationGuide resources are not converted (not used in our context)");
+            return null;
+        }
         
         try {
             // Get the resource type to find appropriate map
-            String resourceType = getResourceType(sourceResource);
             String actualMapUrl = findAppropriateMap(resourceType, mapUrl);
             
-            logger.debug("Resource type: {}, Actual map URL: {}", resourceType, actualMapUrl);
+            logger.debug("Resource type: {}, Requested map: {}, Actual map URL: {}", resourceType, mapUrl, actualMapUrl);
             
             StructureMap map = structureMaps.get(actualMapUrl);
             if (map == null) {
-                logger.warn("StructureMap not found: {}. Available maps: {}", 
+                logger.warn("⚠️  StructureMap not found: {}. Available maps: {}", 
                           actualMapUrl, structureMaps.keySet());
-                logger.info("Falling back to basic conversion for missing StructureMap");
+                logger.info("📋 BASIC CONVERSION: Falling back to basic conversion for {} (missing StructureMap)", resourceType);
                 return performBasicConversion(sourceResource);
             }
 
             logger.debug("Found StructureMap: {}", map.getUrl());
+            logger.info("🗺️  STRUCTUREMAP CONVERSION: Using StructureMap for {} -> {}", resourceType, actualMapUrl);
 
             // Convert HAPI resource to HL7 FHIR R4 resource
             IParser r4Parser = r4Context.newJsonParser().setPrettyPrint(true);
@@ -235,15 +245,16 @@ public class StructureMapFhirConverter {
             org.hl7.fhir.dstu3.model.Resource finalResult = 
                 (org.hl7.fhir.dstu3.model.Resource) dstu3Parser.parseResource(resultJson);
 
-            logger.info("Successfully converted using StructureMap: {}", actualMapUrl);
+            logger.info("✅ STRUCTUREMAP SUCCESS: {} converted successfully using StructureMap: {}", resourceType, actualMapUrl);
             logger.debug("Final result type: {}", finalResult.fhirType());
             return finalResult;
 
         } catch (Exception e) {
+            logger.error("❌ STRUCTUREMAP FAILED: Error in StructureMap conversion for {}", resourceType);
             logger.error("Error type: {}", e.getClass().getSimpleName());
             logger.error("Error message: {}", e.getMessage());
             logger.error("Full stack trace:", e);
-            logger.info("Falling back to basic conversion due to StructureMap error");
+            logger.info("📋 BASIC CONVERSION: Falling back to basic conversion for {} due to StructureMap error", resourceType);
             return performBasicConversion(sourceResource);
         }
     }
@@ -286,6 +297,7 @@ public class StructureMapFhirConverter {
 
     private org.hl7.fhir.r4.model.Resource createR4TargetResource(String resourceType) {
         // Create appropriate R4 resource based on type (will be transformed and then converted to STU3)
+        // NOTE: ImplementationGuide is excluded and will never reach this method
         switch (resourceType) {
             case "Patient":
                 return new org.hl7.fhir.r4.model.Patient();
@@ -318,7 +330,9 @@ public class StructureMapFhirConverter {
             case "SearchParameter":
                 return new org.hl7.fhir.r4.model.SearchParameter();
             case "ImplementationGuide":
-                return new org.hl7.fhir.r4.model.ImplementationGuide();
+                // This should never be reached due to exclusion check, but included for completeness
+                logger.warn("ImplementationGuide should be excluded - this indicates a bug in the exclusion logic");
+                return null;
             default:
                 logger.warn("Unknown resource type: {}. Using generic resource.", resourceType);
                 return new org.hl7.fhir.r4.model.Basic(); // Fallback
@@ -359,7 +373,9 @@ public class StructureMapFhirConverter {
             case "SearchParameter":
                 return new org.hl7.fhir.dstu3.model.SearchParameter();
             case "ImplementationGuide":
-                return new org.hl7.fhir.dstu3.model.ImplementationGuide();
+                // This should never be reached due to exclusion check, but included for completeness
+                logger.warn("ImplementationGuide should be excluded - this indicates a bug in the exclusion logic");
+                return null;
             default:
                 logger.warn("Unknown resource type: {}. Using generic resource.", resourceType);
                 return new org.hl7.fhir.dstu3.model.Basic(); // Fallback
@@ -367,7 +383,8 @@ public class StructureMapFhirConverter {
     }
 
     private org.hl7.fhir.dstu3.model.Resource performBasicConversion(IBaseResource sourceResource) {
-        logger.info("Performing basic conversion (fallback)");
+        String resourceType = getResourceType(sourceResource);
+        logger.info("📋 BASIC CONVERSION: Performing basic conversion (fallback) for {}", resourceType);
         
         try {
             // Fall back to basic conversion approach
@@ -379,16 +396,17 @@ public class StructureMapFhirConverter {
             IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
             IBaseResource dstu3Resource = dstu3Parser.parseResource(resourceJson);
             
-            logger.info("Basic conversion successful");
+            logger.info("✅ BASIC SUCCESS: {} converted successfully using basic conversion", resourceType);
             logger.debug("Basic conversion result type: {}", dstu3Resource.fhirType());
             
             return (org.hl7.fhir.dstu3.model.Resource) dstu3Resource;
             
         } catch (Exception e) {
+            logger.error("❌ BASIC FAILED: Basic conversion failed for {}", resourceType);
             logger.error("Basic conversion failed - Error type: {}", e.getClass().getSimpleName());
             logger.error("Basic conversion failed - Error message: {}", e.getMessage());
             logger.error("Basic conversion failed - Full stack trace:", e);
-            throw new RuntimeException("All conversion methods failed: " + e.getMessage(), e);
+            throw new RuntimeException("Basic conversion methods failed: " + e.getMessage(), e);
         }
     }
 
