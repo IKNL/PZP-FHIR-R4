@@ -25,13 +25,13 @@ group Communication(source src : CommunicationR4, target tgt : CommunicationR3) 
   src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
   src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
 
-  // src.status as vs where value != 'not-done' -> tgt.status as vt then code(vs, vt);
-  //src.status as vs where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = true;
-  
-  // --- 2. Keep the special rule for the 'not-done' status ---
-  //src.status as v where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = true;
 
-  // --- 3. Use translate() for all other statuses ---
+
+  // Handle 'not-done' status: map to 'completed' and add extension hint for STU3 conversion
+  src.status as vs where value = 'not-done' -> tgt.status = 'completed';
+  src.status as vs where value = 'not-done' -> tgt.extension as ext then createNotDoneExtension(vs, ext) "notDone-extension-rule";
+  
+  // Handle all other status values normally
   src.status as vs where value != 'not-done' -> tgt.status = translate(vs, '#CommunicationStatus', 'code');
   
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
@@ -55,5 +55,10 @@ group payload(source src, target tgt) extends BackboneElement {
   src.content : string as s -> tgt.content = create('string') as t then string(s, t);
   src.content : Attachment as s -> tgt.content = create('Attachment') as t then Attachment(s, t);
   src.content : Reference as s -> tgt.content = create('Reference') as t then Reference(s, t);
+}
+
+group createNotDoneExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Communication.notDone' "notDone-url";
+  src -> ext.value = true "notDone-value";
 }
 

@@ -20,6 +20,10 @@ import org.slf4j.LoggerFactory;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import fhir.converter.crossversion.CrossVersionExtensionProcessor;
+
 /**
  * A FHIR converter that uses HAPI FHIR StructureMapUtilities for R4 to STU3 conversion.
  * 
@@ -35,6 +39,7 @@ public class StructureMapFhirConverter {
     private final FhirContext r4Context = FhirContext.forR4();
     private final FhirContext dstu3Context = FhirContext.forDstu3();
     private final Map<String, StructureMap> structureMaps = new HashMap<>();
+    private final CrossVersionExtensionProcessor crossVersionProcessor = new CrossVersionExtensionProcessor();
 
     public StructureMapFhirConverter(String mapsDirectory) throws IOException {
         logger.info("Initializing StructureMap-based FhirConverter...");
@@ -276,15 +281,18 @@ public class StructureMapFhirConverter {
 
             logger.debug("StructureMap transformation completed");
 
-            // Convert the R4 result to STU3
+            // Convert the R4 result to STU3 using extension-based cross-version processing
             IParser r4Parser2 = r4Context.newJsonParser().setPrettyPrint(true);
             String resultJson = r4Parser2.encodeResourceToString(r4TargetResource);
             
             logger.debug("R4 result JSON length: {}", resultJson.length());
             
+            // Apply cross-version extension processing (replaces manual handleCommunicationNotDone)
+            String stu3Json = crossVersionProcessor.processR4ToSTU3(resultJson, resourceType);
+            
             IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
             org.hl7.fhir.dstu3.model.Resource finalResult = 
-                (org.hl7.fhir.dstu3.model.Resource) dstu3Parser.parseResource(resultJson);
+                (org.hl7.fhir.dstu3.model.Resource) dstu3Parser.parseResource(stu3Json);
 
             logger.info("✅ STRUCTUREMAP SUCCESS: {} converted successfully using StructureMap: {}", resourceType, actualMapUrl);
             logger.debug("Final result type: {}", finalResult.fhirType());
@@ -458,11 +466,25 @@ public class StructureMapFhirConverter {
     public FhirContext getDstu3Context() {
         return dstu3Context;
     }
+    
+    public CrossVersionExtensionProcessor getCrossVersionProcessor() {
+        return crossVersionProcessor;
+    }
 
     public void printLoadedMaps() {
         logger.info("Loaded StructureMaps ({}):", structureMaps.size());
         for (String url : structureMaps.keySet()) {
             logger.info("  - {}", url);
         }
+        
+        // Also print cross-version rules
+        logger.info("Cross-Version Extension Rules:");
+        crossVersionProcessor.getAllRules().forEach((resourceType, rules) -> {
+            logger.info("  {} ({} rules):", resourceType, rules.size());
+            rules.forEach(rule -> {
+                logger.info("    - {} → {}: {}", 
+                           rule.getExtensionUrl(), rule.getTargetProperty(), rule.getDescription());
+            });
+        });
     }
 }
