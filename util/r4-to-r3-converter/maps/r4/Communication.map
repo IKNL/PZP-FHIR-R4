@@ -1,5 +1,19 @@
 map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
 
+conceptmap "CommunicationStatus" {
+  prefix s = "http://hl7.org/fhir/ValueSet/event-status"
+  prefix t = "http://hl7.org/fhir/ValueSet/event-status"
+
+  s:preparation - t:preparation
+  s:"'in-progress'" - t:"'in-progress'"
+  s:"'on-hold'" - t:"'suspended'"
+  s:stopped - t:aborted
+  s:completed - t:completed
+  s:"'entered-in-error'" - t:"'entered-in-error'"
+  s:unknown - t:unknown
+  // 'not-done' is handled by a special rule below and is intentionally omitted here.
+}
+
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias CommunicationR4 as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as target
 
@@ -10,8 +24,16 @@ group Communication(source src : CommunicationR4, target tgt : CommunicationR3) 
   src.instantiatesCanonical -> tgt.definition;
   src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
   src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
-  src.status as vs where value != 'not-done' -> tgt.status as vt then code(vs, vt);
-  src.status as v where value = 'not-done' ->  tgt.status = 'completed', tgt.notDone = true "Communication-notDone-true";
+
+  // src.status as vs where value != 'not-done' -> tgt.status as vt then code(vs, vt);
+  //src.status as vs where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = true;
+  
+  // --- 2. Keep the special rule for the 'not-done' status ---
+  //src.status as v where value = 'not-done' -> tgt.status = 'completed', tgt.notDone = true;
+
+  // --- 3. Use translate() for all other statuses ---
+  src.status as vs where value != 'not-done' -> tgt.status = translate(vs, '#CommunicationStatus', 'code');
+  
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.medium as vs -> tgt.medium as vt then string(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt) "Communication-subject-reference";

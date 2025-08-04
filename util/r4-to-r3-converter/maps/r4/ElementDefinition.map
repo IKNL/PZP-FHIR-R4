@@ -231,10 +231,10 @@ group discriminator(source src, target tgt) extends Element {
 group binding(source src, target tgt) extends Element {
   src.strength as vs -> tgt.strength as vt then code(vs, vt);
   src.description as vs -> tgt.description as vt then string(vs, vt);
-  // src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0) "binding-valueSetU";
-  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "binding-valueSetR";
-  src.valueSet as vs0 where value.startsWith('https://fhir.iknl.nl/') -> tgt.valueSet = create('Reference') as vt0 then canonical2Reference(vs0, vt0) "binding-valueSetR"
+  src.valueSet as vs where value.startsWith('http://hl7.org') -> tgt.valueSet = vs.value "binding-valueSetU";
+  src.valueSet as vs where value.startsWith('http://hl7.org').not() -> create('Reference') as vt then canonical2Reference(vs, vt) "binding-valueSetR";
 }
+
 
 group base(source src, target tgt) extends Element {
   src.path as vs -> tgt.path as vt then string(vs, vt);
@@ -249,4 +249,3 @@ group type(source src, target tgt) extends Element {
   src.aggregation as vs -> tgt.aggregation as vt then code(vs, vt);
   src.versioning as vs -> tgt.versioning as vt then code(vs, vt);
 }
-
