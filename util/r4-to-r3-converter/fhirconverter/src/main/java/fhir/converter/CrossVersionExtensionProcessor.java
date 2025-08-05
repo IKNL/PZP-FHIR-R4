@@ -494,21 +494,21 @@ public class CrossVersionExtensionProcessor {
             
             // Check if this is a StructureDefinition with differential elements
             if (!resource.has("differential")) {
-                return stu3Json;
+                return resource.toString();
             }
-            
+
             JsonObject differential = resource.getAsJsonObject("differential");
             if (!differential.has("element")) {
-                return stu3Json;
+                return resource.toString();
             }
-            
+
             JsonArray elements = differential.getAsJsonArray("element");
             JsonArray cleanedElements = new JsonArray();
-            
+
             int removedCount = 0;
             for (JsonElement elementElement : elements) {
                 JsonObject element = elementElement.getAsJsonObject();
-                
+
                 // Check if this element should be removed
                 if (element.has("id")) {
                     String id = element.get("id").getAsString();
@@ -518,19 +518,19 @@ public class CrossVersionExtensionProcessor {
                         continue; // Skip this element
                     }
                 }
-                
+
                 // Keep this element
                 cleanedElements.add(element);
             }
-            
+
             if (removedCount > 0) {
                 logger.info("Removed {} StructureDefinition elements marked for cleanup", removedCount);
                 // Update the elements array
                 differential.add("element", cleanedElements);
             }
-            
+
             return resource.toString();
-            
+
         } catch (Exception e) {
             logger.error("Failed to cleanup StructureDefinition elements: {}", e.getMessage(), e);
             return stu3Json; // Return original on error

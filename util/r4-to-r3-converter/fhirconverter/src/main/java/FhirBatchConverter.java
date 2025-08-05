@@ -1,4 +1,5 @@
 import fhir.converter.StructureMapFhirConverter;
+import fhir.converter.CrossVersionPostProcessor;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import org.hl7.fhir.instance.model.api.IBaseResource;
@@ -410,6 +411,19 @@ public class FhirBatchConverter {
                 if (conversionResult.resource != null) {
                     // Convert to JSON and save
                     String outputJson = dstu3Parser.encodeResourceToString(conversionResult.resource);
+                    
+                    // Apply post-processing for StructureDefinition resources
+                    if ("StructureDefinition".equals(resourceType)) {
+                        try {
+                            CrossVersionPostProcessor postProcessor = new CrossVersionPostProcessor();
+                            outputJson = postProcessor.processSTU3Resource(outputJson, resourceType);
+                            System.out.println("✅ Applied post-processing to " + fileName);
+                        } catch (Exception e) {
+                            System.out.println("⚠️  Post-processing failed for " + fileName + ": " + e.getMessage());
+                            // Continue with original output if post-processing fails
+                        }
+                    }
+                    
                     String outputFileName = fileName.replace(".json", "-STU3.json");
                     String outputPath = outputDir + outputFileName;
                     
