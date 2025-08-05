@@ -73,7 +73,7 @@
       "path": "Procedure.performer.actor",
       "type": [ {
         "code": "Reference",
-        "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+        "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
       } ]
     } ]
   }

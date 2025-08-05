@@ -119,11 +119,6 @@ public class FhirBatchConverter {
         org.hl7.fhir.dstu3.model.Resource result = null;
         Exception conversionException = null;
         
-        // Add explicit debug logging before conversion
-        System.out.println("DEBUG: Starting conversion for " + fileName);
-        System.out.println("DEBUG: Resource type: " + r4Resource.fhirType());
-        System.out.println("DEBUG: Map URL: " + mapUrl);
-        
         try {
             // Redirect output streams
             System.setOut(captureStream);
@@ -187,15 +182,6 @@ public class FhirBatchConverter {
         
         // Get captured output
         String captured = capturedOutput.toString();
-        
-        // Add more debug info
-        System.out.println("DEBUG: Captured " + captured.length() + " characters of output");
-        if (conversionException != null) {
-            System.out.println("DEBUG: Exception occurred during conversion: " + conversionException.getMessage());
-        }
-        if (result == null && conversionException == null) {
-            System.out.println("DEBUG: Conversion returned null without throwing exception");
-        }
         
         // Save captured output to file for debugging
         saveDebugLog(fileName, mapUrl, captured, r4Resource, result);
@@ -412,13 +398,10 @@ public class FhirBatchConverter {
                 // Determine the appropriate map URL
                 String mapUrl = "http://hl7.org/fhir/StructureMap/" + resourceType + "4to3";
                 
-                System.out.print(String.format("%-50s [%s] ", fileName, resourceType));
-                
                 // Attempt conversion with output capture
                 ConversionResult conversionResult = performConversionWithCapture(converter, r4Resource, mapUrl, fileName);
                 
                 if (conversionResult.wasExcluded) {
-                    System.out.println("❌ EXCLUDED (not processed)");
                     excludedCount++;
                     // Don't count as success or failure, just skip
                     continue;
@@ -432,16 +415,9 @@ public class FhirBatchConverter {
                     
                     Files.write(Paths.get(outputPath), outputJson.getBytes());
                     
-                    // Show conversion method and any issues
-                    String methodIcon = getMethodIcon(conversionResult.conversionMethod);
-                    String statusText = conversionResult.hasStructureMapErrors ? "SUCCESS (with issues)" : "SUCCESS";
-                    
-                    System.out.println(String.format("%s %s [%s] → %s", 
-                        methodIcon, statusText, conversionResult.conversionMethod, outputFileName));
-                    
+                    // Track conversion method and any issues
                     if (conversionResult.hasStructureMapErrors) {
                         for (String error : conversionResult.detectedErrors) {
-                            System.out.println("    🚨 " + error);
                             structureMapIssues.add(fileName + ": " + error);
                         }
                     }
@@ -468,7 +444,6 @@ public class FhirBatchConverter {
                         }
                     }
                     
-                    System.out.println("✗ FAILED (" + failureReason + ")");
                     errorCount++;
                     failedFiles.add(fileName + " (" + failureReason + ")");
                     errorsByResourceType.computeIfAbsent(resourceType, k -> new ArrayList<>())
@@ -483,7 +458,6 @@ public class FhirBatchConverter {
                     errorMessage = e.getClass().getSimpleName();
                 }
                 
-                System.out.println("✗ ERROR: " + errorMessage);
                 errorCount++;
                 failedFiles.add(fileName + " (" + errorMessage + ")");
                 
@@ -733,21 +707,6 @@ public class FhirBatchConverter {
             // Return first 50 characters of error for pattern recognition
             return errorMessage.length() > 50 ? 
                 errorMessage.substring(0, 50) + "..." : errorMessage;
-        }
-    }
-    
-    private static String getMethodIcon(String conversionMethod) {
-        switch (conversionMethod) {
-            case "STRUCTUREMAP":
-                return "🗺️";      // Map icon for StructureMap conversion
-            case "BASIC":
-                return "📋";       // Clipboard icon for basic conversion
-            case "EXCLUDED":
-                return "⏭️";       // Skip icon for excluded resources
-            case "FAILED":
-                return "❌";       // X for failed conversions
-            default:
-                return "❓";       // Question mark for unknown method
         }
     }
 }

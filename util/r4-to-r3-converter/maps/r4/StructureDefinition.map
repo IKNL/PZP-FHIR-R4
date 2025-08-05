@@ -32,17 +32,7 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.kind as vs -> tgt.kind as vt then string(vs, vt);
   src.abstract as vs -> tgt.abstract as vt then string(vs, vt);
   src.type as vs -> tgt.type as vt then string(vs, vt);
-  src.baseDefinition as vs where value = 'http://hl7.org/fhir/StructureDefinition/Observation' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-Encounter';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole' -> tgt.baseDefinition = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-Procedure';
-  src.baseDefinition as vs where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2' -> tgt.baseDefinition = 'http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective';
-  src.baseDefinition as vs where (value != 'http://hl7.org/fhir/StructureDefinition/Observation') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event') and (value != 'http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2') -> tgt.baseDefinition = vs;
+  src.baseDefinition as vs -> tgt.baseDefinition as vt then mapR4toSTU3Uri(vs, vt);
   src.contextInvariant as vs -> tgt.contextInvariant as vt then string(vs, vt);
   src.derivation as vs -> tgt.derivation as vt then string(vs, vt);
   src.snapshot as vs0 -> tgt.snapshot as vt0 then {
@@ -51,4 +41,26 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.differential as vs0 -> tgt.differential as vt0 then {
     vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
   };
+}
+
+group mapR4toSTU3Uri(source src, target tgt) {
+
+  // Default case: copy as-is for all other values - uses uri transformation
+  src -> tgt then uri(src, tgt) "default-mapping";
+
+  // R4 to STU3 URI mappings - specific mappings override default
+  src where value = 'http://hl7.org/fhir/StructureDefinition/Observation' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement' "obs-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective' "advance-directive-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson' -> tgt.value = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson' "contact-person-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-Encounter' "encounter-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner' -> tgt.value = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner' "practitioner-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole' -> tgt.value = 'http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole' "practitioner-role-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice' "medical-device-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct' "medical-device-product-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-Procedure' "procedure-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective' "treatment-directive-mapping";
+
+  // STU3 don't allow PractitionerRole as a reference for most elements because PractitionerRole was added too late in STU3. Therefore, we map it to Practitioner
+  src where value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole' -> tgt.value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner' "practitionerrole-to-practitioner-reference-mapping";
+
 }

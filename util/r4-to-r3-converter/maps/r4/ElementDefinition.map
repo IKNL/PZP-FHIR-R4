@@ -244,8 +244,8 @@ group base(source src, target tgt) extends Element {
 
 group type(source src, target tgt) extends Element {
   src.code as vs -> tgt.code as vt then uri(vs, vt);
-  src.profile as vs -> tgt.profile as vt then uri(vs, vt);
-  src.targetProfile as vs -> tgt.targetProfile as vt then uri(vs, vt);
+  src.profile as vs -> tgt.profile as vt then mapR4toSTU3Uri(vs, vt);
+  src.targetProfile as vs -> tgt.targetProfile as vt then mapR4toSTU3Uri(vs, vt);
   src.aggregation as vs -> tgt.aggregation as vt then code(vs, vt);
   src.versioning as vs -> tgt.versioning as vt then code(vs, vt);
 }
