@@ -59,6 +59,7 @@ group mapR4toSTU3Uri(source src, target tgt) {
   src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct' "medical-device-product-mapping";
   src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-Procedure' "procedure-mapping";
   src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2' -> tgt.value = 'http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective' "treatment-directive-mapping";
+  src where value = 'http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient' -> tgt.value = 'http://fhir.nl/fhir/StructureDefinition/nl-core-patient' "patient-mapping";
 
   // STU3 don't allow PractitionerRole as a reference for most elements because PractitionerRole was added too late in STU3. Therefore, we map it to Practitioner
   src where value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole' -> tgt.value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner' "practitionerrole-to-practitioner-reference-mapping";

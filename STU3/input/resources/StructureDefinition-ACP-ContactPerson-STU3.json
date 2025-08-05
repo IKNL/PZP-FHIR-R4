@@ -74,7 +74,7 @@
         "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
       } ]
     }, {
-      "id": "RelatedPerson.extension",
+      "id": "RelatedPerson.relationship:role",
       "path": "RelatedPerson.extension",
       "sliceName": "role",
       "min": 1,
@@ -100,7 +100,7 @@
         "comment": "Rol"
       } ]
     }, {
-      "id": "RelatedPerson.relationship",
+      "id": "RelatedPerson.relationship:relationship",
       "path": "RelatedPerson.relationship",
       "definition": "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added.",
       "mapping": [ {
@@ -117,25 +117,8 @@
         "comment": "Relatie"
       } ]
     }, {
-      "id": "RelatedPerson.name",
-      "path": "RelatedPerson.name",
-      "mapping": [ {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "442",
-        "comment": "Naamgegevens"
-      }, {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "479",
-        "comment": "Naamgegevens"
-      }, {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "555",
-        "comment": "Naamgegevens"
-      } ]
-    }, {
       "id": "RelatedPerson.name:nameInformation",
-      "path": "RelatedPerson.name",
-      "sliceName": "nameInformation"
+      "path": "RelatedPerson.name"
     }, {
       "id": "RelatedPerson.name:nameInformation.use",
       "path": "RelatedPerson.name.use",
@@ -154,8 +137,7 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:prefix",
-      "path": "RelatedPerson.name.family.extension",
-      "sliceName": "prefix"
+      "path": "RelatedPerson.name.family.extension"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:prefix.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -174,8 +156,7 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:lastName",
-      "path": "RelatedPerson.name.family.extension",
-      "sliceName": "lastName"
+      "path": "RelatedPerson.name.family.extension"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:lastName.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -194,8 +175,7 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerPrefix",
-      "path": "RelatedPerson.name.family.extension",
-      "sliceName": "partnerPrefix"
+      "path": "RelatedPerson.name.family.extension"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerPrefix.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -214,8 +194,7 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerLastName",
-      "path": "RelatedPerson.name.family.extension",
-      "sliceName": "partnerLastName"
+      "path": "RelatedPerson.name.family.extension"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerLastName.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -275,26 +254,6 @@
         "identity": "pall-izppz-v2025-03-11",
         "map": "566",
         "comment": "Titels"
-      } ]
-    }, {
-      "id": "RelatedPerson.name:nameInformation-GivenName",
-      "path": "RelatedPerson.name",
-      "sliceName": "nameInformation-GivenName"
-    }, {
-      "id": "RelatedPerson.name:nameInformation-GivenName.given",
-      "path": "RelatedPerson.name.given",
-      "mapping": [ {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "445",
-        "comment": "Roepnaam"
-      }, {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "482",
-        "comment": "Roepnaam"
-      }, {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "558",
-        "comment": "Roepnaam"
       } ]
     }, {
       "id": "RelatedPerson.telecom",
