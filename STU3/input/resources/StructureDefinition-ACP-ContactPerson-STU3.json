@@ -74,14 +74,14 @@
         "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
       } ]
     }, {
-      "id": "RelatedPerson.relationship",
-      "path": "RelatedPerson.relationship",
-      "min": 1
-    }, {
-      "id": "RelatedPerson.relationship:role",
-      "path": "RelatedPerson.relationship",
+      "id": "RelatedPerson.extension",
+      "path": "RelatedPerson.extension",
       "sliceName": "role",
       "min": 1,
+      "type": [ {
+        "code": "Extension",
+        "profile": "http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role"
+      } ],
       "mapping": [ {
         "identity": "pall-izppz-v2025-03-11",
         "map": "475",
@@ -100,9 +100,8 @@
         "comment": "Rol"
       } ]
     }, {
-      "id": "RelatedPerson.relationship:relationship",
+      "id": "RelatedPerson.relationship",
       "path": "RelatedPerson.relationship",
-      "sliceName": "relationship",
       "definition": "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added.",
       "mapping": [ {
         "identity": "pall-izppz-v2025-03-11",

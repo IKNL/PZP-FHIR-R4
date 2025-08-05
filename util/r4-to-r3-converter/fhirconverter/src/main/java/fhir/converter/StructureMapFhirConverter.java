@@ -289,6 +289,12 @@ public class StructureMapFhirConverter {
             // Apply cross-version extension processing (replaces manual handleCommunicationNotDone)
             String stu3Json = crossVersionProcessor.processR4ToSTU3(resultJson, resourceType);
             
+            // Special cleanup for StructureDefinition resources
+            if ("StructureDefinition".equals(resourceType)) {
+                logger.debug("Applying StructureDefinition-specific cleanup...");
+                stu3Json = crossVersionProcessor.cleanupStructureDefinition(stu3Json);
+            }
+            
             IParser dstu3Parser = dstu3Context.newJsonParser().setPrettyPrint(true);
             org.hl7.fhir.dstu3.model.Resource finalResult = 
                 (org.hl7.fhir.dstu3.model.Resource) dstu3Parser.parseResource(stu3Json);

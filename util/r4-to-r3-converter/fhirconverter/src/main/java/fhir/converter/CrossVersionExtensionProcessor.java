@@ -483,4 +483,57 @@ public class CrossVersionExtensionProcessor {
         // Support all resource types that might have cross-version extensions
         return resourceType != null;
     }
+    
+    /**
+     * Cleans up StructureDefinition elements marked for removal during StructureMap processing
+     */
+    public String cleanupStructureDefinition(String stu3Json) {
+        try {
+            JsonParser parser = new JsonParser();
+            JsonObject resource = parser.parse(stu3Json).getAsJsonObject();
+            
+            // Check if this is a StructureDefinition with differential elements
+            if (!resource.has("differential")) {
+                return stu3Json;
+            }
+            
+            JsonObject differential = resource.getAsJsonObject("differential");
+            if (!differential.has("element")) {
+                return stu3Json;
+            }
+            
+            JsonArray elements = differential.getAsJsonArray("element");
+            JsonArray cleanedElements = new JsonArray();
+            
+            int removedCount = 0;
+            for (JsonElement elementElement : elements) {
+                JsonObject element = elementElement.getAsJsonObject();
+                
+                // Check if this element should be removed
+                if (element.has("id")) {
+                    String id = element.get("id").getAsString();
+                    if ("element-to-be-removed-in-postprocess".equals(id)) {
+                        removedCount++;
+                        logger.debug("Removing StructureDefinition element with marker ID: {}", id);
+                        continue; // Skip this element
+                    }
+                }
+                
+                // Keep this element
+                cleanedElements.add(element);
+            }
+            
+            if (removedCount > 0) {
+                logger.info("Removed {} StructureDefinition elements marked for cleanup", removedCount);
+                // Update the elements array
+                differential.add("element", cleanedElements);
+            }
+            
+            return resource.toString();
+            
+        } catch (Exception e) {
+            logger.error("Failed to cleanup StructureDefinition elements: {}", e.getMessage(), e);
+            return stu3Json; // Return original on error
+        }
+    }
 }
