@@ -28,7 +28,7 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
     };
   };
 
-  src.provision as vs then baseProvision(vs, tgt) "base-provision-rule"; // R4 provision is 0..1 -> R3 is except = 0..* -- the baseProvision needs to be mapped to the first instance of Consent.except in R3
+  src.provision as vs -> tgt.extension as ext then createExceptExtension(vs, ext) "except-extension-rule"; // R4 provision needs to be converted to extension since STU3 doesn't have provision, but has except
 }
 
 group policy(source src, target tgt) extends BackboneElement {
@@ -36,42 +36,91 @@ group policy(source src, target tgt) extends BackboneElement {
   src.uri as vs -> tgt.uri as vt then string(vs, vt);
 }
 
-group baseProvision(source src, target tgt) extends BackboneElement { 
-  src.type as vs -> tgt.type as vt then code(vs, vt); // Consent.provision.type is 0..1 in R4, but Consent.except.type is 1..1 in R3 , perhaps we need to add an DataAbsentReason extension for when this value is not present?
-  src.period as vs -> tgt.period as vt then Period(vs, vt);
-  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
-  src.action as vs -> tgt.action as vt then string(vs, vt);
-  src.securityLabel as vs -> tgt.securityLabel as vt then Coding(vs, vt);
-  src.purpose as vs -> tgt.purpose as vt then Coding(vs, vt);
-  src.class as vs -> tgt.class as vt then Coding(vs, vt);
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt); // Datatype needs to become Coding in R3
-  src.dataPeriod as vs -> tgt.dataPeriod as vt then Period(vs, vt);
-  src.data as vs -> tgt.data as vt then data(vs, vt);
-  src.provision as vs -> tgt.except as vt then provision(vs, vt); // this all needs to be mapped to second instance of Consent.except in R3
+group createExceptExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Consent.except' "except-base-url";
+  
+  // Map all provision elements as sub-extensions
+  src.type as vs -> ext.extension as typeExt then {
+    vs -> typeExt.url = 'type' "type-url";
+    vs -> typeExt.value = vs "type-value";
+  } "type-extension";
+  
+  src.period as vs -> ext.extension as periodExt then {
+    vs -> periodExt.url = 'period' "period-url";
+    vs -> periodExt.value = vs "period-value";
+  } "period-extension";
+  
+  src.actor as vs -> ext.extension as actorExt then createActorExtension(vs, actorExt) "actor-extension";
+  
+  src.action as vs -> ext.extension as actionExt then {
+    vs -> actionExt.url = 'action' "action-url";
+    vs -> actionExt.value = vs "action-value";
+  } "action-extension";
+  
+  src.securityLabel as vs -> ext.extension as securityExt then {
+    vs -> securityExt.url = 'securityLabel' "security-url";
+    vs -> securityExt.value = vs "security-value";
+  } "security-extension";
+  
+  src.purpose as vs -> ext.extension as purposeExt then {
+    vs -> purposeExt.url = 'purpose' "purpose-url";
+    vs -> purposeExt.value = vs "purpose-value";
+  } "purpose-extension";
+  
+  src.class as vs -> ext.extension as classExt then {
+    vs -> classExt.url = 'class' "class-url";
+    vs -> classExt.value = vs "class-value";
+  } "class-extension";
+  
+  src.code as vs -> ext.extension as codeExt then {
+    vs -> codeExt.url = 'code' "code-url";
+    vs -> codeExt.value = vs "code-value";
+  } "code-extension";
+  
+  src.dataPeriod as vs -> ext.extension as dataPeriodExt then {
+    vs -> dataPeriodExt.url = 'dataPeriod' "dataPeriod-url";
+    vs -> dataPeriodExt.value = vs "dataPeriod-value";
+  } "dataPeriod-extension";
+  
+  src.data as vs -> ext.extension as dataExt then createDataExtension(vs, dataExt) "data-extension";
+  
+  // Handle nested provisions recursively
+  src.provision as vs -> ext.extension as nestedExt then createExceptExtension(vs, nestedExt) "nested-except-extension";
 }
 
-group provision(source src, target tgt) extends BackboneElement {
-  src.type as vs -> tgt.type as vt then code(vs, vt); // Consent.provision.type is 0..1 in R4, but Consent.except.type is 1..1 in R3 
-  src.period as vs -> tgt.period as vt then Period(vs, vt);
-  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
-  src.action as vs -> tgt.action as vt then string(vs, vt);
-  src.securityLabel as vs -> tgt.securityLabel as vt then Coding(vs, vt);
-  src.purpose as vs -> tgt.purpose as vt then Coding(vs, vt);
-  src.class as vs -> tgt.class as vt then Coding(vs, vt);
-  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt); // Datatype needs to become Coding in R3
-  src.dataPeriod as vs -> tgt.dataPeriod as vt then Period(vs, vt);
-  src.data as vs -> tgt.data as vt then data(vs, vt);
+group createActorExtension(source src, target ext) {
+  src -> ext.url = 'actor' "actor-base-url";
+  src.role as vs -> ext.extension as roleExt then {
+    vs -> roleExt.url = 'role' "role-url";
+    vs -> roleExt.value = vs "role-value";
+  } "role-extension";
+  src.reference as vs -> ext.extension as refExt then {
+    vs -> refExt.url = 'reference' "reference-url";
+    vs -> refExt.value = vs "reference-value";
+  } "reference-extension";
 }
 
-group actor(source src, target tgt) extends BackboneElement {
-  src.role as vs -> tgt.role as vt then CodeableConcept(vs, vt);
-  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
+group createDataExtension(source src, target ext) {
+  src -> ext.url = 'data' "data-base-url";
+  src.meaning as vs -> ext.extension as meaningExt then {
+    vs -> meaningExt.url = 'meaning' "meaning-url";
+    vs -> meaningExt.value = vs "meaning-value";
+  } "meaning-extension";
+  src.reference as vs -> ext.extension as refExt then {
+    vs -> refExt.url = 'reference' "reference-url";
+    vs -> refExt.value = vs "reference-value";
+  } "reference-extension";
 }
 
-group data(source src, target tgt) extends BackboneElement {
-  src.meaning as vs -> tgt.meaning as vt then code(vs, vt);
-  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
-}
+//group actor(source src, target tgt) extends BackboneElement {
+//  src.role as vs -> tgt.role as vt then CodeableConcept(vs, vt);
+//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
+//}
+
+//group data(source src, target tgt) extends BackboneElement {
+//  src.meaning as vs -> tgt.meaning as vt then code(vs, vt);
+//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
+//}
 
 group createConsentingPartyExtension(source src, target ext) {
   src -> ext.url = 'http://fhir.conversion/cross-version/Consent.consentingParty' "ConsentingParty-url";
