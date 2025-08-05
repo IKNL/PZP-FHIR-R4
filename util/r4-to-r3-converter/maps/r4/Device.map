@@ -21,10 +21,13 @@ group Device(source src : Device, target tgt : DeviceR3) extends DomainResource 
   src.manufacturer as vs -> tgt.manufacturer as vt then string(vs, vt);
   src.manufactureDate as vs -> tgt.manufactureDate as vt then dateTime(vs, vt);
   src.expirationDate as vs -> tgt.expirationDate as vt then dateTime(vs, vt);
-  src.modelNumber -> tgt.model;
+  
+  // Cross-version property mapping: modelNumber -> model
+  src.modelNumber as vs -> tgt.extension as ext then createModelExtension(vs, ext) "model-extension-rule";
   src.version as vs -> tgt as vt then {
     vs.value -> tgt.version;
   };
+    // This may need a Cross-version property mapping too...
   src.deviceName as vs -> tgt.udi as vt then {
     vs.name -> vt.name;
   };
@@ -37,3 +40,7 @@ group Device(source src : Device, target tgt : DeviceR3) extends DomainResource 
   src.safety as vs -> tgt.safety as vt then CodeableConcept(vs, vt);
 }
 
+group createModelExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Device.model' "model-url";
+  src -> ext.value = src "model-value";
+}

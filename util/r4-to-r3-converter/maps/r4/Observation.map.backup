@@ -12,7 +12,6 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  // Cross-version property mapping: encounter -> extension
   src.encounter as vs -> tgt.extension as ext then createObservationContextExtension(vs, ext) "context-extension-rule";
   src.effective : dateTime as vs -> tgt.effective = create('dateTime') as vt then dateTime(vs, vt);
   src.effective : Period as vs -> tgt.effective = create('Period') as vt then Period(vs, vt);
@@ -30,19 +29,14 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.value : Period as vs -> tgt.value = create('Period') as vt then Period(vs, vt);
   src.dataAbsentReason as vs -> tgt.dataAbsentReason as vt then CodeableConcept(vs, vt);
   src.interpretation as vs -> tgt.interpretation as vt then CodeableConcept(vs, vt);
-  // Complex cross-version property mapping: note -> to comment
-
-  src.note first as vs -> tgt.extension as ext then createObservationCommentExtension(vs, ext) "comment-extension-rule";
-
+  src.note first as vs0 -> tgt.comment as vt0 then Annotation2string(vs0, vt0);
   src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
   src.method as vs -> tgt.method as vt then CodeableConcept(vs, vt);
   src.specimen as vs -> tgt.specimen as vt then Reference(vs, vt);
   src.device as vs -> tgt.device as vt then Reference(vs, vt);
   src.referenceRange as vs0 -> tgt.referenceRange as vt0 then referenceRange(vs0, vt0);
-  // !NOT TESTED! Complex cross-version property mapping: hasMember -> related with type and target  !NOT TESTED!
-  src.hasMember as vs -> tgt.extension as ext then createRelatedComplexExtension(vs, ext, 'has-member') "hasMember-related-extension-rule";
-  // !NOT TESTED! Complex cross-version property mapping: derivedFrom -> related with type and target !NOT TESTED! 
-  src.derivedFrom as vs -> tgt.extension as ext then createRelatedComplexExtension(vs, ext, 'derived-from') "derivedFrom-related-extension-rule";
+  src.hasMember as vs0 ->  tgt.related as vt0,  vt0.type = 'has-member',  vt0.target as vt2 then Reference(vs0, vt2);
+  src.derivedFrom as vs0 ->  tgt.related as vt0,  vt0.type = 'derived-from',  vt0.target as vt2 then Reference(vs0, vt2);
   src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.sequelTo' ->  tgt.related as rel,  rel.type = 'sequel-to',  rel.target as vt0 then relatedExt(vs0, vt0) "related3";
   src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.replaces' ->  tgt.related as rel,  rel.type = 'replaces',  rel.target as vt0 then relatedExt(vs0, vt0) "related4";
   src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.qualifiedBy' ->  tgt.related as rel,  rel.type = 'qualifiedBy',  rel.target as vt0 then relatedExt(vs0, vt0) "related5";
@@ -81,22 +75,5 @@ group component(source src, target tgt) extends BackboneElement {
 
 group createObservationContextExtension(source src, target ext) {
   src -> ext.url = 'http://fhir.conversion/cross-version/Observation.context' "context-url";
-  src -> ext.value = src "context-value";
-}
-
-group createObservationCommentExtension(source src, target ext) {
-  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.comment' "comment-url";
-  src -> ext.value = create('string') as vs then Annotation2string(src, vs) "comment-value";
-}
-
-group createRelatedComplexExtension(source src, target ext, source relationType) {
-  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.related' "related-base-url";
-  src -> ext.extension as typeExt then {
-    relationType -> typeExt.url = 'type' "type-url";
-    relationType -> typeExt.value = relationType "type-value";
-  } "type-extension";
-  src -> ext.extension as targetExt then {
-    src -> targetExt.url = 'target' "target-url";
-    src -> targetExt.value = src "target-value";
-  } "target-extension";
+  src -> ext.value = true "context-value";
 }

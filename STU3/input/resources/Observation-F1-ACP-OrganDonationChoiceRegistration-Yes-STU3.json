@@ -4,10 +4,6 @@
   "meta": {
     "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration" ]
   },
-  "extension": [ {
-    "url": "http://fhir.conversion/cross-version/Observation.context",
-    "valueBoolean": true
-  } ],
   "identifier": [ {
     "type": {
       "coding": [ {
@@ -30,6 +26,10 @@
   "subject": {
     "reference": "Patient/F1-ACP-Patient-HendrikHartman",
     "display": "Patient, Hendrik Hartman"
+  },
+  "context": {
+    "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+    "display": "Encounter, 2020-10-01"
   },
   "effectiveDateTime": "2020-10-01",
   "performer": [ {

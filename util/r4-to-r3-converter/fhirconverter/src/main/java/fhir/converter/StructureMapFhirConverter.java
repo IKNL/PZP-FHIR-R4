@@ -22,7 +22,6 @@ import ca.uhn.fhir.parser.IParser;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import fhir.converter.crossversion.CrossVersionExtensionProcessor;
 
 /**
  * A FHIR converter that uses HAPI FHIR StructureMapUtilities for R4 to STU3 conversion.
@@ -477,14 +476,7 @@ public class StructureMapFhirConverter {
             logger.info("  - {}", url);
         }
         
-        // Also print cross-version rules
-        logger.info("Cross-Version Extension Rules:");
-        crossVersionProcessor.getAllRules().forEach((resourceType, rules) -> {
-            logger.info("  {} ({} rules):", resourceType, rules.size());
-            rules.forEach(rule -> {
-                logger.info("    - {} → {}: {}", 
-                           rule.getExtensionUrl(), rule.getTargetProperty(), rule.getDescription());
-            });
-        });
+        // Cross-version extension processor is ready
+        logger.info("Cross-Version Extension Processor: Ready for R4→STU3 transformations");
     }
 }

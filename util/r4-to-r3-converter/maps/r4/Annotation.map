@@ -14,6 +14,6 @@ group Annotation(source src : Annotation, target tgt : AnnotationR3) extends Ele
 }
 
 group Annotation2string(source src : Annotation, target tgt : stringR3) extends Element <<types>> {
-  src.text as vs0 -> tgt as vt0 then string(vs0, vt0);
+  src.text as vs0 -> tgt as vt0 then markdownToString(vs0, vt0);
 }
 

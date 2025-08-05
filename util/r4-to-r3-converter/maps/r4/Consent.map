@@ -13,31 +13,22 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
   // no period in stu3
   src.dateTime as vs -> tgt.dateTime as vt then string(vs, vt);
 
-  src.performer as vs-> tgt.consentingParty as vt then Reference(vs, vt) "Consent-consentingParty-reference";
+  src.performer as vs-> tgt.extension as ext then createConsentingPartyExtension(vs, ext) "consentingParty-extension-rule";
   src.organization as vs -> tgt.organization as vt then Reference(vs, vt);
   src.source : Attachment as vs -> tgt.source = create('Attachment') as vt then Attachment(vs, vt);
   src.source : Identifier as vs -> tgt.source = create('Identifier') as vt then Identifier(vs, vt);
   src.source : Reference as vs -> tgt.source = create('Reference') as vt then Reference(vs, vt);
 
   src.policy as vs -> tgt.policy as vt then policy(vs, vt);
+  
   src.policyRule as cc then {
     cc.coding as c where system = 'urn:ietf:rfc:3986' then {
+      // This is a cross-version property mapping, not implemented
       c.code -> tgt.policyRule;
     };
   };
-  src.provision as vs then baseProvision(vs, tgt);
-}
 
-group baseProvision(source src, target tgt) {
-  //src.type as vs -> tgt.type as vt then code(vs, vt);
-  src.period as vs -> tgt.period as vt then Period(vs, vt);
-  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
-  src.action as vs -> tgt.action as vt then string(vs, vt);
-  src.securityLabel as vs -> tgt.securityLabel as vt then string(vs, vt);
-  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
-  src.dataPeriod as vs -> tgt.dataPeriod as vt then string(vs, vt);
-  src.data as vs -> tgt.data as vt then data(vs, vt);
-  src.provision as vs -> tgt.except as vt then provision(vs, vt);
+  src.provision as vs then baseProvision(vs, tgt) "base-provision-rule"; // R4 provision is 0..1 -> R3 is except = 0..* -- the baseProvision needs to be mapped to the first instance of Consent.except in R3
 }
 
 group policy(source src, target tgt) extends BackboneElement {
@@ -45,15 +36,29 @@ group policy(source src, target tgt) extends BackboneElement {
   src.uri as vs -> tgt.uri as vt then string(vs, vt);
 }
 
-group provision(source src, target tgt) extends BackboneElement {
-  src.type as vs -> tgt.type as vt then code(vs, vt);
+group baseProvision(source src, target tgt) extends BackboneElement { 
+  src.type as vs -> tgt.type as vt then code(vs, vt); // Consent.provision.type is 0..1 in R4, but Consent.except.type is 1..1 in R3 , perhaps we need to add an DataAbsentReason extension for when this value is not present?
   src.period as vs -> tgt.period as vt then Period(vs, vt);
   src.actor as vs -> tgt.actor as vt then actor(vs, vt);
-  src.action as vs -> tgt.action as vt then CodeableConcept(vs, vt);
-  src.securityLabel as vs -> tgt.securityLabel as vt then string(vs, vt);
-  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.action as vs -> tgt.action as vt then string(vs, vt);
+  src.securityLabel as vs -> tgt.securityLabel as vt then Coding(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then Coding(vs, vt);
   src.class as vs -> tgt.class as vt then Coding(vs, vt);
-  src.code as vs -> tgt.code as vt then Coding(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt); // Datatype needs to become Coding in R3
+  src.dataPeriod as vs -> tgt.dataPeriod as vt then Period(vs, vt);
+  src.data as vs -> tgt.data as vt then data(vs, vt);
+  src.provision as vs -> tgt.except as vt then provision(vs, vt); // this all needs to be mapped to second instance of Consent.except in R3
+}
+
+group provision(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then code(vs, vt); // Consent.provision.type is 0..1 in R4, but Consent.except.type is 1..1 in R3 
+  src.period as vs -> tgt.period as vt then Period(vs, vt);
+  src.actor as vs -> tgt.actor as vt then actor(vs, vt);
+  src.action as vs -> tgt.action as vt then string(vs, vt);
+  src.securityLabel as vs -> tgt.securityLabel as vt then Coding(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then Coding(vs, vt);
+  src.class as vs -> tgt.class as vt then Coding(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt); // Datatype needs to become Coding in R3
   src.dataPeriod as vs -> tgt.dataPeriod as vt then Period(vs, vt);
   src.data as vs -> tgt.data as vt then data(vs, vt);
 }
@@ -68,3 +73,7 @@ group data(source src, target tgt) extends BackboneElement {
   src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
 }
 
+group createConsentingPartyExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Consent.consentingParty' "ConsentingParty-url";
+  src -> ext.value = src "ConsentingParty-value";
+}

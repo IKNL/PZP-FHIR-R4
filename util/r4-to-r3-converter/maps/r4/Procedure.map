@@ -33,7 +33,8 @@ group Procedure(source src : Procedure, target tgt : ProcedureR3) extends Domain
   src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
   src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
-  src.encounter as vs -> tgt.context = create('Reference') as vt then Reference(vs, vt);
+  // Cross-version property mapping: encounter -> context
+  src.encounter as vs -> tgt.extension as ext then createProcedureContextExtension(vs, ext) "context-extension-rule";
   src.performed : dateTime as vs -> tgt.performed = create('dateTime') as vt then dateTime(vs, vt);
   src.performed : Period as vs -> tgt.performed = create('Period') as vt then Period(vs, vt);
   // No mapping for:
@@ -59,14 +60,20 @@ group Procedure(source src : Procedure, target tgt : ProcedureR3) extends Domain
 }
 
 group ProcedurePerformer(source src, target tgt) extends BackboneElement {
-  src.function as vs -> tgt.role as vt then CodeableConcept(vs, vt);
-  src.actor as vs -> tgt.actor as vt then string(vs, vt);
-  src.onBehalfOf as vs -> tgt.onBehalfOf as vt then string(vs, vt);
+  // Cross-version property mapping: function -> role
+  src.function as vs -> tgt.extension as ext then createRoleExtension(vs, ext) "role-extension-rule";
+  src.actor as vs -> tgt.actor as vt then Reference(vs, vt);
+  src.onBehalfOf as vs -> tgt.onBehalfOf as vt then Reference(vs, vt);
 }
 
 group ProcedureFocalDevice(source src, target tgt) extends BackboneElement {
-  src.action as vs -> tgt.action as vt then string(vs, vt);
-  src.manipulated as vs -> tgt.manipulated as vt then string(vs, vt);
+  src.action as vs -> tgt.action as vt then CodeableConcept(vs, vt);
+  src.manipulated as vs -> tgt.manipulated as vt then Reference(vs, vt);
+}
+
+group createProcedureContextExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Procedure.context' "context-url";
+  src -> ext.value = src "context-value";
 }
 
 group createNotDoneExtension(source src, target ext) {
@@ -79,3 +86,7 @@ group createNotDoneReasonExtension(source src, target ext) {
   src -> ext.value = src "notDoneReason-value";
 }
 
+group createRoleExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Procedure.role' "role-url";
+  src -> ext.value = src "role-value";
+}

@@ -25,8 +25,6 @@ group Communication(source src : CommunicationR4, target tgt : CommunicationR3) 
   src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
   src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
 
-
-
   // Handle 'not-done' status: map to 'completed' and add extension hint for STU3 conversion
   src.status as vs where value = 'not-done' -> tgt.status = 'completed';
   src.status as vs where value = 'not-done' -> tgt.extension as ext then createNotDoneExtension(vs, ext) "notDone-extension-rule";

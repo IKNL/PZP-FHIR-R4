@@ -27,6 +27,10 @@
     "reference": "Patient/F1-ACP-Patient-HendrikHartman",
     "display": "Patient, Hendrik Hartman"
   },
+  "context": {
+    "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+    "display": "Encounter, 01-10-2020"
+  },
   "performedPeriod": {
     "start": "2020-10-01",
     "end": "2020-10-01"

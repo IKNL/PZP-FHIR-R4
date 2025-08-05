@@ -15,12 +15,14 @@ group Encounter(source src : Encounter, target tgt : EncounterR3) extends Domain
   src.priority as vs -> tgt.priority as vt then CodeableConcept(vs, vt);
   src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
   src.episodeOfCare as vs -> tgt.episodeOfCare as vt then Reference(vs, vt);
-  src.basedOn as vs -> tgt.incomingReferral as vt then Reference(vs, vt);
+    // Cross-version property mapping: basedOn -> incomingReferral
+  src.basedOn as vs -> tgt.extension as ext then createIncomingreferralExtension(vs, ext) "incomingReferral-extension-rule";
   src.participant as vs0 -> tgt.participant as vt0 then participant(vs0, vt0);
   src.appointment as vs -> tgt.appointment as vt then Reference(vs, vt);
   src.period as vs -> tgt.period as vt then Period(vs, vt);
   src.length as vs -> tgt.length as vt then Duration(vs, vt);
-  src.reasonCode as vs -> tgt.reason as vt then CodeableConcept(vs, vt);
+    // Cross-version property mapping: reasonCode -> reason
+  src.reasonCode as vs -> tgt.extension as ext then createReasonExtension(vs, ext) "reason-extension-rule";
   src.diagnosis as vs0 -> tgt.diagnosis as vt0 then diagnosis(vs0, vt0);
   src.account as vs -> tgt.account as vt then Reference(vs, vt);
   src.hospitalization as vs0 -> tgt.hospitalization as vt0 then hospitalization(vs0, vt0);
@@ -47,7 +49,8 @@ group participant(source src, target tgt) extends BackboneElement {
 
 group diagnosis(source src, target tgt) extends BackboneElement {
   src.condition as vs -> tgt.condition as vt then Reference(vs, vt);
-  src.use as vs -> tgt.role as vt then CodeableConcept(vs, vt);
+    // Cross-version property mapping: use -> role
+  src.use as vs -> tgt.extension as ext then createRoleExtension(vs, ext) "role-extension-rule";
   src.rank as vs -> tgt.rank as vt then positiveInt(vs, vt);
 }
 
@@ -69,3 +72,18 @@ group location(source src, target tgt) extends BackboneElement {
   src.period as vs -> tgt.period as vt then Period(vs, vt);
 }
 
+
+group createIncomingreferralExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.incomingReferral' "incomingReferral-url";
+  src -> ext.value = src "incomingReferral-value";
+}
+
+group createReasonExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.reason' "reason-url";
+  src -> ext.value = src "reason-value";
+}
+
+group createRoleExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.role' "role-url";
+  src -> ext.value = src "role-value";
+}
