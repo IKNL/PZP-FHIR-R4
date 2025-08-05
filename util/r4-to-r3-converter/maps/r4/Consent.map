@@ -28,7 +28,7 @@ group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResour
     };
   };
 
-  src.provision as vs -> tgt.extension as ext then createExceptExtension(vs, ext) "except-extension-rule"; // R4 provision needs to be converted to extension since STU3 doesn't have provision, but has except
+  src.provision as vs -> tgt.extension as ext then createExceptExtension(vs, ext) "except-extension-rule"; // R4 provision needs to be converted to extension since STU3 doesn't have provision, but has except This is going to be a complex extension with multiple sub-extensions. :(
 }
 
 group policy(source src, target tgt) extends BackboneElement {
@@ -74,7 +74,7 @@ group createExceptExtension(source src, target ext) {
   
   src.code as vs -> ext.extension as codeExt then {
     vs -> codeExt.url = 'code' "code-url";
-    vs -> codeExt.value = vs "code-value";
+    vs.coding as c -> codeExt.value = c "code-value"; // Convert CodeableConcept.coding to Coding for STU3
   } "code-extension";
   
   src.dataPeriod as vs -> ext.extension as dataPeriodExt then {

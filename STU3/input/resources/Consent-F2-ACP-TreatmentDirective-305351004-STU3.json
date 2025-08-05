@@ -72,6 +72,11 @@
         "reference": "RelatedPerson/F1-ACP-ContactPerson-HendrikHartman",
         "display": "ContactPerson, Michiel Hartman"
       }
+    } ],
+    "code": [ {
+      "system": "http://snomed.info/sct",
+      "code": "305351004",
+      "display": "Admit to ITU"
     } ]
   } ]
 }

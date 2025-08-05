@@ -61,6 +61,11 @@
         "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
         "display": "Healthcare professional (role), van Huissen"
       }
+    } ],
+    "code": [ {
+      "system": "http://snomed.info/sct",
+      "code": "281789004",
+      "display": "Antibiotic therapy"
     } ]
   } ]
 }
