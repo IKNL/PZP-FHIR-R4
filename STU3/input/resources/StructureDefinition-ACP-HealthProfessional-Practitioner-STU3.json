@@ -56,8 +56,7 @@
       } ]
     }, {
       "id": "Practitioner.name:nameInformation",
-      "path": "Practitioner.name",
-      "sliceName": "nameInformation"
+      "path": "Practitioner.name"
     }, {
       "id": "Practitioner.name:nameInformation.family",
       "path": "Practitioner.name.family",
@@ -83,18 +82,6 @@
         "identity": "pall-izppz-v2025-03-11",
         "map": "400",
         "comment": "Achternaam"
-      } ]
-    }, {
-      "id": "Practitioner.name:nameInformation-GivenName",
-      "path": "Practitioner.name",
-      "sliceName": "nameInformation-GivenName"
-    }, {
-      "id": "Practitioner.name:nameInformation-GivenName.given",
-      "path": "Practitioner.name.given",
-      "mapping": [ {
-        "identity": "pall-izppz-v2025-03-11",
-        "map": "394",
-        "comment": "Voornamen"
       } ]
     } ]
   }

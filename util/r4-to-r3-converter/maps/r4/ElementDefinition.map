@@ -15,11 +15,18 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   
   // Special handling for RelatedPerson.name slices - map nameInformation elements to main elements, skip nameInformation-GivenName
   src where id.startsWith('RelatedPerson.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
+  src where id.startsWith('Patient.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
+  src where id.startsWith('Practitioner.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
   src where id.startsWith('RelatedPerson.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
-  src where path = 'RelatedPerson.name' -> tgt then skipElement(src, tgt) "skip-base-name";
+  src where id.startsWith('Patient.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+  src where id.startsWith('Practitioner.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+  //src where path = 'RelatedPerson.name' or path = 'Patient.name' -> tgt then skipElement(src, tgt) "skip-base-name";
 
-
-  src where path != 'RelatedPerson.relationship' and path.startsWith('RelatedPerson.name').not() -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
+  src where 
+    path != 'RelatedPerson.relationship' and 
+    id.startsWith('RelatedPerson.name:nameInformation').not() and 
+    id.startsWith('Patient.name:nameInformation').not() and 
+    id.startsWith('Practitioner.name:nameInformation').not() -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
 }
 
 group ElementDefinitionCore(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
@@ -268,22 +275,17 @@ group type(source src, target tgt) extends Element {
   src.versioning as vs -> tgt.versioning as vt then code(vs, vt);
 }
 
-// Standard properties that are typically copied without modification
-group ElementDefinitionStandardProperties(source src, target tgt) extends BackboneElement {
-  src.representation as vs -> tgt.representation as vt then code(vs, vt);
-  src.label as vs -> tgt.label as vt then string(vs, vt);
-  src.code as vs -> tgt.code as vt then Coding(vs, vt);
-  src.slicing as vs0 -> tgt.slicing as vt0 then slicing(vs0, vt0);
-  src.short as vs -> tgt.short as vt then string(vs, vt);
+group ElementDefinitionMinimalSet(source src, target tgt) extends BackboneElement {
+  //src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
+  src.max as vs -> tgt.max as vt then string(vs, vt);
   src.definition as vs -> tgt.definition as vt then markdown(vs, vt);
+  src.short as vs -> tgt.short as vt then string(vs, vt);
   src.comment as vs -> tgt.comment as vt then markdown(vs, vt);
   src.requirements as vs -> tgt.requirements as vt then markdown(vs, vt);
   src.alias as vs -> tgt.alias as vt then string(vs, vt);
-  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
-  src.max as vs -> tgt.max as vt then string(vs, vt);
-  src.base as vs0 -> tgt.base as vt0 then base(vs0, vt0);
-  src.type as vs0 -> tgt.type as vt0 then type(vs0, vt0);
-  src.contentReference as vs -> tgt.contentReference as vt then uri(vs, vt);
+  src.label as vs -> tgt.label as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then Coding(vs, vt);
   src.mustSupport as vs -> tgt.mustSupport as vt then boolean(vs, vt);
   src.isModifier as vs -> tgt.isModifier as vt then boolean(vs, vt);
   src.isSummary as vs -> tgt.isSummary as vt then boolean(vs, vt);
@@ -297,46 +299,38 @@ group ElementDefinitionStandardProperties(source src, target tgt) extends Backbo
 }
 
 group transformRelationshipRoleSlice(source src, target tgt) extends BackboneElement {
-  // Transform role slice to extension definition - adjust id, path, sliceName
+  // Transform role slice to extension definition
   src -> tgt.id = 'RelatedPerson.extension' "update-element-id"; 
   src -> tgt.path = 'RelatedPerson.extension' "role-path";
   src -> tgt.sliceName = 'role' "role-slice-name";
-  
-  // Special type handling for extension
   src -> tgt.type as typeElem then {
     src -> typeElem.code = 'Extension' "role-type-code";
     src -> typeElem.profile = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role' "role-profile";
   } "role-type";
-  
-  // Copy all other standard properties
-  src -> tgt then ElementDefinitionStandardProperties(src, tgt) "copy-standard-properties";
+
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
 }
 
 group transformRelationshipSlice(source src, target tgt) extends BackboneElement {
-  // Transform relationship slice to main RelatedPerson.relationship element - adjust id, path, sliceName
+  // Transform relationship slice to main RelatedPerson.relationship element
   src -> tgt.id = 'RelatedPerson.relationship' "update-relationship-element-id"; 
   src -> tgt.path = 'RelatedPerson.relationship' "relationship-path";
   src -> tgt.sliceName = '' "relationship-no-slice"; // Remove slice name for main element
   
-  // Copy all standard properties
-  src -> tgt then ElementDefinitionStandardProperties(src, tgt) "copy-standard-properties";
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
 }
 
 group transformNameInformationSlice(source src, target tgt) extends BackboneElement {
-  // For elements that start with RelatedPerson.name:nameInformation, set the ID to the path value
-  src where id.startsWith('RelatedPerson.name:nameInformation') -> tgt then {
-    src.path as pathValue -> tgt.id = pathValue "set-id-from-path";
-  } "copy-id-from-path";
+  // For nameInformation slice elements, copy id and path as-is (post-processing will handle :nameInformation removal)
+  src.id as vs -> tgt.id = vs "copy-id";
+  src.path as vs -> tgt.path = vs "copy-path";
+  src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
+  src where sliceName = 'nameInformation' -> tgt.sliceName = '' "clear-slice-name"; // Remove slice name for main element
 
-  // Copy path (standard behavior)
-  src.path as vs -> tgt.path as vt then string(vs, vt) "copy-path";
-
-  // Remove slice name for main nameInformation element 
-  src where sliceName = 'nameInformation' -> tgt.sliceName = '' "clear-slice-name";
-  
-  // Copy all standard properties
-  src -> tgt then ElementDefinitionStandardProperties(src, tgt) "copy-standard-properties";
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
 }
+
+
 
 group skipElement(source src, target tgt) {
   // This group intentionally does nothing - used to skip elements

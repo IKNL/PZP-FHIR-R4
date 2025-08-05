@@ -117,6 +117,22 @@
         "comment": "Relatie"
       } ]
     }, {
+      "id": "RelatedPerson.name",
+      "path": "RelatedPerson.name",
+      "mapping": [ {
+        "identity": "pall-izppz-v2025-03-11",
+        "map": "442",
+        "comment": "Naamgegevens"
+      }, {
+        "identity": "pall-izppz-v2025-03-11",
+        "map": "479",
+        "comment": "Naamgegevens"
+      }, {
+        "identity": "pall-izppz-v2025-03-11",
+        "map": "555",
+        "comment": "Naamgegevens"
+      } ]
+    }, {
       "id": "RelatedPerson.name:nameInformation",
       "path": "RelatedPerson.name"
     }, {
@@ -137,7 +153,8 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:prefix",
-      "path": "RelatedPerson.name.family.extension"
+      "path": "RelatedPerson.name.family.extension",
+      "sliceName": "prefix"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:prefix.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -156,7 +173,8 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:lastName",
-      "path": "RelatedPerson.name.family.extension"
+      "path": "RelatedPerson.name.family.extension",
+      "sliceName": "lastName"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:lastName.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -175,7 +193,8 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerPrefix",
-      "path": "RelatedPerson.name.family.extension"
+      "path": "RelatedPerson.name.family.extension",
+      "sliceName": "partnerPrefix"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerPrefix.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
@@ -194,7 +213,8 @@
       } ]
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerLastName",
-      "path": "RelatedPerson.name.family.extension"
+      "path": "RelatedPerson.name.family.extension",
+      "sliceName": "partnerLastName"
     }, {
       "id": "RelatedPerson.name:nameInformation.family.extension:partnerLastName.value[x]",
       "path": "RelatedPerson.name.family.extension.value[x]",
