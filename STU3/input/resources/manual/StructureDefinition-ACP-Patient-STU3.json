@@ -321,22 +321,6 @@
         ]
       },
       {
-        "id": "Patient.telecom.extension:comment",
-        "path": "Patient.telecom.extension",
-        "sliceName": "comment"
-      },
-      {
-        "id": "Patient.telecom.extension:comment.value[x]",
-        "path": "Patient.telecom.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "381",
-            "comment": "Toelichting"
-          }
-        ]
-      },
-      {
         "id": "Patient.telecom.system",
         "path": "Patient.telecom.system",
         "mapping": [
@@ -353,12 +337,12 @@
         ]
       },
       {
-        "id": "Patient.telecom.system.extension:telecomType",
+        "id": "Patient.telecom.system.extension:TelecomType",
         "path": "Patient.telecom.system.extension",
-        "sliceName": "telecomType"
+        "sliceName": "TelecomType"
       },
       {
-        "id": "Patient.telecom.system.extension:telecomType.value[x]",
+        "id": "Patient.telecom.system.extension:TelecomType.value[x]",
         "path": "Patient.telecom.system.extension.value[x]",
         "mapping": [
           {

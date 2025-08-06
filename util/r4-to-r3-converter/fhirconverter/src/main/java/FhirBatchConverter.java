@@ -305,7 +305,7 @@ public class FhirBatchConverter {
         
         String mapsDir = "../maps/r4";
         String sourceDir = "../../../R4/fsh-generated/resources/";
-        String outputDir = "../../../STU3/input/resources/";
+        String outputDir = "../../../STU3/input/resources/generated-r4-converted/";
         
         // Create output directory if it doesn't exist
         File outputDirectory = new File(outputDir);
