@@ -1,0 +1,109 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-HealthProfessional-PractitionerRole",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
+  "version": "0.1.0",
+  "name": "ACPHealthProfessionalPractitionerRole",
+  "title": "HealthProfessional PractitionerRole",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "A health professional is a person who is authorized to perform actions in the field of individual healthcare.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zibs2017-v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
+      "name": "PZP dataset zibs2017"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole",
+        "path": "PractitionerRole",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "391",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "617",
+            "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "636",
+            "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "652",
+            "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "24",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "89",
+            "comment": "Zorgverlener"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "405",
+            "comment": "Specialisme"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "28",
+            "comment": "Specialisme"
+          }
+        ]
+      }
+    ]
+  }
+}

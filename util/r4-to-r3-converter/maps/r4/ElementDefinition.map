@@ -22,12 +22,23 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   src where id.startsWith('Practitioner.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
   //src where path = 'RelatedPerson.name' or path = 'Patient.name' -> tgt then skipElement(src, tgt) "skip-base-name";
 
+  // Encounter-specific transformations for STU3 compatibility
+  src where id.startsWith('Encounter.reasonCode:deviatingResult') -> tgt then skipElement(src, tgt) "skip-encounter-reasoncode-deviating";
+  src where id.startsWith('Encounter.reasonReference') and id != 'Encounter.reasonReference:procedure' -> tgt then skipElement(src, tgt) "skip-encounter-reasonreference";
+  src where id = 'Encounter.reasonReference:procedure' -> tgt then transformEncounterReasonReference(src, tgt) "transform-encounter-reason-procedure";
+
+  // General mapping for ElementDefinition elements
   src where 
     path != 'RelatedPerson.relationship' and 
     id.startsWith('RelatedPerson.name:nameInformation').not() and 
     id.startsWith('Patient.name:nameInformation').not() and 
-    id.startsWith('Practitioner.name:nameInformation').not() -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
-}
+    id.startsWith('Practitioner.name:nameInformation').not() and
+    id.startsWith('Encounter.reasonCode:deviatingResult').not() and
+    id.startsWith('Encounter.reasonReference').not() and
+    id != 'Encounter.reasonReference:procedure' -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
+
+  src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
+  }
 
 group ElementDefinitionCore(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
 
@@ -299,6 +310,8 @@ group ElementDefinitionMinimalSet(source src, target tgt) extends BackboneElemen
 }
 
 group transformRelationshipRoleSlice(source src, target tgt) extends BackboneElement {
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+
   // Transform role slice to extension definition
   src -> tgt.id = 'RelatedPerson.extension' "update-element-id"; 
   src -> tgt.path = 'RelatedPerson.extension' "role-path";
@@ -308,26 +321,30 @@ group transformRelationshipRoleSlice(source src, target tgt) extends BackboneEle
     src -> typeElem.profile = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role' "role-profile";
   } "role-type";
 
-  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+  
 }
 
 group transformRelationshipSlice(source src, target tgt) extends BackboneElement {
+  
+   src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
   // Transform relationship slice to main RelatedPerson.relationship element
   src -> tgt.id = 'RelatedPerson.relationship' "update-relationship-element-id"; 
   src -> tgt.path = 'RelatedPerson.relationship' "relationship-path";
   src -> tgt.sliceName = '' "relationship-no-slice"; // Remove slice name for main element
   
-  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+ 
 }
 
 group transformNameInformationSlice(source src, target tgt) extends BackboneElement {
+  
+   src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
   // For nameInformation slice elements, copy id and path as-is (post-processing will handle :nameInformation removal)
   src.id as vs -> tgt.id = vs "copy-id";
   src.path as vs -> tgt.path = vs "copy-path";
   src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
   src where sliceName = 'nameInformation' -> tgt.sliceName = '' "clear-slice-name"; // Remove slice name for main element
 
-  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+ 
 }
 
 
@@ -335,4 +352,29 @@ group transformNameInformationSlice(source src, target tgt) extends BackboneElem
 group skipElement(source src, target tgt) {
   // This group intentionally does nothing - used to skip elements
   src -> tgt.id = 'element-to-be-removed-in-postprocess' "skip-element";
+}
+
+
+group removeSliceName(source src, target tgt) {
+  // This group intentionally does nothing - used to skip elements
+  src where id = 'PractitionerRole.specialty:specialty' -> tgt.id = 'PractitionerRole.specialty' "update-id-element";
+    // Remove slice name since we're transforming to a different path
+  src -> tgt.sliceName = '' "remove-slice-name";
+}
+
+
+group transformEncounterReasonReference(source src, target tgt) extends BackboneElement {
+
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "copy-core";
+  // Update the description for the transformed element
+  src -> tgt.short = 'Condition that this encounter was created for' "transform-short";
+  src -> tgt.definition = 'Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.' "transform-definition";
+  
+  // Remove slice name since we're transforming to a different path
+  src -> tgt.sliceName = '' "remove-slice-name";
+
+    // Transform Encounter.reasonReference:procedure to diagnosis.condition for STU3 compatibility
+  src.id as vs -> tgt.id = 'Encounter.diagnosis.condition' "transform-id";
+  src.path as vs -> tgt.path = 'Encounter.diagnosis.condition' "transform-path";
+  
 }

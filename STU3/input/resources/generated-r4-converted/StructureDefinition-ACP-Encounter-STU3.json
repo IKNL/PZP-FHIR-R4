@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ACP-Encounter",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter2",
   "version": "0.1.0",
   "name": "ACPEncounter",
   "title": "Encounter",
@@ -118,23 +118,23 @@
         "type": [
           {
             "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
           },
           {
             "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
           }
         ],
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "842",
-            "comment": "Gesprek gevoerd door (Zorgverlener)"
+            "map": "554",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
           },
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "554",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+            "map": "842",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
           },
           {
             "identity": "pall-izppz-zibs2017-v2025-03-11",
@@ -167,16 +167,8 @@
       {
         "id": "Encounter.diagnosis.condition",
         "path": "Encounter.diagnosis.condition",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure"
-          },
-          {
-            "code": "Reference",
-            "targetProfile": "http://nictiz.nl/fhir/StructureDefinition/zib-Problem"
-          }
-        ],
+        "short": "Condition that this encounter was created for",
+        "definition": "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
