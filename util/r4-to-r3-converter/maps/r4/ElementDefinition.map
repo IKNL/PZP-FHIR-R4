@@ -7,35 +7,33 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
+
+  // First pass, GENERAL/NORMAL mapping for all ElementDefinition elements
+  src -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
+
+  // ALL MAPPINGS follow here
+
   // Special handling for RelatedPerson.relationship slices because in R4 it is 0..* while in R3 it is 0..1
   src where path = 'RelatedPerson.relationship' and sliceName = 'role' -> tgt then transformRelationshipRoleSlice(src, tgt) "relationship-role-slice";
   src where path = 'RelatedPerson.relationship' and sliceName = 'relationship' -> tgt then transformRelationshipSlice(src, tgt) "relationship-slice";
-  // Skip the base RelatedPerson.relationship element (without sliceName) - it becomes redundant in STU3
-  src where path = 'RelatedPerson.relationship' and sliceName.empty() -> tgt then skipElement(src, tgt) "skip-base-relationship";
+  src where path = 'RelatedPerson.relationship' and sliceName.empty() -> tgt then skipElement(src, tgt) "skip-base-relationship"; // Skip the base RelatedPerson.relationship element (without sliceName) - it becomes redundant in STU3
   
   // Special handling for RelatedPerson.name slices - map nameInformation elements to main elements, skip nameInformation-GivenName
   src where id.startsWith('RelatedPerson.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
-  src where id.startsWith('Patient.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
-  src where id.startsWith('Practitioner.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
   src where id.startsWith('RelatedPerson.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+
+
+  src where id.startsWith('Patient.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
   src where id.startsWith('Patient.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+
+  src where id.startsWith('Practitioner.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
   src where id.startsWith('Practitioner.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
-  //src where path = 'RelatedPerson.name' or path = 'Patient.name' -> tgt then skipElement(src, tgt) "skip-base-name";
 
   // Encounter-specific transformations for STU3 compatibility
   src where id.startsWith('Encounter.reasonCode:deviatingResult') -> tgt then skipElement(src, tgt) "skip-encounter-reasoncode-deviating";
   src where id.startsWith('Encounter.reasonReference') and id != 'Encounter.reasonReference:procedure' -> tgt then skipElement(src, tgt) "skip-encounter-reasonreference";
   src where id = 'Encounter.reasonReference:procedure' -> tgt then transformEncounterReasonReference(src, tgt) "transform-encounter-reason-procedure";
 
-  // General mapping for ElementDefinition elements
-  src where 
-    path != 'RelatedPerson.relationship' and 
-    id.startsWith('RelatedPerson.name:nameInformation').not() and 
-    id.startsWith('Patient.name:nameInformation').not() and 
-    id.startsWith('Practitioner.name:nameInformation').not() and
-    id.startsWith('Encounter.reasonCode:deviatingResult').not() and
-    id.startsWith('Encounter.reasonReference').not() and
-    id != 'Encounter.reasonReference:procedure' -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
 
   src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
   }

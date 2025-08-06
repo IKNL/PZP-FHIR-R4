@@ -137,6 +137,21 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "589",
             "comment": "Relatie"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "476",
+            "comment": "Relatie"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "513",
+            "comment": "Relatie"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "589",
+            "comment": "Relatie"
           }
         ]
       },
@@ -201,6 +216,46 @@
             "comment": "Initialen"
           },
           {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "443",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "444",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "480",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "481",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "556",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "557",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "273",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "274",
+            "comment": "Initialen"
+          },
+          {
             "identity": "pall-izppz-zibs2017-v2025-03-11",
             "map": "273",
             "comment": "Voornamen"
@@ -216,6 +271,21 @@
         "id": "RelatedPerson.name.suffix",
         "path": "RelatedPerson.name.suffix",
         "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "453",
+            "comment": "Titels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "490",
+            "comment": "Titels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "566",
+            "comment": "Titels"
+          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "453",
@@ -250,6 +320,26 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "559",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "446",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "483",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "559",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "276",
             "comment": "Naamgebruik"
           },
           {
@@ -299,6 +389,26 @@
             "comment": "Voorvoegsels"
           },
           {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "448",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "485",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "561",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "278",
+            "comment": "Voorvoegsels"
+          },
+          {
             "identity": "pall-izppz-zibs2017-v2025-03-11",
             "map": "278",
             "comment": "Voorvoegsels"
@@ -322,6 +432,26 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "562",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "449",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "486",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "562",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "279",
             "comment": "Achternaam"
           },
           {
@@ -351,6 +481,26 @@
             "comment": "VoorvoegselsPartner"
           },
           {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "451",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "488",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "564",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "281",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
             "identity": "pall-izppz-zibs2017-v2025-03-11",
             "map": "281",
             "comment": "VoorvoegselsPartner"
@@ -374,6 +524,26 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "565",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "452",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "489",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "565",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "282",
             "comment": "AchternaamPartner"
           },
           {
@@ -848,6 +1018,36 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "588",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "475",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "477",
+            "comment": "Vertegenwoordiger is contactpersoon"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "512",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "588",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "1",
+            "comment": "Vertegenwoordiger is contactpersoon"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "155",
             "comment": "Rol"
           },
           {

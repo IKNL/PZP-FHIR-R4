@@ -133,6 +133,26 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "517",
             "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "353",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "354",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "516",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "517",
+            "comment": "Initialen"
           }
         ]
       },
@@ -149,6 +169,16 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "526",
             "comment": "Titels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "363",
+            "comment": "Titels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "526",
+            "comment": "Titels"
           }
         ]
       },
@@ -156,6 +186,16 @@
         "id": "Patient.name.use",
         "path": "Patient.name.use",
         "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "356",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "519",
+            "comment": "Naamgebruik"
+          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "356",
@@ -201,6 +241,16 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "521",
             "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "358",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "521",
+            "comment": "Voorvoegsels"
           }
         ]
       },
@@ -208,6 +258,16 @@
         "id": "Patient.name.family.extension:lastName.value[x]",
         "path": "Patient.name.family.extension.value[x]",
         "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "359",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "522",
+            "comment": "Achternaam"
+          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "359",
@@ -233,6 +293,16 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "524",
             "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "361",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "524",
+            "comment": "VoorvoegselsPartner"
           }
         ]
       },
@@ -240,6 +310,16 @@
         "id": "Patient.name.family.extension:partnerLastName.value[x]",
         "path": "Patient.name.family.extension.value[x]",
         "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "362",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "525",
+            "comment": "AchternaamPartner"
+          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "362",
