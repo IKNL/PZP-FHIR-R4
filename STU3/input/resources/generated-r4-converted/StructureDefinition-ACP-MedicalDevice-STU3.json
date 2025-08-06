@@ -191,9 +191,9 @@
         ]
       },
       {
-        "id": "DeviceUseStatement.reasonReference:indication",
-        "path": "DeviceUseStatement.reasonReference",
-        "sliceName": "indication",
+        "id": "DeviceUseStatement.indication.extension:indication_Problem",
+        "path": "DeviceUseStatement.indication.extension",
+        "sliceName": "indication_Problem",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",

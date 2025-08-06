@@ -17,33 +17,79 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   src where path = 'RelatedPerson.relationship' and sliceName = 'role' -> tgt then transformRelationshipRoleSlice(src, tgt) "relationship-role-slice";
   src where path = 'RelatedPerson.relationship' and sliceName = 'relationship' -> tgt then transformRelationshipSlice(src, tgt) "relationship-slice";
   src where path = 'RelatedPerson.relationship' and sliceName.empty() -> tgt then skipElement(src, tgt) "skip-base-relationship"; // Skip the base RelatedPerson.relationship element (without sliceName) - it becomes redundant in STU3
-  
-  // Special handling for RelatedPerson.name slices - map nameInformation elements to main elements, skip nameInformation-GivenName
-  src where id.startsWith('RelatedPerson.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
-  src where id.startsWith('RelatedPerson.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+
+  // NameInformation slicing elements will be consolidated in postprocessing
+  src where id = "Practitioner.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "Practitioner.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+  src where id = "RelatedPerson.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "RelatedPerson.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+  src where id = "RelatedPerson.telecom:telephoneNumbers.extension:comment" -> tgt then skipElement(src, tgt) "skip-telecom-comment-slice";
+  src where id = "RelatedPerson.telecom:telephoneNumbers.extension:comment.value[x]" -> tgt then skipElement(src, tgt) "skip-telecom-comment-extension-value";
+  src where id = "RelatedPerson.address.country.extension:countryCode.value[x]" -> tgt then {
+    src.id -> tgt.id = 'RelatedPerson.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "RelatedPerson-address-countrycode-value";
+  } "RelatedPerson-address-countrycode-value";
 
 
-  src where id.startsWith('Patient.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
-  src where id.startsWith('Patient.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+  src where id = "Patient.gender.extension:genderCodelist" -> tgt then {
+    src.id -> tgt.id = 'Patient.gender.extension:GeslachtCodelijst' "patient-gender-codelist-extension";
+    src.sliceName -> tgt.sliceName = 'GeslachtCodelijst' "patient-gender-codelist-slice";
+  } "patient-gender-codelist-slice";
 
-  src where id.startsWith('Practitioner.name:nameInformation') -> tgt then transformNameInformationSlice(src, tgt) "name-information-children";
-  src where id.startsWith('Practitioner.name:nameInformation-GivenName') -> tgt then skipElement(src, tgt) "skip-name-givenname-children";
+  src where id = "Patient.gender.extension:genderCodelist.value[x]" -> tgt then {
+      src.id -> tgt.id = 'Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept' "patient-gender-codelist-value";
+    } "patient-gender-codelist-value";
+
+  src where id = "Patient.telecom:telephoneNumbers.extension:comment" -> tgt then skipElement(src, tgt) "skip-telecom-comment-slice";
+  src where id = "Patient.telecom:telephoneNumbers.extension:comment.value[x]" -> tgt then skipElement(src, tgt) "skip-telecom-comment-extension-value";
+  src where id = "Patient.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "Patient.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+
+  src where id = "Patient.address.country.extension:countryCode.value[x]" -> tgt then {
+    src.id -> tgt.id = 'Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "patient-address-countrycode-value";
+  } "patient-address-countrycode-value";
+
+  src where id = "Patient.contact.extension:contactPerson" -> tgt then skipElement(src, tgt) "skip-contact-person-extension";
+  src where id = "Patient.contact.extension:contactPerson.value[x]" -> tgt then skipElement(src, tgt) "skip-contact-person-extension";
+
+  src where id = "Patient" -> tgt then {
+      src.constraint as vs0 -> tgt.constraint as vt0 then {
+      vs0 where value.startsWith("extension") -> vt0.expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapableComment').value = false implies contact.where(relationship.coding.code = '24').exists()" "patient-legal-capable-expression"; 
+    } "patient-base-expression";
+  } "patient-base-expression"; // This doens't work yet.
 
   // Encounter-specific transformations for STU3 compatibility
   src where id.startsWith('Encounter.reasonCode:deviatingResult') -> tgt then skipElement(src, tgt) "skip-encounter-reasoncode-deviating";
   src where id.startsWith('Encounter.reasonReference') and id != 'Encounter.reasonReference:procedure' -> tgt then skipElement(src, tgt) "skip-encounter-reasonreference";
   src where id = 'Encounter.reasonReference:procedure' -> tgt then transformEncounterReasonReference(src, tgt) "transform-encounter-reason-procedure";
 
-
   src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
   
-  src where id = 'Observation.encounter' -> tgt as tgt then {
+
+
+  src where id = 'DeviceUseStatement.reasonReference:indication' -> tgt then {
+    src.id -> tgt.id = 'DeviceUseStatement.indication.extension:indication_Problem' "DeviceUseStatement-indication";
+    src.path -> tgt.path = 'DeviceUseStatement.indication.extension' "DeviceUseStatement-indication-path";
+    src.sliceName -> tgt.sliceName = 'indication_Problem' "DeviceUseStatement-indication-slice";
+  } "DeviceUseStatement-indication-extension";
+
+  src where id = "Device.udiCarrier:gs1UdiCarrier" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier";
+  src where id = "Device.udiCarrier:gs1UdiCarrier.carrierHRF" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier-hrf";
+  src where id = "Device.udiCarrier:hibcUdiCarrier" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier-hibc";
+  src where id = "Device.udiCarrier:hibcUdiCarrier.carrierHRF" -> tgt then {
+    src.id -> tgt.id = "Device.udi.carrierHRF" "Device-udi-carrierHRF";
+    src.path -> tgt.path = 'Device.udi.carrierHRF' "Device-udi-carrierHRF-path";
+    } "Device-udi-carrierHRF";
+
+
+    src where id = 'Observation.encounter' -> tgt as tgt then {
       src.id -> tgt.id = 'Observation.context' "Observation-context";
       src.path -> tgt.path = 'Observation.context' "Observation-context-path";
     } "Observation-context";
 
-  }
-  
+}
+
+
+
 group ElementDefinitionCore(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
 
   src.path as vs -> tgt.path as vt then string(vs, vt);
@@ -271,9 +317,14 @@ group discriminator(source src, target tgt) extends Element {
 group binding(source src, target tgt) extends Element {
   src.strength as vs -> tgt.strength as vt then code(vs, vt);
   src.description as vs -> tgt.description as vt then string(vs, vt);
-  src.valueSet as vs where value.startsWith('http://hl7.org') -> tgt.valueSet = vs.value "binding-valueSetU";
-  src.valueSet as vs where value.startsWith('http://hl7.org').not() -> create('Reference') as vt then canonical2Reference(vs, vt) "binding-valueSetR";
+  // Cross-version property mapping: type canonical to reference.string
+  src.valueSet as vs -> tgt.extension as ext then createBindingExtension(vs, ext) "binding-extension-rule";
 }
+
+group createBindingExtension(source src, target ext) {
+    src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition/binding-canonical-valueSet' "binding-canonical-url";
+    src -> ext.value = create('string') as extValue then string(src, extValue) "binding-canonical-value";
+} 
 
 
 group base(source src, target tgt) extends Element {
@@ -358,17 +409,17 @@ group skipElement(source src, target tgt) {
   src -> tgt.id = 'element-to-be-removed-in-postprocess' "skip-element";
 }
 
-
 group removeSliceName(source src, target tgt) {
-  // This group intentionally does nothing - used to skip elements
-  src where id = 'PractitionerRole.specialty:specialty' -> tgt.id = 'PractitionerRole.specialty' "update-id-element";
-    // Remove slice name since we're transforming to a different path
+
+  // Specific transformations for known elements
+  src where id = 'PractitionerRole.specialty:specialty' -> tgt.id = 'PractitionerRole.specialty' "update-practitioner-specialty-id";
+
+  // Always remove slice name since we're transforming to base element
   src -> tgt.sliceName = '' "remove-slice-name";
 }
 
 
 group transformEncounterReasonReference(source src, target tgt) extends BackboneElement {
-
   src -> tgt then ElementDefinitionMinimalSet(src, tgt) "copy-core";
   // Update the description for the transformed element
   src -> tgt.short = 'Condition that this encounter was created for' "transform-short";

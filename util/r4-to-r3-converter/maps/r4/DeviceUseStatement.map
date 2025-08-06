@@ -21,5 +21,7 @@ group DeviceUseStatement(source src : DeviceUseStatement, target tgt : DeviceUse
   src.reasonCode as vs-> tgt.indication as vt then CodeableConcept(vs, vt) "DeviceUseStatement-indication";
   src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
   src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+
+  // TODO implement mapping of DeviceUseStatement.reasonReference --> DeviceUseStatementR3.indication.extension.indication_Problem
 }
 

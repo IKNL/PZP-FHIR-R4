@@ -107,7 +107,10 @@
           }
         ],
         "binding": {
-          "strength": "extensible"
+          "strength": "extensible",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-PreferredPlaceOfDeath"
+          }
         },
         "mapping": [
           {

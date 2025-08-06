@@ -77,13 +77,7 @@
       {
         "id": "Practitioner.name",
         "path": "Practitioner.name",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "393",
-            "comment": "Naamgegevens"
-          }
-        ]
+        "sliceName": "nameInformation"
       },
       {
         "id": "Practitioner.name.family",
@@ -92,16 +86,6 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "398",
-            "comment": "Geslachtsnaam"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "398",
-            "comment": "Geslachtsnaam"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "277",
             "comment": "Geslachtsnaam"
           },
           {
@@ -116,11 +100,6 @@
         "path": "Practitioner.name.family.extension",
         "sliceName": "lastName",
         "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "400",
-            "comment": "Achternaam"
-          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "400",

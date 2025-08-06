@@ -110,6 +110,9 @@ public class CrossVersionPostProcessor {
         // Apply element transformations (remove/move/update elements)
         applyElementTransformations(resource);
         
+        // Convert binding canonical URLs to STU3 References
+        convertBindingCanonicalToReferences(resource);
+        
         // Add ZIB2017 mappings based on ZIB2020 mappings
         addZib2017Mappings(resource);
         
@@ -1051,5 +1054,87 @@ public class CrossVersionPostProcessor {
         mappings.add(zib2017Mapping);
         
         logger.debug("Added ZIB2017 mapping identity to StructureDefinition root");
+    }
+
+    /**
+     * Converts binding canonical URLs stored in extensions to proper STU3 References
+     */
+    private void convertBindingCanonicalToReferences(JsonObject resource) {
+        try {
+            if (!resource.has("differential") || 
+                !resource.getAsJsonObject("differential").has("element")) {
+                logger.debug("No differential elements found for binding conversion");
+                return;
+            }
+            
+            JsonArray elements = resource.getAsJsonObject("differential").getAsJsonArray("element");
+            int convertedCount = 0;
+            
+            for (JsonElement elementElement : elements) {
+                JsonObject element = elementElement.getAsJsonObject();
+                
+                if (element.has("binding")) {
+                    JsonObject binding = element.getAsJsonObject("binding");
+                    
+                    if (binding.has("extension")) {
+                        JsonArray extensions = binding.getAsJsonArray("extension");
+                        
+                        for (int i = extensions.size() - 1; i >= 0; i--) {
+                            JsonElement extElement = extensions.get(i);
+                            JsonObject extension = extElement.getAsJsonObject();
+                            
+                            if (extension.has("url") && 
+                                "http://fhir.conversion/cross-version/StructureDefinition/binding-canonical-valueSet".equals(extension.get("url").getAsString())) {
+                                
+                                // Extract the canonical URL from the extension value
+                                String canonicalUrl = null;
+                                if (extension.has("value")) {
+                                    JsonElement valueElement = extension.get("value");
+                                    if (valueElement.isJsonObject()) {
+                                        JsonObject valueObj = valueElement.getAsJsonObject();
+                                        if (valueObj.has("value")) {
+                                            canonicalUrl = valueObj.get("value").getAsString();
+                                        }
+                                    } else if (valueElement.isJsonPrimitive()) {
+                                        canonicalUrl = valueElement.getAsString();
+                                    }
+                                } else if (extension.has("valueString")) {
+                                    canonicalUrl = extension.get("valueString").getAsString();
+                                }
+                                
+                                if (canonicalUrl != null) {
+                                    // Create STU3 Reference
+                                    JsonObject reference = new JsonObject();
+                                    reference.addProperty("reference", canonicalUrl);
+                                    
+                                    // Set the valueSetReference to the reference (STU3 format)
+                                    binding.add("valueSetReference", reference);
+                                    convertedCount++;
+                                    
+                                    logger.debug("Converted binding canonical URL to STU3 valueSetReference: {}", canonicalUrl);
+                                }
+                                
+                                // Remove the extension
+                                extensions.remove(i);
+                            }
+                        }
+                        
+                        // Remove empty extension array
+                        if (extensions.size() == 0) {
+                            binding.remove("extension");
+                        }
+                    }
+                }
+            }
+            
+            if (convertedCount > 0) {
+                logger.info("Converted {} binding canonical URLs to STU3 References", convertedCount);
+            } else {
+                logger.debug("No binding canonical URLs found to convert");
+            }
+            
+        } catch (Exception e) {
+            logger.warn("Failed to convert binding canonical URLs to References: {}", e.getMessage(), e);
+        }
     }
 }

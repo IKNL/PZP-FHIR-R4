@@ -93,34 +93,8 @@
         ]
       },
       {
-        "id": "Device.udiCarrier:gs1UdiCarrier",
-        "path": "Device.udiCarrier",
-        "sliceName": "gs1UdiCarrier"
-      },
-      {
-        "id": "Device.udiCarrier:gs1UdiCarrier.carrierHRF",
-        "path": "Device.udiCarrier.carrierHRF",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "622",
-            "comment": "ProductID"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "77",
-            "comment": "ProductID"
-          }
-        ]
-      },
-      {
-        "id": "Device.udiCarrier:hibcUdiCarrier",
-        "path": "Device.udiCarrier",
-        "sliceName": "hibcUdiCarrier"
-      },
-      {
-        "id": "Device.udiCarrier:hibcUdiCarrier.carrierHRF",
-        "path": "Device.udiCarrier.carrierHRF",
+        "id": "Device.udi.carrierHRF",
+        "path": "Device.udi.carrierHRF",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
@@ -138,7 +112,10 @@
         "id": "Device.type",
         "path": "Device.type",
         "binding": {
-          "strength": "required"
+          "strength": "required",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD"
+          }
         },
         "mapping": [
           {

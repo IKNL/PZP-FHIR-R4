@@ -135,34 +135,12 @@
       {
         "id": "Patient.name",
         "path": "Patient.name",
-        "min": 1,
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "352",
-            "comment": "Naamgegevens"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "515",
-            "comment": "Naamgegevens"
-          }
-        ]
+        "sliceName": "nameInformation"
       },
       {
         "id": "Patient.name.use",
         "path": "Patient.name.use",
         "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "356",
-            "comment": "Naamgebruik"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "519",
-            "comment": "Naamgebruik"
-          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "356",
@@ -184,16 +162,6 @@
         "id": "Patient.name.family.extension:partnerLastName.value[x]",
         "path": "Patient.name.family.extension.value[x]",
         "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "362",
-            "comment": "AchternaamPartner"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "525",
-            "comment": "AchternaamPartner"
-          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "362",
@@ -229,26 +197,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "517",
             "comment": "Initialen"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "353",
-            "comment": "Voornamen"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "354",
-            "comment": "Initialen"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "516",
-            "comment": "Voornamen"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "517",
-            "comment": "Initialen"
           }
         ]
       },
@@ -256,16 +204,6 @@
         "id": "Patient.name.suffix",
         "path": "Patient.name.suffix",
         "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "363",
-            "comment": "Titels"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "526",
-            "comment": "Titels"
-          },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "363",
@@ -355,22 +293,6 @@
         ]
       },
       {
-        "id": "Patient.telecom.extension:comment",
-        "path": "Patient.telecom.extension",
-        "sliceName": "comment"
-      },
-      {
-        "id": "Patient.telecom.extension:comment.value[x]",
-        "path": "Patient.telecom.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "381",
-            "comment": "Toelichting"
-          }
-        ]
-      },
-      {
         "id": "Patient.gender",
         "path": "Patient.gender",
         "mapping": [
@@ -387,12 +309,12 @@
         ]
       },
       {
-        "id": "Patient.gender.extension:genderCodelist",
+        "id": "Patient.gender.extension:GeslachtCodelijst",
         "path": "Patient.gender.extension",
-        "sliceName": "genderCodelist"
+        "sliceName": "GeslachtCodelijst"
       },
       {
-        "id": "Patient.gender.extension:genderCodelist.value[x]",
+        "id": "Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept",
         "path": "Patient.gender.extension.value[x]",
         "mapping": [
           {
@@ -511,7 +433,7 @@
         "sliceName": "countryCode"
       },
       {
-        "id": "Patient.address.country.extension:countryCode.value[x]",
+        "id": "Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept",
         "path": "Patient.address.country.extension.value[x]",
         "mapping": [
           {
@@ -533,25 +455,6 @@
         "path": "Patient.contact.relationship",
         "condition": [
           "ACP-Patient-1"
-        ]
-      },
-      {
-        "id": "Patient.contact.extension:contactPerson",
-        "path": "Patient.contact.extension",
-        "sliceName": "contactPerson",
-        "comment": "All information regarding the patient's contact persons should preferably be stored in the RelatedPerson resource, and optionally in `Patient.contact`. The http://hl7.org/fhir/StructureDefinition/patient-relatedPerson extension is used to link the contact person to the Patient and to emphasize that the related person is also a contact person of the patient.",
-        "condition": [
-          "ACP-Patient-1"
-        ]
-      },
-      {
-        "id": "Patient.contact.extension:contactPerson.value[x]",
-        "path": "Patient.contact.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
-          }
         ]
       }
     ]

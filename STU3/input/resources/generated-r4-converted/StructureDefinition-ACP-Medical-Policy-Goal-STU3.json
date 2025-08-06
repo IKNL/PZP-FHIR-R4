@@ -80,7 +80,10 @@
         "id": "Goal.description",
         "path": "Goal.description",
         "binding": {
-          "strength": "required"
+          "strength": "required",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal"
+          }
         },
         "mapping": [
           {
