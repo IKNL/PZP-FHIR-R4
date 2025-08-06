@@ -94,6 +94,91 @@
         ]
       },
       {
+        "id": "Consent.extension:disorder",
+        "path": "Consent.extension",
+        "sliceName": "disorder"
+      },
+      {
+        "id": "Consent.extension:disorder.value[x]",
+        "path": "Consent.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "693",
+            "comment": "Aandoening"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "703",
+            "comment": "Aandoening"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "724",
+            "comment": "Aandoening"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "142",
+            "comment": "Aandoening"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:comment",
+        "path": "Consent.extension",
+        "sliceName": "comment"
+      },
+      {
+        "id": "Consent.extension:comment.value[x]",
+        "path": "Consent.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "698",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "708",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "729",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "184",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter",
+        "path": "Consent.extension",
+        "sliceName": "encounter",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter.value[x]",
+        "path": "Consent.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
         "id": "Consent.patient",
         "path": "Consent.patient",
         "type": [
@@ -130,29 +215,6 @@
         ]
       },
       {
-        "id": "Consent.extension:disorder",
-        "path": "Consent.extension",
-        "sliceName": "disorder"
-      },
-      {
-        "id": "Consent.extension:comment",
-        "path": "Consent.extension",
-        "sliceName": "comment"
-      },
-      {
-        "id": "Consent.extension:encounter",
-        "path": "Consent.extension",
-        "sliceName": "encounter",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
-          }
-        ]
-      },
-      {
         "id": "Consent.source[x]:sourceAttachment",
         "path": "Consent.source[x]",
         "sliceName": "sourceAttachment",
@@ -185,76 +247,40 @@
         ]
       },
       {
-        "id": "Consent.extension:disorder.value[x]",
-        "path": "Consent.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "693",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "703",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "724",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "142",
-            "comment": "Aandoening"
-          }
-        ]
-      },
-      {
-        "id": "Consent.extension:comment.value[x]",
-        "path": "Consent.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "698",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "708",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "729",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "184",
-            "comment": "Toelichting"
-          }
-        ]
-      },
-      {
-        "id": "Consent.extension:encounter.value[x]",
-        "path": "Consent.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
-          }
-        ]
-      },
-      {
         "id": "Consent.provision.actor:representative",
         "path": "Consent.provision.actor",
         "sliceName": "representative"
       },
       {
+        "id": "Consent.provision.actor:representative.reference",
+        "path": "Consent.provision.actor.reference",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "695",
+            "comment": "Vertegenwoordiger"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "705",
+            "comment": "Vertegenwoordiger"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "726",
+            "comment": "Vertegenwoordiger"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "144",
+            "comment": "Vertegenwoordiger"
+          }
+        ]
+      },
+      {
         "id": "Consent.provision.code",
         "path": "Consent.provision.code",
-        "definition": " The following codes are in scope of this profile:\r\n- For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).\r\n- For Organ Donation, code _DO_ (Verklaring donorschap).",
+        "definition": " The following codes are in scope of this profile: - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie). - For Organ Donation, code _DO_ (Verklaring donorschap).",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
@@ -285,32 +311,6 @@
             "identity": "pall-izppz-zibs2017-v2025-03-11",
             "map": "140",
             "comment": "WilsverklaringType"
-          }
-        ]
-      },
-      {
-        "id": "Consent.provision.actor:representative.reference",
-        "path": "Consent.provision.actor.reference",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "695",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "705",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "726",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "144",
-            "comment": "Vertegenwoordiger"
           }
         ]
       }

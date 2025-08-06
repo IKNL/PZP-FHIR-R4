@@ -95,22 +95,22 @@
         ]
       },
       {
-        "id": "Procedure.performer.actor",
-        "path": "Procedure.performer.actor",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
-          }
-        ]
-      },
-      {
         "id": "Procedure.encounter",
         "path": "Procedure.encounter",
         "type": [
           {
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
           }
         ]
       }

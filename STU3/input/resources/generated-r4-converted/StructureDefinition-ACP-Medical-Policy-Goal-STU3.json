@@ -54,6 +54,29 @@
         ]
       },
       {
+        "id": "Goal.extension:encounter",
+        "path": "Goal.extension",
+        "sliceName": "encounter",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "Goal.extension:encounter.value[x]",
+        "path": "Goal.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
         "id": "Goal.description",
         "path": "Goal.description",
         "binding": {
@@ -74,30 +97,6 @@
           {
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
-          }
-        ]
-      },
-      {
-        "id": "Goal.note.text",
-        "path": "Goal.note.text",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "598",
-            "comment": "[Toelichting]"
-          }
-        ]
-      },
-      {
-        "id": "Goal.extension:encounter",
-        "path": "Goal.extension",
-        "sliceName": "encounter",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
           }
         ]
       },
@@ -135,12 +134,13 @@
         ]
       },
       {
-        "id": "Goal.extension:encounter.value[x]",
-        "path": "Goal.extension.value[x]",
-        "type": [
+        "id": "Goal.note.text",
+        "path": "Goal.note.text",
+        "mapping": [
           {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "598",
+            "comment": "[Toelichting]"
           }
         ]
       }

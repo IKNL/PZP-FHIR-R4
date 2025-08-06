@@ -78,13 +78,12 @@
         ]
       },
       {
-        "id": "Observation.dataAbsentReason",
-        "path": "Observation.dataAbsentReason",
-        "mapping": [
+        "id": "Observation.encounter",
+        "path": "Observation.encounter",
+        "type": [
           {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "711",
-            "comment": "Wat verder nog belangrijk is ([MetingWaarde])"
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
           }
         ]
       },
@@ -100,16 +99,6 @@
         ]
       },
       {
-        "id": "Observation.encounter",
-        "path": "Observation.encounter",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
-          }
-        ]
-      },
-      {
         "id": "Observation.value[x]",
         "path": "Observation.value[x]",
         "definition": "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements.",
@@ -118,6 +107,17 @@
             "code": "string"
           }
         ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "711",
+            "comment": "Wat verder nog belangrijk is ([MetingWaarde])"
+          }
+        ]
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",

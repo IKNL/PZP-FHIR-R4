@@ -69,18 +69,14 @@
         ]
       },
       {
-        "id": "Communication.reasonCode",
-        "path": "Communication.reasonCode",
-        "min": 1,
-        "max": "1",
-        "patternCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "713603004"
-            }
-          ]
-        }
+        "id": "Communication.topic",
+        "path": "Communication.topic",
+        "comment": "For information patient about own responsibility the following text may be added to the `topic.text` element: Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
+      },
+      {
+        "id": "Communication.sent",
+        "path": "Communication.sent",
+        "comment": "Indicate the date and preferrably time when the communication was sent"
       },
       {
         "id": "Communication.recipient",
@@ -103,14 +99,18 @@
         ]
       },
       {
-        "id": "Communication.sent",
-        "path": "Communication.sent",
-        "comment": "Indicate the date and preferrably time when the communication was sent"
-      },
-      {
-        "id": "Communication.topic",
-        "path": "Communication.topic",
-        "comment": "For information patient about own responsibility the following text may be added to the `topic.text` element: Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
+        "id": "Communication.reasonCode",
+        "path": "Communication.reasonCode",
+        "min": 1,
+        "max": "1",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "713603004"
+            }
+          ]
+        }
       }
     ]
   }

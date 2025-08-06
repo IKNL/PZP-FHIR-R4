@@ -45,29 +45,7 @@
         "max": "1"
       },
       {
-        "id": "Extension.extension:legallyCapableComment",
-        "path": "Extension.extension",
-        "sliceName": "legallyCapableComment",
-        "min": 0,
-        "max": "1"
-      },
-      {
-        "id": "Extension.url",
-        "path": "Extension.url",
-        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
-      },
-      {
-        "id": "Extension.value[x]",
-        "path": "Extension.value[x]",
-        "max": "0"
-      },
-      {
         "id": "Extension.extension:legallyCapable.extension",
-        "path": "Extension.extension.extension",
-        "max": "0"
-      },
-      {
-        "id": "Extension.extension:legallyCapableComment.extension",
         "path": "Extension.extension.extension",
         "max": "0"
       },
@@ -75,11 +53,6 @@
         "id": "Extension.extension:legallyCapable.url",
         "path": "Extension.extension.url",
         "fixedUri": "legallyCapable"
-      },
-      {
-        "id": "Extension.extension:legallyCapableComment.url",
-        "path": "Extension.extension.url",
-        "fixedUri": "legallyCapableComment"
       },
       {
         "id": "Extension.extension:legallyCapable.value[x]",
@@ -96,6 +69,23 @@
         ]
       },
       {
+        "id": "Extension.extension:legallyCapableComment",
+        "path": "Extension.extension",
+        "sliceName": "legallyCapableComment",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "legallyCapableComment"
+      },
+      {
         "id": "Extension.extension:legallyCapableComment.value[x]",
         "path": "Extension.extension.value[x]",
         "short": "LegallyCapableComment",
@@ -108,6 +98,16 @@
             "code": "string"
           }
         ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
       }
     ]
   }

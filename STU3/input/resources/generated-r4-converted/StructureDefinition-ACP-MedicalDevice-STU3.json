@@ -74,9 +74,36 @@
         "sliceName": "healthProfessional"
       },
       {
+        "id": "DeviceUseStatement.extension:healthProfessional.value[x]",
+        "path": "DeviceUseStatement.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "635",
+            "comment": "Zorgverlener"
+          }
+        ]
+      },
+      {
         "id": "DeviceUseStatement.extension:location",
         "path": "DeviceUseStatement.extension",
         "sliceName": "location"
+      },
+      {
+        "id": "DeviceUseStatement.extension:location.value[x]",
+        "path": "DeviceUseStatement.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "633",
+            "comment": "Locatie"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "86",
+            "comment": "Locatie"
+          }
+        ]
       },
       {
         "id": "DeviceUseStatement.extension:encounter",
@@ -92,60 +119,22 @@
         ]
       },
       {
+        "id": "DeviceUseStatement.extension:encounter.value[x]",
+        "path": "DeviceUseStatement.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
         "id": "DeviceUseStatement.subject",
         "path": "DeviceUseStatement.subject",
         "type": [
           {
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
-          }
-        ]
-      },
-      {
-        "id": "DeviceUseStatement.bodySite",
-        "path": "DeviceUseStatement.bodySite",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "625",
-            "comment": "AnatomischeLocatie"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "626",
-            "comment": "Locatie"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "84",
-            "comment": "AnatomischeLocatie"
-          }
-        ]
-      },
-      {
-        "id": "DeviceUseStatement.device",
-        "path": "DeviceUseStatement.device",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
-          }
-        ]
-      },
-      {
-        "id": "DeviceUseStatement.reasonReference:indication",
-        "path": "DeviceUseStatement.reasonReference",
-        "sliceName": "indication",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "628",
-            "comment": "Indicatie"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "81",
-            "comment": "Indicatie"
           }
         ]
       },
@@ -158,22 +147,6 @@
             "code": "Period"
           }
         ]
-      },
-      {
-        "id": "DeviceUseStatement.note.text",
-        "path": "DeviceUseStatement.note.text",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "632",
-            "comment": "Toelichting"
-          }
-        ]
-      },
-      {
-        "id": "DeviceUseStatement.bodySite.extension:laterality",
-        "path": "DeviceUseStatement.bodySite.extension",
-        "sliceName": "laterality"
       },
       {
         "id": "DeviceUseStatement.timing[x]:timingPeriod.start",
@@ -208,41 +181,57 @@
         ]
       },
       {
-        "id": "DeviceUseStatement.extension:healthProfessional.value[x]",
-        "path": "DeviceUseStatement.extension.value[x]",
-        "mapping": [
+        "id": "DeviceUseStatement.device",
+        "path": "DeviceUseStatement.device",
+        "type": [
           {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "635",
-            "comment": "Zorgverlener"
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
           }
         ]
       },
       {
-        "id": "DeviceUseStatement.extension:location.value[x]",
-        "path": "DeviceUseStatement.extension.value[x]",
+        "id": "DeviceUseStatement.reasonReference:indication",
+        "path": "DeviceUseStatement.reasonReference",
+        "sliceName": "indication",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "633",
+            "map": "628",
+            "comment": "Indicatie"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "81",
+            "comment": "Indicatie"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.bodySite",
+        "path": "DeviceUseStatement.bodySite",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "625",
+            "comment": "AnatomischeLocatie"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "626",
             "comment": "Locatie"
           },
           {
             "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "86",
-            "comment": "Locatie"
+            "map": "84",
+            "comment": "AnatomischeLocatie"
           }
         ]
       },
       {
-        "id": "DeviceUseStatement.extension:encounter.value[x]",
-        "path": "DeviceUseStatement.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
-          }
-        ]
+        "id": "DeviceUseStatement.bodySite.extension:laterality",
+        "path": "DeviceUseStatement.bodySite.extension",
+        "sliceName": "laterality"
       },
       {
         "id": "DeviceUseStatement.bodySite.extension:laterality.value[x]",
@@ -257,6 +246,17 @@
             "identity": "pall-izppz-zibs2017-v2025-03-11",
             "map": "85",
             "comment": "Lateraliteit"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.note.text",
+        "path": "DeviceUseStatement.note.text",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "632",
+            "comment": "Toelichting"
           }
         ]
       }

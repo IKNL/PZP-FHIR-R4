@@ -59,6 +59,99 @@
         ]
       },
       {
+        "id": "Consent.extension:comment",
+        "path": "Consent.extension",
+        "sliceName": "comment"
+      },
+      {
+        "id": "Consent.extension:comment.value[x]",
+        "path": "Consent.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "618",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "653",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:additionalAdvanceDirective",
+        "path": "Consent.extension",
+        "sliceName": "additionalAdvanceDirective"
+      },
+      {
+        "id": "Consent.extension:additionalAdvanceDirective.extension",
+        "path": "Consent.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Consent.extension:additionalAdvanceDirective.value[x]",
+        "path": "Consent.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "644",
+            "comment": "Wilsverklaring"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter",
+        "path": "Consent.extension",
+        "sliceName": "encounter",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter.value[x]",
+        "path": "Consent.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Consent.modifierExtension:specificationOther",
+        "path": "Consent.modifierExtension",
+        "sliceName": "specificationOther"
+      },
+      {
+        "id": "Consent.modifierExtension:specificationOther.value[x]",
+        "path": "Consent.modifierExtension.value[x]",
+        "comment": "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD.",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "605",
+            "comment": "SpecificatieAnders"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "638",
+            "comment": "Afspraak uitzetten ICD (BehandelBesluit)"
+          }
+        ]
+      },
+      {
         "id": "Consent.patient",
         "path": "Consent.patient",
         "type": [
@@ -85,34 +178,6 @@
         ]
       },
       {
-        "id": "Consent.extension:comment",
-        "path": "Consent.extension",
-        "sliceName": "comment"
-      },
-      {
-        "id": "Consent.extension:additionalAdvanceDirective",
-        "path": "Consent.extension",
-        "sliceName": "additionalAdvanceDirective"
-      },
-      {
-        "id": "Consent.extension:encounter",
-        "path": "Consent.extension",
-        "sliceName": "encounter",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
-          }
-        ]
-      },
-      {
-        "id": "Consent.modifierExtension:specificationOther",
-        "path": "Consent.modifierExtension",
-        "sliceName": "specificationOther"
-      },
-      {
         "id": "Consent.source[x]:sourceReference",
         "path": "Consent.source[x]",
         "sliceName": "sourceReference",
@@ -136,11 +201,6 @@
         ]
       },
       {
-        "id": "Consent.extension:additionalAdvanceDirective.extension",
-        "path": "Consent.extension.extension",
-        "max": "0"
-      },
-      {
         "id": "Consent.provision.extension:reasonForEnding",
         "path": "Consent.provision.extension",
         "sliceName": "reasonForEnding",
@@ -153,62 +213,46 @@
         ]
       },
       {
-        "id": "Consent.extension:comment.value[x]",
-        "path": "Consent.extension.value[x]",
+        "id": "Consent.provision.extension:reasonForEnding.value[x]",
+        "path": "Consent.provision.extension.value[x]",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "618",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "653",
-            "comment": "Toelichting"
+            "map": "608",
+            "comment": "RedenBeeindigd"
           }
         ]
       },
       {
-        "id": "Consent.extension:additionalAdvanceDirective.value[x]",
-        "path": "Consent.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective"
-          }
-        ],
+        "id": "Consent.provision.type",
+        "path": "Consent.provision.type",
+        "comment": "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance:  - BehandelBesluit (dataset id 603) values:      - _Ja_ -> _permit_     - _Nee_ -> _deny_     - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element. - Afspraak uitzetten ICD (dataset id 638) values:      - _Wel uitvoeren_ -> _permit_      - No value is mapped to _deny_     - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "644",
-            "comment": "Wilsverklaring"
-          }
-        ]
-      },
-      {
-        "id": "Consent.extension:encounter.value[x]",
-        "path": "Consent.extension.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
-          }
-        ]
-      },
-      {
-        "id": "Consent.modifierExtension:specificationOther.value[x]",
-        "path": "Consent.modifierExtension.value[x]",
-        "comment": "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD.",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "605",
-            "comment": "SpecificatieAnders"
+            "map": "603",
+            "comment": "BehandelBesluit"
           },
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "638",
             "comment": "Afspraak uitzetten ICD (BehandelBesluit)"
+          }
+        ]
+      },
+      {
+        "id": "Consent.provision.period.end",
+        "path": "Consent.provision.period.end",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "607",
+            "comment": "DatumBeeindigd"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "642",
+            "comment": "DatumBeeindigd"
           }
         ]
       },
@@ -226,67 +270,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "646",
             "comment": "AfspraakPartij"
-          }
-        ]
-      },
-      {
-        "id": "Consent.provision.code",
-        "path": "Consent.provision.code",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "604",
-            "comment": "Behandeling"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "59",
-            "comment": "Behandeling"
-          }
-        ]
-      },
-      {
-        "id": "Consent.provision.type",
-        "path": "Consent.provision.type",
-        "comment": "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance: \r\n- BehandelBesluit (dataset id 603) values: \r\n    - _Ja_ -> _permit_\r\n    - _Nee_ -> _deny_\r\n    - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.\r\n- Afspraak uitzetten ICD (dataset id 638) values: \r\n    - _Wel uitvoeren_ -> _permit_ \r\n    - No value is mapped to _deny_\r\n    - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "603",
-            "comment": "BehandelBesluit"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "638",
-            "comment": "Afspraak uitzetten ICD (BehandelBesluit)"
-          }
-        ]
-      },
-      {
-        "id": "Consent.provision.code.text",
-        "path": "Consent.provision.code.text",
-        "comment": "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance.",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "639",
-            "comment": "Behandeling van ICD (Behandeling)"
-          }
-        ]
-      },
-      {
-        "id": "Consent.provision.period.end",
-        "path": "Consent.provision.period.end",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "607",
-            "comment": "DatumBeeindigd"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "642",
-            "comment": "DatumBeeindigd"
           }
         ]
       },
@@ -333,13 +316,30 @@
         ]
       },
       {
-        "id": "Consent.provision.extension:reasonForEnding.value[x]",
-        "path": "Consent.provision.extension.value[x]",
+        "id": "Consent.provision.code",
+        "path": "Consent.provision.code",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
-            "map": "608",
-            "comment": "RedenBeeindigd"
+            "map": "604",
+            "comment": "Behandeling"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "59",
+            "comment": "Behandeling"
+          }
+        ]
+      },
+      {
+        "id": "Consent.provision.code.text",
+        "path": "Consent.provision.code.text",
+        "comment": "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance.",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "639",
+            "comment": "Behandeling van ICD (Behandeling)"
           }
         ]
       }
