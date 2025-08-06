@@ -28,6 +28,11 @@
       "identity": "pall-izppz-v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zibs2017-v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
+      "name": "PZP dataset zibs2017"
     }
   ],
   "kind": "resource",
@@ -63,6 +68,11 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "648",
+            "comment": "Patient"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "11",
             "comment": "Patient"
           }
         ]
@@ -103,6 +113,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "762",
             "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "759",
+            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
           }
         ]
       },
@@ -129,6 +144,11 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "385",
+            "comment": "Identificatienummer"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "18",
             "comment": "Identificatienummer"
           }
         ]
@@ -321,6 +341,22 @@
         ]
       },
       {
+        "id": "Patient.telecom.extension:comment",
+        "path": "Patient.telecom.extension",
+        "sliceName": "comment"
+      },
+      {
+        "id": "Patient.telecom.extension:comment.value[x]",
+        "path": "Patient.telecom.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "381",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
         "id": "Patient.telecom.system",
         "path": "Patient.telecom.system",
         "mapping": [
@@ -337,12 +373,12 @@
         ]
       },
       {
-        "id": "Patient.telecom.system.extension:TelecomType",
+        "id": "Patient.telecom.system.extension:telecomType",
         "path": "Patient.telecom.system.extension",
-        "sliceName": "TelecomType"
+        "sliceName": "telecomType"
       },
       {
-        "id": "Patient.telecom.system.extension:TelecomType.value[x]",
+        "id": "Patient.telecom.system.extension:telecomType.value[x]",
         "path": "Patient.telecom.system.extension.value[x]",
         "mapping": [
           {
@@ -387,6 +423,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "387",
             "comment": "Geslacht"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "20",
+            "comment": "Geslacht"
           }
         ]
       },
@@ -403,6 +444,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "387",
             "comment": "Geslacht"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "20",
+            "comment": "Geslacht"
           }
         ]
       },
@@ -413,6 +459,11 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "386",
+            "comment": "Geboortedatum"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "19",
             "comment": "Geboortedatum"
           }
         ]

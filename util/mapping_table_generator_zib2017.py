@@ -190,6 +190,31 @@ def generate_markdown_table(proposed_mappings, output_file):
             element_display = f"`{mapping['fhir_element']}`" if mapping['fhir_element'] else ''
             f.write(f"| {mapping['id']} | {mapping['name']} | {mapping['matched_zib2020_id']} | {resource_display} | {element_display} |\n")
 
+def generate_json_output(proposed_mappings, output_file):
+    """
+    Generates a JSON file containing only the successfully matched mappings.
+
+    Args:
+        proposed_mappings (list): The list of proposed mappings.
+        output_file (str): The path for the output .json file.
+    """
+    # Filter for mappings that have a matched zib2020 ID
+    matched_mappings = [m for m in proposed_mappings if m['matched_zib2020_id']]
+
+    # Create a new list with only the required keys
+    json_data = [
+        {
+            "zib2017_id": mapping['id'],
+            "zib2020_id": mapping['matched_zib2020_id'],
+            "concept_name": mapping['name']
+        }
+        for mapping in matched_mappings
+    ]
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(json_data, f, indent=4)
+
+
 def main():
     """
     Main function to orchestrate the mapping proposal process.
@@ -198,7 +223,8 @@ def main():
     # Define the file paths.
     json_file = 'util/DS_pzp_dataset_raadplegen_(download_2025-07-29T11_58_18).json'
     mappings_file = 'R4/input/includes/mappings.md'
-    output_file = 'util/proposed_mappings_zib2017.md'
+    markdown_output_file = 'util/proposed_mappings_zib2017.md'
+    json_output_file = 'util/r4-to-r3-converter/fhirconverter/matched_concepts_between_zib2017_and_zib2020.json'
 
     # The root OID for the zib2017 dataset within the JSON file.
     zib2017_root_id = "2.16.840.1.113883.2.4.3.11.60.117.2.217"
@@ -222,10 +248,15 @@ def main():
     print("Generating proposed mappings for zib2017...")
     proposed = propose_mappings(zib2017_concepts, zib2020_mappings)
     
-    # 4. Write the results to a new Markdown file.
-    print(f"Writing proposed mappings to '{output_file}'...")
-    generate_markdown_table(proposed, output_file)
+    # 4. Write the results to the output files.
+    print(f"Writing Markdown table to '{markdown_output_file}'...")
+    generate_markdown_table(proposed, markdown_output_file)
     print(f"Successfully generated mapping table with {len(proposed)} elements.")
+
+    print(f"Writing JSON output to '{json_output_file}'...")
+    generate_json_output(proposed, json_output_file)
+    print("Successfully generated JSON output file.")
+
 
     # --- Statistics Calculation ---
     print("\n--- Mapping Statistics ---")

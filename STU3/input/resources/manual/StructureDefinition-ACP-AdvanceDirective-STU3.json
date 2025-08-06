@@ -28,6 +28,11 @@
       "identity": "pall-izppz-v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zibs2017-v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
+      "name": "PZP dataset zibs2017"
     }
   ],
   "kind": "resource",
@@ -65,6 +70,26 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "645",
             "comment": "Wilsverklaring"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "166",
+            "comment": "Euthanasieverklaring (Wilsverklaring)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "123",
+            "comment": "Keuze orgaandonatie vastgelegd (Wilsverklaring)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "139",
+            "comment": "Eerder vastgelegde behandelafspraken (Wilsverklaring)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "102",
+            "comment": "Wilsverklaring"
           }
         ]
       },
@@ -91,6 +116,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "724",
             "comment": "Aandoening"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "142",
+            "comment": "Aandoening"
           }
         ]
       },
@@ -116,6 +146,11 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "729",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "184",
             "comment": "Toelichting"
           }
         ]
@@ -171,6 +206,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "723",
             "comment": "WilsverklaringDatum"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "141",
+            "comment": "WilsverklaringDatum"
           }
         ]
       },
@@ -198,6 +238,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "728",
             "comment": "WilsverklaringDocument"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "146",
+            "comment": "WilsverklaringDocument"
           }
         ]
       },
@@ -224,6 +269,11 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "726",
             "comment": "Vertegenwoordiger"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "144",
+            "comment": "Vertegenwoordiger"
           }
         ]
       },
@@ -245,6 +295,21 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "722",
+            "comment": "WilsverklaringType"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "175",
+            "comment": "Euthanasieverklaring (WilsverklaringType)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "124",
+            "comment": "Orgaandonatie (WilsverklaringType)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "140",
             "comment": "WilsverklaringType"
           }
         ]
