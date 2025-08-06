@@ -280,7 +280,7 @@
       {
         "id": "Consent.provision.code",
         "path": "Consent.provision.code",
-        "definition": " The following codes are in scope of this profile: - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie). - For Organ Donation, code _DO_ (Verklaring donorschap).",
+        "definition": " The following codes are in scope of this profile:\r\n- For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).\r\n- For Organ Donation, code _DO_ (Verklaring donorschap).",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",

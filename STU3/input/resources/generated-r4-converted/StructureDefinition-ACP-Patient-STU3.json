@@ -101,27 +101,6 @@
         ]
       },
       {
-        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapable",
-        "path": "Patient.extension.extension",
-        "sliceName": "legallyCapable"
-      },
-      {
-        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapable.value[x]",
-        "path": "Patient.extension.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "762",
-            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "759",
-            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-          }
-        ]
-      },
-      {
         "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment",
         "path": "Patient.extension.extension",
         "sliceName": "legallyCapableComment"
@@ -193,99 +172,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "519",
             "comment": "Naamgebruik"
-          }
-        ]
-      },
-      {
-        "id": "Patient.name.family.extension:prefix",
-        "path": "Patient.name.family.extension",
-        "sliceName": "prefix"
-      },
-      {
-        "id": "Patient.name.family.extension:prefix.value[x]",
-        "path": "Patient.name.family.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "358",
-            "comment": "Voorvoegsels"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "521",
-            "comment": "Voorvoegsels"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "358",
-            "comment": "Voorvoegsels"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "521",
-            "comment": "Voorvoegsels"
-          }
-        ]
-      },
-      {
-        "id": "Patient.name.family.extension:lastName",
-        "path": "Patient.name.family.extension",
-        "sliceName": "lastName"
-      },
-      {
-        "id": "Patient.name.family.extension:lastName.value[x]",
-        "path": "Patient.name.family.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "359",
-            "comment": "Achternaam"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "522",
-            "comment": "Achternaam"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "359",
-            "comment": "Achternaam"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "522",
-            "comment": "Achternaam"
-          }
-        ]
-      },
-      {
-        "id": "Patient.name.family.extension:partnerPrefix",
-        "path": "Patient.name.family.extension",
-        "sliceName": "partnerPrefix"
-      },
-      {
-        "id": "Patient.name.family.extension:partnerPrefix.value[x]",
-        "path": "Patient.name.family.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "361",
-            "comment": "VoorvoegselsPartner"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "524",
-            "comment": "VoorvoegselsPartner"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "361",
-            "comment": "VoorvoegselsPartner"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "524",
-            "comment": "VoorvoegselsPartner"
           }
         ]
       },
@@ -395,17 +281,6 @@
       {
         "id": "Patient.telecom",
         "path": "Patient.telecom",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "376",
-            "comment": "Contactgegevens"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom",
-        "path": "Patient.telecom",
         "sliceName": "telephoneNumbers",
         "mapping": [
           {
@@ -417,22 +292,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "382",
             "comment": "EmailAdressen"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom.extension:comment",
-        "path": "Patient.telecom.extension",
-        "sliceName": "comment"
-      },
-      {
-        "id": "Patient.telecom.extension:comment.value[x]",
-        "path": "Patient.telecom.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "381",
-            "comment": "Toelichting"
           }
         ]
       },
@@ -492,6 +351,22 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "380",
             "comment": "NummerSoort"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.extension:comment",
+        "path": "Patient.telecom.extension",
+        "sliceName": "comment"
+      },
+      {
+        "id": "Patient.telecom.extension:comment.value[x]",
+        "path": "Patient.telecom.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "381",
+            "comment": "Toelichting"
           }
         ]
       },
@@ -582,75 +457,6 @@
         ]
       },
       {
-        "id": "Patient.address.line.extension:streetName",
-        "path": "Patient.address.line.extension",
-        "sliceName": "streetName"
-      },
-      {
-        "id": "Patient.address.line.extension:streetName.value[x]",
-        "path": "Patient.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "365",
-            "comment": "Straat"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumber",
-        "path": "Patient.address.line.extension",
-        "sliceName": "houseNumber"
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumber.value[x]",
-        "path": "Patient.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "366",
-            "comment": "Huisnummer"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumberLetter-houseNumberAddition",
-        "path": "Patient.address.line.extension",
-        "sliceName": "houseNumberLetter-houseNumberAddition"
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumberLetter-houseNumberAddition.value[x]",
-        "path": "Patient.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "367",
-            "comment": "Huisnummerletter"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "368",
-            "comment": "Huisnummertoevoeging"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumberIndication",
-        "path": "Patient.address.line.extension",
-        "sliceName": "houseNumberIndication"
-      },
-      {
-        "id": "Patient.address.line.extension:houseNumberIndication.value[x]",
-        "path": "Patient.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "369",
-            "comment": "AanduidingBijHuisnummer"
-          }
-        ]
-      },
-      {
         "id": "Patient.address.line.extension:additionalInformation",
         "path": "Patient.address.line.extension",
         "sliceName": "additionalInformation"
@@ -723,6 +529,13 @@
         ]
       },
       {
+        "id": "Patient.contact.relationship",
+        "path": "Patient.contact.relationship",
+        "condition": [
+          "ACP-Patient-1"
+        ]
+      },
+      {
         "id": "Patient.contact.extension:contactPerson",
         "path": "Patient.contact.extension",
         "sliceName": "contactPerson",
@@ -739,13 +552,6 @@
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
           }
-        ]
-      },
-      {
-        "id": "Patient.contact.relationship",
-        "path": "Patient.contact.relationship",
-        "condition": [
-          "ACP-Patient-1"
         ]
       }
     ]

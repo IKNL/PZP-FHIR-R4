@@ -112,23 +112,6 @@
         ]
       },
       {
-        "id": "Practitioner.name.family.extension:prefix",
-        "path": "Practitioner.name.family.extension",
-        "sliceName": "prefix",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "399",
-            "comment": "Voorvoegsels"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "399",
-            "comment": "Voorvoegsels"
-          }
-        ]
-      },
-      {
         "id": "Practitioner.name.family.extension:lastName",
         "path": "Practitioner.name.family.extension",
         "sliceName": "lastName",

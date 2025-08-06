@@ -36,8 +36,14 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
 
 
   src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
-  }
+  
+  src where id = 'Observation.encounter' -> tgt as tgt then {
+      src.id -> tgt.id = 'Observation.context' "Observation-context";
+      src.path -> tgt.path = 'Observation.context' "Observation-context-path";
+    } "Observation-context";
 
+  }
+  
 group ElementDefinitionCore(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
 
   src.path as vs -> tgt.path as vt then string(vs, vt);

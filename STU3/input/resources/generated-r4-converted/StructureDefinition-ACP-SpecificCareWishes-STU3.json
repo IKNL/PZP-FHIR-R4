@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "Observation.encounter",
-        "path": "Observation.encounter",
+        "id": "Observation.context",
+        "path": "Observation.context",
         "type": [
           {
             "code": "Reference",
@@ -117,7 +117,7 @@
       {
         "id": "Observation.dataAbsentReason",
         "path": "Observation.dataAbsentReason",
-        "comment": "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely:  - if the question has been asked but the source does not know the value (code = _asked-unknown_)  - if the question has not been asked (code = _not-asked_) ",
+        "comment": "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: \r\n- if the question has been asked but the source does not know the value (code = _asked-unknown_) \r\n- if the question has not been asked (code = _not-asked_) ",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",

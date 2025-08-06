@@ -78,8 +78,8 @@
         ]
       },
       {
-        "id": "Observation.encounter",
-        "path": "Observation.encounter",
+        "id": "Observation.context",
+        "path": "Observation.context",
         "type": [
           {
             "code": "Reference",

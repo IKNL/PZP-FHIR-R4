@@ -226,7 +226,7 @@
       {
         "id": "Consent.provision.type",
         "path": "Consent.provision.type",
-        "comment": "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance:  - BehandelBesluit (dataset id 603) values:      - _Ja_ -> _permit_     - _Nee_ -> _deny_     - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element. - Afspraak uitzetten ICD (dataset id 638) values:      - _Wel uitvoeren_ -> _permit_      - No value is mapped to _deny_     - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.",
+        "comment": "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance: \r\n- BehandelBesluit (dataset id 603) values: \r\n    - _Ja_ -> _permit_\r\n    - _Nee_ -> _deny_\r\n    - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.\r\n- Afspraak uitzetten ICD (dataset id 638) values: \r\n    - _Wel uitvoeren_ -> _permit_ \r\n    - No value is mapped to _deny_\r\n    - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",

@@ -14,14 +14,18 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.LinkedHashMap;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileWriter;
 
 /**
  * Handles post-processing rules for cross-version FHIR conversion.
@@ -41,6 +45,7 @@ public class CrossVersionPostProcessor {
     private final Gson prettyGson;
     private final Map<String, String> zib2020ToZib2017Mapping;
     private final FhirContext fhirContext;
+    private final FhirCanonicalElementOrderer elementOrderer;
     private static final String ZIB2017_IDENTITY = "pall-izppz-zibs2017-v2025-03-11";
     private static final String ZIB2020_IDENTITY = "pall-izppz-v2025-03-11";
     
@@ -56,6 +61,9 @@ public class CrossVersionPostProcessor {
         
         // Initialize FHIR context for STU3 (DSTU3)
         this.fhirContext = FhirContext.forDstu3();
+        
+        // Initialize FHIR canonical element orderer
+        this.elementOrderer = new FhirCanonicalElementOrderer();
     }
     
     /**
@@ -108,8 +116,8 @@ public class CrossVersionPostProcessor {
         // Remove elements marked for deletion
         removeMarkedElements(resource);
         
-        // Sort elements according to FHIR specification order using XML round-trip
-        sortElementsByXmlRoundTrip(resource);
+        // Sort elements according to FHIR specification order using canonical ordering
+        sortElementsByCanonicalOrder(resource);
         
         // Validate element structure
         validateElementStructure(resource);
@@ -840,46 +848,87 @@ public class CrossVersionPostProcessor {
     
     /**
      * Sorts elements in a StructureDefinition differential according to FHIR specification order
-     * Uses XML round-trip serialization to achieve proper element ordering
+     * Uses canonical element ordering based on FHIR specification
      */
-    private void sortElementsByXmlRoundTrip(JsonObject resource) {
+    private void sortElementsByCanonicalOrder(JsonObject resource) {
         try {
-            // Convert the JSON resource to a HAPI FHIR StructureDefinition object
+            // Convert the JSON resource to a HAPI FHIR StructureDefinition object to get resource type
             IParser jsonParser = fhirContext.newJsonParser();
             String resourceJson = prettyGson.toJson(resource);
             StructureDefinition structureDefinition = jsonParser.parseResource(StructureDefinition.class, resourceJson);
             
-            // Serialize to XML (this enforces FHIR specification element order)
-            IParser xmlParser = fhirContext.newXmlParser();
-            String xmlString = xmlParser.encodeResourceToString(structureDefinition);
+            // Get the StructureDefinition name for logging
+            String resourceName = structureDefinition.hasName() ? structureDefinition.getName() : "UnknownStructureDefinition";
             
-            // Parse the XML back to a HAPI FHIR object
-            StructureDefinition reorderedStructureDefinition = xmlParser.parseResource(StructureDefinition.class, xmlString);
+            // Use canonical element order from FHIR specification
+            JsonObject reorderedResource = reorderElementsUsingCanonicalOrder(resource, structureDefinition);
             
-            // Serialize back to JSON (this preserves the ordering from XML)
-            String reorderedJson = jsonParser.encodeResourceToString(reorderedStructureDefinition);
-            
-            // Parse the reordered JSON and update the original resource
-            JsonParser parser = new JsonParser();
-            JsonObject reorderedResource = parser.parse(reorderedJson).getAsJsonObject();
-            
-            // Replace the differential elements with the reordered ones
-            if (reorderedResource.has("differential") && resource.has("differential")) {
-                JsonObject originalDifferential = resource.getAsJsonObject("differential");
-                JsonObject reorderedDifferential = reorderedResource.getAsJsonObject("differential");
-                
-                if (reorderedDifferential.has("element")) {
-                    originalDifferential.add("element", reorderedDifferential.getAsJsonArray("element"));
+            if (reorderedResource != null) {
+                // Update the original resource with reordered elements
+                if (reorderedResource.has("differential") && resource.has("differential")) {
+                    JsonObject originalDifferential = resource.getAsJsonObject("differential");
+                    JsonObject reorderedDifferential = reorderedResource.getAsJsonObject("differential");
                     
-                    int elementCount = reorderedDifferential.getAsJsonArray("element").size();
-                    logger.debug("✅ Reordered {} StructureDefinition elements using XML round-trip", elementCount);
+                    if (reorderedDifferential.has("element")) {
+                        originalDifferential.add("element", reorderedDifferential.getAsJsonArray("element"));
+                        
+                        int elementCount = reorderedDifferential.getAsJsonArray("element").size();
+                        logger.debug("✅ Reordered {} StructureDefinition elements using canonical FHIR ordering for {}", elementCount, resourceName);
+                    }
                 }
+            } else {
+                logger.debug("No canonical reordering applied for {} - keeping original element order", resourceName);
             }
             
         } catch (Exception e) {
-            logger.warn("Failed to reorder elements using XML round-trip, keeping original order: {}", e.getMessage());
+            logger.warn("Failed to reorder elements using canonical FHIR ordering, keeping original order: {}", e.getMessage(), e);
         }
     }
+    
+    /**
+     * Reorders elements using canonical FHIR specification order
+     * This delegates to FhirCanonicalElementOrderer for proper ordering
+     */
+    private JsonObject reorderElementsUsingCanonicalOrder(JsonObject resource, StructureDefinition structureDefinition) {
+        try {
+            // Get the resource type to determine canonical element order
+            String resourceType = structureDefinition.hasType() ? structureDefinition.getType() : null;
+            
+            if (resourceType == null) {
+                logger.debug("No resource type found, cannot apply canonical ordering");
+                return null;
+            }
+            
+            // Check if canonical ordering is supported for this resource type
+            if (!elementOrderer.supportsResourceType(resourceType)) {
+                logger.debug("No canonical order defined for resource type: {}", resourceType);
+                return null;
+            }
+            
+            JsonObject reorderedResource = resource.deepCopy();
+            
+            // Reorder differential elements if they exist
+            if (reorderedResource.has("differential")) {
+                JsonObject differential = reorderedResource.getAsJsonObject("differential");
+                if (differential.has("element")) {
+                    JsonArray elements = differential.getAsJsonArray("element");
+                    JsonArray reorderedElements = elementOrderer.reorderElements(elements, resourceType);
+                    differential.add("element", reorderedElements);
+                    
+                    logger.debug("Applied canonical ordering to {} differential elements", reorderedElements.size());
+                }
+            }
+            
+            return reorderedResource;
+            
+        } catch (Exception e) {
+            logger.warn("Failed to apply canonical element ordering: {}", e.getMessage(), e);
+            return null;
+        }
+    }
+    
+    // NOTE: Element ordering methods have been moved to FhirCanonicalElementOrderer.java
+    // for better modularity and reusability across different FHIR resource types.
     
     /**
      * Adds ZIB2017 mappings to StructureDefinition elements based on existing ZIB2020 mappings

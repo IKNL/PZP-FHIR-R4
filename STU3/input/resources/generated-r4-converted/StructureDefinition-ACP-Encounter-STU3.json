@@ -113,6 +113,37 @@
         ]
       },
       {
+        "id": "Encounter.participant.individual",
+        "path": "Encounter.participant.individual",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+          },
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "554",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "842",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "148",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+          }
+        ]
+      },
+      {
         "id": "Encounter.period.start",
         "path": "Encounter.period.start",
         "mapping": [
@@ -148,37 +179,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "819",
             "comment": "Verrichting"
-          }
-        ]
-      },
-      {
-        "id": "Encounter.participant.individual",
-        "path": "Encounter.participant.individual",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
-          },
-          {
-            "code": "Reference",
-            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
-          }
-        ],
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "554",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "842",
-            "comment": "Gesprek gevoerd door (Zorgverlener)"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "148",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
           }
         ]
       }
