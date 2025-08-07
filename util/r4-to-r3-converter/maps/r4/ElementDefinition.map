@@ -27,6 +27,7 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
   src where id = "RelatedPerson.telecom:telephoneNumbers.extension:comment.value[x]" -> tgt then skipElement(src, tgt) "skip-telecom-comment-extension-value";
   src where id = "RelatedPerson.address.country.extension:countryCode.value[x]" -> tgt then {
     src.id -> tgt.id = 'RelatedPerson.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "RelatedPerson-address-countrycode-value";
+    src.path -> tgt.path = 'RelatedPerson.address.country.extension.valueCodeableConcept' "RelatedPerson-address-countrycode-path"; 
   } "RelatedPerson-address-countrycode-value";
 
 
@@ -37,6 +38,7 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
 
   src where id = "Patient.gender.extension:genderCodelist.value[x]" -> tgt then {
       src.id -> tgt.id = 'Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept' "patient-gender-codelist-value";
+      src.path -> tgt.path = 'Patient.gender.extension.valueCodeableConcept' "patient-gender-codelist-path";
     } "patient-gender-codelist-value";
 
   src where id = "Patient.telecom:telephoneNumbers.extension:comment" -> tgt then skipElement(src, tgt) "skip-telecom-comment-slice";
@@ -46,6 +48,7 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
 
   src where id = "Patient.address.country.extension:countryCode.value[x]" -> tgt then {
     src.id -> tgt.id = 'Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "patient-address-countrycode-value";
+    src.path -> tgt.path = 'Patient.address.country.extension.valueCodeableConcept' "patient-address-countrycode-path";
   } "patient-address-countrycode-value";
 
   src where id = "Patient.contact.extension:contactPerson" -> tgt then skipElement(src, tgt) "skip-contact-person-extension";
@@ -64,8 +67,6 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
 
   src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
   
-
-
   src where id = 'DeviceUseStatement.reasonReference:indication' -> tgt then {
     src.id -> tgt.id = 'DeviceUseStatement.indication.extension:indication_Problem' "DeviceUseStatement-indication";
     src.path -> tgt.path = 'DeviceUseStatement.indication.extension' "DeviceUseStatement-indication-path";
@@ -80,13 +81,50 @@ group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefi
     src.path -> tgt.path = 'Device.udi.carrierHRF' "Device-udi-carrierHRF-path";
     } "Device-udi-carrierHRF";
 
-
     src where id = 'Observation.encounter' -> tgt as tgt then {
       src.id -> tgt.id = 'Observation.context' "Observation-context";
       src.path -> tgt.path = 'Observation.context' "Observation-context-path";
     } "Observation-context";
 
-}
+  src where id = "Consent.provision.actor:representative" -> tgt then skipElement(src,tgt) "skip-consent-provision-actor-slice-element";
+  src where id = "Consent.provision.actor:representative.reference" -> tgt then {
+    src.id -> tgt.id = "Consent.except.actor.reference" "consent-except-actor-reference-id";
+    src.path -> tgt.path = 'Consent.except.actor.reference' "consent-except-actor-reference-path";
+    } "consent-except-actor-reference";
+  
+
+
+  src where id = "Consent.extension:disorder" -> tgt then {
+    src.id -> tgt.id = "Consent.extension:treatment" "consent-extension-treatment-id";
+    src.path -> tgt.path = 'Consent.extension' "consent-extension-treatment-path";
+    src.sliceName -> tgt.sliceName = 'treatment' "consent-extension-treatment-slice";
+    } "consent-extension-treatment";
+  
+    src where id = "Consent.provision.code" -> tgt then {
+      src.id -> tgt.id = "Consent.extension:treatment.value[x]" "consent-extension-treatment-id";
+      src.path -> tgt.path = 'Consent.extension.valueCodeableConcept' "consent-extension-treatment-path";
+      } "consent-extension-treatment";
+
+
+
+  src where id = "Consent.extension:disorder.value[x]" -> tgt then skipElement(src, tgt) "skip-consent-extension-disorder-value";
+
+  src where id = "Consent.extension:comment.value[x]" -> tgt then {
+    src.id -> tgt.id = "Consent.extension:comment.valueString:valueString" "consent-extension-comment-valueString-id";
+    src.path -> tgt.path = 'Consent.extension.valueString' "consent-extension-comment-valueString-path";
+    } "consent-extension-comment-valueString";
+
+  src where id = "Consent.provision.extension:reasonForEnding" -> tgt then skipElement(src, tgt) "skip-consent-provision-extension-reasonForEnding";
+  src where id = "Consent.provision.extension:reasonForEnding.value[x]" -> tgt then skipElement(src, tgt) "skip-consent-provision-extension-reasonForEnding-value";
+  src where id = "Consent.provision.type" -> tgt then skipElement(src, tgt) "skip-consent-provision-type";
+  src where id = "Consent.provision.period.end" -> tgt then skipElement(src, tgt) "skip-consent-provision-period-end";
+  src where id = "Consent.provision.actor:agreementParty" -> tgt then skipElement(src, tgt) "skip-consent-provision-actor-agreementParty";
+  src where id = "Consent.provision.actor:agreementParty.reference" -> tgt then skipElement(src, tgt) "skip-consent-provision-actor-agreementParty-reference";
+  src where id = "Consent.provision.code.text" -> tgt then skipElement(src, tgt) "skip-consent-provision-code-text";
+
+  }
+
+
 
 
 

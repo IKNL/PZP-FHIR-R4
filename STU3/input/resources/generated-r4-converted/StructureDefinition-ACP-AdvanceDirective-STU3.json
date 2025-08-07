@@ -94,35 +94,9 @@
         ]
       },
       {
-        "id": "Consent.extension:disorder",
+        "id": "Consent.extension:treatment",
         "path": "Consent.extension",
-        "sliceName": "disorder"
-      },
-      {
-        "id": "Consent.extension:disorder.value[x]",
-        "path": "Consent.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "693",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "703",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "724",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "142",
-            "comment": "Aandoening"
-          }
-        ]
+        "sliceName": "treatment"
       },
       {
         "id": "Consent.extension:comment",
@@ -130,8 +104,8 @@
         "sliceName": "comment"
       },
       {
-        "id": "Consent.extension:comment.value[x]",
-        "path": "Consent.extension.value[x]",
+        "id": "Consent.extension:comment.valueString:valueString",
+        "path": "Consent.extension.valueString",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
@@ -247,13 +221,8 @@
         ]
       },
       {
-        "id": "Consent.provision.actor:representative",
-        "path": "Consent.provision.actor",
-        "sliceName": "representative"
-      },
-      {
-        "id": "Consent.provision.actor:representative.reference",
-        "path": "Consent.provision.actor.reference",
+        "id": "Consent.except.actor.reference",
+        "path": "Consent.except.actor.reference",
         "mapping": [
           {
             "identity": "pall-izppz-v2025-03-11",
@@ -278,8 +247,8 @@
         ]
       },
       {
-        "id": "Consent.provision.code",
-        "path": "Consent.provision.code",
+        "id": "Consent.extension:treatment.value[x]",
+        "path": "Consent.extension.valueCodeableConcept",
         "definition": " The following codes are in scope of this profile:\r\n- For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).\r\n- For Organ Donation, code _DO_ (Verklaring donorschap).",
         "mapping": [
           {
