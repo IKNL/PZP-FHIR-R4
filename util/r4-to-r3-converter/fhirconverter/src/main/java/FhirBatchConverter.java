@@ -305,7 +305,18 @@ public class FhirBatchConverter {
         
         String mapsDir = "../maps/r4";
         String sourceDir = "../../../R4/fsh-generated/resources/";
-        String outputDir = "../../../STU3/input/resources/generated-r4-converted/";
+        String outputDir = "../../../STU3/input/resources/";
+        
+        // Files to exclude from conversion (too difficult to transform)
+        Set<String> excludedFiles = Set.of(
+            "StructureDefinition-ACP-TreatmentDirective.json",
+            "StructureDefinition-ACP-AdvanceDirective.json", 
+            "ImplementationGuide-iknl.fhir.r4.pzp.json"
+        );
+        
+        System.out.println("🚫 Files excluded from conversion:");
+        excludedFiles.forEach(file -> System.out.println("  • " + file + " (will be handled manually)"));
+        System.out.println("");
         
         // Create output directory if it doesn't exist
         File outputDirectory = new File(outputDir);
@@ -387,6 +398,13 @@ public class FhirBatchConverter {
             String fileName = file.getName();
             String resourceType = "Unknown";
             
+            // Check if this file should be excluded from conversion
+            if (excludedFiles.contains(fileName)) {
+                System.out.println("⏭️  Skipping excluded file: " + fileName);
+                excludedCount++;
+                continue;
+            }
+            
             try {
                 // Read and parse the file to get resource type
                 String inputJson = new String(Files.readAllBytes(file.toPath()));
@@ -424,7 +442,9 @@ public class FhirBatchConverter {
                         }
                     }
                     
-                    String outputFileName = fileName.replace(".json", "-STU3.json");
+                    // Prefix converted files with 'converted-'
+                    String baseFileName = fileName.replace(".json", "");
+                    String outputFileName = "converted-" + baseFileName + "-STU3.json";
                     String outputPath = outputDir + outputFileName;
                     
                     Files.write(Paths.get(outputPath), outputJson.getBytes());
@@ -499,6 +519,7 @@ public class FhirBatchConverter {
         System.out.println("  ❌ Failed conversions: " + errorCount);
         if (excludedCount > 0) {
             System.out.println("  ⏭️  Excluded files: " + excludedCount);
+            System.out.println("    💡 These files should be manually converted and placed with 'manual-' prefix");
         }
         System.out.println("  📈 Success rate: " + String.format("%.1f%%", (successCount * 100.0 / totalFiles)));
         
@@ -609,6 +630,20 @@ public class FhirBatchConverter {
             }
         }
         
+        if (excludedCount > 0) {
+            System.out.println("\n📋 MANUAL CONVERSION REQUIRED:");
+            System.out.println("The following files were excluded from automatic conversion:");
+            excludedFiles.forEach(file -> System.out.println("  • " + file));
+            System.out.println("\n💡 TODO: Manually convert these files and save them with 'manual-' prefix:");
+            excludedFiles.forEach(file -> {
+                String baseName = file.replace(".json", "");
+                String manualName = "manual-" + baseName + "-STU3.json";
+                System.out.println("  • " + file + " → " + manualName);
+            });
+            System.out.println("\n   Place these manual files in: " + new File(outputDir).getAbsolutePath());
+            System.out.println("   The IgXmlUpdater will automatically include them in the ImplementationGuide");
+        }
+        
         System.out.println("\n📁 Output files saved to: " + new File(outputDir).getAbsolutePath());
         System.out.println("🔍 Debug logs saved to: " + new File("debug-logs").getAbsolutePath());
         System.out.println("💡 Check debug logs to analyze StructureMap execution details");
@@ -616,6 +651,10 @@ public class FhirBatchConverter {
         // Update STU3 ImplementationGuide XML with converted resources
         if (successCount > 0) {
             System.out.println();
+            System.out.println("🔄 Updating ImplementationGuide XML...");
+            System.out.println("   📋 Will include all resources in STU3/input/resources/:");
+            System.out.println("   🔄 Converted files (prefixed with 'converted-')");
+            System.out.println("   ✋ Manual files (prefixed with 'manual-')");
             IgXmlUpdater.updateIgXml();
         }
         

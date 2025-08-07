@@ -70,8 +70,11 @@ public class IgXmlUpdater {
             return resources;
         }
         
-        // Set of allowed resource types
-        Set<String> allowedResourceTypes = Set.of("StructureDefinition", "ValueSet");
+        // Set of allowed resource types for IG inclusion
+        Set<String> allowedResourceTypes = Set.of("StructureDefinition", "ValueSet", "SearchParameter");
+        
+        int convertedCount = 0;
+        int manualCount = 0;
         
         for (File file : jsonFiles) {
             try {
@@ -79,13 +82,24 @@ public class IgXmlUpdater {
                 ResourceInfo info = parseResourceInfo(content, file.getName());
                 if (info != null && allowedResourceTypes.contains(info.resourceType)) {
                     resources.put(info.id, info);
+                    
+                    // Track whether this is a converted or manual file
+                    if (file.getName().startsWith("converted-")) {
+                        convertedCount++;
+                    } else if (file.getName().startsWith("manual-")) {
+                        manualCount++;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("⚠️  Could not parse " + file.getName() + ": " + e.getMessage());
             }
         }
         
-        System.out.println("📋 Filtered to " + resources.size() + " StructureDefinition and ValueSet resources");
+        System.out.println("📋 Found " + resources.size() + " resources:");
+        System.out.println("   🔄 Converted files: " + convertedCount);
+        System.out.println("   ✋ Manual files: " + manualCount);
+        System.out.println("   📝 Resource types: StructureDefinition, ValueSet, SearchParameter");
+        
         return resources;
     }
     

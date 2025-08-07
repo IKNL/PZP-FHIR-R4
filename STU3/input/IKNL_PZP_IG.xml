@@ -63,11 +63,22 @@
         <generation value="markdown" />
       </page>
       <page>
+        <nameUrl value="index2.html" />
+        <title value="Index2" />
+        <generation value="markdown" />
+      </page>
+      <page>
         <nameUrl value="naming-conventions.html" />
         <title value="Naming Conventions" />
         <generation value="markdown" />
       </page>
     </page>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/Communication-reason-code" />
+      </reference>
+      <description value="SearchParameter for Communication reason code" />
+    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/ACP-AdvanceDirective" />

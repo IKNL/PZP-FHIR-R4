@@ -1,0 +1,42 @@
+{
+  "resourceType": "Observation",
+  "id": "F1-ACP-PreferredPlaceOfDeath-Unknown",
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "023ba125-94c3-492c-8379-958ac9fbb9d6"
+  } ],
+  "status": "final",
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "395091006"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "context": {
+    "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+    "display": "Encounter, 2020-10-01"
+  },
+  "effectiveDateTime": "2020-10-01",
+  "performer": [ {
+    "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+    "display": "Healthcare professional (role), van Huissen"
+  } ],
+  "dataAbsentReason": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+      "code": "asked-unknown"
+    } ]
+  },
+  "comment": "Nog niet besproken"
+}

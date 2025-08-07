@@ -1,0 +1,27 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "ff6d8146-1014-4ef4-9645-e8207364c942"
+  } ],
+  "practitioner": {
+    "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+    "display": "Healthcare professional (person), van Huissen"
+  },
+  "specialty": [ {
+    "coding": [ {
+      "system": "urn:oid:2.16.840.1.113883.2.4.6.7",
+      "version": "2020-10-23T00:00:00",
+      "code": "0100",
+      "display": "Huisartsen, niet nader gespecificeerd"
+    } ]
+  } ]
+}
