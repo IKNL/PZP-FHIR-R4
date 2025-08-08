@@ -190,4 +190,118 @@ To add support for new resource types:
 
 ---
 
-**Status**: ✅  Ready - All resource types converting successfully
+## Recent Updates & Conversion Pipeline Enhancements
+
+### Summary of Changes Made to StructureMap Files and Post-Processing
+
+This section documents the key modifications made to the R4-to-STU3 conversion pipeline to address specific transformation challenges and improve automation.
+
+#### 1. Disabled Automatic File Copying ✅ **COMPLETED**
+
+**Problem**: The conversion pipeline was automatically copying `pagecontent/` and `includes/` directories from R4 to STU3, which may contain version-specific content that requires manual review.
+
+**Solution**: Modified `IgXmlUpdater.java` to disable automatic copying:
+- **File Modified**: `util/r4-to-r3-converter/fhirconverter/src/main/java/fhir/converter/IgXmlUpdater.java`
+- **Change**: Commented out the `copyDirectoryContents()` calls in the `copyMarkdownFiles()` method
+- **Impact**: Manual control over pagecontent and includes ensures version-appropriate content
+
+```java
+// NOTE: Automatic copying disabled - pagecontent and includes must be managed manually
+// copyDirectoryContents(R4_PAGECONTENT_DIR, STU3_PAGECONTENT_DIR);
+// copyDirectoryContents(R4_INCLUDES_DIR, STU3_INCLUDES_DIR);
+```
+
+#### 2. Extension Context Transformation ✅ **COMPLETED**
+
+**Problem**: FHIR R4 StructureDefinition extensions use a different context format than STU3:
+- **R4 Format**: `context: [{"type": "element", "expression": "Patient"}]` (array of objects)
+- **STU3 Format**: `contextType: "resource", context: ["Patient"]` (separate fields)
+
+**Solution**: Implemented a two-phase transformation approach using temporary extensions:
+
+##### Phase 1: StructureMap Conversion
+- **File Modified**: `util/r4-to-r3-converter/maps/r4/StructureDefinition.map`
+- **Change**: Added `createContextExtension` group to transform R4 context objects into temporary extensions
+
+```map
+// Transform R4 context objects to temporary extension for post-processing
+src.context as contextList -> tgt.extension as ext then createContextExtension(contextList, ext) "context-to-extension";
+
+group createContextExtension(source src, target ext) {
+    src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition.context' "context-extension-url";
+    src.expression as expr -> ext.value = create('string') as extValue then string(expr, extValue) "context-expression-value";
+}
+```
+
+##### Phase 2: Post-Processing Cleanup
+- **File Modified**: `util/r4-to-r3-converter/fhirconverter/src/main/java/fhir/converter/CrossVersionExtensionProcessor.java`
+- **Change**: Added `transformExtensionContext()` method to convert temporary extensions to STU3 format
+
+```java
+/**
+ * Transforms R4 extension context objects to STU3 context format.
+ * 
+ * This method looks for the temporary extensions created by StructureMap conversion:
+ * 'http://fhir.conversion/cross-version/StructureDefinition.context'
+ */
+private void transformExtensionContext(JsonObject resource) {
+    // 1. Extract all context extensions  
+    // 2. Get the expression from each extension value
+    // 3. Create STU3 contextType and context fields
+    // 4. Remove the temporary extensions
+}
+```
+
+**Result**: Extension StructureDefinitions now correctly convert with proper STU3 context format:
+- `contextType: "resource"` (default for element-type contexts)
+- `context: ["DeviceUseStatement", "Goal", "Consent"]` (string array of expressions)
+
+#### 3. Extension-Based Cross-Version Bridge Pattern
+
+The conversion pipeline uses a sophisticated **"Extension-Based Cross-Version Bridge"** pattern to handle incompatible transformations:
+
+**Pattern Overview**:
+1. **StructureMap Phase**: Converts R4 properties that have no direct STU3 equivalent into temporary extensions with predictable URLs
+2. **Post-Processing Phase**: Java code detects these temporary extensions and transforms them into appropriate STU3 properties
+3. **Cleanup Phase**: Temporary extensions are removed from the final output
+
+**Extension URL Pattern**: `http://fhir.conversion/cross-version/{ResourceType}.{propertyName}`
+
+**Current Implementations**:
+- **StructureDefinition.context**: Handles R4 context objects → STU3 contextType/context fields
+- **Communication.notDone**: Handles R4 boolean → STU3 direct property  
+- **Consent.provision**: Handles R4 provision → STU3 except transformation
+- **Observation.related**: Handles R4 related objects → STU3 related array
+
+#### 4. Technical Architecture Decisions
+
+**Why Temporary Extensions?**
+- HAPI FHIR StructureMap engine cannot directly transform incompatible object structures
+- Extensions provide a reliable intermediate format that preserves data during transformation
+- Post-processing allows complex logic that StructureMap syntax cannot express
+
+**Why Two-Phase Processing?**
+- StructureMap handles bulk transformation rules efficiently
+- Java post-processing provides fine-grained control over complex transformations
+- Separation of concerns: mapping logic vs. business transformation logic
+
+**Error Handling Strategy**:
+- Individual resource conversion failures don't stop the batch process
+- Detailed logging captures transformation patterns and errors
+- Original R4 content is preserved if conversion fails
+
+#### 5. Future Enhancement Opportunities
+
+**Mapping Script Improvements** (Task 3 - Pending):
+- Enhanced ART-DECOR dataset synchronization
+- Automated zib version mapping updates
+- Cross-reference validation between R4 and STU3 concept mappings
+
+**Resource Comparison Analysis** (Task 4 - Pending):
+- Systematic documentation of R4 vs STU3 differences for all resource types in scope
+- Impact analysis of conversion transformations
+- Validation reports for conversion accuracy
+
+---
+
+**Status**: ✅  Ready - All resource types converting successfully with enhanced context transformation
