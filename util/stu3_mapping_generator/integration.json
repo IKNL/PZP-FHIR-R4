@@ -11,7 +11,7 @@
       {
         "zib_concept_id": "NL-CM:15.1.1",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter",
         "element_id": "Encounter"
       }
@@ -19,7 +19,10 @@
     "r4_mappings": [
       {
         "resource": "Contact",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "808",
+        "zib2020_shortName": "contact",
+        "r4_profile_id": null
       }
     ]
   },
@@ -35,7 +38,7 @@
       {
         "zib_concept_id": "NL-CM:15.1.2",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter.class",
         "element_id": "Encounter.class"
       }
@@ -43,7 +46,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;ContactType",
-        "element_path": "class"
+        "element_path": "class",
+        "zib2020_dataset_id": "809",
+        "zib2020_shortName": "contact_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -59,7 +65,7 @@
       {
         "zib_concept_id": "NL-CM:15.1.7",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter.participant.individual",
         "element_id": "Encounter.participant.individual"
       }
@@ -67,7 +73,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;ContactMet",
-        "element_path": "participant"
+        "element_path": "participant",
+        "zib2020_dataset_id": "810",
+        "zib2020_shortName": "contact_met",
+        "r4_profile_id": null
       }
     ]
   },
@@ -83,14 +92,14 @@
       {
         "zib_concept_id": "NL-CM:17.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.generalPractitioner",
         "element_id": "Patient.generalPractitioner"
       },
       {
         "zib_concept_id": "NL-CM:17.1.1",
         "resource": "Practitioner",
-        "profile_id": "nl-core-practitioner",
+        "profile_id": "ACP-HealthProfessional-Practitioner",
         "element_path": "Practitioner",
         "element_id": "Practitioner"
       }
@@ -98,7 +107,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Gesprek gevoerd door (Zorgverlener)",
-        "element_path": "participant[healthProfessional].individual"
+        "element_path": "participant[healthProfessional].individual",
+        "zib2020_dataset_id": "842",
+        "zib2020_shortName": "gesprek_gevoerd_door_zorgverlener",
+        "r4_profile_id": null
       }
     ]
   },
@@ -114,7 +126,7 @@
       {
         "zib_concept_id": "NL-CM:15.1.3",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter.period.start",
         "element_id": "Encounter.period.start"
       }
@@ -122,7 +134,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;BeginDatumTijd",
-        "element_path": "period.start"
+        "element_path": "period.start",
+        "zib2020_dataset_id": "814",
+        "zib2020_shortName": "begin_datum_tijd",
+        "r4_profile_id": null
       }
     ]
   },
@@ -134,7 +149,15 @@
     "zib_refs": [
       "NL-CM-15.1.13"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM-15.1.13",
+        "resource": "Encounter",
+        "profile_id": "ACP-Encounter",
+        "element_path": "Encounter.diagnosis.condition",
+        "element_id": "Encounter.diagnosis.condition"
+      }
+    ],
     "r4_mappings": []
   },
   {
@@ -149,7 +172,7 @@
       {
         "zib_concept_id": "NL-CM:15.1.11",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter.diagnosis.condition",
         "element_id": "Encounter.diagnosis.condition"
       }
@@ -157,7 +180,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Verrichting",
-        "element_path": "reasonReference[procedure]"
+        "element_path": "reasonReference[procedure]",
+        "zib2020_dataset_id": "819",
+        "zib2020_shortName": "verrichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -173,7 +199,7 @@
       {
         "zib_concept_id": "NL-CM:14.1.1",
         "resource": "Procedure",
-        "profile_id": "zib-Procedure",
+        "profile_id": "ACP-Procedure",
         "element_path": "Procedure",
         "element_id": "Procedure"
       }
@@ -181,7 +207,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Verrichting",
-        "element_path": "reasonReference[procedure]"
+        "element_path": "reasonReference[procedure]",
+        "zib2020_dataset_id": "819",
+        "zib2020_shortName": "verrichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -197,22 +226,18 @@
       {
         "zib_concept_id": "NL-CM:14.1.4",
         "resource": "Procedure",
-        "profile_id": "zib-Procedure",
+        "profile_id": "ACP-Procedure",
         "element_path": "Procedure.code",
         "element_id": "Procedure.code"
-      },
-      {
-        "zib_concept_id": "NL-CM:14.1.4",
-        "resource": "ProcedureRequest",
-        "profile_id": "zib-ProcedureRequest",
-        "element_path": "ProcedureRequest.code",
-        "element_id": "ProcedureRequest.code"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;&emsp;PZP gesprek (VerrichtingType)",
-        "element_path": "code"
+        "element_path": "code",
+        "zib2020_dataset_id": "827",
+        "zib2020_shortName": "pzp_gesprek_verrichting_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -238,234 +263,52 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "CarePlan",
-        "profile_id": "nl-core-careplan",
-        "element_path": "CarePlan.period",
-        "element_id": "CarePlan.period"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "CareTeam",
-        "profile_id": "nl-core-careteam",
-        "element_path": "CareTeam.period",
-        "element_id": "CareTeam.period"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "EpisodeOfCare",
-        "profile_id": "nl-core-episodeofcare",
-        "element_path": "EpisodeOfCare.period",
-        "element_id": "EpisodeOfCare.period"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Observation",
-        "profile_id": "nl-core-observation",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effective[x]",
         "element_id": "Observation.effective[x]"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.period",
         "element_id": "RelatedPerson.period"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationDispense",
-        "profile_id": "zib-AdministrationAgreement",
-        "element_path": "MedicationDispense.dosageInstruction",
-        "element_id": "MedicationDispense.dosageInstruction"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.dateTime",
         "element_id": "Consent.dateTime"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "AllergyIntolerance",
-        "profile_id": "zib-AllergyIntolerance",
-        "element_path": "AllergyIntolerance.onset[x]",
-        "element_id": "AllergyIntolerance.onset[x]:onsetDateTime"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Observation",
-        "profile_id": "zib-BodyTemperature",
-        "element_path": "Observation.effective[x]",
-        "element_id": "Observation.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Observation",
-        "profile_id": "zib-BodyWeight",
-        "element_path": "Observation.effective[x]",
-        "element_id": "Observation.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationDispense",
-        "profile_id": "zib-Dispense",
-        "element_path": "MedicationDispense.whenHandedOver",
-        "element_id": "MedicationDispense.whenHandedOver"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationRequest",
-        "profile_id": "zib-DispenseRequest",
-        "element_path": "MedicationRequest.dispenseRequest.validityPeriod",
-        "element_id": "MedicationRequest.dispenseRequest.validityPeriod"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Encounter",
-        "profile_id": "zib-Encounter",
+        "profile_id": "ACP-Encounter",
         "element_path": "Encounter.period",
         "element_id": "Encounter.period"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Procedure",
-        "profile_id": "zib-FreedomRestrictingMeasures",
+        "profile_id": "ACP-Procedure",
         "element_path": "Procedure.performed[x]",
         "element_id": "Procedure.performed[x]"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Observation",
-        "profile_id": "zib-HeartRate",
-        "element_path": "Observation.effective[x]",
-        "element_id": "Observation.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "DiagnosticReport",
-        "profile_id": "zib-LaboratoryTestResult-DiagnosticReport",
-        "element_path": "DiagnosticReport.effective[x]",
-        "element_id": "DiagnosticReport.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.whenUsed",
         "element_id": "DeviceUseStatement.whenUsed"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "DeviceRequest",
-        "profile_id": "zib-MedicalDeviceRequest",
-        "element_path": "DeviceRequest.occurrence[x]",
-        "element_id": "DeviceRequest.occurrence[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationAdministration",
-        "profile_id": "zib-MedicationAdministration",
-        "element_path": "MedicationAdministration.effective[x]",
-        "element_id": "MedicationAdministration.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationRequest",
-        "profile_id": "zib-MedicationAgreement",
-        "element_path": "MedicationRequest.dosageInstruction",
-        "element_id": "MedicationRequest.dosageInstruction"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "MedicationStatement",
-        "profile_id": "zib-MedicationUse",
-        "element_path": "MedicationStatement.effectivePeriod",
-        "element_id": "MedicationStatement.effective[x]:effectivePeriod"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Procedure",
-        "profile_id": "zib-NursingIntervention",
-        "element_path": "Procedure.performed[x]",
-        "element_id": "Procedure.performed[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "NutritionOrder",
-        "profile_id": "zib-NutritionAdvice",
-        "element_path": "NutritionOrder.dateTime",
-        "element_id": "NutritionOrder.dateTime"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Observation",
-        "profile_id": "zib-OxygenSaturation",
-        "element_path": "Observation.effective[x]",
-        "element_id": "Observation.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Coverage",
-        "profile_id": "zib-Payer",
-        "element_path": "Coverage.period",
-        "element_id": "Coverage.period"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Condition",
-        "profile_id": "zib-Problem",
-        "element_path": "Condition.onsetDateTime",
-        "element_id": "Condition.onset[x]:onsetDateTime"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Procedure",
-        "profile_id": "zib-Procedure",
-        "element_path": "Procedure.performed[x]",
-        "element_id": "Procedure.performed[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "ProcedureRequest",
-        "profile_id": "zib-ProcedureRequest",
-        "element_path": "ProcedureRequest.occurrence[x]",
-        "element_id": "ProcedureRequest.occurrence[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Observation",
-        "profile_id": "zib-Stoma",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effectiveDateTime",
         "element_id": "Observation.effective[x]:effectiveDateTime"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "DiagnosticReport",
-        "profile_id": "zib-TextResult",
-        "element_path": "DiagnosticReport.effective[x]",
-        "element_id": "DiagnosticReport.effective[x]"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
-        "element_path": "Consent.dateTime",
-        "element_id": "Consent.dateTime"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "Immunization",
-        "profile_id": "zib-Vaccination",
-        "element_path": "Immunization.date",
-        "element_id": "Immunization.date"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.0.14",
-        "resource": "ImmunizationRecommendation",
-        "profile_id": "zib-VaccinationRecommendation",
-        "element_path": "ImmunizationRecommendation.recommendation.date",
-        "element_id": "ImmunizationRecommendation.recommendation.date"
       }
     ],
     "r4_mappings": []
@@ -482,22 +325,18 @@
       {
         "zib_concept_id": "NL-CM:0.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient",
         "element_id": "Patient"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.1",
-        "resource": "DiagnosticReport",
-        "profile_id": "zib-TextResult",
-        "element_path": "DiagnosticReport.subject",
-        "element_id": "DiagnosticReport.subject"
       }
     ],
     "r4_mappings": [
       {
         "resource": "Patient",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "351",
+        "zib2020_shortName": "patient",
+        "r4_profile_id": null
       }
     ]
   },
@@ -512,30 +351,19 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.name",
         "element_id": "Patient.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -547,19 +375,14 @@
     "zib_refs": [
       "NL-CM-20.4.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.1",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -571,19 +394,14 @@
     "zib_refs": [
       "NL-CM-20.4.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.4",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -595,19 +413,14 @@
     "zib_refs": [
       "NL-CM-20.4.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.5",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "354",
+        "zib2020_shortName": "initialen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -619,19 +432,14 @@
     "zib_refs": [
       "NL-CM-20.4.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
-        "element_path": "name[nameInformation-GivenName].given"
+        "element_path": "name[nameInformation-GivenName].given",
+        "zib2020_dataset_id": "355",
+        "zib2020_shortName": "roepnaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -643,19 +451,14 @@
     "zib_refs": [
       "NL-CM-20.4.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.7",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.extension",
-        "element_id": "HumanName.extension:humannameAssemblyOrder"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
-        "element_path": "name[nameInformation].use"
+        "element_path": "name[nameInformation].use",
+        "zib2020_dataset_id": "356",
+        "zib2020_shortName": "naamgebruik",
+        "r4_profile_id": null
       }
     ]
   },
@@ -678,19 +481,14 @@
     "zib_refs": [
       "NL-CM-20.4.11"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.11",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -702,19 +500,14 @@
     "zib_refs": [
       "NL-CM-20.4.10"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.10",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -737,19 +530,14 @@
     "zib_refs": [
       "NL-CM-20.4.9"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.9",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
-        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString",
+        "zib2020_dataset_id": "361",
+        "zib2020_shortName": "voorvoegsels_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -761,19 +549,14 @@
     "zib_refs": [
       "NL-CM-20.4.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.8",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
-        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString",
+        "zib2020_dataset_id": "362",
+        "zib2020_shortName": "achternaam_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -788,37 +571,19 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:0.1.4",
-        "resource": "Address",
-        "profile_id": "nl-core-address",
-        "element_path": "Address",
-        "element_id": "Address"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.4",
-        "resource": "Location",
-        "profile_id": "nl-core-location",
-        "element_path": "Location.address",
-        "element_id": "Location.address"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.4",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.address",
         "element_id": "Patient.address"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.4",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.address",
-        "element_id": "Person.address"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -834,7 +599,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -849,51 +617,19 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint",
-        "element_id": "ContactPoint"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "HealthcareService",
-        "profile_id": "nl-core-healthcareservice",
-        "element_path": "HealthcareService.telecom",
-        "element_id": "HealthcareService.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "Location",
-        "profile_id": "nl-core-location",
-        "element_path": "Location.telecom",
-        "element_id": "Location.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "Organization",
-        "profile_id": "nl-core-organization",
-        "element_path": "Organization.telecom",
-        "element_id": "Organization.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.telecom",
         "element_id": "Patient.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
-        "element_path": "telecom"
+        "element_path": "telecom",
+        "zib2020_dataset_id": "376",
+        "zib2020_shortName": "contactgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -909,7 +645,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
-        "element_path": "telecom"
+        "element_path": "telecom",
+        "zib2020_dataset_id": "376",
+        "zib2020_shortName": "contactgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -925,22 +664,18 @@
       {
         "zib_concept_id": "NL-CM:0.1.7",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.identifier",
         "element_id": "Patient.identifier"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.7",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.identifier",
-        "element_id": "Person.identifier"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Identificatienummer",
-        "element_path": "identifier"
+        "element_path": "identifier",
+        "zib2020_dataset_id": "385",
+        "zib2020_shortName": "identificatienummer",
+        "r4_profile_id": null
       }
     ]
   },
@@ -956,22 +691,18 @@
       {
         "zib_concept_id": "NL-CM:0.1.10",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.birthDate",
         "element_id": "Patient.birthDate"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.10",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.birthDate",
-        "element_id": "Person.birthDate"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Geboortedatum",
-        "element_path": "birthDate"
+        "element_path": "birthDate",
+        "zib2020_dataset_id": "386",
+        "zib2020_shortName": "geboortedatum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -987,26 +718,25 @@
       {
         "zib_concept_id": "NL-CM:0.1.9",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.gender",
         "element_id": "Patient.gender"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.9",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.gender",
-        "element_id": "Person.gender"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Geslacht",
-        "element_path": "gender"
+        "element_path": "gender",
+        "zib2020_dataset_id": "387",
+        "zib2020_shortName": "geslacht",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;Geslacht",
-        "element_path": "gender.extension[genderCodelist].value[x]"
+        "element_path": "gender.extension[genderCodelist].value[x]",
+        "zib2020_dataset_id": "387",
+        "zib2020_shortName": "geslacht",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1022,14 +752,14 @@
       {
         "zib_concept_id": "NL-CM:17.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.generalPractitioner",
         "element_id": "Patient.generalPractitioner"
       },
       {
         "zib_concept_id": "NL-CM:17.1.1",
         "resource": "Practitioner",
-        "profile_id": "nl-core-practitioner",
+        "profile_id": "ACP-HealthProfessional-Practitioner",
         "element_path": "Practitioner",
         "element_id": "Practitioner"
       }
@@ -1037,7 +767,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Gesprek gevoerd door (Zorgverlener)",
-        "element_path": "participant[healthProfessional].individual"
+        "element_path": "participant[healthProfessional].individual",
+        "zib2020_dataset_id": "842",
+        "zib2020_shortName": "gesprek_gevoerd_door_zorgverlener",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1053,7 +786,7 @@
       {
         "zib_concept_id": "NL-CM:17.1.2",
         "resource": "Practitioner",
-        "profile_id": "nl-core-practitioner",
+        "profile_id": "ACP-HealthProfessional-Practitioner",
         "element_path": "Practitioner.identifier",
         "element_id": "Practitioner.identifier"
       }
@@ -1061,7 +794,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;ZorgverlenerIdentificatienummer",
-        "element_path": "identifier"
+        "element_path": "identifier",
+        "zib2020_dataset_id": "392",
+        "zib2020_shortName": "zorgverlener_identificatienummer",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1076,15 +812,8 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:17.1.3",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:17.1.3",
         "resource": "Practitioner",
-        "profile_id": "nl-core-practitioner",
+        "profile_id": "ACP-HealthProfessional-Practitioner",
         "element_path": "Practitioner.name",
         "element_id": "Practitioner.name"
       }
@@ -1092,7 +821,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1104,19 +836,14 @@
     "zib_refs": [
       "NL-CM-20.4.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.1",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1128,19 +855,14 @@
     "zib_refs": [
       "NL-CM-20.4.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.4",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1163,19 +885,14 @@
     "zib_refs": [
       "NL-CM-20.4.11"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.11",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1187,19 +904,14 @@
     "zib_refs": [
       "NL-CM-20.4.10"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.10",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1215,7 +927,7 @@
       {
         "zib_concept_id": "NL-CM:17.1.4",
         "resource": "PractitionerRole",
-        "profile_id": "nl-core-practitionerrole",
+        "profile_id": "ACP-HealthProfessional-PractitionerRole",
         "element_path": "PractitionerRole.specialty",
         "element_id": "PractitionerRole.specialty"
       }
@@ -1223,7 +935,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Functie (Specialisme)",
-        "element_path": "specialty[specialty]"
+        "element_path": "specialty[specialty]",
+        "zib2020_dataset_id": "405",
+        "zib2020_shortName": "functie_specialisme",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1237,7 +952,10 @@
     "r4_mappings": [
       {
         "resource": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen",
-        "element_path": "extension[legallyCapableMedicalTreatmentDecisions]"
+        "element_path": "extension[legallyCapableMedicalTreatmentDecisions]",
+        "zib2020_dataset_id": "761",
+        "zib2020_shortName": "wilsbekwaamheid_mbt_medische_behandelbeslissingen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1251,7 +969,10 @@
     "r4_mappings": [
       {
         "resource": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen",
-        "element_path": "extension[legallyCapableMedicalTreatmentDecisions]"
+        "element_path": "extension[legallyCapableMedicalTreatmentDecisions]",
+        "zib2020_dataset_id": "761",
+        "zib2020_shortName": "wilsbekwaamheid_mbt_medische_behandelbeslissingen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1265,7 +986,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1281,14 +1005,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact",
         "element_id": "Patient.contact"
       },
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson",
         "element_id": "RelatedPerson"
       }
@@ -1296,7 +1020,10 @@
     "r4_mappings": [
       {
         "resource": "Wettelijk vertegenwoordiger (Contactpersoon)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "441",
+        "zib2020_shortName": "wettelijk_vertegenwoordiger_contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1312,21 +1039,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.4",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.4",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.name",
         "element_id": "RelatedPerson.name"
       }
@@ -1341,19 +1061,14 @@
     "zib_refs": [
       "NL-CM-20.4.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.1",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1365,19 +1080,14 @@
     "zib_refs": [
       "NL-CM-20.4.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.4",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1389,19 +1099,14 @@
     "zib_refs": [
       "NL-CM-20.4.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.5",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "354",
+        "zib2020_shortName": "initialen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1413,19 +1118,14 @@
     "zib_refs": [
       "NL-CM-20.4.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
-        "element_path": "name[nameInformation-GivenName].given"
+        "element_path": "name[nameInformation-GivenName].given",
+        "zib2020_dataset_id": "355",
+        "zib2020_shortName": "roepnaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1437,19 +1137,14 @@
     "zib_refs": [
       "NL-CM-20.4.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.7",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.extension",
-        "element_id": "HumanName.extension:humannameAssemblyOrder"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
-        "element_path": "name[nameInformation].use"
+        "element_path": "name[nameInformation].use",
+        "zib2020_dataset_id": "356",
+        "zib2020_shortName": "naamgebruik",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1472,19 +1167,14 @@
     "zib_refs": [
       "NL-CM-20.4.11"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.11",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1496,19 +1186,14 @@
     "zib_refs": [
       "NL-CM-20.4.10"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.10",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1531,19 +1216,14 @@
     "zib_refs": [
       "NL-CM-20.4.9"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.9",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
-        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString",
+        "zib2020_dataset_id": "361",
+        "zib2020_shortName": "voorvoegsels_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1555,19 +1235,14 @@
     "zib_refs": [
       "NL-CM-20.4.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.8",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
-        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString",
+        "zib2020_dataset_id": "362",
+        "zib2020_shortName": "achternaam_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1583,21 +1258,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.6",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.telecom",
         "element_id": "Patient.contact.telecom"
       },
       {
         "zib_concept_id": "NL-CM:3.1.6",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.6",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.telecom",
         "element_id": "RelatedPerson.telecom"
       }
@@ -1612,33 +1280,14 @@
     "zib_refs": [
       "NL-CM-20.6.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint",
-        "element_id": "ContactPoint"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "Location",
-        "profile_id": "nl-core-location",
-        "element_path": "Location.telecom",
-        "element_id": "Location.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "Organization",
-        "profile_id": "nl-core-organization",
-        "element_path": "Organization.telecom",
-        "element_id": "Organization.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
-        "element_path": "telecom"
+        "element_path": "telecom",
+        "zib2020_dataset_id": "376",
+        "zib2020_shortName": "contactgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1650,19 +1299,14 @@
     "zib_refs": [
       "NL-CM-20.6.2"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.2",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Telefoonnummers",
-        "element_path": "telecom[telephoneNumbers]"
+        "element_path": "telecom[telephoneNumbers]",
+        "zib2020_dataset_id": "377",
+        "zib2020_shortName": "telefoonnummers",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1674,26 +1318,14 @@
     "zib_refs": [
       "NL-CM-20.6.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.4",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.value",
-        "element_id": "ContactPoint.value"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.4",
-        "resource": "HealthcareService",
-        "profile_id": "nl-core-healthcareservice",
-        "element_path": "HealthcareService.telecom",
-        "element_id": "HealthcareService.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Telefoonnummer",
-        "element_path": "telecom[telephoneNumbers].value"
+        "element_path": "telecom[telephoneNumbers].value",
+        "zib2020_dataset_id": "378",
+        "zib2020_shortName": "telefoonnummer",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1705,37 +1337,21 @@
     "zib_refs": [
       "NL-CM-20.6.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.extension.valueCodeableConcept",
-        "element_id": "ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.system",
-        "element_id": "ContactPoint.system"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
-        "element_path": "telecom[telephoneNumbers].system"
+        "element_path": "telecom[telephoneNumbers].system",
+        "zib2020_dataset_id": "379",
+        "zib2020_shortName": "telecom_type",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
-        "element_path": "telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept"
+        "element_path": "telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept",
+        "zib2020_dataset_id": "379",
+        "zib2020_shortName": "telecom_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1747,19 +1363,14 @@
     "zib_refs": [
       "NL-CM-20.6.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.6",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;NummerSoort",
-        "element_path": "telecom[telephoneNumbers].use"
+        "element_path": "telecom[telephoneNumbers].use",
+        "zib2020_dataset_id": "380",
+        "zib2020_shortName": "nummer_soort",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1771,19 +1382,14 @@
     "zib_refs": [
       "NL-CM-20.6.3"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.3",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;EmailAdressen",
-        "element_path": "telecom[emailAddresses]"
+        "element_path": "telecom[emailAddresses]",
+        "zib2020_dataset_id": "382",
+        "zib2020_shortName": "email_adressen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1795,19 +1401,14 @@
     "zib_refs": [
       "NL-CM-20.6.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.7",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.value",
-        "element_id": "ContactPoint.value"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailAdres",
-        "element_path": "telecom[emailAddresses].value"
+        "element_path": "telecom[emailAddresses].value",
+        "zib2020_dataset_id": "383",
+        "zib2020_shortName": "email_adres",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1819,26 +1420,14 @@
     "zib_refs": [
       "NL-CM-20.6.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.8",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.system",
-        "element_id": "ContactPoint.system"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.8",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailSoort",
-        "element_path": "telecom[emailAddresses].system"
+        "element_path": "telecom[emailAddresses].system",
+        "zib2020_dataset_id": "384",
+        "zib2020_shortName": "email_soort",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1854,21 +1443,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.5",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.address",
         "element_id": "Patient.contact.address"
       },
       {
         "zib_concept_id": "NL-CM:3.1.5",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.address",
-        "element_id": "Person.address"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.5",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.address",
         "element_id": "RelatedPerson.address"
       }
@@ -1876,7 +1458,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1892,7 +1477,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1908,21 +1496,21 @@
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:role"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Extension",
-        "profile_id": "nl-core-relatedperson-role",
+        "profile_id": "ext-EncounterReference",
         "element_path": "Extension.valueCodeableConcept",
         "element_id": "Extension.value[x]:valueCodeableConcept"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.extension",
         "element_id": "RelatedPerson.extension:role"
       }
@@ -1930,7 +1518,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Rol",
-        "element_path": "relationship[role]"
+        "element_path": "relationship[role]",
+        "zib2020_dataset_id": "475",
+        "zib2020_shortName": "rol",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1946,14 +1537,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:relationship"
       },
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.relationship",
         "element_id": "RelatedPerson.relationship"
       }
@@ -1972,7 +1563,10 @@
     "r4_mappings": [
       {
         "resource": "Vertegenwoordiger is contactpersoon",
-        "element_path": "relationship[role]"
+        "element_path": "relationship[role]",
+        "zib2020_dataset_id": "477",
+        "zib2020_shortName": "vertegenwoordiger_is_contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -1988,14 +1582,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact",
         "element_id": "Patient.contact"
       },
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson",
         "element_id": "RelatedPerson"
       }
@@ -2003,7 +1597,10 @@
     "r4_mappings": [
       {
         "resource": "Eerste contactpersoon (Contactpersoon)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "478",
+        "zib2020_shortName": "eerste_contactpersoon_contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2019,21 +1616,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.4",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.4",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.name",
         "element_id": "RelatedPerson.name"
       }
@@ -2041,7 +1631,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2053,19 +1646,14 @@
     "zib_refs": [
       "NL-CM-20.4.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.1",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2077,19 +1665,14 @@
     "zib_refs": [
       "NL-CM-20.4.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.4",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2101,19 +1684,14 @@
     "zib_refs": [
       "NL-CM-20.4.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.5",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "354",
+        "zib2020_shortName": "initialen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2125,19 +1703,14 @@
     "zib_refs": [
       "NL-CM-20.4.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
-        "element_path": "name[nameInformation-GivenName].given"
+        "element_path": "name[nameInformation-GivenName].given",
+        "zib2020_dataset_id": "355",
+        "zib2020_shortName": "roepnaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2149,19 +1722,14 @@
     "zib_refs": [
       "NL-CM-20.4.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.7",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.extension",
-        "element_id": "HumanName.extension:humannameAssemblyOrder"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
-        "element_path": "name[nameInformation].use"
+        "element_path": "name[nameInformation].use",
+        "zib2020_dataset_id": "356",
+        "zib2020_shortName": "naamgebruik",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2184,19 +1752,14 @@
     "zib_refs": [
       "NL-CM-20.4.11"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.11",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2208,19 +1771,14 @@
     "zib_refs": [
       "NL-CM-20.4.10"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.10",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2243,19 +1801,14 @@
     "zib_refs": [
       "NL-CM-20.4.9"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.9",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
-        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString",
+        "zib2020_dataset_id": "361",
+        "zib2020_shortName": "voorvoegsels_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2267,19 +1820,14 @@
     "zib_refs": [
       "NL-CM-20.4.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.8",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
-        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString",
+        "zib2020_dataset_id": "362",
+        "zib2020_shortName": "achternaam_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2295,21 +1843,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.6",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.telecom",
         "element_id": "Patient.contact.telecom"
       },
       {
         "zib_concept_id": "NL-CM:3.1.6",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.6",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.telecom",
         "element_id": "RelatedPerson.telecom"
       }
@@ -2317,7 +1858,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
-        "element_path": "telecom"
+        "element_path": "telecom",
+        "zib2020_dataset_id": "376",
+        "zib2020_shortName": "contactgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2329,33 +1873,14 @@
     "zib_refs": [
       "NL-CM-20.6.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint",
-        "element_id": "ContactPoint"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "Location",
-        "profile_id": "nl-core-location",
-        "element_path": "Location.telecom",
-        "element_id": "Location.telecom"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.1",
-        "resource": "Organization",
-        "profile_id": "nl-core-organization",
-        "element_path": "Organization.telecom",
-        "element_id": "Organization.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
-        "element_path": "telecom"
+        "element_path": "telecom",
+        "zib2020_dataset_id": "376",
+        "zib2020_shortName": "contactgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2367,19 +1892,14 @@
     "zib_refs": [
       "NL-CM-20.6.2"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.2",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Telefoonnummers",
-        "element_path": "telecom[telephoneNumbers]"
+        "element_path": "telecom[telephoneNumbers]",
+        "zib2020_dataset_id": "377",
+        "zib2020_shortName": "telefoonnummers",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2391,26 +1911,14 @@
     "zib_refs": [
       "NL-CM-20.6.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.4",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.value",
-        "element_id": "ContactPoint.value"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.4",
-        "resource": "HealthcareService",
-        "profile_id": "nl-core-healthcareservice",
-        "element_path": "HealthcareService.telecom",
-        "element_id": "HealthcareService.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Telefoonnummer",
-        "element_path": "telecom[telephoneNumbers].value"
+        "element_path": "telecom[telephoneNumbers].value",
+        "zib2020_dataset_id": "378",
+        "zib2020_shortName": "telefoonnummer",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2422,37 +1930,21 @@
     "zib_refs": [
       "NL-CM-20.6.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.extension.valueCodeableConcept",
-        "element_id": "ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.system",
-        "element_id": "ContactPoint.system"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.5",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
-        "element_path": "telecom[telephoneNumbers].system"
+        "element_path": "telecom[telephoneNumbers].system",
+        "zib2020_dataset_id": "379",
+        "zib2020_shortName": "telecom_type",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
-        "element_path": "telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept"
+        "element_path": "telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept",
+        "zib2020_dataset_id": "379",
+        "zib2020_shortName": "telecom_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2464,19 +1956,14 @@
     "zib_refs": [
       "NL-CM-20.6.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.6",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;NummerSoort",
-        "element_path": "telecom[telephoneNumbers].use"
+        "element_path": "telecom[telephoneNumbers].use",
+        "zib2020_dataset_id": "380",
+        "zib2020_shortName": "nummer_soort",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2488,19 +1975,14 @@
     "zib_refs": [
       "NL-CM-20.6.3"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.3",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.telecom",
-        "element_id": "Person.telecom"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;EmailAdressen",
-        "element_path": "telecom[emailAddresses]"
+        "element_path": "telecom[emailAddresses]",
+        "zib2020_dataset_id": "382",
+        "zib2020_shortName": "email_adressen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2512,19 +1994,14 @@
     "zib_refs": [
       "NL-CM-20.6.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.7",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.value",
-        "element_id": "ContactPoint.value"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailAdres",
-        "element_path": "telecom[emailAddresses].value"
+        "element_path": "telecom[emailAddresses].value",
+        "zib2020_dataset_id": "383",
+        "zib2020_shortName": "email_adres",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2536,26 +2013,14 @@
     "zib_refs": [
       "NL-CM-20.6.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.6.8",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.system",
-        "element_id": "ContactPoint.system"
-      },
-      {
-        "zib_concept_id": "NL-CM:20.6.8",
-        "resource": "ContactPoint",
-        "profile_id": "nl-core-contactpoint",
-        "element_path": "ContactPoint.use",
-        "element_id": "ContactPoint.use"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailSoort",
-        "element_path": "telecom[emailAddresses].system"
+        "element_path": "telecom[emailAddresses].system",
+        "zib2020_dataset_id": "384",
+        "zib2020_shortName": "email_soort",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2571,21 +2036,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.5",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.address",
         "element_id": "Patient.contact.address"
       },
       {
         "zib_concept_id": "NL-CM:3.1.5",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.address",
-        "element_id": "Person.address"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.5",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.address",
         "element_id": "RelatedPerson.address"
       }
@@ -2593,7 +2051,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2609,7 +2070,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Adresgegevens",
-        "element_path": "address"
+        "element_path": "address",
+        "zib2020_dataset_id": "364",
+        "zib2020_shortName": "adresgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2625,21 +2089,21 @@
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:role"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Extension",
-        "profile_id": "nl-core-relatedperson-role",
+        "profile_id": "ext-EncounterReference",
         "element_path": "Extension.valueCodeableConcept",
         "element_id": "Extension.value[x]:valueCodeableConcept"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.extension",
         "element_id": "RelatedPerson.extension:role"
       }
@@ -2647,7 +2111,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Rol",
-        "element_path": "relationship[role]"
+        "element_path": "relationship[role]",
+        "zib2020_dataset_id": "475",
+        "zib2020_shortName": "rol",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2663,14 +2130,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:relationship"
       },
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.relationship",
         "element_id": "RelatedPerson.relationship"
       }
@@ -2689,7 +2156,10 @@
     "r4_mappings": [
       {
         "resource": "Gesprek gevoerd in bijzijn van (Patient)",
-        "element_path": "subject"
+        "element_path": "subject",
+        "zib2020_dataset_id": "514",
+        "zib2020_shortName": "gesprek_gevoerd_in_bijzijn_van_patient",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2705,30 +2175,19 @@
     "stu3_mappings": [
       {
         "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.name",
         "element_id": "Patient.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2744,7 +2203,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2760,7 +2222,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2776,7 +2241,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "354",
+        "zib2020_shortName": "initialen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2792,7 +2260,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
-        "element_path": "name[nameInformation-GivenName].given"
+        "element_path": "name[nameInformation-GivenName].given",
+        "zib2020_dataset_id": "355",
+        "zib2020_shortName": "roepnaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2808,7 +2279,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
-        "element_path": "name[nameInformation].use"
+        "element_path": "name[nameInformation].use",
+        "zib2020_dataset_id": "356",
+        "zib2020_shortName": "naamgebruik",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2835,7 +2309,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2851,7 +2328,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2878,7 +2358,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
-        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString",
+        "zib2020_dataset_id": "361",
+        "zib2020_shortName": "voorvoegsels_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2894,7 +2377,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
-        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString",
+        "zib2020_dataset_id": "362",
+        "zib2020_shortName": "achternaam_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2910,14 +2396,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact",
         "element_id": "Patient.contact"
       },
       {
         "zib_concept_id": "NL-CM:3.1.1",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson",
         "element_id": "RelatedPerson"
       }
@@ -2925,11 +2411,17 @@
     "r4_mappings": [
       {
         "resource": "Gesprek gevoerd in bijzijn van (Contactpersoon)",
-        "element_path": "participant[contactPerson].individual"
+        "element_path": "participant[contactPerson].individual",
+        "zib2020_dataset_id": "554",
+        "zib2020_shortName": "gesprek_gevoerd_in_bijzijn_van_contactpersoon",
+        "r4_profile_id": null
       },
       {
         "resource": "Gesprek gevoerd in bijzijn van (Contactpersoon)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "554",
+        "zib2020_shortName": "gesprek_gevoerd_in_bijzijn_van_contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2945,21 +2437,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.4",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
-        "resource": "Person",
-        "profile_id": "nl-core-person",
-        "element_path": "Person.name",
-        "element_id": "Person.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:3.1.4",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.name",
         "element_id": "RelatedPerson.name"
       }
@@ -2967,7 +2452,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -2979,19 +2467,14 @@
     "zib_refs": [
       "NL-CM-20.4.1"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.1",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName",
-        "element_id": "HumanName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
-        "element_path": "name"
+        "element_path": "name",
+        "zib2020_dataset_id": "352",
+        "zib2020_shortName": "naamgegevens",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3003,19 +2486,14 @@
     "zib_refs": [
       "NL-CM-20.4.4"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.4",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "353",
+        "zib2020_shortName": "voornamen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3027,19 +2505,14 @@
     "zib_refs": [
       "NL-CM-20.4.5"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.5",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
-        "element_path": "name[nameInformation].given"
+        "element_path": "name[nameInformation].given",
+        "zib2020_dataset_id": "354",
+        "zib2020_shortName": "initialen",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3051,19 +2524,14 @@
     "zib_refs": [
       "NL-CM-20.4.6"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.6",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.given",
-        "element_id": "HumanName.given"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
-        "element_path": "name[nameInformation-GivenName].given"
+        "element_path": "name[nameInformation-GivenName].given",
+        "zib2020_dataset_id": "355",
+        "zib2020_shortName": "roepnaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3075,19 +2543,14 @@
     "zib_refs": [
       "NL-CM-20.4.7"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.7",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.extension",
-        "element_id": "HumanName.extension:humannameAssemblyOrder"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
-        "element_path": "name[nameInformation].use"
+        "element_path": "name[nameInformation].use",
+        "zib2020_dataset_id": "356",
+        "zib2020_shortName": "naamgebruik",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3110,19 +2573,14 @@
     "zib_refs": [
       "NL-CM-20.4.11"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.11",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
-        "element_path": "name[nameInformation].family.extension[prefix].valueString"
+        "element_path": "name[nameInformation].family.extension[prefix].valueString",
+        "zib2020_dataset_id": "358",
+        "zib2020_shortName": "voorvoegsels",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3134,19 +2592,14 @@
     "zib_refs": [
       "NL-CM-20.4.10"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.10",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannameOwnName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
-        "element_path": "name[nameInformation].family.extension[lastName].valueString"
+        "element_path": "name[nameInformation].family.extension[lastName].valueString",
+        "zib2020_dataset_id": "359",
+        "zib2020_shortName": "achternaam",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3169,19 +2622,14 @@
     "zib_refs": [
       "NL-CM-20.4.9"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.9",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
-        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerPrefix].valueString",
+        "zib2020_dataset_id": "361",
+        "zib2020_shortName": "voorvoegsels_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3193,19 +2641,14 @@
     "zib_refs": [
       "NL-CM-20.4.8"
     ],
-    "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:20.4.8",
-        "resource": "HumanName",
-        "profile_id": "nl-core-humanname",
-        "element_path": "HumanName.family.extension",
-        "element_id": "HumanName.family.extension:humannamePartnerName"
-      }
-    ],
+    "stu3_mappings": [],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
-        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString"
+        "element_path": "name[nameInformation].family.extension[partnerLastName].valueString",
+        "zib2020_dataset_id": "362",
+        "zib2020_shortName": "achternaam_partner",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3221,21 +2664,21 @@
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:role"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "Extension",
-        "profile_id": "nl-core-relatedperson-role",
+        "profile_id": "ext-EncounterReference",
         "element_path": "Extension.valueCodeableConcept",
         "element_id": "Extension.value[x]:valueCodeableConcept"
       },
       {
         "zib_concept_id": "NL-CM:3.1.2",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.extension",
         "element_id": "RelatedPerson.extension:role"
       }
@@ -3243,7 +2686,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Rol",
-        "element_path": "relationship[role]"
+        "element_path": "relationship[role]",
+        "zib2020_dataset_id": "475",
+        "zib2020_shortName": "rol",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3259,14 +2705,14 @@
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "Patient",
-        "profile_id": "nl-core-patient",
+        "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.relationship",
         "element_id": "Patient.contact.relationship:relationship"
       },
       {
         "zib_concept_id": "NL-CM:3.1.3",
         "resource": "RelatedPerson",
-        "profile_id": "nl-core-relatedperson",
+        "profile_id": "ACP-ContactPerson",
         "element_path": "RelatedPerson.relationship",
         "element_id": "RelatedPerson.relationship"
       }
@@ -3285,7 +2731,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.1",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation",
         "element_id": "Observation"
       }
@@ -3304,7 +2750,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.4",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.comment",
         "element_id": "Observation.comment"
       }
@@ -3312,7 +2758,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3328,7 +2777,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.5",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.related",
         "element_id": "Observation.related"
       }
@@ -3347,7 +2796,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.6",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.code",
         "element_id": "Observation.code"
       }
@@ -3366,7 +2815,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -3385,7 +2834,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.9",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effective[x]",
         "element_id": "Observation.effective[x]"
       }
@@ -3404,7 +2853,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.1",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent",
         "element_id": "Consent"
       }
@@ -3423,7 +2872,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.8",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:verification"
       }
@@ -3442,7 +2891,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.9",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:Verified"
       }
@@ -3461,7 +2910,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.11",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:VerifiedWith"
       }
@@ -3480,7 +2929,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.10",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:VerificationDate"
       }
@@ -3499,7 +2948,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.3",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:treatment"
       }
@@ -3507,7 +2956,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Behandeling",
-        "element_path": "provision.code"
+        "element_path": "provision.code",
+        "zib2020_dataset_id": "604",
+        "zib2020_shortName": "behandeling",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3523,7 +2975,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.4",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.modifierExtension",
         "element_id": "Consent.modifierExtension:treatmentPermitted"
       }
@@ -3542,7 +2994,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.5",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.except.extension",
         "element_id": "Consent.except.extension:restrictions"
       }
@@ -3561,7 +3013,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.6",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.period.start",
         "element_id": "Consent.period.start"
       }
@@ -3569,7 +3021,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;BeginDatum",
-        "element_path": "timingPeriod.start"
+        "element_path": "timingPeriod.start",
+        "zib2020_dataset_id": "630",
+        "zib2020_shortName": "begin_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3585,7 +3040,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.7",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.period.end",
         "element_id": "Consent.period.end"
       }
@@ -3593,7 +3048,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;EindDatum",
-        "element_path": "timingPeriod.end"
+        "element_path": "timingPeriod.end",
+        "zib2020_dataset_id": "631",
+        "zib2020_shortName": "eind_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3609,7 +3067,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.15",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:comment"
       }
@@ -3617,7 +3075,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3633,14 +3094,14 @@
       {
         "zib_concept_id": "NL-CM:2.1.14",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.value[x]",
         "element_id": "Consent.extension:additionalSources.value[x]"
       },
       {
         "zib_concept_id": "NL-CM:2.1.14",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.source[x]",
         "element_id": "Consent.source[x]"
       }
@@ -3648,7 +3109,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Wilsverklaring",
-        "element_path": "sourceReference"
+        "element_path": "sourceReference",
+        "zib2020_dataset_id": "609",
+        "zib2020_shortName": "wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3664,7 +3128,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Wilsverklaring",
-        "element_path": "sourceReference"
+        "element_path": "sourceReference",
+        "zib2020_dataset_id": "609",
+        "zib2020_shortName": "wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3680,11 +3147,17 @@
     "r4_mappings": [
       {
         "resource": "Heeft de patient een ICD?",
-        "element_path": "type"
+        "element_path": "type",
+        "zib2020_dataset_id": "619",
+        "zib2020_shortName": "heeft_de_patient_een_icdq",
+        "r4_profile_id": null
       },
       {
         "resource": "Heeft de patient een ICD?",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "619",
+        "zib2020_shortName": "heeft_de_patient_een_icdq",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3700,7 +3173,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.1",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement",
         "element_id": "DeviceUseStatement"
       }
@@ -3708,7 +3181,10 @@
     "r4_mappings": [
       {
         "resource": "ICD (MedischHulpmiddel)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "620",
+        "zib2020_shortName": "icd_medisch_hulpmiddel",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3724,29 +3200,25 @@
       {
         "zib_concept_id": "NL-CM:10.1.2",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.device",
         "element_id": "DeviceUseStatement.device"
       },
       {
         "zib_concept_id": "NL-CM:10.1.2",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device",
         "element_id": "Device"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.2",
-        "resource": "DeviceRequest",
-        "profile_id": "zib-MedicalDeviceRequest",
-        "element_path": "DeviceRequest.code[x]",
-        "element_id": "DeviceRequest.code[x]:codeReference"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;Product",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "621",
+        "zib2020_shortName": "product",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3762,42 +3234,42 @@
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.identifier",
         "element_id": "Device.identifier"
       },
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.identifier",
         "element_id": "Device.identifier:serialNumber"
       },
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.udi.deviceIdentifier",
         "element_id": "Device.udi.deviceIdentifier"
       },
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.udi.carrierHRF",
         "element_id": "Device.udi.carrierHRF"
       },
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.lotNumber",
         "element_id": "Device.lotNumber"
       },
       {
         "zib_concept_id": "NL-CM:10.1.4",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.expirationDate",
         "element_id": "Device.expirationDate"
       }
@@ -3805,19 +3277,31 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;ProductID",
-        "element_path": "identifier[gs1ProductID]"
+        "element_path": "identifier[gs1ProductID]",
+        "zib2020_dataset_id": "622",
+        "zib2020_shortName": "product_id",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;&emsp;ProductID",
-        "element_path": "identifier[hibcProductID]"
+        "element_path": "identifier[hibcProductID]",
+        "zib2020_dataset_id": "622",
+        "zib2020_shortName": "product_id",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;&emsp;ProductID",
-        "element_path": "udiCarrier[gs1UdiCarrier].carrierHRF"
+        "element_path": "udiCarrier[gs1UdiCarrier].carrierHRF",
+        "zib2020_dataset_id": "622",
+        "zib2020_shortName": "product_id",
+        "r4_profile_id": null
       },
       {
         "resource": "&emsp;&emsp;ProductID",
-        "element_path": "udiCarrier[hibcUdiCarrier].carrierHRF"
+        "element_path": "udiCarrier[hibcUdiCarrier].carrierHRF",
+        "zib2020_dataset_id": "622",
+        "zib2020_shortName": "product_id",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3833,92 +3317,32 @@
       {
         "zib_concept_id": "NL-CM:10.1.3",
         "resource": "Device",
-        "profile_id": "zib-AbilityToPerformMouthcareActivities-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.type",
         "element_id": "Device.type"
       },
       {
         "zib_concept_id": "NL-CM:10.1.3",
         "resource": "Device",
-        "profile_id": "zib-BladderFunction-UrineCatheterProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device",
         "element_id": "Device"
       },
       {
         "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-FeedingTubeSystem-Product",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-FeedingTubeSystem",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.device",
         "element_id": "DeviceUseStatement.device"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-HearingFunction-HearingAid-Product",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-Infusion-Product",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "DeviceRequest",
-        "profile_id": "zib-MedicalDeviceRequest",
-        "element_path": "DeviceRequest.code[x]",
-        "element_id": "DeviceRequest.code[x]:codeCodeableConcept"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-Respiration-AdministeredOxygen-AdministrationDeviceProduct",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-VisualFunction-VisualAidProduct",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "DeviceUseStatement",
-        "profile_id": "zib-Wound-MedicalDevice",
-        "element_path": "DeviceUseStatement.device",
-        "element_id": "DeviceUseStatement.device"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.3",
-        "resource": "Device",
-        "profile_id": "zib-Wound-MedicalDeviceProduct",
-        "element_path": "Device.type",
-        "element_id": "Device.type"
       }
     ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;ProductType van ICD",
-        "element_path": "type"
+        "element_path": "type",
+        "zib2020_dataset_id": "623",
+        "zib2020_shortName": "product_type_van_icd",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3934,7 +3358,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.13",
         "resource": "Device",
-        "profile_id": "zib-MedicalDeviceProduct",
+        "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device.note.text",
         "element_id": "Device.note.text"
       }
@@ -3942,7 +3366,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;ProductOmschrijving",
-        "element_path": "note.text"
+        "element_path": "note.text",
+        "zib2020_dataset_id": "624",
+        "zib2020_shortName": "product_omschrijving",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3958,7 +3385,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.11",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.whenUsed.start",
         "element_id": "DeviceUseStatement.whenUsed.start"
       }
@@ -3966,7 +3393,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;BeginDatum",
-        "element_path": "timingPeriod.start"
+        "element_path": "timingPeriod.start",
+        "zib2020_dataset_id": "630",
+        "zib2020_shortName": "begin_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -3982,7 +3412,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.7",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.indication.extension",
         "element_id": "DeviceUseStatement.indication.extension:indication_Problem"
       }
@@ -3990,7 +3420,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Indicatie",
-        "element_path": "reasonReference[indication]"
+        "element_path": "reasonReference[indication]",
+        "zib2020_dataset_id": "628",
+        "zib2020_shortName": "indicatie",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4017,7 +3450,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.10",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.note.text",
         "element_id": "DeviceUseStatement.note.text"
       }
@@ -4025,7 +3458,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4041,14 +3477,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.6",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-HearingFunction-HearingAid",
-        "element_path": "DeviceUseStatement.bodySite",
-        "element_id": "DeviceUseStatement.bodySite"
-      },
-      {
-        "zib_concept_id": "NL-CM:10.1.6",
-        "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.bodySite",
         "element_id": "DeviceUseStatement.bodySite"
       }
@@ -4056,7 +3485,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;AnatomischeLocatie",
-        "element_path": "bodySite"
+        "element_path": "bodySite",
+        "zib2020_dataset_id": "625",
+        "zib2020_shortName": "anatomische_locatie",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4072,7 +3504,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.12",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.bodySite.extension.valueCodeableConcept",
         "element_id": "DeviceUseStatement.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept"
       }
@@ -4080,7 +3512,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Lateraliteit",
-        "element_path": "bodySite.extension[laterality].valueCodeableConcept"
+        "element_path": "bodySite.extension[laterality].valueCodeableConcept",
+        "zib2020_dataset_id": "627",
+        "zib2020_shortName": "lateraliteit",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4096,7 +3531,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.8",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.extension",
         "element_id": "DeviceUseStatement.extension:HealthcareProvider"
       }
@@ -4104,7 +3539,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Locatie",
-        "element_path": "bodySite"
+        "element_path": "bodySite",
+        "zib2020_dataset_id": "626",
+        "zib2020_shortName": "locatie",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4131,7 +3569,7 @@
       {
         "zib_concept_id": "NL-CM:10.1.9",
         "resource": "DeviceUseStatement",
-        "profile_id": "zib-MedicalDevice",
+        "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.extension",
         "element_id": "DeviceUseStatement.extension:HealthProfessional"
       }
@@ -4139,7 +3577,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Zorgverlener",
-        "element_path": "provision.actor[agreementParty].reference"
+        "element_path": "provision.actor[agreementParty].reference",
+        "zib2020_dataset_id": "616",
+        "zib2020_shortName": "zorgverlener",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4155,7 +3596,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Zorgverlener",
-        "element_path": "provision.actor[agreementParty].reference"
+        "element_path": "provision.actor[agreementParty].reference",
+        "zib2020_dataset_id": "616",
+        "zib2020_shortName": "zorgverlener",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4171,7 +3615,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.1",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent",
         "element_id": "Consent"
       }
@@ -4190,7 +3634,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.8",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:verification"
       }
@@ -4209,7 +3653,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.9",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:Verified"
       }
@@ -4228,7 +3672,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.11",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:VerifiedWith"
       }
@@ -4247,7 +3691,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.10",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.extension",
         "element_id": "Consent.extension:verification.extension:VerificationDate"
       }
@@ -4266,7 +3710,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.3",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:treatment"
       }
@@ -4274,7 +3718,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Behandeling van uitzetten ICD (Behandeling)",
-        "element_path": "provision.code.text"
+        "element_path": "provision.code.text",
+        "zib2020_dataset_id": "639",
+        "zib2020_shortName": "behandeling_van_uitzetten_icd_behandeling",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4290,7 +3737,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.4",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.modifierExtension",
         "element_id": "Consent.modifierExtension:treatmentPermitted"
       }
@@ -4309,7 +3756,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.6",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.period.start",
         "element_id": "Consent.period.start"
       }
@@ -4317,7 +3764,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;BeginDatum",
-        "element_path": "timingPeriod.start"
+        "element_path": "timingPeriod.start",
+        "zib2020_dataset_id": "630",
+        "zib2020_shortName": "begin_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4333,7 +3783,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.7",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.period.end",
         "element_id": "Consent.period.end"
       }
@@ -4341,7 +3791,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;EindDatum",
-        "element_path": "timingPeriod.end"
+        "element_path": "timingPeriod.end",
+        "zib2020_dataset_id": "631",
+        "zib2020_shortName": "eind_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4357,7 +3810,7 @@
       {
         "zib_concept_id": "NL-CM:2.1.15",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:comment"
       }
@@ -4365,7 +3818,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4381,14 +3837,14 @@
       {
         "zib_concept_id": "NL-CM:2.1.14",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension.value[x]",
         "element_id": "Consent.extension:additionalSources.value[x]"
       },
       {
         "zib_concept_id": "NL-CM:2.1.14",
         "resource": "Consent",
-        "profile_id": "zib-TreatmentDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.source[x]",
         "element_id": "Consent.source[x]"
       }
@@ -4396,7 +3852,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Wilsverklaring",
-        "element_path": "sourceReference"
+        "element_path": "sourceReference",
+        "zib2020_dataset_id": "609",
+        "zib2020_shortName": "wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4412,7 +3871,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Wilsverklaring",
-        "element_path": "sourceReference"
+        "element_path": "sourceReference",
+        "zib2020_dataset_id": "609",
+        "zib2020_shortName": "wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4464,7 +3926,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -4484,7 +3946,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.8",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.method",
         "element_id": "Observation.method"
       }
@@ -4514,7 +3976,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.1",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation",
         "element_id": "Observation"
       }
@@ -4533,7 +3995,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.4",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.comment",
         "element_id": "Observation.comment"
       }
@@ -4541,7 +4003,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4557,7 +4022,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.5",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.related",
         "element_id": "Observation.related"
       }
@@ -4576,7 +4041,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.6",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.code",
         "element_id": "Observation.code"
       }
@@ -4595,7 +4060,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -4614,7 +4079,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.9",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effective[x]",
         "element_id": "Observation.effective[x]"
       }
@@ -4633,7 +4098,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.1",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation",
         "element_id": "Observation"
       }
@@ -4652,7 +4117,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.4",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.comment",
         "element_id": "Observation.comment"
       }
@@ -4660,7 +4125,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4676,7 +4144,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.5",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.related",
         "element_id": "Observation.related"
       }
@@ -4695,7 +4163,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.6",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.code",
         "element_id": "Observation.code"
       }
@@ -4714,7 +4182,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -4733,7 +4201,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.9",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effective[x]",
         "element_id": "Observation.effective[x]"
       }
@@ -4752,7 +4220,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.1",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent",
         "element_id": "Consent"
       }
@@ -4760,7 +4228,10 @@
     "r4_mappings": [
       {
         "resource": "Euthanasieverklaring (Wilsverklaring)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "690",
+        "zib2020_shortName": "euthanasieverklaring_wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4776,7 +4247,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.2",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.category",
         "element_id": "Consent.category:typeOfLivingWill"
       }
@@ -4784,7 +4255,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Euthanasieverklaring (WilsverklaringType)",
-        "element_path": "provision.code"
+        "element_path": "provision.code",
+        "zib2020_dataset_id": "691",
+        "zib2020_shortName": "euthanasieverklaring_wilsverklaring_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4800,7 +4274,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.7",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.dateTime",
         "element_id": "Consent.dateTime"
       }
@@ -4808,7 +4282,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDatum",
-        "element_path": "dateTime"
+        "element_path": "dateTime",
+        "zib2020_dataset_id": "692",
+        "zib2020_shortName": "wilsverklaring_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4824,7 +4301,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.4",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:disorder"
       }
@@ -4832,7 +4309,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Aandoening",
-        "element_path": "extension[disorder].value[x]"
+        "element_path": "extension[disorder].value[x]",
+        "zib2020_dataset_id": "693",
+        "zib2020_shortName": "aandoening",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4859,7 +4339,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.3",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.consentingParty",
         "element_id": "Consent.consentingParty"
       }
@@ -4867,7 +4347,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Vertegenwoordiger",
-        "element_path": "provision.actor[agreementParty].reference"
+        "element_path": "provision.actor[agreementParty].reference",
+        "zib2020_dataset_id": "614",
+        "zib2020_shortName": "vertegenwoordiger",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4883,7 +4366,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Contactpersoon",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "615",
+        "zib2020_shortName": "contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4899,7 +4385,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.5",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.source[x]",
         "element_id": "Consent.source[x]"
       }
@@ -4907,7 +4393,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDocument",
-        "element_path": "sourceAttachment"
+        "element_path": "sourceAttachment",
+        "zib2020_dataset_id": "697",
+        "zib2020_shortName": "wilsverklaring_document",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4923,7 +4412,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.6",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:comment"
       }
@@ -4931,7 +4420,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -4947,7 +4439,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.1",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation",
         "element_id": "Observation"
       }
@@ -4966,7 +4458,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.5",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.related",
         "element_id": "Observation.related"
       }
@@ -4985,7 +4477,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.6",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.code",
         "element_id": "Observation.code"
       }
@@ -5004,7 +4496,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -5023,7 +4515,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.1",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent",
         "element_id": "Consent"
       }
@@ -5031,7 +4523,10 @@
     "r4_mappings": [
       {
         "resource": "Keuze orgaandonatie vastgelegd (Wilsverklaring)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "700",
+        "zib2020_shortName": "keuze_orgaandonatie_vastgelegd_wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5047,7 +4542,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.2",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.category",
         "element_id": "Consent.category:typeOfLivingWill"
       }
@@ -5055,7 +4550,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Orgaandonatie (WilsverklaringType)",
-        "element_path": "provision.code"
+        "element_path": "provision.code",
+        "zib2020_dataset_id": "701",
+        "zib2020_shortName": "orgaandonatie_wilsverklaring_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5071,7 +4569,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.7",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.dateTime",
         "element_id": "Consent.dateTime"
       }
@@ -5079,7 +4577,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDatum",
-        "element_path": "dateTime"
+        "element_path": "dateTime",
+        "zib2020_dataset_id": "692",
+        "zib2020_shortName": "wilsverklaring_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5095,7 +4596,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.4",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:disorder"
       }
@@ -5103,7 +4604,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Aandoening",
-        "element_path": "extension[disorder].value[x]"
+        "element_path": "extension[disorder].value[x]",
+        "zib2020_dataset_id": "693",
+        "zib2020_shortName": "aandoening",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5130,7 +4634,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.3",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.consentingParty",
         "element_id": "Consent.consentingParty"
       }
@@ -5138,7 +4642,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Vertegenwoordiger",
-        "element_path": "provision.actor[agreementParty].reference"
+        "element_path": "provision.actor[agreementParty].reference",
+        "zib2020_dataset_id": "614",
+        "zib2020_shortName": "vertegenwoordiger",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5154,7 +4661,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Contactpersoon",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "615",
+        "zib2020_shortName": "contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5170,7 +4680,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.5",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.source[x]",
         "element_id": "Consent.source[x]"
       }
@@ -5178,7 +4688,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDocument",
-        "element_path": "sourceAttachment"
+        "element_path": "sourceAttachment",
+        "zib2020_dataset_id": "697",
+        "zib2020_shortName": "wilsverklaring_document",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5194,7 +4707,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.6",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:comment"
       }
@@ -5202,7 +4715,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5218,7 +4734,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.1",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation",
         "element_id": "Observation"
       }
@@ -5237,7 +4753,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.5",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.related",
         "element_id": "Observation.related"
       }
@@ -5256,7 +4772,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.6",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.code",
         "element_id": "Observation.code"
       }
@@ -5275,7 +4791,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.7",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.value[x]",
         "element_id": "Observation.value[x]"
       }
@@ -5294,7 +4810,7 @@
       {
         "zib_concept_id": "NL-CM:13.3.9",
         "resource": "Observation",
-        "profile_id": "zib-GeneralMeasurement",
+        "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effective[x]",
         "element_id": "Observation.effective[x]"
       }
@@ -5313,7 +4829,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.1",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent",
         "element_id": "Consent"
       }
@@ -5321,7 +4837,10 @@
     "r4_mappings": [
       {
         "resource": "Eerder vastgelegde behandelafspraken (Wilsverklaring)",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "721",
+        "zib2020_shortName": "eerder_vastgelegde_behandelafspraken_wilsverklaring",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5337,7 +4856,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.2",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.category",
         "element_id": "Consent.category:typeOfLivingWill"
       }
@@ -5345,7 +4864,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringType",
-        "element_path": "provision.code"
+        "element_path": "provision.code",
+        "zib2020_dataset_id": "722",
+        "zib2020_shortName": "wilsverklaring_type",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5361,7 +4883,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.7",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.dateTime",
         "element_id": "Consent.dateTime"
       }
@@ -5369,7 +4891,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDatum",
-        "element_path": "dateTime"
+        "element_path": "dateTime",
+        "zib2020_dataset_id": "692",
+        "zib2020_shortName": "wilsverklaring_datum",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5385,7 +4910,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.4",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:disorder"
       }
@@ -5393,7 +4918,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;Aandoening",
-        "element_path": "extension[disorder].value[x]"
+        "element_path": "extension[disorder].value[x]",
+        "zib2020_dataset_id": "693",
+        "zib2020_shortName": "aandoening",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5420,7 +4948,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.3",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.consentingParty",
         "element_id": "Consent.consentingParty"
       }
@@ -5428,7 +4956,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Vertegenwoordiger",
-        "element_path": "provision.actor[agreementParty].reference"
+        "element_path": "provision.actor[agreementParty].reference",
+        "zib2020_dataset_id": "614",
+        "zib2020_shortName": "vertegenwoordiger",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5444,7 +4975,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Contactpersoon",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "615",
+        "zib2020_shortName": "contactpersoon",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5460,7 +4994,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.5",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.source[x]",
         "element_id": "Consent.source[x]"
       }
@@ -5468,7 +5002,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;WilsverklaringDocument",
-        "element_path": "sourceAttachment"
+        "element_path": "sourceAttachment",
+        "zib2020_dataset_id": "697",
+        "zib2020_shortName": "wilsverklaring_document",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5484,7 +5021,7 @@
       {
         "zib_concept_id": "NL-CM:7.15.6",
         "resource": "Consent",
-        "profile_id": "zib-AdvanceDirective",
+        "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.extension",
         "element_id": "Consent.extension:comment"
       }
@@ -5492,7 +5029,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5524,7 +5064,10 @@
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Toelichting",
-        "element_path": "telecom[telephoneNumbers].extension[comment].valueString"
+        "element_path": "telecom[telephoneNumbers].extension[comment].valueString",
+        "zib2020_dataset_id": "381",
+        "zib2020_shortName": "toelichting",
+        "r4_profile_id": null
       }
     ]
   },
@@ -5547,7 +5090,10 @@
     "r4_mappings": [
       {
         "resource": "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?",
-        "element_path": ""
+        "element_path": "",
+        "zib2020_dataset_id": "734",
+        "zib2020_shortName": "heeft_u_patient_geinformeerd_over_eigen_verantwoordelijkheid_om_deze_behandelafspraken_met_naasten_te_besprekenq",
+        "r4_profile_id": null
       }
     ]
   },

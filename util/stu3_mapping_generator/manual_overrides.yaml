@@ -1,0 +1,27 @@
+# manual_overrides.yaml
+# Provide manual mapping overrides for ZIB2017 dataset concepts to STU3 profiles.
+# Structure:
+# overrides:
+#   '<dataset_id>':
+#     - zib_concept_id: 'NL-CM:xx.x.x'
+#       resource: <ResourceType>
+#       profile_id: <ProfileId>
+#       element_path: <FHIR element path>
+#       element_id: <element id>  # optional, used when patching
+#
+# Example:
+# overrides:
+#   '772':
+#     - zib_concept_id: 'NL-CM:15.1.3'
+#       resource: Encounter
+#       profile_id: zib-Encounter
+#       element_path: 'Encounter.reasonCode'
+#       element_id: 'Encounter.reasonCode'
+
+overrides:
+  '772':
+    - zib_concept_id: 'NL-CM-15.1.13'
+      resource: Encounter
+      profile_id: ACP-Encounter
+      element_path: 'Encounter.diagnosis.condition'
+      element_id: 'Encounter.diagnosis.condition'

@@ -10,7 +10,7 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 807 | &emsp;&emsp;Gesprek gevoerd door (Zorgverlener) | Patient | `Patient.generalPractitioner` |
 | 807 | &emsp;&emsp;Gesprek gevoerd door (Zorgverlener) | Practitioner | `Practitioner` |
 | 770 | &emsp;BeginDatumTijd | Encounter | `Encounter.period.start` |
-| 772 | &emsp;RedenContact |  |  |
+| 772 | &emsp;RedenContact | Encounter | `Encounter.diagnosis.condition` |
 | 775 | &emsp;&emsp;Verrichting | Encounter | `Encounter.diagnosis.condition` |
 | 776 | &emsp;&emsp;&emsp;Verrichting | Procedure | `Procedure` |
 | 797 | &emsp;&emsp;&emsp;&emsp;PZP gesprek (VerrichtingType) | Procedure | `Procedure.code` |
@@ -18,21 +18,23 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | RelatedPerson | `RelatedPerson.period` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Consent | `Consent.dateTime` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Encounter | `Encounter.period` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Procedure | `Procedure.performed[x]` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | DeviceUseStatement | `DeviceUseStatement.whenUsed` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Procedure | `Procedure.performed[x]` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Procedure | `Procedure.performed[x]` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effectiveDateTime` |
-| 304 | &emsp;Datum van invullen (DatumTijd) | Consent | `Consent.dateTime` |
 | 11 | Patient | Patient | `Patient` |
 | 12 | &emsp;Naamgegevens | Patient | `Patient.name` |
+| 13 | &emsp;&emsp;Naamgegevens |  |  |
+| 219 | &emsp;&emsp;&emsp;Voornamen |  |  |
+| 220 | &emsp;&emsp;&emsp;Initialen |  |  |
+| 221 | &emsp;&emsp;&emsp;Roepnaam |  |  |
+| 222 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
 | 223 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
+| 224 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
+| 225 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
 | 226 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
+| 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
+| 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
 | 14 | &emsp;Adresgegevens | Patient | `Patient.address` |
 | 15 | &emsp;&emsp;Adresgegevens |  |  |
 | 16 | &emsp;Contactgegevens | Patient | `Patient.telecom` |
@@ -44,7 +46,11 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 24 | Gesprek gevoerd door (Zorgverlener) | Practitioner | `Practitioner` |
 | 25 | &emsp;ZorgverlenerIdentificatienummer | Practitioner | `Practitioner.identifier` |
 | 26 | &emsp;Naamgegevens | Practitioner | `Practitioner.name` |
+| 27 | &emsp;&emsp;Naamgegevens |  |  |
+| 229 | &emsp;&emsp;&emsp;Voornamen |  |  |
 | 233 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
+| 234 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
+| 235 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
 | 28 | &emsp;Functie (Specialisme) | PractitionerRole | `PractitionerRole.specialty` |
 | 758 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen |  |  |
 | 759 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen |  |  |
@@ -53,10 +59,27 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 36 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 37 | &emsp;Naam wettelijk vertegenwoordiger (Naamgegevens) | Patient | `Patient.contact.name` |
 | 37 | &emsp;Naam wettelijk vertegenwoordiger (Naamgegevens) | RelatedPerson | `RelatedPerson.name` |
+| 38 | &emsp;&emsp;Naamgegevens |  |  |
+| 239 | &emsp;&emsp;&emsp;Voornamen |  |  |
+| 240 | &emsp;&emsp;&emsp;Initialen |  |  |
+| 241 | &emsp;&emsp;&emsp;Roepnaam |  |  |
+| 242 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
 | 243 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
+| 244 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
+| 245 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
 | 246 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
+| 247 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
+| 248 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
 | 39 | &emsp;Contactgegevens wettelijk vertegenwoordiger (Contactgegevens) | Patient | `Patient.contact.telecom` |
 | 39 | &emsp;Contactgegevens wettelijk vertegenwoordiger (Contactgegevens) | RelatedPerson | `RelatedPerson.telecom` |
+| 40 | &emsp;&emsp;Contactgegevens |  |  |
+| 249 | &emsp;&emsp;&emsp;Telefoonnummers |  |  |
+| 250 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer |  |  |
+| 251 | &emsp;&emsp;&emsp;&emsp;TelecomType |  |  |
+| 252 | &emsp;&emsp;&emsp;&emsp;NummerSoort |  |  |
+| 253 | &emsp;&emsp;&emsp;EmailAdressen |  |  |
+| 254 | &emsp;&emsp;&emsp;&emsp;EmailAdres |  |  |
+| 255 | &emsp;&emsp;&emsp;&emsp;EmailSoort |  |  |
 | 41 | &emsp;Adresgegevens | Patient | `Patient.contact.address` |
 | 41 | &emsp;Adresgegevens | RelatedPerson | `RelatedPerson.address` |
 | 42 | &emsp;&emsp;Adresgegevens |  |  |
@@ -70,10 +93,27 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 45 | Eerste contactpersoon (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 67 | &emsp;Naamgegevens | Patient | `Patient.contact.name` |
 | 67 | &emsp;Naamgegevens | RelatedPerson | `RelatedPerson.name` |
+| 68 | &emsp;&emsp;Naamgegevens |  |  |
+| 256 | &emsp;&emsp;&emsp;Voornamen |  |  |
+| 257 | &emsp;&emsp;&emsp;Initialen |  |  |
+| 258 | &emsp;&emsp;&emsp;Roepnaam |  |  |
+| 259 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
 | 260 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
+| 261 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
+| 262 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
 | 263 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
+| 264 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
+| 265 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
 | 69 | &emsp;Contactgegevens | Patient | `Patient.contact.telecom` |
 | 69 | &emsp;Contactgegevens | RelatedPerson | `RelatedPerson.telecom` |
+| 70 | &emsp;&emsp;Contactgegevens |  |  |
+| 266 | &emsp;&emsp;&emsp;Telefoonnummers |  |  |
+| 267 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer |  |  |
+| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType |  |  |
+| 269 | &emsp;&emsp;&emsp;&emsp;NummerSoort |  |  |
+| 270 | &emsp;&emsp;&emsp;EmailAdressen |  |  |
+| 271 | &emsp;&emsp;&emsp;&emsp;EmailAdres |  |  |
+| 272 | &emsp;&emsp;&emsp;&emsp;EmailSoort |  |  |
 | 71 | &emsp;Adresgegevens | Patient | `Patient.contact.address` |
 | 71 | &emsp;Adresgegevens | RelatedPerson | `RelatedPerson.address` |
 | 72 | &emsp;&emsp;Adresgegevens |  |  |
@@ -99,8 +139,17 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 149 | &emsp;Naamgegevens | Patient | `Patient.contact.name` |
 | 149 | &emsp;Naamgegevens | RelatedPerson | `RelatedPerson.name` |
+| 150 | &emsp;&emsp;Naamgegevens |  |  |
+| 273 | &emsp;&emsp;&emsp;Voornamen |  |  |
+| 274 | &emsp;&emsp;&emsp;Initialen |  |  |
+| 275 | &emsp;&emsp;&emsp;Roepnaam |  |  |
+| 276 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
 | 277 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
+| 278 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
+| 279 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
 | 280 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
+| 281 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
+| 282 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
 | 155 | &emsp;Rol | Patient | `Patient.contact.relationship` |
 | 155 | &emsp;Rol | Extension | `Extension.valueCodeableConcept` |
 | 155 | &emsp;Rol | RelatedPerson | `RelatedPerson.extension` |
@@ -138,21 +187,12 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 77 | &emsp;&emsp;ProductID | Device | `Device.expirationDate` |
 | 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
 | 78 | &emsp;&emsp;ProductType van ICD | Device | `Device` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
 | 78 | &emsp;&emsp;ProductType van ICD | DeviceUseStatement | `DeviceUseStatement.device` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
-| 78 | &emsp;&emsp;ProductType van ICD | DeviceUseStatement | `DeviceUseStatement.device` |
-| 78 | &emsp;&emsp;ProductType van ICD | Device | `Device.type` |
 | 79 | &emsp;ProductOmschrijving | Device | `Device.note.text` |
 | 80 | &emsp;BeginDatum | DeviceUseStatement | `DeviceUseStatement.whenUsed.start` |
 | 81 | &emsp;Indicatie | DeviceUseStatement | `DeviceUseStatement.indication.extension` |
 | 82 | &emsp;&emsp;Probleem |  |  |
 | 83 | &emsp;Toelichting | DeviceUseStatement | `DeviceUseStatement.note.text` |
-| 84 | &emsp;AnatomischeLocatie | DeviceUseStatement | `DeviceUseStatement.bodySite` |
 | 84 | &emsp;AnatomischeLocatie | DeviceUseStatement | `DeviceUseStatement.bodySite` |
 | 85 | &emsp;Lateraliteit | DeviceUseStatement | `DeviceUseStatement.bodySite.extension.valueCodeableConcept` |
 | 86 | &emsp;Locatie | DeviceUseStatement | `DeviceUseStatement.extension` |

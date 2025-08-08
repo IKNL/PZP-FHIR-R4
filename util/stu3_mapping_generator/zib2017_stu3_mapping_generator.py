@@ -17,6 +17,7 @@ import json
 import re
 import os
 from pathlib import Path
+import yaml
 
 def find_concepts_recursively(data, depth=0):
     """
@@ -415,25 +416,64 @@ def generate_integration_json(zib2017, stu3_mappings, zib2020, r4_mappings, outp
     """
     Combines dataset concepts, STU3 profile mappings, and R4 mappings into an integration JSON.
     """
+    # load manual overrides
+    overrides_file = Path(__file__).parent / 'manual_overrides.yaml'
+    if overrides_file.exists():
+        try:
+            overrides = yaml.safe_load(overrides_file.read_text(encoding='utf-8')).get('overrides', {}) or {}
+        except Exception as e:
+            print(f"Warning loading overrides: {e}")
+            overrides = {}
+    else:
+        print(f"No manual_overrides.yaml found, proceeding without overrides")
+        overrides = {}
+    # load IG profile definitions (STU3) to map each resource type to IG profile id
+    ig_res_dir = Path(__file__).parent.parent.parent / 'STU3' / 'input' / 'resources'
+    ig_profiles = {}
+    if ig_res_dir.exists():
+        for fn in os.listdir(ig_res_dir):
+            if fn.endswith('.json'):
+                try:
+                    pdata = json.loads(Path(ig_res_dir / fn).read_text(encoding='utf-8'))
+                    if pdata.get('resourceType') == 'StructureDefinition':
+                        rtype = pdata.get('type')
+                        pid = pdata.get('id')
+                        ig_profiles.setdefault(rtype, []).append(pid)
+                except:
+                    continue
+    # in-scope resource types are those with IG profiles
+    in_scope = set(ig_profiles.keys())
     records = []
     for did, info in zib2017.items():
         rec = {**info, 'stu3_mappings': [], 'r4_mappings': []}
-        # STU3 mappings based on ZIB refs
-        for ref in info['zib_refs']:
-            norm = normalize_zib_concept_id(ref)
-            for m in stu3_mappings.get(norm, []):
-                rec['stu3_mappings'].append({
-                    'zib_concept_id': norm,
-                    'resource': m['resource_type'],
-                    'profile_id': m['profile_id'],
-                    'element_path': m['element_path'],
-                    'element_id': m['element_id']
-                })
-        # Deduplicate STU3 mappings
+        # STU3 mappings: manual overrides or auto
+        if did in overrides:
+            for ov in overrides.get(did, []) or []:
+                if ov.get('resource') in in_scope:
+                    rec['stu3_mappings'].append(ov)
+        else:
+            for ref in info['zib_refs']:
+                norm = normalize_zib_concept_id(ref)
+                for m in stu3_mappings.get(norm, []):
+                    rtype = m['resource_type']
+                    if rtype in in_scope:
+                        # pick first IG profile id for this resource
+                        profile_ids = ig_profiles.get(rtype, [])
+                        ig_pid = profile_ids[0] if profile_ids else None
+                        rec['stu3_mappings'].append({
+                            'zib_concept_id': norm,
+                            'resource': rtype,
+                            'profile_id': ig_pid,
+                            'element_path': m['element_path'],
+                            'element_id': m['element_id']
+                        })
+        # Deduplicate STU3 mappings and filter to in-scope resources
         unique = []
         seen = set()
         for m in rec['stu3_mappings']:
-            key = (m['zib_concept_id'], m['resource'], m['profile_id'], m['element_path'], m['element_id'])
+            if m.get('resource') not in in_scope:
+                continue
+            key = (m['zib_concept_id'], m['resource'], m.get('profile_id'), m['element_path'], m['element_id'])
             if key not in seen:
                 seen.add(key)
                 unique.append(m)
@@ -446,8 +486,22 @@ def generate_integration_json(zib2017, stu3_mappings, zib2020, r4_mappings, outp
             score = 100 if name_low==n2 else 80 if name_low in n2 else 0
             if score>best_score:
                 best_score, best_id = score, did20
-        if best_score>=60 and best_id in r4_mappings:
-            rec['r4_mappings'] = r4_mappings[best_id]
+        if best_score >= 60 and best_id in r4_mappings:
+            rec['r4_mappings'] = []
+            for rm in r4_mappings[best_id]:
+                # extract R4 profile id from HTML link if present
+                res = rm.get('resource', '')
+                prof_id = None
+                m = re.search(r'<a[^>]*>([^<]+)</a>', res)
+                if m:
+                    prof_id = m.group(1)
+                rec['r4_mappings'].append({
+                    'resource': res,
+                    'element_path': rm.get('element_path'),
+                    'zib2020_dataset_id': best_id,
+                    'zib2020_shortName': zib2020.get(best_id, {}).get('shortName'),
+                    'r4_profile_id': prof_id
+                })
         records.append(rec)
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(records, f, indent=2, ensure_ascii=False)
