@@ -1,6 +1,9 @@
 {
   "resourceType": "Observation",
   "id": "F1-ACP-PreferredPlaceOfDeath-Unknown",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath" ]
+  },
   "identifier": [ {
     "type": {
       "coding": [ {

@@ -1,6 +1,9 @@
 {
   "resourceType": "DeviceUseStatement",
   "id": "F1-ACP-MedicalDevice-ICD",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice" ]
+  },
   "extension": [ {
     "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
     "valueReference": {

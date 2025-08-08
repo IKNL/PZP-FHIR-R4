@@ -38,11 +38,6 @@
       <title value="Table of Contents" />
       <generation value="html" />
       <page>
-        <nameUrl value="index.html" />
-        <title value="PZP IG Home page" />
-        <generation value="html" />
-      </page>
-      <page>
         <nameUrl value="data-exchange.html" />
         <title value="Data Exchange" />
         <generation value="markdown" />
@@ -60,16 +55,6 @@
       <page>
         <nameUrl value="index.html" />
         <title value="Index" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="index2.html" />
-        <title value="Index2" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="naming-conventions.html" />
-        <title value="Naming Conventions" />
         <generation value="markdown" />
       </page>
     </page>

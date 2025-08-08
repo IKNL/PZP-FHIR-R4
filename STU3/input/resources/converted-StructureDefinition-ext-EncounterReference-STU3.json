@@ -26,6 +26,9 @@
   "fhirVersion": "3.0.2",
   "kind": "complex-type",
   "abstract": false,
+  "context": [
+    "DeviceUseStatement"
+  ],
   "type": "Extension",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
   "derivation": "constraint",

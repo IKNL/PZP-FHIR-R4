@@ -1,6 +1,9 @@
 {
   "resourceType": "Observation",
   "id": "F1-ACP-OrganDonationChoiceRegistration-Yes",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration" ]
+  },
   "identifier": [ {
     "type": {
       "coding": [ {

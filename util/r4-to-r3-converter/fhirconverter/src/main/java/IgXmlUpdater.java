@@ -18,7 +18,11 @@ import java.nio.file.Paths;
 import java.util.*;
 
 /**
- * Updates the IKNL_PZP_IG.xml file with converted resource references
+ * Updates the IKNL_PZP_IG.xml file with converted resource references.
+ * 
+ * NOTE: Automatic copying of pagecontent and includes directories has been disabled.
+ * These files must now be managed manually between R4 and STU3 versions.
+ * Only the IG XML resource references are updated automatically.
  */
 public class IgXmlUpdater {
     
@@ -223,11 +227,6 @@ public class IgXmlUpdater {
         xmlContent.append("      <nameUrl value=\"toc.html\" />\n");
         xmlContent.append("      <title value=\"Table of Contents\" />\n");
         xmlContent.append("      <generation value=\"html\" />\n");
-        xmlContent.append("      <page>\n");
-        xmlContent.append("        <nameUrl value=\"index.html\" />\n");
-        xmlContent.append("        <title value=\"PZP IG Home page\" />\n");
-        xmlContent.append("        <generation value=\"html\" />\n");
-        xmlContent.append("      </page>\n");
         
         // Add markdown pages
         File pageContentDir = new File(STU3_PAGECONTENT_DIR);
@@ -315,15 +314,18 @@ public class IgXmlUpdater {
     }
     
     private static void copyMarkdownFiles() throws Exception {
-        System.out.println("📋 Copying markdown files from R4 to STU3...");
+        System.out.println("📋 Checking markdown files (manual management mode)...");
         
+        // NOTE: Automatic copying disabled - pagecontent and includes must be managed manually
         // Copy pagecontent files
-        copyDirectoryContents(R4_PAGECONTENT_DIR, STU3_PAGECONTENT_DIR);
+        // copyDirectoryContents(R4_PAGECONTENT_DIR, STU3_PAGECONTENT_DIR);
         
         // Copy includes files
-        copyDirectoryContents(R4_INCLUDES_DIR, STU3_INCLUDES_DIR);
+        // copyDirectoryContents(R4_INCLUDES_DIR, STU3_INCLUDES_DIR);
         
-        System.out.println("✅ Markdown files copied successfully");
+        System.out.println("ℹ️  Pagecontent and includes copying skipped - manage these files manually");
+        System.out.println("   📁 STU3 pagecontent: " + STU3_PAGECONTENT_DIR);
+        System.out.println("   📁 STU3 includes: " + STU3_INCLUDES_DIR);
     }
     
     private static void copyDirectoryContents(String sourcePath, String targetPath) throws Exception {

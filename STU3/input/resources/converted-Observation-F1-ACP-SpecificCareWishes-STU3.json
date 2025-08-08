@@ -1,6 +1,9 @@
 {
   "resourceType": "Observation",
   "id": "F1-ACP-SpecificCareWishes",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes" ]
+  },
   "status": "final",
   "code": {
     "coding": [ {

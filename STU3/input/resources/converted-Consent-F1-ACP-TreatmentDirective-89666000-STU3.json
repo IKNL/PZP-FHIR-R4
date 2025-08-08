@@ -1,6 +1,9 @@
 {
   "resourceType": "Consent",
   "id": "F1-ACP-TreatmentDirective-89666000",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective" ]
+  },
   "extension": [ {
     "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
     "valueReference": {

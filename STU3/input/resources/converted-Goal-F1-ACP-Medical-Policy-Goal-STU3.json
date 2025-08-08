@@ -1,6 +1,9 @@
 {
   "resourceType": "Goal",
   "id": "F1-ACP-Medical-Policy-Goal",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal" ]
+  },
   "extension": [ {
     "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
     "valueReference": {

@@ -1,6 +1,9 @@
 {
   "resourceType": "Communication",
   "id": "F1-ACP-Communication-01-10-2020",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication" ]
+  },
   "identifier": [ {
     "type": {
       "coding": [ {

@@ -110,6 +110,9 @@ public class CrossVersionPostProcessor {
         // Apply element transformations (remove/move/update elements)
         applyElementTransformations(resource);
         
+        // Transform R4 context objects to STU3 context strings for extensions
+        transformExtensionContext(resource);
+        
         // Convert binding canonical URLs to STU3 References
         convertBindingCanonicalToReferences(resource);
         
@@ -1135,6 +1138,101 @@ public class CrossVersionPostProcessor {
             
         } catch (Exception e) {
             logger.warn("Failed to convert binding canonical URLs to References: {}", e.getMessage(), e);
+        }
+    }
+    
+    /**
+     * Transforms R4 extension context objects to STU3 context strings.
+     * 
+     * In R4, StructureDefinition.context is an array of objects with "type" and "expression" properties.
+     * In STU3, StructureDefinition has separate "contextType" and "context" fields:
+     * - contextType: string (e.g., "resource")  
+     * - context: array of strings (e.g., ["Patient", "Consent"])
+     * 
+     * This method converts:
+     * - R4: [{"type": "element", "expression": "Patient"}]
+     * - STU3: {"contextType": "resource", "context": ["Patient"]}
+     */
+    private void transformExtensionContext(JsonObject resource) {
+        try {
+            // Check if this is an Extension StructureDefinition
+            if (!resource.has("type") || 
+                !resource.get("type").getAsString().equals("Extension")) {
+                logger.debug("Resource is not an Extension StructureDefinition, skipping context transformation");
+                return;
+            }
+            
+            if (!resource.has("context")) {
+                logger.debug("No context found in Extension StructureDefinition");
+                return;
+            }
+            
+            JsonElement contextElement = resource.get("context");
+            
+            // Check if this is R4 format (array of objects) that needs transformation
+            if (contextElement.isJsonArray()) {
+                JsonArray contextArray = contextElement.getAsJsonArray();
+                
+                // Check if first element is an object (R4 format) 
+                if (contextArray.size() > 0 && contextArray.get(0).isJsonObject()) {
+                    
+                    // Transform R4 context objects to STU3 format
+                    JsonArray newContextArray = new JsonArray();
+                    String contextType = "resource"; // Default for "element" type contexts
+                    int transformedCount = 0;
+                    
+                    for (JsonElement element : contextArray) {
+                        if (element.isJsonObject()) {
+                            JsonObject contextObj = element.getAsJsonObject();
+                            
+                            // Extract the expression field 
+                            if (contextObj.has("expression")) {
+                                String expression = contextObj.get("expression").getAsString();
+                                newContextArray.add(expression);
+                                transformedCount++;
+                                logger.debug("Transformed context: {} -> {}", contextObj, expression);
+                                
+                                // Determine contextType based on the type field
+                                if (contextObj.has("type")) {
+                                    String type = contextObj.get("type").getAsString();
+                                    if ("element".equals(type)) {
+                                        contextType = "resource"; // In STU3, element contexts become resource contexts
+                                    } else if ("extension".equals(type)) {
+                                        contextType = "extension";
+                                    } else if ("fhirpath".equals(type)) {
+                                        contextType = "fhirpath";  
+                                    }
+                                    // Keep contextType as "resource" for other/unknown types
+                                }
+                            } else {
+                                logger.warn("Context object missing 'expression' field: {}", contextObj);
+                            }
+                        }
+                    }
+                    
+                    if (transformedCount > 0) {
+                        // Remove the old R4 context field
+                        resource.remove("context");
+                        
+                        // Add STU3 contextType and context fields
+                        resource.addProperty("contextType", contextType);
+                        resource.add("context", newContextArray);
+                        
+                        logger.info("✅ Transformed {} extension context objects to STU3 format (contextType: {})", 
+                                   transformedCount, contextType);
+                    } else {
+                        logger.debug("No context transformations needed");
+                    }
+                } else if (contextArray.size() > 0 && contextArray.get(0).isJsonPrimitive()) {
+                    logger.debug("Context is already in STU3 format (array of strings)");
+                    return;
+                }
+            } else {
+                logger.warn("Unexpected context format: expected array but found {}", contextElement.getClass().getSimpleName());
+            }
+            
+        } catch (Exception e) {
+            logger.error("Failed to transform extension context: {}", e.getMessage(), e);
         }
     }
 }

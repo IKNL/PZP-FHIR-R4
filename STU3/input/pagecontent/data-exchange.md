@@ -50,7 +50,7 @@ This approach is useful for applications that need to query specific parts of a 
 
 #### Client Requests
 
-The below listed search request show how all the relevant ACP **Consultation**,  **Agreements** and **Supporting Information** can be retrieved. Information on all **Individuals** are referenced from these resources and be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search request show how all the relevant ACP can be retrieved. Information on all individuals involved are referenced from these resources and be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
 
 ```
 Consultation

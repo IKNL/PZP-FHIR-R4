@@ -35,6 +35,10 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   src.baseDefinition as vs -> tgt.baseDefinition as vt then mapR4toSTU3Uri(vs, vt);
   src.contextInvariant as vs -> tgt.contextInvariant as vt then string(vs, vt);
   src.derivation as vs -> tgt.derivation as vt then string(vs, vt);
+  
+  // Transform R4 context objects to temporary extension for post-processing
+  src.context as contextList -> tgt.extension as ext then createContextExtension(contextList, ext) "context-to-extension";
+  
   src.snapshot as vs0 -> tgt.snapshot as vt0 then {
     vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
   };
@@ -64,4 +68,9 @@ group mapR4toSTU3Uri(source src, target tgt) {
   // STU3 don't allow PractitionerRole as a reference for most elements because PractitionerRole was added too late in STU3. Therefore, we map it to Practitioner
   src where value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole' -> tgt.value = 'https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner' "practitionerrole-to-practitioner-reference-mapping";
 
+}
+
+group createContextExtension(source src, target ext) {
+    src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition.context' "context-extension-url";
+    src.expression as expr -> ext.value = create('string') as extValue then string(expr, extValue) "context-expression-value";
 }

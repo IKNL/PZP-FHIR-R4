@@ -486,12 +486,16 @@ public class CrossVersionExtensionProcessor {
     
     /**
      * Cleans up StructureDefinition elements marked for removal during StructureMap processing
+     * and transforms R4 extension context to STU3 format
      */
     public String cleanupStructureDefinition(String stu3Json) {
         try {
             JsonParser parser = new JsonParser();
             JsonObject resource = parser.parse(stu3Json).getAsJsonObject();
             
+            // Transform extension context from R4 to STU3 format
+            transformExtensionContext(resource);
+
             // Check if this is a StructureDefinition with differential elements
             if (!resource.has("differential")) {
                 return resource.toString();
@@ -534,6 +538,90 @@ public class CrossVersionExtensionProcessor {
         } catch (Exception e) {
             logger.error("Failed to cleanup StructureDefinition elements: {}", e.getMessage(), e);
             return stu3Json; // Return original on error
+        }
+    }
+    
+    /**
+     * Transforms R4 extension context objects to STU3 context format.
+     * 
+     * This method looks for the temporary extensions created by StructureMap conversion:
+     * 'http://fhir.conversion/cross-version/StructureDefinition.context'
+     * 
+     * Each context object creates one extension with the expression as the value.
+     * This method:
+     * 1. Extracts all context extensions  
+     * 2. Gets the expression from each extension value
+     * 3. Creates STU3 contextType and context fields
+     * 4. Removes the temporary extensions
+     */
+    private void transformExtensionContext(JsonObject resource) {
+        try {
+            // Check if this is an Extension StructureDefinition
+            if (!resource.has("type") || 
+                !resource.get("type").getAsString().equals("Extension")) {
+                logger.debug("Resource is not an Extension StructureDefinition, skipping context transformation");
+                return;
+            }
+            
+            if (!resource.has("extension")) {
+                logger.debug("No extensions found in StructureDefinition");
+                return;
+            }
+            
+            JsonArray extensions = resource.getAsJsonArray("extension");
+            JsonArray newExtensions = new JsonArray();
+            JsonArray contextStrings = new JsonArray();
+            String contextType = "resource"; // Default - we're assuming all our contexts are element type -> resource
+            int transformedCount = 0;
+            
+            // Look for context extensions and process them
+            for (JsonElement extElement : extensions) {
+                if (extElement.isJsonObject()) {
+                    JsonObject ext = extElement.getAsJsonObject();
+                    
+                    // Check if this is our context extension
+                    if (ext.has("url") && 
+                        ext.get("url").getAsString().equals("http://fhir.conversion/cross-version/StructureDefinition.context")) {
+                        
+                        // Extract the expression from the extension value
+                        if (ext.has("valueString")) {
+                            String expression = ext.get("valueString").getAsString();
+                            contextStrings.add(expression);
+                            transformedCount++;
+                            
+                            logger.debug("Transformed context from extension: expression={}", expression);
+                        }
+                        
+                        // Don't add this extension to the new extensions array (it gets removed)
+                    } else {
+                        // Keep other extensions
+                        newExtensions.add(ext);
+                    }
+                } else {
+                    // Keep non-object extensions (shouldn't happen, but be safe)
+                    newExtensions.add(extElement);
+                }
+            }
+            
+            if (transformedCount > 0) {
+                // Remove the old extensions array and add the cleaned one
+                resource.remove("extension");
+                if (newExtensions.size() > 0) {
+                    resource.add("extension", newExtensions);
+                }
+                
+                // Add STU3 contextType and context fields
+                resource.addProperty("contextType", contextType);
+                resource.add("context", contextStrings);
+                
+                logger.info("✅ Transformed {} extension context objects to STU3 format (contextType: {})", 
+                           transformedCount, contextType);
+            } else {
+                logger.debug("No context extensions found to transform");
+            }
+            
+        } catch (Exception e) {
+            logger.error("Failed to transform extension context: {}", e.getMessage(), e);
         }
     }
 }

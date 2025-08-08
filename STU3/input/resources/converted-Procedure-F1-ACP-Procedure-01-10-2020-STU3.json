@@ -1,6 +1,9 @@
 {
   "resourceType": "Procedure",
   "id": "F1-ACP-Procedure-01-10-2020",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure" ]
+  },
   "identifier": [ {
     "type": {
       "coding": [ {
