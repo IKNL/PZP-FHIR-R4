@@ -1,17 +1,12 @@
 This page provides an overview of the FHIR resources used to represent the ACP dataset, many of which are based on nl-core profiles.
 
-### ACP Questionnaire
-A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding FHIR Questionnaire resource to ensure standardized data collection. [ADD link and improve] 
-
 ### FHIR Data Model Overview
-The diagram below illustrates the FHIR data model for this implementation guide. To enhance clarity, the resources are grouped into four logical categories that represent key aspects of the ACP process: Agreements, Individuals, Supporting Information, and Consultation. 
-
-* **Consultation**: Represents the core event where the advance care plan is discussed.
-* **Agreements**: This category encompasses the documented outcomes of the ACP process, including the patient's goals, preferences, and formal advance directives.
-* **Individuals**: Includes all persons and professional involved in the care process, such as the patient, health professionals, and the patient's designated contacts or legal representatives.
-* **Supporting Information**: Provides additional clinical context relevant to the patient's agreements, such as related medical procedures or the use of specific medical devices.
+The diagram below illustrates the FHIR data model for this implementation guide. The resources represent the core event where the advance care plan is discussed, the individuals involved in the ACP process, the documented outcomes of the ACP and additional clinical context relevant to the ACP agreements. 
 
 {% include fhir-data-model-mermaid-diagram.md %}
+
+### ACP Questionnaire
+A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding FHIR Questionnaire resource to ensure standardized data collection. [ADD link and improve] 
 
 ### Associating ACP dataset to FHIR 
 
