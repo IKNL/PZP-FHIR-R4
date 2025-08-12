@@ -31,6 +31,7 @@ Instance: F1-ACP-SpecificCareWishes
 InstanceOf: ACPSpecificCareWishes
 Title: "F1 ACP Specific Care Wishes"
 Usage: #example
+// why doesn't this have an identifier?
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"

@@ -10,6 +10,7 @@ Description: "A living will is a verbal or written description of the patient’
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
 - For Organ Donation, code _DO_ (Verklaring donorschap)."
+// Why not NR?
 * patient only Reference(ACPPatient)
 
 
