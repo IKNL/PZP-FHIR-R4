@@ -2,7 +2,7 @@ Profile: ACPAdvanceDirective
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-AdvanceDirective
 Id: ACP-AdvanceDirective
 Title: "AdvanceDirective"
-Description: "A living will is a verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider."
+Description: "A verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider. Based on nl-core-AdvanceDirective and HCIM AdvanceDirective."
 * insert MetaRules
 * extension contains
     ExtEncounterReference  named encounter 0..1
@@ -48,7 +48,7 @@ Profile: ACPTreatmentDirective
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-TreatmentDirective2
 Id: ACP-TreatmentDirective
 Title: "TreatmentDirective"
-Description: "A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary."
+Description: "A joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary. Based on nl-core-TreatmentDirective2 and HCIM TreatmentDirective2."
 * insert MetaRules
 * extension contains
     ExtEncounterReference  named encounter 0..1

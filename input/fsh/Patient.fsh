@@ -2,7 +2,7 @@ Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
 Title: "Patient"
-Description: "A person who receives medical, psychological, paramedical, or nursing care."
+Description: "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient."
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains

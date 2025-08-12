@@ -2,7 +2,7 @@ Profile: ACPSpecificCareWishes
 Parent: Observation
 Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
-Description: "What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)? The patient's wishes and expectations concerning their treatment."
+Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource and HCIM template Measurement."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -51,7 +51,7 @@ Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
 Title: "Preferred Place Of Death"
-Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, or another location."
+Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource and HCIM template Measurement."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -95,7 +95,7 @@ Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
 Title: "Position Regarding Euthanasia"
-Description: "Position Regarding Euthanasia"
+Description: "The patient's position regarding euthanasia. Based on Observation resource and HCIM template Measurement."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -140,7 +140,7 @@ Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
 Title: "Organ donation choice registration in donor register"
-Description: "Organ donation choice registration in donor register."
+Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource and HCIM template Measurement."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -182,7 +182,7 @@ Profile: ACPOtherImportantInformation
 Parent: Observation
 Id: ACP-OtherImportantInformation
 Title: "Other Important Information"
-Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
+Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource and HCIM template Measurement."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)

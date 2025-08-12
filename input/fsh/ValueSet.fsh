@@ -1,7 +1,7 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
 Id: ACP-PreferredPlaceOfDeath
 Title: "Preferred Place Of Death"
-Description: "Valueset for preferred place of death"
+Description: "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible."
 * insert MetaRules
 * $v3-NullFlavor#OTH "Anders"
 * $v3-NullFlavor#UNK "Nog onbekend"
@@ -95,7 +95,7 @@ Description: "Valueset for preferred place of death"
 ValueSet: ACPEuthanasiaStatementVS
 Id: ACP-EuthanasiaStatement
 Title: "Euthanasia Statement"
-Description: "What is the patient's position regarding euthanasia and does the patient have a euthanasia statement?"
+Description: "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement."
 * insert MetaRules
 * $v3-NullFlavor#UNK "Nog onbekend"
 * $v3-NullFlavor#UNK ^designation.language = #nl-NL
@@ -109,7 +109,7 @@ Description: "What is the patient's position regarding euthanasia and does the p
 ValueSet: MedicalPolicyGoalVS
 Id: ACP-MedicalPolicyGoal
 Title: "Most Important Agreed-upon Goal of Medical Policy"
-Description: "A set of codes representing the primary agreed-upon goal of a patient's medical treatment policy."
+Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
 * $snomed#385987000 "Curatief / actief ziektebeleid"
 * $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
@@ -119,7 +119,7 @@ Description: "A set of codes representing the primary agreed-upon goal of a pati
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
 Title: "MedicalDevice ProductType ICD"
-Description: "MedicalDevice ProductType ICD"
+Description: "ICD product code for MedicalDevice ProductType."
 * insert MetaRules
 * include codes from system urn:oid:2.16.840.1.1138836.96 where concept descendent-of #72506001
 
@@ -127,7 +127,7 @@ Description: "MedicalDevice ProductType ICD"
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
 Title: "Yes, No, Unknown valueSet"
-Description: "Yes, No, Unknown valueSet"
+Description: "ValueSet representing 'Yes, No, Unknown' answers."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
 * $v3-NullFlavor#UNK "Nog onbekend"

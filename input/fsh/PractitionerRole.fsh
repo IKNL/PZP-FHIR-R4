@@ -2,7 +2,7 @@ Profile: ACPHealthProfessionalPractitionerRole
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole
 Id: ACP-HealthProfessional-PractitionerRole
 Title: "HealthProfessional PractitionerRole"
-Description: "A health professional is a person who is authorized to perform actions in the field of individual healthcare."
+Description: "The specialty of a person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitionerRole and HCIM HealthProfessional."
 * insert MetaRules
 * practitioner only Reference(ACPHealthProfessionalPractitioner)
 

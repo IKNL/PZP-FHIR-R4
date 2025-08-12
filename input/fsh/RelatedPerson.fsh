@@ -3,7 +3,7 @@ Profile: ACPContactPerson
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-ContactPerson
 Id: ACP-ContactPerson
 Title: "ContactPerson"
-Description: "A contact is a person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives."
+Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
 * patient only Reference(ACPPatient)
 * relationship 1..*

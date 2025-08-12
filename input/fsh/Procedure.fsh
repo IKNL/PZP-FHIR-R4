@@ -2,7 +2,7 @@ Profile: ACPProcedure
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event
 Id: ACP-Procedure
 Title: "Advance Care Planning Procedure"
-Description: "Advance Care Planning Procedure"
+Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure."
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)

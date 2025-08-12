@@ -2,7 +2,7 @@ Profile: ACPEncounter
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter
 Id: ACP-Encounter
 Title: "Encounter"
-Description: "A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions."
+Description: "Any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions. Based on nl-core-Encounter and HCIM Encounter."
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * participant ^slicing.discriminator.type = #profile

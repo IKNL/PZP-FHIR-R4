@@ -2,7 +2,7 @@ Profile: ACPCommunication
 Parent: Communication
 Id: ACP-Communication
 Title: "Communication"
-Description: "Communication events that have taken place in context of Advance Care Planning."
+Description: "Communication events that have taken place in context of Advance Care Planning. Based on Communication resource."
 * insert MetaRules
 * topic ^comment = "For information patient about own responsibility the following text may be added to the `topic.text` element: Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * subject only Reference(ACPPatient)
