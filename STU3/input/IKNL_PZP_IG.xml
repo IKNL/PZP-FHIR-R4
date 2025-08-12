@@ -6,7 +6,7 @@
   <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp" />
   <version value="0.1.0" />
   <name value="PZP" />
-  <title value="IKNL PZP " />
+  <title value="IKNL PZP STU3" />
   <status value="draft" />
   <experimental value="false" />
   <publisher value="IKNL" />
