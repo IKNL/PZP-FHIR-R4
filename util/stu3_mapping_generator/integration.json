@@ -151,7 +151,7 @@
     ],
     "stu3_mappings": [
       {
-        "zib_concept_id": "NL-CM-15.1.13",
+        "zib_concept_id": "NL-CM:15.1.13",
         "resource": "Encounter",
         "profile_id": "ACP-Encounter",
         "element_path": "Encounter.diagnosis.condition",

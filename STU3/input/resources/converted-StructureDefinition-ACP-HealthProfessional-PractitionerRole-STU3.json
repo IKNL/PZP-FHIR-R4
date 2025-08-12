@@ -30,9 +30,9 @@
       "name": "PZP dataset"
     },
     {
-      "identity": "pall-izppz-zibs2017-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
-      "name": "PZP dataset zibs2017"
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -65,16 +65,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "652",
             "comment": "Zorgverlener"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "24",
-            "comment": "Gesprek gevoerd door (Zorgverlener)"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "89",
-            "comment": "Zorgverlener"
           }
         ]
       },
@@ -98,9 +88,9 @@
             "comment": "Specialisme"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "28",
-            "comment": "Specialisme"
+            "comment": "Functie (Specialisme)"
           }
         ]
       }

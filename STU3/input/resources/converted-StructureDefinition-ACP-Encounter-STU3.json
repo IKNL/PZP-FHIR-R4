@@ -30,9 +30,9 @@
       "name": "PZP dataset"
     },
     {
-      "identity": "pall-izppz-zibs2017-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
-      "name": "PZP dataset zibs2017"
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -52,7 +52,7 @@
             "comment": "Contact"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "764",
             "comment": "Contact"
           }
@@ -68,7 +68,7 @@
             "comment": "ContactType"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "765",
             "comment": "ContactType"
           }
@@ -88,11 +88,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "514",
             "comment": "Gesprek gevoerd in bijzijn van (Patient)"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "305",
-            "comment": "Gesprek gevoerd in bijzijn van (Patient)"
           }
         ]
       },
@@ -103,11 +98,6 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "810",
-            "comment": "ContactMet"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "766",
             "comment": "ContactMet"
           }
         ]
@@ -137,9 +127,9 @@
             "comment": "Gesprek gevoerd door (Zorgverlener)"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "148",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "766",
+            "comment": "ContactMet"
           }
         ]
       },
@@ -158,7 +148,7 @@
             "comment": "Datum van invullen"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "770",
             "comment": "BeginDatumTijd"
           }
@@ -178,6 +168,16 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "819",
+            "comment": "Verrichting"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "772",
+            "comment": "RedenContact"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "775",
             "comment": "Verrichting"
           }
         ]

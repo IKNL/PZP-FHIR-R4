@@ -141,7 +141,7 @@ public class IgXmlUpdater {
         xmlContent.append("  <url value=\"https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp\" />\n");
         xmlContent.append("  <version value=\"0.1.0\" />\n");
         xmlContent.append("  <name value=\"PZP\" />\n");
-        xmlContent.append("  <title value=\"IKNL PZP \" />\n");
+        xmlContent.append("  <title value=\"IKNL PZP STU3\" />\n");
         xmlContent.append("  <status value=\"draft\" />\n");
         xmlContent.append("  <experimental value=\"false\" />\n");
         xmlContent.append("  <publisher value=\"IKNL\" />\n");

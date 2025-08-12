@@ -658,6 +658,19 @@ public class FhirBatchConverter {
             IgXmlUpdater.updateIgXml();
         }
         
+        // Insert STU3 mappings from integration.json
+        System.out.println();
+        System.out.println("🗺️ Inserting STU3 mappings from integration.json...");
+        try {
+            String integrationJsonPath = "../../stu3_mapping_generator/integration.json";
+            fhir.converter.Stu3MappingInserter mappingInserter = new fhir.converter.Stu3MappingInserter();
+            mappingInserter.insertMappingsIntoStu3Profiles(outputDir, integrationJsonPath);
+            System.out.println("✅ STU3 mappings insertion completed successfully!");
+        } catch (Exception e) {
+            System.err.println("❌ Failed to insert STU3 mappings: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
         System.out.println("=" + "=".repeat(80));
     }
     

@@ -116,9 +116,6 @@ public class CrossVersionPostProcessor {
         // Convert binding canonical URLs to STU3 References
         convertBindingCanonicalToReferences(resource);
         
-        // Add ZIB2017 mappings based on ZIB2020 mappings
-        addZib2017Mappings(resource);
-        
         // Remove elements marked for deletion
         removeMarkedElements(resource);
         
@@ -819,7 +816,6 @@ public class CrossVersionPostProcessor {
             "cleanupTelecomSliceIds",
             "consolidateSlices",
             "applyElementTransformations",
-            "addZib2017Mappings",
             "removeMarkedElements", 
             "validateElementStructure"
         };
@@ -936,129 +932,6 @@ public class CrossVersionPostProcessor {
     // NOTE: Element ordering methods have been moved to FhirCanonicalElementOrderer.java
     // for better modularity and reusability across different FHIR resource types.
     
-    /**
-     * Adds ZIB2017 mappings to StructureDefinition elements based on existing ZIB2020 mappings
-     */
-    private void addZib2017Mappings(JsonObject resource) {
-        try {
-            boolean hasAddedMappings = false;
-            int totalMappingsAdded = 0;
-            
-            // Process differential elements
-            if (resource.has("differential")) {
-                JsonObject differential = resource.getAsJsonObject("differential");
-                if (differential.has("element")) {
-                    JsonArray elements = differential.getAsJsonArray("element");
-                    
-                    for (JsonElement elementElement : elements) {
-                        JsonObject element = elementElement.getAsJsonObject();
-                        
-                        if (element.has("mapping")) {
-                            JsonArray mappings = element.getAsJsonArray("mapping");
-                            List<JsonObject> newMappingsToAdd = new ArrayList<>();
-                            
-                            // Check each existing mapping for ZIB2020 mappings
-                            for (JsonElement mappingElement : mappings) {
-                                JsonObject mapping = mappingElement.getAsJsonObject();
-                                
-                                // Check if this is a ZIB2020 mapping
-                                if (mapping.has("identity") && mapping.has("map") &&
-                                    ZIB2020_IDENTITY.equals(mapping.get("identity").getAsString())) {
-                                    
-                                    String zib2020Id = mapping.get("map").getAsString();
-                                    
-                                    // Check if we have a corresponding ZIB2017 mapping
-                                    if (zib2020ToZib2017Mapping.containsKey(zib2020Id)) {
-                                        String zib2017Id = zib2020ToZib2017Mapping.get(zib2020Id);
-                                        
-                                        // Check if ZIB2017 mapping doesn't already exist
-                                        if (!hasZib2017Mapping(mappings, zib2017Id)) {
-                                            // Create new ZIB2017 mapping
-                                            JsonObject newMapping = new JsonObject();
-                                            newMapping.addProperty("identity", ZIB2017_IDENTITY);
-                                            newMapping.addProperty("map", zib2017Id);
-                                            
-                                            // Copy comment if it exists
-                                            if (mapping.has("comment")) {
-                                                newMapping.addProperty("comment", mapping.get("comment").getAsString());
-                                            }
-                                            
-                                            newMappingsToAdd.add(newMapping);
-                                            
-                                            logger.debug("Prepared ZIB2017 mapping: {} → {} for element {}",
-                                                       zib2020Id, zib2017Id, element.get("id").getAsString());
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            // Add all new mappings to this element
-                            for (JsonObject newMapping : newMappingsToAdd) {
-                                mappings.add(newMapping);
-                                totalMappingsAdded++;
-                                hasAddedMappings = true;
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Add ZIB2017 mapping identity to root if we added any mappings
-            if (hasAddedMappings) {
-                addZib2017MappingIdentity(resource);
-                logger.info("✅ Added {} ZIB2017 mappings to StructureDefinition elements", totalMappingsAdded);
-            }
-            
-        } catch (Exception e) {
-            logger.error("Failed to add ZIB2017 mappings: {}", e.getMessage(), e);
-        }
-    }
-    
-    /**
-     * Checks if a ZIB2017 mapping with the given ID already exists
-     */
-    private boolean hasZib2017Mapping(JsonArray mappings, String zib2017Id) {
-        for (JsonElement mappingElement : mappings) {
-            JsonObject mapping = mappingElement.getAsJsonObject();
-            if (mapping.has("identity") && mapping.has("map") &&
-                ZIB2017_IDENTITY.equals(mapping.get("identity").getAsString()) &&
-                zib2017Id.equals(mapping.get("map").getAsString())) {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    /**
-     * Adds ZIB2017 mapping identity to the StructureDefinition root if not already present
-     */
-    private void addZib2017MappingIdentity(JsonObject resource) {
-        if (!resource.has("mapping")) {
-            resource.add("mapping", new JsonArray());
-        }
-        
-        JsonArray mappings = resource.getAsJsonArray("mapping");
-        
-        // Check if ZIB2017 mapping identity already exists
-        for (JsonElement mappingElement : mappings) {
-            JsonObject mapping = mappingElement.getAsJsonObject();
-            if (mapping.has("identity") && 
-                ZIB2017_IDENTITY.equals(mapping.get("identity").getAsString())) {
-                return; // Already exists
-            }
-        }
-        
-        // Add ZIB2017 mapping identity
-        JsonObject zib2017Mapping = new JsonObject();
-        zib2017Mapping.addProperty("identity", ZIB2017_IDENTITY);
-        zib2017Mapping.addProperty("uri", "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48");
-        zib2017Mapping.addProperty("name", "PZP dataset zibs2017");
-        
-        mappings.add(zib2017Mapping);
-        
-        logger.debug("Added ZIB2017 mapping identity to StructureDefinition root");
-    }
-
     /**
      * Converts binding canonical URLs stored in extensions to proper STU3 References
      */

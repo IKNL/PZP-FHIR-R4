@@ -30,9 +30,9 @@
       "name": "PZP dataset"
     },
     {
-      "identity": "pall-izppz-zibs2017-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48",
-      "name": "PZP dataset zibs2017"
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -57,12 +57,7 @@
             "comment": "ICD (MedischHulpmiddel)"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "218",
-            "comment": "Heeft de patient een ICD?"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "75",
             "comment": "ICD (MedischHulpmiddel)"
           }
@@ -71,7 +66,19 @@
       {
         "id": "DeviceUseStatement.extension:healthProfessional",
         "path": "DeviceUseStatement.extension",
-        "sliceName": "healthProfessional"
+        "sliceName": "healthProfessional",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "86",
+            "comment": "Locatie"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "88",
+            "comment": "Zorgverlener"
+          }
+        ]
       },
       {
         "id": "DeviceUseStatement.extension:healthProfessional.value[x]",
@@ -87,7 +94,19 @@
       {
         "id": "DeviceUseStatement.extension:location",
         "path": "DeviceUseStatement.extension",
-        "sliceName": "location"
+        "sliceName": "location",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "86",
+            "comment": "Locatie"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "88",
+            "comment": "Zorgverlener"
+          }
+        ]
       },
       {
         "id": "DeviceUseStatement.extension:location.value[x]",
@@ -96,11 +115,6 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "633",
-            "comment": "Locatie"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "86",
             "comment": "Locatie"
           }
         ]
@@ -115,6 +129,18 @@
           {
             "code": "Extension",
             "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "86",
+            "comment": "Locatie"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "88",
+            "comment": "Zorgverlener"
           }
         ]
       },
@@ -156,11 +182,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "630",
             "comment": "BeginDatum"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "98",
-            "comment": "BeginDatum"
           }
         ]
       },
@@ -172,11 +193,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "631",
             "comment": "EndDate"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "99",
-            "comment": "EndDate"
           }
         ]
       },
@@ -187,6 +203,18 @@
           {
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "76",
+            "comment": "Product"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "78",
+            "comment": "ProductType van ICD"
           }
         ]
       },
@@ -201,7 +229,7 @@
             "comment": "Indicatie"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "81",
             "comment": "Indicatie"
           }
@@ -222,7 +250,7 @@
             "comment": "Locatie"
           },
           {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "84",
             "comment": "AnatomischeLocatie"
           }
@@ -241,11 +269,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "627",
             "comment": "Lateraliteit"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "85",
-            "comment": "Lateraliteit"
           }
         ]
       },
@@ -256,6 +279,11 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "632",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "83",
             "comment": "Toelichting"
           }
         ]

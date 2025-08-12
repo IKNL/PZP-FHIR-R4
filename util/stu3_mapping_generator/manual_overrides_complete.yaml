@@ -54,12 +54,12 @@ overrides:
   #     element_id: 'Encounter.period.start'
 
   # 772:   RedenContact
-  '772':
-    - zib_concept_id: 'NL-CM:15.1.13'
-      resource: Encounter
-      profile_id: ACP-Encounter
-      element_path: 'Encounter.diagnosis.condition'
-      element_id: 'Encounter.diagnosis.condition'
+  # '772':
+  #   - zib_concept_id: 'NL-CM:15.1.13'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.diagnosis.condition'
+  #     element_id: 'Encounter.diagnosis.condition'
 
   # 775:     Verrichting
   # '775':
@@ -1861,3 +1861,10 @@ overrides:
   #     element_path: '<FHIR element path>'
   #     element_id: '<element id>'
 
+  # Active overrides (uncommented entries will be used)
+  '772':
+    - zib_concept_id: 'NL-CM-15.1.13'
+      resource: Encounter
+      profile_id: ACP-Encounter
+      element_path: 'Encounter.diagnosis.condition'
+      element_id: 'Encounter.diagnosis.condition'
