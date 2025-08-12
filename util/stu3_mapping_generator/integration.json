@@ -5,7 +5,7 @@
     "name": "Contact",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-15.1.1"
+      "NL-CM:15.1.1"
     ],
     "stu3_mappings": [
       {
@@ -32,7 +32,7 @@
     "name": "ContactType",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-15.1.2"
+      "NL-CM:15.1.2"
     ],
     "stu3_mappings": [
       {
@@ -59,7 +59,7 @@
     "name": "ContactMet",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-15.1.7"
+      "NL-CM:15.1.7"
     ],
     "stu3_mappings": [
       {
@@ -86,7 +86,7 @@
     "name": "Gesprek gevoerd door (Zorgverlener)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-17.1.1"
+      "NL-CM:17.1.1"
     ],
     "stu3_mappings": [
       {
@@ -120,7 +120,7 @@
     "name": "BeginDatumTijd",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-15.1.3"
+      "NL-CM:15.1.3"
     ],
     "stu3_mappings": [
       {
@@ -147,7 +147,7 @@
     "name": "RedenContact",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-15.1.13"
+      "NL-CM:15.1.13"
     ],
     "stu3_mappings": [
       {
@@ -166,7 +166,7 @@
     "name": "Verrichting",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-15.1.11"
+      "NL-CM:15.1.11"
     ],
     "stu3_mappings": [
       {
@@ -193,7 +193,7 @@
     "name": "Verrichting",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-14.1.1"
+      "NL-CM:14.1.1"
     ],
     "stu3_mappings": [
       {
@@ -220,7 +220,7 @@
     "name": "PZP gesprek (VerrichtingType)",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-14.1.4"
+      "NL-CM:14.1.4"
     ],
     "stu3_mappings": [
       {
@@ -229,6 +229,13 @@
         "profile_id": "ACP-Procedure",
         "element_path": "Procedure.code",
         "element_id": "Procedure.code"
+      },
+      {
+        "zib_concept_id": "NL-CM:14.1.4",
+        "resource": "ProcedureRequest",
+        "profile_id": "zib-ProcedureRequest",
+        "element_path": "ProcedureRequest.code",
+        "element_id": "ProcedureRequest.code"
       }
     ],
     "r4_mappings": [
@@ -247,7 +254,7 @@
     "name": "ZIBRoot",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-0.0.1"
+      "NL-CM:0.0.1"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -258,9 +265,30 @@
     "name": "Datum van invullen (DatumTijd)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.0.14"
+      "NL-CM:0.0.14"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "CarePlan",
+        "profile_id": "nl-core-careplan",
+        "element_path": "CarePlan.period",
+        "element_id": "CarePlan.period"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "CareTeam",
+        "profile_id": "nl-core-careteam",
+        "element_path": "CareTeam.period",
+        "element_id": "CareTeam.period"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "EpisodeOfCare",
+        "profile_id": "nl-core-episodeofcare",
+        "element_path": "EpisodeOfCare.period",
+        "element_id": "EpisodeOfCare.period"
+      },
       {
         "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Observation",
@@ -277,10 +305,38 @@
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationDispense",
+        "profile_id": "zib-AdministrationAgreement",
+        "element_path": "MedicationDispense.dosageInstruction",
+        "element_id": "MedicationDispense.dosageInstruction"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Consent",
         "profile_id": "ACP-AdvanceDirective",
         "element_path": "Consent.dateTime",
         "element_id": "Consent.dateTime"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "AllergyIntolerance",
+        "profile_id": "zib-AllergyIntolerance",
+        "element_path": "AllergyIntolerance.onset[x]",
+        "element_id": "AllergyIntolerance.onset[x]:onsetDateTime"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationDispense",
+        "profile_id": "zib-AdministrationAgreement",
+        "element_path": "MedicationDispense.whenHandedOver",
+        "element_id": "MedicationDispense.whenHandedOver"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationRequest",
+        "profile_id": "zib-DispenseRequest",
+        "element_path": "MedicationRequest.dispenseRequest.validityPeriod",
+        "element_id": "MedicationRequest.dispenseRequest.validityPeriod"
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
@@ -298,6 +354,13 @@
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "DiagnosticReport",
+        "profile_id": "zib-LaboratoryTestResult-DiagnosticReport",
+        "element_path": "DiagnosticReport.effective[x]",
+        "element_id": "DiagnosticReport.effective[x]"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "DeviceUseStatement",
         "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.whenUsed",
@@ -305,10 +368,80 @@
       },
       {
         "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "DeviceRequest",
+        "profile_id": "zib-MedicalDeviceRequest",
+        "element_path": "DeviceRequest.occurrence[x]",
+        "element_id": "DeviceRequest.occurrence[x]"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationAdministration",
+        "profile_id": "zib-Infusion-AdministeringSystem",
+        "element_path": "MedicationAdministration.effective[x]",
+        "element_id": "MedicationAdministration.effective[x]"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationRequest",
+        "profile_id": "zib-DispenseRequest",
+        "element_path": "MedicationRequest.dosageInstruction",
+        "element_id": "MedicationRequest.dosageInstruction"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "MedicationStatement",
+        "profile_id": "zib-MedicationUse",
+        "element_path": "MedicationStatement.effectivePeriod",
+        "element_id": "MedicationStatement.effective[x]:effectivePeriod"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "NutritionOrder",
+        "profile_id": "zib-NutritionAdvice",
+        "element_path": "NutritionOrder.dateTime",
+        "element_id": "NutritionOrder.dateTime"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "Coverage",
+        "profile_id": "zib-Payer",
+        "element_path": "Coverage.period",
+        "element_id": "Coverage.period"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "Condition",
+        "profile_id": "zib-BurnWound",
+        "element_path": "Condition.onsetDateTime",
+        "element_id": "Condition.onset[x]:onsetDateTime"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "ProcedureRequest",
+        "profile_id": "zib-ProcedureRequest",
+        "element_path": "ProcedureRequest.occurrence[x]",
+        "element_id": "ProcedureRequest.occurrence[x]"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
         "resource": "Observation",
         "profile_id": "ACP-OrganDonationChoiceRegistration",
         "element_path": "Observation.effectiveDateTime",
         "element_id": "Observation.effective[x]:effectiveDateTime"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "Immunization",
+        "profile_id": "zib-Vaccination",
+        "element_path": "Immunization.date",
+        "element_id": "Immunization.date"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.0.14",
+        "resource": "ImmunizationRecommendation",
+        "profile_id": "zib-VaccinationRecommendation",
+        "element_path": "ImmunizationRecommendation.recommendation.date",
+        "element_id": "ImmunizationRecommendation.recommendation.date"
       }
     ],
     "r4_mappings": []
@@ -319,7 +452,7 @@
     "name": "Patient",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-0.1.1"
+      "NL-CM:0.1.1"
     ],
     "stu3_mappings": [
       {
@@ -328,6 +461,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient",
         "element_id": "Patient"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.1",
+        "resource": "DiagnosticReport",
+        "profile_id": "zib-LaboratoryTestResult-DiagnosticReport",
+        "element_path": "DiagnosticReport.subject",
+        "element_id": "DiagnosticReport.subject"
       }
     ],
     "r4_mappings": [
@@ -346,15 +486,29 @@
     "name": "Naamgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.6"
+      "NL-CM:0.1.6"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:0.1.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      },
       {
         "zib_concept_id": "NL-CM:0.1.6",
         "resource": "Patient",
         "profile_id": "ACP-Patient",
         "element_path": "Patient.name",
         "element_id": "Patient.name"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.6",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
       }
     ],
     "r4_mappings": [
@@ -373,9 +527,17 @@
     "name": "Naamgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.4.1"
+      "NL-CM:20.4.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.1",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
@@ -392,9 +554,17 @@
     "name": "Voornamen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.4"
+      "NL-CM:20.4.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.4",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
@@ -411,9 +581,17 @@
     "name": "Initialen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.5"
+      "NL-CM:20.4.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.5",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
@@ -430,9 +608,17 @@
     "name": "Roepnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.6"
+      "NL-CM:20.4.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
@@ -449,9 +635,17 @@
     "name": "Naamgebruik",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.7"
+      "NL-CM:20.4.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.7",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.extension",
+        "element_id": "HumanName.extension:humannameAssemblyOrder"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
@@ -468,7 +662,7 @@
     "name": "Geslachtsnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.2"
+      "NL-CM:20.4.2"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -479,9 +673,17 @@
     "name": "Voorvoegsels",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.11"
+      "NL-CM:20.4.11"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.11",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
@@ -498,9 +700,17 @@
     "name": "Achternaam",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.10"
+      "NL-CM:20.4.10"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.10",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
@@ -517,7 +727,7 @@
     "name": "GeslachtsnaamPartner",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.3"
+      "NL-CM:20.4.3"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -528,9 +738,17 @@
     "name": "VoorvoegselsPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.9"
+      "NL-CM:20.4.9"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.9",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
@@ -547,9 +765,17 @@
     "name": "AchternaamPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.8"
+      "NL-CM:20.4.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.8",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
@@ -566,15 +792,36 @@
     "name": "Adresgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.4"
+      "NL-CM:0.1.4"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:0.1.4",
+        "resource": "Address",
+        "profile_id": "nl-core-address",
+        "element_path": "Address",
+        "element_id": "Address"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.4",
+        "resource": "Location",
+        "profile_id": "nl-core-location",
+        "element_path": "Location.address",
+        "element_id": "Location.address"
+      },
       {
         "zib_concept_id": "NL-CM:0.1.4",
         "resource": "Patient",
         "profile_id": "ACP-Patient",
         "element_path": "Patient.address",
         "element_id": "Patient.address"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.4",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.address",
+        "element_id": "Person.address"
       }
     ],
     "r4_mappings": [
@@ -593,7 +840,7 @@
     "name": "Adresgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-153"
+      "NL-CM:2017-153"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -612,15 +859,50 @@
     "name": "Contactgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.5"
+      "NL-CM:0.1.5"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:0.1.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint",
+        "element_id": "ContactPoint"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.5",
+        "resource": "HealthcareService",
+        "profile_id": "nl-core-healthcareservice",
+        "element_path": "HealthcareService.telecom",
+        "element_id": "HealthcareService.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.5",
+        "resource": "Location",
+        "profile_id": "nl-core-location",
+        "element_path": "Location.telecom",
+        "element_id": "Location.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.5",
+        "resource": "Organization",
+        "profile_id": "nl-core-organization",
+        "element_path": "Organization.telecom",
+        "element_id": "Organization.telecom"
+      },
       {
         "zib_concept_id": "NL-CM:0.1.5",
         "resource": "Patient",
         "profile_id": "ACP-Patient",
         "element_path": "Patient.telecom",
         "element_id": "Patient.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.5",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
       }
     ],
     "r4_mappings": [
@@ -639,7 +921,7 @@
     "name": "Contactgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-154"
+      "NL-CM:2017-154"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -658,7 +940,7 @@
     "name": "Identificatienummer",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.7"
+      "NL-CM:0.1.7"
     ],
     "stu3_mappings": [
       {
@@ -667,6 +949,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.identifier",
         "element_id": "Patient.identifier"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.7",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.identifier",
+        "element_id": "Person.identifier"
       }
     ],
     "r4_mappings": [
@@ -685,7 +974,7 @@
     "name": "Geboortedatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.10"
+      "NL-CM:0.1.10"
     ],
     "stu3_mappings": [
       {
@@ -694,6 +983,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.birthDate",
         "element_id": "Patient.birthDate"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.10",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.birthDate",
+        "element_id": "Person.birthDate"
       }
     ],
     "r4_mappings": [
@@ -712,7 +1008,7 @@
     "name": "Geslacht",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.9"
+      "NL-CM:0.1.9"
     ],
     "stu3_mappings": [
       {
@@ -721,6 +1017,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.gender",
         "element_id": "Patient.gender"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.9",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.gender",
+        "element_id": "Person.gender"
       }
     ],
     "r4_mappings": [
@@ -746,7 +1049,7 @@
     "name": "Gesprek gevoerd door (Zorgverlener)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-17.1.1"
+      "NL-CM:17.1.1"
     ],
     "stu3_mappings": [
       {
@@ -780,7 +1083,7 @@
     "name": "ZorgverlenerIdentificatienummer",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-17.1.2"
+      "NL-CM:17.1.2"
     ],
     "stu3_mappings": [
       {
@@ -807,9 +1110,16 @@
     "name": "Naamgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-17.1.3"
+      "NL-CM:17.1.3"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:17.1.3",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
+      },
       {
         "zib_concept_id": "NL-CM:17.1.3",
         "resource": "Practitioner",
@@ -834,9 +1144,17 @@
     "name": "Naamgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.4.1"
+      "NL-CM:20.4.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.1",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
@@ -853,9 +1171,17 @@
     "name": "Voornamen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.4"
+      "NL-CM:20.4.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.4",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
@@ -872,7 +1198,7 @@
     "name": "Geslachtsnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.2"
+      "NL-CM:20.4.2"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -883,9 +1209,17 @@
     "name": "Voorvoegsels",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.11"
+      "NL-CM:20.4.11"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.11",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
@@ -902,9 +1236,17 @@
     "name": "Achternaam",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.10"
+      "NL-CM:20.4.10"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.10",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
@@ -921,7 +1263,7 @@
     "name": "Functie (Specialisme)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-17.1.4"
+      "NL-CM:17.1.4"
     ],
     "stu3_mappings": [
       {
@@ -999,7 +1341,7 @@
     "name": "Wettelijk vertegenwoordiger (Contactpersoon)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-3.1.1"
+      "NL-CM:3.1.1"
     ],
     "stu3_mappings": [
       {
@@ -1033,7 +1375,7 @@
     "name": "Naam wettelijk vertegenwoordiger (Naamgegevens)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.4"
+      "NL-CM:3.1.4"
     ],
     "stu3_mappings": [
       {
@@ -1042,6 +1384,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.4",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
@@ -1059,9 +1408,17 @@
     "name": "Naamgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.4.1"
+      "NL-CM:20.4.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.1",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
@@ -1078,9 +1435,17 @@
     "name": "Voornamen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.4"
+      "NL-CM:20.4.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.4",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
@@ -1097,9 +1462,17 @@
     "name": "Initialen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.5"
+      "NL-CM:20.4.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.5",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
@@ -1116,9 +1489,17 @@
     "name": "Roepnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.6"
+      "NL-CM:20.4.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
@@ -1135,9 +1516,17 @@
     "name": "Naamgebruik",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.7"
+      "NL-CM:20.4.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.7",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.extension",
+        "element_id": "HumanName.extension:humannameAssemblyOrder"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
@@ -1154,7 +1543,7 @@
     "name": "Geslachtsnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.2"
+      "NL-CM:20.4.2"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -1165,9 +1554,17 @@
     "name": "Voorvoegsels",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.11"
+      "NL-CM:20.4.11"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.11",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
@@ -1184,9 +1581,17 @@
     "name": "Achternaam",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.10"
+      "NL-CM:20.4.10"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.10",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
@@ -1203,7 +1608,7 @@
     "name": "GeslachtsnaamPartner",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.3"
+      "NL-CM:20.4.3"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -1214,9 +1619,17 @@
     "name": "VoorvoegselsPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.9"
+      "NL-CM:20.4.9"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.9",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
@@ -1233,9 +1646,17 @@
     "name": "AchternaamPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.8"
+      "NL-CM:20.4.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.8",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
@@ -1252,7 +1673,7 @@
     "name": "Contactgegevens wettelijk vertegenwoordiger (Contactgegevens)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.6"
+      "NL-CM:3.1.6"
     ],
     "stu3_mappings": [
       {
@@ -1261,6 +1682,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.telecom",
         "element_id": "Patient.contact.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.6",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
       },
       {
         "zib_concept_id": "NL-CM:3.1.6",
@@ -1278,9 +1706,31 @@
     "name": "Contactgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.6.1"
+      "NL-CM:20.6.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint",
+        "element_id": "ContactPoint"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "Location",
+        "profile_id": "nl-core-location",
+        "element_path": "Location.telecom",
+        "element_id": "Location.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "Organization",
+        "profile_id": "nl-core-organization",
+        "element_path": "Organization.telecom",
+        "element_id": "Organization.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
@@ -1297,9 +1747,17 @@
     "name": "Telefoonnummers",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.6.2"
+      "NL-CM:20.6.2"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.2",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Telefoonnummers",
@@ -1316,9 +1774,24 @@
     "name": "Telefoonnummer",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.4"
+      "NL-CM:20.6.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.4",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.value",
+        "element_id": "ContactPoint.value"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.4",
+        "resource": "HealthcareService",
+        "profile_id": "nl-core-healthcareservice",
+        "element_path": "HealthcareService.telecom",
+        "element_id": "HealthcareService.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Telefoonnummer",
@@ -1335,9 +1808,31 @@
     "name": "TelecomType",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.5"
+      "NL-CM:20.6.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.extension.valueCodeableConcept",
+        "element_id": "ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.system",
+        "element_id": "ContactPoint.system"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
@@ -1361,9 +1856,17 @@
     "name": "NummerSoort",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.6"
+      "NL-CM:20.6.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.6",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;NummerSoort",
@@ -1380,9 +1883,17 @@
     "name": "EmailAdressen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.6.3"
+      "NL-CM:20.6.3"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.3",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;EmailAdressen",
@@ -1399,9 +1910,17 @@
     "name": "EmailAdres",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.7"
+      "NL-CM:20.6.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.7",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.value",
+        "element_id": "ContactPoint.value"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailAdres",
@@ -1418,9 +1937,24 @@
     "name": "EmailSoort",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.8"
+      "NL-CM:20.6.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.8",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.system",
+        "element_id": "ContactPoint.system"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.8",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailSoort",
@@ -1437,7 +1971,7 @@
     "name": "Adresgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.5"
+      "NL-CM:3.1.5"
     ],
     "stu3_mappings": [
       {
@@ -1446,6 +1980,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.address",
         "element_id": "Patient.contact.address"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.5",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.address",
+        "element_id": "Person.address"
       },
       {
         "zib_concept_id": "NL-CM:3.1.5",
@@ -1471,7 +2012,7 @@
     "name": "Adresgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-46"
+      "NL-CM:2017-46"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -1490,7 +2031,7 @@
     "name": "Rol",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.2"
+      "NL-CM:3.1.2"
     ],
     "stu3_mappings": [
       {
@@ -1531,7 +2072,7 @@
     "name": "Relatie tot patient (Relatie)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.3"
+      "NL-CM:3.1.3"
     ],
     "stu3_mappings": [
       {
@@ -1576,7 +2117,7 @@
     "name": "Eerste contactpersoon (Contactpersoon)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-3.1.1"
+      "NL-CM:3.1.1"
     ],
     "stu3_mappings": [
       {
@@ -1610,7 +2151,7 @@
     "name": "Naamgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.4"
+      "NL-CM:3.1.4"
     ],
     "stu3_mappings": [
       {
@@ -1619,6 +2160,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.4",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
@@ -1644,9 +2192,17 @@
     "name": "Naamgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.4.1"
+      "NL-CM:20.4.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.1",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
@@ -1663,9 +2219,17 @@
     "name": "Voornamen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.4"
+      "NL-CM:20.4.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.4",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
@@ -1682,9 +2246,17 @@
     "name": "Initialen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.5"
+      "NL-CM:20.4.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.5",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
@@ -1701,9 +2273,17 @@
     "name": "Roepnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.6"
+      "NL-CM:20.4.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
@@ -1720,9 +2300,17 @@
     "name": "Naamgebruik",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.7"
+      "NL-CM:20.4.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.7",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.extension",
+        "element_id": "HumanName.extension:humannameAssemblyOrder"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
@@ -1739,7 +2327,7 @@
     "name": "Geslachtsnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.2"
+      "NL-CM:20.4.2"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -1750,9 +2338,17 @@
     "name": "Voorvoegsels",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.11"
+      "NL-CM:20.4.11"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.11",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
@@ -1769,9 +2365,17 @@
     "name": "Achternaam",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.10"
+      "NL-CM:20.4.10"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.10",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
@@ -1788,7 +2392,7 @@
     "name": "GeslachtsnaamPartner",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.3"
+      "NL-CM:20.4.3"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -1799,9 +2403,17 @@
     "name": "VoorvoegselsPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.9"
+      "NL-CM:20.4.9"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.9",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
@@ -1818,9 +2430,17 @@
     "name": "AchternaamPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.8"
+      "NL-CM:20.4.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.8",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
@@ -1837,7 +2457,7 @@
     "name": "Contactgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.6"
+      "NL-CM:3.1.6"
     ],
     "stu3_mappings": [
       {
@@ -1846,6 +2466,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.telecom",
         "element_id": "Patient.contact.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.6",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
       },
       {
         "zib_concept_id": "NL-CM:3.1.6",
@@ -1871,9 +2498,31 @@
     "name": "Contactgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.6.1"
+      "NL-CM:20.6.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint",
+        "element_id": "ContactPoint"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "Location",
+        "profile_id": "nl-core-location",
+        "element_path": "Location.telecom",
+        "element_id": "Location.telecom"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.1",
+        "resource": "Organization",
+        "profile_id": "nl-core-organization",
+        "element_path": "Organization.telecom",
+        "element_id": "Organization.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Contactgegevens",
@@ -1890,9 +2539,17 @@
     "name": "Telefoonnummers",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.6.2"
+      "NL-CM:20.6.2"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.2",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Telefoonnummers",
@@ -1909,9 +2566,24 @@
     "name": "Telefoonnummer",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.4"
+      "NL-CM:20.6.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.4",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.value",
+        "element_id": "ContactPoint.value"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.4",
+        "resource": "HealthcareService",
+        "profile_id": "nl-core-healthcareservice",
+        "element_path": "HealthcareService.telecom",
+        "element_id": "HealthcareService.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Telefoonnummer",
@@ -1928,9 +2600,31 @@
     "name": "TelecomType",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.5"
+      "NL-CM:20.6.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.extension.valueCodeableConcept",
+        "element_id": "ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.system",
+        "element_id": "ContactPoint.system"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.5",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;TelecomType",
@@ -1954,9 +2648,17 @@
     "name": "NummerSoort",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.6"
+      "NL-CM:20.6.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.6",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;NummerSoort",
@@ -1973,9 +2675,17 @@
     "name": "EmailAdressen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.6.3"
+      "NL-CM:20.6.3"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.3",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.telecom",
+        "element_id": "Person.telecom"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;EmailAdressen",
@@ -1992,9 +2702,17 @@
     "name": "EmailAdres",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.7"
+      "NL-CM:20.6.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.7",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.value",
+        "element_id": "ContactPoint.value"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailAdres",
@@ -2011,9 +2729,24 @@
     "name": "EmailSoort",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.6.8"
+      "NL-CM:20.6.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.6.8",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.system",
+        "element_id": "ContactPoint.system"
+      },
+      {
+        "zib_concept_id": "NL-CM:20.6.8",
+        "resource": "ContactPoint",
+        "profile_id": "nl-core-contactpoint",
+        "element_path": "ContactPoint.use",
+        "element_id": "ContactPoint.use"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;EmailSoort",
@@ -2030,7 +2763,7 @@
     "name": "Adresgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.5"
+      "NL-CM:3.1.5"
     ],
     "stu3_mappings": [
       {
@@ -2039,6 +2772,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.address",
         "element_id": "Patient.contact.address"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.5",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.address",
+        "element_id": "Person.address"
       },
       {
         "zib_concept_id": "NL-CM:3.1.5",
@@ -2064,7 +2804,7 @@
     "name": "Adresgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-46"
+      "NL-CM:2017-46"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -2083,7 +2823,7 @@
     "name": "Rol",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.2"
+      "NL-CM:3.1.2"
     ],
     "stu3_mappings": [
       {
@@ -2124,7 +2864,7 @@
     "name": "Relatie tot patient (Relatie)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.3"
+      "NL-CM:3.1.3"
     ],
     "stu3_mappings": [
       {
@@ -2169,16 +2909,30 @@
     "name": "Naamgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-0.1.6",
+      "NL-CM:0.1.6",
       "pall-izppz-dataelement-12"
     ],
     "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:0.1.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      },
       {
         "zib_concept_id": "NL-CM:0.1.6",
         "resource": "Patient",
         "profile_id": "ACP-Patient",
         "element_path": "Patient.name",
         "element_id": "Patient.name"
+      },
+      {
+        "zib_concept_id": "NL-CM:0.1.6",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
       }
     ],
     "r4_mappings": [
@@ -2390,7 +3144,7 @@
     "name": "Gesprek gevoerd in bijzijn van (Contactpersoon)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-3.1.1"
+      "NL-CM:3.1.1"
     ],
     "stu3_mappings": [
       {
@@ -2431,7 +3185,7 @@
     "name": "Naamgegevens",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.4"
+      "NL-CM:3.1.4"
     ],
     "stu3_mappings": [
       {
@@ -2440,6 +3194,13 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.contact.name",
         "element_id": "Patient.contact.name"
+      },
+      {
+        "zib_concept_id": "NL-CM:3.1.4",
+        "resource": "Person",
+        "profile_id": "nl-core-person",
+        "element_path": "Person.name",
+        "element_id": "Person.name"
       },
       {
         "zib_concept_id": "NL-CM:3.1.4",
@@ -2465,9 +3226,17 @@
     "name": "Naamgegevens",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-20.4.1"
+      "NL-CM:20.4.1"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.1",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName",
+        "element_id": "HumanName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;Naamgegevens",
@@ -2484,9 +3253,17 @@
     "name": "Voornamen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.4"
+      "NL-CM:20.4.4"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.4",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Voornamen",
@@ -2503,9 +3280,17 @@
     "name": "Initialen",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.5"
+      "NL-CM:20.4.5"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.5",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Initialen",
@@ -2522,9 +3307,17 @@
     "name": "Roepnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.6"
+      "NL-CM:20.4.6"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.6",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.given",
+        "element_id": "HumanName.given"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Roepnaam",
@@ -2541,9 +3334,17 @@
     "name": "Naamgebruik",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.7"
+      "NL-CM:20.4.7"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.7",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.extension",
+        "element_id": "HumanName.extension:humannameAssemblyOrder"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;Naamgebruik",
@@ -2560,7 +3361,7 @@
     "name": "Geslachtsnaam",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.2"
+      "NL-CM:20.4.2"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -2571,9 +3372,17 @@
     "name": "Voorvoegsels",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.11"
+      "NL-CM:20.4.11"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.11",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Voorvoegsels",
@@ -2590,9 +3399,17 @@
     "name": "Achternaam",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.10"
+      "NL-CM:20.4.10"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.10",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannameOwnName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;Achternaam",
@@ -2609,7 +3426,7 @@
     "name": "GeslachtsnaamPartner",
     "depth": 3,
     "zib_refs": [
-      "NL-CM-20.4.3"
+      "NL-CM:20.4.3"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -2620,9 +3437,17 @@
     "name": "VoorvoegselsPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.9"
+      "NL-CM:20.4.9"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.9",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerPrefix"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;VoorvoegselsPartner",
@@ -2639,9 +3464,17 @@
     "name": "AchternaamPartner",
     "depth": 4,
     "zib_refs": [
-      "NL-CM-20.4.8"
+      "NL-CM:20.4.8"
     ],
-    "stu3_mappings": [],
+    "stu3_mappings": [
+      {
+        "zib_concept_id": "NL-CM:20.4.8",
+        "resource": "HumanName",
+        "profile_id": "nl-core-humanname",
+        "element_path": "HumanName.family.extension",
+        "element_id": "HumanName.family.extension:humannamePartnerName"
+      }
+    ],
     "r4_mappings": [
       {
         "resource": "&emsp;&emsp;&emsp;AchternaamPartner",
@@ -2658,7 +3491,7 @@
     "name": "Rol",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.2"
+      "NL-CM:3.1.2"
     ],
     "stu3_mappings": [
       {
@@ -2699,7 +3532,7 @@
     "name": "Relatie tot patient (Relatie)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-3.1.3"
+      "NL-CM:3.1.3"
     ],
     "stu3_mappings": [
       {
@@ -2725,7 +3558,7 @@
     "name": "Belangrijkste doel van behandeling (AlgemeneMeting)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-13.3.1"
+      "NL-CM:13.3.1"
     ],
     "stu3_mappings": [
       {
@@ -2744,7 +3577,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.4"
+      "NL-CM:13.3.4"
     ],
     "stu3_mappings": [
       {
@@ -2771,7 +3604,7 @@
     "name": "MeetUitslag",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.5"
+      "NL-CM:13.3.5"
     ],
     "stu3_mappings": [
       {
@@ -2790,7 +3623,7 @@
     "name": "MetingNaam voor Belangrijkste doel van behandeling",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.6"
+      "NL-CM:13.3.6"
     ],
     "stu3_mappings": [
       {
@@ -2809,7 +3642,7 @@
     "name": "Doel (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7"
+      "NL-CM:13.3.7"
     ],
     "stu3_mappings": [
       {
@@ -2828,7 +3661,7 @@
     "name": "UitslagDatumTijd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.9"
+      "NL-CM:13.3.9"
     ],
     "stu3_mappings": [
       {
@@ -2847,7 +3680,7 @@
     "name": "Behandelgrens (BehandelAanwijzing)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-2.1.1"
+      "NL-CM:2.1.1"
     ],
     "stu3_mappings": [
       {
@@ -2866,7 +3699,7 @@
     "name": "Verificatie",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.8"
+      "NL-CM:2.1.8"
     ],
     "stu3_mappings": [
       {
@@ -2885,7 +3718,7 @@
     "name": "Geverifieerd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.9"
+      "NL-CM:2.1.9"
     ],
     "stu3_mappings": [
       {
@@ -2904,7 +3737,7 @@
     "name": "GeverifieerdBij",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.11"
+      "NL-CM:2.1.11"
     ],
     "stu3_mappings": [
       {
@@ -2923,7 +3756,7 @@
     "name": "VerificatieDatum",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.10"
+      "NL-CM:2.1.10"
     ],
     "stu3_mappings": [
       {
@@ -2942,7 +3775,7 @@
     "name": "Behandeling",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.3"
+      "NL-CM:2.1.3"
     ],
     "stu3_mappings": [
       {
@@ -2969,7 +3802,7 @@
     "name": "BehandelingToegestaan",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.4"
+      "NL-CM:2.1.4"
     ],
     "stu3_mappings": [
       {
@@ -2988,7 +3821,7 @@
     "name": "Beperkingen",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.5"
+      "NL-CM:2.1.5"
     ],
     "stu3_mappings": [
       {
@@ -3007,7 +3840,7 @@
     "name": "BeginDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.6"
+      "NL-CM:2.1.6"
     ],
     "stu3_mappings": [
       {
@@ -3034,7 +3867,7 @@
     "name": "EindDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.7"
+      "NL-CM:2.1.7"
     ],
     "stu3_mappings": [
       {
@@ -3061,7 +3894,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.15"
+      "NL-CM:2.1.15"
     ],
     "stu3_mappings": [
       {
@@ -3088,7 +3921,7 @@
     "name": "Wilsverklaring",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.14"
+      "NL-CM:2.1.14"
     ],
     "stu3_mappings": [
       {
@@ -3122,7 +3955,7 @@
     "name": "Wilsverklaring",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-17"
+      "NL-CM:2017-17"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -3167,7 +4000,7 @@
     "name": "ICD (MedischHulpmiddel)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-10.1.1"
+      "NL-CM:10.1.1"
     ],
     "stu3_mappings": [
       {
@@ -3194,7 +4027,7 @@
     "name": "Product",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.2"
+      "NL-CM:10.1.2"
     ],
     "stu3_mappings": [
       {
@@ -3210,6 +4043,13 @@
         "profile_id": "ACP-MedicalDevice.Product-ICD",
         "element_path": "Device",
         "element_id": "Device"
+      },
+      {
+        "zib_concept_id": "NL-CM:10.1.2",
+        "resource": "DeviceRequest",
+        "profile_id": "zib-MedicalDeviceRequest",
+        "element_path": "DeviceRequest.code[x]",
+        "element_id": "DeviceRequest.code[x]:codeReference"
       }
     ],
     "r4_mappings": [
@@ -3228,7 +4068,7 @@
     "name": "ProductID",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-10.1.4"
+      "NL-CM:10.1.4"
     ],
     "stu3_mappings": [
       {
@@ -3311,7 +4151,7 @@
     "name": "ProductType van ICD",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-10.1.3"
+      "NL-CM:10.1.3"
     ],
     "stu3_mappings": [
       {
@@ -3334,6 +4174,13 @@
         "profile_id": "ACP-MedicalDevice",
         "element_path": "DeviceUseStatement.device",
         "element_id": "DeviceUseStatement.device"
+      },
+      {
+        "zib_concept_id": "NL-CM:10.1.3",
+        "resource": "DeviceRequest",
+        "profile_id": "zib-MedicalDeviceRequest",
+        "element_path": "DeviceRequest.code[x]",
+        "element_id": "DeviceRequest.code[x]:codeCodeableConcept"
       }
     ],
     "r4_mappings": [
@@ -3352,7 +4199,7 @@
     "name": "ProductOmschrijving",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.13"
+      "NL-CM:10.1.13"
     ],
     "stu3_mappings": [
       {
@@ -3379,7 +4226,7 @@
     "name": "BeginDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.11"
+      "NL-CM:10.1.11"
     ],
     "stu3_mappings": [
       {
@@ -3406,7 +4253,7 @@
     "name": "Indicatie",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.7"
+      "NL-CM:10.1.7"
     ],
     "stu3_mappings": [
       {
@@ -3433,7 +4280,7 @@
     "name": "Probleem",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-130"
+      "NL-CM:2017-130"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -3444,7 +4291,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.10"
+      "NL-CM:10.1.10"
     ],
     "stu3_mappings": [
       {
@@ -3471,7 +4318,7 @@
     "name": "AnatomischeLocatie",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.6"
+      "NL-CM:10.1.6"
     ],
     "stu3_mappings": [
       {
@@ -3498,7 +4345,7 @@
     "name": "Lateraliteit",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.12"
+      "NL-CM:10.1.12"
     ],
     "stu3_mappings": [
       {
@@ -3525,7 +4372,7 @@
     "name": "Locatie",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.8"
+      "NL-CM:10.1.8"
     ],
     "stu3_mappings": [
       {
@@ -3552,7 +4399,7 @@
     "name": "Zorgaanbieder",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-131"
+      "NL-CM:2017-131"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -3563,7 +4410,7 @@
     "name": "Zorgverlener",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-10.1.9"
+      "NL-CM:10.1.9"
     ],
     "stu3_mappings": [
       {
@@ -3590,7 +4437,7 @@
     "name": "Zorgverlener",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-132"
+      "NL-CM:2017-132"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -3609,7 +4456,7 @@
     "name": "Afspraak uitzetten ICD (BehandelAanwijzing)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-2.1.1"
+      "NL-CM:2.1.1"
     ],
     "stu3_mappings": [
       {
@@ -3628,7 +4475,7 @@
     "name": "Verificatie",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.8"
+      "NL-CM:2.1.8"
     ],
     "stu3_mappings": [
       {
@@ -3647,7 +4494,7 @@
     "name": "Geverifieerd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.9"
+      "NL-CM:2.1.9"
     ],
     "stu3_mappings": [
       {
@@ -3666,7 +4513,7 @@
     "name": "GeverifieerdBij",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.11"
+      "NL-CM:2.1.11"
     ],
     "stu3_mappings": [
       {
@@ -3685,7 +4532,7 @@
     "name": "VerificatieDatum",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2.1.10"
+      "NL-CM:2.1.10"
     ],
     "stu3_mappings": [
       {
@@ -3704,7 +4551,7 @@
     "name": "Behandeling van uitzetten ICD",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.3"
+      "NL-CM:2.1.3"
     ],
     "stu3_mappings": [
       {
@@ -3731,7 +4578,7 @@
     "name": "Afspraak uitzetten ICD (BehandelingToegestaan)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.4"
+      "NL-CM:2.1.4"
     ],
     "stu3_mappings": [
       {
@@ -3750,7 +4597,7 @@
     "name": "BeginDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.6"
+      "NL-CM:2.1.6"
     ],
     "stu3_mappings": [
       {
@@ -3777,7 +4624,7 @@
     "name": "EindDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.7"
+      "NL-CM:2.1.7"
     ],
     "stu3_mappings": [
       {
@@ -3804,7 +4651,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.15"
+      "NL-CM:2.1.15"
     ],
     "stu3_mappings": [
       {
@@ -3831,7 +4678,7 @@
     "name": "Wilsverklaring",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-2.1.14"
+      "NL-CM:2.1.14"
     ],
     "stu3_mappings": [
       {
@@ -3865,7 +4712,7 @@
     "name": "Wilsverklaring",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-17"
+      "NL-CM:2017-17"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -3919,7 +4766,7 @@
     "name": "Wens en verwachting patient (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7",
+      "NL-CM:13.3.7",
       "onco-generic-dataelement-545"
     ],
     "stu3_mappings": [
@@ -3939,7 +4786,7 @@
     "name": "Vaststellen wens en verwachting patiënt (Meetmethode)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.8",
+      "NL-CM:13.3.8",
       "onco-generic-dataelement-546"
     ],
     "stu3_mappings": [
@@ -3970,7 +4817,7 @@
     "name": "Gewenste plek van overlijden (AlgemeneMeting)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-13.3.1"
+      "NL-CM:13.3.1"
     ],
     "stu3_mappings": [
       {
@@ -3989,7 +4836,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.4"
+      "NL-CM:13.3.4"
     ],
     "stu3_mappings": [
       {
@@ -4016,7 +4863,7 @@
     "name": "Vastgelegde keuze (MeetUitslag)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.5"
+      "NL-CM:13.3.5"
     ],
     "stu3_mappings": [
       {
@@ -4035,7 +4882,7 @@
     "name": "MetingNaam voor Gewenste plek van overlijden",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.6"
+      "NL-CM:13.3.6"
     ],
     "stu3_mappings": [
       {
@@ -4054,7 +4901,7 @@
     "name": "Voorkeursplek (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7"
+      "NL-CM:13.3.7"
     ],
     "stu3_mappings": [
       {
@@ -4073,7 +4920,7 @@
     "name": "UitslagDatumTijd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.9"
+      "NL-CM:13.3.9"
     ],
     "stu3_mappings": [
       {
@@ -4092,7 +4939,7 @@
     "name": "Euthanasie standpunt (AlgemeneMeting)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-13.3.1"
+      "NL-CM:13.3.1"
     ],
     "stu3_mappings": [
       {
@@ -4111,7 +4958,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.4"
+      "NL-CM:13.3.4"
     ],
     "stu3_mappings": [
       {
@@ -4138,7 +4985,7 @@
     "name": "Vastgelegde keuze (MeetUitslag)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.5"
+      "NL-CM:13.3.5"
     ],
     "stu3_mappings": [
       {
@@ -4157,7 +5004,7 @@
     "name": "MetingNaam voor Euthanasie standpunt",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.6"
+      "NL-CM:13.3.6"
     ],
     "stu3_mappings": [
       {
@@ -4176,7 +5023,7 @@
     "name": "Standpunt (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7"
+      "NL-CM:13.3.7"
     ],
     "stu3_mappings": [
       {
@@ -4195,7 +5042,7 @@
     "name": "UitslagDatumTijd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.9"
+      "NL-CM:13.3.9"
     ],
     "stu3_mappings": [
       {
@@ -4214,7 +5061,7 @@
     "name": "Euthanasieverklaring (Wilsverklaring)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-7.15.1"
+      "NL-CM:7.15.1"
     ],
     "stu3_mappings": [
       {
@@ -4241,7 +5088,7 @@
     "name": "Euthanasieverklaring (WilsverklaringType)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.2"
+      "NL-CM:7.15.2"
     ],
     "stu3_mappings": [
       {
@@ -4268,7 +5115,7 @@
     "name": "WilsverklaringDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.7"
+      "NL-CM:7.15.7"
     ],
     "stu3_mappings": [
       {
@@ -4295,7 +5142,7 @@
     "name": "Aandoening",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.4"
+      "NL-CM:7.15.4"
     ],
     "stu3_mappings": [
       {
@@ -4322,7 +5169,7 @@
     "name": "Probleem",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-216"
+      "NL-CM:2017-216"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -4333,7 +5180,7 @@
     "name": "Vertegenwoordiger",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.3"
+      "NL-CM:7.15.3"
     ],
     "stu3_mappings": [
       {
@@ -4360,7 +5207,7 @@
     "name": "Contactpersoon",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-217"
+      "NL-CM:2017-217"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -4379,7 +5226,7 @@
     "name": "WilsverklaringDocument",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.5"
+      "NL-CM:7.15.5"
     ],
     "stu3_mappings": [
       {
@@ -4406,7 +5253,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.6"
+      "NL-CM:7.15.6"
     ],
     "stu3_mappings": [
       {
@@ -4433,7 +5280,7 @@
     "name": "Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-13.3.1"
+      "NL-CM:13.3.1"
     ],
     "stu3_mappings": [
       {
@@ -4452,7 +5299,7 @@
     "name": "MeetUitslag",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.5"
+      "NL-CM:13.3.5"
     ],
     "stu3_mappings": [
       {
@@ -4471,7 +5318,7 @@
     "name": "MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister?",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.6"
+      "NL-CM:13.3.6"
     ],
     "stu3_mappings": [
       {
@@ -4490,7 +5337,7 @@
     "name": "Keuze orgaandonatie in donorregister (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7"
+      "NL-CM:13.3.7"
     ],
     "stu3_mappings": [
       {
@@ -4509,7 +5356,7 @@
     "name": "Keuze orgaandonatie vastgelegd (Wilsverklaring)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-7.15.1"
+      "NL-CM:7.15.1"
     ],
     "stu3_mappings": [
       {
@@ -4536,7 +5383,7 @@
     "name": "Orgaandonatie (WilsverklaringType)",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.2"
+      "NL-CM:7.15.2"
     ],
     "stu3_mappings": [
       {
@@ -4563,7 +5410,7 @@
     "name": "WilsverklaringDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.7"
+      "NL-CM:7.15.7"
     ],
     "stu3_mappings": [
       {
@@ -4590,7 +5437,7 @@
     "name": "Aandoening",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.4"
+      "NL-CM:7.15.4"
     ],
     "stu3_mappings": [
       {
@@ -4617,7 +5464,7 @@
     "name": "Probleem",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-216"
+      "NL-CM:2017-216"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -4628,7 +5475,7 @@
     "name": "Vertegenwoordiger",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.3"
+      "NL-CM:7.15.3"
     ],
     "stu3_mappings": [
       {
@@ -4655,7 +5502,7 @@
     "name": "Contactpersoon",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-217"
+      "NL-CM:2017-217"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -4674,7 +5521,7 @@
     "name": "WilsverklaringDocument",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.5"
+      "NL-CM:7.15.5"
     ],
     "stu3_mappings": [
       {
@@ -4701,7 +5548,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.6"
+      "NL-CM:7.15.6"
     ],
     "stu3_mappings": [
       {
@@ -4728,7 +5575,7 @@
     "name": "Wat verder nog belangrijk is (AlgemeneMeting)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-13.3.1"
+      "NL-CM:13.3.1"
     ],
     "stu3_mappings": [
       {
@@ -4747,7 +5594,7 @@
     "name": "MeetUitslag",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-13.3.5"
+      "NL-CM:13.3.5"
     ],
     "stu3_mappings": [
       {
@@ -4766,7 +5613,7 @@
     "name": "MetingNaam voor Wat verder nog belangrijk is",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.6"
+      "NL-CM:13.3.6"
     ],
     "stu3_mappings": [
       {
@@ -4785,7 +5632,7 @@
     "name": "Wat verder nog belangrijk is (UitslagWaarde)",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.7"
+      "NL-CM:13.3.7"
     ],
     "stu3_mappings": [
       {
@@ -4804,7 +5651,7 @@
     "name": "UitslagDatumTijd",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-13.3.9"
+      "NL-CM:13.3.9"
     ],
     "stu3_mappings": [
       {
@@ -4823,7 +5670,7 @@
     "name": "Eerder vastgelegde behandelafspraken (Wilsverklaring)",
     "depth": 0,
     "zib_refs": [
-      "NL-CM-7.15.1"
+      "NL-CM:7.15.1"
     ],
     "stu3_mappings": [
       {
@@ -4850,7 +5697,7 @@
     "name": "WilsverklaringType",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.2"
+      "NL-CM:7.15.2"
     ],
     "stu3_mappings": [
       {
@@ -4877,7 +5724,7 @@
     "name": "WilsverklaringDatum",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.7"
+      "NL-CM:7.15.7"
     ],
     "stu3_mappings": [
       {
@@ -4904,7 +5751,7 @@
     "name": "Aandoening",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.4"
+      "NL-CM:7.15.4"
     ],
     "stu3_mappings": [
       {
@@ -4931,7 +5778,7 @@
     "name": "Probleem",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-216"
+      "NL-CM:2017-216"
     ],
     "stu3_mappings": [],
     "r4_mappings": []
@@ -4942,7 +5789,7 @@
     "name": "Vertegenwoordiger",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.3"
+      "NL-CM:7.15.3"
     ],
     "stu3_mappings": [
       {
@@ -4969,7 +5816,7 @@
     "name": "Contactpersoon",
     "depth": 2,
     "zib_refs": [
-      "NL-CM-2017-217"
+      "NL-CM:2017-217"
     ],
     "stu3_mappings": [],
     "r4_mappings": [
@@ -4988,7 +5835,7 @@
     "name": "WilsverklaringDocument",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.5"
+      "NL-CM:7.15.5"
     ],
     "stu3_mappings": [
       {
@@ -5015,7 +5862,7 @@
     "name": "Toelichting",
     "depth": 1,
     "zib_refs": [
-      "NL-CM-7.15.6"
+      "NL-CM:7.15.6"
     ],
     "stu3_mappings": [
       {

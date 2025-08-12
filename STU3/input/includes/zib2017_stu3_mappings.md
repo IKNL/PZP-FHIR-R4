@@ -14,7 +14,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 775 | &emsp;&emsp;Verrichting | Encounter | `Encounter.diagnosis.condition` |
 | 776 | &emsp;&emsp;&emsp;Verrichting | Procedure | `Procedure` |
 | 797 | &emsp;&emsp;&emsp;&emsp;PZP gesprek (VerrichtingType) | Procedure | `Procedure.code` |
-| 283 | ZIBRoot |  |  |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effective[x]` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | RelatedPerson | `RelatedPerson.period` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Consent | `Consent.dateTime` |
@@ -23,22 +22,21 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 304 | &emsp;Datum van invullen (DatumTijd) | DeviceUseStatement | `DeviceUseStatement.whenUsed` |
 | 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effectiveDateTime` |
 | 11 | Patient | Patient | `Patient` |
+| 12 | &emsp;Naamgegevens | HumanName | `HumanName` |
 | 12 | &emsp;Naamgegevens | Patient | `Patient.name` |
-| 13 | &emsp;&emsp;Naamgegevens |  |  |
-| 219 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 220 | &emsp;&emsp;&emsp;Initialen |  |  |
-| 221 | &emsp;&emsp;&emsp;Roepnaam |  |  |
-| 222 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
-| 223 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 224 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 225 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
-| 226 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
-| 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
-| 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
+| 13 | &emsp;&emsp;Naamgegevens | HumanName | `HumanName` |
+| 219 | &emsp;&emsp;&emsp;Voornamen | HumanName | `HumanName.given` |
+| 220 | &emsp;&emsp;&emsp;Initialen | HumanName | `HumanName.given` |
+| 221 | &emsp;&emsp;&emsp;Roepnaam | HumanName | `HumanName.given` |
+| 222 | &emsp;&emsp;&emsp;Naamgebruik | HumanName | `HumanName.extension` |
+| 224 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | HumanName | `HumanName.family.extension` |
+| 225 | &emsp;&emsp;&emsp;&emsp;Achternaam | HumanName | `HumanName.family.extension` |
+| 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | HumanName | `HumanName.family.extension` |
+| 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | HumanName | `HumanName.family.extension` |
+| 14 | &emsp;Adresgegevens | Address | `Address` |
 | 14 | &emsp;Adresgegevens | Patient | `Patient.address` |
-| 15 | &emsp;&emsp;Adresgegevens |  |  |
+| 16 | &emsp;Contactgegevens | ContactPoint | `ContactPoint` |
 | 16 | &emsp;Contactgegevens | Patient | `Patient.telecom` |
-| 17 | &emsp;&emsp;Contactgegevens |  |  |
 | 18 | &emsp;Identificatienummer | Patient | `Patient.identifier` |
 | 19 | &emsp;Geboortedatum | Patient | `Patient.birthDate` |
 | 20 | &emsp;Geslacht | Patient | `Patient.gender` |
@@ -46,110 +44,88 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 24 | Gesprek gevoerd door (Zorgverlener) | Practitioner | `Practitioner` |
 | 25 | &emsp;ZorgverlenerIdentificatienummer | Practitioner | `Practitioner.identifier` |
 | 26 | &emsp;Naamgegevens | Practitioner | `Practitioner.name` |
-| 27 | &emsp;&emsp;Naamgegevens |  |  |
-| 229 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 233 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 234 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 235 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
+| 27 | &emsp;&emsp;Naamgegevens | HumanName | `HumanName` |
+| 229 | &emsp;&emsp;&emsp;Voornamen | HumanName | `HumanName.given` |
+| 234 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | HumanName | `HumanName.family.extension` |
+| 235 | &emsp;&emsp;&emsp;&emsp;Achternaam | HumanName | `HumanName.family.extension` |
 | 28 | &emsp;Functie (Specialisme) | PractitionerRole | `PractitionerRole.specialty` |
-| 758 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen |  |  |
-| 759 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen |  |  |
-| 760 | &emsp;Toelichting |  |  |
 | 36 | Wettelijk vertegenwoordiger (Contactpersoon) | Patient | `Patient.contact` |
 | 36 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 37 | &emsp;Naam wettelijk vertegenwoordiger (Naamgegevens) | Patient | `Patient.contact.name` |
 | 37 | &emsp;Naam wettelijk vertegenwoordiger (Naamgegevens) | RelatedPerson | `RelatedPerson.name` |
-| 38 | &emsp;&emsp;Naamgegevens |  |  |
-| 239 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 240 | &emsp;&emsp;&emsp;Initialen |  |  |
-| 241 | &emsp;&emsp;&emsp;Roepnaam |  |  |
-| 242 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
-| 243 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 244 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 245 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
-| 246 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
-| 247 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
-| 248 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
+| 38 | &emsp;&emsp;Naamgegevens | HumanName | `HumanName` |
+| 239 | &emsp;&emsp;&emsp;Voornamen | HumanName | `HumanName.given` |
+| 240 | &emsp;&emsp;&emsp;Initialen | HumanName | `HumanName.given` |
+| 241 | &emsp;&emsp;&emsp;Roepnaam | HumanName | `HumanName.given` |
+| 242 | &emsp;&emsp;&emsp;Naamgebruik | HumanName | `HumanName.extension` |
+| 244 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | HumanName | `HumanName.family.extension` |
+| 245 | &emsp;&emsp;&emsp;&emsp;Achternaam | HumanName | `HumanName.family.extension` |
+| 247 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | HumanName | `HumanName.family.extension` |
+| 248 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | HumanName | `HumanName.family.extension` |
 | 39 | &emsp;Contactgegevens wettelijk vertegenwoordiger (Contactgegevens) | Patient | `Patient.contact.telecom` |
 | 39 | &emsp;Contactgegevens wettelijk vertegenwoordiger (Contactgegevens) | RelatedPerson | `RelatedPerson.telecom` |
-| 40 | &emsp;&emsp;Contactgegevens |  |  |
-| 249 | &emsp;&emsp;&emsp;Telefoonnummers |  |  |
-| 250 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer |  |  |
-| 251 | &emsp;&emsp;&emsp;&emsp;TelecomType |  |  |
-| 252 | &emsp;&emsp;&emsp;&emsp;NummerSoort |  |  |
-| 253 | &emsp;&emsp;&emsp;EmailAdressen |  |  |
-| 254 | &emsp;&emsp;&emsp;&emsp;EmailAdres |  |  |
-| 255 | &emsp;&emsp;&emsp;&emsp;EmailSoort |  |  |
+| 40 | &emsp;&emsp;Contactgegevens | ContactPoint | `ContactPoint` |
+| 250 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer | ContactPoint | `ContactPoint.value` |
+| 251 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.extension.valueCodeableConcept` |
+| 251 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.system` |
+| 251 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.use` |
+| 252 | &emsp;&emsp;&emsp;&emsp;NummerSoort | ContactPoint | `ContactPoint.use` |
+| 254 | &emsp;&emsp;&emsp;&emsp;EmailAdres | ContactPoint | `ContactPoint.value` |
+| 255 | &emsp;&emsp;&emsp;&emsp;EmailSoort | ContactPoint | `ContactPoint.system` |
+| 255 | &emsp;&emsp;&emsp;&emsp;EmailSoort | ContactPoint | `ContactPoint.use` |
 | 41 | &emsp;Adresgegevens | Patient | `Patient.contact.address` |
 | 41 | &emsp;Adresgegevens | RelatedPerson | `RelatedPerson.address` |
-| 42 | &emsp;&emsp;Adresgegevens |  |  |
 | 43 | &emsp;Rol | Patient | `Patient.contact.relationship` |
 | 43 | &emsp;Rol | Extension | `Extension.valueCodeableConcept` |
 | 43 | &emsp;Rol | RelatedPerson | `RelatedPerson.extension` |
 | 44 | &emsp;Relatie tot patient (Relatie) | Patient | `Patient.contact.relationship` |
 | 44 | &emsp;Relatie tot patient (Relatie) | RelatedPerson | `RelatedPerson.relationship` |
-| 1 | Vertegenwoordiger is contactpersoon |  |  |
 | 45 | Eerste contactpersoon (Contactpersoon) | Patient | `Patient.contact` |
 | 45 | Eerste contactpersoon (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 67 | &emsp;Naamgegevens | Patient | `Patient.contact.name` |
 | 67 | &emsp;Naamgegevens | RelatedPerson | `RelatedPerson.name` |
-| 68 | &emsp;&emsp;Naamgegevens |  |  |
-| 256 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 257 | &emsp;&emsp;&emsp;Initialen |  |  |
-| 258 | &emsp;&emsp;&emsp;Roepnaam |  |  |
-| 259 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
-| 260 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 261 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 262 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
-| 263 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
-| 264 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
-| 265 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
+| 68 | &emsp;&emsp;Naamgegevens | HumanName | `HumanName` |
+| 256 | &emsp;&emsp;&emsp;Voornamen | HumanName | `HumanName.given` |
+| 257 | &emsp;&emsp;&emsp;Initialen | HumanName | `HumanName.given` |
+| 258 | &emsp;&emsp;&emsp;Roepnaam | HumanName | `HumanName.given` |
+| 259 | &emsp;&emsp;&emsp;Naamgebruik | HumanName | `HumanName.extension` |
+| 261 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | HumanName | `HumanName.family.extension` |
+| 262 | &emsp;&emsp;&emsp;&emsp;Achternaam | HumanName | `HumanName.family.extension` |
+| 264 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | HumanName | `HumanName.family.extension` |
+| 265 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | HumanName | `HumanName.family.extension` |
 | 69 | &emsp;Contactgegevens | Patient | `Patient.contact.telecom` |
 | 69 | &emsp;Contactgegevens | RelatedPerson | `RelatedPerson.telecom` |
-| 70 | &emsp;&emsp;Contactgegevens |  |  |
-| 266 | &emsp;&emsp;&emsp;Telefoonnummers |  |  |
-| 267 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer |  |  |
-| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType |  |  |
-| 269 | &emsp;&emsp;&emsp;&emsp;NummerSoort |  |  |
-| 270 | &emsp;&emsp;&emsp;EmailAdressen |  |  |
-| 271 | &emsp;&emsp;&emsp;&emsp;EmailAdres |  |  |
-| 272 | &emsp;&emsp;&emsp;&emsp;EmailSoort |  |  |
+| 70 | &emsp;&emsp;Contactgegevens | ContactPoint | `ContactPoint` |
+| 267 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer | ContactPoint | `ContactPoint.value` |
+| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.extension.valueCodeableConcept` |
+| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.system` |
+| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | ContactPoint | `ContactPoint.use` |
+| 269 | &emsp;&emsp;&emsp;&emsp;NummerSoort | ContactPoint | `ContactPoint.use` |
+| 271 | &emsp;&emsp;&emsp;&emsp;EmailAdres | ContactPoint | `ContactPoint.value` |
+| 272 | &emsp;&emsp;&emsp;&emsp;EmailSoort | ContactPoint | `ContactPoint.system` |
+| 272 | &emsp;&emsp;&emsp;&emsp;EmailSoort | ContactPoint | `ContactPoint.use` |
 | 71 | &emsp;Adresgegevens | Patient | `Patient.contact.address` |
 | 71 | &emsp;Adresgegevens | RelatedPerson | `RelatedPerson.address` |
-| 72 | &emsp;&emsp;Adresgegevens |  |  |
 | 73 | &emsp;Rol | Patient | `Patient.contact.relationship` |
 | 73 | &emsp;Rol | Extension | `Extension.valueCodeableConcept` |
 | 73 | &emsp;Rol | RelatedPerson | `RelatedPerson.extension` |
 | 74 | &emsp;Relatie tot patient (Relatie) | Patient | `Patient.contact.relationship` |
 | 74 | &emsp;Relatie tot patient (Relatie) | RelatedPerson | `RelatedPerson.relationship` |
-| 305 | Gesprek gevoerd in bijzijn van (Patient) |  |  |
+| 328 | &emsp;Naamgegevens | HumanName | `HumanName` |
 | 328 | &emsp;Naamgegevens | Patient | `Patient.name` |
-| 329 | &emsp;&emsp;Naamgegevens |  |  |
-| 330 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 331 | &emsp;&emsp;&emsp;Initialen |  |  |
-| 332 | &emsp;&emsp;&emsp;Roepnaam |  |  |
-| 333 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
-| 334 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 335 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 336 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
-| 337 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
-| 338 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
-| 339 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Patient | `Patient.contact` |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | RelatedPerson | `RelatedPerson` |
 | 149 | &emsp;Naamgegevens | Patient | `Patient.contact.name` |
 | 149 | &emsp;Naamgegevens | RelatedPerson | `RelatedPerson.name` |
-| 150 | &emsp;&emsp;Naamgegevens |  |  |
-| 273 | &emsp;&emsp;&emsp;Voornamen |  |  |
-| 274 | &emsp;&emsp;&emsp;Initialen |  |  |
-| 275 | &emsp;&emsp;&emsp;Roepnaam |  |  |
-| 276 | &emsp;&emsp;&emsp;Naamgebruik |  |  |
-| 277 | &emsp;&emsp;&emsp;Geslachtsnaam |  |  |
-| 278 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels |  |  |
-| 279 | &emsp;&emsp;&emsp;&emsp;Achternaam |  |  |
-| 280 | &emsp;&emsp;&emsp;GeslachtsnaamPartner |  |  |
-| 281 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner |  |  |
-| 282 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner |  |  |
+| 150 | &emsp;&emsp;Naamgegevens | HumanName | `HumanName` |
+| 273 | &emsp;&emsp;&emsp;Voornamen | HumanName | `HumanName.given` |
+| 274 | &emsp;&emsp;&emsp;Initialen | HumanName | `HumanName.given` |
+| 275 | &emsp;&emsp;&emsp;Roepnaam | HumanName | `HumanName.given` |
+| 276 | &emsp;&emsp;&emsp;Naamgebruik | HumanName | `HumanName.extension` |
+| 278 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | HumanName | `HumanName.family.extension` |
+| 279 | &emsp;&emsp;&emsp;&emsp;Achternaam | HumanName | `HumanName.family.extension` |
+| 281 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | HumanName | `HumanName.family.extension` |
+| 282 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | HumanName | `HumanName.family.extension` |
 | 155 | &emsp;Rol | Patient | `Patient.contact.relationship` |
 | 155 | &emsp;Rol | Extension | `Extension.valueCodeableConcept` |
 | 155 | &emsp;Rol | RelatedPerson | `RelatedPerson.extension` |
@@ -174,8 +150,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 64 | &emsp;Toelichting | Consent | `Consent.extension` |
 | 65 | &emsp;Wilsverklaring | Consent | `Consent.extension.value[x]` |
 | 65 | &emsp;Wilsverklaring | Consent | `Consent.source[x]` |
-| 66 | &emsp;&emsp;Wilsverklaring |  |  |
-| 218 | Heeft de patient een ICD? |  |  |
 | 75 | ICD (MedischHulpmiddel) | DeviceUseStatement | `DeviceUseStatement` |
 | 76 | &emsp;Product | DeviceUseStatement | `DeviceUseStatement.device` |
 | 76 | &emsp;Product | Device | `Device` |
@@ -191,14 +165,11 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 79 | &emsp;ProductOmschrijving | Device | `Device.note.text` |
 | 80 | &emsp;BeginDatum | DeviceUseStatement | `DeviceUseStatement.whenUsed.start` |
 | 81 | &emsp;Indicatie | DeviceUseStatement | `DeviceUseStatement.indication.extension` |
-| 82 | &emsp;&emsp;Probleem |  |  |
 | 83 | &emsp;Toelichting | DeviceUseStatement | `DeviceUseStatement.note.text` |
 | 84 | &emsp;AnatomischeLocatie | DeviceUseStatement | `DeviceUseStatement.bodySite` |
 | 85 | &emsp;Lateraliteit | DeviceUseStatement | `DeviceUseStatement.bodySite.extension.valueCodeableConcept` |
 | 86 | &emsp;Locatie | DeviceUseStatement | `DeviceUseStatement.extension` |
-| 87 | &emsp;&emsp;Zorgaanbieder |  |  |
 | 88 | &emsp;Zorgverlener | DeviceUseStatement | `DeviceUseStatement.extension` |
-| 89 | &emsp;&emsp;Zorgverlener |  |  |
 | 90 | Afspraak uitzetten ICD (BehandelAanwijzing) | Consent | `Consent` |
 | 91 | &emsp;Verificatie | Consent | `Consent.extension` |
 | 92 | &emsp;&emsp;Geverifieerd | Consent | `Consent.extension.extension` |
@@ -211,13 +182,8 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 100 | &emsp;Toelichting | Consent | `Consent.extension` |
 | 101 | &emsp;Wilsverklaring | Consent | `Consent.extension.value[x]` |
 | 101 | &emsp;Wilsverklaring | Consent | `Consent.source[x]` |
-| 102 | &emsp;&emsp;Wilsverklaring |  |  |
-| 190 | Specifieke wensen (AlgemeneMeting) |  |  |
-| 202 | &emsp;MeetUitslag |  |  |
-| 203 | &emsp;&emsp;Wens en verwachting patient (MetingNaam) |  |  |
 | 204 | &emsp;&emsp;Wens en verwachting patient (UitslagWaarde) | Observation | `Observation.value[x]` |
 | 205 | &emsp;&emsp;Vaststellen wens en verwachting patiënt (Meetmethode) | Observation | `Observation.method` |
-| 206 | &emsp;&emsp;UitslagDatumTijd |  |  |
 | 105 | Gewenste plek van overlijden (AlgemeneMeting) | Observation | `Observation` |
 | 108 | &emsp;Toelichting | Observation | `Observation.comment` |
 | 109 | &emsp;Vastgelegde keuze (MeetUitslag) | Observation | `Observation.related` |
@@ -234,9 +200,7 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 175 | &emsp;Euthanasieverklaring (WilsverklaringType) | Consent | `Consent.category` |
 | 176 | &emsp;WilsverklaringDatum | Consent | `Consent.dateTime` |
 | 177 | &emsp;Aandoening | Consent | `Consent.extension` |
-| 178 | &emsp;&emsp;Probleem |  |  |
 | 179 | &emsp;Vertegenwoordiger | Consent | `Consent.consentingParty` |
-| 180 | &emsp;&emsp;Contactpersoon |  |  |
 | 181 | &emsp;WilsverklaringDocument | Consent | `Consent.source[x]` |
 | 182 | &emsp;Toelichting | Consent | `Consent.extension` |
 | 737 | Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting) | Observation | `Observation` |
@@ -247,9 +211,7 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 124 | &emsp;Orgaandonatie (WilsverklaringType) | Consent | `Consent.category` |
 | 125 | &emsp;WilsverklaringDatum | Consent | `Consent.dateTime` |
 | 126 | &emsp;Aandoening | Consent | `Consent.extension` |
-| 127 | &emsp;&emsp;Probleem |  |  |
 | 128 | &emsp;Vertegenwoordiger | Consent | `Consent.consentingParty` |
-| 129 | &emsp;&emsp;Contactpersoon |  |  |
 | 130 | &emsp;WilsverklaringDocument | Consent | `Consent.source[x]` |
 | 131 | &emsp;Toelichting | Consent | `Consent.extension` |
 | 132 | Wat verder nog belangrijk is (AlgemeneMeting) | Observation | `Observation` |
@@ -261,14 +223,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 140 | &emsp;WilsverklaringType | Consent | `Consent.category` |
 | 141 | &emsp;WilsverklaringDatum | Consent | `Consent.dateTime` |
 | 142 | &emsp;Aandoening | Consent | `Consent.extension` |
-| 143 | &emsp;&emsp;Probleem |  |  |
 | 144 | &emsp;Vertegenwoordiger | Consent | `Consent.consentingParty` |
-| 145 | &emsp;&emsp;Contactpersoon |  |  |
 | 146 | &emsp;WilsverklaringDocument | Consent | `Consent.source[x]` |
 | 147 | &emsp;Toelichting | Consent | `Consent.extension` |
-| 183 | Heeft de patient eerder behandelafspraken vastgelegd? |  |  |
-| 207 | &emsp;Heeft de patient eerder behandelafspraken vastgelegd? |  |  |
-| 184 | &emsp;Toelichting |  |  |
-| 189 | Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring? |  |  |
-| 187 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? |  |  |
-| 188 | Patient gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners |  |  |
