@@ -38,6 +38,7 @@ group StructureDefinition(source src : StructureDefinition, target tgt : Structu
   
   // Transform R4 context objects to temporary extension for post-processing
   src.context as contextList -> tgt.extension as ext then createContextExtension(contextList, ext) "context-to-extension";
+  src.context as contextType -> tgt.extension as ext then createContextTypeExtension(contextType, ext) "contextType-to-extension";
   
   src.snapshot as vs0 -> tgt.snapshot as vt0 then {
     vs0.element as vs1 -> vt0.element as vt1 then ElementDefinition(vs1, vt1);
@@ -73,4 +74,11 @@ group mapR4toSTU3Uri(source src, target tgt) {
 group createContextExtension(source src, target ext) {
     src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition.context' "context-extension-url";
     src.expression as expr -> ext.value = create('string') as extValue then string(expr, extValue) "context-expression-value";
+
+ 
+}
+
+group createContextTypeExtension(source src, target ext) {
+    src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition.contextType' "contextType-extension-url";
+    src -> ext.value = 'resource' "contextType-extension-value";
 }
