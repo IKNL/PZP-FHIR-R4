@@ -31,9 +31,9 @@ Usage: #example
 * performer[0].actor = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
 * performer[+].actor = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
-* performer[=].actor.type = "RelatedPerson"
+* performer[=].actor.type = "ContactPerson"
 * performer[+].actor = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer[=].actor.type = "RelatedPerson" // Why is performer[=].actor.type = "RelatedPerson" for both ContactPerson and Patient, while references in profile mention either ContactPerson or Patient
+* performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
 

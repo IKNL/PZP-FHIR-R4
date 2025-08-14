@@ -33,4 +33,3 @@ Usage: #example
 * name.family.extension[=].valueString = "van"
 * name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
 * name.family.extension[=].valueString = "Huissen"
-* name.prefix = "Dr." // not in test script, why add it here?

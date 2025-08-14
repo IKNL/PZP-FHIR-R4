@@ -2,7 +2,7 @@ Profile: ACPSpecificCareWishes
 Parent: Observation
 Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
-Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource and HCIM template Measurement."
+Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -31,7 +31,9 @@ Instance: F1-ACP-SpecificCareWishes
 InstanceOf: ACPSpecificCareWishes
 Title: "F1 ACP Specific Care Wishes"
 Usage: #example
-// why doesn't this have an identifier?
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "c68d0feb-ee43-45d5-86f5-a7f43a20f167"
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
@@ -51,7 +53,7 @@ Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
 Title: "Preferred Place Of Death"
-Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource and HCIM template Measurement."
+Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -95,7 +97,7 @@ Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
 Title: "Position Regarding Euthanasia"
-Description: "The patient's position regarding euthanasia. Based on Observation resource and HCIM template Measurement."
+Description: "The patient's position regarding euthanasia. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -140,7 +142,7 @@ Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
 Title: "Organ donation choice registration in donor register"
-Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource and HCIM template Measurement."
+Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -182,7 +184,7 @@ Profile: ACPOtherImportantInformation
 Parent: Observation
 Id: ACP-OtherImportantInformation
 Title: "Other Important Information"
-Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource and HCIM template Measurement."
+Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)

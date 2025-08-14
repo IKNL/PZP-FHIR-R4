@@ -12,4 +12,4 @@ Usage: #example
 * sent = "2025-07-29"
 * recipient = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * sender = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
-* reasonCode = $snomed#713603004 "Advance care planning (procedure)" // Is this necessary, as it's a fixed value? It's not done in Procedure example.
+* reasonCode = $snomed#713603004 "Advance care planning (procedure)"

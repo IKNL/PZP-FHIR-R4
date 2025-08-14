@@ -13,7 +13,6 @@ Usage: #example
 * name.family.extension[=].valueString = "Huissen"
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Marleen"
-* name.prefix = "Dr." // not in test script, why add it here?
 
 
 Instance: P1-ACP-HealthProfessional2-Practitioner-Santos
