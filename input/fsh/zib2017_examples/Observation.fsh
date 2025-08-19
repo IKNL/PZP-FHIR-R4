@@ -28,7 +28,7 @@ Usage: #example
 * encounter = Reference(P1-ACP-Encounter-29-07-2025) "Encounter, 2025-07-29"
 * effectiveDateTime = "2025-07-29"
 * performer = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
-* valueCodeableConcept = $snomed#264362003 "Private dwelling" // Why is this actually private dwelling and not home in our value set? And should we add (environment)?
+* valueCodeableConcept = $snomed#264362003 "thuis (omgeving)"
 * note.text = "Het liefst rustig thuis"
 
 
