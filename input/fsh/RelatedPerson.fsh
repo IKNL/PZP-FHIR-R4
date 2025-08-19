@@ -117,7 +117,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.11
 
 Instance: F1-ACP-ContactPerson-MichielHartman
 InstanceOf: ACPContactPerson
-Title: "F1 ACP ContactPerson Hendrik Hartman"
+Title: "F1 ACP ContactPerson Michiel Hartman"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
