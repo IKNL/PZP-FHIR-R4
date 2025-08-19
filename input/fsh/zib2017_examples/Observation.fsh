@@ -6,7 +6,7 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d2a5de51-c409-4ade-846a-9b81d1f29a26"
 * status = #final
-* code =  $snomed#153851000146100 
+* code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling (waarneembare entiteit)"
 * subject = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * encounter = Reference(P1-ACP-Encounter-29-07-2025) "Encounter, 2025-07-29"
 * effectiveDateTime = "2025-07-29"
