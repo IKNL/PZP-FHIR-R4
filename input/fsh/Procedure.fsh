@@ -33,8 +33,7 @@ Usage: #example
 * performer[+].actor = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * performer[=].actor.type = "RelatedPerson"
 * performer[+].actor = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer[=].actor.type = "Patient" 
+* performer[=].actor.type = "Patient"
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
-
-
+// klopt het dat in dit voorbeeld de code nog mist? 

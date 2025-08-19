@@ -50,5 +50,3 @@ Usage: #example
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"
 * reasonReference = Reference(F1-ACP-Procedure-01-10-2020) "Procedure, ACP"
-
-

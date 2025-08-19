@@ -219,8 +219,3 @@ Usage: #example
 * code =  $snomed#247751003
 * valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"
-
-
-
-
-
