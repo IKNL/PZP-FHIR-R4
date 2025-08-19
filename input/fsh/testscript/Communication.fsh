@@ -9,7 +9,7 @@ Usage: #example
 * topic.text = "Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * status = #completed
 * sent = "2025-08-07"
-* subject = Reference(P2-ACP-Patient-Samiravandersluijs) "Patient, Samira van der Sluijs"
-* recipient = Reference(P2-ACP-Patient-Samiravandersluijs) "Patient, Samira van der Sluijs"
+* subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* recipient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * sender = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * reasonCode = $snomed#713603004 "Advance care planning (procedure)"

@@ -14,9 +14,9 @@ Usage: #example
 * name.given.extension.valueCode = #BR
 
 
-Instance: P2-ACP-HealthProfessional2-Practitioner-Santos
+Instance: P2-ACP-HealthProfessional-Practitioner-Santos
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "P2 ACP HealthProfessional2 Practitioner Santos"
+Title: "P2 ACP HealthProfessional Practitioner Santos"
 Usage: #example
 * name.use = #official
 * name.text = "Richard Santos"

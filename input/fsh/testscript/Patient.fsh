@@ -1,4 +1,4 @@
-Instance: P2-ACP-Patient-Samiravandersluijs
+Instance: P2-ACP-Patient-SamiraVanDerSluijs
 InstanceOf: ACPPatient
 Title: "P2 ACP Patient Samira van der Sluijs"
 Usage: #example

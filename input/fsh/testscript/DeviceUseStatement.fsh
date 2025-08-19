@@ -5,9 +5,9 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "3fdc0ec5-2984-4b47-b6b8-f9822fb8c425"
-* extension[healthProfessional].valueReference = Reference(P2-ACP-HealthProfessional2-PractitionerRole-Santos) "Healthcare professional, Santos"
+* extension[healthProfessional].valueReference = Reference(P2-ACP-HealthProfessional-PractitionerRole-Santos) "Healthcare professional, Santos"
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
-* subject = Reference(P2-ACP-Patient-Samiravandersluijs) "Patient, Samira van der Sluijs"
+* subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * device = Reference(P2-ACP-MedicalDevice.Product-ICD)
 * status = #active
 * timingPeriod.start = "2024"
