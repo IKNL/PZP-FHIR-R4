@@ -629,6 +629,24 @@ def generate_integration_json(zib2017, stu3_mappings, zib2020, r4_mappings, outp
                 deduplicated_mappings.append(m)
         
         rec['stu3_mappings'] = deduplicated_mappings
+        
+        # Final exact duplicate removal: same dataset_id + resource + element_path
+        final_mappings = []
+        seen_mappings = set()
+        for m in rec['stu3_mappings']:
+            # Create a key from the dataset_id (which this record represents) + mapping details
+            mapping_key = (
+                rec.get('dataset_id', ''),
+                m.get('resource', ''),
+                m.get('profile_id', ''),
+                m.get('element_path', ''),
+                m.get('element_id', '')
+            )
+            if mapping_key not in seen_mappings:
+                seen_mappings.add(mapping_key)
+                final_mappings.append(m)
+        
+        rec['stu3_mappings'] = final_mappings
         # If no host-resource mappings found, try datatype profile propagation
         if not rec['stu3_mappings']:
             # fallback from selected datatype profiles only
@@ -834,7 +852,23 @@ def generate_ig_markdown(integration_file, resources_dir, output_file):
                     # Host resource mapping - always keep
                     deduplicated_mappings.append(m)
             
+            # Final exact duplicate removal for markdown: same dataset_id + resource + element_path
+            final_mappings = []
+            seen_mappings = set()
             for m in deduplicated_mappings:
+                # Create a key from the dataset_id (which this record represents) + mapping details
+                mapping_key = (
+                    did,  # dataset_id for this record
+                    m.get('resource', ''),
+                    m.get('profile_id', ''),
+                    m.get('element_path', ''),
+                    m.get('element_id', '')
+                )
+                if mapping_key not in seen_mappings:
+                    seen_mappings.add(mapping_key)
+                    final_mappings.append(m)
+            
+            for m in final_mappings:
                 resource = m.get('resource', '')
                 path = m.get('element_path', '')
                 # only include in-scope and allowed resources

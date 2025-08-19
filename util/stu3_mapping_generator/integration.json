@@ -355,13 +355,6 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.name",
         "element_id": "Patient.name"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "Patient",
-        "profile_id": "ACP-Patient",
-        "element_path": "Patient.name",
-        "element_id": "Patient.name"
       }
     ],
     "r4_mappings": [
@@ -654,13 +647,6 @@
         "profile_id": "ACP-Patient",
         "element_path": "Patient.address",
         "element_id": "Patient.address"
-      },
-      {
-        "zib_concept_id": "NL-CM:0.1.4",
-        "resource": "Patient",
-        "profile_id": "ACP-Patient",
-        "element_path": "Patient.address",
-        "element_id": "Patient.address"
       }
     ],
     "r4_mappings": [
@@ -701,13 +687,6 @@
       "NL-CM:0.1.5"
     ],
     "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:0.1.5",
-        "resource": "Patient",
-        "profile_id": "ACP-Patient",
-        "element_path": "Patient.telecom",
-        "element_id": "Patient.telecom"
-      },
       {
         "zib_concept_id": "NL-CM:0.1.5",
         "resource": "Patient",
@@ -2566,13 +2545,6 @@
       "pall-izppz-dataelement-12"
     ],
     "stu3_mappings": [
-      {
-        "zib_concept_id": "NL-CM:0.1.6",
-        "resource": "Patient",
-        "profile_id": "ACP-Patient",
-        "element_path": "Patient.name",
-        "element_id": "Patient.name"
-      },
       {
         "zib_concept_id": "NL-CM:0.1.6",
         "resource": "Patient",

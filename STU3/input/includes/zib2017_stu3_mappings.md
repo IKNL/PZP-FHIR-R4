@@ -23,7 +23,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 304 | &emsp;Datum van invullen (DatumTijd) | Observation | `Observation.effectiveDateTime` |
 | 11 | Patient | Patient | `Patient` |
 | 12 | &emsp;Naamgegevens | Patient | `Patient.name` |
-| 12 | &emsp;Naamgegevens | Patient | `Patient.name` |
 | 13 | &emsp;&emsp;Naamgegevens | Patient | `Patient.name` |
 | 219 | &emsp;&emsp;&emsp;Voornamen | Patient | `Patient.name.given` |
 | 220 | &emsp;&emsp;&emsp;Initialen | Patient | `Patient.name.given` |
@@ -34,8 +33,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | Patient | `Patient.name.family.extension` |
 | 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | Patient | `Patient.name.family.extension` |
 | 14 | &emsp;Adresgegevens | Patient | `Patient.address` |
-| 14 | &emsp;Adresgegevens | Patient | `Patient.address` |
-| 16 | &emsp;Contactgegevens | Patient | `Patient.telecom` |
 | 16 | &emsp;Contactgegevens | Patient | `Patient.telecom` |
 | 18 | &emsp;Identificatienummer | Patient | `Patient.identifier` |
 | 19 | &emsp;Geboortedatum | Patient | `Patient.birthDate` |
@@ -109,7 +106,6 @@ This table lists all ZIB2017 dataset elements in original order, including unmap
 | 73 | &emsp;Rol | RelatedPerson | `RelatedPerson.extension` |
 | 74 | &emsp;Relatie tot patient (Relatie) | Patient | `Patient.contact.relationship` |
 | 74 | &emsp;Relatie tot patient (Relatie) | RelatedPerson | `RelatedPerson.relationship` |
-| 328 | &emsp;Naamgegevens | Patient | `Patient.name` |
 | 328 | &emsp;Naamgegevens | Patient | `Patient.name` |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Patient | `Patient.contact` |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | RelatedPerson | `RelatedPerson` |
