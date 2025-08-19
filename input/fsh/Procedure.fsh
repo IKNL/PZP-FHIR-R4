@@ -8,7 +8,7 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * encounter only Reference(ACPEncounter)
 * performer.actor only Reference(ACPHealthProfessionalPractitionerRole or ACPContactPerson or ACPPatient)
 * code 1..1
-* code = $snomed#713603004 "Advance care planning (procedure)"
+* code = $snomed#713603004
 
 
 Mapping: MapACPProcedure
@@ -18,6 +18,7 @@ Source: ACPProcedure
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
 * -> "820" "Verrichting"
 * code -> "827" "PZP gesprek (VerrichtingType)"
+
 
 Instance: F1-ACP-Procedure-01-10-2020
 InstanceOf: ACPProcedure
@@ -36,4 +37,4 @@ Usage: #example
 * performer[=].actor.type = "Patient"
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
-// klopt het dat in dit voorbeeld de code nog mist? 
+* code = $snomed#713603004 "Advance care planning (procedure)"
