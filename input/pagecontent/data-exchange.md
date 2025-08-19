@@ -1,7 +1,6 @@
 This page describes the two primary methods for retrieving a patient's Advance Care Planning (ACP) information using the FHIR API. The best method depends on your application's needs.
-
-1. As a form. Fetching `QuestionnaireResponse` resource(s). This contains the patient's answers of an ACP questionnaire.
-2. As individual resources. By fetching specific resources (`Consent`, `Goal`, `Observation`, etc.) that together form the patient's ACP. See <a href="data-model.html">Data Model page</a> for a complete overview.
+1. As individual resources. By fetching specific resources (`Consent`, `Goal`, `Observation`, etc.) that together form the patient's ACP. See <a href="data-model.html">Data Model page</a> for a complete overview.
+2. As a form. Fetching `QuestionnaireResponse` resource(s). This contains the ACP agreements recorded according to the structured form for uniform registration of ACP.
 
 ---
 
@@ -15,34 +14,7 @@ All interactions adhere to the following principles.
 
 ---
 
-### Method 1: Retrieve ACP QuestionnaireResponse
-
-This approach is used to retrieve the complete, user-entered ACP document in its original context. It retrieves `QuestionnaireResponse` resources that contain the patient's answers.
-
-#### Client Request
-
-A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the official ACP questionnaire to ensure that only the correct form is returned.
-
-> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/ACP/Questionnaire/ACP-Form-R4
-
-
-#### Server Response
-
-The server follows standard FHIR response rules:
-
-* Success: 200 OK. The response body will contain a Bundle with the matching QuestionnaireResponse resource(s).
-* Not Found: 200 OK. If the patient has not completed the questionnaire, the server will return an empty Bundle.
-
-##### Server Response
-
-Standard FHIR rules apply: 
-
-* Success: `200 OK`. The server will return a Bundle containing the matching QuestionnaireResponse resource(s) for the patient.
-* Not Found: If the patient has not completed an ACP questionnaire, the server will return a 200 OK with an empty Bundle.
-
----
-
-### Method 2: Retrieve ACP as Individual Resources
+### Method 1: Retrieve ACP as Individual Resources
 
 This approach provides granular access to the individual clinical statements that constitute the ACP. It allows applications to query for specific data points without processing an entire form.
 
@@ -50,16 +22,12 @@ This approach is useful for applications that need to query specific parts of a 
 
 #### Client Requests
 
-The below listed search request show how all the relevant ACP **Consultation**,  **Agreements** and **Supporting Information** can be retrieved. Information on all **Individuals** are referenced from these resources and be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search request show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
 
 ```
-Consultation
-
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
 
 1b GET [base]/Encounter?patient=[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include:Encounter:reason-reference
-
-Agreements
 
 2 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
 
@@ -69,22 +37,20 @@ Agreements
 
 5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
-Supporting information
-
 6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
 
 7 GET [base]/Communication?patient=[id]&reason-code=http://snomed.info/sct|713603004
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
-    * A) Retrieves `Procedure` resources representing advance care planning procedures and includes the associated `Encounter` resource where the procedure took place.
-    * B) Retrieves `Encounter` resources that list an advance care planning procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
+    * A) Retrieves `Procedure` resources representing ACP procedures and includes the associated `Encounter` resource where the procedure took place.
+    * B) Retrieves `Encounter` resources that list an ACP procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, Contact Persons, and Health Professionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (Contact Persons).
 4. Retrieves `Goal` resources with a Medical Policy Goal code in the `Goal.description`.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
-7. Retrieves `Communication` resources representing all communication events related to the advance care planning procedure.
+7. Retrieves `Communication` resources representing all communication events related to the ACP procedure.
 
 #### Advanced Search Parameters Supported
 
@@ -102,3 +68,31 @@ Standard FHIR rules apply for every resource request:
 
 * Success: `200 OK`. The server will return a Bundle containing the matching resource(s) for the patient.
 * Not Found: If the patient has no matching resources, the server will return a 200 OK with an empty Bundle.
+
+---
+
+### Method 2: Retrieve ACP QuestionnaireResponse
+
+This approach is used to retrieve the complete form for uniform registration of ACP in its original context. It retrieves `QuestionnaireResponse` resources that contain the content discussed by the individuals involved in the ACP conversation.
+
+#### Client Request
+
+A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the official ACP questionnaire to ensure that only the correct form is returned.
+
+> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/ACP/Questionnaire/ACP-Form-R4
+
+
+#### Server Response
+
+The server follows standard FHIR response rules:
+
+* Success: 200 OK. The response body will contain a Bundle with the matching QuestionnaireResponse resource(s).
+* Not Found: 200 OK. If there is no completed form for this patient, the server will return an empty Bundle.
+
+##### Server Response
+
+Standard FHIR rules apply: 
+
+* Success: `200 OK`. The server will return a Bundle containing the matching QuestionnaireResponse resource(s) for the patient.
+* Not Found: If there is no completed form for this patient, the server will return an empty Bundle.
+

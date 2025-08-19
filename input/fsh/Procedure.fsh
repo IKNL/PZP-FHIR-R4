@@ -2,7 +2,7 @@ Profile: ACPProcedure
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event
 Id: ACP-Procedure
 Title: "Advance Care Planning Procedure"
-Description: "Advance Care Planning Procedure"
+Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure."
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
@@ -30,10 +30,10 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[0].actor = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
-* performer[+].actor = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* performer[+].actor = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * performer[=].actor.type = "RelatedPerson"
 * performer[+].actor = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer[=].actor.type = "RelatedPerson"
+* performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
 

@@ -2,7 +2,7 @@ Profile: ACPMedicalPolicyGoal
 Parent: Goal
 Id: ACP-Medical-Policy-Goal
 Title: "Medical Policy Goal"
-Description: "A profile on the FHIR Goal resource to represent the primary, agreed-upon goal of a patient's medical treatment policy."
+Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
 * extension contains
     ExtEncounterReference  named encounter 0..1

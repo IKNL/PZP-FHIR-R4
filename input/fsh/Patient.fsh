@@ -2,7 +2,7 @@ Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
 Title: "Patient"
-Description: "A person who receives medical, psychological, paramedical, or nursing care."
+Description: "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient."
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
@@ -106,7 +106,7 @@ Usage: #example
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Hendrik"
 * birthDate = "1961-01-01"
-* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-HendrikHartman)
+* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-MichielHartman)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * contact.relationship[+] = $v3-RoleCode#BRO "brother"
