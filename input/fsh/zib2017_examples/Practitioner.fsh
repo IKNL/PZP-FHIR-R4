@@ -15,9 +15,9 @@ Usage: #example
 * name[nameInformation-GivenName].given = "Marleen"
 
 
-Instance: P1-ACP-HealthProfessional2-Practitioner-Santos
+Instance: P1-ACP-HealthProfessional-Practitioner-Santos
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "P1 ACP HealthProfessional2 Practitioner Santos"
+Title: "P1 ACP HealthProfessional Practitioner Santos"
 Usage: #example
 * name.use = #official
 * name.text = "Richard Santos"

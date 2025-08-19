@@ -2,7 +2,7 @@ Instance: P1-ACP-MedicalDevice-ICD
 InstanceOf: ACP-MedicalDevice
 Title: "P1 ACP MedicalDevice ICD"
 Usage: #example
-* extension[healthProfessional].valueReference = Reference(P1-ACP-HealthProfessionalRole2-Practitioner-Santos) "Healthcare professional, Santos"
+* extension[healthProfessional].valueReference = Reference(P1-ACP-HealthProfessional-PractitionerRole-Santos) "Healthcare professional, Santos"
 * extension[location].valueReference = Reference(P1-ACP-Healthcareprovider-Location) "Healthcare provider (location), Zorginstelling F"
 * extension[encounter].valueReference = Reference(P1-ACP-Encounter-29-07-2025) "Encounter, 2025-07-29"
 * identifier.type = $v2-0203#RI "Resource identifier"
