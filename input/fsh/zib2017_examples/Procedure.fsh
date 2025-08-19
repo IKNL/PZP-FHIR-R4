@@ -9,7 +9,7 @@ Usage: #example
 * subject = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[0].actor = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
-* performer[+].actor = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* performer[+].actor = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * performer[=].actor.type = "ContactPerson"
 * performer[+].actor = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[=].actor.type = "Patient" 

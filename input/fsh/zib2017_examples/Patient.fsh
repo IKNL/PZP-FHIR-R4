@@ -70,7 +70,7 @@ Usage: #example
 * address[=].country.extension[=].valueCodeableConcept.coding[=].version = "2020-10-26T00:00:00"
 * address[=].country.extension[=].valueCodeableConcept.coding[=].code = #NL
 * address[=].country.extension[=].valueCodeableConcept.coding[=].display = "Netherlands"
-* contact.extension[relatedPerson].valueReference = Reference(P1-ACP-ContactPerson1-HendrikHartman)
+* contact.extension[relatedPerson].valueReference = Reference(P1-ACP-ContactPerson-MirjamDeLeeuwHartman)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = $v3-RoleCode#WIFE "Wife"
 * contact.name[0].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"

@@ -10,7 +10,7 @@ Usage: #example
 * subject = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * participant[0].individual = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * participant[=].individual.type = "PractitionerRole"
-* participant[+].individual = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* participant[+].individual = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2025-07-29"
 * period.end = "2025-07-29"

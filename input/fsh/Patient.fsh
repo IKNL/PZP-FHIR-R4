@@ -106,7 +106,7 @@ Usage: #example
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Hendrik"
 * birthDate = "1961-01-01"
-* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-HendrikHartman)
+* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-MichielHartman)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * contact.relationship[+] = $v3-RoleCode#BRO "brother"

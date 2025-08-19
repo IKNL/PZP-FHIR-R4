@@ -30,7 +30,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[0].actor = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
-* performer[+].actor = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* performer[+].actor = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * performer[=].actor.type = "RelatedPerson"
 * performer[+].actor = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[=].actor.type = "Patient" 

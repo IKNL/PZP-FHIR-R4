@@ -45,7 +45,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * participant[0].individual = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * participant[=].individual.type = "PractitionerRole"
-* participant[+].individual = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* participant[+].individual = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"

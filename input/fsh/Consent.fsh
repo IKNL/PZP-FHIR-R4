@@ -262,6 +262,6 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.actor[agreementParty][+].reference = Reference(F1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][+].reference = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "RelatedPerson"
 * provision.code = $snomed#305351004 "Admit to ITU"

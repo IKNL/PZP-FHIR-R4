@@ -14,7 +14,7 @@ Usage: #example
 * sourceAttachment.title = "Niet reanimeren verklaring Hartman"
 * sourceAttachment.creation = "2025-04-28" // which date to use? dateTime of the directive or date of the document?
 // Check for better way to include pdf
-* provision.actor[representative].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[representative].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[representative].reference.type = "RelatedPerson"
 * provision.code = urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1#NR "Niet reanimeren verklaring"
 
@@ -33,7 +33,7 @@ Usage: #example
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #deny
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -53,7 +53,7 @@ Usage: #example
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #deny
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -75,7 +75,7 @@ Usage: #example
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #deny
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -95,7 +95,7 @@ Usage: #example
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -116,7 +116,7 @@ Usage: #example
 * policy.uri = "https://wetten.overheid.nl/"
 * modifierExtension[specificationOther].valueString = "Alleen als het bijdraagt aan symptoomverlichting of betere kwaliteit van leven"
 // like this, or should you just say JA_MAAR here and add the toelichting in the comment extension?
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -138,7 +138,7 @@ Usage: #example
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
 * provision.period.end = 2025-12-05 // is this possible, that it's in the future? And looks strange in IG without startdate (period.start)?
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -158,7 +158,7 @@ Usage: #example
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #deny
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
@@ -180,7 +180,7 @@ Usage: #example
 * patient = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * dateTime = 2025-07-29
 * policy.uri = "https://wetten.overheid.nl/"
-* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-HendrikHartman) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][0].reference = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "ContactPerson"
 * provision.actor[agreementParty][+].reference = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"

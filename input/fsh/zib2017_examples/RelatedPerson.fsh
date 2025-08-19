@@ -1,7 +1,7 @@
 
-Instance: P1-ACP-ContactPerson-HendrikHartman
+Instance: P1-ACP-ContactPerson-MichielHartman
 InstanceOf: ACPContactPerson
-Title: "P1 ACP ContactPerson Hendrik Hartman"
+Title: "P1 ACP ContactPerson Michiel Hartman"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -60,9 +60,9 @@ Usage: #example
 * address[0].country.extension[=].valueCodeableConcept.coding[0].code = #NL
 * address[0].country.extension[=].valueCodeableConcept.coding[0].display = "Netherlands"
 
-Instance: P1-ACP-ContactPerson1-HendrikHartman
+Instance: P1-ACP-ContactPerson-MirjamDeLeeuwHartman
 InstanceOf: ACPContactPerson
-Title: "P1 ACP ContactPerson1 Hendrik Hartman"
+Title: "P1 ACP ContactPerson1 Mirjam de Leeuw Hartman"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
