@@ -2,7 +2,7 @@ This page provides an overview of the FHIR resources used to represent the ACP d
 
 ### ACP Questionnaire
 
-A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding FHIR Questionnaire resource to ensure standardized data collection. [ADD link and improve] 
+A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding <a href="Questionnaire-ACP-zib2017.html">FHIR Questionnaire resource</a> to ensure standardized data collection.
 
 ### Associating ACP dataset to FHIR 
 
