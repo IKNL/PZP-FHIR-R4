@@ -1,6 +1,7 @@
 This page provides an overview of the FHIR resources used to represent the ACP dataset, many of which are based on nl-core profiles.
 
 ### ACP Questionnaire
+
 A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding FHIR Questionnaire resource to ensure standardized data collection. [ADD link and improve] 
 
 ### Associating ACP dataset to FHIR 

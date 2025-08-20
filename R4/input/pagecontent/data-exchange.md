@@ -79,7 +79,7 @@ This approach is used to retrieve the complete form for uniform registration of 
 
 A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the official ACP questionnaire to ensure that only the correct form is returned.
 
-> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/ACP/Questionnaire/ACP-Form-R4
+> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020
 
 
 #### Server Response

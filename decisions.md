@@ -21,3 +21,56 @@
 - References to externally hosted ValueSets, such as GeslachtCodelijst, are not provided correctly by the IG publisher. See: https://nictiz.atlassian.net/browse/ZIBFHIR-356. If this issue persists upon publishing, we can mitigate it by removing `ValueSet.meta.source` from the zib package.
 
 
+##
+- Questionnaires
+    - Copied Questionnaire resources from IKNL form builder into input/resources with prefix "Questionnaire-"
+    - Added proper metadata fields (zib2017 follows a similiar pattern)
+```json
+{
+    "name": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+    "resourceType": "Questionnaire",
+    "status": "draft",
+    "experimental": true,
+    "publisher": "",
+    "copyright": "Gepubliceerd door PZNL & uitgevoerd door IKNL",
+    "purpose": "",
+    "description": ""
+```
+
+to
+
+```json
+{
+    "id": "ACP-zib2020",
+    "url": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020",
+    "version": "beta3-20250828",
+    "name": "ACPzib2020",
+    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+    "resourceType": "Questionnaire",
+    "status": "draft",
+    "experimental": false,
+    "publisher": "Published by PZNL & executed by IKNL",
+    "contact": [
+        {
+            "name": "IKNL",
+            "telecom": [
+                {
+                    "system": "email",
+                    "value": "info@iknl.nl",
+                    "use": "work"
+                }
+            ]
+        }
+    ],
+    "copyright": "This form has been compiled with the utmost care. No rights or claims can be derived from its content, which also means that any liability for possible inaccuracies in this form, for any damage, or for other consequences arising from or related to the use of this form is excluded. Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+    "purpose": "This form was developed to clearly document agreements resulting from the proactive care planning process.",
+    "description": "Standardized capture of proactive care planning (advance care planning, or ACP). This form was developed to clearly document agreements resulting from the proactive care planning process. It is NOT a checklist. It can only be completed by a healthcare provider after a professional and nuanced conversation. For advice on conducting these conversations, please refer to the guideline for proactive care planning in the palliative phase and Palliaweb. If a topic has not been discussed or if the patient does not yet have an opinion, please fill in "not yet known." When transferring to a long-term care setting, consider adding conversation records about proactive care planning to the transfer documents.",
+    "code": [
+        {
+            "code": "713603004",
+            "system": "http://snomed.info/sct",
+            "display": "Advance care planning (procedure)"
+        }
+    ],
+```
