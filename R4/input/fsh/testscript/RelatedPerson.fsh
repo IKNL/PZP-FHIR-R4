@@ -25,10 +25,10 @@ Usage: #example
 * telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * telecom[telephoneNumbers].system.extension[=].valueCode = #MC
 * telecom[telephoneNumbers].value = "0611111111"
-* telecom[telephoneNumbers].use = #HP
+* telecom[telephoneNumbers].use = #home
 * telecom[emailAddresses].system = #email
 * telecom[emailAddresses].value = "Gert-Jan@test.nl"
-* telecom[emailAddresses].use = #HP 
+* telecom[emailAddresses].use = #home 
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
 * address.extension.valueCodeableConcept = #HP
 * address.use = #home
@@ -75,10 +75,10 @@ Usage: #example
 * telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * telecom[telephoneNumbers].system.extension[=].valueCode = #MC
 * telecom[telephoneNumbers].value = "0622222222"
-* telecom[telephoneNumbers].use = #HP
+* telecom[telephoneNumbers].use = #home
 * telecom[emailAddresses].system = #email
 * telecom[emailAddresses].value = "maya@test.nl"
-* telecom[emailAddresses].use = #HP 
+* telecom[emailAddresses].use = #home
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
 * address.extension.valueCodeableConcept = #HP
 * address.use = #home

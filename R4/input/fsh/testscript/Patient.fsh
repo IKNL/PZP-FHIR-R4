@@ -25,7 +25,7 @@ Usage: #example
 * telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * telecom[telephoneNumbers].system.extension[=].valueCode = #MC
 * telecom[telephoneNumbers].value = "0688877788"
-* telecom[telephoneNumbers].use = #HP
+* telecom[telephoneNumbers].use = #home
 * telecom[emailAddresses].system = #email
 * telecom[emailAddresses].value = "samira.test@iknl.nl"
 * telecom[emailAddresses].use = #WP
