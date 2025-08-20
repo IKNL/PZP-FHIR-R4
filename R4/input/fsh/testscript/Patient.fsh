@@ -28,7 +28,7 @@ Usage: #example
 * telecom[telephoneNumbers].use = #home
 * telecom[emailAddresses].system = #email
 * telecom[emailAddresses].value = "samira.test@iknl.nl"
-* telecom[emailAddresses].use = #WP
+* telecom[emailAddresses].use = #work
 * gender = #female
 * gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * gender.extension.valueCodeableConcept = #F "Female"
