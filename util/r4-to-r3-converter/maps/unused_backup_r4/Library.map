@@ -1,0 +1,39 @@
+map "http://hl7.org/fhir/StructureMap/Library4to3" = "R4 to R3 Conversion for Library"
+
+uses "http://hl7.org/fhir/StructureDefinition/Library" alias Library as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Library" alias LibraryR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Library(source src : LibraryR3, target tgt : Library) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.usage as vs -> tgt.usage as vt then string(vs, vt);
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.approvalDate as vs -> tgt.approvalDate as vt then string(vs, vt);
+  src.lastReviewDate as vs -> tgt.lastReviewDate as vt then string(vs, vt);
+  src.effectivePeriod as vs -> tgt.effectivePeriod as vt then string(vs, vt);
+  src.topic as vs -> tgt.topic as vt then string(vs, vt);
+  src.author as vs ->  tgt.contributor as vt,  vt.type = 'author' then Contributor(vs, vt);
+  src.editor as vs ->  tgt.contributor as vt,  vt.type = 'editor',  vt.contact = vs;
+  src.reviewer as vs ->  tgt.contributor as vt,  vt.type = 'reviewer',  vt.contact = vs;
+  src.endorser as vs ->  tgt.contributor as vt,  vt.type = 'endorser',  vt.contact = vs;
+  src.relatedArtifact as vs -> tgt.relatedArtifact as vt then string(vs, vt);
+  src.parameter as vs -> tgt.parameter as vt then string(vs, vt);
+  src.dataRequirement as vs -> tgt.dataRequirement as vt then string(vs, vt);
+  src.content as vs -> tgt.content as vt then string(vs, vt);
+}
+

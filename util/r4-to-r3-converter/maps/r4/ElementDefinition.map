@@ -1,0 +1,473 @@
+map "http://hl7.org/fhir/StructureMap/ElementDefinition4to3" = "R4 to R3 Conversion for ElementDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ElementDefinition" alias ElementDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+group ElementDefinition(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
+
+  // First pass, GENERAL/NORMAL mapping for all ElementDefinition elements
+  src -> tgt then ElementDefinitionCore(src, tgt) "normal-element";
+
+  // ALL MAPPINGS follow here
+
+  // Special handling for RelatedPerson.relationship slices because in R4 it is 0..* while in R3 it is 0..1
+  src where path = 'RelatedPerson.relationship' and sliceName = 'role' -> tgt then transformRelationshipRoleSlice(src, tgt) "relationship-role-slice";
+  src where path = 'RelatedPerson.relationship' and sliceName = 'relationship' -> tgt then transformRelationshipSlice(src, tgt) "relationship-slice";
+  src where path = 'RelatedPerson.relationship' and sliceName.empty() -> tgt then skipElement(src, tgt) "skip-base-relationship"; // Skip the base RelatedPerson.relationship element (without sliceName) - it becomes redundant in STU3
+
+  // NameInformation slicing elements will be consolidated in postprocessing
+  src where id = "Practitioner.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "Practitioner.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+  src where id = "RelatedPerson.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "RelatedPerson.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+  src where id = "RelatedPerson.telecom:telephoneNumbers.extension:comment" -> tgt then skipElement(src, tgt) "skip-telecom-comment-slice";
+  src where id = "RelatedPerson.telecom:telephoneNumbers.extension:comment.value[x]" -> tgt then skipElement(src, tgt) "skip-telecom-comment-extension-value";
+  src where id = "RelatedPerson.address.country.extension:countryCode.value[x]" -> tgt then {
+    src.id -> tgt.id = 'RelatedPerson.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "RelatedPerson-address-countrycode-value";
+    src.path -> tgt.path = 'RelatedPerson.address.country.extension.valueCodeableConcept' "RelatedPerson-address-countrycode-path"; 
+  } "RelatedPerson-address-countrycode-value";
+
+
+  src where id = "Patient.gender.extension:genderCodelist" -> tgt then {
+    src.id -> tgt.id = 'Patient.gender.extension:GeslachtCodelijst' "patient-gender-codelist-extension";
+    src.sliceName -> tgt.sliceName = 'GeslachtCodelijst' "patient-gender-codelist-slice";
+  } "patient-gender-codelist-slice";
+
+  src where id = "Patient.gender.extension:genderCodelist.value[x]" -> tgt then {
+      src.id -> tgt.id = 'Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept' "patient-gender-codelist-value";
+      src.path -> tgt.path = 'Patient.gender.extension.valueCodeableConcept' "patient-gender-codelist-path";
+    } "patient-gender-codelist-value";
+
+  src where id = "Patient.telecom:telephoneNumbers.extension:comment" -> tgt then skipElement(src, tgt) "skip-telecom-comment-slice";
+  src where id = "Patient.telecom:telephoneNumbers.extension:comment.value[x]" -> tgt then skipElement(src, tgt) "skip-telecom-comment-extension-value";
+  src where id = "Patient.name:nameInformation-GivenName" -> tgt then skipElement(src, tgt) "skip-name-givenname";
+  src where id = "Patient.name:nameInformation-GivenName.given" -> tgt then skipElement(src, tgt) "skip-name-givenname-given";
+
+  src where id = "Patient.address.country.extension:countryCode.value[x]" -> tgt then {
+    src.id -> tgt.id = 'Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept' "patient-address-countrycode-value";
+    src.path -> tgt.path = 'Patient.address.country.extension.valueCodeableConcept' "patient-address-countrycode-path";
+  } "patient-address-countrycode-value";
+
+  src where id = "Patient.contact.extension:contactPerson" -> tgt then skipElement(src, tgt) "skip-contact-person-extension";
+  src where id = "Patient.contact.extension:contactPerson.value[x]" -> tgt then skipElement(src, tgt) "skip-contact-person-extension";
+
+  src where id = "Patient" -> tgt then {
+      src.constraint as vs0 -> tgt.constraint as vt0 then {
+      vs0 where value.startsWith("extension") -> vt0.expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapableComment').value = false implies contact.where(relationship.coding.code = '24').exists()" "patient-legal-capable-expression"; 
+    } "patient-base-expression";
+  } "patient-base-expression"; // This doens't work yet.
+
+  // Encounter-specific transformations for STU3 compatibility
+  src where id.startsWith('Encounter.reasonCode:deviatingResult') -> tgt then skipElement(src, tgt) "skip-encounter-reasoncode-deviating";
+  src where id.startsWith('Encounter.reasonReference') and id != 'Encounter.reasonReference:procedure' -> tgt then skipElement(src, tgt) "skip-encounter-reasonreference";
+  src where id = 'Encounter.reasonReference:procedure' -> tgt then transformEncounterReasonReference(src, tgt) "transform-encounter-reason-procedure";
+
+  src where id = 'PractitionerRole.specialty:specialty' -> tgt then removeSliceName(src, tgt) "remove-slicename";
+  
+  src where id = 'DeviceUseStatement.reasonReference:indication' -> tgt then {
+    src.id -> tgt.id = 'DeviceUseStatement.indication.extension:indication_Problem' "DeviceUseStatement-indication";
+    src.path -> tgt.path = 'DeviceUseStatement.indication.extension' "DeviceUseStatement-indication-path";
+    src.sliceName -> tgt.sliceName = 'indication_Problem' "DeviceUseStatement-indication-slice";
+  } "DeviceUseStatement-indication-extension";
+
+  src where id = "Device.udiCarrier:gs1UdiCarrier" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier";
+  src where id = "Device.udiCarrier:gs1UdiCarrier.carrierHRF" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier-hrf";
+  src where id = "Device.udiCarrier:hibcUdiCarrier" -> tgt then skipElement(src, tgt) "skip-device-udi-carrier-hibc";
+  src where id = "Device.udiCarrier:hibcUdiCarrier.carrierHRF" -> tgt then {
+    src.id -> tgt.id = "Device.udi.carrierHRF" "Device-udi-carrierHRF";
+    src.path -> tgt.path = 'Device.udi.carrierHRF' "Device-udi-carrierHRF-path";
+    } "Device-udi-carrierHRF";
+
+    src where id = 'Observation.encounter' -> tgt as tgt then {
+      src.id -> tgt.id = 'Observation.context' "Observation-context";
+      src.path -> tgt.path = 'Observation.context' "Observation-context-path";
+    } "Observation-context";
+
+  src where id = "Consent.provision.actor:representative" -> tgt then skipElement(src,tgt) "skip-consent-provision-actor-slice-element";
+  src where id = "Consent.provision.actor:representative.reference" -> tgt then {
+    src.id -> tgt.id = "Consent.except.actor.reference" "consent-except-actor-reference-id";
+    src.path -> tgt.path = 'Consent.except.actor.reference' "consent-except-actor-reference-path";
+    } "consent-except-actor-reference";
+  
+
+
+  src where id = "Consent.extension:disorder" -> tgt then {
+    src.id -> tgt.id = "Consent.extension:treatment" "consent-extension-treatment-id";
+    src.path -> tgt.path = 'Consent.extension' "consent-extension-treatment-path";
+    src.sliceName -> tgt.sliceName = 'treatment' "consent-extension-treatment-slice";
+    } "consent-extension-treatment";
+  
+    src where id = "Consent.provision.code" -> tgt then {
+      src.id -> tgt.id = "Consent.extension:treatment.value[x]" "consent-extension-treatment-id";
+      src.path -> tgt.path = 'Consent.extension.valueCodeableConcept' "consent-extension-treatment-path";
+      } "consent-extension-treatment";
+
+
+
+  src where id = "Consent.extension:disorder.value[x]" -> tgt then skipElement(src, tgt) "skip-consent-extension-disorder-value";
+
+  src where id = "Consent.extension:comment.value[x]" -> tgt then {
+    src.id -> tgt.id = "Consent.extension:comment.valueString:valueString" "consent-extension-comment-valueString-id";
+    src.path -> tgt.path = 'Consent.extension.valueString' "consent-extension-comment-valueString-path";
+    } "consent-extension-comment-valueString";
+
+  src where id = "Consent.provision.extension:reasonForEnding" -> tgt then skipElement(src, tgt) "skip-consent-provision-extension-reasonForEnding";
+  src where id = "Consent.provision.extension:reasonForEnding.value[x]" -> tgt then skipElement(src, tgt) "skip-consent-provision-extension-reasonForEnding-value";
+  src where id = "Consent.provision.type" -> tgt then skipElement(src, tgt) "skip-consent-provision-type";
+  src where id = "Consent.provision.period.end" -> tgt then skipElement(src, tgt) "skip-consent-provision-period-end";
+  src where id = "Consent.provision.actor:agreementParty" -> tgt then skipElement(src, tgt) "skip-consent-provision-actor-agreementParty";
+  src where id = "Consent.provision.actor:agreementParty.reference" -> tgt then skipElement(src, tgt) "skip-consent-provision-actor-agreementParty-reference";
+  src where id = "Consent.provision.code.text" -> tgt then skipElement(src, tgt) "skip-consent-provision-code-text";
+
+  }
+
+
+
+
+
+group ElementDefinitionCore(source src : ElementDefinition, target tgt : ElementDefinitionR3) extends BackboneElement <<type+>> {
+
+  src.path as vs -> tgt.path as vt then string(vs, vt);
+  src.representation as vs -> tgt.representation as vt then code(vs, vt);
+  src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
+  src.label as vs -> tgt.label as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then Coding(vs, vt);
+  src.slicing as vs0 -> tgt.slicing as vt0 then slicing(vs0, vt0);
+  src.short as vs -> tgt.short as vt then string(vs, vt);
+  src.definition as vs -> tgt.definition as vt then markdown(vs, vt);
+  src.comment as vs -> tgt.comment as vt then markdown(vs, vt);
+  src.requirements as vs -> tgt.requirements as vt then markdown(vs, vt);
+  src.alias as vs -> tgt.alias as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
+  src.max as vs -> tgt.max as vt then string(vs, vt);
+  src.base as vs0 -> tgt.base as vt0 then base(vs0, vt0);
+  src.type as vs0 -> tgt.type as vt0 then type(vs0, vt0);
+  src.contentReference as vs -> tgt.contentReference as vt then uri(vs, vt);
+  src.defaultValue : base64Binary as vs -> tgt.defaultValue = create('base64Binary') as vt then base64Binary(vs, vt);
+  src.defaultValue : boolean as vs -> tgt.defaultValue = create('boolean') as vt then boolean(vs, vt);
+  src.defaultValue : code as vs -> tgt.defaultValue = create('code') as vt then code(vs, vt);
+  src.defaultValue : date as vs -> tgt.defaultValue = create('date') as vt then date(vs, vt);
+  src.defaultValue : dateTime as vs -> tgt.defaultValue = create('dateTime') as vt then dateTime(vs, vt);
+  src.defaultValue : decimal as vs -> tgt.defaultValue = create('decimal') as vt then decimal(vs, vt);
+  src.defaultValue : id as vs -> tgt.defaultValue = create('id') as vt then id(vs, vt);
+  src.defaultValue : instant as vs -> tgt.defaultValue = create('instant') as vt then instant(vs, vt);
+  src.defaultValue : integer as vs -> tgt.defaultValue = create('integer') as vt then integer(vs, vt);
+  src.defaultValue : markdown as vs -> tgt.defaultValue = create('markdown') as vt then markdown(vs, vt);
+  src.defaultValue : oid as vs -> tgt.defaultValue = create('oid') as vt then oid(vs, vt);
+  src.defaultValue : positiveInt as vs -> tgt.defaultValue = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.defaultValue : string as vs -> tgt.defaultValue = create('string') as vt then string(vs, vt);
+  src.defaultValue : time as vs -> tgt.defaultValue = create('time') as vt then time(vs, vt);
+  src.defaultValue : unsignedInt as vs -> tgt.defaultValue = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.defaultValue : uri as vs -> tgt.defaultValue = create('uri') as vt then uri(vs, vt);
+  src.defaultValue : Address as vs -> tgt.defaultValue = create('Address') as vt then Address(vs, vt);
+  src.defaultValue : Age as vs -> tgt.defaultValue = create('Age') as vt then Age(vs, vt);
+  src.defaultValue : Annotation as vs -> tgt.defaultValue = create('Annotation') as vt then Annotation(vs, vt);
+  src.defaultValue : Attachment as vs -> tgt.defaultValue = create('Attachment') as vt then Attachment(vs, vt);
+  src.defaultValue : CodeableConcept as vs -> tgt.defaultValue = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.defaultValue : Coding as vs -> tgt.defaultValue = create('Coding') as vt then Coding(vs, vt);
+  src.defaultValue : ContactPoint as vs -> tgt.defaultValue = create('ContactPoint') as vt then ContactPoint(vs, vt);
+  src.defaultValue : Count as vs -> tgt.defaultValue = create('Count') as vt then Count(vs, vt);
+  src.defaultValue : Distance as vs -> tgt.defaultValue = create('Distance') as vt then Distance(vs, vt);
+  src.defaultValue : Duration as vs -> tgt.defaultValue = create('Duration') as vt then Duration(vs, vt);
+  src.defaultValue : HumanName as vs -> tgt.defaultValue = create('HumanName') as vt then HumanName(vs, vt);
+  src.defaultValue : Identifier as vs -> tgt.defaultValue = create('Identifier') as vt then Identifier(vs, vt);
+  src.defaultValue : Money as vs -> tgt.defaultValue = create('Money') as vt then Money(vs, vt);
+  src.defaultValue : Period as vs -> tgt.defaultValue = create('Period') as vt then Period(vs, vt);
+  src.defaultValue : Quantity as vs -> tgt.defaultValue = create('Quantity') as vt then Quantity(vs, vt);
+  src.defaultValue : Range as vs -> tgt.defaultValue = create('Range') as vt then Range(vs, vt);
+  src.defaultValue : Ratio as vs -> tgt.defaultValue = create('Ratio') as vt then Ratio(vs, vt);
+  src.defaultValue : Reference as vs -> tgt.defaultValue = create('Reference') as vt then Reference(vs, vt);
+  src.defaultValue : SampledData as vs -> tgt.defaultValue = create('SampledData') as vt then SampledData(vs, vt);
+  src.defaultValue : Signature as vs -> tgt.defaultValue = create('Signature') as vt then Signature(vs, vt);
+  src.defaultValue : Timing as vs -> tgt.defaultValue = create('Timing') as vt then Timing(vs, vt);
+  src.meaningWhenMissing as vs -> tgt.meaningWhenMissing as vt then string(vs, vt);
+  src.orderMeaning as vs -> tgt.orderMeaning as vt then string(vs, vt);
+  src.fixed : base64Binary as vs -> tgt.fixed = create('base64Binary') as vt then base64Binary(vs, vt);
+  src.fixed : boolean as vs -> tgt.fixed = create('boolean') as vt then boolean(vs, vt);
+  src.fixed : code as vs -> tgt.fixed = create('code') as vt then code(vs, vt);
+  src.fixed : date as vs -> tgt.fixed = create('date') as vt then date(vs, vt);
+  src.fixed : dateTime as vs -> tgt.fixed = create('dateTime') as vt then dateTime(vs, vt);
+  src.fixed : decimal as vs -> tgt.fixed = create('decimal') as vt then decimal(vs, vt);
+  src.fixed : id as vs -> tgt.fixed = create('id') as vt then id(vs, vt);
+  src.fixed : instant as vs -> tgt.fixed = create('instant') as vt then instant(vs, vt);
+  src.fixed : integer as vs -> tgt.fixed = create('integer') as vt then integer(vs, vt);
+  src.fixed : markdown as vs -> tgt.fixed = create('markdown') as vt then markdown(vs, vt);
+  src.fixed : oid as vs -> tgt.fixed = create('oid') as vt then oid(vs, vt);
+  src.fixed : positiveInt as vs -> tgt.fixed = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.fixed : string as vs -> tgt.fixed = create('string') as vt then string(vs, vt);
+  src.fixed : time as vs -> tgt.fixed = create('time') as vt then time(vs, vt);
+  src.fixed : unsignedInt as vs -> tgt.fixed = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.fixed : uri as vs -> tgt.fixed = create('uri') as vt then uri(vs, vt);
+  src.fixed : Address as vs -> tgt.fixed = create('Address') as vt then Address(vs, vt);
+  src.fixed : Age as vs -> tgt.fixed = create('Age') as vt then Age(vs, vt);
+  src.fixed : Annotation as vs -> tgt.fixed = create('Annotation') as vt then Annotation(vs, vt);
+  src.fixed : Attachment as vs -> tgt.fixed = create('Attachment') as vt then Attachment(vs, vt);
+  src.fixed : CodeableConcept as vs -> tgt.fixed = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.fixed : Coding as vs -> tgt.fixed = create('Coding') as vt then Coding(vs, vt);
+  src.fixed : ContactPoint as vs -> tgt.fixed = create('ContactPoint') as vt then ContactPoint(vs, vt);
+  src.fixed : Count as vs -> tgt.fixed = create('Count') as vt then Count(vs, vt);
+  src.fixed : Distance as vs -> tgt.fixed = create('Distance') as vt then Distance(vs, vt);
+  src.fixed : Duration as vs -> tgt.fixed = create('Duration') as vt then Duration(vs, vt);
+  src.fixed : HumanName as vs -> tgt.fixed = create('HumanName') as vt then HumanName(vs, vt);
+  src.fixed : Identifier as vs -> tgt.fixed = create('Identifier') as vt then Identifier(vs, vt);
+  src.fixed : Money as vs -> tgt.fixed = create('Money') as vt then Money(vs, vt);
+  src.fixed : Period as vs -> tgt.fixed = create('Period') as vt then Period(vs, vt);
+  src.fixed : Quantity as vs -> tgt.fixed = create('Quantity') as vt then Quantity(vs, vt);
+  src.fixed : Range as vs -> tgt.fixed = create('Range') as vt then Range(vs, vt);
+  src.fixed : Ratio as vs -> tgt.fixed = create('Ratio') as vt then Ratio(vs, vt);
+  src.fixed : Reference as vs -> tgt.fixed = create('Reference') as vt then Reference(vs, vt);
+  src.fixed : SampledData as vs -> tgt.fixed = create('SampledData') as vt then SampledData(vs, vt);
+  src.fixed : Signature as vs -> tgt.fixed = create('Signature') as vt then Signature(vs, vt);
+  src.fixed : Timing as vs -> tgt.fixed = create('Timing') as vt then Timing(vs, vt);
+  src.pattern : base64Binary as vs -> tgt.pattern = create('base64Binary') as vt then base64Binary(vs, vt);
+  src.pattern : boolean as vs -> tgt.pattern = create('boolean') as vt then boolean(vs, vt);
+  src.pattern : code as vs -> tgt.pattern = create('code') as vt then code(vs, vt);
+  src.pattern : date as vs -> tgt.pattern = create('date') as vt then date(vs, vt);
+  src.pattern : dateTime as vs -> tgt.pattern = create('dateTime') as vt then dateTime(vs, vt);
+  src.pattern : decimal as vs -> tgt.pattern = create('decimal') as vt then decimal(vs, vt);
+  src.pattern : id as vs -> tgt.pattern = create('id') as vt then id(vs, vt);
+  src.pattern : instant as vs -> tgt.pattern = create('instant') as vt then instant(vs, vt);
+  src.pattern : integer as vs -> tgt.pattern = create('integer') as vt then integer(vs, vt);
+  src.pattern : markdown as vs -> tgt.pattern = create('markdown') as vt then markdown(vs, vt);
+  src.pattern : oid as vs -> tgt.pattern = create('oid') as vt then oid(vs, vt);
+  src.pattern : positiveInt as vs -> tgt.pattern = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.pattern : string as vs -> tgt.pattern = create('string') as vt then string(vs, vt);
+  src.pattern : time as vs -> tgt.pattern = create('time') as vt then time(vs, vt);
+  src.pattern : unsignedInt as vs -> tgt.pattern = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.pattern : uri as vs -> tgt.pattern = create('uri') as vt then uri(vs, vt);
+  src.pattern : Address as vs -> tgt.pattern = create('Address') as vt then Address(vs, vt);
+  src.pattern : Age as vs -> tgt.pattern = create('Age') as vt then Age(vs, vt);
+  src.pattern : Annotation as vs -> tgt.pattern = create('Annotation') as vt then Annotation(vs, vt);
+  src.pattern : Attachment as vs -> tgt.pattern = create('Attachment') as vt then Attachment(vs, vt);
+  src.pattern : CodeableConcept as vs -> tgt.pattern = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.pattern : Coding as vs -> tgt.pattern = create('Coding') as vt then Coding(vs, vt);
+  src.pattern : ContactPoint as vs -> tgt.pattern = create('ContactPoint') as vt then ContactPoint(vs, vt);
+  src.pattern : Count as vs -> tgt.pattern = create('Count') as vt then Count(vs, vt);
+  src.pattern : Distance as vs -> tgt.pattern = create('Distance') as vt then Distance(vs, vt);
+  src.pattern : Duration as vs -> tgt.pattern = create('Duration') as vt then Duration(vs, vt);
+  src.pattern : HumanName as vs -> tgt.pattern = create('HumanName') as vt then HumanName(vs, vt);
+  src.pattern : Identifier as vs -> tgt.pattern = create('Identifier') as vt then Identifier(vs, vt);
+  src.pattern : Money as vs -> tgt.pattern = create('Money') as vt then Money(vs, vt);
+  src.pattern : Period as vs -> tgt.pattern = create('Period') as vt then Period(vs, vt);
+  src.pattern : Quantity as vs -> tgt.pattern = create('Quantity') as vt then Quantity(vs, vt);
+  src.pattern : Range as vs -> tgt.pattern = create('Range') as vt then Range(vs, vt);
+  src.pattern : Ratio as vs -> tgt.pattern = create('Ratio') as vt then Ratio(vs, vt);
+  src.pattern : Reference as vs -> tgt.pattern = create('Reference') as vt then Reference(vs, vt);
+  src.pattern : SampledData as vs -> tgt.pattern = create('SampledData') as vt then SampledData(vs, vt);
+  src.pattern : Signature as vs -> tgt.pattern = create('Signature') as vt then Signature(vs, vt);
+  src.pattern : Timing as vs -> tgt.pattern = create('Timing') as vt then Timing(vs, vt);
+  src.example as vs0 -> tgt.example as vt0 then {
+    vs0.label -> vt0.label;
+    vs0.value : base64Binary as vs -> vt0.value = create('base64Binary') as vt then base64Binary(vs, vt);
+    vs0.value : boolean as vs -> vt0.value = create('boolean') as vt then boolean(vs, vt);
+    vs0.value : code as vs -> vt0.value = create('code') as vt then code(vs, vt);
+    vs0.value : date as vs -> vt0.value = create('date') as vt then date(vs, vt);
+    vs0.value : dateTime as vs -> vt0.value = create('dateTime') as vt then dateTime(vs, vt);
+    vs0.value : decimal as vs -> vt0.value = create('decimal') as vt then decimal(vs, vt);
+    vs0.value : id as vs -> vt0.value = create('id') as vt then id(vs, vt);
+    vs0.value : instant as vs -> vt0.value = create('instant') as vt then instant(vs, vt);
+    vs0.value : integer as vs -> vt0.value = create('integer') as vt then integer(vs, vt);
+    vs0.value : markdown as vs -> vt0.value = create('markdown') as vt then markdown(vs, vt);
+    vs0.value : oid as vs -> vt0.value = create('oid') as vt then oid(vs, vt);
+    vs0.value : positiveInt as vs -> vt0.value = create('positiveInt') as vt then positiveInt(vs, vt);
+    vs0.value : string as vs -> vt0.value = create('string') as vt then string(vs, vt);
+    vs0.value : time as vs -> vt0.value = create('time') as vt then time(vs, vt);
+    vs0.value : unsignedInt as vs -> vt0.value = create('unsignedInt') as vt then unsignedInt(vs, vt);
+    vs0.value : uri as vs -> vt0.value = create('uri') as vt then uri(vs, vt);
+    vs0.value : Address as vs -> vt0.value = create('Address') as vt then Address(vs, vt);
+    vs0.value : Age as vs -> vt0.value = create('Age') as vt then Age(vs, vt);
+    vs0.value : Annotation as vs -> vt0.value = create('Annotation') as vt then Annotation(vs, vt);
+    vs0.value : Attachment as vs -> vt0.value = create('Attachment') as vt then Attachment(vs, vt);
+    vs0.value : CodeableConcept as vs -> vt0.value = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+    vs0.value : Coding as vs -> vt0.value = create('Coding') as vt then Coding(vs, vt);
+    vs0.value : ContactPoint as vs -> vt0.value = create('ContactPoint') as vt then ContactPoint(vs, vt);
+    vs0.value : Count as vs -> vt0.value = create('Count') as vt then Count(vs, vt);
+    vs0.value : Distance as vs -> vt0.value = create('Distance') as vt then Distance(vs, vt);
+    vs0.value : Duration as vs -> vt0.value = create('Duration') as vt then Duration(vs, vt);
+    vs0.value : HumanName as vs -> vt0.value = create('HumanName') as vt then HumanName(vs, vt);
+    vs0.value : Identifier as vs -> vt0.value = create('Identifier') as vt then Identifier(vs, vt);
+    vs0.value : Money as vs -> vt0.value = create('Money') as vt then Money(vs, vt);
+    vs0.value : Period as vs -> vt0.value = create('Period') as vt then Period(vs, vt);
+    vs0.value : Quantity as vs -> vt0.value = create('Quantity') as vt then Quantity(vs, vt);
+    vs0.value : Range as vs -> vt0.value = create('Range') as vt then Range(vs, vt);
+    vs0.value : Ratio as vs -> vt0.value = create('Ratio') as vt then Ratio(vs, vt);
+    vs0.value : Reference as vs -> vt0.value = create('Reference') as vt then Reference(vs, vt);
+    vs0.value : SampledData as vs -> vt0.value = create('SampledData') as vt then SampledData(vs, vt);
+    vs0.value : Signature as vs -> vt0.value = create('Signature') as vt then Signature(vs, vt);
+    vs0.value : Timing as vs -> vt0.value = create('Timing') as vt then Timing(vs, vt);
+  };
+  src.minValue : date as vs -> tgt.minValue = create('date') as vt then date(vs, vt);
+  src.minValue : dateTime as vs -> tgt.minValue = create('dateTime') as vt then dateTime(vs, vt);
+  src.minValue : instant as vs -> tgt.minValue = create('instant') as vt then instant(vs, vt);
+  src.minValue : time as vs -> tgt.minValue = create('time') as vt then time(vs, vt);
+  src.minValue : decimal as vs -> tgt.minValue = create('decimal') as vt then decimal(vs, vt);
+  src.minValue : integer as vs -> tgt.minValue = create('integer') as vt then integer(vs, vt);
+  src.minValue : positiveInt as vs -> tgt.minValue = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.minValue : unsignedInt as vs -> tgt.minValue = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.minValue : Quantity as vs -> tgt.minValue = create('Quantity') as vt then Quantity(vs, vt);
+  src.maxValue : date as vs -> tgt.maxValue = create('date') as vt then date(vs, vt);
+  src.maxValue : dateTime as vs -> tgt.maxValue = create('dateTime') as vt then dateTime(vs, vt);
+  src.maxValue : instant as vs -> tgt.maxValue = create('instant') as vt then instant(vs, vt);
+  src.maxValue : time as vs -> tgt.maxValue = create('time') as vt then time(vs, vt);
+  src.maxValue : decimal as vs -> tgt.maxValue = create('decimal') as vt then decimal(vs, vt);
+  src.maxValue : integer as vs -> tgt.maxValue = create('integer') as vt then integer(vs, vt);
+  src.maxValue : positiveInt as vs -> tgt.maxValue = create('positiveInt') as vt then positiveInt(vs, vt);
+  src.maxValue : unsignedInt as vs -> tgt.maxValue = create('unsignedInt') as vt then unsignedInt(vs, vt);
+  src.maxValue : Quantity as vs -> tgt.maxValue = create('Quantity') as vt then Quantity(vs, vt);
+  src.maxLength as vs -> tgt.maxLength as vt then string(vs, vt);
+  src.condition as vs -> tgt.condition as vt then string(vs, vt);
+  src.constraint as vs0 -> tgt.constraint as vt0 then {
+    vs0.key as vs1 -> vt0.key as vt1 then id(vs1, vt1);
+    vs0.requirements as vs1 -> vt0.requirements as vt1 then string(vs1, vt1);
+    vs0.severity as vs1 -> vt0.severity as vt1 then code(vs1, vt1);
+    vs0.human as vs1 -> vt0.human as vt1 then string(vs1, vt1);
+    vs0.expression as vs1 -> vt0.expression as vt1 then string(vs1, vt1);
+    vs0.xpath as vs1 -> vt0.xpath as vt1 then string(vs1, vt1);
+    vs0.source as vs1 -> vt0.source as vt1 then uri(vs1, vt1);
+  };
+  src.mustSupport as vs -> tgt.mustSupport as vt then boolean(vs, vt);
+  src.isModifier as vs -> tgt.isModifier as vt then boolean(vs, vt);
+  src.isSummary as vs -> tgt.isSummary as vt then boolean(vs, vt);
+  src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0) "ElementDefinition-binding";
+  src.mapping as vs0 -> tgt.mapping as vt0 then {
+    vs0.identity as vs1 -> vt0.identity as vt1 then id(vs1, vt1);
+    vs0.language as vs1 -> vt0.language as vt1 then code(vs1, vt1);
+    vs0.map as vs1 -> vt0.map as vt1 then string(vs1, vt1);
+    vs0.comment as vs1 -> vt0.comment as vt1 then string(vs1, vt1);
+  };
+}
+
+group slicing(source src, target tgt) extends Element {
+  src.discriminator as vs0 -> tgt.discriminator as vt0 then discriminator(vs0, vt0);
+  src.description as vs -> tgt.description as vt then string(vs, vt);
+  src.ordered as vs -> tgt.ordered as vt then boolean(vs, vt);
+  src.rules as vs -> tgt.rules as vt then code(vs, vt);
+}
+
+group discriminator(source src, target tgt) extends Element {
+  src.type as vs -> tgt.type as vt then code(vs, vt);
+  src.path as vs -> tgt.path as vt then string(vs, vt);
+}
+
+group binding(source src, target tgt) extends Element {
+  src.strength as vs -> tgt.strength as vt then code(vs, vt);
+  src.description as vs -> tgt.description as vt then string(vs, vt);
+  // Cross-version property mapping: type canonical to reference.string
+  src.valueSet as vs -> tgt.extension as ext then createBindingExtension(vs, ext) "binding-extension-rule";
+}
+
+group createBindingExtension(source src, target ext) {
+    src -> ext.url = 'http://fhir.conversion/cross-version/StructureDefinition/binding-canonical-valueSet' "binding-canonical-url";
+    src -> ext.value = create('string') as extValue then string(src, extValue) "binding-canonical-value";
+} 
+
+
+group base(source src, target tgt) extends Element {
+  src.path as vs -> tgt.path as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
+  src.max as vs -> tgt.max as vt then string(vs, vt);
+}
+
+group type(source src, target tgt) extends Element {
+  src.code as vs -> tgt.code as vt then uri(vs, vt);
+  src.profile as vs -> tgt.profile as vt then mapR4toSTU3Uri(vs, vt);
+  src.targetProfile as vs -> tgt.targetProfile as vt then mapR4toSTU3Uri(vs, vt);
+  src.aggregation as vs -> tgt.aggregation as vt then code(vs, vt);
+  src.versioning as vs -> tgt.versioning as vt then code(vs, vt);
+}
+
+group ElementDefinitionMinimalSet(source src, target tgt) extends BackboneElement {
+  //src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
+  src.min as vs -> tgt.min as vt then unsignedInt(vs, vt);
+  src.max as vs -> tgt.max as vt then string(vs, vt);
+  src.definition as vs -> tgt.definition as vt then markdown(vs, vt);
+  src.short as vs -> tgt.short as vt then string(vs, vt);
+  src.comment as vs -> tgt.comment as vt then markdown(vs, vt);
+  src.requirements as vs -> tgt.requirements as vt then markdown(vs, vt);
+  src.alias as vs -> tgt.alias as vt then string(vs, vt);
+  src.label as vs -> tgt.label as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then Coding(vs, vt);
+  src.mustSupport as vs -> tgt.mustSupport as vt then boolean(vs, vt);
+  src.isModifier as vs -> tgt.isModifier as vt then boolean(vs, vt);
+  src.isSummary as vs -> tgt.isSummary as vt then boolean(vs, vt);
+  src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0);
+  src.mapping as vs0 -> tgt.mapping as vt0 then {
+    vs0.identity as vs1 -> vt0.identity as vt1 then id(vs1, vt1);
+    vs0.language as vs1 -> vt0.language as vt1 then code(vs1, vt1);
+    vs0.map as vs1 -> vt0.map as vt1 then string(vs1, vt1);
+    vs0.comment as vs1 -> vt0.comment as vt1 then string(vs1, vt1);
+  };
+}
+
+group transformRelationshipRoleSlice(source src, target tgt) extends BackboneElement {
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+
+  // Transform role slice to extension definition
+  src -> tgt.id = 'RelatedPerson.extension' "update-element-id"; 
+  src -> tgt.path = 'RelatedPerson.extension' "role-path";
+  src -> tgt.sliceName = 'role' "role-slice-name";
+  src -> tgt.type as typeElem then {
+    src -> typeElem.code = 'Extension' "role-type-code";
+    src -> typeElem.profile = 'http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role' "role-profile";
+  } "role-type";
+
+  
+}
+
+group transformRelationshipSlice(source src, target tgt) extends BackboneElement {
+  
+   src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+  // Transform relationship slice to main RelatedPerson.relationship element
+  src -> tgt.id = 'RelatedPerson.relationship' "update-relationship-element-id"; 
+  src -> tgt.path = 'RelatedPerson.relationship' "relationship-path";
+  src -> tgt.sliceName = '' "relationship-no-slice"; // Remove slice name for main element
+  
+ 
+}
+
+group transformNameInformationSlice(source src, target tgt) extends BackboneElement {
+  
+   src -> tgt then ElementDefinitionMinimalSet(src, tgt) "normal-element-rules";
+  // For nameInformation slice elements, copy id and path as-is (post-processing will handle :nameInformation removal)
+  src.id as vs -> tgt.id = vs "copy-id";
+  src.path as vs -> tgt.path = vs "copy-path";
+  src.sliceName as vs -> tgt.sliceName as vt then string(vs, vt);
+  src where sliceName = 'nameInformation' -> tgt.sliceName = '' "clear-slice-name"; // Remove slice name for main element
+
+ 
+}
+
+
+
+group skipElement(source src, target tgt) {
+  // This group intentionally does nothing - used to skip elements
+  src -> tgt.id = 'element-to-be-removed-in-postprocess' "skip-element";
+}
+
+group removeSliceName(source src, target tgt) {
+
+  // Specific transformations for known elements
+  src where id = 'PractitionerRole.specialty:specialty' -> tgt.id = 'PractitionerRole.specialty' "update-practitioner-specialty-id";
+
+  // Always remove slice name since we're transforming to base element
+  src -> tgt.sliceName = '' "remove-slice-name";
+}
+
+
+group transformEncounterReasonReference(source src, target tgt) extends BackboneElement {
+  src -> tgt then ElementDefinitionMinimalSet(src, tgt) "copy-core";
+  // Update the description for the transformed element
+  src -> tgt.short = 'Condition that this encounter was created for' "transform-short";
+  src -> tgt.definition = 'Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.' "transform-definition";
+  
+  // Remove slice name since we're transforming to a different path
+  src -> tgt.sliceName = '' "remove-slice-name";
+
+    // Transform Encounter.reasonReference:procedure to diagnosis.condition for STU3 compatibility
+  src.id as vs -> tgt.id = 'Encounter.diagnosis.condition' "transform-id";
+  src.path as vs -> tgt.path = 'Encounter.diagnosis.condition' "transform-path";
+  
+}

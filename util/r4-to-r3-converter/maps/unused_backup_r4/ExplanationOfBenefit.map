@@ -1,0 +1,258 @@
+map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit4to3" = "R4 to R3 Conversion for ExplanationOfBenefit"
+
+uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ExplanationOfBenefit(source src : ExplanationOfBenefitR3, target tgt : ExplanationOfBenefit) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.subType as vs -> tgt.subType as vt then string(vs, vt);
+  src.use as vs -> tgt.use as vt then code(vs, vt);
+  src.patient as vs -> tgt.patient as vt then string(vs, vt);
+  src.billablePeriod as vs -> tgt.billablePeriod as vt then string(vs, vt);
+  src.created as vs -> tgt.created as vt then dateTime(vs, vt);
+  src.enterer as vs -> tgt.enterer as vt then string(vs, vt);
+  src.insurer as vs -> tgt.insurer as vt then string(vs, vt);
+  src.provider as vs -> tgt.provider as vt then string(vs, vt);
+  src.referral as vs -> tgt.referral as vt then string(vs, vt);
+  src.facility as vs -> tgt.facility as vt then string(vs, vt);
+  src.claim as vs -> tgt.claim as vt then string(vs, vt);
+  src.claimResponse as vs -> tgt.claimResponse as vt then string(vs, vt);
+  src.outcome as vs where value in ('complete' | 'error' | 'partial') ->  tgt.outcome as vt,  vt.coding as c,  c.system = 'http://hl7.org/fhir/remittance-outcome',  c.code = vs;
+  src.disposition as vs -> tgt.disposition as vt then string(vs, vt);
+  src.related as s -> tgt.related as t then ExplanationOfBenefitRelated(s, t);
+  src.prescription as vs -> tgt.prescription as vt then string(vs, vt);
+  src.originalPrescription as vs -> tgt.originalPrescription as vt then string(vs, vt);
+  src.payee as s -> tgt.payee as t then ExplanationOfBenefitPayee(s, t);
+  src.supportingInfo as s -> tgt.information as t then ExplanationOfBenefitInformation(s, t);
+  src.careTeam as s -> tgt.careTeam as t then ExplanationOfBenefitCareTeam(s, t);
+  src.diagnosis as s -> tgt.diagnosis as t then ExplanationOfBenefitDiagnosis(s, t);
+  src.procedure as s -> tgt.procedure as t then ExplanationOfBenefitProcedure(s, t);
+  src.precedence as vs -> tgt.precedence as vt then string(vs, vt);
+  src.insurance as s -> tgt.insurance as t then ExplanationOfBenefitInsurance(s, t);
+  src.accident as s -> tgt.accident as t then ExplanationOfBenefitAccident(s, t);
+  src.item as s -> tgt.item as t then ExplanationOfBenefitItem(s, t);
+  src.addItem as s -> tgt.addItem as t then ExplanationOfBenefitAddItem(s, t);
+  src.total as total then {
+    total.category as vs then {
+      total.amount as va then {
+        vs.coding as c where code = 'submitted' then {
+          c -> tgt.totalCost as cost then Money(va, cost) "total";
+        };
+      };
+    };
+  };
+  src.total as total then {
+    total.category as vs then {
+      total.amount as va then {
+        vs.coding as c where code = 'benefit' then {
+          c -> tgt.totalBenefit as cost then Money(va, cost) "total";
+        };
+      };
+    };
+  };
+  src.payment as s -> tgt.payment as t then ExplanationOfBenefitPayment(s, t);
+  src.form as vs -> tgt.form as vt then string(vs, vt);
+  src.processNote as s -> tgt.processNote as t then ExplanationOfBenefitProcessNote(s, t);
+  src.benefitBalance as s -> tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s, t);
+}
+
+group ExplanationOfBenefitRelated(source src, target tgt) extends BackboneElement {
+  src.claim as vs -> tgt.claim as vt then string(vs, vt);
+  src.relationship as vs -> tgt.relationship as vt then string(vs, vt);
+  src.reference as vs -> tgt.reference as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitPayee(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.party as vs -> tgt.party as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitInformation(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.timing as vs -> tgt.timing as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+  src.reason as vs -> tgt.reason as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitCareTeam(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.provider as vs -> tgt.provider as vt then string(vs, vt);
+  src.responsible as vs -> tgt.responsible as vt then string(vs, vt);
+  src.role as vs -> tgt.role as vt then string(vs, vt);
+  src.qualification as vs -> tgt.qualification as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitDiagnosis(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.diagnosis as vs -> tgt.diagnosis as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.packageCode as vs -> tgt.packageCode as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitProcedure(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.procedure as vs -> tgt.procedure as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitInsurance(source src, target tgt) extends BackboneElement {
+  src.coverage as vs -> tgt.coverage as vt then string(vs, vt);
+  src.preAuthRef as vs -> tgt.preAuthRef as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitAccident(source src, target tgt) extends BackboneElement {
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitItem(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.careTeamSequence -> tgt.careTeamLinkId;
+  src.diagnosisSequence -> tgt.diagnosisLinkId;
+  src.procedureSequence -> tgt.procedureLinkId;
+  src.informationSequence -> tgt.informationLinkId;
+  src.revenue as vs -> tgt.revenue as vt then string(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.productOrService -> tgt.service;
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.serviced as vs -> tgt.serviced as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.udi as vs -> tgt.udi as vt then string(vs, vt);
+  src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
+  src.subSite as vs -> tgt.subSite as vt then string(vs, vt);
+  src.encounter as vs -> tgt.encounter as vt then Reference(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as s -> tgt.adjudication as t then ExplanationOfBenefitItemAdjudication(s, t);
+  src.detail as s -> tgt.detail as t then ExplanationOfBenefitItemDetail(s, t);
+}
+
+group ExplanationOfBenefitItemAdjudication(source src, target tgt) extends BackboneElement {
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.reason as vs -> tgt.reason as vt then string(vs, vt);
+  src.amount as vs -> tgt.amount as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group ExplanationOfBenefitItemDetail(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.revenue as vs -> tgt.revenue as vt then string(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.udi as vs -> tgt.udi as vt then string(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as vs -> tgt.adjudication as vt then string(vs, vt);
+  src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s, t);
+}
+
+group ExplanationOfBenefitItemDetailSubDetail(source src, target tgt) extends BackboneElement {
+  src.sequence as vs -> tgt.sequence as vt then string(vs, vt);
+  src.revenue as vs -> tgt.revenue as vt then string(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.udi as vs -> tgt.udi as vt then string(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as vs -> tgt.adjudication as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitAddItem(source src, target tgt) extends BackboneElement {
+  src.itemSequence as vs -> tgt.itemSequence as vt then string(vs, vt);
+  src.detailSequence as vs -> tgt.detailSequence as vt then string(vs, vt);
+  src.subDetailSequence as vs -> tgt.subDetailSequence as vt then string(vs, vt);
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.serviced as vs -> tgt.serviced as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
+  src.subSite as vs -> tgt.subSite as vt then string(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as vs -> tgt.adjudication as vt then string(vs, vt);
+  src.detail as s -> tgt.detail as t then ExplanationOfBenefitAddItemDetail(s, t);
+}
+
+group ExplanationOfBenefitAddItemDetail(source src, target tgt) extends BackboneElement {
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as vs -> tgt.adjudication as vt then string(vs, vt);
+  src.subDetail as s -> tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s, t);
+}
+
+group ExplanationOfBenefitAddItemDetailSubDetail(source src, target tgt) extends BackboneElement {
+  src.service as vs -> tgt.service as vt then string(vs, vt);
+  src.modifier as vs -> tgt.modifier as vt then string(vs, vt);
+  src.programCode as vs -> tgt.programCode as vt then string(vs, vt);
+  src.quantity as vs -> tgt.quantity as vt then string(vs, vt);
+  src.unitPrice as vs -> tgt.unitPrice as vt then string(vs, vt);
+  src.factor as vs -> tgt.factor as vt then string(vs, vt);
+  src.net as vs -> tgt.net as vt then string(vs, vt);
+  src.noteNumber as vs -> tgt.noteNumber as vt then string(vs, vt);
+  src.adjudication as vs -> tgt.adjudication as vt then string(vs, vt);
+}
+
+group ExplanationOfBenefitPayment(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.adjustment as vs -> tgt.adjustment as vt then string(vs, vt);
+  src.adjustmentReason as vs -> tgt.adjustmentReason as vt then string(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.amount as vs -> tgt.amount as vt then string(vs, vt);
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+}
+
+group ExplanationOfBenefitProcessNote(source src, target tgt) extends BackboneElement {
+  src.number as vs -> tgt.number as vt then string(vs, vt);
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.text as vs -> tgt.text as vt then Narrative(vs, vt);
+  src.language as vs -> tgt.language as vt then code(vs, vt);
+}
+
+group ExplanationOfBenefitBenefitBalance(source src, target tgt) extends BackboneElement {
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.excluded as vs -> tgt.excluded as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.network as vs -> tgt.network as vt then string(vs, vt);
+  src.unit as vs -> tgt.unit as vt then string(vs, vt);
+  src.term as vs -> tgt.term as vt then string(vs, vt);
+  src.financial as s -> tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s, t);
+}
+
+group ExplanationOfBenefitBenefitBalanceFinancial(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.allowed as vs -> tgt.allowed as vt then string(vs, vt);
+  src.used as vs -> tgt.used as vt then string(vs, vt);
+}
+

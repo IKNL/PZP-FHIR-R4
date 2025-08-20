@@ -1,0 +1,46 @@
+map "http://hl7.org/fhir/StructureMap/ServiceRequestRR4to3" = "R4 to R3 Conversion for ServiceRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ReferralRequest" alias ReferralRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ServiceRequest(source src : ReferralRequestR3, target tgt : ServiceRequest) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.replaces as vs -> tgt.replaces as vt then string(vs, vt);
+  src.requisition -> tgt.groupIdentifier;
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.intent as vs -> tgt.intent as vt then string(vs, vt);
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.orderDetail -> tgt.serviceRequested;
+  src.code -> tgt.type;
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt0 then dateTime(vs, vt0);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt0 then Period(vs, vt0);
+  src.authoredOn as vs -> tgt.authoredOn as vt then string(vs, vt);
+  src.requester as vs -> tgt.requester as vt then requester(vs, vt);
+  src.performerType -> tgt.specialty;
+  src.performer -> tgt.recipient;
+  src.reasonCode as vs -> tgt.reasonCode as vt then string(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.orderDetail as cc then {
+    cc.text -> tgt.description;
+  };
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.description' then {
+    e.value -> tgt.description;
+  };
+  src.supportingInfo as vs -> tgt.supportingInfo as vt then string(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.relevantHistory as vs -> tgt.relevantHistory as vt then string(vs, vt);
+}
+
+group requester(source src, target tgt) {
+  src -> tgt.agent as v then Reference(src, v) "agent";
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ReferralRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+

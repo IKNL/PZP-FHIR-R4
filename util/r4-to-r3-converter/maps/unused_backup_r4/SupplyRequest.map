@@ -1,0 +1,34 @@
+map "http://hl7.org/fhir/StructureMap/SupplyRequest4to3" = "R4 to R3 Conversion for SupplyRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group SupplyRequest(source src : SupplyRequestR3, target tgt : SupplyRequest) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.item : CodeableConcept as vs ->  tgt.orderedItem as t,  t.item = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.item : Reference as vs ->  tgt.orderedItem as t,  t.item = create('Reference') as vt then Reference(vs, vt);
+  src.quantity as vs ->  tgt.orderedItem as t,  t.quantity as vt then Quantity(vs, vt);
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
+  src.authoredOn as vs -> tgt.authoredOn as vt then string(vs, vt);
+  src where requester.exists() or extension.where(url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf').exists() -> tgt.requester as vt0 then agent(src, vt0) "requester";
+  src.supplier as vs -> tgt.supplier as vt then string(vs, vt);
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
+  src.deliverFrom as vs -> tgt.deliverFrom as vt then string(vs, vt);
+  src.deliverTo as vs -> tgt.deliverTo as vt then string(vs, vt);
+}
+
+group agent(source src, target tgt) {
+  src.requester -> tgt.agent;
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-SupplyRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+

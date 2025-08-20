@@ -1,0 +1,62 @@
+map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
+
+conceptmap "CommunicationStatus" {
+  prefix s = "http://hl7.org/fhir/ValueSet/event-status"
+  prefix t = "http://hl7.org/fhir/ValueSet/event-status"
+
+  s:preparation - t:preparation
+  s:"'in-progress'" - t:"'in-progress'"
+  s:"'on-hold'" - t:"'suspended'"
+  s:stopped - t:aborted
+  s:completed - t:completed
+  s:"'entered-in-error'" - t:"'entered-in-error'"
+  s:unknown - t:unknown
+  // 'not-done' is handled by a special rule below and is intentionally omitted here.
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/Communication" alias CommunicationR4 as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Communication(source src : CommunicationR4, target tgt : CommunicationR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+
+  // Handle 'not-done' status: map to 'completed' and add extension hint for STU3 conversion
+  src.status as vs where value = 'not-done' -> tgt.status = 'completed';
+  src.status as vs where value = 'not-done' -> tgt.extension as ext then createNotDoneExtension(vs, ext) "notDone-extension-rule";
+  
+  // Handle all other status values normally
+  src.status as vs where value != 'not-done' -> tgt.status = translate(vs, '#CommunicationStatus', 'code');
+  
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.medium as vs -> tgt.medium as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt) "Communication-subject-reference";
+  src.recipient as vs -> tgt.recipient as vt then Reference(vs, vt);
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Communication.topic' then {
+    e.value -> tgt.topic;
+  };
+  src.encounter -> tgt.context;
+  src.sent as vs -> tgt.sent as vt then dateTime(vs, vt);
+  src.received as vs -> tgt.received as vt then dateTime(vs, vt);
+  src.sender as vs -> tgt.sender as vt then Reference(vs, vt);
+  src.reasonCode as vs -> tgt.reasonCode as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then Reference(vs, vt);
+  src.payload as s -> tgt.payload as t then payload(s, t);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+}
+
+group payload(source src, target tgt) extends BackboneElement {
+  src.content : string as s -> tgt.content = create('string') as t then string(s, t);
+  src.content : Attachment as s -> tgt.content = create('Attachment') as t then Attachment(s, t);
+  src.content : Reference as s -> tgt.content = create('Reference') as t then Reference(s, t);
+}
+
+group createNotDoneExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Communication.notDone' "notDone-url";
+  src -> ext.value = true "notDone-value";
+}
+

@@ -1,0 +1,274 @@
+{
+  "analysis_date": "2025-08-04",
+  "total_mismatches": 21,
+  "mismatches_by_resource": {
+    "Consent": [
+      {
+        "source_property": "provision",
+        "target_property": "except",
+        "transformation_type": "provision",
+        "file": "Consent.map",
+        "line_number": 40,
+        "original_line": "src.provision as vs -> tgt.except as vt then provision(vs, vt);"
+      }
+    ],
+    "Device": [
+      {
+        "source_property": "udiCarrier",
+        "target_property": "udi",
+        "transformation_type": "unknown",
+        "file": "Device.map",
+        "line_number": 10,
+        "original_line": "src.udiCarrier as vs0 -> tgt.udi as vt0 then {"
+      },
+      {
+        "source_property": "modelNumber",
+        "target_property": "model",
+        "transformation_type": "unknown",
+        "file": "Device.map",
+        "line_number": 24,
+        "original_line": "src.modelNumber -> tgt.model;"
+      },
+      {
+        "source_property": "deviceName",
+        "target_property": "udi",
+        "transformation_type": "unknown",
+        "file": "Device.map",
+        "line_number": 28,
+        "original_line": "src.deviceName as vs -> tgt.udi as vt then {"
+      }
+    ],
+    "Encounter": [
+      {
+        "source_property": "basedOn",
+        "target_property": "incomingReferral",
+        "transformation_type": "Reference",
+        "file": "Encounter.map",
+        "line_number": 18,
+        "original_line": "src.basedOn as vs -> tgt.incomingReferral as vt then Reference(vs, vt);"
+      },
+      {
+        "source_property": "reasonCode",
+        "target_property": "reason",
+        "transformation_type": "CodeableConcept",
+        "file": "Encounter.map",
+        "line_number": 23,
+        "original_line": "src.reasonCode as vs -> tgt.reason as vt then CodeableConcept(vs, vt);"
+      },
+      {
+        "source_property": "use",
+        "target_property": "role",
+        "transformation_type": "CodeableConcept",
+        "file": "Encounter.map",
+        "line_number": 50,
+        "original_line": "src.use as vs -> tgt.role as vt then CodeableConcept(vs, vt);"
+      }
+    ],
+    "ImplementationGuide": [
+      {
+        "source_property": "dependsOn",
+        "target_property": "dependency",
+        "transformation_type": "dependency",
+        "file": "ImplementationGuide.map",
+        "line_number": 22,
+        "original_line": "src.dependsOn as vs0 -> tgt.dependency as vt0 then dependency(vs0, vt0) \"dependency\";"
+      },
+      {
+        "source_property": "grouping",
+        "target_property": "package",
+        "transformation_type": "grouping",
+        "file": "ImplementationGuide.map",
+        "line_number": 39,
+        "original_line": "src.grouping as grp -> tgt.package as pck then grouping(grp, pck, src) \"package\";"
+      },
+      {
+        "source_property": "id",
+        "target_property": "resource",
+        "transformation_type": "resource",
+        "file": "ImplementationGuide.map",
+        "line_number": 46,
+        "original_line": "dfn.resource as rs where groupingId = src.id -> tgt.resource as rt then resource(rs, rt);"
+      },
+      {
+        "source_property": "other",
+        "target_property": "binary",
+        "transformation_type": "unknown",
+        "file": "ImplementationGuide.map",
+        "line_number": 82,
+        "original_line": "src.other -> tgt.binary \"binary\";"
+      }
+    ],
+    "Money": [
+      {
+        "source_property": "currency",
+        "target_property": "code",
+        "transformation_type": "unknown",
+        "file": "Money.map",
+        "line_number": 10,
+        "original_line": "src.currency -> tgt.code \"code\";"
+      },
+      {
+        "source_property": "currency",
+        "target_property": "unit",
+        "transformation_type": "unknown",
+        "file": "Money.map",
+        "line_number": 11,
+        "original_line": "src.currency as s ->  tgt.unit as t,  t.value = s;"
+      }
+    ],
+    "Observation": [
+      {
+        "source_property": "encounter",
+        "target_property": "extension",
+        "transformation_type": "createObservationContextExtension",
+        "file": "Observation.map",
+        "line_number": 15,
+        "original_line": "src.encounter as vs -> tgt.extension as ext then createObservationContextExtension(vs, ext) \"context-extension-rule\";"
+      },
+      {
+        "source_property": "hasMember",
+        "target_property": "related",
+        "transformation_type": "unknown",
+        "file": "Observation.map",
+        "line_number": 38,
+        "original_line": "src.hasMember as vs0 ->  tgt.related as vt0,  vt0.type = 'has-member',  vt0.target as vt2 then Reference(vs0, vt2);"
+      },
+      {
+        "source_property": "derivedFrom",
+        "target_property": "related",
+        "transformation_type": "unknown",
+        "file": "Observation.map",
+        "line_number": 39,
+        "original_line": "src.derivedFrom as vs0 ->  tgt.related as vt0,  vt0.type = 'derived-from',  vt0.target as vt2 then Reference(vs0, vt2);"
+      }
+    ],
+    "Procedure": [
+      {
+        "source_property": "function",
+        "target_property": "role",
+        "transformation_type": "CodeableConcept",
+        "file": "Procedure.map",
+        "line_number": 62,
+        "original_line": "src.function as vs -> tgt.role as vt then CodeableConcept(vs, vt);"
+      }
+    ],
+    "Reference": [
+      {
+        "source_property": "value",
+        "target_property": "reference",
+        "transformation_type": "unknown",
+        "file": "Reference.map",
+        "line_number": 22,
+        "original_line": "src.value as vs -> tgt.reference = vs \"Reference-canonical-assignment-to-reference\";"
+      },
+      {
+        "source_property": "value",
+        "target_property": "reference",
+        "transformation_type": "unknown",
+        "file": "Reference.map",
+        "line_number": 31,
+        "original_line": "src.value -> tgt.reference;"
+      }
+    ],
+    "TriggerDefinition": [
+      {
+        "source_property": "name",
+        "target_property": "eventName",
+        "transformation_type": "unknown",
+        "file": "TriggerDefinition.map",
+        "line_number": 10,
+        "original_line": "src.name -> tgt.eventName \"eventName\";"
+      },
+      {
+        "source_property": "data",
+        "target_property": "eventData",
+        "transformation_type": "unknown",
+        "file": "TriggerDefinition.map",
+        "line_number": 15,
+        "original_line": "src.data -> tgt.eventData \"eventData\";"
+      }
+    ]
+  },
+  "suggested_transformations": {
+    "Consent": [
+      "  // Cross-version property mapping: provision -> except\n  src.provision as vs -> tgt.extension as ext then createExceptExtension(vs, ext) \"except-extension-rule\";"
+    ],
+    "Device": [
+      "  // Cross-version property mapping: udiCarrier -> udi\n  src.udiCarrier as vs -> tgt.extension as ext then createUdiExtension(vs, ext) \"udi-extension-rule\";",
+      "  // Cross-version property mapping: modelNumber -> model\n  src.modelNumber as vs -> tgt.extension as ext then createModelExtension(vs, ext) \"model-extension-rule\";",
+      "  // Cross-version property mapping: deviceName -> udi\n  src.deviceName as vs -> tgt.extension as ext then createUdiExtension(vs, ext) \"udi-extension-rule\";"
+    ],
+    "Encounter": [
+      "  // Cross-version property mapping: basedOn -> incomingReferral\n  src.basedOn as vs -> tgt.extension as ext then createIncomingreferralExtension(vs, ext) \"incomingReferral-extension-rule\";",
+      "  // Cross-version property mapping: reasonCode -> reason\n  src.reasonCode as vs -> tgt.extension as ext then createReasonExtension(vs, ext) \"reason-extension-rule\";",
+      "  // Cross-version property mapping: use -> role\n  src.use as vs -> tgt.extension as ext then createRoleExtension(vs, ext) \"role-extension-rule\";"
+    ],
+    "ImplementationGuide": [
+      "  // Cross-version property mapping: dependsOn -> dependency\n  src.dependsOn as vs -> tgt.extension as ext then createDependencyExtension(vs, ext) \"dependency-extension-rule\";",
+      "  // Cross-version property mapping: grouping -> package\n  src.grouping as vs -> tgt.extension as ext then createPackageExtension(vs, ext) \"package-extension-rule\";",
+      "  // Cross-version property mapping: id -> resource\n  src.id as vs -> tgt.extension as ext then createResourceExtension(vs, ext) \"resource-extension-rule\";",
+      "  // Cross-version property mapping: other -> binary\n  src.other as vs -> tgt.extension as ext then createBinaryExtension(vs, ext) \"binary-extension-rule\";"
+    ],
+    "Money": [
+      "  // Cross-version property mapping: currency -> code\n  src.currency as vs -> tgt.extension as ext then createCodeExtension(vs, ext) \"code-extension-rule\";",
+      "  // Cross-version property mapping: currency -> unit\n  src.currency as vs -> tgt.extension as ext then createUnitExtension(vs, ext) \"unit-extension-rule\";"
+    ],
+    "Observation": [
+      "  // Cross-version property mapping: encounter -> extension\n  src.encounter as vs -> tgt.extension as ext then createExtensionExtension(vs, ext) \"extension-extension-rule\";",
+      "  // Cross-version property mapping: hasMember -> related\n  src.hasMember as vs -> tgt.extension as ext then createRelatedExtension(vs, ext) \"related-extension-rule\";",
+      "  // Cross-version property mapping: derivedFrom -> related\n  src.derivedFrom as vs -> tgt.extension as ext then createRelatedExtension(vs, ext) \"related-extension-rule\";"
+    ],
+    "Procedure": [
+      "  // Cross-version property mapping: function -> role\n  src.function as vs -> tgt.extension as ext then createRoleExtension(vs, ext) \"role-extension-rule\";"
+    ],
+    "Reference": [
+      "  // Cross-version property mapping: value -> reference\n  src.value as vs -> tgt.extension as ext then createReferenceExtension(vs, ext) \"reference-extension-rule\";",
+      "  // Cross-version property mapping: value -> reference\n  src.value as vs -> tgt.extension as ext then createReferenceExtension(vs, ext) \"reference-extension-rule\";"
+    ],
+    "TriggerDefinition": [
+      "  // Cross-version property mapping: name -> eventName\n  src.name as vs -> tgt.extension as ext then createEventnameExtension(vs, ext) \"eventName-extension-rule\";",
+      "  // Cross-version property mapping: data -> eventData\n  src.data as vs -> tgt.extension as ext then createEventdataExtension(vs, ext) \"eventData-extension-rule\";"
+    ]
+  },
+  "suggested_extension_groups": {
+    "Consent": [
+      "group createExceptExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Consent.except' \"except-url\";\n  src -> ext.value = src \"except-value\";\n}"
+    ],
+    "Device": [
+      "group createUdiExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Device.udi' \"udi-url\";\n  src -> ext.value = src \"udi-value\";\n}",
+      "group createModelExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Device.model' \"model-url\";\n  src -> ext.value = src \"model-value\";\n}",
+      "group createUdiExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Device.udi' \"udi-url\";\n  src -> ext.value = src \"udi-value\";\n}"
+    ],
+    "Encounter": [
+      "group createIncomingreferralExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.incomingReferral' \"incomingReferral-url\";\n  src -> ext.value = src \"incomingReferral-value\";\n}",
+      "group createReasonExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.reason' \"reason-url\";\n  src -> ext.value = src \"reason-value\";\n}",
+      "group createRoleExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Encounter.role' \"role-url\";\n  src -> ext.value = src \"role-value\";\n}"
+    ],
+    "ImplementationGuide": [
+      "group createDependencyExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/ImplementationGuide.dependency' \"dependency-url\";\n  src -> ext.value = src \"dependency-value\";\n}",
+      "group createPackageExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/ImplementationGuide.package' \"package-url\";\n  src -> ext.value = src \"package-value\";\n}",
+      "group createResourceExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/ImplementationGuide.resource' \"resource-url\";\n  src -> ext.value = src \"resource-value\";\n}",
+      "group createBinaryExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/ImplementationGuide.binary' \"binary-url\";\n  src -> ext.value = src \"binary-value\";\n}"
+    ],
+    "Money": [
+      "group createCodeExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Money.code' \"code-url\";\n  src -> ext.value = src \"code-value\";\n}",
+      "group createUnitExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Money.unit' \"unit-url\";\n  src -> ext.value = src \"unit-value\";\n}"
+    ],
+    "Observation": [
+      "group createExtensionExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.extension' \"extension-url\";\n  src -> ext.value = src \"extension-value\";\n}",
+      "group createRelatedExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.related' \"related-url\";\n  src -> ext.value = src \"related-value\";\n}",
+      "group createRelatedExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Observation.related' \"related-url\";\n  src -> ext.value = src \"related-value\";\n}"
+    ],
+    "Procedure": [
+      "group createRoleExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Procedure.role' \"role-url\";\n  src -> ext.value = src \"role-value\";\n}"
+    ],
+    "Reference": [
+      "group createReferenceExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Reference.reference' \"reference-url\";\n  src -> ext.value = src \"reference-value\";\n}",
+      "group createReferenceExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/Reference.reference' \"reference-url\";\n  src -> ext.value = src \"reference-value\";\n}"
+    ],
+    "TriggerDefinition": [
+      "group createEventnameExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/TriggerDefinition.eventName' \"eventName-url\";\n  src -> ext.value = src \"eventName-value\";\n}",
+      "group createEventdataExtension(source src, target ext) {\n  src -> ext.url = 'http://fhir.conversion/cross-version/TriggerDefinition.eventData' \"eventData-url\";\n  src -> ext.value = src \"eventData-value\";\n}"
+    ]
+  }
+}

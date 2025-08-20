@@ -1,0 +1,32 @@
+# R4 to STU3 Converter - Local .gitignore
+
+# Maven build artifacts
+target/
+
+# Output and backup directories
+output/
+maps/unused_backup/
+
+# Generated analysis reports
+CONVERSION_ANALYSIS_REPORT.md
+*.md
+
+# JAR files (all dependency JARs)
+*.jar
+
+# Log files
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.temp
+
+# Python cache
+__pycache__/
+*.pyc

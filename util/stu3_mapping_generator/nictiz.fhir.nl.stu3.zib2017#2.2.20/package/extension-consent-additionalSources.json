@@ -1,0 +1,71 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "consent-additionalSources",
+    "url": "http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources",
+    "version": "1.0.2",
+    "name": "Consent additionalSources",
+    "title": "Consent additionalSource",
+    "status": "active",
+    "publisher": "Nictiz",
+    "contact": [
+        {
+            "name": "Nictiz",
+            "telecom": [
+                {
+                    "system": "url",
+                    "value": "https://www.nictiz.nl",
+                    "use": "work"
+                }
+            ]
+        }
+    ],
+    "description": "The cardinality of Consent.source is 0..1. This extension allows adding additional sources to a Consent resource. Also see https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=21224 for more",
+    "copyright": "CC0",
+    "fhirVersion": "3.0.2",
+    "kind": "complex-type",
+    "abstract": false,
+    "contextType": "resource",
+    "context": [
+        "Consent"
+    ],
+    "type": "Extension",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+    "derivation": "constraint",
+    "differential": {
+        "element": [
+            {
+                "id": "Extension.url",
+                "path": "Extension.url",
+                "fixedUri": "http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources"
+            },
+            {
+                "id": "Extension.value[x]",
+                "path": "Extension.value[x]",
+                "type": [
+                    {
+                        "code": "Attachment"
+                    },
+                    {
+                        "code": "Identifier"
+                    },
+                    {
+                        "code": "Reference",
+                        "targetProfile": "http://hl7.org/fhir/StructureDefinition/Consent"
+                    },
+                    {
+                        "code": "Reference",
+                        "targetProfile": "http://hl7.org/fhir/StructureDefinition/DocumentReference"
+                    },
+                    {
+                        "code": "Reference",
+                        "targetProfile": "http://hl7.org/fhir/StructureDefinition/Contract"
+                    },
+                    {
+                        "code": "Reference",
+                        "targetProfile": "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"
+                    }
+                ]
+            }
+        ]
+    }
+}

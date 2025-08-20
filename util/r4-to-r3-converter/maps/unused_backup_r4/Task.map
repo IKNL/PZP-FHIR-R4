@@ -1,0 +1,55 @@
+map "http://hl7.org/fhir/StructureMap/Task4to3" = "R4 to R3 Conversion for Task"
+
+uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.instantiatesUri -> tgt.definition;
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.groupIdentifier as vs -> tgt.groupIdentifier as vt then string(vs, vt);
+  src.partOf as vs -> tgt.partOf as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.statusReason as vs -> tgt.statusReason as vt then string(vs, vt);
+  src.businessStatus as vs -> tgt.businessStatus as vt then string(vs, vt);
+  src.intent as vs -> tgt.intent as vt then string(vs, vt);
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.focus as vs -> tgt.focus as vt then string(vs, vt);
+  src.for as vs -> tgt.for as vt then string(vs, vt);
+  src.encounter -> tgt.context;
+  src.executionPeriod as vs -> tgt.executionPeriod as vt then string(vs, vt);
+  src.authoredOn as vs -> tgt.authoredOn as vt then string(vs, vt);
+  src.lastModified as vs -> tgt.lastModified as vt then string(vs, vt);
+  src.requester as vs ->  tgt.requester as vt,  vt.agent = vs;
+  src.performerType as vs -> tgt.performerType as vt then string(vs, vt);
+  src.owner as vs -> tgt.owner as vt then string(vs, vt);
+  src.location as vs -> tgt.location as vt then string(vs, vt);
+  src.reasonCode -> tgt.reason;
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.relevantHistory as vs -> tgt.relevantHistory as vt then string(vs, vt);
+  src.restriction as s -> tgt.restriction as t then TaskRestriction(s, t);
+  src.input as s -> tgt.input as t then TaskInput(s, t);
+  src.output as s -> tgt.output as t then TaskOutput(s, t);
+}
+
+group TaskRestriction(source src, target tgt) extends BackboneElement {
+  src.repetitions as vs -> tgt.repetitions as vt then string(vs, vt);
+  src.period as vs -> tgt.period as vt then string(vs, vt);
+  src.recipient as vs -> tgt.recipient as vt then string(vs, vt);
+}
+
+group TaskInput(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.typeendgroup;
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+
+group TaskOutput(source src, target tgt) extends BackboneElement {
+  src.type as vs -> tgt.type as vt then string(vs, vt);
+  src.value as vs -> tgt.value as vt then Quantity(vs, vt);
+}
+

@@ -1,0 +1,48 @@
+map "http://hl7.org/fhir/StructureMap/ServiceRequestPR4to3" = "R4 to R3 Conversion for ServiceRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcedureRequest" alias ProcedureRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ServiceRequest(source src : ServiceRequest, target tgt : ProcedureRequestR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.instantiatesCanonical -> tgt.definition;
+  src.basedOn as vs -> tgt.basedOn as vt then string(vs, vt);
+  src.replaces as vs -> tgt.replaces as vt then string(vs, vt);
+  src.requisition as vs -> tgt.requisition as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.intent as vs -> tgt.intent as vt then string(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.priority as vs -> tgt.priority as vt then string(vs, vt);
+  src.doNotPerform as vs -> tgt.doNotPerform as vt then string(vs, vt);
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.orderDetail as vs -> tgt.orderDetail as vt then string(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create('dateTime') as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create('Period') as vt then Period(vs, vt);
+  src.occurrence : Timing as vs -> tgt.occurrence = create('Timing') as vt then Timing(vs, vt);
+  src.asNeeded : boolean as vs -> tgt.asNeeded = create('boolean') as vt then boolean(vs, vt);
+  src.asNeeded : CodeableConcept as vs -> tgt.asNeeded = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.authoredOn as vs -> tgt.authoredOn as vt then string(vs, vt);
+  src.requester as vs -> tgt.requester as vt then requester(vs, vt);
+  src.performerType as vs -> tgt.performerType as vt then string(vs, vt);
+  src.performer as vs -> tgt.performer as vt then Reference(vs, vt);
+  src.reasonCode as vs -> tgt.reasonCode as vt then string(vs, vt);
+  src.reasonReference as vs -> tgt.reasonReference as vt then string(vs, vt);
+  src.supportingInfo as vs -> tgt.supportingInfo as vt then string(vs, vt);
+  src.specimen as vs -> tgt.specimen as vt then Reference(vs, vt);
+  src.bodySite as vs -> tgt.bodySite as vt then CodeableConcept(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.patientInstruction as vs -> tgt.patientInstruction as vt then string(vs, vt);
+  src.relevantHistory as vs -> tgt.relevantHistory as vt then string(vs, vt);
+}
+
+group requester(source src, target tgt) {
+  src -> tgt.agent as v then Reference(src, v) "agent";
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ProcedureRequest.requester.onBehalfOf' then {
+    e.value -> tgt.onBehalfOf;
+  };
+}
+

@@ -1,0 +1,27 @@
+map "http://hl7.org/fhir/StructureMap/GuidanceResponse4to3" = "R4 to R3 Conversion for GuidanceResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group GuidanceResponse(source src : GuidanceResponseR3, target tgt : GuidanceResponse) extends DomainResource <<type+>> {
+  src.requestIdentifier as ii then {
+    ii.value -> tgt.requestId;
+  };
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.module : canonical as vs -> tgt.module as vt then canonical2Reference(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.subject as vs -> tgt.subject as vt then Reference(vs, vt);
+  src.encounter -> tgt.context;
+  src.occurrenceDateTime as vs -> tgt.occurrenceDateTime as vt then string(vs, vt);
+  src.performer as vs -> tgt.performer as vt then Reference(vs, vt);
+  src.reasonCode as vs -> tgt.reason = create('CodeableConcept') as vt then CodeableConcept(vs, vt);
+  src.reasonReference as vs -> tgt.reason = create('Reference') as vt then Reference(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.evaluationMessage as vs -> tgt.evaluationMessage as vt then string(vs, vt);
+  src.outputParameters as vs -> tgt.outputParameters as vt then string(vs, vt);
+  src.result as vs -> tgt.result as vt then string(vs, vt);
+  src.dataRequirement as vs -> tgt.dataRequirement as vt then string(vs, vt);
+}
+

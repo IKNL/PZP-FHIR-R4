@@ -1,0 +1,1870 @@
+# manual_overrides.yaml
+# Provide manual mapping overrides for ZIB2017 dataset concepts to STU3 profiles.
+# Uncomment and modify the entries you want to override.
+# Structure:
+# overrides:
+#   '<dataset_id>':
+#     - zib_concept_id: 'NL-CM:xx.x.x'
+#       resource: <ResourceType>
+#       profile_id: <ProfileId>
+#       element_path: <FHIR element path>
+#       element_id: <element id>
+
+overrides:
+  # Uncomment and modify entries below as needed
+
+  # 764: Contact
+  # '764':
+  #   - zib_concept_id: 'NL-CM:15.1.1'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter'
+  #     element_id: 'Encounter'
+
+  # 765:   ContactType
+  # '765':
+  #   - zib_concept_id: 'NL-CM:15.1.2'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.class'
+  #     element_id: 'Encounter.class'
+
+  # 766:   ContactMet
+  # '766':
+  #   - zib_concept_id: 'NL-CM:15.1.7'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.participant.individual'
+  #     element_id: 'Encounter.participant.individual'
+
+  # 807:     Gesprek gevoerd door (Zorgverlener)
+  # '807':
+  #   - zib_concept_id: 'NL-CM:17.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.generalPractitioner'
+  #     element_id: 'Patient.generalPractitioner'
+
+  # 770:   BeginDatumTijd
+  # '770':
+  #   - zib_concept_id: 'NL-CM:15.1.3'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.period.start'
+  #     element_id: 'Encounter.period.start'
+
+  # 772:   RedenContact
+  # '772':
+  #   - zib_concept_id: 'NL-CM:15.1.13'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.diagnosis.condition'
+  #     element_id: 'Encounter.diagnosis.condition'
+
+  # 775:     Verrichting
+  # '775':
+  #   - zib_concept_id: 'NL-CM:15.1.11'
+  #     resource: Encounter
+  #     profile_id: ACP-Encounter
+  #     element_path: 'Encounter.diagnosis.condition'
+  #     element_id: 'Encounter.diagnosis.condition'
+
+  # 776:       Verrichting
+  # '776':
+  #   - zib_concept_id: 'NL-CM:14.1.1'
+  #     resource: Procedure
+  #     profile_id: ACP-Procedure
+  #     element_path: 'Procedure'
+  #     element_id: 'Procedure'
+
+  # 797:         PZP gesprek (VerrichtingType)
+  # '797':
+  #   - zib_concept_id: 'NL-CM:14.1.4'
+  #     resource: Procedure
+  #     profile_id: ACP-Procedure
+  #     element_path: 'Procedure.code'
+  #     element_id: 'Procedure.code'
+
+  # 283: ZIBRoot
+  # '283':
+  #   - zib_concept_id: 'NL-CM:0.0.1'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 304:   Datum van invullen (DatumTijd)
+  # '304':
+  #   - zib_concept_id: 'NL-CM:0.0.14'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.effective[x]'
+  #     element_id: 'Observation.effective[x]'
+
+  # 11: Patient
+  # '11':
+  #   - zib_concept_id: 'NL-CM:0.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient'
+  #     element_id: 'Patient'
+
+  # 12:   Naamgegevens
+  # '12':
+  #   - zib_concept_id: 'NL-CM:0.1.6'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.name'
+  #     element_id: 'Patient.name'
+
+  # 13:     Naamgegevens
+  # '13':
+  #   - zib_concept_id: 'NL-CM:20.4.1'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName'
+  #     element_id: 'HumanName'
+
+  # 219:       Voornamen
+  # '219':
+  #   - zib_concept_id: 'NL-CM:20.4.4'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 220:       Initialen
+  # '220':
+  #   - zib_concept_id: 'NL-CM:20.4.5'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 221:       Roepnaam
+  # '221':
+  #   - zib_concept_id: 'NL-CM:20.4.6'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 222:       Naamgebruik
+  # '222':
+  #   - zib_concept_id: 'NL-CM:20.4.7'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.extension'
+  #     element_id: 'HumanName.extension:humannameAssemblyOrder'
+
+  # 223:       Geslachtsnaam
+  # '223':
+  #   - zib_concept_id: 'NL-CM:20.4.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 224:         Voorvoegsels
+  # '224':
+  #   - zib_concept_id: 'NL-CM:20.4.11'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnPrefix'
+
+  # 225:         Achternaam
+  # '225':
+  #   - zib_concept_id: 'NL-CM:20.4.10'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnName'
+
+  # 226:       GeslachtsnaamPartner
+  # '226':
+  #   - zib_concept_id: 'NL-CM:20.4.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 227:         VoorvoegselsPartner
+  # '227':
+  #   - zib_concept_id: 'NL-CM:20.4.9'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerPrefix'
+
+  # 228:         AchternaamPartner
+  # '228':
+  #   - zib_concept_id: 'NL-CM:20.4.8'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerName'
+
+  # 14:   Adresgegevens
+  # '14':
+  #   - zib_concept_id: 'NL-CM:0.1.4'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.address'
+  #     element_id: 'Patient.address'
+
+  # 15:     Adresgegevens
+  # '15':
+  #   - zib_concept_id: 'NL-CM:2017-153'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 16:   Contactgegevens
+  # '16':
+  #   - zib_concept_id: 'NL-CM:0.1.5'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.telecom'
+  #     element_id: 'Patient.telecom'
+
+  # 17:     Contactgegevens
+  # '17':
+  #   - zib_concept_id: 'NL-CM:2017-154'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 18:   Identificatienummer
+  # '18':
+  #   - zib_concept_id: 'NL-CM:0.1.7'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.identifier'
+  #     element_id: 'Patient.identifier'
+
+  # 19:   Geboortedatum
+  # '19':
+  #   - zib_concept_id: 'NL-CM:0.1.10'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.birthDate'
+  #     element_id: 'Patient.birthDate'
+
+  # 20:   Geslacht
+  # '20':
+  #   - zib_concept_id: 'NL-CM:0.1.9'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.gender'
+  #     element_id: 'Patient.gender'
+
+  # 24: Gesprek gevoerd door (Zorgverlener)
+  # '24':
+  #   - zib_concept_id: 'NL-CM:17.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.generalPractitioner'
+  #     element_id: 'Patient.generalPractitioner'
+
+  # 25:   ZorgverlenerIdentificatienummer
+  # '25':
+  #   - zib_concept_id: 'NL-CM:17.1.2'
+  #     resource: Practitioner
+  #     profile_id: ACP-HealthProfessional-Practitioner
+  #     element_path: 'Practitioner.identifier'
+  #     element_id: 'Practitioner.identifier'
+
+  # 26:   Naamgegevens
+  # '26':
+  #   - zib_concept_id: 'NL-CM:17.1.3'
+  #     resource: Practitioner
+  #     profile_id: ACP-HealthProfessional-Practitioner
+  #     element_path: 'Practitioner.name'
+  #     element_id: 'Practitioner.name'
+
+  # 27:     Naamgegevens
+  # '27':
+  #   - zib_concept_id: 'NL-CM:20.4.1'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName'
+  #     element_id: 'HumanName'
+
+  # 229:       Voornamen
+  # '229':
+  #   - zib_concept_id: 'NL-CM:20.4.4'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 233:       Geslachtsnaam
+  # '233':
+  #   - zib_concept_id: 'NL-CM:20.4.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 234:         Voorvoegsels
+  # '234':
+  #   - zib_concept_id: 'NL-CM:20.4.11'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnPrefix'
+
+  # 235:         Achternaam
+  # '235':
+  #   - zib_concept_id: 'NL-CM:20.4.10'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnName'
+
+  # 28:   Functie (Specialisme)
+  # '28':
+  #   - zib_concept_id: 'NL-CM:17.1.4'
+  #     resource: PractitionerRole
+  #     profile_id: ACP-HealthProfessional-PractitionerRole
+  #     element_path: 'PractitionerRole.specialty'
+  #     element_id: 'PractitionerRole.specialty'
+
+  # 758: Wilsbekwaamheid m.b.t. medische behandelbeslissingen
+  # '758':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 759:   Wilsbekwaamheid m.b.t. medische behandelbeslissingen
+  # '759':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 760:   Toelichting
+  # '760':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 36: Wettelijk vertegenwoordiger (Contactpersoon)
+  # '36':
+  #   - zib_concept_id: 'NL-CM:3.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact'
+  #     element_id: 'Patient.contact'
+
+  # 37:   Naam wettelijk vertegenwoordiger (Naamgegevens)
+  # '37':
+  #   - zib_concept_id: 'NL-CM:3.1.4'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.name'
+  #     element_id: 'Patient.contact.name'
+
+  # 38:     Naamgegevens
+  # '38':
+  #   - zib_concept_id: 'NL-CM:20.4.1'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName'
+  #     element_id: 'HumanName'
+
+  # 239:       Voornamen
+  # '239':
+  #   - zib_concept_id: 'NL-CM:20.4.4'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 240:       Initialen
+  # '240':
+  #   - zib_concept_id: 'NL-CM:20.4.5'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 241:       Roepnaam
+  # '241':
+  #   - zib_concept_id: 'NL-CM:20.4.6'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 242:       Naamgebruik
+  # '242':
+  #   - zib_concept_id: 'NL-CM:20.4.7'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.extension'
+  #     element_id: 'HumanName.extension:humannameAssemblyOrder'
+
+  # 243:       Geslachtsnaam
+  # '243':
+  #   - zib_concept_id: 'NL-CM:20.4.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 244:         Voorvoegsels
+  # '244':
+  #   - zib_concept_id: 'NL-CM:20.4.11'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnPrefix'
+
+  # 245:         Achternaam
+  # '245':
+  #   - zib_concept_id: 'NL-CM:20.4.10'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnName'
+
+  # 246:       GeslachtsnaamPartner
+  # '246':
+  #   - zib_concept_id: 'NL-CM:20.4.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 247:         VoorvoegselsPartner
+  # '247':
+  #   - zib_concept_id: 'NL-CM:20.4.9'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerPrefix'
+
+  # 248:         AchternaamPartner
+  # '248':
+  #   - zib_concept_id: 'NL-CM:20.4.8'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerName'
+
+  # 39:   Contactgegevens wettelijk vertegenwoordiger (Contactgegevens)
+  # '39':
+  #   - zib_concept_id: 'NL-CM:3.1.6'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.telecom'
+  #     element_id: 'Patient.contact.telecom'
+
+  # 40:     Contactgegevens
+  # '40':
+  #   - zib_concept_id: 'NL-CM:20.6.1'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint'
+  #     element_id: 'ContactPoint'
+
+  # 249:       Telefoonnummers
+  # '249':
+  #   - zib_concept_id: 'NL-CM:20.6.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 250:         Telefoonnummer
+  # '250':
+  #   - zib_concept_id: 'NL-CM:20.6.4'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.value'
+  #     element_id: 'ContactPoint.value'
+
+  # 251:         TelecomType
+  # '251':
+  #   - zib_concept_id: 'NL-CM:20.6.5'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.extension.valueCodeableConcept'
+  #     element_id: 'ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept'
+
+  # 252:         NummerSoort
+  # '252':
+  #   - zib_concept_id: 'NL-CM:20.6.6'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.use'
+  #     element_id: 'ContactPoint.use'
+
+  # 253:       EmailAdressen
+  # '253':
+  #   - zib_concept_id: 'NL-CM:20.6.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 254:         EmailAdres
+  # '254':
+  #   - zib_concept_id: 'NL-CM:20.6.7'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.value'
+  #     element_id: 'ContactPoint.value'
+
+  # 255:         EmailSoort
+  # '255':
+  #   - zib_concept_id: 'NL-CM:20.6.8'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.system'
+  #     element_id: 'ContactPoint.system'
+
+  # 41:   Adresgegevens
+  # '41':
+  #   - zib_concept_id: 'NL-CM:3.1.5'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.address'
+  #     element_id: 'Patient.contact.address'
+
+  # 42:     Adresgegevens
+  # '42':
+  #   - zib_concept_id: 'NL-CM:2017-46'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 43:   Rol
+  # '43':
+  #   - zib_concept_id: 'NL-CM:3.1.2'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:role'
+
+  # 44:   Relatie tot patient (Relatie)
+  # '44':
+  #   - zib_concept_id: 'NL-CM:3.1.3'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:relationship'
+
+  # 1: Vertegenwoordiger is contactpersoon
+  # '1':
+  #   - zib_concept_id: 'pall-izppz-dataelement-43'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 45: Eerste contactpersoon (Contactpersoon)
+  # '45':
+  #   - zib_concept_id: 'NL-CM:3.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact'
+  #     element_id: 'Patient.contact'
+
+  # 67:   Naamgegevens
+  # '67':
+  #   - zib_concept_id: 'NL-CM:3.1.4'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.name'
+  #     element_id: 'Patient.contact.name'
+
+  # 68:     Naamgegevens
+  # '68':
+  #   - zib_concept_id: 'NL-CM:20.4.1'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName'
+  #     element_id: 'HumanName'
+
+  # 256:       Voornamen
+  # '256':
+  #   - zib_concept_id: 'NL-CM:20.4.4'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 257:       Initialen
+  # '257':
+  #   - zib_concept_id: 'NL-CM:20.4.5'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 258:       Roepnaam
+  # '258':
+  #   - zib_concept_id: 'NL-CM:20.4.6'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 259:       Naamgebruik
+  # '259':
+  #   - zib_concept_id: 'NL-CM:20.4.7'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.extension'
+  #     element_id: 'HumanName.extension:humannameAssemblyOrder'
+
+  # 260:       Geslachtsnaam
+  # '260':
+  #   - zib_concept_id: 'NL-CM:20.4.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 261:         Voorvoegsels
+  # '261':
+  #   - zib_concept_id: 'NL-CM:20.4.11'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnPrefix'
+
+  # 262:         Achternaam
+  # '262':
+  #   - zib_concept_id: 'NL-CM:20.4.10'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnName'
+
+  # 263:       GeslachtsnaamPartner
+  # '263':
+  #   - zib_concept_id: 'NL-CM:20.4.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 264:         VoorvoegselsPartner
+  # '264':
+  #   - zib_concept_id: 'NL-CM:20.4.9'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerPrefix'
+
+  # 265:         AchternaamPartner
+  # '265':
+  #   - zib_concept_id: 'NL-CM:20.4.8'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerName'
+
+  # 69:   Contactgegevens
+  # '69':
+  #   - zib_concept_id: 'NL-CM:3.1.6'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.telecom'
+  #     element_id: 'Patient.contact.telecom'
+
+  # 70:     Contactgegevens
+  # '70':
+  #   - zib_concept_id: 'NL-CM:20.6.1'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint'
+  #     element_id: 'ContactPoint'
+
+  # 266:       Telefoonnummers
+  # '266':
+  #   - zib_concept_id: 'NL-CM:20.6.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 267:         Telefoonnummer
+  # '267':
+  #   - zib_concept_id: 'NL-CM:20.6.4'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.value'
+  #     element_id: 'ContactPoint.value'
+
+  # 268:         TelecomType
+  # '268':
+  #   - zib_concept_id: 'NL-CM:20.6.5'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.extension.valueCodeableConcept'
+  #     element_id: 'ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept'
+
+  # 269:         NummerSoort
+  # '269':
+  #   - zib_concept_id: 'NL-CM:20.6.6'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.use'
+  #     element_id: 'ContactPoint.use'
+
+  # 270:       EmailAdressen
+  # '270':
+  #   - zib_concept_id: 'NL-CM:20.6.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 271:         EmailAdres
+  # '271':
+  #   - zib_concept_id: 'NL-CM:20.6.7'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.value'
+  #     element_id: 'ContactPoint.value'
+
+  # 272:         EmailSoort
+  # '272':
+  #   - zib_concept_id: 'NL-CM:20.6.8'
+  #     resource: ContactPoint
+  #     profile_id: nl-core-contactpoint
+  #     element_path: 'ContactPoint.system'
+  #     element_id: 'ContactPoint.system'
+
+  # 71:   Adresgegevens
+  # '71':
+  #   - zib_concept_id: 'NL-CM:3.1.5'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.address'
+  #     element_id: 'Patient.contact.address'
+
+  # 72:     Adresgegevens
+  # '72':
+  #   - zib_concept_id: 'NL-CM:2017-46'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 73:   Rol
+  # '73':
+  #   - zib_concept_id: 'NL-CM:3.1.2'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:role'
+
+  # 74:   Relatie tot patient (Relatie)
+  # '74':
+  #   - zib_concept_id: 'NL-CM:3.1.3'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:relationship'
+
+  # 305: Gesprek gevoerd in bijzijn van (Patient)
+  # '305':
+  #   - zib_concept_id: 'pall-izppz-dataelement-11'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 328:   Naamgegevens
+  # '328':
+  #   - zib_concept_id: 'NL-CM:0.1.6'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.name'
+  #     element_id: 'Patient.name'
+
+  # 329:     Naamgegevens
+  # '329':
+  #   - zib_concept_id: 'pall-izppz-dataelement-13'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 330:       Voornamen
+  # '330':
+  #   - zib_concept_id: 'pall-izppz-dataelement-219'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 331:       Initialen
+  # '331':
+  #   - zib_concept_id: 'pall-izppz-dataelement-220'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 332:       Roepnaam
+  # '332':
+  #   - zib_concept_id: 'pall-izppz-dataelement-221'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 333:       Naamgebruik
+  # '333':
+  #   - zib_concept_id: 'pall-izppz-dataelement-222'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 334:       Geslachtsnaam
+  # '334':
+  #   - zib_concept_id: 'pall-izppz-dataelement-223'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 335:         Voorvoegsels
+  # '335':
+  #   - zib_concept_id: 'pall-izppz-dataelement-224'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 336:         Achternaam
+  # '336':
+  #   - zib_concept_id: 'pall-izppz-dataelement-225'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 337:       GeslachtsnaamPartner
+  # '337':
+  #   - zib_concept_id: 'pall-izppz-dataelement-226'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 338:         VoorvoegselsPartner
+  # '338':
+  #   - zib_concept_id: 'pall-izppz-dataelement-227'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 339:         AchternaamPartner
+  # '339':
+  #   - zib_concept_id: 'pall-izppz-dataelement-228'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 148: Gesprek gevoerd in bijzijn van (Contactpersoon)
+  # '148':
+  #   - zib_concept_id: 'NL-CM:3.1.1'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact'
+  #     element_id: 'Patient.contact'
+
+  # 149:   Naamgegevens
+  # '149':
+  #   - zib_concept_id: 'NL-CM:3.1.4'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.name'
+  #     element_id: 'Patient.contact.name'
+
+  # 150:     Naamgegevens
+  # '150':
+  #   - zib_concept_id: 'NL-CM:20.4.1'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName'
+  #     element_id: 'HumanName'
+
+  # 273:       Voornamen
+  # '273':
+  #   - zib_concept_id: 'NL-CM:20.4.4'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 274:       Initialen
+  # '274':
+  #   - zib_concept_id: 'NL-CM:20.4.5'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 275:       Roepnaam
+  # '275':
+  #   - zib_concept_id: 'NL-CM:20.4.6'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.given'
+  #     element_id: 'HumanName.given'
+
+  # 276:       Naamgebruik
+  # '276':
+  #   - zib_concept_id: 'NL-CM:20.4.7'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.extension'
+  #     element_id: 'HumanName.extension:humannameAssemblyOrder'
+
+  # 277:       Geslachtsnaam
+  # '277':
+  #   - zib_concept_id: 'NL-CM:20.4.2'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 278:         Voorvoegsels
+  # '278':
+  #   - zib_concept_id: 'NL-CM:20.4.11'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnPrefix'
+
+  # 279:         Achternaam
+  # '279':
+  #   - zib_concept_id: 'NL-CM:20.4.10'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannameOwnName'
+
+  # 280:       GeslachtsnaamPartner
+  # '280':
+  #   - zib_concept_id: 'NL-CM:20.4.3'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 281:         VoorvoegselsPartner
+  # '281':
+  #   - zib_concept_id: 'NL-CM:20.4.9'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerPrefix'
+
+  # 282:         AchternaamPartner
+  # '282':
+  #   - zib_concept_id: 'NL-CM:20.4.8'
+  #     resource: HumanName
+  #     profile_id: nl-core-humanname
+  #     element_path: 'HumanName.family.extension'
+  #     element_id: 'HumanName.family.extension:humannamePartnerName'
+
+  # 155:   Rol
+  # '155':
+  #   - zib_concept_id: 'NL-CM:3.1.2'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:role'
+
+  # 156:   Relatie tot patient (Relatie)
+  # '156':
+  #   - zib_concept_id: 'NL-CM:3.1.3'
+  #     resource: Patient
+  #     profile_id: ACP-Patient
+  #     element_path: 'Patient.contact.relationship'
+  #     element_id: 'Patient.contact.relationship:relationship'
+
+  # 157: Belangrijkste doel van behandeling (AlgemeneMeting)
+  # '157':
+  #   - zib_concept_id: 'NL-CM:13.3.1'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation'
+  #     element_id: 'Observation'
+
+  # 160:   Toelichting
+  # '160':
+  #   - zib_concept_id: 'NL-CM:13.3.4'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.comment'
+  #     element_id: 'Observation.comment'
+
+  # 161:   MeetUitslag
+  # '161':
+  #   - zib_concept_id: 'NL-CM:13.3.5'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.related'
+  #     element_id: 'Observation.related'
+
+  # 162:     MetingNaam voor Belangrijkste doel van behandeling
+  # '162':
+  #   - zib_concept_id: 'NL-CM:13.3.6'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.code'
+  #     element_id: 'Observation.code'
+
+  # 163:     Doel (UitslagWaarde)
+  # '163':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 165:     UitslagDatumTijd
+  # '165':
+  #   - zib_concept_id: 'NL-CM:13.3.9'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.effective[x]'
+  #     element_id: 'Observation.effective[x]'
+
+  # 54: Behandelgrens (BehandelAanwijzing)
+  # '54':
+  #   - zib_concept_id: 'NL-CM:2.1.1'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent'
+  #     element_id: 'Consent'
+
+  # 55:   Verificatie
+  # '55':
+  #   - zib_concept_id: 'NL-CM:2.1.8'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:verification'
+
+  # 56:     Geverifieerd
+  # '56':
+  #   - zib_concept_id: 'NL-CM:2.1.9'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:Verified'
+
+  # 57:     GeverifieerdBij
+  # '57':
+  #   - zib_concept_id: 'NL-CM:2.1.11'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:VerifiedWith'
+
+  # 58:     VerificatieDatum
+  # '58':
+  #   - zib_concept_id: 'NL-CM:2.1.10'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:VerificationDate'
+
+  # 59:   Behandeling
+  # '59':
+  #   - zib_concept_id: 'NL-CM:2.1.3'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:treatment'
+
+  # 60:   BehandelingToegestaan
+  # '60':
+  #   - zib_concept_id: 'NL-CM:2.1.4'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.modifierExtension'
+  #     element_id: 'Consent.modifierExtension:treatmentPermitted'
+
+  # 61:   Beperkingen
+  # '61':
+  #   - zib_concept_id: 'NL-CM:2.1.5'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.except.extension'
+  #     element_id: 'Consent.except.extension:restrictions'
+
+  # 62:   BeginDatum
+  # '62':
+  #   - zib_concept_id: 'NL-CM:2.1.6'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.period.start'
+  #     element_id: 'Consent.period.start'
+
+  # 63:   EindDatum
+  # '63':
+  #   - zib_concept_id: 'NL-CM:2.1.7'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.period.end'
+  #     element_id: 'Consent.period.end'
+
+  # 64:   Toelichting
+  # '64':
+  #   - zib_concept_id: 'NL-CM:2.1.15'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:comment'
+
+  # 65:   Wilsverklaring
+  # '65':
+  #   - zib_concept_id: 'NL-CM:2.1.14'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.value[x]'
+  #     element_id: 'Consent.extension:additionalSources.value[x]'
+
+  # 66:     Wilsverklaring
+  # '66':
+  #   - zib_concept_id: 'NL-CM:2017-17'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 218: Heeft de patient een ICD?
+  # '218':
+  #   - zib_concept_id: 'pall-izppz-dataelement-76'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 75: ICD (MedischHulpmiddel)
+  # '75':
+  #   - zib_concept_id: 'NL-CM:10.1.1'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement'
+  #     element_id: 'DeviceUseStatement'
+
+  # 76:   Product
+  # '76':
+  #   - zib_concept_id: 'NL-CM:10.1.2'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.device'
+  #     element_id: 'DeviceUseStatement.device'
+
+  # 77:     ProductID
+  # '77':
+  #   - zib_concept_id: 'NL-CM:10.1.4'
+  #     resource: Device
+  #     profile_id: ACP-MedicalDevice.Product-ICD
+  #     element_path: 'Device.identifier'
+  #     element_id: 'Device.identifier'
+
+  # 78:     ProductType van ICD
+  # '78':
+  #   - zib_concept_id: 'NL-CM:10.1.3'
+  #     resource: Device
+  #     profile_id: ACP-MedicalDevice.Product-ICD
+  #     element_path: 'Device.type'
+  #     element_id: 'Device.type'
+
+  # 79:   ProductOmschrijving
+  # '79':
+  #   - zib_concept_id: 'NL-CM:10.1.13'
+  #     resource: Device
+  #     profile_id: ACP-MedicalDevice.Product-ICD
+  #     element_path: 'Device.note.text'
+  #     element_id: 'Device.note.text'
+
+  # 80:   BeginDatum
+  # '80':
+  #   - zib_concept_id: 'NL-CM:10.1.11'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.whenUsed.start'
+  #     element_id: 'DeviceUseStatement.whenUsed.start'
+
+  # 81:   Indicatie
+  # '81':
+  #   - zib_concept_id: 'NL-CM:10.1.7'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.indication.extension'
+  #     element_id: 'DeviceUseStatement.indication.extension:indication_Problem'
+
+  # 82:     Probleem
+  # '82':
+  #   - zib_concept_id: 'NL-CM:2017-130'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 83:   Toelichting
+  # '83':
+  #   - zib_concept_id: 'NL-CM:10.1.10'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.note.text'
+  #     element_id: 'DeviceUseStatement.note.text'
+
+  # 84:   AnatomischeLocatie
+  # '84':
+  #   - zib_concept_id: 'NL-CM:10.1.6'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.bodySite'
+  #     element_id: 'DeviceUseStatement.bodySite'
+
+  # 85:   Lateraliteit
+  # '85':
+  #   - zib_concept_id: 'NL-CM:10.1.12'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.bodySite.extension.valueCodeableConcept'
+  #     element_id: 'DeviceUseStatement.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept'
+
+  # 86:   Locatie
+  # '86':
+  #   - zib_concept_id: 'NL-CM:10.1.8'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.extension'
+  #     element_id: 'DeviceUseStatement.extension:HealthcareProvider'
+
+  # 87:     Zorgaanbieder
+  # '87':
+  #   - zib_concept_id: 'NL-CM:2017-131'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 88:   Zorgverlener
+  # '88':
+  #   - zib_concept_id: 'NL-CM:10.1.9'
+  #     resource: DeviceUseStatement
+  #     profile_id: ACP-MedicalDevice
+  #     element_path: 'DeviceUseStatement.extension'
+  #     element_id: 'DeviceUseStatement.extension:HealthProfessional'
+
+  # 89:     Zorgverlener
+  # '89':
+  #   - zib_concept_id: 'NL-CM:2017-132'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 90: Afspraak uitzetten ICD (BehandelAanwijzing)
+  # '90':
+  #   - zib_concept_id: 'NL-CM:2.1.1'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent'
+  #     element_id: 'Consent'
+
+  # 91:   Verificatie
+  # '91':
+  #   - zib_concept_id: 'NL-CM:2.1.8'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:verification'
+
+  # 92:     Geverifieerd
+  # '92':
+  #   - zib_concept_id: 'NL-CM:2.1.9'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:Verified'
+
+  # 93:     GeverifieerdBij
+  # '93':
+  #   - zib_concept_id: 'NL-CM:2.1.11'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:VerifiedWith'
+
+  # 94:     VerificatieDatum
+  # '94':
+  #   - zib_concept_id: 'NL-CM:2.1.10'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.extension'
+  #     element_id: 'Consent.extension:verification.extension:VerificationDate'
+
+  # 95:   Behandeling van uitzetten ICD
+  # '95':
+  #   - zib_concept_id: 'NL-CM:2.1.3'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:treatment'
+
+  # 96:   Afspraak uitzetten ICD (BehandelingToegestaan)
+  # '96':
+  #   - zib_concept_id: 'NL-CM:2.1.4'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.modifierExtension'
+  #     element_id: 'Consent.modifierExtension:treatmentPermitted'
+
+  # 98:   BeginDatum
+  # '98':
+  #   - zib_concept_id: 'NL-CM:2.1.6'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.period.start'
+  #     element_id: 'Consent.period.start'
+
+  # 99:   EindDatum
+  # '99':
+  #   - zib_concept_id: 'NL-CM:2.1.7'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.period.end'
+  #     element_id: 'Consent.period.end'
+
+  # 100:   Toelichting
+  # '100':
+  #   - zib_concept_id: 'NL-CM:2.1.15'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:comment'
+
+  # 101:   Wilsverklaring
+  # '101':
+  #   - zib_concept_id: 'NL-CM:2.1.14'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension.value[x]'
+  #     element_id: 'Consent.extension:additionalSources.value[x]'
+
+  # 102:     Wilsverklaring
+  # '102':
+  #   - zib_concept_id: 'NL-CM:2017-17'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 190: Specifieke wensen (AlgemeneMeting)
+  # '190':
+  #   - zib_concept_id: 'onco-generic-dataelement-539'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 202:   MeetUitslag
+  # '202':
+  #   - zib_concept_id: 'onco-generic-dataelement-543'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 203:     Wens en verwachting patient (MetingNaam)
+  # '203':
+  #   - zib_concept_id: 'onco-generic-dataelement-544'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 204:     Wens en verwachting patient (UitslagWaarde)
+  # '204':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 205:     Vaststellen wens en verwachting patiënt (Meetmethode)
+  # '205':
+  #   - zib_concept_id: 'NL-CM:13.3.8'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.method'
+  #     element_id: 'Observation.method'
+
+  # 206:     UitslagDatumTijd
+  # '206':
+  #   - zib_concept_id: 'onco-generic-dataelement-547'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 105: Gewenste plek van overlijden (AlgemeneMeting)
+  # '105':
+  #   - zib_concept_id: 'NL-CM:13.3.1'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation'
+  #     element_id: 'Observation'
+
+  # 108:   Toelichting
+  # '108':
+  #   - zib_concept_id: 'NL-CM:13.3.4'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.comment'
+  #     element_id: 'Observation.comment'
+
+  # 109:   Vastgelegde keuze (MeetUitslag)
+  # '109':
+  #   - zib_concept_id: 'NL-CM:13.3.5'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.related'
+  #     element_id: 'Observation.related'
+
+  # 110:     MetingNaam voor Gewenste plek van overlijden
+  # '110':
+  #   - zib_concept_id: 'NL-CM:13.3.6'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.code'
+  #     element_id: 'Observation.code'
+
+  # 111:     Voorkeursplek (UitslagWaarde)
+  # '111':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 113:     UitslagDatumTijd
+  # '113':
+  #   - zib_concept_id: 'NL-CM:13.3.9'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.effective[x]'
+  #     element_id: 'Observation.effective[x]'
+
+  # 114: Euthanasie standpunt (AlgemeneMeting)
+  # '114':
+  #   - zib_concept_id: 'NL-CM:13.3.1'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation'
+  #     element_id: 'Observation'
+
+  # 117:   Toelichting
+  # '117':
+  #   - zib_concept_id: 'NL-CM:13.3.4'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.comment'
+  #     element_id: 'Observation.comment'
+
+  # 118:   Vastgelegde keuze (MeetUitslag)
+  # '118':
+  #   - zib_concept_id: 'NL-CM:13.3.5'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.related'
+  #     element_id: 'Observation.related'
+
+  # 119:     MetingNaam voor Euthanasie standpunt
+  # '119':
+  #   - zib_concept_id: 'NL-CM:13.3.6'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.code'
+  #     element_id: 'Observation.code'
+
+  # 120:     Standpunt (UitslagWaarde)
+  # '120':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 122:     UitslagDatumTijd
+  # '122':
+  #   - zib_concept_id: 'NL-CM:13.3.9'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.effective[x]'
+  #     element_id: 'Observation.effective[x]'
+
+  # 166: Euthanasieverklaring (Wilsverklaring)
+  # '166':
+  #   - zib_concept_id: 'NL-CM:7.15.1'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent'
+  #     element_id: 'Consent'
+
+  # 175:   Euthanasieverklaring (WilsverklaringType)
+  # '175':
+  #   - zib_concept_id: 'NL-CM:7.15.2'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.category'
+  #     element_id: 'Consent.category:typeOfLivingWill'
+
+  # 176:   WilsverklaringDatum
+  # '176':
+  #   - zib_concept_id: 'NL-CM:7.15.7'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.dateTime'
+  #     element_id: 'Consent.dateTime'
+
+  # 177:   Aandoening
+  # '177':
+  #   - zib_concept_id: 'NL-CM:7.15.4'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:disorder'
+
+  # 178:     Probleem
+  # '178':
+  #   - zib_concept_id: 'NL-CM:2017-216'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 179:   Vertegenwoordiger
+  # '179':
+  #   - zib_concept_id: 'NL-CM:7.15.3'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.consentingParty'
+  #     element_id: 'Consent.consentingParty'
+
+  # 180:     Contactpersoon
+  # '180':
+  #   - zib_concept_id: 'NL-CM:2017-217'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 181:   WilsverklaringDocument
+  # '181':
+  #   - zib_concept_id: 'NL-CM:7.15.5'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.source[x]'
+  #     element_id: 'Consent.source[x]'
+
+  # 182:   Toelichting
+  # '182':
+  #   - zib_concept_id: 'NL-CM:7.15.6'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:comment'
+
+  # 737: Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting)
+  # '737':
+  #   - zib_concept_id: 'NL-CM:13.3.1'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation'
+  #     element_id: 'Observation'
+
+  # 741:   MeetUitslag
+  # '741':
+  #   - zib_concept_id: 'NL-CM:13.3.5'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.related'
+  #     element_id: 'Observation.related'
+
+  # 742:     MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister?
+  # '742':
+  #   - zib_concept_id: 'NL-CM:13.3.6'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.code'
+  #     element_id: 'Observation.code'
+
+  # 743:     Keuze orgaandonatie in donorregister (UitslagWaarde)
+  # '743':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 123: Keuze orgaandonatie vastgelegd (Wilsverklaring)
+  # '123':
+  #   - zib_concept_id: 'NL-CM:7.15.1'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent'
+  #     element_id: 'Consent'
+
+  # 124:   Orgaandonatie (WilsverklaringType)
+  # '124':
+  #   - zib_concept_id: 'NL-CM:7.15.2'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.category'
+  #     element_id: 'Consent.category:typeOfLivingWill'
+
+  # 125:   WilsverklaringDatum
+  # '125':
+  #   - zib_concept_id: 'NL-CM:7.15.7'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.dateTime'
+  #     element_id: 'Consent.dateTime'
+
+  # 126:   Aandoening
+  # '126':
+  #   - zib_concept_id: 'NL-CM:7.15.4'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:disorder'
+
+  # 127:     Probleem
+  # '127':
+  #   - zib_concept_id: 'NL-CM:2017-216'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 128:   Vertegenwoordiger
+  # '128':
+  #   - zib_concept_id: 'NL-CM:7.15.3'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.consentingParty'
+  #     element_id: 'Consent.consentingParty'
+
+  # 129:     Contactpersoon
+  # '129':
+  #   - zib_concept_id: 'NL-CM:2017-217'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 130:   WilsverklaringDocument
+  # '130':
+  #   - zib_concept_id: 'NL-CM:7.15.5'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.source[x]'
+  #     element_id: 'Consent.source[x]'
+
+  # 131:   Toelichting
+  # '131':
+  #   - zib_concept_id: 'NL-CM:7.15.6'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:comment'
+
+  # 132: Wat verder nog belangrijk is (AlgemeneMeting)
+  # '132':
+  #   - zib_concept_id: 'NL-CM:13.3.1'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation'
+  #     element_id: 'Observation'
+
+  # 211:   MeetUitslag
+  # '211':
+  #   - zib_concept_id: 'NL-CM:13.3.5'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.related'
+  #     element_id: 'Observation.related'
+
+  # 212:     MetingNaam voor Wat verder nog belangrijk is
+  # '212':
+  #   - zib_concept_id: 'NL-CM:13.3.6'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.code'
+  #     element_id: 'Observation.code'
+
+  # 213:     Wat verder nog belangrijk is (UitslagWaarde)
+  # '213':
+  #   - zib_concept_id: 'NL-CM:13.3.7'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.value[x]'
+  #     element_id: 'Observation.value[x]'
+
+  # 215:     UitslagDatumTijd
+  # '215':
+  #   - zib_concept_id: 'NL-CM:13.3.9'
+  #     resource: Observation
+  #     profile_id: ACP-OrganDonationChoiceRegistration
+  #     element_path: 'Observation.effective[x]'
+  #     element_id: 'Observation.effective[x]'
+
+  # 139: Eerder vastgelegde behandelafspraken (Wilsverklaring)
+  # '139':
+  #   - zib_concept_id: 'NL-CM:7.15.1'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent'
+  #     element_id: 'Consent'
+
+  # 140:   WilsverklaringType
+  # '140':
+  #   - zib_concept_id: 'NL-CM:7.15.2'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.category'
+  #     element_id: 'Consent.category:typeOfLivingWill'
+
+  # 141:   WilsverklaringDatum
+  # '141':
+  #   - zib_concept_id: 'NL-CM:7.15.7'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.dateTime'
+  #     element_id: 'Consent.dateTime'
+
+  # 142:   Aandoening
+  # '142':
+  #   - zib_concept_id: 'NL-CM:7.15.4'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:disorder'
+
+  # 143:     Probleem
+  # '143':
+  #   - zib_concept_id: 'NL-CM:2017-216'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 144:   Vertegenwoordiger
+  # '144':
+  #   - zib_concept_id: 'NL-CM:7.15.3'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.consentingParty'
+  #     element_id: 'Consent.consentingParty'
+
+  # 145:     Contactpersoon
+  # '145':
+  #   - zib_concept_id: 'NL-CM:2017-217'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 146:   WilsverklaringDocument
+  # '146':
+  #   - zib_concept_id: 'NL-CM:7.15.5'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.source[x]'
+  #     element_id: 'Consent.source[x]'
+
+  # 147:   Toelichting
+  # '147':
+  #   - zib_concept_id: 'NL-CM:7.15.6'
+  #     resource: Consent
+  #     profile_id: ACP-AdvanceDirective
+  #     element_path: 'Consent.extension'
+  #     element_id: 'Consent.extension:comment'
+
+  # 183: Heeft de patient eerder behandelafspraken vastgelegd?
+  # '183':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 207:   Heeft de patient eerder behandelafspraken vastgelegd?
+  # '207':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 184:   Toelichting
+  # '184':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 189: Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring?
+  # '189':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 187: Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?
+  # '187':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # 188: Patient gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners
+  # '188':
+  #   - zib_concept_id: 'NL-CM:XX.X.X'
+  #     resource: <ResourceType>
+  #     profile_id: <ProfileId>
+  #     element_path: '<FHIR element path>'
+  #     element_id: '<element id>'
+
+  # Active overrides (uncommented entries will be used)
+  '772':
+    - zib_concept_id: 'NL-CM-15.1.13'
+      resource: Encounter
+      profile_id: ACP-Encounter
+      element_path: 'Encounter.diagnosis.condition'
+      element_id: 'Encounter.diagnosis.condition'

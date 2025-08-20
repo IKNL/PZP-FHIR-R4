@@ -1,0 +1,75 @@
+map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities4to3" = "R4 to R3 Conversion for TerminologyCapabilities"
+
+uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilities as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group TerminologyCapabilities(source src : TerminologyCapabilitiesR3, target tgt : TerminologyCapabilities) extends DomainResource <<type+>> {
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.version as vs -> tgt.version as vt then string(vs, vt);
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.title as vs -> tgt.title as vt then string(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.experimental as vs -> tgt.experimental as vt then boolean(vs, vt);
+  src.date as vs -> tgt.date as vt then dateTime(vs, vt);
+  src.publisher as vs -> tgt.publisher as vt then string(vs, vt);
+  src.contact -> tgt.contact;
+  src.description as vs -> tgt.description as vt then markdown(vs, vt);
+  src.useContext as vs -> tgt.useContext as vt then string(vs, vt);
+  src.jurisdiction as vs -> tgt.jurisdiction as vt then string(vs, vt);
+  src.purpose as vs -> tgt.purpose as vt then markdown(vs, vt);
+  src.copyright as vs -> tgt.copyright as vt then markdown(vs, vt);
+  src.lockedDate as vs -> tgt.lockedDate as vt then string(vs, vt);
+  src.codeSystem as s -> tgt.codeSystem as t then TerminologyCapabilitiesCodeSystem(s, t);
+  src.expansion as s -> tgt.expansion as t then TerminologyCapabilitiesExpansion(s, t);
+  src.codeSearch as vs -> tgt.codeSearch as vt then string(vs, vt);
+  src.validateCode as s -> tgt.validateCode as t then TerminologyCapabilitiesValidateCode(s, t);
+  src.translation as s -> tgt.translation as t then TerminologyCapabilitiesTranslation(s, t);
+  src.closure as s -> tgt.closure as t then TerminologyCapabilitiesClosure(s, t);
+}
+
+group TerminologyCapabilitiesCodeSystem(source src, target tgt) extends BackboneElement {
+  src.uri as vs -> tgt.uri as vt then string(vs, vt);
+  src.version as s -> tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s, t);
+}
+
+group TerminologyCapabilitiesCodeSystemVersion(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.isDefault as vs -> tgt.isDefault as vt then string(vs, vt);
+  src.compositional as vs -> tgt.compositional as vt then string(vs, vt);
+  src.language as vs -> tgt.language as vt then code(vs, vt);
+  src.filter as s -> tgt.filter as t then TerminologyCapabilitiesCodeSystemVersionFilter(s, t);
+  src.property as vs -> tgt.property as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesCodeSystemVersionFilter(source src, target tgt) extends BackboneElement {
+  src.code as vs -> tgt.code as vt then CodeableConcept(vs, vt);
+  src.op as vs -> tgt.op as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesExpansion(source src, target tgt) extends BackboneElement {
+  src.hierarchical as vs -> tgt.hierarchical as vt then string(vs, vt);
+  src.paging as vs -> tgt.paging as vt then string(vs, vt);
+  src.incomplete as vs -> tgt.incomplete as vt then string(vs, vt);
+  src.parameter as s -> tgt.parameter as t then TerminologyCapabilitiesExpansionParameter(s, t);
+  src.textFilter as vs -> tgt.textFilter as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesExpansionParameter(source src, target tgt) extends BackboneElement {
+  src.name as vs -> tgt.name as vt then string(vs, vt);
+  src.documentation as vs -> tgt.documentation as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesValidateCode(source src, target tgt) extends BackboneElement {
+  src.translations as vs -> tgt.translations as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesTranslation(source src, target tgt) extends BackboneElement {
+  src.needsMap as vs -> tgt.needsMap as vt then string(vs, vt);
+}
+
+group TerminologyCapabilitiesClosure(source src, target tgt) extends BackboneElement {
+  src.translation as vs -> tgt.translation as vt then string(vs, vt);
+}
+

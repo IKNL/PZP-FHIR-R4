@@ -1,7 +1,164 @@
+# ================================
+# FHIR Implementation Guide Files
+# ================================
+
+# FSH Generated content
+*/fsh-generated/
+
+# FHIR IG Publisher cache and output
+*/input-cache/
+*/output/
+*/temp/
+
+# Template files (usually auto-downloaded)
+*/template/
+
+
+# ================================
+# Java/Maven Build Files
+# ================================
+
+# Maven target directories
+**/target/
+
+# JAR files (compiled Java archives)
+*.jar
+
+# Class files
+*.class
+
+# Maven wrapper files (optional - uncomment to include)
+# .mvn/
+# mvnw
+# mvnw.cmd
+
+# ================================
+# R4 to STU3 Converter Specific
+# ================================
+
+# Converter output directories
+util/r4-to-r3-converter/output/
+
+# Backup directories created by cleanup tools
+util/r4-to-r3-converter/maps/unused_backup/
+
+# Analysis reports (generated files)
+util/r4-to-r3-converter/CONVERSION_ANALYSIS_REPORT.md
+
+# Validator CLI JAR (if downloaded separately)
+util/convert_to_stu3/validator_cli.jar
+
+# Debug and log files
+util/r4-to-r3-converter/fhirconverter/debug-logs/
+
+# ================================
+# Python Files
+# ================================
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environments
+venv/
+env/
+.env
+
+# ================================
+# IDE and Editor Files
+# ================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+
+# NetBeans
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+
+# ================================
+# Operating System Files
+# ================================
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
 Thumbs.db
-/fsh-generated
-/input-cache
-/output
-/temp
-/template
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# ================================
+# Log Files
+# ================================
+
+# Application logs
+*.log
+logs/
+
+# ================================
+# Temporary and Cache Files
+# ================================
+
+# General temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Node.js (if using any npm tools)
+node_modules/
+npm-debug.log*
+
+# ================================
+# Archive Files
+# ================================
+
+# Large archive files that shouldn't be versioned
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Exception: Keep small documentation archives if needed
+# !docs/*.zip
+
+# ================================
+# Large Generated Files
+# ================================
+
+# Full IG archives (these are large and generated)
+full-ig.zip
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+/.simplifier
+STU3/input/fhirpkg.lock.json

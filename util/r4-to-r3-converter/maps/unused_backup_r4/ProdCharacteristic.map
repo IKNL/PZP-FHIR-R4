@@ -1,0 +1,21 @@
+map "http://hl7.org/fhir/StructureMap/ProdCharacteristic4to3" = "R4 to R3 Conversion for ProdCharacteristic"
+
+uses "http://hl7.org/fhir/StructureDefinition/ProdCharacteristic" alias ProdCharacteristic as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProdCharacteristic" alias ProdCharacteristicR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group ProdCharacteristic(source src : ProdCharacteristicR3, target tgt : ProdCharacteristic) extends BackboneElement <<type+>> {
+  src.height as vs -> tgt.height as vt then string(vs, vt);
+  src.width as vs -> tgt.width as vt then string(vs, vt);
+  src.depth as vs -> tgt.depth as vt then string(vs, vt);
+  src.weight as vs -> tgt.weight as vt then string(vs, vt);
+  src.nominalVolume as vs -> tgt.nominalVolume as vt then string(vs, vt);
+  src.externalDiameter as vs -> tgt.externalDiameter as vt then string(vs, vt);
+  src.shape as vs -> tgt.shape as vt then string(vs, vt);
+  src.color as vs -> tgt.color as vt then string(vs, vt);
+  src.imprint as vs -> tgt.imprint as vt then string(vs, vt);
+  src.image as vs -> tgt.image as vt then string(vs, vt);
+  src.scoring as vs -> tgt.scoring as vt then string(vs, vt);
+}
+

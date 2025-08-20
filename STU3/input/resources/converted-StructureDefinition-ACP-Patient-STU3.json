@@ -1,0 +1,528 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-Patient",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient",
+  "version": "0.1.0",
+  "name": "ACPPatient",
+  "title": "Patient",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "A person who receives medical, psychological, paramedical, or nursing care.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://fhir.nl/fhir/StructureDefinition/nl-core-patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient",
+        "path": "Patient",
+        "constraint": [
+          {
+            "key": "ACP-Patient-1",
+            "severity": "warning",
+            "human": "If the patient is not legally capable, there should be a legal representative.",
+            "expression": "extension.where(url\u003d\u0027https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions\u0027).where(url\u003d\u0027legallyCapableComment\u0027).value \u003d false implies (contact.where(relationship.coding.code \u003d \u002724\u0027).exists() or contact.extension(url\u003d\u0027http://hl7.org/fhir/StructureDefinition/patient-relatedPerson\u0027).exists())",
+            "source": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "351",
+            "comment": "Patient"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "613",
+            "comment": "Patient"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "648",
+            "comment": "Patient"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "11",
+            "comment": "Patient"
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions",
+        "path": "Patient.extension",
+        "sliceName": "legallyCapableMedicalTreatmentDecisions",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+          }
+        ],
+        "condition": [
+          "ACP-Patient-1"
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "761",
+            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment",
+        "path": "Patient.extension.extension",
+        "sliceName": "legallyCapableComment"
+      },
+      {
+        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment.value[x]",
+        "path": "Patient.extension.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "763",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier",
+        "path": "Patient.identifier",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "385",
+            "comment": "Identificatienummer"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "18",
+            "comment": "Identificatienummer"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "sliceName": "nameInformation",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "12",
+            "comment": "Naamgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "328",
+            "comment": "Naamgegevens"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.use",
+        "path": "Patient.name.use",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "356",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "519",
+            "comment": "Naamgebruik"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family.extension:partnerLastName",
+        "path": "Patient.name.family.extension",
+        "sliceName": "partnerLastName"
+      },
+      {
+        "id": "Patient.name.family.extension:partnerLastName.value[x]",
+        "path": "Patient.name.family.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "362",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "525",
+            "comment": "AchternaamPartner"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.given",
+        "path": "Patient.name.given",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "353",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "354",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "516",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "517",
+            "comment": "Initialen"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.suffix",
+        "path": "Patient.name.suffix",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "363",
+            "comment": "Titels"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "526",
+            "comment": "Titels"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom",
+        "path": "Patient.telecom",
+        "sliceName": "telephoneNumbers",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "377",
+            "comment": "Telefoonnummers"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "382",
+            "comment": "EmailAdressen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "16",
+            "comment": "Contactgegevens"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.system",
+        "path": "Patient.telecom.system",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "379",
+            "comment": "TelecomType"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "384",
+            "comment": "EmailSoort"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.system.extension:telecomType",
+        "path": "Patient.telecom.system.extension",
+        "sliceName": "telecomType"
+      },
+      {
+        "id": "Patient.telecom.system.extension:telecomType.value[x]",
+        "path": "Patient.telecom.system.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "379",
+            "comment": "TelecomType"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.value",
+        "path": "Patient.telecom.value",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "378",
+            "comment": "Telefoonnummer"
+          },
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "383",
+            "comment": "EmailAdres"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.use",
+        "path": "Patient.telecom.use",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "380",
+            "comment": "NummerSoort"
+          }
+        ]
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "387",
+            "comment": "Geslacht"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "20",
+            "comment": "Geslacht"
+          }
+        ]
+      },
+      {
+        "id": "Patient.gender.extension:GeslachtCodelijst",
+        "path": "Patient.gender.extension",
+        "sliceName": "GeslachtCodelijst"
+      },
+      {
+        "id": "Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept",
+        "path": "Patient.gender.extension.valueCodeableConcept",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "387",
+            "comment": "Geslacht"
+          }
+        ]
+      },
+      {
+        "id": "Patient.birthDate",
+        "path": "Patient.birthDate",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "386",
+            "comment": "Geboortedatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "19",
+            "comment": "Geboortedatum"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "364",
+            "comment": "Adresgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "14",
+            "comment": "Adresgegevens"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.use",
+        "path": "Patient.address.use",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "375",
+            "comment": "AdresSoort"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.type",
+        "path": "Patient.address.type",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "375",
+            "comment": "AdresSoort"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.line.extension:additionalInformation",
+        "path": "Patient.address.line.extension",
+        "sliceName": "additionalInformation"
+      },
+      {
+        "id": "Patient.address.line.extension:additionalInformation.value[x]",
+        "path": "Patient.address.line.extension.value[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "374",
+            "comment": "AdditioneleInformatie"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.city",
+        "path": "Patient.address.city",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "371",
+            "comment": "Woonplaats"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.district",
+        "path": "Patient.address.district",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "372",
+            "comment": "Gemeente"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.postalCode",
+        "path": "Patient.address.postalCode",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "370",
+            "comment": "Postcode"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.country.extension:countryCode",
+        "path": "Patient.address.country.extension",
+        "sliceName": "countryCode"
+      },
+      {
+        "id": "Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept",
+        "path": "Patient.address.country.extension.valueCodeableConcept",
+        "mapping": [
+          {
+            "identity": "pall-izppz-v2025-03-11",
+            "map": "373",
+            "comment": "Land"
+          }
+        ]
+      },
+      {
+        "id": "Patient.contact",
+        "path": "Patient.contact",
+        "condition": [
+          "ACP-Patient-1"
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "36",
+            "comment": "Wettelijk vertegenwoordiger (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "45",
+            "comment": "Eerste contactpersoon (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "148",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+          }
+        ]
+      },
+      {
+        "id": "Patient.contact.relationship",
+        "path": "Patient.contact.relationship",
+        "condition": [
+          "ACP-Patient-1"
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "43",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "44",
+            "comment": "Relatie tot patient (Relatie)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "73",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "74",
+            "comment": "Relatie tot patient (Relatie)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "155",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "156",
+            "comment": "Relatie tot patient (Relatie)"
+          }
+        ]
+      }
+    ]
+  }
+}

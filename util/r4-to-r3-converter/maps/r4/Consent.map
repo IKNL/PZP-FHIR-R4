@@ -1,0 +1,128 @@
+map "http://hl7.org/fhir/StructureMap/Consent4to3" = "R4 to R3 Conversion for Consent"
+
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Consent(source src : Consent, target tgt : ConsentR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.category as vs -> tgt.category as vt then CodeableConcept(vs, vt);
+  src.patient as vs -> tgt.patient as vt then Reference(vs, vt);
+  // no period in stu3
+  src.dateTime as vs -> tgt.dateTime as vt then string(vs, vt);
+
+  src.performer as vs-> tgt.extension as ext then createConsentingPartyExtension(vs, ext) "consentingParty-extension-rule";
+  src.organization as vs -> tgt.organization as vt then Reference(vs, vt);
+  src.source : Attachment as vs -> tgt.source = create('Attachment') as vt then Attachment(vs, vt);
+  src.source : Identifier as vs -> tgt.source = create('Identifier') as vt then Identifier(vs, vt);
+  src.source : Reference as vs -> tgt.source = create('Reference') as vt then Reference(vs, vt);
+
+  src.policy as vs -> tgt.policy as vt then policy(vs, vt);
+  
+  src.policyRule as cc then {
+    cc.coding as c where system = 'urn:ietf:rfc:3986' then {
+      // This is a cross-version property mapping, not implemented
+      c.code -> tgt.policyRule;
+    };
+  };
+
+  src.provision as vs -> tgt.extension as ext then createExceptExtension(vs, ext) "except-extension-rule"; // R4 provision needs to be converted to extension since STU3 doesn't have provision, but has except This is going to be a complex extension with multiple sub-extensions. :(
+}
+
+group policy(source src, target tgt) extends BackboneElement {
+  src.authority as vs -> tgt.authority as vt then string(vs, vt);
+  src.uri as vs -> tgt.uri as vt then string(vs, vt);
+}
+
+group createExceptExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Consent.except' "except-base-url";
+  
+  // Map all provision elements as sub-extensions
+  src.type as vs -> ext.extension as typeExt then {
+    vs -> typeExt.url = 'type' "type-url";
+    vs -> typeExt.value = vs "type-value";
+  } "type-extension";
+  
+  src.period as vs -> ext.extension as periodExt then {
+    vs -> periodExt.url = 'period' "period-url";
+    vs -> periodExt.value = vs "period-value";
+  } "period-extension";
+  
+  src.actor as vs -> ext.extension as actorExt then createActorExtension(vs, actorExt) "actor-extension";
+  
+  src.action as vs -> ext.extension as actionExt then {
+    vs -> actionExt.url = 'action' "action-url";
+    vs -> actionExt.value = vs "action-value";
+  } "action-extension";
+  
+  src.securityLabel as vs -> ext.extension as securityExt then {
+    vs -> securityExt.url = 'securityLabel' "security-url";
+    vs -> securityExt.value = vs "security-value";
+  } "security-extension";
+  
+  src.purpose as vs -> ext.extension as purposeExt then {
+    vs -> purposeExt.url = 'purpose' "purpose-url";
+    vs -> purposeExt.value = vs "purpose-value";
+  } "purpose-extension";
+  
+  src.class as vs -> ext.extension as classExt then {
+    vs -> classExt.url = 'class' "class-url";
+    vs -> classExt.value = vs "class-value";
+  } "class-extension";
+  
+  src.code as vs -> ext.extension as codeExt then {
+    vs -> codeExt.url = 'code' "code-url";
+    vs.coding as c -> codeExt.value = c "code-value"; // Convert CodeableConcept.coding to Coding for STU3
+  } "code-extension";
+  
+  src.dataPeriod as vs -> ext.extension as dataPeriodExt then {
+    vs -> dataPeriodExt.url = 'dataPeriod' "dataPeriod-url";
+    vs -> dataPeriodExt.value = vs "dataPeriod-value";
+  } "dataPeriod-extension";
+  
+  src.data as vs -> ext.extension as dataExt then createDataExtension(vs, dataExt) "data-extension";
+  
+  // Handle nested provisions recursively
+  src.provision as vs -> ext.extension as nestedExt then createExceptExtension(vs, nestedExt) "nested-except-extension";
+}
+
+group createActorExtension(source src, target ext) {
+  src -> ext.url = 'actor' "actor-base-url";
+  src.role as vs -> ext.extension as roleExt then {
+    vs -> roleExt.url = 'role' "role-url";
+    vs -> roleExt.value = vs "role-value";
+  } "role-extension";
+  src.reference as vs -> ext.extension as refExt then {
+    vs -> refExt.url = 'reference' "reference-url";
+    vs -> refExt.value = vs "reference-value";
+  } "reference-extension";
+}
+
+group createDataExtension(source src, target ext) {
+  src -> ext.url = 'data' "data-base-url";
+  src.meaning as vs -> ext.extension as meaningExt then {
+    vs -> meaningExt.url = 'meaning' "meaning-url";
+    vs -> meaningExt.value = vs "meaning-value";
+  } "meaning-extension";
+  src.reference as vs -> ext.extension as refExt then {
+    vs -> refExt.url = 'reference' "reference-url";
+    vs -> refExt.value = vs "reference-value";
+  } "reference-extension";
+}
+
+//group actor(source src, target tgt) extends BackboneElement {
+//  src.role as vs -> tgt.role as vt then CodeableConcept(vs, vt);
+//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
+//}
+
+//group data(source src, target tgt) extends BackboneElement {
+//  src.meaning as vs -> tgt.meaning as vt then code(vs, vt);
+//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
+//}
+
+group createConsentingPartyExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Consent.consentingParty' "ConsentingParty-url";
+  src -> ext.value = src "ConsentingParty-value";
+}

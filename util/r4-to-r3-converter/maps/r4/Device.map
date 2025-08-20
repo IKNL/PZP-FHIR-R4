@@ -1,0 +1,46 @@
+map "http://hl7.org/fhir/StructureMap/Device4to3" = "R4 to R3 Conversion for Device"
+
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Device" alias DeviceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+group Device(source src : Device, target tgt : DeviceR3) extends DomainResource <<type+>> {
+  src.identifier as vs -> tgt.identifier as vt then Identifier(vs, vt);
+  src.udiCarrier as vs0 -> tgt.udi as vt0 then {
+    vs0.deviceIdentifier -> vt0.deviceIdentifier;
+    vs0.jurisdiction -> vt0.jurisdiction;
+    vs0.carrierHRF -> vt0.carrierHRF;
+    vs0.carrierAIDC -> vt0.carrierAIDC;
+    vs0.issuer -> vt0.issuer;
+    vs0.entryType -> vt0.entryType;
+  };
+  src.status as vs -> tgt.status as vt then code(vs, vt);
+  src.type as vs -> tgt.type as vt then CodeableConcept(vs, vt);
+  src.lotNumber as vs -> tgt.lotNumber as vt then string(vs, vt);
+  src.manufacturer as vs -> tgt.manufacturer as vt then string(vs, vt);
+  src.manufactureDate as vs -> tgt.manufactureDate as vt then dateTime(vs, vt);
+  src.expirationDate as vs -> tgt.expirationDate as vt then dateTime(vs, vt);
+  
+  // Cross-version property mapping: modelNumber -> model
+  src.modelNumber as vs -> tgt.extension as ext then createModelExtension(vs, ext) "model-extension-rule";
+  src.version as vs -> tgt as vt then {
+    vs.value -> tgt.version;
+  };
+    // This may need a Cross-version property mapping too...
+  src.deviceName as vs -> tgt.udi as vt then {
+    vs.name -> vt.name;
+  };
+  src.patient as vs -> tgt.patient as vt then Reference(vs, vt);
+  src.owner as vs -> tgt.owner as vt then Reference(vs, vt);
+  src.contact as vs -> tgt.contact as vt then ContactPoint(vs, vt);
+  src.location as vs -> tgt.location as vt then Reference(vs, vt);
+  src.url as vs -> tgt.url as vt then uri(vs, vt);
+  src.note as vs -> tgt.note as vt then Annotation(vs, vt);
+  src.safety as vs -> tgt.safety as vt then CodeableConcept(vs, vt);
+}
+
+group createModelExtension(source src, target ext) {
+  src -> ext.url = 'http://fhir.conversion/cross-version/Device.model' "model-url";
+  src -> ext.value = src "model-value";
+}
