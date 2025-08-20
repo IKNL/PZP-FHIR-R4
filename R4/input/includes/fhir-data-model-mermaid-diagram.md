@@ -94,6 +94,7 @@ flowchart TB
     DeviceUseStatement -- "subject" --> Patient
     Encounter -- "subject" --> Patient
     Encounter -- "participant" --> PractitionerRole
+    Encounter -- "reasonReference" --> Procedure
     Encounter -- "participant" --> RelatedPerson
     Goal -- "extension" --> Encounter
     Goal -- "subject" --> Patient

@@ -163,8 +163,8 @@ def main():
         description="Generates a categorized and styled Mermaid diagram with labeled links between subgraphs.",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('--fsh-dir', default='../R4/input/fsh', help="Directory containing .fsh files.")
-    parser.add_argument('--output-file', default='../R4/input/includes/fhir-data-model-mermaid-diagram.md', help="Path for the output diagram file.")
+    parser.add_argument('--fsh-dir', default='../../R4/input/fsh', help="Directory containing .fsh files.")
+    parser.add_argument('--output-file', default='../../R4/input/includes/fhir-data-model-mermaid-diagram.md', help="Path for the output diagram file.")
     args = parser.parse_args()
     generate_mermaid_diagram(args.fsh_dir, args.output_file)
 
