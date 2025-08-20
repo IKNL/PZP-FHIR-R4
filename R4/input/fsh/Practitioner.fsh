@@ -2,7 +2,7 @@ Profile: ACPHealthProfessionalPractitioner
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner
 Id: ACP-HealthProfessional-Practitioner
 Title: "HealthProfessional Practitioner"
-Description: "In the context of Advance Care Planning (ACP), a Practitioner refers to a healthcare professional who engages in discussions and makes agreements with the Patient and/or their Legal Representative. Depending on the specific stage or pathway of the ACP process, multiple Practitioners may be involved, each responsible for facilitating conversations and documenting decisions in accordance with their role."
+Description: "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional."
 * insert MetaRules
 
 
@@ -33,4 +33,3 @@ Usage: #example
 * name.family.extension[=].valueString = "van"
 * name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
 * name.family.extension[=].valueString = "Huissen"
-* name.prefix = "Dr."
