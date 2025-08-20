@@ -16,7 +16,7 @@
       "use": "work"
     } ]
   } ],
-  "description": "A set of codes representing the primary agreed-upon goal of a patient's medical treatment policy.",
+  "description": "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "compose": {
     "include": [ {

@@ -20,7 +20,6 @@
         "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
         "valueString": "Huissen"
       } ]
-    },
-    "prefix": [ "Dr." ]
+    }
   } ]
 }

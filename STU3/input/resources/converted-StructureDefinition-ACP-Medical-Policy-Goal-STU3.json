@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "A profile on the FHIR Goal resource to represent the primary, agreed-upon goal of a patient's medical treatment policy.",
+  "description": "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [

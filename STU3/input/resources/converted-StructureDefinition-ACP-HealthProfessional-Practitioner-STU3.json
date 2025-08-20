@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "In the context of Advance Care Planning (ACP), a Practitioner refers to a healthcare professional who engages in discussions and makes agreements with the Patient and/or their Legal Representative. Depending on the specific stage or pathway of the ACP process, multiple Practitioners may be involved, each responsible for facilitating conversations and documenting decisions in accordance with their role.",
+  "description": "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [

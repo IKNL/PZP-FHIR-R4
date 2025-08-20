@@ -1,0 +1,125 @@
+{
+  "resourceType": "RelatedPerson",
+  "id": "P1-ACP-ContactPerson-MichielHartman",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson" ]
+  },
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "6504c755-8466-4647-9e53-d6b51d459f3e"
+  } ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "relationship": {
+    "coding": [ {
+      "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+      "code": "24",
+      "display": "Wettelijke vertegenwoordiger"
+    } ]
+  },
+  "name": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order",
+      "valueCode": "NL1"
+    } ],
+    "use": "official",
+    "text": "Michiel Hartman",
+    "family": "Hartman",
+    "_family": {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+        "valueString": "Hartman"
+      } ]
+    },
+    "given": [ "M", "Michiel" ],
+    "_given": [ {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+        "valueCode": "IN"
+      } ]
+    }, {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+        "valueCode": "BR"
+      } ]
+    } ]
+  }, {
+    "use": "usual",
+    "given": [ "Michiel" ]
+  } ],
+  "telecom": [ {
+    "extension": [ {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
+          "code": "MC",
+          "display": "Mobile Phone"
+        } ]
+      }
+    } ],
+    "system": "phone",
+    "value": "06-45612378",
+    "use": "home"
+  }, {
+    "system": "email",
+    "value": "michiel@test.nl",
+    "use": "home"
+  } ],
+  "address": [ {
+    "extension": [ {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-AddressType",
+          "code": "HP",
+          "display": "Primary Home"
+        } ]
+      }
+    } ],
+    "use": "home",
+    "type": "both",
+    "line": [ "Keizersgracht 764A IV" ],
+    "_line": [ {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition-iso21090-ADXP-streetName",
+        "valueString": "Keizersgracht"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition-iso21090-ADXP-houseNumber",
+        "valueString": "764"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix",
+        "valueString": "A"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator",
+        "valueString": "IV"
+      } ]
+    } ],
+    "city": "Amsterdam",
+    "district": "Amsterdam",
+    "postalCode": "1017 EZ",
+    "country": "Nederland",
+    "_country": {
+      "extension": [ {
+        "url": "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:iso:std:iso:3166",
+            "version": "2020-10-26T00:00:00",
+            "code": "NL",
+            "display": "Netherlands"
+          } ]
+        }
+      } ]
+    }
+  } ]
+}

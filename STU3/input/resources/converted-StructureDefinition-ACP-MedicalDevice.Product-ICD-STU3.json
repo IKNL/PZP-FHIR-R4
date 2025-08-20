@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "ICD MedicalDevice Product.",
+  "description": "The medical device (internally or externally). In the context of ACP, this profile is used to capture information on a patient\u0027s implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDeviceProduct and HCIM MedicalDevice.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [

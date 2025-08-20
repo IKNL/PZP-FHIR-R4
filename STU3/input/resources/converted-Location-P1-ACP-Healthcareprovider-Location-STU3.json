@@ -1,0 +1,16 @@
+{
+  "resourceType": "Location",
+  "id": "P1-ACP-Healthcareprovider-Location",
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "6bf27ac7-f34e-44e8-936f-ebe128b1c78a"
+  } ],
+  "name": "Zorginstelling F"
+}

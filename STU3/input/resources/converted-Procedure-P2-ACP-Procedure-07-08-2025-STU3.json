@@ -1,0 +1,50 @@
+{
+  "resourceType": "Procedure",
+  "id": "P2-ACP-Procedure-07-08-2025",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure" ]
+  },
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "e2efbdd1-b926-46c1-a18c-f72b4b281fbc"
+  } ],
+  "status": "completed",
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "713603004",
+      "display": "Advance care planning (procedure)"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "performedPeriod": {
+    "start": "2025-08-07",
+    "end": "2025-08-07"
+  },
+  "performer": [ {
+    "actor": {
+      "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+      "display": "Healthcare professional (role), Desiree Wolters"
+    }
+  }, {
+    "actor": {
+      "reference": "RelatedPerson/P2-ACP-ContactPerson-MayaVanDerSluijsMulder",
+      "display": "ContactPerson, Maya van der Sluijs"
+    }
+  }, {
+    "actor": {
+      "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+      "display": "Patient, Samira van der Sluijs"
+    }
+  } ]
+}

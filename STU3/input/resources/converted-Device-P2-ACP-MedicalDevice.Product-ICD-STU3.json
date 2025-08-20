@@ -1,0 +1,28 @@
+{
+  "resourceType": "Device",
+  "id": "P2-ACP-MedicalDevice.Product-ICD",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD" ]
+  },
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "7b04eb93-0d7b-41ed-84d1-d9012696b81e"
+  }, {
+    "system": "https://www.gs1.org/gtin",
+    "value": "8700000000001"
+  } ],
+  "type": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "72506001",
+      "display": "Implantable defibrillator, device (physical object)"
+    } ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "resourceType": "Observation",
+  "id": "P2-ACP-PreferredPlaceOfDeath-20250807",
+  "meta": {
+    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath" ]
+  },
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "d1866b00-aa64-4155-aa20-25ce51dac894"
+  } ],
+  "status": "final",
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "395091006"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "context": {
+    "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
+    "display": "Encounter, 2025-08-07"
+  },
+  "effectiveDateTime": "2025-08-07",
+  "performer": [ {
+    "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+    "display": "Healthcare professional (role), Desiree Wolters"
+  } ],
+  "valueCodeableConcept": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "264362003",
+      "display": "thuis (omgeving)"
+    } ]
+  },
+  "comment": "Het liefst rustig thuis"
+}
