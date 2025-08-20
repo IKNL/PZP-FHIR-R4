@@ -45,14 +45,15 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-# pages:
-#   index.md:
-#     title: Example Home
-#   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
+pages:
+  index.md:
+    title: Home
+  functioneel-ontwerp.md:
+    title: Functioneel Ontwerp
+  data-model.md:
+    title: Data Model Overview
+  data-exchange.md:
+    title: Data Exchange Overview
 #
 #
 # The parameters property represents IG.definition.parameter. Rather
