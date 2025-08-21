@@ -18,7 +18,7 @@ All interactions adhere to the following principles.
 
 This approach provides granular access to the individual clinical statements that constitute the ACP. It allows applications to query for specific data points without processing an entire form.
 
-This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with a identifier (e.g. BSN)
+This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with a identifier (e.g. BSN).
 
 #### Client Requests
 
@@ -27,11 +27,11 @@ The below listed search request show how all the ACP agreements, procedural info
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
 
-1b GET [base]/Encounter?patient=[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include:Encounter:reason-reference
+1b GET [base]/Encounter?patient=[id]&reason=http://snomed.info/sct|713603004
 
-2 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
+2 GET [base]/Consent?patient=[id]&category=http://snomed.info/sct|11291000146105&_include=Consent:actor
 
-3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
+3 GET [base]/Consent?patient=[id]&category=http://snomed.info/sct|11341000146107&_include=Consent:actor
 
 4 GET [base]/Goal?patient=[id]&description:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal
 
@@ -44,9 +44,9 @@ The below listed search request show how all the ACP agreements, procedural info
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
     * A) Retrieves `Procedure` resources representing ACP procedures and includes the associated `Encounter` resource where the procedure took place.
-    * B) Retrieves `Encounter` resources that list an ACP procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
-2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, Contact Persons, and Health Professionals).
-3. Retrieves `Consent` resources for Advance Directives and includes the representatives (Contact Persons).
+    * B) Retrieves `Encounter` resources that list an ACP procedure as their reason. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
+2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
+3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
 4. Retrieves `Goal` resources with a Medical Policy Goal code in the `Goal.description`.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
@@ -56,6 +56,7 @@ The below listed search request show how all the ACP agreements, procedural info
 
 Custom search parameters:
 * The `reason-code` parameter allows searching on `Communication.reasonCode`. See the custom `SearchParameter` resource definition in the artifacts tab.
+* The `description` parameter allows searching on `Goal.description`. This search parameter is defined from R5 onwards. The parameter definition can be found in the <a href="https://hl7.org/fhir/searchparameter-registry.html#:~:text=Goal.%E2%80%8Bcategory-,description,-token">Search Parameter Registry</a> and be applied for this version.
 
 The queries above use several search parameter types and modifiers:
 * `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
@@ -77,7 +78,7 @@ This approach is used to retrieve the complete form for uniform registration of 
 
 #### Client Request
 
-A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the official ACP questionnaire to ensure that only the correct form is returned.
+A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the <a href="Questionnaire-ACP-zib2017.html">ACP Questionnaire</a> to ensure that only the correct form is returned.
 
 > GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2017
 
@@ -86,13 +87,5 @@ A client retrieves the `QuestionnaireResponse` by performing a `GET` search oper
 
 The server follows standard FHIR response rules:
 
-* Success: 200 OK. The response body will contain a Bundle with the matching QuestionnaireResponse resource(s).
-* Not Found: 200 OK. If there is no completed form for this patient, the server will return an empty Bundle.
-
-##### Server Response
-
-Standard FHIR rules apply: 
-
-* Success: `200 OK`. The server will return a Bundle containing the matching QuestionnaireResponse resource(s) for the patient.
-* Not Found: If there is no completed form for this patient, the server will return an empty Bundle.
-
+* Success: `200 OK`. The response body will contain a Bundle with the matching QuestionnaireResponse resource(s). Example QuestionnaireResponse resources are available <a href="QuestionnaireResponse-HendrikHartman-20201001.html">here</a> and <a href="QuestionnaireResponse-HendrikHartman-20221108.html">here</a>.
+* Not Found: `200 OK`. If there is no completed form for this patient, the server will return an empty Bundle.

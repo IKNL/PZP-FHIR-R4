@@ -8,7 +8,13 @@ The diagram below illustrates the FHIR data model for this implementation guide.
 
 ### ACP Questionnaire
 
-A patient's ACP preferences can be captured using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding <a href="Questionnaire-ACP-zib2020.html">FHIR Questionnaire resource</a> to ensure standardized data collection.
+A patient's ACP preferences can be documented using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding <a href="Questionnaire-ACP-zib2020.html">FHIR Questionnaire resource</a> to ensure standardized and interoperable data capture.
+
+Two example QuestionnaireResponse resources, based on this Questionnaire, are included:
+
+* <a href="QuestionnaireResponse-HendrikHartman-20201001.html">QuestionnaireResponse for Hendrik Hartman (01-01-2020)</a>
+* <a href="QuestionnaireResponse-HendrikHartman-20221108.html">QuestionnaireResponse for Hendrik Hartman (08-11-2022)</a>
+
 
 ### Associating ACP dataset to FHIR 
 
