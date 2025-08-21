@@ -14,7 +14,7 @@ fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
-# jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+# jurisdiction: urn:iso:std:iso:3166#NL "Netherlands" # https://www.hl7.org/fhir/valueset-jurisdiction.html  -- this drives the SNOMED version selection too.
 publisher:
   name: IKNL
   url: https://iknl.nl/
@@ -68,7 +68,10 @@ pages:
 # parameters:
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
-#
+
+parameters:
+  path-expansion-params: Parameters-expansion.json
+  
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
