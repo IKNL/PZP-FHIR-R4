@@ -139,8 +139,8 @@ Usage: #example
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
-* provision.actor[agreementParty].reference.type = "PractitionerRole"
+* provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#89666000 "Cardiopulmonary resuscitation"
 
 

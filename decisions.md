@@ -23,6 +23,7 @@
 
 ##
 - Questionnaires
+    - Source of Questionnaire development is outside this IG. Therefore, Questionnaires will be saved as JSON, not as FSH.
     - Copied Questionnaire resources from IKNL form builder into input/resources with prefix "Questionnaire-"
     - Added proper metadata fields (zib2017 follows a similiar pattern)
 ```json

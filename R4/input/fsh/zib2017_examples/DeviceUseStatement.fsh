@@ -3,7 +3,7 @@ InstanceOf: ACP-MedicalDevice
 Title: "P1 ACP MedicalDevice ICD"
 Usage: #example
 * extension[healthProfessional].valueReference = Reference(P1-ACP-HealthProfessional-PractitionerRole-Santos) "Healthcare professional, Santos"
-* extension[location].valueReference = Reference(P1-ACP-Healthcareprovider-Location) "Healthcare provider (location), Zorginstelling F"
+// * extension[location].valueReference = Reference(P1-ACP-Healthcareprovider-Location) "Healthcare provider (location), Zorginstelling F"
 * extension[encounter].valueReference = Reference(P1-ACP-Encounter-29-07-2025) "Encounter, 2025-07-29"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -15,13 +15,3 @@ Usage: #example
 * bodySite = $snomed#80891009 "Heart structure (body structure)"
 * bodySite.extension[laterality].valueCodeableConcept = $snomed#7771000 "Links"
 * timingPeriod.start = "2020-05-19"
-
-
-Instance: P1-ACP-Healthcareprovider-Location
-InstanceOf: Location
-Title: "P1 ACP Healthcare Provider Location"
-Usage: #example
-* identifier.type = $v2-0203#RI "Resource identifier"
-* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
-* identifier.value = "6bf27ac7-f34e-44e8-936f-ebe128b1c78a"
-* name = "Zorginstelling F"

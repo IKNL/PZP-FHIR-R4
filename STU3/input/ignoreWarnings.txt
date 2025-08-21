@@ -45,3 +45,29 @@ ERROR: sample-ig\input\cql\notincluded.cql: CQL source was not associated with a
 # These errors are intentional to demonstrate that specifying the canonical URL for value sets in the CQL is expected
 ERROR: Library/example: Library.relatedArtifact[7].resource: Canonical URLs must be absolute URLs if they are not fragment references (TBD)
 ERROR: Library/example: Library.dataRequirement[4].codeFilter[0].valueSet: Canonical URLs must be absolute URLs if they are not fragment references (TBD)
+
+
+# This is a proposed fixed value in the Nictiz Consent profiles as there is no better alternative.
+WARNING: Consent/F1-ACP-TreatmentDirective-116762002: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F2-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-116762002: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-OTH: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-30351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-other: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
