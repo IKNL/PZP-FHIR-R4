@@ -25,9 +25,14 @@
   "fhirVersion": "3.0.2",
   "mapping": [
     {
-      "identity": "pall-izppz-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -42,7 +47,7 @@
         "path": "Observation",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "654",
             "comment": "Specifieke wensen ([Meting])"
           }
@@ -61,7 +66,7 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "655",
             "comment": "Wens en verwachting patient ([MetingNaam])"
           }
@@ -92,7 +97,7 @@
         "path": "Observation.effective[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "660",
             "comment": "[MeetDatumBeginTijd]"
           }
@@ -108,7 +113,7 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "656",
             "comment": "Wens en verwachting patient ([MetingWaarde])"
           }
@@ -120,7 +125,7 @@
         "comment": "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: \r\n- if the question has been asked but the source does not know the value (code = _asked-unknown_) \r\n- if the question has not been asked (code = _not-asked_) ",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "656",
             "comment": "Wens en verwachting patient ([MetingWaarde])"
           }
@@ -139,7 +144,7 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "657",
             "comment": "Vaststellen wens en verwachting patiënt ([MeetMethode])"
           }

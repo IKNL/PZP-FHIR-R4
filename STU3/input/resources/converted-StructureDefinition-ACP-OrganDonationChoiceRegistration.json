@@ -20,14 +20,19 @@
       ]
     }
   ],
-  "description": "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.",
+  "description": "Answer, captured in an observation, to the question: \u0027Is the choice on organ donation recorded in the donor register?\u0027 Based on Observation resource.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
     {
-      "identity": "pall-izppz-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -42,9 +47,34 @@
         "path": "Observation",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "746",
             "comment": "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "157",
+            "comment": "Belangrijkste doel van behandeling (AlgemeneMeting)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "105",
+            "comment": "Gewenste plek van overlijden (AlgemeneMeting)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "114",
+            "comment": "Euthanasie standpunt (AlgemeneMeting)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "737",
+            "comment": "Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "132",
+            "comment": "Wat verder nog belangrijk is (AlgemeneMeting)"
           }
         ]
       },
@@ -61,9 +91,34 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "747",
             "comment": "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "162",
+            "comment": "MetingNaam voor Belangrijkste doel van behandeling"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "110",
+            "comment": "MetingNaam voor Gewenste plek van overlijden"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "119",
+            "comment": "MetingNaam voor Euthanasie standpunt"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "742",
+            "comment": "MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister?"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "212",
+            "comment": "MetingNaam voor Wat verder nog belangrijk is"
           }
         ]
       },
@@ -92,9 +147,34 @@
         "path": "Observation.effective[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "752",
             "comment": "[MeetDatumBeginTijd]"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "304",
+            "comment": "Datum van invullen (DatumTijd)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "165",
+            "comment": "UitslagDatumTijd"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "113",
+            "comment": "UitslagDatumTijd"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "122",
+            "comment": "UitslagDatumTijd"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "215",
+            "comment": "UitslagDatumTijd"
           }
         ]
       },
@@ -115,9 +195,39 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "748",
             "comment": "Keuze orgaandonatie in donorregister ([MetingWaarde])"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "163",
+            "comment": "Doel (UitslagWaarde)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "204",
+            "comment": "Wens en verwachting patient (UitslagWaarde)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "111",
+            "comment": "Voorkeursplek (UitslagWaarde)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "120",
+            "comment": "Standpunt (UitslagWaarde)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "743",
+            "comment": "Keuze orgaandonatie in donorregister (UitslagWaarde)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "213",
+            "comment": "Wat verder nog belangrijk is (UitslagWaarde)"
           }
         ]
       },
@@ -126,7 +236,7 @@
         "path": "Observation.dataAbsentReason",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "748",
             "comment": "Keuze orgaandonatie in donorregister ([MetingWaarde])"
           }

@@ -25,9 +25,14 @@
   "fhirVersion": "3.0.2",
   "mapping": [
     {
-      "identity": "pall-izppz-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -42,12 +47,12 @@
         "path": "Goal",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "590",
             "comment": "Belangrijkste doel van behandeling ([Meting])"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "591",
             "comment": "Belangrijkste doel van behandeling ([MetingNaam])"
           }
@@ -87,7 +92,7 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "592",
             "comment": "Doel ([MetingWaarde])"
           }
@@ -130,7 +135,7 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "596",
             "comment": "[MeetDatumBeginTijd]"
           }
@@ -141,7 +146,7 @@
         "path": "Goal.note.text",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "598",
             "comment": "[Toelichting]"
           }

@@ -25,9 +25,14 @@
   "fhirVersion": "3.0.2",
   "mapping": [
     {
-      "identity": "pall-izppz-v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
       "name": "PZP dataset"
+    },
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
+      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -42,43 +47,58 @@
         "path": "RelatedPerson",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "441",
             "comment": "Wettelijk vertegenwoordiger (Contactpersoon)"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "615",
             "comment": "Contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "650",
             "comment": "Contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "696",
             "comment": "Contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "706",
             "comment": "Contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "727",
             "comment": "Contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "478",
             "comment": "Eerste contactpersoon (Contactpersoon)"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "554",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "36",
+            "comment": "Wettelijk vertegenwoordiger (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "45",
+            "comment": "Eerste contactpersoon (Contactpersoon)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "148",
             "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
           }
         ]
@@ -96,43 +116,58 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "475",
             "comment": "Rol"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "477",
             "comment": "Vertegenwoordiger is contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "512",
             "comment": "Rol"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "588",
             "comment": "Rol"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "475",
             "comment": "Rol"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "477",
             "comment": "Vertegenwoordiger is contactpersoon"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "512",
             "comment": "Rol"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "588",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "43",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "73",
+            "comment": "Rol"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "155",
             "comment": "Rol"
           }
         ]
@@ -153,58 +188,90 @@
         "definition": "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added.",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "476",
             "comment": "Relatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "513",
             "comment": "Relatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "589",
             "comment": "Relatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "476",
             "comment": "Relatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "513",
             "comment": "Relatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "589",
             "comment": "Relatie"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "44",
+            "comment": "Relatie tot patient (Relatie)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "74",
+            "comment": "Relatie tot patient (Relatie)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "156",
+            "comment": "Relatie tot patient (Relatie)"
           }
         ]
       },
       {
         "id": "RelatedPerson.name",
         "path": "RelatedPerson.name",
-        "sliceName": "nameInformation"
+        "sliceName": "nameInformation",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "37",
+            "comment": "Naam wettelijk vertegenwoordiger (Naamgegevens)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "67",
+            "comment": "Naamgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "149",
+            "comment": "Naamgegevens"
+          }
+        ]
       },
       {
         "id": "RelatedPerson.name.use",
         "path": "RelatedPerson.name.use",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "446",
             "comment": "Naamgebruik"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "483",
             "comment": "Naamgebruik"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "559",
             "comment": "Naamgebruik"
           }
@@ -220,17 +287,17 @@
         "path": "RelatedPerson.name.family.extension.value[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "452",
             "comment": "AchternaamPartner"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "489",
             "comment": "AchternaamPartner"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "565",
             "comment": "AchternaamPartner"
           }
@@ -241,32 +308,32 @@
         "path": "RelatedPerson.name.given",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "443",
             "comment": "Voornamen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "444",
             "comment": "Initialen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "480",
             "comment": "Voornamen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "481",
             "comment": "Initialen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "556",
             "comment": "Voornamen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "557",
             "comment": "Initialen"
           }
@@ -277,17 +344,17 @@
         "path": "RelatedPerson.name.suffix",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "453",
             "comment": "Titels"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "490",
             "comment": "Titels"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "566",
             "comment": "Titels"
           }
@@ -299,24 +366,34 @@
         "sliceName": "telephoneNumbers",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "455",
             "comment": "Telefoonnummers"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "492",
             "comment": "Telefoonnummers"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "460",
             "comment": "EmailAdressen"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "497",
             "comment": "EmailAdressen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "39",
+            "comment": "Contactgegevens wettelijk vertegenwoordiger (Contactgegevens)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "69",
+            "comment": "Contactgegevens"
           }
         ]
       },
@@ -325,22 +402,22 @@
         "path": "RelatedPerson.telecom.system",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "457",
             "comment": "TelecomType"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "494",
             "comment": "TelecomType"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "462",
             "comment": "EmailSoort"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "499",
             "comment": "EmailSoort"
           }
@@ -356,12 +433,12 @@
         "path": "RelatedPerson.telecom.system.extension.value[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "457",
             "comment": "TelecomType"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "494",
             "comment": "TelecomType"
           }
@@ -372,22 +449,22 @@
         "path": "RelatedPerson.telecom.value",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "456",
             "comment": "Telefoonnummer"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "493",
             "comment": "Telefoonnummer"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "461",
             "comment": "EmailAdres"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "498",
             "comment": "EmailAdres"
           }
@@ -398,12 +475,12 @@
         "path": "RelatedPerson.telecom.use",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "458",
             "comment": "NummerSoort"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "495",
             "comment": "NummerSoort"
           }
@@ -414,13 +491,23 @@
         "path": "RelatedPerson.address",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "463",
             "comment": "Adresgegevens"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "500",
+            "comment": "Adresgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "41",
+            "comment": "Adresgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "71",
             "comment": "Adresgegevens"
           }
         ]
@@ -430,12 +517,12 @@
         "path": "RelatedPerson.address.use",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "474",
             "comment": "AdresSoort"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "511",
             "comment": "AdresSoort"
           }
@@ -446,12 +533,12 @@
         "path": "RelatedPerson.address.type",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "474",
             "comment": "AdresSoort"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "511",
             "comment": "AdresSoort"
           }
@@ -467,12 +554,12 @@
         "path": "RelatedPerson.address.line.extension.value[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "473",
             "comment": "AdditioneleInformatie"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "510",
             "comment": "AdditioneleInformatie"
           }
@@ -483,12 +570,12 @@
         "path": "RelatedPerson.address.city",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "470",
             "comment": "Woonplaats"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "507",
             "comment": "Woonplaats"
           }
@@ -499,12 +586,12 @@
         "path": "RelatedPerson.address.district",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "471",
             "comment": "Gemeente"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "508",
             "comment": "Gemeente"
           }
@@ -515,12 +602,12 @@
         "path": "RelatedPerson.address.postalCode",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "469",
             "comment": "Postcode"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "506",
             "comment": "Postcode"
           }
@@ -536,12 +623,12 @@
         "path": "RelatedPerson.address.country.extension.valueCodeableConcept",
         "mapping": [
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "472",
             "comment": "Land"
           },
           {
-            "identity": "pall-izppz-v2025-03-11",
+            "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "509",
             "comment": "Land"
           }

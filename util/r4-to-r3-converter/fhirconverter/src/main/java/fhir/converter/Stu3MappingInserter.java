@@ -55,7 +55,14 @@ public class Stu3MappingInserter {
             .filter(Files::isRegularFile)
             .filter(path -> {
                 String filename = path.getFileName().toString();
-                return (filename.contains("StructureDefinition-") && filename.endsWith("-STU3.json"));
+                // Remove converted- or manual- prefix if present
+                if (filename.startsWith("converted-")) {
+                    filename = filename.substring("converted-".length());
+                } else if (filename.startsWith("manual-")) {
+                    filename = filename.substring("manual-".length());
+                }
+                // Accept any StructureDefinition-*.json file (with or without -STU3)
+                return filename.startsWith("StructureDefinition-") && filename.endsWith(".json");
             })
             .forEach(file -> {
                 try {
@@ -162,17 +169,21 @@ public class Stu3MappingInserter {
      * Extract profile ID from filename (e.g., "converted-StructureDefinition-ACP-Patient-STU3.json" -> "ACP-Patient")
      */
     private String extractProfileIdFromFilename(String filename) {
-        // Handle both converted- and manual- prefixed files
+        // Remove converted- or manual- prefix if present
         String cleanFilename = filename;
         if (filename.startsWith("converted-")) {
             cleanFilename = filename.substring("converted-".length());
         } else if (filename.startsWith("manual-")) {
             cleanFilename = filename.substring("manual-".length());
         }
-        
-        if (cleanFilename.startsWith("StructureDefinition-") && cleanFilename.endsWith("-STU3.json")) {
-            return cleanFilename.substring("StructureDefinition-".length(), 
-                                         cleanFilename.length() - "-STU3.json".length());
+
+        // Accept both with and without -STU3 suffix
+        if (cleanFilename.startsWith("StructureDefinition-") && cleanFilename.endsWith(".json")) {
+            String base = cleanFilename.substring("StructureDefinition-".length(), cleanFilename.length() - ".json".length());
+            if (base.endsWith("-STU3")) {
+                base = base.substring(0, base.length() - 6);
+            }
+            return base;
         }
         return null;
     }
