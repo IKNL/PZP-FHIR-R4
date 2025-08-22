@@ -24,11 +24,7 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-    {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
+
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -47,14 +43,14 @@
         "path": "Goal",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "590",
-            "comment": "Belangrijkste doel van behandeling ([Meting])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "157",
+            "comment": "Belangrijkste doel van behandeling (AlgemeneMeting)"
           },
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "591",
-            "comment": "Belangrijkste doel van behandeling ([MetingNaam])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "162",
+            "comment": "MetingNaam voor Belangrijkste doel van behandeling"
           }
         ]
       },
@@ -62,7 +58,6 @@
         "id": "Goal.extension:encounter",
         "path": "Goal.extension",
         "sliceName": "encounter",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -92,9 +87,9 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "592",
-            "comment": "Doel ([MetingWaarde])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "163",
+            "comment": "Doel (UitslagWaarde)"
           }
         ]
       },
@@ -126,8 +121,6 @@
         "id": "Goal.start[x]:startDate",
         "path": "Goal.start[x]",
         "sliceName": "startDate",
-        "min": 0,
-        "max": "1",
         "type": [
           {
             "code": "date"
@@ -135,10 +128,17 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "596",
-            "comment": "[MeetDatumBeginTijd]"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "165",
+            "comment": "UitslagDatumTijd"
           }
+        ]
+      },
+      {
+        "id": "Goal.start[x]:startDate.value",
+        "path": "Goal.start[x].value",
+        "type": [
+          {}
         ]
       },
       {
@@ -146,9 +146,9 @@
         "path": "Goal.note.text",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "598",
-            "comment": "[Toelichting]"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "160",
+            "comment": "Toelichting"
           }
         ]
       }

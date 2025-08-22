@@ -24,11 +24,7 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-    {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
+
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -47,10 +43,17 @@
         "path": "Observation",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "709",
-            "comment": "Wat verder nog belangrijk is ([Meting])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "132",
+            "comment": "Wat verder nog belangrijk is (AlgemeneMeting)"
           }
+        ]
+      },
+      {
+        "id": "Observation.status.value",
+        "path": "Observation.status.value",
+        "type": [
+          {}
         ]
       },
       {
@@ -66,9 +69,9 @@
         },
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "710",
-            "comment": "Wat verder nog belangrijk is ([MetingNaam])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "212",
+            "comment": "Wat verder nog belangrijk is (AlgemeneMeting)"
           }
         ]
       },
@@ -97,9 +100,9 @@
         "path": "Observation.effective[x]",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "715",
-            "comment": "[MeetDatumBeginTijd]"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "215",
+            "comment": "UitslagDatumTijd"
           }
         ]
       },
@@ -114,9 +117,9 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "711",
-            "comment": "Wat verder nog belangrijk is ([MetingWaarde])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "213",
+            "comment": "Wat verder nog belangrijk is (UitslagWaarde)"
           }
         ]
       },
@@ -125,9 +128,9 @@
         "path": "Observation.dataAbsentReason",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "711",
-            "comment": "Wat verder nog belangrijk is ([MetingWaarde])"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "213",
+            "comment": "Wat verder nog belangrijk is (UitslagWaarde)"
           }
         ]
       }

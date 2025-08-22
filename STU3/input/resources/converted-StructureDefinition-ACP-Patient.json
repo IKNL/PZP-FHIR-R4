@@ -24,11 +24,7 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-    {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
+
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -82,11 +78,6 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "761",
-            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "758",
             "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
@@ -121,11 +112,6 @@
         "id": "Patient.identifier",
         "path": "Patient.identifier",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "385",
-            "comment": "Identificatienummer"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "18",
@@ -175,16 +161,6 @@
         "id": "Patient.name.use",
         "path": "Patient.name.use",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "356",
-            "comment": "Naamgebruik"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "519",
-            "comment": "Naamgebruik"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "222",
@@ -270,26 +246,6 @@
         "path": "Patient.name.given",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "353",
-            "comment": "Voornamen"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "354",
-            "comment": "Initialen"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "516",
-            "comment": "Voornamen"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "517",
-            "comment": "Initialen"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "219",
             "comment": "Voornamen"
@@ -304,7 +260,7 @@
             "map": "221",
             "comment": "Roepnaam"
           },
-            {
+          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "330",
             "comment": "Voornamen"
@@ -322,19 +278,21 @@
         ]
       },
       {
+        "id": "Patient.name.given.extension:iso21090EnQualifier",
+        "path": "Patient.name.given.extension",
+        "sliceName": "iso21090EnQualifier"
+      },
+      {
+        "id": "Patient.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
+        "path": "Patient.name.given.extension.valueCode.value",
+        "type": [
+          {}
+        ]
+      },
+      {
         "id": "Patient.telecom",
         "path": "Patient.telecom",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "377",
-            "comment": "Telefoonnummers"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "382",
-            "comment": "EmailAdressen"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "16",
@@ -352,11 +310,6 @@
         "path": "Patient.gender",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "387",
-            "comment": "Geslacht"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "20",
             "comment": "Geslacht"
@@ -364,14 +317,16 @@
         ]
       },
       {
+        "id": "Patient.gender.value",
+        "path": "Patient.gender.value",
+        "type": [
+          {}
+        ]
+      },
+      {
         "id": "Patient.birthDate",
         "path": "Patient.birthDate",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "386",
-            "comment": "Geboortedatum"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "19",
@@ -384,11 +339,6 @@
         "path": "Patient.address",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "364",
-            "comment": "Adresgegevens"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "14",
             "comment": "Adresgegevens"
@@ -397,99 +347,6 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "15",
             "comment": "Adresgegevens"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.use",
-        "path": "Patient.address.use",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "375",
-            "comment": "AdresSoort"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.type",
-        "path": "Patient.address.type",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "375",
-            "comment": "AdresSoort"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.line.extension:additionalInformation",
-        "path": "Patient.address.line.extension",
-        "sliceName": "additionalInformation"
-      },
-      {
-        "id": "Patient.address.line.extension:additionalInformation.url",
-        "path": "Patient.address.line.extension.url",
-        "fixedUri": "additionalInformation"
-      },
-      {
-        "id": "Patient.address.line.extension:additionalInformation.value[x]",
-        "path": "Patient.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "374",
-            "comment": "AdditioneleInformatie"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.city",
-        "path": "Patient.address.city",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "371",
-            "comment": "Woonplaats"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.district",
-        "path": "Patient.address.district",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "372",
-            "comment": "Gemeente"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.postalCode",
-        "path": "Patient.address.postalCode",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "370",
-            "comment": "Postcode"
-          }
-        ]
-      },
-      {
-        "id": "Patient.address.country.extension:countryCode",
-        "path": "Patient.address.country.extension",
-        "sliceName": "countryCode"
-      },
-      {
-        "id": "Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept",
-        "path": "Patient.address.country.extension.valueCodeableConcept",
-        "sliceName": "valueCodeableConcept",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "373",
-            "comment": "Land"
           }
         ]
       },

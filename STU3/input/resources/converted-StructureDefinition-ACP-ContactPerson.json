@@ -24,11 +24,7 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-    {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
+
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -150,6 +146,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "68",
             "comment": "Naamgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "150",
+            "comment": "Naamgegevens"
           }
         ]
       },
@@ -178,6 +179,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "259",
             "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "276",
+            "comment": "Naamgebruik"
           }
         ]
       },
@@ -194,6 +200,11 @@
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "261",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "278",
             "comment": "Voorvoegsels"
           }
         ]
@@ -212,6 +223,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "262",
             "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "279",
+            "comment": "Achternaam"
           }
         ]
       },
@@ -229,7 +245,12 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "264",
             "comment": "VoorvoegselsPartner"
-          }
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "281",
+            "comment": "VoorvoegselsPartner"
+          }          
         ]
       },
       {
@@ -245,6 +266,11 @@
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "265",
+            "comment": "AchternaamPartner"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "282",
             "comment": "AchternaamPartner"
           }
         ]
@@ -281,6 +307,21 @@
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "258",
+            "comment": "Roepnaam"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "273",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "274",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "275",
             "comment": "Roepnaam"
           }
         ]
@@ -391,134 +432,6 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "72",
             "comment": "Adresgegevens"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.use",
-        "path": "RelatedPerson.address.use",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "474",
-            "comment": "AdresSoort"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "511",
-            "comment": "AdresSoort"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.type",
-        "path": "RelatedPerson.address.type",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "474",
-            "comment": "AdresSoort"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "511",
-            "comment": "AdresSoort"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.line.extension:additionalInformation",
-        "path": "RelatedPerson.address.line.extension",
-        "sliceName": "additionalInformation"
-      },
-      {
-        "id": "RelatedPerson.address.line.extension:additionalInformation.url",
-        "path": "RelatedPerson.address.line.extension.url",
-        "fixedUri": "additionalInformation"
-      },
-      {
-        "id": "RelatedPerson.address.line.extension:additionalInformation.value[x]",
-        "path": "RelatedPerson.address.line.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "473",
-            "comment": "AdditioneleInformatie"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "510",
-            "comment": "AdditioneleInformatie"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.city",
-        "path": "RelatedPerson.address.city",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "470",
-            "comment": "Woonplaats"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "507",
-            "comment": "Woonplaats"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.district",
-        "path": "RelatedPerson.address.district",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "471",
-            "comment": "Gemeente"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "508",
-            "comment": "Gemeente"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.postalCode",
-        "path": "RelatedPerson.address.postalCode",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "469",
-            "comment": "Postcode"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "506",
-            "comment": "Postcode"
-          }
-        ]
-      },
-      {
-        "id": "RelatedPerson.address.country.extension:countryCode",
-        "path": "RelatedPerson.address.country.extension",
-        "sliceName": "countryCode"
-      },
-      {
-        "id": "RelatedPerson.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept",
-        "path": "RelatedPerson.address.country.extension.valueCodeableConcept",
-        "sliceName": "valueCodeableConcept",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "472",
-            "comment": "Land"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "509",
-            "comment": "Land"
           }
         ]
       }

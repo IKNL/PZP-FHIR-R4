@@ -24,11 +24,7 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-    {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
+
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -47,11 +43,6 @@
         "path": "Practitioner",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "391",
-            "comment": "Gesprek gevoerd door (Zorgverlener)"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "807",
             "comment": "Gesprek gevoerd door (Zorgverlener)"
@@ -60,6 +51,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "24",
             "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "89",
+            "comment": "Zorgverlener"
           }
         ]
       },
@@ -67,11 +63,6 @@
         "id": "Practitioner.identifier",
         "path": "Practitioner.identifier",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "392",
-            "comment": "ZorgverlenerIdentificatienummer"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "25",

@@ -25,11 +25,6 @@
   "fhirVersion": "3.0.2",
   "mapping": [
     {
-      "identity": "pall-izppz-zib2020v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP dataset"
-    },
-    {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
       "name": "PZP zib2017 dataset"
@@ -47,11 +42,6 @@
         "path": "Encounter",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "808",
-            "comment": "Contact"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "764",
             "comment": "Contact"
@@ -62,11 +52,6 @@
         "id": "Encounter.class",
         "path": "Encounter.class",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "809",
-            "comment": "ContactType"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "765",
@@ -82,24 +67,12 @@
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
           }
-        ],
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "514",
-            "comment": "Gesprek gevoerd in bijzijn van (Patient)"
-          }
         ]
       },
       {
         "id": "Encounter.participant",
         "path": "Encounter.participant",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "810",
-            "comment": "ContactMet"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "766",
@@ -122,16 +95,6 @@
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "554",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "842",
-            "comment": "Gesprek gevoerd door (Zorgverlener)"
-          },
-          {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "807",
             "comment": "Gesprek gevoerd door (Zorgverlener)"
@@ -142,16 +105,6 @@
         "id": "Encounter.period.start",
         "path": "Encounter.period.start",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "814",
-            "comment": "BeginDatumTijd"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "736",
-            "comment": "Datum van invullen"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "770",
@@ -170,11 +123,6 @@
         "short": "Condition that this encounter was created for",
         "definition": "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.",
         "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "819",
-            "comment": "Verrichting"
-          },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "772",
