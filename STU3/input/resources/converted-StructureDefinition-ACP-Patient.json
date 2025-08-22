@@ -50,30 +50,19 @@
             "key": "ACP-Patient-1",
             "severity": "warning",
             "human": "If the patient is not legally capable, there should be a legal representative.",
-            "expression": "extension.where(url\u003d\u0027https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions\u0027).where(url\u003d\u0027legallyCapableComment\u0027).value \u003d false implies (contact.where(relationship.coding.code \u003d \u002724\u0027).exists() or contact.extension(url\u003d\u0027http://hl7.org/fhir/StructureDefinition/patient-relatedPerson\u0027).exists())",
-            "source": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+            "expression": "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapableComment').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
           }
         ],
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "351",
-            "comment": "Patient"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "613",
-            "comment": "Patient"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "648",
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "11",
             "comment": "Patient"
           },
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "11",
-            "comment": "Patient"
+            "map": "305",
+            "comment": "Gesprek gevoerd in bijzijn van (Patient)"
           }
         ]
       },
@@ -81,7 +70,6 @@
         "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions",
         "path": "Patient.extension",
         "sliceName": "legallyCapableMedicalTreatmentDecisions",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -97,21 +85,34 @@
             "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "761",
             "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "758",
+            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+          }
+        ]
+      },
+      {
+        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapable",
+        "path": "Patient.extension.extension",
+        "sliceName": "legallyCapable",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "759",
+            "comment": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
           }
         ]
       },
       {
         "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment",
         "path": "Patient.extension.extension",
-        "sliceName": "legallyCapableComment"
-      },
-      {
-        "id": "Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment.value[x]",
-        "path": "Patient.extension.extension.value[x]",
+        "sliceName": "legallyCapableComment",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "763",
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "760",
             "comment": "Toelichting"
           }
         ]
@@ -135,7 +136,6 @@
       {
         "id": "Patient.name",
         "path": "Patient.name",
-        "sliceName": "nameInformation",
         "mapping": [
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
@@ -146,7 +146,29 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "328",
             "comment": "Naamgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "13",
+            "comment": "Naamgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "329",
+            "comment": "Naamgegevens"
           }
+        ]
+      },
+      {
+        "id": "Patient.name.extension:humannameAssemblyOrder",
+        "path": "Patient.name.extension",
+        "sliceName": "humannameAssemblyOrder"
+      },
+      {
+        "id": "Patient.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
+        "path": "Patient.name.extension.valueCode.value",
+        "type": [
+          {}
         ]
       },
       {
@@ -162,26 +184,83 @@
             "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "519",
             "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "222",
+            "comment": "Naamgebruik"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "333",
+            "comment": "Naamgebruik"
           }
         ]
       },
       {
-        "id": "Patient.name.family.extension:partnerLastName",
+        "id": "Patient.name.family.extension:humannameOwnPrefix",
         "path": "Patient.name.family.extension",
-        "sliceName": "partnerLastName"
-      },
-      {
-        "id": "Patient.name.family.extension:partnerLastName.value[x]",
-        "path": "Patient.name.family.extension.value[x]",
+        "sliceName": "humannameOwnPrefix",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "362",
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "224",
+            "comment": "Voorvoegsels"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "335",
+            "comment": "Voorvoegsels"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family.extension:humannameOwnName",
+        "path": "Patient.name.family.extension",
+        "sliceName": "humannameOwnName",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "225",
+            "comment": "Achternaam"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "336",
+            "comment": "Achternaam"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family.extension:humannamePartnerPrefix",
+        "path": "Patient.name.family.extension",
+        "sliceName": "humannamePartnerPrefix",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "227",
+            "comment": "VoorvoegselsPartner"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "338",
+            "comment": "VoorvoegselsPartner"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family.extension:humannamePartnerName",
+        "path": "Patient.name.family.extension",
+        "sliceName": "humannamePartnerName",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "228",
             "comment": "AchternaamPartner"
           },
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "525",
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "339",
             "comment": "AchternaamPartner"
           }
         ]
@@ -209,29 +288,42 @@
             "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "517",
             "comment": "Initialen"
-          }
-        ]
-      },
-      {
-        "id": "Patient.name.suffix",
-        "path": "Patient.name.suffix",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "363",
-            "comment": "Titels"
           },
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "526",
-            "comment": "Titels"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "219",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "220",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "221",
+            "comment": "Roepnaam"
+          },
+            {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "330",
+            "comment": "Voornamen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "331",
+            "comment": "Initialen"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "332",
+            "comment": "Roepnaam"
           }
         ]
       },
       {
         "id": "Patient.telecom",
         "path": "Patient.telecom",
-        "sliceName": "telephoneNumbers",
         "mapping": [
           {
             "identity": "pall-izppz-zib2020v2025-03-11",
@@ -247,65 +339,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "16",
             "comment": "Contactgegevens"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom.system",
-        "path": "Patient.telecom.system",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "379",
-            "comment": "TelecomType"
           },
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "384",
-            "comment": "EmailSoort"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom.system.extension:telecomType",
-        "path": "Patient.telecom.system.extension",
-        "sliceName": "telecomType"
-      },
-      {
-        "id": "Patient.telecom.system.extension:telecomType.value[x]",
-        "path": "Patient.telecom.system.extension.value[x]",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "379",
-            "comment": "TelecomType"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom.value",
-        "path": "Patient.telecom.value",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "378",
-            "comment": "Telefoonnummer"
-          },
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "383",
-            "comment": "EmailAdres"
-          }
-        ]
-      },
-      {
-        "id": "Patient.telecom.use",
-        "path": "Patient.telecom.use",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "380",
-            "comment": "NummerSoort"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "17",
+            "comment": "Contactgegevens"
           }
         ]
       },
@@ -321,22 +359,6 @@
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "20",
-            "comment": "Geslacht"
-          }
-        ]
-      },
-      {
-        "id": "Patient.gender.extension:GeslachtCodelijst",
-        "path": "Patient.gender.extension",
-        "sliceName": "GeslachtCodelijst"
-      },
-      {
-        "id": "Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept",
-        "path": "Patient.gender.extension.valueCodeableConcept",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "387",
             "comment": "Geslacht"
           }
         ]
@@ -370,6 +392,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "14",
             "comment": "Adresgegevens"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "15",
+            "comment": "Adresgegevens"
           }
         ]
       },
@@ -399,6 +426,11 @@
         "id": "Patient.address.line.extension:additionalInformation",
         "path": "Patient.address.line.extension",
         "sliceName": "additionalInformation"
+      },
+      {
+        "id": "Patient.address.line.extension:additionalInformation.url",
+        "path": "Patient.address.line.extension.url",
+        "fixedUri": "additionalInformation"
       },
       {
         "id": "Patient.address.line.extension:additionalInformation.value[x]",
@@ -452,6 +484,7 @@
       {
         "id": "Patient.address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept",
         "path": "Patient.address.country.extension.valueCodeableConcept",
+        "sliceName": "valueCodeableConcept",
         "mapping": [
           {
             "identity": "pall-izppz-zib2020v2025-03-11",
@@ -522,6 +555,40 @@
             "comment": "Relatie tot patient (Relatie)"
           }
         ]
+      },
+      {
+        "id": "Patient.contact.name.extension:humannameAssemblyOrder",
+        "path": "Patient.contact.name.extension",
+        "sliceName": "humannameAssemblyOrder"
+      },
+      {
+        "id": "Patient.contact.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
+        "path": "Patient.contact.name.extension.valueCode.value",
+        "type": [
+          {}
+        ]
+      },
+      {
+        "id": "Patient.contact.name.given.extension:iso21090EnQualifier",
+        "path": "Patient.contact.name.given.extension",
+        "sliceName": "iso21090EnQualifier"
+      },
+      {
+        "id": "Patient.contact.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
+        "path": "Patient.contact.name.given.extension.valueCode.value",
+        "type": [
+          {}
+        ]
+      },
+      {
+        "id": "Patient.communication.extension:languageProficiency",
+        "path": "Patient.communication.extension",
+        "sliceName": "languageProficiency"
+      },
+      {
+        "id": "Patient.communication.extension:languageProficiency.extension",
+        "path": "Patient.communication.extension.extension",
+        "min": 2
       }
     ]
   }

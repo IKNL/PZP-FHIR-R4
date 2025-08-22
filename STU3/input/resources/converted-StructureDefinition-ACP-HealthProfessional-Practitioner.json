@@ -82,36 +82,75 @@
       {
         "id": "Practitioner.name",
         "path": "Practitioner.name",
-        "sliceName": "nameInformation",
         "mapping": [
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "26",
             "comment": "Naamgegevens"
-          }
-        ]
-      },
-      {
-        "id": "Practitioner.name.family",
-        "path": "Practitioner.name.family",
-        "mapping": [
+          },
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "398",
-            "comment": "Geslachtsnaam"
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "27",
+            "comment": "Naamgegevens"
           }
         ]
       },
       {
-        "id": "Practitioner.name.family.extension:lastName",
+        "id": "Practitioner.name.extension:humannameAssemblyOrder",
+        "path": "Practitioner.name.extension",
+        "sliceName": "humannameAssemblyOrder"
+      },
+      {
+        "id": "Practitioner.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
+        "path": "Practitioner.name.extension.valueCode.value",
+        "type": [
+          {}
+        ]
+      },
+      {
+        "id": "Practitioner.name.family.extension:humannameOwnPrefix",
         "path": "Practitioner.name.family.extension",
-        "sliceName": "lastName",
+        "sliceName": "humannameOwnPrefix",
         "mapping": [
           {
-            "identity": "pall-izppz-zib2020v2025-03-11",
-            "map": "400",
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "234"
+          }
+        ]
+      },
+      {
+        "id": "Practitioner.name.family.extension:humannameOwnName",
+        "path": "Practitioner.name.family.extension",
+        "sliceName": "humannameOwnName",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "235",
             "comment": "Achternaam"
           }
+        ]
+      },
+      {
+        "id": "Practitioner.name.given",
+        "path": "Practitioner.name.given",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "229",
+            "comment": "Voornamen"
+          }
+        ]
+      },
+      {
+        "id": "Practitioner.name.given.extension:iso21090EnQualifier",
+        "path": "Practitioner.name.given.extension",
+        "sliceName": "iso21090EnQualifier"
+      },
+      {
+        "id": "Practitioner.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
+        "path": "Practitioner.name.given.extension.valueCode.value",
+        "type": [
+          {}
         ]
       }
     ]

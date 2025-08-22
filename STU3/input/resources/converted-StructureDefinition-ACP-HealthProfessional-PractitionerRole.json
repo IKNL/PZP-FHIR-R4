@@ -65,6 +65,11 @@
             "identity": "pall-izppz-zib2020v2025-03-11",
             "map": "652",
             "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "24",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
           }
         ]
       },
