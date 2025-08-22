@@ -144,6 +144,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/ACP-PreferredPlaceOfDeath" />
+      </reference>
+      <description value="Profile for ACP PreferredPlaceOfDeath" />
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/ACP-Procedure" />
       </reference>
       <description value="Profile for ACP Procedure" />
@@ -189,12 +195,6 @@
         <reference value="ValueSet/ACP-MedicalPolicyGoal" />
       </reference>
       <description value="ValueSet for ACP MedicalPolicyGoal" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ACP-PreferredPlaceOfDeath" />
-      </reference>
-      <description value="ValueSet for ACP PreferredPlaceOfDeath" />
     </resource>
     <resource>
       <reference>

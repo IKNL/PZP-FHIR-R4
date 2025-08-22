@@ -2,27 +2,20 @@
 
 ## Project Overview
 
-This is a **dual-version FHIR Implementation Guide** for **Advance Care Planning (PZP)** that maintains both **FHIR R4** and **STU3** versions. The project converts from R4 (primary development) to STU3 using sophisticated custom tooling, based on **Dutch zib (Zorginformatiebouwsteen)** 2020 standards.
+This project is a dual-version FHIR Implementation Guide for Advance Care Planning (PZP), supporting both FHIR R4 and STU3. The current strategy is:
 
-## Architecture & Key Concepts
+- **R4 is the primary development target.**
+- **STU3 conformance resources (StructureDefinition, ValueSet, etc.) are maintained manually.**
+- **Only resource instances (examples) are converted automatically from R4 to STU3.**
+- **Mapping table generation is simplified and deduplicated.**
 
-### Dual IG Structure
-- **`R4/`**: Primary development using FSH (FHIR Shorthand) with SUSHI/IG Publisher
-- **`STU3/`**: Generated from R4 via custom conversion pipeline
-- **`util/r4-to-r3-converter/`**: Complex Java-based conversion engine with "Extension-Based Cross-Version Bridge" pattern
+## Directory Structure
 
-### Core Technologies
-- **FSH (FHIR Shorthand)**: All profiles, extensions, examples in `R4/input/fsh/`
-- **SUSHI**: Generates FHIR JSON from FSH
-- **IG Publisher**: Creates final implementation guide
-- **Custom Java Converter**: Handles R4→STU3 transformation using StructureMaps + temporary extensions
+- `R4/` – Develop all profiles, extensions, and examples here using FSH (FHIR Shorthand).
+- `STU3/` – Manual conformance resources and auto-converted example instances.
+- `util/` – Mapping tools, conversion scripts, and dataset utilities.
 
-### Dutch Healthcare Context
-- Based on **Nictiz zib 2020** profiles (`nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.1`)
-- Uses **SNOMED CT**, **Dutch coding systems**, and **ART-DECOR** dataset mappings
-- Focuses on **palliative care** and **advance care planning** workflows
-
-## Critical Development Workflows
+## Key Workflows
 
 ### 1. Standard Development Cycle
 ```powershell
@@ -30,23 +23,66 @@ This is a **dual-version FHIR Implementation Guide** for **Advance Care Planning
 cd R4
 ./_genonce.bat                    # Build R4 IG
 
-# 2. Convert R4 to STU3 (from repo root)
-convert-r4-to-stu3.bat           # Automated conversion pipeline
+# 2. Convert R4 examples to STU3 (from repo root)
+convert-r4-to-stu3.bat             # Only resource instances are converted
 
-# 3. Build STU3 IG
+# 3. Build STU3 IG (manual conformance resources)
 cd STU3
 ./_genonce.bat                    # Build STU3 IG
-
-# 4. Review conversion analysis
-# Check: util/r4-to-r3-converter/CONVERSION_ANALYSIS_REPORT.md
 ```
 
-### 2. Conversion Pipeline Details
-The `convert-r4-to-stu3.bat` script:
-- Validates StructureMap files
-- Runs Java conversion (`fhirconverter/convert.bat`)
-- Copies converted resources to `STU3/input/resources/`
-- Generates analysis reports
+### 2. Manual Maintenance of STU3 Conformance Resources
+- Edit or add StructureDefinition, ValueSet, etc. directly in `STU3/input/resources/`.
+- **Do not edit auto-converted example files (prefixed with `converted-`).**
+- Conformance resources should be prefixed with `manual-` for clarity.
+
+### 3. Resource Instance Conversion
+- The Java-based converter in `util/r4-to-r3-converter/` converts only resource instances.
+- **All StructureDefinitions are automatically excluded** from conversion.
+- Examples include Patient, Observation, Consent, etc.
+
+### 4. Mapping Table Generation
+- Use `util/mapping_table_generator.py` to generate mapping tables from ART-DECOR datasets.
+- Deduplication is handled in the script; review output for accuracy.
+
+## Conversion Pipeline (Examples Only)
+- **StructureDefinitions**: Completely excluded from automatic conversion.
+- **ValueSets**: Handled manually (not converted).
+- **Resource Instances**: Automatically converted using StructureMaps.
+- **Complex Resources**: Implementation Guides excluded from conversion.
+
+## Common Patterns
+
+- **FSH Profiles:** Develop in `R4/input/fsh/`, always inherit from Nictiz base profiles.
+- **Extensions:** Use `ext-` prefix, explicit context, and standard slicing.
+- **Mappings:** Include ART-DECOR mappings in all profiles.
+- **Invariants:** Use FHIRPath, usually as warnings.
+
+## File Naming Conventions
+
+- **R4 generated resources:** Standard FHIR resource names (e.g., `StructureDefinition-ACP-Patient.json`)
+- **STU3 converted instances:** `converted-{ResourceType}-{ID}.json` (no `-STU3` suffix)
+- **STU3 manual conformance:** `manual-{ResourceType}-{ID}.json`
+
+## Gotchas & Best Practices
+
+1. **Always develop in R4 first.**
+2. **STU3 conformance resources are manual only.**
+3. **Only resource instances are auto-converted.**
+4. **StructureDefinitions are never auto-converted.**
+5. **Mapping tables must be deduplicated.**
+6. **Test the full pipeline after changes.**
+
+## When Making Changes
+
+- **Profiles/Extensions:** Edit FSH in `R4/input/fsh/`.
+- **STU3 Conformance:** Edit JSON directly in `STU3/input/resources/` with `manual-` prefix.
+- **Examples:** Review auto-converted files after running the pipeline.
+- **Mappings:** Regenerate and review mapping tables as needed.
+
+---
+
+_Last updated: 2025-08. Simplified to exclude StructureDefinition conversion._
 
 ### 3. Debugging Conversion Issues
 - **Validation logs**: `util/r4-to-r3-converter/fhirconverter/debug-logs/`

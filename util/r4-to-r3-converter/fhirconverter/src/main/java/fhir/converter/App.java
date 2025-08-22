@@ -95,19 +95,6 @@ public class App {
         System.out.println("  Failed conversions: " + errorCount + " files");
         System.out.println("  Output directory: " + OUTPUT_DIRECTORY);
         
-        // Insert STU3 mappings from integration.json
-        System.out.println("=======================================");
-        System.out.println("Inserting STU3 mappings from integration.json...");
-        try {
-            final String INTEGRATION_JSON_PATH = "../../stu3_mapping_generator/integration.json";
-            Stu3MappingInserter mappingInserter = new Stu3MappingInserter();
-            mappingInserter.insertMappingsIntoStu3Profiles(OUTPUT_DIRECTORY, INTEGRATION_JSON_PATH);
-            System.out.println("STU3 mappings insertion completed successfully!");
-        } catch (Exception e) {
-            System.err.println("Failed to insert STU3 mappings: " + e.getMessage());
-            e.printStackTrace();
-        }
-        
         if (errorCount == 0) {
             System.out.println("SUCCESS: All conversions completed!");
         } else {

@@ -299,23 +299,25 @@ public class FhirBatchConverter {
     }
     
     public static void main(String[] args) throws Exception {
-        System.out.println("=== FHIR R4 to STU3 Batch Converter ===");
-        System.out.println("Comprehensive FHIR resource conversion with error analysis");
-        System.out.println("=" + "=".repeat(60));
+        System.out.println("=== FHIR R4 to STU3 Resource Instance Converter ===");
+        System.out.println("Converts FHIR resource instances (examples) from R4 to STU3");
+        System.out.println("Note: StructureDefinitions and other conformance resources are handled manually");
+        System.out.println("=" + "=".repeat(70));
         
         String mapsDir = "../maps/r4";
         String sourceDir = "../../../R4/fsh-generated/resources/";
         String outputDir = "../../../STU3/input/resources/";
         
-        // Files to exclude from conversion (too difficult to transform)
+        // Files to exclude from conversion - now excluding ALL StructureDefinitions
         Set<String> excludedFiles = Set.of(
-            "StructureDefinition-ACP-TreatmentDirective.json",
-            "StructureDefinition-ACP-AdvanceDirective.json", 
             "ImplementationGuide-iknl.fhir.r4.pzp.json"
         );
         
         System.out.println("🚫 Files excluded from conversion:");
-        excludedFiles.forEach(file -> System.out.println("  • " + file + " (will be handled manually)"));
+        excludedFiles.forEach(file -> System.out.println("  • " + file + " (Implementation Guide)"));
+        System.out.println("  • All StructureDefinition-*.json files (handled manually)");
+        System.out.println("  • All ValueSet-*.json files (handled manually)");
+        System.out.println("  • All other conformance resources (handled manually)");
         System.out.println("");
         
         // Create output directory if it doesn't exist
@@ -411,6 +413,13 @@ public class FhirBatchConverter {
                 IBaseResource r4Resource = r4Parser.parseResource(inputJson);
                 resourceType = r4Resource.fhirType();
 
+                // Skip ALL StructureDefinitions - these are now handled manually
+                if ("StructureDefinition".equals(resourceType)) {
+                    System.out.println("⏭️  Skipping StructureDefinition (handled manually): " + fileName);
+                    excludedCount++;
+                    continue;
+                }
+
                 // Track resource type statistics
                 resourceTypeStats.merge(resourceType, 1, Integer::sum);
 
@@ -430,17 +439,7 @@ public class FhirBatchConverter {
                     // Convert to JSON and save
                     String outputJson = dstu3Parser.encodeResourceToString(conversionResult.resource);
 
-                    // Apply post-processing for StructureDefinition resources
-                    if ("StructureDefinition".equals(resourceType)) {
-                        try {
-                            CrossVersionPostProcessor postProcessor = new CrossVersionPostProcessor();
-                            outputJson = postProcessor.processSTU3Resource(outputJson, resourceType);
-                            System.out.println("✅ Applied post-processing to " + fileName);
-                        } catch (Exception e) {
-                            System.out.println("⚠️  Post-processing failed for " + fileName + ": " + e.getMessage());
-                            // Continue with original output if post-processing fails
-                        }
-                    }
+                    // Note: Post-processing removed as we no longer convert StructureDefinitions
 
                     // Prefix converted files with 'converted-' and remove any -STU3 suffix from the base name
                     String baseFileName = fileName.replace(".json", "");
@@ -634,17 +633,12 @@ public class FhirBatchConverter {
         }
         
         if (excludedCount > 0) {
-            System.out.println("\n📋 MANUAL CONVERSION REQUIRED:");
-            System.out.println("The following files were excluded from automatic conversion:");
-            excludedFiles.forEach(file -> System.out.println("  • " + file));
-            System.out.println("\n💡 TODO: Manually convert these files and save them with 'manual-' prefix:");
-            excludedFiles.forEach(file -> {
-                String baseName = file.replace(".json", "");
-                String manualName = "manual-" + baseName + "-STU3.json";
-                System.out.println("  • " + file + " → " + manualName);
-            });
-            System.out.println("\n   Place these manual files in: " + new File(outputDir).getAbsolutePath());
-            System.out.println("   The IgXmlUpdater will automatically include them in the ImplementationGuide");
+            System.out.println("\n📋 EXCLUDED FROM CONVERSION:");
+            System.out.println("  ⏭️  Resource instances excluded: " + excludedCount);
+            System.out.println("  📝 StructureDefinitions: Now handled manually in STU3/input/resources/");
+            System.out.println("  📝 Other excluded files: Implementation Guides and complex resources");
+            System.out.println("\n💡 Note: All StructureDefinitions, ValueSets, and other conformance resources");
+            System.out.println("   are now maintained manually for better control and accuracy.");
         }
         
         System.out.println("\n📁 Output files saved to: " + new File(outputDir).getAbsolutePath());
@@ -659,19 +653,6 @@ public class FhirBatchConverter {
             System.out.println("   🔄 Converted files (prefixed with 'converted-')");
             System.out.println("   ✋ Manual files (prefixed with 'manual-')");
             IgXmlUpdater.updateIgXml();
-        }
-        
-        // Insert STU3 mappings from integration.json
-        System.out.println();
-        System.out.println("🗺️ Inserting STU3 mappings from integration.json...");
-        try {
-            String integrationJsonPath = "../../stu3_mapping_generator/integration.json";
-            fhir.converter.Stu3MappingInserter mappingInserter = new fhir.converter.Stu3MappingInserter();
-            mappingInserter.insertMappingsIntoStu3Profiles(outputDir, integrationJsonPath);
-            System.out.println("✅ STU3 mappings insertion completed successfully!");
-        } catch (Exception e) {
-            System.err.println("❌ Failed to insert STU3 mappings: " + e.getMessage());
-            e.printStackTrace();
         }
         
         System.out.println("=" + "=".repeat(80));
