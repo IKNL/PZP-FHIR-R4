@@ -1,5 +1,4 @@
 import fhir.converter.StructureMapFhirConverter;
-import fhir.converter.CrossVersionPostProcessor;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.parser.IParser;
 import org.hl7.fhir.instance.model.api.IBaseResource;
