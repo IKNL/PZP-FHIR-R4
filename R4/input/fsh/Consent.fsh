@@ -15,10 +15,10 @@ Description: "A verbal or written description of the patient’s wishes with reg
 
 
 Mapping: MapACPAdvanceDirective
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPAdvanceDirective
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "690" "Euthanasieverklaring (Wilsverklaring)"
 * -> "700" "Keuze orgaandonatie vastgelegd (Wilsverklaring)"
 * -> "721" "Eerder vastgelegde behandelafspraken (Wilsverklaring)"
@@ -71,10 +71,10 @@ Description: "A joint decision between a health professional (for example a gene
 
 
 Mapping: MapACPTreatmentDirective
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPTreatmentDirective
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "602" "Behandelgrens (BehandelAanwijzing)"
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
 * modifierExtension[specificationOther].value[x]  -> "605" "SpecificatieAnders"

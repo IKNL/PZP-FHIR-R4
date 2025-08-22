@@ -15,10 +15,10 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 
 
 Mapping: MapACPSpecificCareWishes
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPSpecificCareWishes
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "654" "Specifieke wensen ([Meting])"
 * code -> "655" "Wens en verwachting patient ([MetingNaam])"
 * valueString -> "656" "Wens en verwachting patient ([MetingWaarde])"
@@ -63,10 +63,10 @@ Description: "The preferred place of death. This is the place where the patient 
 
 
 Mapping: MapACPSPreferredPlaceOfDeath
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPPreferredPlaceOfDeath
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "666" "Gewenste plek van overlijden ([Meting]))"
 * code -> "667" "Gewenste plek van overlijden ([Meting])"
 * valueCodeableConcept -> "668" "Voorkeursplek ([MetingWaarde])"
@@ -109,10 +109,10 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 
 
 Mapping: MapACPPositionRegardingEuthanasia
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPPositionRegardingEuthanasia
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "678" "Euthanasie standpunt ([Meting])"
 * code -> "679" "Euthanasie standpunt ([MetingNaam])"
 * valueCodeableConcept -> "680" "Euthanasie standpunt ([MetingWaarde])"
@@ -153,10 +153,10 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 
 
 Mapping: MapACPOrganDonationChoiceRegistration
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPOrganDonationChoiceRegistration
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "746" "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
 * code -> "747" "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
 * valueCodeableConcept -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
@@ -194,10 +194,10 @@ Description: "Other relevant and important information related to the Patient’
 
 
 Mapping: MapACPOtherImportantInformation
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPOtherImportantInformation
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "709" "Wat verder nog belangrijk is ([Meting])"
 * code -> "710" "Wat verder nog belangrijk is ([MetingNaam])"
 * valueString -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"

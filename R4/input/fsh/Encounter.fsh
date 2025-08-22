@@ -16,10 +16,10 @@ Description: "Any interaction, regardless of the situation, between a patient an
 // Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient) --> Patient is set in .subject.
 
 Mapping: MapACPEncounter
-Id: pall-izppz-v2025-03-11
+Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPEncounter
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
 * -> "808" "Contact"
 * class -> "809" "ContactType"
 * subject -> "514" "Gesprek gevoerd in bijzijn van (Patient)" // In R5 patient is added to .participant.individual. For now, if present at .subject, we assume the patient was present. Also clear from the definition of the subject element: "The patient or group present at the encounter" 
