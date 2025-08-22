@@ -24,7 +24,6 @@
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
-
     {
       "identity": "pall-izppz-zib2017v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
@@ -104,33 +103,6 @@
         ]
       },
       {
-        "id": "Consent.extension:comment.valueString:valueString",
-        "path": "Consent.extension.valueString",
-        "sliceName": "valueString",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "698",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "708",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "729",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "184",
-            "comment": "Toelichting"
-          }
-        ]
-      },
-      {
         "id": "Consent.extension:encounter",
         "path": "Consent.extension",
         "sliceName": "encounter",
@@ -139,68 +111,6 @@
           {
             "code": "Extension",
             "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
-          }
-        ],
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "55",
-            "comment": "Verificatie"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "59",
-            "comment": "Behandeling"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "64",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "91",
-            "comment": "Verificatie"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "95",
-            "comment": "Behandeling van uitzetten ICD"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "100",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "177",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "182",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "126",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "131",
-            "comment": "Toelichting"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "142",
-            "comment": "Aandoening"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "147",
-            "comment": "Toelichting"
           }
         ]
       },
@@ -211,18 +121,6 @@
           {
             "code": "Reference",
             "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
-          }
-        ],
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "65",
-            "comment": "Wilsverklaring"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "101",
-            "comment": "Wilsverklaring"
           }
         ]
       },
@@ -240,6 +138,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "140",
             "comment": "WilsverklaringType"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "175",
+            "comment": "Euthanasieverklaring (WilsverklaringType)"
           }
         ]
       },
@@ -314,32 +217,6 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "181",
             "comment": "WilsverklaringDocument"
-          }
-        ]
-      },
-      {
-        "id": "Consent.except.actor.reference",
-        "path": "Consent.except.actor.reference",
-        "mapping": [
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "695",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "705",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-v2025-03-11",
-            "map": "726",
-            "comment": "Vertegenwoordiger"
-          },
-          {
-            "identity": "pall-izppz-zibs2017-v2025-03-11",
-            "map": "144",
-            "comment": "Vertegenwoordiger"
           }
         ]
       }

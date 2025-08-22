@@ -20,8 +20,9 @@ from pathlib import Path
 # --- Configuration ---
 # Add any concept IDs here that you want to exclude from the "Unmapped Elements" table.
 UNMAPPED_IGNORE_LIST = [
-    '357', '360', '447', '450', '484', '487',
-    '520', '523', '560', '563', '816'
+    '283', '223', '226', '233', '243', '246',
+    '161', '202', '211', '260', '263', '277', 
+    '109', '118', '280'
 ]
 
 def find_concepts_with_depth(data, depth=0):
@@ -169,7 +170,7 @@ def extract_mappings_from_stu3_json(stu3_resources_dir, output_markdown_file, js
                         functional_id = quoted_content.split()[0]
                 
                 if functional_id:
-                    mapping_details = (resource_type, profile_name, profile_id, element_path)
+                    mapping_details = (resource_type, profile_name, profile_id, element_id)
                     
                     # If the ID is new, create a list. Otherwise, append to the existing list.
                     if functional_id not in mappings_map:

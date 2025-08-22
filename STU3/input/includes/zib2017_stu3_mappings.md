@@ -8,7 +8,6 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 765 | &emsp;ContactType | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.class`  |
 | 766 | &emsp;ContactMet | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.participant`  |
 | 807 | &emsp;&emsp;Gesprek gevoerd door (Zorgverlener) | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.participant.individual`  |
-| 807 | &emsp;&emsp;Gesprek gevoerd door (Zorgverlener) | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner`  |
 | 770 | &emsp;BeginDatumTijd | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.period.start`  |
 | 772 | &emsp;RedenContact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.diagnosis.condition`  |
 | 775 | &emsp;&emsp;Verrichting | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.diagnosis.condition`  |
@@ -22,10 +21,10 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 220 | &emsp;&emsp;&emsp;Initialen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.given`  |
 | 221 | &emsp;&emsp;&emsp;Roepnaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.given`  |
 | 222 | &emsp;&emsp;&emsp;Naamgebruik | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.use`  |
-| 224 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 225 | &emsp;&emsp;&emsp;&emsp;Achternaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
+| 224 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannameOwnPrefix`  |
+| 225 | &emsp;&emsp;&emsp;&emsp;Achternaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannameOwnName`  |
+| 227 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannamePartnerPrefix`  |
+| 228 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannamePartnerName`  |
 | 14 | &emsp;Adresgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.address`  |
 | 15 | &emsp;&emsp;Adresgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.address`  |
 | 16 | &emsp;Contactgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.telecom`  |
@@ -39,57 +38,51 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 26 | &emsp;Naamgegevens | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name`  |
 | 27 | &emsp;&emsp;Naamgegevens | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name`  |
 | 229 | &emsp;&emsp;&emsp;Voornamen | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name.given`  |
-| 234 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name.family.extension`  |
-| 235 | &emsp;&emsp;&emsp;&emsp;Achternaam | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name.family.extension`  |
+| 234 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name.family.extension:humannameOwnPrefix`  |
+| 235 | &emsp;&emsp;&emsp;&emsp;Achternaam | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner.name.family.extension:humannameOwnName`  |
 | 28 | &emsp;Functie (Specialisme) | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | `PractitionerRole.specialty`  |
-| 758 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension`  |
-| 759 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension.extension`  |
-| 760 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension.extension`  |
+| 758 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension:legallyCapableMedicalTreatmentDecisions`  |
+| 759 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapable`  |
+| 760 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.extension:legallyCapableMedicalTreatmentDecisions.extension:legallyCapableComment`  |
 | 36 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson`  |
-| 36 | Wettelijk vertegenwoordiger (Contactpersoon) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact`  |
 | 37 | &emsp;Naam wettelijk vertegenwoordiger (Naamgegevens) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 38 | &emsp;&emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 239 | &emsp;&emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 240 | &emsp;&emsp;&emsp;Initialen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 241 | &emsp;&emsp;&emsp;Roepnaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 242 | &emsp;&emsp;&emsp;Naamgebruik | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.use`  |
-| 244 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 245 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 247 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 248 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
+| 244 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnPrefix`  |
+| 245 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnName`  |
+| 247 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerPrefix`  |
+| 248 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerName`  |
 | 39 | &emsp;Contactgegevens wettelijk vertegenwoordiger (Contactgegevens) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom`  |
 | 40 | &emsp;&emsp;Contactgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom`  |
-| 43 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension`  |
-| 43 | &emsp;Rol | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
+| 43 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension:role`  |
 | 44 | &emsp;Relatie tot patient (Relatie) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.relationship`  |
-| 44 | &emsp;Relatie tot patient (Relatie) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
-| 1 | Vertegenwoordiger is contactpersoon | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension`  |
+| 1 | Vertegenwoordiger is contactpersoon | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension:role`  |
 | 45 | Eerste contactpersoon (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson`  |
-| 45 | Eerste contactpersoon (Contactpersoon) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact`  |
 | 67 | &emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 68 | &emsp;&emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 256 | &emsp;&emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 257 | &emsp;&emsp;&emsp;Initialen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 258 | &emsp;&emsp;&emsp;Roepnaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 259 | &emsp;&emsp;&emsp;Naamgebruik | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.use`  |
-| 261 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 262 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 264 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 265 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
+| 261 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnPrefix`  |
+| 262 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnName`  |
+| 264 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerPrefix`  |
+| 265 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerName`  |
 | 69 | &emsp;Contactgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom`  |
 | 70 | &emsp;&emsp;Contactgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom`  |
 | 267 | &emsp;&emsp;&emsp;&emsp;Telefoonnummer | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.value`  |
-| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.extension`  |
+| 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.extension:TelecomType`  |
 | 268 | &emsp;&emsp;&emsp;&emsp;TelecomType | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.system`  |
 | 269 | &emsp;&emsp;&emsp;&emsp;NummerSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.use`  |
 | 271 | &emsp;&emsp;&emsp;&emsp;EmailAdres | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.value`  |
 | 272 | &emsp;&emsp;&emsp;&emsp;EmailSoort | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.telecom.system`  |
 | 71 | &emsp;Adresgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.address`  |
 | 72 | &emsp;&emsp;Adresgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.address`  |
-| 73 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension`  |
-| 73 | &emsp;Rol | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
+| 73 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension:role`  |
 | 74 | &emsp;Relatie tot patient (Relatie) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.relationship`  |
-| 74 | &emsp;Relatie tot patient (Relatie) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
 | 305 | Gesprek gevoerd in bijzijn van (Patient) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient`  |
 | 328 | &emsp;Naamgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name`  |
 | 329 | &emsp;&emsp;Naamgegevens | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name`  |
@@ -97,88 +90,73 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 331 | &emsp;&emsp;&emsp;Initialen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.given`  |
 | 332 | &emsp;&emsp;&emsp;Roepnaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.given`  |
 | 333 | &emsp;&emsp;&emsp;Naamgebruik | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.use`  |
-| 335 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 336 | &emsp;&emsp;&emsp;&emsp;Achternaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 338 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
-| 339 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension`  |
+| 335 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannameOwnPrefix`  |
+| 336 | &emsp;&emsp;&emsp;&emsp;Achternaam | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannameOwnName`  |
+| 338 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannamePartnerPrefix`  |
+| 339 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.name.family.extension:humannamePartnerName`  |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson`  |
 | 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `Encounter.participant.individual`  |
-| 148 | Gesprek gevoerd in bijzijn van (Contactpersoon) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact`  |
 | 149 | &emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 150 | &emsp;&emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name`  |
 | 273 | &emsp;&emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 274 | &emsp;&emsp;&emsp;Initialen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 275 | &emsp;&emsp;&emsp;Roepnaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.given`  |
 | 276 | &emsp;&emsp;&emsp;Naamgebruik | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.use`  |
-| 278 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 279 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 281 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 282 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension`  |
-| 155 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension`  |
-| 155 | &emsp;Rol | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
+| 278 | &emsp;&emsp;&emsp;&emsp;Voorvoegsels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnPrefix`  |
+| 279 | &emsp;&emsp;&emsp;&emsp;Achternaam | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannameOwnName`  |
+| 281 | &emsp;&emsp;&emsp;&emsp;VoorvoegselsPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerPrefix`  |
+| 282 | &emsp;&emsp;&emsp;&emsp;AchternaamPartner | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.name.family.extension:humannamePartnerName`  |
+| 155 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.extension:role`  |
 | 156 | &emsp;Relatie tot patient (Relatie) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `RelatedPerson.relationship`  |
-| 156 | &emsp;Relatie tot patient (Relatie) | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `Patient.contact.relationship`  |
 | 157 | Belangrijkste doel van behandeling (AlgemeneMeting) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal`  |
 | 160 | &emsp;Toelichting | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal.note.text`  |
 | 162 | &emsp;&emsp;MetingNaam voor Belangrijkste doel van behandeling | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal`  |
 | 163 | &emsp;&emsp;Doel (UitslagWaarde) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal.description`  |
-| 165 | &emsp;&emsp;UitslagDatumTijd | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal.start[x]`  |
+| 165 | &emsp;&emsp;UitslagDatumTijd | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `Goal.start[x]:startDate`  |
 | 54 | Behandelgrens (BehandelAanwijzing) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent`  |
-| 55 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 55 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 56 | &emsp;&emsp;Geverifieerd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 57 | &emsp;&emsp;GeverifieerdBij | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 58 | &emsp;&emsp;VerificatieDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 59 | &emsp;Behandeling | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 59 | &emsp;Behandeling | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 60 | &emsp;BehandelingToegestaan | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.modifierExtension`  |
-| 61 | &emsp;Beperkingen | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.except.extension`  |
+| 55 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification`  |
+| 56 | &emsp;&emsp;Geverifieerd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:Verified`  |
+| 57 | &emsp;&emsp;GeverifieerdBij | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:VerifiedWith`  |
+| 58 | &emsp;&emsp;VerificatieDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:VerificationDate`  |
+| 59 | &emsp;Behandeling | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:treatment`  |
+| 60 | &emsp;BehandelingToegestaan | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.modifierExtension:treatmentPermitted`  |
+| 61 | &emsp;Beperkingen | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.except.extension:restrictions`  |
 | 62 | &emsp;BeginDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.period.start`  |
 | 63 | &emsp;EindDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.period.end`  |
-| 64 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 64 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 65 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.value[x]`  |
-| 65 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 65 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.source[x]`  |
+| 64 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:comment`  |
+| 65 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:additionalSources`  |
+| 65 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.source[x]:sourceReference`  |
 | 66 | &emsp;&emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent`  |
 | 218 | Heeft de patient een ICD? | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement`  |
 | 75 | ICD (MedischHulpmiddel) | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement`  |
 | 76 | &emsp;Product | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device`  |
 | 76 | &emsp;Product | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.device`  |
-| 77 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.identifier`  |
-| 77 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.identifier`  |
+| 77 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.identifier:gs1ProductID`  |
+| 77 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.identifier:hibcProductID`  |
 | 77 | &emsp;&emsp;ProductID | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.udi.carrierHRF`  |
 | 78 | &emsp;&emsp;ProductType van ICD | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.type`  |
 | 79 | &emsp;ProductOmschrijving | Device (<a href="StructureDefinition-ACP-MedicalDevice.Product-ICD.html">ACPMedicalDeviceProductICD</a>) | `Device.note.text`  |
 | 80 | &emsp;BeginDatum | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.whenUsed.start`  |
-| 81 | &emsp;Indicatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.indication.extension`  |
+| 81 | &emsp;Indicatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.indication.extension:indication_Problem`  |
 | 83 | &emsp;Toelichting | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.note.text`  |
 | 84 | &emsp;AnatomischeLocatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.bodySite`  |
-| 85 | &emsp;Lateraliteit | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.bodySite.extension`  |
-| 86 | &emsp;Locatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension`  |
-| 86 | &emsp;Locatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension`  |
-| 88 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension`  |
-| 88 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension`  |
+| 85 | &emsp;Lateraliteit | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.bodySite.extension:Laterality`  |
+| 86 | &emsp;Locatie | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension:HealthcareProvider`  |
+| 88 | &emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension:HealthProfessional`  |
 | 89 | &emsp;&emsp;Zorgverlener | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `Practitioner`  |
 | 89 | &emsp;&emsp;Zorgverlener | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | `PractitionerRole`  |
-| 89 | &emsp;&emsp;Zorgverlener | DeviceUseStatement (<a href="StructureDefinition-ACP-MedicalDevice.html">ACPMedicalDevice</a>) | `DeviceUseStatement.extension`  |
 | 90 | Afspraak uitzetten ICD (BehandelAanwijzing) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent`  |
-| 91 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 91 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 92 | &emsp;&emsp;Geverifieerd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 93 | &emsp;&emsp;GeverifieerdBij | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 94 | &emsp;&emsp;VerificatieDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.extension`  |
-| 95 | &emsp;Behandeling van uitzetten ICD | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 95 | &emsp;Behandeling van uitzetten ICD | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 96 | &emsp;Afspraak uitzetten ICD (BehandelingToegestaan) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.modifierExtension`  |
+| 91 | &emsp;Verificatie | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification`  |
+| 92 | &emsp;&emsp;Geverifieerd | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:Verified`  |
+| 93 | &emsp;&emsp;GeverifieerdBij | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:VerifiedWith`  |
+| 94 | &emsp;&emsp;VerificatieDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:verification.extension:VerificationDate`  |
+| 95 | &emsp;Behandeling van uitzetten ICD | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:treatment`  |
+| 96 | &emsp;Afspraak uitzetten ICD (BehandelingToegestaan) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.modifierExtension:treatmentPermitted`  |
 | 98 | &emsp;BeginDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.period.start`  |
 | 99 | &emsp;EindDatum | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.period.end`  |
-| 100 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 100 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension`  |
-| 101 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.value[x]`  |
-| 101 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.source[x]`  |
+| 100 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension:comment`  |
+| 101 | &emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.source[x]:sourceReference`  |
 | 102 | &emsp;&emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent`  |
-| 102 | &emsp;&emsp;Wilsverklaring | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.source[x]`  |
 | 190 | Specifieke wensen (AlgemeneMeting) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `Observation`  |
 | 203 | &emsp;&emsp;Wens en verwachting patient (MetingNaam) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `Observation.code`  |
 | 204 | &emsp;&emsp;Wens en verwachting patient (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-SpecificCareWishes.html">ACPSpecificCareWishes</a>) | `Observation.value[x]`  |
@@ -198,39 +176,32 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 120 | &emsp;&emsp;Standpunt (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `Observation.dataAbsentReason`  |
 | 122 | &emsp;&emsp;UitslagDatumTijd | Observation (<a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACPPositionRegardingEuthanasia</a>) | `Observation.effective[x]`  |
 | 166 | Euthanasieverklaring (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent`  |
+| 175 | &emsp;Euthanasieverklaring (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.category:typeOfLivingWill`  |
 | 176 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.dateTime`  |
-| 177 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 181 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]`  |
-| 182 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
+| 181 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]:sourceAttachment`  |
 | 737 | Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `Observation`  |
 | 742 | &emsp;&emsp;MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister? | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `Observation.code`  |
 | 743 | &emsp;&emsp;Keuze orgaandonatie in donorregister (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `Observation.value[x]`  |
 | 743 | &emsp;&emsp;Keuze orgaandonatie in donorregister (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `Observation.dataAbsentReason`  |
 | 123 | Keuze orgaandonatie vastgelegd (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent`  |
-| 124 | &emsp;Orgaandonatie (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.category`  |
+| 124 | &emsp;Orgaandonatie (WilsverklaringType) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.category:typeOfLivingWill`  |
 | 125 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.dateTime`  |
-| 126 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 126 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
+| 126 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension:disorder`  |
 | 128 | &emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.consentingParty`  |
-| 130 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]`  |
-| 131 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 131 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
+| 130 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]:sourceAttachment`  |
+| 131 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension:comment`  |
 | 132 | Wat verder nog belangrijk is (AlgemeneMeting) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `Observation`  |
 | 212 | &emsp;&emsp;MetingNaam voor Wat verder nog belangrijk is | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `Observation.code`  |
 | 213 | &emsp;&emsp;Wat verder nog belangrijk is (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `Observation.value[x]`  |
 | 213 | &emsp;&emsp;Wat verder nog belangrijk is (UitslagWaarde) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `Observation.dataAbsentReason`  |
 | 215 | &emsp;&emsp;UitslagDatumTijd | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `Observation.effective[x]`  |
 | 139 | Eerder vastgelegde behandelafspraken (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent`  |
-| 140 | &emsp;WilsverklaringType | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.category`  |
+| 140 | &emsp;WilsverklaringType | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.category:typeOfLivingWill`  |
 | 141 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.dateTime`  |
-| 142 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 142 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
+| 142 | &emsp;Aandoening | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension:disorder`  |
 | 144 | &emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.consentingParty`  |
-| 144 | &emsp;Vertegenwoordiger | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.except.actor.reference`  |
-| 146 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]`  |
-| 147 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 147 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension`  |
-| 184 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.valueString`  |
+| 146 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.source[x]:sourceAttachment`  |
+| 147 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension:comment`  |
 | 187 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? | Communication (<a href="StructureDefinition-ACP-Communication.html">ACPCommunication</a>) | `Communication`  |
 
 
@@ -238,12 +209,6 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 
 | ID | Name |
 |---|---|
-| 283 | ZIBRoot |
-| 223 | Geslachtsnaam |
-| 226 | GeslachtsnaamPartner |
-| 233 | Geslachtsnaam |
-| 243 | Geslachtsnaam |
-| 246 | GeslachtsnaamPartner |
 | 249 | Telefoonnummers |
 | 250 | Telefoonnummer |
 | 251 | TelecomType |
@@ -253,32 +218,25 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 | 255 | EmailSoort |
 | 41 | Adresgegevens |
 | 42 | Adresgegevens |
-| 260 | Geslachtsnaam |
-| 263 | GeslachtsnaamPartner |
 | 266 | Telefoonnummers |
 | 270 | EmailAdressen |
 | 334 | Geslachtsnaam |
 | 337 | GeslachtsnaamPartner |
-| 277 | Geslachtsnaam |
-| 280 | GeslachtsnaamPartner |
-| 161 | MeetUitslag |
 | 82 | Probleem |
 | 87 | Zorgaanbieder |
-| 202 | MeetUitslag |
-| 109 | Vastgelegde keuze (MeetUitslag) |
-| 118 | Vastgelegde keuze (MeetUitslag) |
-| 175 | Euthanasieverklaring (WilsverklaringType) |
+| 177 | Aandoening |
 | 178 | Probleem |
 | 179 | Vertegenwoordiger |
 | 180 | Contactpersoon |
+| 182 | Toelichting |
 | 741 | MeetUitslag |
 | 127 | Probleem |
 | 129 | Contactpersoon |
-| 211 | MeetUitslag |
 | 143 | Probleem |
 | 145 | Contactpersoon |
 | 183 | Heeft de patient eerder behandelafspraken vastgelegd? |
 | 207 | Heeft de patient eerder behandelafspraken vastgelegd? |
+| 184 | Toelichting |
 | 189 | Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring? |
 | 188 | Patient gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners |
 
@@ -287,21 +245,13 @@ This table provides an overview of all zib2017 dataset elements that are mapped 
 
 | ID | Resource | FHIR element |
 |---|---|---|
-| 618 | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.valueString` |
-| 653 | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `Consent.extension.valueString` |
-| 695 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.except.actor.reference` |
-| 698 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.valueString` |
-| 705 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.except.actor.reference` |
-| 708 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.valueString` |
-| 726 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.except.actor.reference` |
-| 729 | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `Consent.extension.valueString` |
 | 745 | Observation (<a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACPOrganDonationChoiceRegistration</a>) | `Observation.effective[x]` |
 
 
 ##### Summary
 
 - **Total zib2017 concepts**: 231
-- **Mapped to STU3**: 188
-- **Coverage**: 81.4%
-- **Unmapped**: 43
-- **Orphan mappings**: 9
+- **Mapped to STU3**: 186
+- **Coverage**: 80.5%
+- **Unmapped**: 30
+- **Orphan mappings**: 1
