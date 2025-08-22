@@ -15,7 +15,6 @@ Two example QuestionnaireResponse resources, based on this Questionnaire, are in
 * <a href="QuestionnaireResponse-HendrikHartman-20201001.html">QuestionnaireResponse for Hendrik Hartman (01-01-2020)</a>
 * <a href="QuestionnaireResponse-HendrikHartman-20221108.html">QuestionnaireResponse for Hendrik Hartman (08-11-2022)</a>
 
-
 ### Associating ACP dataset to FHIR 
 
 The FHIR profiles in this guide are directly traceable to the ACP dataset elements published in ART-DECOR.
