@@ -39,6 +39,9 @@
     "title": "Niet reanimeren verklaring Hartman",
     "creation": "2025-04-28"
   },
+  "policy": [ {
+    "uri": "https://wetten.overheid.nl/"
+  } ],
   "except": [ {
     "actor": [ {
       "role": {

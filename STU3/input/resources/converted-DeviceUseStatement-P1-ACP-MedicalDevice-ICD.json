@@ -11,12 +11,6 @@
       "display": "Healthcare professional, Santos"
     }
   }, {
-    "url": "http://nictiz.nl/fhir/StructureDefinition/ext-MedicalDevice.Location",
-    "valueReference": {
-      "reference": "Location/P1-ACP-Healthcareprovider-Location",
-      "display": "Healthcare provider (location), Zorginstelling F"
-    }
-  }, {
     "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
     "valueReference": {
       "reference": "Encounter/P1-ACP-Encounter-29-07-2025",

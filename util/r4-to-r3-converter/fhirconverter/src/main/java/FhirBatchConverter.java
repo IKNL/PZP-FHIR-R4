@@ -410,26 +410,26 @@ public class FhirBatchConverter {
                 String inputJson = new String(Files.readAllBytes(file.toPath()));
                 IBaseResource r4Resource = r4Parser.parseResource(inputJson);
                 resourceType = r4Resource.fhirType();
-                
+
                 // Track resource type statistics
                 resourceTypeStats.merge(resourceType, 1, Integer::sum);
-                
+
                 // Determine the appropriate map URL
                 String mapUrl = "http://hl7.org/fhir/StructureMap/" + resourceType + "4to3";
-                
+
                 // Attempt conversion with output capture
                 ConversionResult conversionResult = performConversionWithCapture(converter, r4Resource, mapUrl, fileName);
-                
+
                 if (conversionResult.wasExcluded) {
                     excludedCount++;
                     // Don't count as success or failure, just skip
                     continue;
                 }
-                
+
                 if (conversionResult.resource != null) {
                     // Convert to JSON and save
                     String outputJson = dstu3Parser.encodeResourceToString(conversionResult.resource);
-                    
+
                     // Apply post-processing for StructureDefinition resources
                     if ("StructureDefinition".equals(resourceType)) {
                         try {
@@ -441,35 +441,38 @@ public class FhirBatchConverter {
                             // Continue with original output if post-processing fails
                         }
                     }
-                    
-                    // Prefix converted files with 'converted-'
+
+                    // Prefix converted files with 'converted-' and remove any -STU3 suffix from the base name
                     String baseFileName = fileName.replace(".json", "");
-                    String outputFileName = "converted-" + baseFileName + "-STU3.json";
+                    if (baseFileName.endsWith("-STU3")) {
+                        baseFileName = baseFileName.substring(0, baseFileName.length() - 6);
+                    }
+                    String outputFileName = "converted-" + baseFileName + ".json";
                     String outputPath = outputDir + outputFileName;
-                    
+
                     Files.write(Paths.get(outputPath), outputJson.getBytes());
-                    
+
                     // Track conversion method and any issues
                     if (conversionResult.hasStructureMapErrors) {
                         for (String error : conversionResult.detectedErrors) {
                             structureMapIssues.add(fileName + ": " + error);
                         }
                     }
-                    
+
                     // Track conversion method
                     if ("STRUCTUREMAP".equals(conversionResult.conversionMethod)) {
                         structureMapCount++;
                     } else if ("BASIC".equals(conversionResult.conversionMethod)) {
                         basicCount++;
                     }
-                    
+
                     successCount++;
                     successfulFiles.add(fileName + " → " + outputFileName);
-                    
+
                 } else {
                     // Failed conversion
                     String failureReason = "conversion returned null";
-                    
+
                     // Check if we captured any error details
                     if (conversionResult.hasStructureMapErrors) {
                         failureReason = String.join("; ", conversionResult.detectedErrors);
@@ -477,27 +480,27 @@ public class FhirBatchConverter {
                             structureMapIssues.add(fileName + ": " + error);
                         }
                     }
-                    
+
                     errorCount++;
                     failedFiles.add(fileName + " (" + failureReason + ")");
                     errorsByResourceType.computeIfAbsent(resourceType, k -> new ArrayList<>())
                         .add(fileName + ": " + failureReason);
                     errorPatternCounts.merge(failureReason, 1, Integer::sum);
                 }
-                
+
             } catch (Exception e) {
                 // Exception during conversion
                 String errorMessage = e.getMessage();
                 if (errorMessage == null) {
                     errorMessage = e.getClass().getSimpleName();
                 }
-                
+
                 errorCount++;
                 failedFiles.add(fileName + " (" + errorMessage + ")");
-                
+
                 errorsByResourceType.computeIfAbsent(resourceType, k -> new ArrayList<>())
                     .add(fileName + ": " + errorMessage);
-                
+
                 // Extract error patterns for analysis
                 String errorPattern = extractErrorPattern(errorMessage);
                 errorPatternCounts.merge(errorPattern, 1, Integer::sum);

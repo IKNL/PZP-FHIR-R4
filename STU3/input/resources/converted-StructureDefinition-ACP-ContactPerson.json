@@ -28,11 +28,6 @@
       "identity": "pall-izppz-v2025-03-11",
       "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/concept/2.16.840.1.113883.2.4.3.11.60.117.2.350/2025-03-11T13:43:38",
       "name": "PZP dataset"
-    },
-    {
-      "identity": "pall-izppz-zib2017v2025-03-11",
-      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/",
-      "name": "PZP zib2017 dataset"
     }
   ],
   "kind": "resource",
@@ -84,21 +79,6 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "554",
-            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "36",
-            "comment": "Wettelijk vertegenwoordiger (Contactpersoon)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "45",
-            "comment": "Eerste contactpersoon (Contactpersoon)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "148",
             "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
           }
         ]
@@ -154,21 +134,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "588",
             "comment": "Rol"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "43",
-            "comment": "Rol"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "73",
-            "comment": "Rol"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "155",
-            "comment": "Rol"
           }
         ]
       },
@@ -216,45 +181,13 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "589",
             "comment": "Relatie"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "44",
-            "comment": "Relatie tot patient (Relatie)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "74",
-            "comment": "Relatie tot patient (Relatie)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "156",
-            "comment": "Relatie tot patient (Relatie)"
           }
         ]
       },
       {
         "id": "RelatedPerson.name",
         "path": "RelatedPerson.name",
-        "sliceName": "nameInformation",
-        "mapping": [
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "37",
-            "comment": "Naam wettelijk vertegenwoordiger (Naamgegevens)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "67",
-            "comment": "Naamgegevens"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "149",
-            "comment": "Naamgegevens"
-          }
-        ]
+        "sliceName": "nameInformation"
       },
       {
         "id": "RelatedPerson.name.use",
@@ -384,16 +317,6 @@
             "identity": "pall-izppz-v2025-03-11",
             "map": "497",
             "comment": "EmailAdressen"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "39",
-            "comment": "Contactgegevens wettelijk vertegenwoordiger (Contactgegevens)"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "69",
-            "comment": "Contactgegevens"
           }
         ]
       },
@@ -498,16 +421,6 @@
           {
             "identity": "pall-izppz-v2025-03-11",
             "map": "500",
-            "comment": "Adresgegevens"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "41",
-            "comment": "Adresgegevens"
-          },
-          {
-            "identity": "pall-izppz-zib2017v2025-03-11",
-            "map": "71",
             "comment": "Adresgegevens"
           }
         ]

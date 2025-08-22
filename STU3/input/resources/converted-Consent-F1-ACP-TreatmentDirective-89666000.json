@@ -47,6 +47,17 @@
         } ]
       },
       "reference": {
+        "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+        "display": "Patient, Hendrik Hartman"
+      }
+    }, {
+      "role": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "CONSENTER"
+        } ]
+      },
+      "reference": {
         "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
         "display": "Healthcare professional (role), van Huissen"
       }
