@@ -98,6 +98,11 @@
             "identity": "pall-izppz-zib2017v2025-03-11",
             "map": "807",
             "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "148",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
           }
         ]
       },
