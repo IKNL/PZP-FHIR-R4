@@ -1,6 +1,5 @@
 {
   "resourceType": "QuestionnaireResponse",
-  "id": "HendrikHartman-20201001",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse"
@@ -12,13 +11,13 @@
     ]
   },
   "status": "completed",
-  "authored": "2025-08-21T09:18:16.362Z",
+  "authored": "2025-08-25T19:14:50.150Z",
   "questionnaire": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020|beta3-20250828",
   "item": [
     {
       "answer": [
         {
-          "valueDateTime": "2020-10-01"
+          "valueDateTime": "2020-10-01T16:27:36.364Z"
         }
       ],
       "linkId": "963",
@@ -51,7 +50,7 @@
     {
       "answer": [
         {
-          "valueDateTime": "1961-01-01"
+          "valueDateTime": "1961-01-01T14:27:36.000Z"
         }
       ],
       "linkId": "967",
@@ -114,7 +113,7 @@
             }
           ],
           "linkId": "1406",
-          "text": "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+          "text": "Is de patiënt op dit moment wilsbekwaam m.b.t. medische behandelbeslissingen?"
         },
         {
           "linkId": "29",
@@ -175,19 +174,6 @@
                       "text": "EmailSoort"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "linkId": "982",
-              "text": "c) Relatie tot patiënt (1)",
-              "answer": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
-                    "code": "09",
-                    "display": "Anders"
-                  }
                 }
               ]
             },
@@ -501,8 +487,8 @@
                 {
                   "valueCoding": {
                     "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
+                    "code": "2",
+                    "display": "Niet uitvoeren"
                   },
                   "item": [
                     {
@@ -529,11 +515,77 @@
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
                 "display": "Ja"
-              }
+              },
+              "item": [
+                {
+                  "answer": [
+                    {
+                      "valueCoding": {
+                        "code": "ICD",
+                        "display": "ICD"
+                      }
+                    }
+                  ],
+                  "linkId": "1008",
+                  "text": "ProductType van ICD"
+                },
+                {
+                  "answer": [
+                    {
+                      "valueString": "Geïmplanteerd in 2018"
+                    }
+                  ],
+                  "linkId": "1009",
+                  "text": "Toelichting"
+                }
+              ]
             }
           ],
           "linkId": "1006",
           "text": "h) Heeft de patiënt een ICD?"
+        },
+        {
+          "linkId": "1425",
+          "text": "i) Is er een afspraak over het moment van uitzetten ICD?",
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "400231000146108",
+                    "display": "uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting)"
+                  }
+                }
+              ],
+              "linkId": "1426",
+              "text": "Behandeling van uitzetten ICD (Behandeling)"
+            },
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "NASK",
+                    "display": "Niet besproken"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Daar wil Hendrik het nog niet over hebben"
+                        }
+                      ],
+                      "linkId": "1010",
+                      "text": "Toelichting gemaakte afspraken"
+                    }
+                  ]
+                }
+              ],
+              "linkId": "1005",
+              "text": "Afspraak uitzetten ICD (BehandelBesluit)"
+            }
+          ]
         }
       ]
     },
