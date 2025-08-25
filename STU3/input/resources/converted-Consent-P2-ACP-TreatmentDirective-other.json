@@ -13,6 +13,9 @@
       "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
       "display": "Encounter, 2025-08-07"
     }
+  }, {
+    "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
+    "valueString": "wanneer door complicaties peritoneaal dialyse niet meer mogelijk is en de patiënt elke week in het ziekenhuis gedialyseerd zou moeten worden dan wil ze dat de dialyse stopt."
   } ],
   "identifier": {
     "type": {
@@ -29,7 +32,7 @@
   "category": [ {
     "coding": [ {
       "system": "http://snomed.info/sct",
-      "code": "129125009"
+      "code": "11291000146105"
     } ]
   } ],
   "patient": {

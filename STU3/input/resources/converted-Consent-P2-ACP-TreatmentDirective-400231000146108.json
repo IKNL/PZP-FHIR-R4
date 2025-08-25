@@ -13,6 +13,9 @@
       "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
       "display": "Encounter, 2025-08-07"
     }
+  }, {
+    "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
+    "valueString": "Patiënt gaat dit volgende week met de cardioloog bespreken."
   } ],
   "identifier": {
     "type": {
@@ -29,7 +32,7 @@
   "category": [ {
     "coding": [ {
       "system": "http://snomed.info/sct",
-      "code": "129125009"
+      "code": "11291000146105"
     } ]
   } ],
   "patient": {

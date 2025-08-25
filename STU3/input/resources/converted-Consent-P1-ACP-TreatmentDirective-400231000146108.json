@@ -13,6 +13,9 @@
       "reference": "Encounter/P1-ACP-Encounter-29-07-2025",
       "display": "Encounter, 2025-07-29"
     }
+  }, {
+    "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
+    "valueString": "Hendrik wil het er nog niet over hebben"
   } ],
   "modifierExtension": [ {
     "url": "http://nictiz.nl/fhir/StructureDefinition/ext-TreatmentDirective2.SpecificationOther",
@@ -33,7 +36,7 @@
   "category": [ {
     "coding": [ {
       "system": "http://snomed.info/sct",
-      "code": "129125009"
+      "code": "11291000146105"
     } ]
   } ],
   "patient": {
