@@ -32,5 +32,5 @@ Usage: #example
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
 * lifecycleStatus = #active
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* description = $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
+* description = $snomed#1351964001 "levensverlengende behandeling"
 * statusDate = "2020-10-01"

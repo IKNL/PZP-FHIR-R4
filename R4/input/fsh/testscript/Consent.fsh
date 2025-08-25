@@ -39,7 +39,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#40617009 "Artificial respiration (procedure)"
+* provision.code = $snomed#40617009 "kunstmatige beademing"
 
 
 Instance: P2-ACP-TreatmentDirective-30351004
@@ -61,7 +61,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#305351004 "Admission to intensive care unit (procedure)"
+* provision.code = $snomed#305351004 "opname in ziekenhuis"
 
 
 Instance: P2-ACP-TreatmentDirective-32485007

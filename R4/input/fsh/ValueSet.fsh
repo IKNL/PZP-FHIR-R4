@@ -111,9 +111,9 @@ Id: ACP-MedicalPolicyGoal
 Title: "Most Important Agreed-upon Goal of Medical Policy"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
-* $snomed#385987000 "Curatief / actief ziektebeleid"
-* $snomed#1351964001 "Life-sustaining treatment (regime/therapy)"
-* $snomed#713148004 "Voorkomen en behandelen van symptomen (verrichting)"
+* $snomed#385987000 "zorg bij ziekte en/of letsel"
+* $snomed#1351964001 "levensverlengende behandeling"
+* $snomed#713148004 "voorkomen en behandelen van symptomen"
 
 
 ValueSet: ACPMedicalDeviceProductTypeICDVS
@@ -121,7 +121,7 @@ Id: ACP-MedicalDeviceProductType-ICD
 Title: "MedicalDevice ProductType ICD"
 Description: "ICD product code for MedicalDevice ProductType."
 * insert MetaRules
-* include codes from system urn:oid:2.16.840.1.1138836.96 where concept descendent-of #72506001
+* include codes from system http://snomed.info/sct where concept descendent-of #72506001
 
 
 ValueSet: ACPYesNoUnknownVS

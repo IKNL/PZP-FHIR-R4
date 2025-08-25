@@ -41,7 +41,7 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "64627bfa-a127-4d3a-8187-39426d7937dc"
 * status = #finished
-* class = $v3-ActCode#IMP "Inpatient"
+* class = $v3-ActCode#IMP "inpatient encounter"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * participant[0].individual = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * participant[=].individual.type = "PractitionerRole"

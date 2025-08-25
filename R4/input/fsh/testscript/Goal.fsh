@@ -8,5 +8,5 @@ Usage: #example
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * lifecycleStatus = #active
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
-* description = $snomed#713148004 " Symptom management (procedure)"
+* description = $snomed#713148004 "voorkomen en behandelen van symptomen"
 * statusDate = "2025-08-07"
