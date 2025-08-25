@@ -78,7 +78,7 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  PZP Functioneel Ontwerp: functioneel-ontwerp.html
+  Information Standard: information-standard.html
   Data Model: data-model.html
   Data Exchange: data-exchange.html
   Artifacts: artifacts.html
