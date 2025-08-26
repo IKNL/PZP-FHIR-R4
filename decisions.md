@@ -24,19 +24,52 @@
 ##
 - Questionnaires
     - Source of Questionnaire development is outside this IG. Therefore, Questionnaires will be saved as JSON, not as FSH.
-    - Copied Questionnaire resources from IKNL form builder into input/resources with prefix "Questionnaire-"
-    - Added proper metadata fields (zib2017 follows a similiar pattern)
+    - Added proper metadata fields (zib2017 follows a similiar pattern) -> see two json structures below for more details.
+    - Copied Questionnaire resources from IKNL form builder into input/resources with prefix "Questionnaire-"[id]-[version]
+    - Using https://formbuilder.nlm.nih.gov/ fix the conditional expressions in the Questionnaires. It goes wrong for all Booleans apperantly. So the conditional display for 5.2.6 e) Naam eerste contactpersoon neesd to be set so that: 
+     5.2.5 - d) Is de wettelijk vertegenwoordiger ook de eerste contactpersoon? = Nee (0)
+    - Need to set conditional expression for "Afspraak uitzetten ICD (BehandelBesluit)" on  "h) Heeft de patiënt een ICD?"
+    - Using https://formbuilder.nlm.nih.gov/ set all the measurement names and 'behandeling' readonly and initial value selected
+
+    ```json
+    {
+          "type": "choice",
+          "linkId": "1408",
+          "text": "Belangrijkste doel van behandeling ([MetingNaam])",
+          "required": false,
+          "repeats": false,
+          "readOnly": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://snomed.info/sct",
+                "code": "180771000146100",
+                "display": "Focus van behandeling (waarneembare entiteit)"
+              },
+              "initialSelected": true
+            }
+          ]
+        },
+    ``` 
+
+
+    
 ```json
+{
 {
     "name": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
     "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
     "resourceType": "Questionnaire",
     "status": "draft",
+    "item": [
+    ---snip---   
+    ],
     "experimental": true,
-    "publisher": "",
-    "copyright": "Gepubliceerd door PZNL & uitgevoerd door IKNL",
-    "purpose": "",
-    "description": ""
+    "publisher": "Gepubliceerd door PZNL & uitgevoerd door IKNL | Published by PZNL & executed by IKNL",
+    "copyright": "Op dit formulier is copyright, gebruikersrechten en een disclaimer van toepassing, zoals die gespecificeerd zijn voor alle informatiestandaarden van IKNL, zie voor de details het onderdeel Gebruikersrechten en disclaimer op https://iknl.nl/onderzoek/eenheid-van-taal. | \nThis form is subject to copyright, user rights and a disclaimer, as specified for all IKNL information standards. For details, see the paragraph on Gebruikersrechten en disclaimer at https://iknl.nl/onderzoek/eenheid-van-taal.",
+    "purpose": "Dit formulier is ontwikkeld om afspraken voortkomend uit het proces van proactieve zorgplanning (PZP) eenduidig vast te leggen. | \nThis form was developed to clearly document agreements resulting from the advance care planning (ACP) process.",
+    "description": "Dit formulier is ontwikkeld om afspraken voortkomend uit het proces van proactieve zorgplanning (PZP) eenduidig vast te leggen. Het is GEEN afvinklijst. Het kan alleen na deskundig en genuanceerd gesprek door een zorgverlener worden ingevuld. Voor adviezen over het voeren van deze gesprekken word verwezen naar de richtlijn proactieve zorgplanning in de palliatieve fase en Palliaweb, zie https://palliaweb.nl/zorgpraktijk/proactieve-zorgplanning. \nVul 'nog onbekend' in als een onderwerp niet is besproken of als de patiënt (nog) geen mening heeft. Overweeg bij overplaatsing naar een langdurige zorgsetting gespreksverslagen over proactieve zorgplanning aan de overdracht toe te voegen. | \nThis form was developed to clearly document agreements resulting from the advance care planning (ACP) process. It is NOT a checklist. It can only be completed by a healthcare provider after a professional and nuanced conversation. For advice on conducting these conversations, please refer to the guideline for proactive care planning in the palliative phase and Palliaweb, see https://palliaweb.nl/zorgpraktijk/proactieve-zorgplanning. \nEnter 'unknown' if a topic is not discussed or if the patient does not (yet) have an opinion.When transferring to a long-term care setting, consider adding conversation records about advance care planning (ACP) to the transfer documents."
+}
 ```
 
 to
@@ -46,32 +79,14 @@ to
     "id": "ACP-zib2020",
     "url": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020",
     "version": "beta3-20250828",
-    "name": "ACPzib2020",
+    "name": "ACPzib2020",    
     "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
     "resourceType": "Questionnaire",
     "status": "draft",
-    "experimental": false,
+    "experimental": true,
     "publisher": "Published by PZNL & executed by IKNL",
-    "contact": [
-        {
-            "name": "IKNL",
-            "telecom": [
-                {
-                    "system": "email",
-                    "value": "info@iknl.nl",
-                    "use": "work"
-                }
-            ]
-        }
-    ],
-    "copyright": "This form has been compiled with the utmost care. No rights or claims can be derived from its content, which also means that any liability for possible inaccuracies in this form, for any damage, or for other consequences arising from or related to the use of this form is excluded. Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
-    "purpose": "This form was developed to clearly document agreements resulting from the proactive care planning process.",
-    "description": "Standardized capture of proactive care planning (advance care planning, or ACP). This form was developed to clearly document agreements resulting from the proactive care planning process. It is NOT a checklist. It can only be completed by a healthcare provider after a professional and nuanced conversation. For advice on conducting these conversations, please refer to the guideline for proactive care planning in the palliative phase and Palliaweb. If a topic has not been discussed or if the patient does not yet have an opinion, please fill in "not yet known." When transferring to a long-term care setting, consider adding conversation records about proactive care planning to the transfer documents.",
-    "code": [
-        {
-            "code": "713603004",
-            "system": "http://snomed.info/sct",
-            "display": "Advance care planning (procedure)"
-        }
-    ],
+    "copyright": "This form is subject to copyright, user rights and a disclaimer, as specified for all IKNL information standards. For details, see the paragraph on Gebruikersrechten en disclaimer at https://iknl.nl/onderzoek/eenheid-van-taal.",
+    "purpose": "This form was developed to clearly document agreements resulting from the advance care planning (ACP) process.",
+    "description": "This form was developed to clearly document agreements resulting from the advance care planning (ACP) process. It is NOT a checklist. It can only be completed by a healthcare provider after a professional and nuanced conversation. For advice on conducting these conversations, please refer to the guideline for proactive care planning in the palliative phase and Palliaweb, see https://palliaweb.nl/zorgpraktijk/proactieve-zorgplanning. \nEnter 'unknown' if a topic is not discussed or if the patient does not (yet) have an opinion.When transferring to a long-term care setting, consider adding conversation records about advance care planning (ACP) to the transfer documents.",
+    
 ```
