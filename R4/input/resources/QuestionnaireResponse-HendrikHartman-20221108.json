@@ -1,6 +1,6 @@
 {
   "resourceType": "QuestionnaireResponse",
-  "id": "QuestionnaireResponse-ACP-zib2017-beta3-20250828-HendrikHartman-20201001",
+  "id": "QuestionnaireResponse-HendrikHartman-20221108",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse"
@@ -12,16 +12,16 @@
     ]
   },
   "status": "completed",
-  "authored": "2025-08-25T19:24:59.121Z",
-  "questionnaire": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2017|beta3-20250828",
+  "authored": "2025-08-25T19:18:32.253Z",
+  "questionnaire": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020|beta3-20250828",
   "item": [
     {
       "answer": [
         {
-          "valueDateTime": "2020-10-01T19:23:15.000Z"
+          "valueDateTime": "2020-11-08T17:27:36.000Z"
         }
       ],
-      "linkId": "385",
+      "linkId": "963",
       "text": "Datum van invullen"
     },
     {
@@ -34,7 +34,7 @@
               "valueString": "Hendrik"
             }
           ],
-          "linkId": "386",
+          "linkId": "964",
           "text": "Voornamen"
         },
         {
@@ -43,7 +43,7 @@
               "valueString": "Hartman"
             }
           ],
-          "linkId": "388",
+          "linkId": "966",
           "text": "Achternaam"
         }
       ]
@@ -51,10 +51,10 @@
     {
       "answer": [
         {
-          "valueDateTime": "1961-01-01T20:23:15.000Z"
+          "valueDateTime": "1961-01-01T14:27:36.000Z"
         }
       ],
-      "linkId": "6",
+      "linkId": "967",
       "text": "Geboortedatum patiënt"
     },
     {
@@ -71,7 +71,7 @@
                   "valueString": "van"
                 }
               ],
-              "linkId": "390",
+              "linkId": "969",
               "text": "Voorvoegsels"
             },
             {
@@ -80,7 +80,7 @@
                   "valueString": "Huissen"
                 }
               ],
-              "linkId": "391",
+              "linkId": "970",
               "text": "Achternaam"
             }
           ]
@@ -95,7 +95,7 @@
               }
             }
           ],
-          "linkId": "786",
+          "linkId": "1405",
           "text": "Functie (Specialisme)"
         }
       ]
@@ -113,7 +113,7 @@
               }
             }
           ],
-          "linkId": "787",
+          "linkId": "1406",
           "text": "Is de patiënt op dit moment wilsbekwaam m.b.t. medische behandelbeslissingen?"
         },
         {
@@ -130,7 +130,7 @@
                       "valueString": "Michiel"
                     }
                   ],
-                  "linkId": "392",
+                  "linkId": "973",
                   "text": "Voornamen"
                 },
                 {
@@ -139,7 +139,7 @@
                       "valueString": "Hartman"
                     }
                   ],
-                  "linkId": "394",
+                  "linkId": "975",
                   "text": "Achternaam"
                 }
               ]
@@ -158,7 +158,7 @@
                           "valueString": "michiel.hartman@iknl.nl"
                         }
                       ],
-                      "linkId": "401",
+                      "linkId": "980",
                       "text": "EmailAdres"
                     },
                     {
@@ -171,7 +171,7 @@
                           }
                         }
                       ],
-                      "linkId": "402",
+                      "linkId": "981",
                       "text": "EmailSoort"
                     }
                   ]
@@ -188,7 +188,7 @@
                   }
                 }
               ],
-              "linkId": "51",
+              "linkId": "983",
               "text": "c) Relatie tot patiënt (2)"
             },
             {
@@ -200,7 +200,7 @@
                   }
                 }
               ],
-              "linkId": "52",
+              "linkId": "984",
               "text": "d) Is de wettelijk vertegenwoordiger ook de eerste contactpersoon?"
             }
           ]
@@ -224,7 +224,7 @@
           "text": "Patiënt"
         },
         {
-          "linkId": "80",
+          "linkId": "998",
           "text": "Relatie tot patiënt",
           "answer": [
             {
@@ -252,21 +252,21 @@
               }
             }
           ],
-          "linkId": "790",
-          "text": "MetingNaam voor Belangrijkste doel van behandeling"
+          "linkId": "1408",
+          "text": "Belangrijkste doel van behandeling ([MetingNaam])"
         },
         {
           "answer": [
             {
               "valueCoding": {
                 "system": "http://snomed.info/sct",
-                "code": "1351964001",
-                "display": "Palliatief met als doel levensverlenging én symptoomverlichting"
+                "code": "225353007",
+                "display": "Palliatief met als doel symptoomverlichting, waarbij levensverlenging niet gewenst is"
               }
             }
           ],
-          "linkId": "784",
-          "text": "Doel (UitslagWaarde)"
+          "linkId": "999",
+          "text": "Doel ([MetingWaarde])"
         }
       ]
     },
@@ -275,7 +275,7 @@
       "text": "4. Behandelgrenzen",
       "item": [
         {
-          "linkId": "792",
+          "linkId": "1409",
           "text": "a) Reanimatie",
           "item": [
             {
@@ -284,30 +284,41 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "89666000",
-                    "display": "Cardiopulmonale resuscitatie (verrichting)"
+                    "display": "cardiopulmonale resuscitatie"
                   }
                 }
               ],
-              "linkId": "791",
+              "linkId": "1410",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
-                  }
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Wel op OK met kans op goed herstel, niet thuis of op straat"
+                        }
+                      ],
+                      "linkId": "1001",
+                      "text": "SpecificatieAnders"
+                    }
+                  ]
                 }
               ],
-              "linkId": "587",
-              "text": "BehandelingToegestaan"
+              "linkId": "1386",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "793",
+          "linkId": "1411",
           "text": "b) Kunstmatige invasieve beademing",
           "item": [
             {
@@ -316,30 +327,41 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "40617009",
-                    "display": "Kunstmatige beademing (verrichting)"
+                    "display": "kunstmatige beademing"
                   }
                 }
               ],
-              "linkId": "794",
+              "linkId": "1412",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
-                  }
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Weinig kans om nog van de beademing af te komen door conditie"
+                        }
+                      ],
+                      "linkId": "1389",
+                      "text": "Toelichting"
+                    }
+                  ]
                 }
               ],
-              "linkId": "588",
-              "text": "BehandelingToegestaan"
+              "linkId": "1387",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "796",
+          "linkId": "1413",
           "text": "c) Opname op intensive care",
           "item": [
             {
@@ -348,30 +370,41 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "305351004",
-                    "display": "Opname op intensive care (verrichting)"
+                    "display": "opname op intensive care"
                   }
                 }
               ],
-              "linkId": "795",
+              "linkId": "1414",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
-                  }
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "IC opname is intensief, en weinig kans op goed herstel"
+                        }
+                      ],
+                      "linkId": "1392",
+                      "text": "Toelichting"
+                    }
+                  ]
                 }
               ],
-              "linkId": "589",
-              "text": "BehandelingToegestaan"
+              "linkId": "1390",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "798",
+          "linkId": "1415",
           "text": "d) Opname in ziekenhuis",
           "item": [
             {
@@ -380,30 +413,30 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "32485007",
-                    "display": "Opname in ziekenhuis (verrichting)"
+                    "display": "opname in ziekenhuis"
                   }
                 }
               ],
-              "linkId": "799",
+              "linkId": "1416",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
                   }
                 }
               ],
-              "linkId": "590",
-              "text": "BehandelingToegestaan"
+              "linkId": "1393",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "800",
+          "linkId": "1417",
           "text": "e) Behandeling met antibiotica",
           "item": [
             {
@@ -412,30 +445,30 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "281789004",
-                    "display": "Antibiotische therapie (verrichting)"
+                    "display": "antibiotische therapie"
                   }
                 }
               ],
-              "linkId": "801",
+              "linkId": "1418",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
                   }
                 }
               ],
-              "linkId": "591",
-              "text": "BehandelingToegestaan"
+              "linkId": "1396",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "802",
+          "linkId": "1419",
           "text": "f) Toediening van een bloedproduct",
           "item": [
             {
@@ -444,30 +477,30 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "116762002",
-                    "display": "Toediening van bloedproduct (verrichting)"
+                    "display": "toediening van bloedproduct"
                   }
                 }
               ],
-              "linkId": "803",
+              "linkId": "1420",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "JA",
-                    "display": "Ja"
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
                   }
                 }
               ],
-              "linkId": "592",
-              "text": "BehandelingToegestaan"
+              "linkId": "1399",
+              "text": "BehandelBesluit"
             }
           ]
         },
         {
-          "linkId": "804",
+          "linkId": "1421",
           "text": "g) Overige behandelgrenzen",
           "item": [
             {
@@ -476,36 +509,25 @@
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
                     "code": "OTH",
-                    "display": "Overige behandelingen"
+                    "display": "Other"
                   }
                 }
               ],
-              "linkId": "805",
+              "linkId": "1422",
               "text": "Behandeling"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
-                    "code": "NEE",
-                    "display": "Nee"
-                  },
-                  "item": [
-                    {
-                      "answer": [
-                        {
-                          "valueString": "Alleen de bovengenomende afspraken zijn besproken"
-                        }
-                      ],
-                      "linkId": "100",
-                      "text": "Toelichting"
-                    }
-                  ]
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
                 }
               ],
-              "linkId": "593",
-              "text": "BehandelingToegestaan"
+              "linkId": "1402",
+              "text": "BehandelBesluit"
             }
           ]
         },
@@ -527,7 +549,7 @@
                       }
                     }
                   ],
-                  "linkId": "600",
+                  "linkId": "1008",
                   "text": "ProductType van ICD"
                 },
                 {
@@ -536,17 +558,17 @@
                       "valueString": "Geïmplanteerd in 2018"
                     }
                   ],
-                  "linkId": "599",
+                  "linkId": "1009",
                   "text": "Toelichting"
                 }
               ]
             }
           ],
-          "linkId": "249",
+          "linkId": "1006",
           "text": "h) Heeft de patiënt een ICD?"
         },
         {
-          "linkId": "808",
+          "linkId": "1425",
           "text": "i) Is er een afspraak over het moment van uitzetten ICD?",
           "item": [
             {
@@ -559,21 +581,21 @@
                   }
                 }
               ],
-              "linkId": "809",
-              "text": "Behandeling van uitzetten ICD"
+              "linkId": "1426",
+              "text": "Behandeling van uitzetten ICD (Behandeling)"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "NASK",
-                    "display": "Niet besproken"
+                    "code": "ASKU",
+                    "display": "Nee, nog geen besluit genomen"
                   }
                 }
               ],
-              "linkId": "595",
-              "text": "Afspraak uitzetten ICD (BehandelingToegestaan)"
+              "linkId": "1005",
+              "text": "Afspraak uitzetten ICD (BehandelBesluit)"
             }
           ]
         }
@@ -584,7 +606,7 @@
       "text": "5. Behandelwensen",
       "item": [
         {
-          "linkId": "810",
+          "linkId": "1427",
           "text": "a) Wat zouden zorgverleners, volgens de patiënt, moeten weten om goede zorg te kunnen verlenen? Heeft deze patiënt specifieke wensen met betrekking tot zijn zorg? (incl. culturele/religieuze/sociale/spirituele aspecten) ",
           "item": [
             {
@@ -597,22 +619,22 @@
                   }
                 }
               ],
-              "linkId": "811",
-              "text": "Wens en verwachting patient (MetingNaam)"
+              "linkId": "1428",
+              "text": "Wens en verwachting patient ([MetingNaam])"
             },
             {
               "answer": [
                 {
-                  "valueString": "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
+                  "valueString": "Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik. Het gaat de laatste tijd een stuk slechter en Hendrik denkt vaker na over de dood. Hij is niet bang, maar vindt het lastig om zijn familie achter te laten. "
                 }
               ],
-              "linkId": "382",
-              "text": "Wens en verwachting patient (UitslagWaarde)"
+              "linkId": "1190",
+              "text": "Wens en verwachting patient ([MetingWaarde])"
             }
           ]
         },
         {
-          "linkId": "812",
+          "linkId": "1429",
           "text": "b) Gewenste plek van overlijden",
           "item": [
             {
@@ -625,37 +647,37 @@
                   }
                 }
               ],
-              "linkId": "815",
-              "text": "MetingNaam voor Gewenste plek van overlijden"
+              "linkId": "1430",
+              "text": "Gewenste plek van overlijden ([MetingNaam])"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Nog onbekend"
+                    "system": "http://snomed.info/sct",
+                    "code": "264362003",
+                    "display": "Thuis"
                   },
                   "item": [
                     {
                       "answer": [
                         {
-                          "valueString": "Nog niet besproken"
+                          "valueString": "Het liefst rustig thuis"
                         }
                       ],
-                      "linkId": "110",
+                      "linkId": "1192",
                       "text": "Toelichting"
                     }
                   ]
                 }
               ],
-              "linkId": "604",
-              "text": "Voorkeursplek (UitslagWaarde)"
+              "linkId": "1191",
+              "text": "Voorkeursplek ([MetingWaarde])"
             }
           ]
         },
         {
-          "linkId": "813",
+          "linkId": "1431",
           "text": "c) Euthanasie standpunt",
           "item": [
             {
@@ -668,37 +690,26 @@
                   }
                 }
               ],
-              "linkId": "816",
-              "text": "MetingNaam voor Euthanasie standpunt"
+              "linkId": "1432",
+              "text": "Euthanasie standpunt ([MetingNaam])"
             },
             {
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Nog onbekend"
-                  },
-                  "item": [
-                    {
-                      "answer": [
-                        {
-                          "valueString": "Nog niet besproken"
-                        }
-                      ],
-                      "linkId": "112",
-                      "text": "Toelichting"
-                    }
-                  ]
+                    "system": "http://snomed.info/sct",
+                    "code": "340201000146103",
+                    "display": "Wenst geen euthanasie"
+                  }
                 }
               ],
-              "linkId": "785",
-              "text": "Standpunt (UitslagWaarde)"
+              "linkId": "1193",
+              "text": "Euthanasie standpunt ([MetingWaarde])"
             }
           ]
         },
         {
-          "linkId": "814",
+          "linkId": "1433",
           "text": "d) Keuze orgaandonatie vastgelegd in donorregister?",
           "item": [
             {
@@ -711,8 +722,8 @@
                   }
                 }
               ],
-              "linkId": "817",
-              "text": "MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister?"
+              "linkId": "1434",
+              "text": "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
             },
             {
               "answer": [
@@ -724,8 +735,8 @@
                   }
                 }
               ],
-              "linkId": "789",
-              "text": "Keuze orgaandonatie in donorregister (UitslagWaarde)"
+              "linkId": "1435",
+              "text": "Keuze orgaandonatie in donorregister ([MetingWaarde])"
             }
           ]
         }
@@ -745,17 +756,17 @@
               }
             }
           ],
-          "linkId": "818",
-          "text": "MetingNaam voor Wat verder nog belangrijk is"
+          "linkId": "1436",
+          "text": "Wat verder nog belangrijk is ([MetingNaam])"
         },
         {
           "answer": [
             {
-              "valueString": "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek "
+              "valueString": "De behandeling van Hendrik is na verslechtering en gesprekken hierover bijgesteld van levensverlenging naar symptoomgericht."
             }
           ],
-          "linkId": "383",
-          "text": "Wat verder nog belangrijk is (UitslagWaarde)"
+          "linkId": "1196",
+          "text": "Wat verder nog belangrijk is ([MetingWaarde])"
         }
       ]
     },
@@ -768,13 +779,37 @@
             {
               "valueCoding": {
                 "system": "http://snomed.info/sct",
-                "code": "373067005",
-                "display": "Nee"
+                "code": "373066001",
+                "display": "Ja"
+              },
+              "item": [
+                {
+                  "answer": [
+                    {
+                      "valueString": "Begin 2020 eerder gesprek gevoerd"
+                    }
+                  ],
+                  "linkId": "1198",
+                  "text": "Toelichting"
+                }
+              ]
+            }
+          ],
+          "linkId": "1197",
+          "text": "a) Heeft de patiënt eerder behandelafspraken vastgelegd?"
+        },
+        {
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://snomed.info/sct",
+                "code": "373066001",
+                "display": "Ja"
               }
             }
           ],
-          "linkId": "253",
-          "text": "a) Heeft de patiënt eerder behandelafspraken vastgelegd?"
+          "linkId": "1199",
+          "text": "b) Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring?"
         }
       ]
     },
@@ -791,7 +826,7 @@
               }
             }
           ],
-          "linkId": "256",
+          "linkId": "1200",
           "text": "a) Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?"
         },
         {
@@ -804,7 +839,7 @@
               }
             }
           ],
-          "linkId": "257",
+          "linkId": "1201",
           "text": "b) Patiënt gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners"
         }
       ]

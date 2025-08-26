@@ -1,6 +1,6 @@
 {
   "resourceType": "QuestionnaireResponse",
-  "id": "QuestionnaireResponse-ACP-zib2020-beta3-20250828-HendrikHartman-20221108",
+  "id": "QuestionnaireResponse-HendrikHartman-20201001",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse"
@@ -12,13 +12,13 @@
     ]
   },
   "status": "completed",
-  "authored": "2025-08-25T19:18:32.253Z",
+  "authored": "2025-08-25T19:14:50.150Z",
   "questionnaire": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020|beta3-20250828",
   "item": [
     {
       "answer": [
         {
-          "valueDateTime": "2020-11-08T17:27:36.000Z"
+          "valueDateTime": "2020-10-01T16:27:36.364Z"
         }
       ],
       "linkId": "963",
@@ -260,8 +260,8 @@
             {
               "valueCoding": {
                 "system": "http://snomed.info/sct",
-                "code": "225353007",
-                "display": "Palliatief met als doel symptoomverlichting, waarbij levensverlenging niet gewenst is"
+                "code": "1351964001",
+                "display": "Palliatief met als doel levensverlenging én symptoomverlichting"
               }
             }
           ],
@@ -296,20 +296,9 @@
                 {
                   "valueCoding": {
                     "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  },
-                  "item": [
-                    {
-                      "answer": [
-                        {
-                          "valueString": "Wel op OK met kans op goed herstel, niet thuis of op straat"
-                        }
-                      ],
-                      "linkId": "1001",
-                      "text": "SpecificatieAnders"
-                    }
-                  ]
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
                 }
               ],
               "linkId": "1386",
@@ -339,20 +328,9 @@
                 {
                   "valueCoding": {
                     "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  },
-                  "item": [
-                    {
-                      "answer": [
-                        {
-                          "valueString": "Weinig kans om nog van de beademing af te komen door conditie"
-                        }
-                      ],
-                      "linkId": "1389",
-                      "text": "Toelichting"
-                    }
-                  ]
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
                 }
               ],
               "linkId": "1387",
@@ -382,20 +360,9 @@
                 {
                   "valueCoding": {
                     "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  },
-                  "item": [
-                    {
-                      "answer": [
-                        {
-                          "valueString": "IC opname is intensief, en weinig kans op goed herstel"
-                        }
-                      ],
-                      "linkId": "1392",
-                      "text": "Toelichting"
-                    }
-                  ]
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
                 }
               ],
               "linkId": "1390",
@@ -523,7 +490,18 @@
                     "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
                     "code": "2",
                     "display": "Niet uitvoeren"
-                  }
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Alleen de bovengenomende afspraken zijn besproken"
+                        }
+                      ],
+                      "linkId": "1404",
+                      "text": "Toelichting"
+                    }
+                  ]
                 }
               ],
               "linkId": "1402",
@@ -589,9 +567,20 @@
                 {
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "ASKU",
-                    "display": "Nee, nog geen besluit genomen"
-                  }
+                    "code": "NASK",
+                    "display": "Niet besproken"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Daar wil Hendrik het nog niet over hebben"
+                        }
+                      ],
+                      "linkId": "1010",
+                      "text": "Toelichting gemaakte afspraken"
+                    }
+                  ]
                 }
               ],
               "linkId": "1005",
@@ -625,7 +614,7 @@
             {
               "answer": [
                 {
-                  "valueString": "Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik. Het gaat de laatste tijd een stuk slechter en Hendrik denkt vaker na over de dood. Hij is niet bang, maar vindt het lastig om zijn familie achter te laten. "
+                  "valueString": "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
                 }
               ],
               "linkId": "1190",
@@ -654,15 +643,15 @@
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "264362003",
-                    "display": "Thuis"
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Nog onbekend"
                   },
                   "item": [
                     {
                       "answer": [
                         {
-                          "valueString": "Het liefst rustig thuis"
+                          "valueString": "Nog niet besproken"
                         }
                       ],
                       "linkId": "1192",
@@ -697,10 +686,21 @@
               "answer": [
                 {
                   "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "340201000146103",
-                    "display": "Wenst geen euthanasie"
-                  }
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Nog onbekend"
+                  },
+                  "item": [
+                    {
+                      "answer": [
+                        {
+                          "valueString": "Nog niet besproken"
+                        }
+                      ],
+                      "linkId": "1194",
+                      "text": "Toelichting"
+                    }
+                  ]
                 }
               ],
               "linkId": "1193",
@@ -762,7 +762,7 @@
         {
           "answer": [
             {
-              "valueString": "De behandeling van Hendrik is na verslechtering en gesprekken hierover bijgesteld van levensverlenging naar symptoomgericht."
+              "valueString": "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek "
             }
           ],
           "linkId": "1196",
@@ -779,37 +779,13 @@
             {
               "valueCoding": {
                 "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Ja"
-              },
-              "item": [
-                {
-                  "answer": [
-                    {
-                      "valueString": "Begin 2020 eerder gesprek gevoerd"
-                    }
-                  ],
-                  "linkId": "1198",
-                  "text": "Toelichting"
-                }
-              ]
+                "code": "373067005",
+                "display": "Nee"
+              }
             }
           ],
           "linkId": "1197",
           "text": "a) Heeft de patiënt eerder behandelafspraken vastgelegd?"
-        },
-        {
-          "answer": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Ja"
-              }
-            }
-          ],
-          "linkId": "1199",
-          "text": "b) Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring?"
         }
       ]
     },
