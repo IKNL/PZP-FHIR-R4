@@ -48,8 +48,8 @@ dependencies:
 pages:
   index.md:
     title: Home
-  functioneel-ontwerp.md:
-    title: Functioneel Ontwerp
+  information-standard.md:
+    title: Information Standard
   data-model.md:
     title: Data Model Overview
   data-exchange.md:
