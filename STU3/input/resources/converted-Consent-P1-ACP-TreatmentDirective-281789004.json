@@ -6,32 +6,20 @@
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
-  "identifier": [
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "RI",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Resource identifier"
-          }
-        ]
-      },
-      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "2bb2cbb4-2692-49c4-81e0-02b9f09d4328"
-    }
-  ],
-  "status": "active",
-  "patient": {
-    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
-    "display": "Patient, Hendrik Hartman"
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "2bb2cbb4-2692-49c4-81e0-02b9f09d4328"
   },
-  "dateTime": "2025-07-29",
-  "policy": [
-    {
-      "uri": "https://wetten.overheid.nl/"
-    }
-  ],
+  "status": "active",
   "category": [
     {
       "coding": [
@@ -43,6 +31,11 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "dateTime": "2025-07-29",
   "extension": [
     {
       "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
@@ -53,17 +46,20 @@
     },
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
-      "valueCodeableConcept": [
-        {
-          "coding": [
-            {
-              "code": "281789004",
-              "system": "http://snomed.info/sct",
-              "display": "Antibiotic therapy"
-            }
-          ]
-        }
-      ]
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "281789004",
+            "system": "http://snomed.info/sct",
+            "display": "Antibiotic therapy"
+          }
+        ]
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
     }
   ],
   "modifierExtension": [

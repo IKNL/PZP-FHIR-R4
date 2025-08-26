@@ -6,32 +6,20 @@
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
-  "identifier": [
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "RI",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Resource identifier"
-          }
-        ]
-      },
-      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "1e632040-9fec-4420-b3e7-9f6ff2fcfc15"
-    }
-  ],
-  "status": "active",
-  "patient": {
-    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
-    "display": "Patient, Hendrik Hartman"
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "1e632040-9fec-4420-b3e7-9f6ff2fcfc15"
   },
-  "dateTime": "2025-07-29",
-  "policy": [
-    {
-      "uri": "https://wetten.overheid.nl/"
-    }
-  ],
+  "status": "active",
   "category": [
     {
       "coding": [
@@ -43,6 +31,11 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "dateTime": "2025-07-29",
   "extension": [
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
@@ -57,17 +50,20 @@
     },
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
-      "valueCodeableConcept": [
-        {
-          "coding": [
-            {
-              "code": "32485007",
-              "system": "http://snomed.info/sct",
-              "display": "Hospital admission"
-            }
-          ]
-        }
-      ]
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "32485007",
+            "system": "http://snomed.info/sct",
+            "display": "Hospital admission"
+          }
+        ]
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
     }
   ],
   "modifierExtension": [

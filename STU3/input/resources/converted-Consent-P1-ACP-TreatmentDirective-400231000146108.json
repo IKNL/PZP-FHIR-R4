@@ -6,32 +6,20 @@
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
-  "identifier": [
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "RI",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Resource identifier"
-          }
-        ]
-      },
-      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "6e644b65-aac4-4af2-9090-60f848767c61"
-    }
-  ],
-  "status": "active",
-  "patient": {
-    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
-    "display": "Patient, Hendrik Hartman"
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "6e644b65-aac4-4af2-9090-60f848767c61"
   },
-  "dateTime": "2025-07-29",
-  "policy": [
-    {
-      "uri": "https://wetten.overheid.nl/"
-    }
-  ],
+  "status": "active",
   "category": [
     {
       "coding": [
@@ -43,6 +31,11 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "dateTime": "2025-07-29",
   "extension": [
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
@@ -57,18 +50,21 @@
     },
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
-      "valueCodeableConcept": [
-        {
-          "coding": [
-            {
-              "code": "OTH",
-              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-              "display": "other"
-            }
-          ],
-          "text": "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)"
-        }
-      ]
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "OTH",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+            "display": "other"
+          }
+        ],
+        "text": "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)"
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
     }
   ],
   "modifierExtension": [

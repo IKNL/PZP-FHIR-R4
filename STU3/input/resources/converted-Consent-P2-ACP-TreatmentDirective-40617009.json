@@ -6,32 +6,20 @@
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
-  "identifier": [
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "RI",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Resource identifier"
-          }
-        ]
-      },
-      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "9173e0ef-c00e-4ed3-bf64-97e490dd1dc0"
-    }
-  ],
-  "status": "active",
-  "patient": {
-    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
-    "display": "Patient, Samira van der Sluijs"
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "9173e0ef-c00e-4ed3-bf64-97e490dd1dc0"
   },
-  "dateTime": "2025-08-07",
-  "policy": [
-    {
-      "uri": "https://wetten.overheid.nl/"
-    }
-  ],
+  "status": "active",
   "category": [
     {
       "coding": [
@@ -43,6 +31,11 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "dateTime": "2025-08-07",
   "extension": [
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
@@ -82,17 +75,20 @@
     },
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
-      "valueCodeableConcept": [
-        {
-          "coding": [
-            {
-              "code": "40617009",
-              "system": "http://snomed.info/sct",
-              "display": "kunstmatige beademing"
-            }
-          ]
-        }
-      ]
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "40617009",
+            "system": "http://snomed.info/sct",
+            "display": "kunstmatige beademing"
+          }
+        ]
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
     }
   ],
   "modifierExtension": [

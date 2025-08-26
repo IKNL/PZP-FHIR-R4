@@ -6,32 +6,20 @@
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
-  "identifier": [
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "RI",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Resource identifier"
-          }
-        ]
-      },
-      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "3f5faabb-b114-486a-b384-ded484710afb"
-    }
-  ],
-  "status": "active",
-  "patient": {
-    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
-    "display": "Patient, Hendrik Hartman"
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "3f5faabb-b114-486a-b384-ded484710afb"
   },
-  "dateTime": "2025-07-29",
-  "policy": [
-    {
-      "uri": "https://wetten.overheid.nl/"
-    }
-  ],
+  "status": "active",
   "category": [
     {
       "coding": [
@@ -43,6 +31,11 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "dateTime": "2025-07-29",
   "extension": [
     {
       "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
@@ -53,18 +46,21 @@
     },
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
-      "valueCodeableConcept": [
-        {
-          "coding": [
-            {
-              "code": "OTH",
-              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-              "display": "other"
-            }
-          ],
-          "text": "Sondevoeding (SNOMED CT - 229912004)"
-        }
-      ]
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "OTH",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+            "display": "other"
+          }
+        ],
+        "text": "Sondevoeding (SNOMED CT - 229912004)"
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
     }
   ],
   "modifierExtension": [
