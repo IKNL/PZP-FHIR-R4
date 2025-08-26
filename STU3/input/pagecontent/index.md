@@ -12,7 +12,7 @@ This implementation guide is a work in progress, and its quality and usefulness 
 
 1. The <a href="StructureDefinition-ext-EncounterReference.html">EncounterReference extension</a> is an optional extension that enables linking the Consent, Goal, and DeviceUseStatement resources to a relevant Encounter. We invite feedback on whether this extension is truly necessary.
 
-2. The <a href="StructureDefinition-ACP-Communication.html">Communication profile</a> has been developed to capture all communication events related to advance care planning. It specifically documents whether the patient has been informed about their responsibility to notify others. As this profile is newly created rather than derived from zib/nl-core profiles, we welcome input on its structure and modeling approach.
+2. The <a href="StructureDefinition-ACP-Communication.html">Communication profile</a> has been developed to capture all communication events related to advance care planning. It specifically documents whether the patient has been informed about their responsibility discuss treatment agreements with relatives. As this profile is newly created rather than derived from zib/nl-core profiles, we welcome input on its structure and modeling approach.
 
 3. The <a href="Questionnaire-ACP-zib2017.html">ACP Questionnaire</a> has been developed based on the ACP form dataset and aims to preserve the zib structure as much as possible. We welcome any feedback on its design and implementation.
 
