@@ -4,6 +4,8 @@ This page provides an overview of the FHIR resources used to represent the ACP d
 
 A patient's ACP preferences can be documented using a structured form, such as the one developed by IKNL. This implementation guide provides a corresponding <a href="Questionnaire-ACP-zib2017.html">FHIR Questionnaire resource</a> to ensure standardized and interoperable data capture.
 
+The Questionnaire's primary function is to specify its identity and question identifiers required to capture answers in a QuestionnaireResponse. The Questionnaire is based on the ACP form dataset and aims to preserve the zib structure as much as possible. To ensure the intended meaning is preserved in both the Questionnaire and QuestionnaireResponse, some questions correspond to zib concepts with preset answer codes that are marked as readOnly. This approach tightly couples the Questionnaire and QuestionnaireResponse to the underlying zib data model. The Questionnaire is not specifically designed for direct use in a user interface, though this is possible. For optimal user interaction, the questionnaire may need customization, for example, hiding preselected and read-only questions.
+
 Two example QuestionnaireResponse resources, based on this Questionnaire, are included:
 
 * <a href="QuestionnaireResponse-HendrikHartman-20201001.html">QuestionnaireResponse for Hendrik Hartman (01-01-2020)</a>
