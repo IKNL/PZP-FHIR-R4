@@ -79,7 +79,7 @@ def extract_all_json_ids(json_file_path):
 
     return ordered_concepts
 
-def extract_mappings_from_stu3_json(stu3_resources_dir, output_markdown_file, json_file_path):
+def extract_mappings_from_stu3_json(stu3_resources_dir, output_markdown_file, json_file_path, mode="develop"):
     """
     Parses all StructureDefinition JSON files in STU3/input/resources/,
     extracts mappings, and generates Markdown tables for mapped, unmapped, 
@@ -203,55 +203,52 @@ def extract_mappings_from_stu3_json(stu3_resources_dir, output_markdown_file, js
                 # Iterate over all mappings for this ID
                 for mapping in mappings_map[functional_id]:
                     resource_type, profile_name, profile_id, fhir_element = mapping
-                    
                     depth = concept['depth']
                     indentation = "&emsp;" * depth if depth > 0 else ""
                     dataset_name = indentation + concept['name']
-                    
                     resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
                     f.write(f"| {functional_id} | {dataset_name} | {resource_display} | `{fhir_element}`  |\n")
                     rows_written += 1
                 mapped_ids.add(functional_id)
             elif functional_id not in UNMAPPED_IGNORE_LIST:
                 unmapped_concepts.append(concept)
-                
+
         if rows_written == 0:
             f.write("| | No mappings were found matching the JSON dataset. | | |\n")
 
-        f.write("\n\n##### Overview of Unmapped Elements\n\n")
-        if unmapped_concepts:
-            f.write("| ID | Name |\n")
-            f.write("|---|---|\n")
-            for concept in unmapped_concepts:
-                f.write(f"| {concept['id']} | {concept['name']} |\n")
-        else:
-            f.write("All relevant elements from the JSON dataset are mapped or ignored.\n")
+        if mode == "develop":
+            f.write("\n\n##### Overview of Unmapped Elements\n\n")
+            if unmapped_concepts:
+                f.write("| ID | Name |\n")
+                f.write("|---|---|\n")
+                for concept in unmapped_concepts:
+                    f.write(f"| {concept['id']} | {concept['name']} |\n")
+            else:
+                f.write("All relevant elements from the JSON dataset are mapped or ignored.\n")
 
-        f.write("\n\n##### Overview of Orphan Mappings\n\n")
-        orphan_mappings = {fid: data for fid, data in mappings_map.items() if fid not in json_concept_ids}
-        
-        if orphan_mappings:
-            f.write("| ID | Resource | FHIR element |\n")
-            f.write("|---|---|---|\n")
-            for functional_id, mappings in sorted(orphan_mappings.items()):
-                for mapping in mappings:
-                    resource_type, profile_name, profile_id, fhir_element = mapping
-                    resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
-                    f.write(f"| {functional_id} | {resource_display} | `{fhir_element}` |\n")
-        else:
-            f.write("No orphan mappings found (all mappings in StructureDefinition files correspond to an ID in the JSON dataset).\n")
+            f.write("\n\n##### Overview of Orphan Mappings\n\n")
+            orphan_mappings = {fid: data for fid, data in mappings_map.items() if fid not in json_concept_ids}
+            if orphan_mappings:
+                f.write("| ID | Resource | FHIR element |\n")
+                f.write("|---|---|---|\n")
+                for functional_id, mappings in sorted(orphan_mappings.items()):
+                    for mapping in mappings:
+                        resource_type, profile_name, profile_id, fhir_element = mapping
+                        resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
+                        f.write(f"| {functional_id} | {resource_display} | `{fhir_element}` |\n")
+            else:
+                f.write("No orphan mappings found (all mappings in StructureDefinition files correspond to an ID in the JSON dataset).\n")
 
-        # Add summary statistics
-        f.write("\n\n##### Summary\n\n")
-        total_concepts = len(json_concepts)
-        mapped_concepts = len(mapped_ids)
-        coverage_percent = (mapped_concepts / total_concepts * 100) if total_concepts > 0 else 0
-        
-        f.write(f"- **Total zib2017 concepts**: {total_concepts}\n")
-        f.write(f"- **Mapped to STU3**: {mapped_concepts}\n")
-        f.write(f"- **Coverage**: {coverage_percent:.1f}%\n")
-        f.write(f"- **Unmapped**: {len(unmapped_concepts)}\n")
-        f.write(f"- **Orphan mappings**: {len(orphan_mappings)}\n")
+            # Add summary statistics
+            f.write("\n\n##### Summary\n\n")
+            total_concepts = len(json_concepts)
+            mapped_concepts = len(mapped_ids)
+            coverage_percent = (mapped_concepts / total_concepts * 100) if total_concepts > 0 else 0
+            f.write(f"- **Total zib2017 concepts**: {total_concepts}\n")
+            f.write(f"- **Mapped to STU3**: {mapped_concepts}\n")
+            f.write(f"- **Coverage**: {coverage_percent:.1f}%\n")
+            f.write(f"- **Unmapped**: {len(unmapped_concepts)}\n")
+            f.write(f"- **Orphan mappings**: {len(orphan_mappings)}\n")
 
     print(f"Successfully generated STU3 mapping table at: {output_markdown_file}")
 
@@ -269,16 +266,14 @@ def main():
                        help="Path for the output Markdown file.\n(default: '../../STU3/input/includes/zib2017_stu3_mappings.md')")
     parser.add_argument('--json-file', default='../DS_pzp_dataset_raadplegen_(download_2025-07-29T11_58_18).json', 
                        help="Path to the JSON dataset file.")
-    
+    parser.add_argument('--mode', choices=['normal', 'develop'], default='normal', help="Output mode: 'normal' for main table only, 'develop' for full output (default: develop)")
     args = parser.parse_args()
-    
     print("=== STU3 StructureDefinition Mapping Table Generator ===")
     print(f"STU3 Resources Directory: {args.stu3_dir}")
     print(f"Dataset File: {args.json_file}")
     print(f"Output File: {args.output_file}")
     print()
-    
-    extract_mappings_from_stu3_json(args.stu3_dir, args.output_file, args.json_file)
+    extract_mappings_from_stu3_json(args.stu3_dir, args.output_file, args.json_file, args.mode)
 
 if __name__ == "__main__":
     main()
