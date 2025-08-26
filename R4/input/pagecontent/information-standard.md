@@ -16,6 +16,13 @@ The functional design forms the basis for this IG. It entails:
 
 [Functioneel Ontwerp](link-naar-document.pdf)  
 
+##### Datasets, Terminology and scenarios 
+Inside the functional design there are links towards [ART-DECOR](https://decor.nictiz.nl/ad/#/pall-izppz-/project/overview).
+On Art Decor the following information is published: 
+-  **Datasets** – PZP dataset and ACP form describing the structure of the information.  
+-  **Terminology & code systems** – Description of the used value sets with mappings to SNOMED CT, or domain specific codes.  
+-  **Scenarios & sequence diagrams** – Explanation and visualization of how actors and systems exchange information.
+
 
 
 #### Technical design (FHIR IG)
@@ -24,17 +31,13 @@ It describes how the ACP information standard is specifically implemented in HL7
 - FHIR profiles and extensions;
 - Use of terminology (SNOMED CT, local codes);
 - Constraints and business rules;
+- containing a traceable mapping to the dataset;
+- ACP Form Questionaire and Questionaire response example; 
 - Examples – to support suppliers with implementation and conformance assessment.
   
 
-[FHIR IG – Technical design](api.iknl.nl/pzp/fhir/index.html)  
 
 
 
-#### Datasets, Terminology and scenario's
-Other important artefacts of the ACP information standard can be found on [ART-DECOR](https://decor.nictiz.nl/ad/#/pall-izppz-/project/overview):
--  **Datasets** – PZP dataset and ACP form describing the structure of the information.  
--  **Terminology & code systems** – Description of the used value sets with mappings to SNOMED CT, or domain specific codes.  
--  **Scenarios & sequence diagrams** – Explanation and visualization of how actors and systems exchange information.
 
 
