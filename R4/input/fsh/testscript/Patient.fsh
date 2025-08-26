@@ -5,7 +5,7 @@ Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
-* identifier.value = "999911121" // TODO toevoegen juiste bsn
+* identifier.value = "999998298"
 * name[0].use = #official
 * name[nameInformation].text = "Samira van der Sluijs"
 * name[nameInformation].family = "van der Sluijs"
@@ -23,7 +23,7 @@ Usage: #example
 * name[=].given = "Samira"
 * telecom[telephoneNumbers].system = #phone
 * telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* telecom[telephoneNumbers].system.extension[=].valueCode = #MC
+* telecom[telephoneNumbers].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
 * telecom[telephoneNumbers].value = "0688877788"
 * telecom[telephoneNumbers].use = #home
 * telecom[emailAddresses].system = #email
@@ -31,7 +31,7 @@ Usage: #example
 * telecom[emailAddresses].use = #work
 * gender = #female
 * gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* gender.extension.valueCodeableConcept = #F "Female"
+* gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"
 * birthDate = "1959-07-31"
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
 * address.extension.valueCodeableConcept = #HP
@@ -48,4 +48,4 @@ Usage: #example
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
-* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Nederland"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"

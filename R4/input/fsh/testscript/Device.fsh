@@ -2,9 +2,6 @@ Instance: P2-ACP-MedicalDevice.Product-ICD
 InstanceOf: ACPMedicalDeviceProductICD
 Title: "P2 ACP MedicalDevice.Product ICD"
 Usage: #example
-* identifier.type = $v2-0203#RI "Resource identifier"
-* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
-* identifier.value = "7b04eb93-0d7b-41ed-84d1-d9012696b81e"
 * identifier[gs1ProductID].system = "https://www.gs1.org/gtin"
 * identifier[gs1ProductID].value = "8700000000001"
 * type = $snomed#72506001 "Implantable defibrillator, device (physical object)"
