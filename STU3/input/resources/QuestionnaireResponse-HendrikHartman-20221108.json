@@ -10,7 +10,9 @@
   },
   "status": "completed",
   "authored": "2025-08-25T19:28:22.151Z",
-  "questionnaire": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2017|beta3-20250828",
+  "questionnaire":{
+    "reference": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2017|beta3-20250828" 
+     },
   "item": [
     {
       "answer": [
