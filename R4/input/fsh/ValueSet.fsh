@@ -121,7 +121,7 @@ Id: ACP-MedicalDeviceProductType-ICD
 Title: "MedicalDevice ProductType ICD"
 Description: "ICD product code for MedicalDevice ProductType."
 * insert MetaRules
-* include codes from system http://snomed.info/sct where concept descendent-of #72506001
+* include codes from system http://snomed.info/sct where concept is-a #72506001
 
 
 ValueSet: ACPYesNoUnknownVS

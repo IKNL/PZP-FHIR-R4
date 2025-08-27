@@ -71,6 +71,11 @@ pages:
 
 parameters:
   path-expansion-params: Parameters-expansion.json
+  pin-canonicals: pin-all
+  display-warnings: true
+  # currently we don't have a CI build
+  no-cibuild-issues: true
+  suppress-mappings: '*'
   
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
