@@ -2,10 +2,14 @@
   "resourceType": "Practitioner",
   "id": "P1-ACP-HealthProfessional-Practitioner-Santos",
   "meta": {
-    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner" ]
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+    ]
   },
-  "name": [ {
-    "use": "official",
-    "text": "Richard Santos"
-  } ]
+  "name": [
+    {
+      "use": "official",
+      "text": "Richard Santos"
+    }
+  ]
 }

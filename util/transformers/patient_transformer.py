@@ -56,6 +56,7 @@ class PatientTransformer(BaseTransformer):
         
         try:
             # Apply Patient-specific transformations
+            self._transform_extensions(r4_resource, stu3_resource)
             self._transform_contact(r4_resource, stu3_resource)
             self._transform_communication(r4_resource, stu3_resource)
             self._transform_link(r4_resource, stu3_resource)
@@ -70,6 +71,33 @@ class PatientTransformer(BaseTransformer):
         except Exception as e:
             logger.error(f"Error transforming Patient {r4_resource.get('id', 'unknown')}: {str(e)}")
             return None
+    
+    def _transform_extensions(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """Transform extensions, preserving specific extensions for STU3."""
+        
+        if "extension" not in r4_resource:
+            return
+            
+        stu3_extensions = []
+        
+        # Extensions to preserve as-is
+        preserved_extensions = [
+            "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+        ]
+        
+        for r4_extension in r4_resource["extension"]:
+            extension_url = r4_extension.get("url")
+            
+            # Preserve specific extensions without modification
+            if extension_url in preserved_extensions:
+                stu3_extensions.append(r4_extension.copy())
+                logger.info(f"Preserved extension: {extension_url}")
+            else:
+                # For other extensions, copy as-is (can be extended later if needed)
+                stu3_extensions.append(r4_extension.copy())
+        
+        if stu3_extensions:
+            stu3_resource["extension"] = stu3_extensions
     
     def _transform_contact(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """Transform contact array (direct mapping for Patient)."""
@@ -130,7 +158,11 @@ class PatientTransformer(BaseTransformer):
                 "Reference.type": "Removed from all Reference objects (R4-specific)",
                 "contact": "Direct mapping - structure unchanged",
                 "communication": "Direct mapping - structure unchanged", 
-                "link": "Direct mapping - structure unchanged"
+                "link": "Direct mapping - structure unchanged",
+                "extension": "Preserves specific extensions as-is"
+            },
+            "preserved_extensions": {
+                "ext-LegallyCapable-MedicalTreatmentDecisions": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
             },
             "excluded_features": {
                 "patient-animal": "Animal extension mapping not implemented"
@@ -155,6 +187,7 @@ PATIENT_MAPPING_TABLE = """
 │ maritalStatus           │ maritalStatus           │ Direct mapping                          │
 │ multipleBirth           │ multipleBirth           │ Direct mapping (boolean/integer)       │
 │ photo                   │ photo                   │ Direct mapping                          │
+│ extension               │ extension               │ Preserved as-is for specific extensions│
 │ contact                 │ contact                 │ Direct mapping (nested structure)      │
 │ contact.relationship    │ contact.relationship    │ Direct mapping                          │
 │ contact.name            │ contact.name            │ Direct mapping                          │
@@ -173,6 +206,13 @@ PATIENT_MAPPING_TABLE = """
 │ link.type               │ link.type               │ Direct mapping                          │
 └─────────────────────────┴─────────────────────────┴─────────────────────────────────────────┘
 
+┌─ PRESERVED EXTENSIONS ─────────────────────────────────────────────────────────┐
+│ Extension URL                                                                  │ Notes                                     │
+├────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────┤
+│ https://fhir.iknl.nl/fhir/StructureDefinition/                                │ Legal capacity for medical treatment     │
+│ ext-LegallyCapable-MedicalTreatmentDecisions                                   │ decisions - preserved as-is               │
+└────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────┘
+
 ┌─ EXCLUDED FEATURES ────────────────────────────────────────────────────────────┐
 │ R4 Feature                         │ Reason                                    │
 ├────────────────────────────────────┼───────────────────────────────────────────┤
@@ -185,6 +225,7 @@ Special Transformations:
 2. All nested structures (contact, communication, link) maintain their format
 3. deceased and multipleBirth support both primitive and complex datatypes
 4. Animal extension mapping is intentionally excluded
+5. ext-LegallyCapable-MedicalTreatmentDecisions extension is preserved as-is
 
 Reference Datatype Transformation:
 - R4 introduced the 'type' field in Reference objects
