@@ -71,9 +71,13 @@ class ProcedureTransformer(BaseTransformer):
             # Apply Procedure-specific transformations
             self._transform_status_and_not_done(r4_resource, stu3_resource)
             self._transform_encounter_to_context(r4_resource, stu3_resource)
+            self._transform_extensions(r4_resource, stu3_resource)
             self._transform_performer(r4_resource, stu3_resource)
             self._transform_focal_device(r4_resource, stu3_resource)
             self._copy_direct_mappings(r4_resource, stu3_resource)
+            
+            # Clean all Reference objects to remove R4-specific 'type' fields
+            stu3_resource = self.clean_references_in_object(stu3_resource)
             
             logger.info(f"Successfully transformed Procedure: {stu3_resource.get('id')}")
             return stu3_resource
@@ -109,6 +113,34 @@ class ProcedureTransformer(BaseTransformer):
         
         if "encounter" in r4_resource:
             stu3_resource["context"] = r4_resource["encounter"]
+    
+    def _transform_extensions(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """Transform extensions with URL mappings from R4 to STU3."""
+        
+        if "extension" not in r4_resource:
+            return
+            
+        stu3_extensions = []
+        
+        # Extension URL mappings
+        extension_url_mappings = {
+            "http://nictiz.nl/fhir/StructureDefinition/ext-Procedure.ProcedureMethod": 
+                "http://hl7.org/fhir/StructureDefinition/procedure-method"
+        }
+        
+        for r4_extension in r4_resource["extension"]:
+            stu3_extension = r4_extension.copy()
+            
+            # Transform extension URL if mapping exists
+            original_url = r4_extension.get("url")
+            if original_url in extension_url_mappings:
+                stu3_extension["url"] = extension_url_mappings[original_url]
+                logger.info(f"Mapped extension URL: {original_url} -> {stu3_extension['url']}")
+            
+            stu3_extensions.append(stu3_extension)
+        
+        if stu3_extensions:
+            stu3_resource["extension"] = stu3_extensions
     
     def _transform_performer(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """Transform performer array with function->role mapping."""
@@ -184,7 +216,17 @@ class ProcedureTransformer(BaseTransformer):
                 "encounter": "Mapped to 'context' field in STU3",
                 "performer.function": "Mapped to 'performer.role' in STU3",
                 "statusReason": "Mapped to 'notDoneReason' when status='not-done'",
-                "notDone": "Set to true when R4 status='not-done'"
+                "notDone": "Set to true when R4 status='not-done'",
+                "extension.url": "Extension URLs mapped from Nictiz R4 to HL7 STU3",
+                "Reference.type": "Removed from all Reference objects (R4-specific)"
+            },
+            "extension_mappings": {
+                "http://nictiz.nl/fhir/StructureDefinition/ext-Procedure.ProcedureMethod": 
+                    "http://hl7.org/fhir/StructureDefinition/procedure-method"
+            },
+            "unsupported_elements": {
+                "NL-CM:14.1.11": "Procedure.bodySite.extension:ProcedureLaterality.valueCode",
+                "NL-CM:14.1.7": "Procedure.focalDevice.manipulated"
             },
             "direct_mappings": "identifier, instantiatesCanonical, instantiatesUri, basedOn, partOf, category, code, subject, performed, recorder, asserter, location, reasonCode, reasonReference, bodySite, outcome, report, complication, complicationDetail, followUp, note, usedReference, usedCode, focalDevice"
         }
@@ -209,6 +251,7 @@ PROCEDURE_MAPPING_TABLE = """
 │ code                    │ code                    │ Direct mapping                          │
 │ subject                 │ subject                 │ Direct mapping                          │
 │ encounter               │ context                 │ Field name change                       │
+│ extension               │ extension               │ URL mapping applied                     │
 │ performed               │ performed               │ Direct mapping                          │
 │ recorder                │ recorder                │ Direct mapping                          │
 │ asserter                │ asserter                │ Direct mapping                          │
@@ -231,6 +274,13 @@ PROCEDURE_MAPPING_TABLE = """
 │ usedCode                │ usedCode                │ Direct mapping                          │
 └─────────────────────────┴─────────────────────────┴─────────────────────────────────────────┘
 
+Extension URL Mappings:
+┌──────────────────────────────────────────────────────────────────────────────┬────────────────────────────────────────────────────────────┐
+│ R4 Extension URL                                                             │ STU3 Extension URL                                         │
+├──────────────────────────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────────┤
+│ http://nictiz.nl/fhir/StructureDefinition/ext-Procedure.ProcedureMethod      │ http://hl7.org/fhir/StructureDefinition/procedure-method  │
+└──────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────┘
+
 EventStatus Concept Map:
 ┌─────────────────┬─────────────────┐
 │ R4 Status       │ STU3 Status     │
@@ -247,11 +297,27 @@ EventStatus Concept Map:
 │ not-done        │ suspended       │ (+ notDone=true, statusReason→notDoneReason)
 └─────────────────┴─────────────────┘
 
+┌─ UNSUPPORTED ELEMENTS ─────────────────────────────────────────────────────────┐
+│ NL-CM Concept                      │ R4 Path                                  │ Reason                                     │
+├────────────────────────────────────┼───────────────────────────────────────────┼────────────────────────────────────────────┤
+│ NL-CM:14.1.11 ProcedureLaterality  │ Procedure.bodySite.extension:             │ Complex extension not yet supported       │
+│                                    │ ProcedureLaterality.valueCode             │ in transformer                            │
+│ NL-CM:14.1.7 Device Manipulated    │ Procedure.focalDevice.manipulated        │ Complex nested structure requires         │
+│                                    │                                           │ specialized handling                      │
+└────────────────────────────────────┴───────────────────────────────────────────┴────────────────────────────────────────────┘
+
 Special Transformations:
 1. status='not-done' becomes status='suspended' + notDone=true + statusReason→notDoneReason
-2. encounter field becomes context field
+2. encounter field becomes context field  
 3. performer.function becomes performer.role
-4. All other nested structures (focalDevice) remain unchanged
+4. Extension URLs are mapped from Nictiz R4 to HL7 STU3 equivalents
+5. Reference.type fields are removed (R4-specific, not supported in STU3)
+
+Reference Datatype Transformation:
+- R4 introduced the 'type' field in Reference objects
+- STU3 does not support Reference.type
+- All Reference objects are automatically cleaned to remove 'type' fields
+- This applies to all reference fields (basedOn, partOf, subject, encounter/context, etc.)
 """
 
 if __name__ == "__main__":

@@ -78,8 +78,7 @@
   "consentingParty": [
     {
       "reference": "RelatedPerson/P2-ACP-ContactPerson-GertJanDeJong",
-      "display": "Contactpersoon Gert-Jan de Jong",
-      "type": "RelatedPerson"
+      "display": "Contactpersoon Gert-Jan de Jong"
     }
   ]
 }

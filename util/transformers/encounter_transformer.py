@@ -116,6 +116,9 @@ class EncounterTransformer(BaseTransformer):
             stu3_resource['extension'] = self.transform_extensions(r4_resource['extension'])
             self.log_field_transformation('extension')
         
+        # Clean all Reference objects to remove R4-specific 'type' fields
+        stu3_resource = self.clean_references_in_object(stu3_resource)
+        
         self.log_transformation_complete(resource_id)
         return stu3_resource
     

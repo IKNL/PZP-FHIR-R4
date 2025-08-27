@@ -175,9 +175,35 @@ class BaseTransformer(ABC):
         return stu3_concept
     
     def transform_reference(self, r4_reference: Dict[str, Any]) -> Dict[str, Any]:
-        """Transform Reference from R4 to STU3."""
-        # References are generally compatible between versions
-        return r4_reference.copy()
+        """Transform Reference from R4 to STU3, removing R4-specific fields."""
+        stu3_reference = {}
+        
+        # Copy all fields except 'type' which was added in R4
+        for key, value in r4_reference.items():
+            if key != 'type':  # 'type' field is R4-specific, not supported in STU3
+                stu3_reference[key] = value
+        
+        return stu3_reference
+    
+    def clean_references_in_object(self, obj: Any) -> Any:
+        """Recursively clean Reference objects in any FHIR object/structure."""
+        if isinstance(obj, dict):
+            # Check if this looks like a Reference object
+            if 'reference' in obj and 'type' in obj:
+                # This is a Reference with the R4-specific 'type' field
+                return self.transform_reference(obj)
+            else:
+                # Recursively process all dictionary values
+                cleaned_obj = {}
+                for key, value in obj.items():
+                    cleaned_obj[key] = self.clean_references_in_object(value)
+                return cleaned_obj
+        elif isinstance(obj, list):
+            # Recursively process all list items
+            return [self.clean_references_in_object(item) for item in obj]
+        else:
+            # Primitive values - return as-is
+            return obj
     
     def log_transformation_start(self, resource_id: str):
         """Log the start of a transformation."""

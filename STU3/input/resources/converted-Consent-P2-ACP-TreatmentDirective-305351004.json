@@ -1,6 +1,6 @@
 {
   "resourceType": "Consent",
-  "id": "P2-ACP-TreatmentDirective-30351004",
+  "id": "P2-ACP-TreatmentDirective-305351004",
   "meta": {
     "profile": [
       "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
@@ -80,7 +80,7 @@
           {
             "code": "305351004",
             "system": "http://snomed.info/sct",
-            "display": "opname in ziekenhuis"
+            "display": "opname op intensive care"
           }
         ]
       }

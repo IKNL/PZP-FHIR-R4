@@ -79,8 +79,7 @@
   "consentingParty": [
     {
       "reference": "RelatedPerson/P1-ACP-ContactPerson-MichielHartman",
-      "display": "ContactPerson, Michiel Hartman",
-      "type": "RelatedPerson"
+      "display": "ContactPerson, Michiel Hartman"
     }
   ]
 }
