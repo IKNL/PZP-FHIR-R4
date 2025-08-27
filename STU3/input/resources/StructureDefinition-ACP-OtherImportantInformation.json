@@ -50,13 +50,6 @@
         ]
       },
       {
-        "id": "Observation.status.value",
-        "path": "Observation.status.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Observation.code",
         "path": "Observation.code",
         "patternCodeableConcept": {

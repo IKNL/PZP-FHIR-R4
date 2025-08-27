@@ -127,13 +127,6 @@
         ]
       },
       {
-        "id": "Consent.extension:verification.extension:VerificationDate.valueDateTime:valueDateTime.value",
-        "path": "Consent.extension.extension.valueDateTime.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Consent.extension:comment",
         "path": "Consent.extension",
         "sliceName": "comment",

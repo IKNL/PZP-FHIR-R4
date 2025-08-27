@@ -81,18 +81,6 @@
         ]
       },
       {
-        "id": "Practitioner.name.extension:humannameAssemblyOrder",
-        "path": "Practitioner.name.extension",
-        "sliceName": "humannameAssemblyOrder"
-      },
-      {
-        "id": "Practitioner.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
-        "path": "Practitioner.name.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Practitioner.name.family.extension:humannameOwnPrefix",
         "path": "Practitioner.name.family.extension",
         "sliceName": "humannameOwnPrefix",
@@ -124,18 +112,6 @@
             "map": "229",
             "comment": "Voornamen"
           }
-        ]
-      },
-      {
-        "id": "Practitioner.name.given.extension:iso21090EnQualifier",
-        "path": "Practitioner.name.given.extension",
-        "sliceName": "iso21090EnQualifier"
-      },
-      {
-        "id": "Practitioner.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
-        "path": "Practitioner.name.given.extension.valueCode.value",
-        "type": [
-          {}
         ]
       }
     ]

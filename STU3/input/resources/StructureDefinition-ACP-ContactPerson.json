@@ -155,18 +155,6 @@
         ]
       },
       {
-        "id": "RelatedPerson.name.extension:humannameAssemblyOrder",
-        "path": "RelatedPerson.name.extension",
-        "sliceName": "humannameAssemblyOrder"
-      },
-      {
-        "id": "RelatedPerson.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
-        "path": "RelatedPerson.name.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "RelatedPerson.name.use",
         "path": "RelatedPerson.name.use",
         "mapping": [
@@ -324,18 +312,6 @@
             "map": "275",
             "comment": "Roepnaam"
           }
-        ]
-      },
-      {
-        "id": "RelatedPerson.name.given.extension:iso21090EnQualifier",
-        "path": "RelatedPerson.name.given.extension",
-        "sliceName": "iso21090EnQualifier"
-      },
-      {
-        "id": "RelatedPerson.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
-        "path": "RelatedPerson.name.given.extension.valueCode.value",
-        "type": [
-          {}
         ]
       },
       {

@@ -137,18 +137,6 @@
         ]
       },
       {
-        "id": "Patient.name.extension:humannameAssemblyOrder",
-        "path": "Patient.name.extension",
-        "sliceName": "humannameAssemblyOrder"
-      },
-      {
-        "id": "Patient.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
-        "path": "Patient.name.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Patient.name.use",
         "path": "Patient.name.use",
         "mapping": [
@@ -269,18 +257,6 @@
         ]
       },
       {
-        "id": "Patient.name.given.extension:iso21090EnQualifier",
-        "path": "Patient.name.given.extension",
-        "sliceName": "iso21090EnQualifier"
-      },
-      {
-        "id": "Patient.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
-        "path": "Patient.name.given.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Patient.telecom",
         "path": "Patient.telecom",
         "mapping": [
@@ -305,13 +281,6 @@
             "map": "20",
             "comment": "Geslacht"
           }
-        ]
-      },
-      {
-        "id": "Patient.gender.value",
-        "path": "Patient.gender.value",
-        "type": [
-          {}
         ]
       },
       {
@@ -340,40 +309,6 @@
             "comment": "Adresgegevens"
           }
         ]
-      },
-      {
-        "id": "Patient.contact.name.extension:humannameAssemblyOrder",
-        "path": "Patient.contact.name.extension",
-        "sliceName": "humannameAssemblyOrder"
-      },
-      {
-        "id": "Patient.contact.name.extension:humannameAssemblyOrder.valueCode:valueCode.value",
-        "path": "Patient.contact.name.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
-        "id": "Patient.contact.name.given.extension:iso21090EnQualifier",
-        "path": "Patient.contact.name.given.extension",
-        "sliceName": "iso21090EnQualifier"
-      },
-      {
-        "id": "Patient.contact.name.given.extension:iso21090EnQualifier.valueCode:valueCode.value",
-        "path": "Patient.contact.name.given.extension.valueCode.value",
-        "type": [
-          {}
-        ]
-      },
-      {
-        "id": "Patient.communication.extension:languageProficiency",
-        "path": "Patient.communication.extension",
-        "sliceName": "languageProficiency"
-      },
-      {
-        "id": "Patient.communication.extension:languageProficiency.extension",
-        "path": "Patient.communication.extension.extension",
-        "min": 2
       }
     ]
   }
