@@ -21,16 +21,16 @@ Usage: #example
 * name.given[0] = "Gert-Jan"
 * name.given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
 * name.given[=].extension.valueCode = #BR
-* telecom[telephoneNumbers].system = #phone
-* telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* telecom[telephoneNumbers].system.extension[=].valueCode = #MC
-* telecom[telephoneNumbers].value = "0611111111"
-* telecom[telephoneNumbers].use = #home
-* telecom[emailAddresses].system = #email
-* telecom[emailAddresses].value = "Gert-Jan@test.nl"
-* telecom[emailAddresses].use = #home 
+* telecom[0].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0611111111"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "Gert-Jan@test.nl"
+* telecom[=].use = #home
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
-* address.extension.valueCodeableConcept = #HP
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
 * address.use = #home
 * address.type = #both
 * address.line = "Vasteland 78"
@@ -44,7 +44,7 @@ Usage: #example
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
-* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Nederland"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
 
 Instance: P2-ACP-ContactPerson-MayaVanDerSluijsMulder
 InstanceOf: ACP-ContactPerson
@@ -71,14 +71,14 @@ Usage: #example
 * name.given[0] = "Maya"
 * name.given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
 * name.given[=].extension.valueCode = #BR
-* telecom[telephoneNumbers].system = #phone
-* telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* telecom[telephoneNumbers].system.extension[=].valueCode = #MC
-* telecom[telephoneNumbers].value = "0622222222"
-* telecom[telephoneNumbers].use = #home
-* telecom[emailAddresses].system = #email
-* telecom[emailAddresses].value = "maya@test.nl"
-* telecom[emailAddresses].use = #home
+* telecom[0].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0622222222"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "maya@test.nl"
+* telecom[=].use = #home
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
 * address.extension.valueCodeableConcept = #HP
 * address.use = #home
@@ -96,4 +96,4 @@ Usage: #example
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
-* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Nederland"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"

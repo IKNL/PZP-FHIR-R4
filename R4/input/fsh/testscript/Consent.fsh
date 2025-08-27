@@ -82,7 +82,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#32485007 " Hospital admission (procedure)"
+* provision.code = $snomed#32485007 "Hospital admission (procedure)"
 
 
 Instance: P2-ACP-TreatmentDirective-281789004
