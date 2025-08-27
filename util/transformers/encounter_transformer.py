@@ -24,15 +24,17 @@ This module transforms FHIR Encounter resources from R4 to STU3 format.
 ┌─ FIELD TRANSFORMATIONS ────────────────────────────────────────────────────────┐
 │ R4 Field                           │ STU3 Field                                │
 ├────────────────────────────────────┼───────────────────────────────────────────┤
-│ Encounter.classHistory             │ Encounter.statusHistory (mapped)         │
-│ Encounter.reasonCode               │ Encounter.reason                          │
+│ Encounter.reasonCode.text          │ Encounter.reason.text                     │
+│ Encounter.reasonReference          │ Encounter.diagnosis.condition             │
+│ Encounter.location                 │ Encounter.location (excl. physicalType)  │
 └────────────────────────────────────┴───────────────────────────────────────────┘
 
 ┌─ EXCLUDED R4 FIELDS ───────────────────────────────────────────────────────────┐
 │ R4 Field                           │ Reason                                    │
 ├────────────────────────────────────┼───────────────────────────────────────────┤
 │ Encounter.basedOn                  │ Not supported in STU3                     │
-│ Encounter.reasonReference          │ STU3 only supports reasonCode             │
+│ Encounter.classHistory             │ No direct equivalent in STU3              │
+│ Encounter.location.physicalType    │ Not supported in STU3                     │
 └────────────────────────────────────┴───────────────────────────────────────────┘
 """
 
@@ -84,15 +86,20 @@ class EncounterTransformer(BaseTransformer):
                 stu3_resource[field] = r4_resource[field]
                 self.log_field_transformation(field, "direct copy")
         
-        # Transform reasonCode -> reason
+        # Transform reasonCode.text -> reason.text
         if 'reasonCode' in r4_resource:
-            stu3_resource['reason'] = r4_resource['reasonCode']
+            stu3_resource['reason'] = self.transform_reason_code(r4_resource['reasonCode'])
             self.log_field_transformation('reasonCode -> reason')
         
-        # Transform classHistory -> statusHistory (if needed)
-        if 'classHistory' in r4_resource:
-            stu3_resource['statusHistory'] = self.transform_class_history_to_status_history(r4_resource['classHistory'])
-            self.log_field_transformation('classHistory -> statusHistory')
+        # Transform reasonReference -> diagnosis.condition
+        if 'reasonReference' in r4_resource:
+            stu3_resource['diagnosis'] = self.transform_reason_reference_to_diagnosis(r4_resource['reasonReference'])
+            self.log_field_transformation('reasonReference -> diagnosis.condition')
+        
+        # Remove classHistory transformation (not applicable)
+        # if 'classHistory' in r4_resource:
+        #     stu3_resource['statusHistory'] = self.transform_class_history_to_status_history(r4_resource['classHistory'])
+        #     self.log_field_transformation('classHistory -> statusHistory')
         
         # Transform hospitalization
         if 'hospitalization' in r4_resource:
@@ -112,25 +119,28 @@ class EncounterTransformer(BaseTransformer):
         self.log_transformation_complete(resource_id)
         return stu3_resource
     
-    def transform_class_history_to_status_history(self, r4_class_history: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Transform classHistory to statusHistory format."""
-        stu3_status_history = []
+    def transform_reason_code(self, r4_reason_code: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Transform reasonCode to reason with proper text mapping."""
+        stu3_reason = []
         
-        for class_item in r4_class_history:
-            status_item = {}
-            
-            # Map class to status (simplified mapping)
-            if 'class' in class_item:
-                # This is a simplified mapping - in real scenarios you might need more complex logic
-                status_item['status'] = 'in-progress'  # Default mapping
-            
-            # Copy period
-            if 'period' in class_item:
-                status_item['period'] = class_item['period']
-            
-            stu3_status_history.append(status_item)
+        for reason in r4_reason_code:
+            stu3_reason_item = reason.copy()
+            # Text field is preserved as-is for STU3
+            stu3_reason.append(stu3_reason_item)
         
-        return stu3_status_history
+        return stu3_reason
+    
+    def transform_reason_reference_to_diagnosis(self, r4_reason_reference: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Transform reasonReference to diagnosis.condition."""
+        stu3_diagnosis = []
+        
+        for reason_ref in r4_reason_reference:
+            diagnosis_item = {
+                'condition': reason_ref
+            }
+            stu3_diagnosis.append(diagnosis_item)
+        
+        return stu3_diagnosis
     
     def transform_hospitalization(self, r4_hospitalization: Dict[str, Any]) -> Dict[str, Any]:
         """Transform hospitalization section."""
@@ -138,17 +148,22 @@ class EncounterTransformer(BaseTransformer):
         return r4_hospitalization.copy()
     
     def transform_location(self, r4_location: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Transform location section."""
+        """Transform location section, excluding physicalType which is not supported in STU3."""
         stu3_location = []
         
         for location in r4_location:
             stu3_loc = {}
             
-            # Direct field mappings
+            # Direct field mappings (exclude physicalType)
             location_fields = ['location', 'status', 'period']
             for field in location_fields:
                 if field in location:
                     stu3_loc[field] = location[field]
+            
+            # Explicitly exclude physicalType as it's not supported in STU3
+            # if 'physicalType' in location:
+            #     # physicalType is not supported in STU3, so we skip it
+            #     pass
             
             stu3_location.append(stu3_loc)
         

@@ -155,15 +155,6 @@ group createDataExtension(source src, target ext) {
   } "reference-extension";
 }
 
-//group actor(source src, target tgt) extends BackboneElement {
-//  src.role as vs -> tgt.role as vt then CodeableConcept(vs, vt);
-//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
-//}
-
-//group data(source src, target tgt) extends BackboneElement {
-//  src.meaning as vs -> tgt.meaning as vt then code(vs, vt);
-//  src.reference as vs -> tgt.reference as vt then Reference(vs, vt);
-//}
 
 group createConsentingPartyExtension(source src, target ext) {
   src -> ext.url = 'http://fhir.conversion/cross-version/Consent.consentingParty' "ConsentingParty-url";

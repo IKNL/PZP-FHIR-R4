@@ -19,21 +19,52 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Set
 from datetime import datetime
 import importlib
+import inspect
 
-# Import resource-specific transformers
-from transformers.consent_transformer import ConsentTransformer
-from transformers.encounter_transformer import EncounterTransformer
+# Import the base transformer
+from transformers.base_transformer import BaseTransformer
+
 
 class FhirR4ToStu3Transformer:
     """Main orchestrator for FHIR R4 to STU3 transformations."""
     
     def __init__(self):
-        """Initialize the transformer with available resource transformers."""
-        self.transformers = {
-            'Consent': ConsentTransformer(),
-            'Encounter': EncounterTransformer(),
-            # Add more transformers here as they're implemented
-        }
+        """Initialize the transformer with automatically discovered resource transformers."""
+        self.transformers = self._discover_transformers()
+    
+    def _discover_transformers(self) -> Dict[str, BaseTransformer]:
+        """Automatically discover all transformer classes in the transformers package."""
+        discovered_transformers = {}
+        
+        # Get the transformers directory path
+        transformers_dir = Path(__file__).parent / 'transformers'
+        
+        # Look for all *_transformer.py files
+        for transformer_file in transformers_dir.glob('*_transformer.py'):
+            if transformer_file.name == 'base_transformer.py':
+                continue
+                
+            try:
+                # Import the module
+                module_name = f"transformers.{transformer_file.stem}"
+                module = importlib.import_module(module_name)
+                
+                # Look for classes that inherit from BaseTransformer
+                for name, obj in inspect.getmembers(module, inspect.isclass):
+                    if (issubclass(obj, BaseTransformer) and 
+                        obj != BaseTransformer and 
+                        not inspect.isabstract(obj)):
+                        
+                        # Create an instance of the transformer
+                        transformer_instance = obj()
+                        resource_type = transformer_instance.resource_type
+                        discovered_transformers[resource_type] = transformer_instance
+                        print(f"Discovered transformer: {resource_type} ({name})")
+                        
+            except Exception as e:
+                print(f"Warning: Could not load transformer from {transformer_file.name}: {e}")
+        
+        return discovered_transformers
     
     def get_available_resources(self) -> List[str]:
         """Get list of supported resource types."""
