@@ -49,8 +49,17 @@
   },
   "performer": [
     {
-      "reference": "PractitionerRole/P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
-      "display": "Healthcare professional (role), van Huissen"
+      "reference": "Practitioner/P1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+      "display": "Healthcare professional (person), van Huissen",
+      "extension": [
+        {
+          "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+          "valueReference": {
+            "reference": "PractitionerRole/P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+            "display": "Healthcare professional (role), van Huissen"
+          }
+        }
+      ]
     }
   ]
 }

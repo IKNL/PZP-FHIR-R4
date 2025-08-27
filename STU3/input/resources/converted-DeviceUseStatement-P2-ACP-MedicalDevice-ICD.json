@@ -71,8 +71,17 @@
     {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner",
       "valueReference": {
-        "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-Santos",
-        "display": "Healthcare professional, Santos"
+        "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-Santos",
+        "display": "Healthcare professional (person), Santos",
+        "extension": [
+          {
+            "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+            "valueReference": {
+              "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-Santos",
+              "display": "Healthcare professional, Santos"
+            }
+          }
+        ]
       }
     }
   ]

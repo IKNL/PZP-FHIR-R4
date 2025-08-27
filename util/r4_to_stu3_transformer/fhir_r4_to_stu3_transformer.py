@@ -70,12 +70,44 @@ class FhirR4ToStu3Transformer:
         """Get list of supported resource types."""
         return list(self.transformers.keys())
     
-    def transform_resource(self, resource_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def _collect_practitioner_role_resources(self, input_files: List[Path]) -> Dict[str, Dict[str, Any]]:
+        """
+        Collect all PractitionerRole resources from input files for reference resolution.
+        
+        Args:
+            input_files: List of input file paths
+            
+        Returns:
+            Dictionary mapping PractitionerRole IDs to their resource data
+        """
+        practitioner_role_resources = {}
+        
+        for input_file in input_files:
+            try:
+                with open(input_file, 'r', encoding='utf-8') as f:
+                    resource_data = json.load(f)
+                
+                if resource_data.get('resourceType') == 'PractitionerRole':
+                    resource_id = resource_data.get('id')
+                    if resource_id:
+                        practitioner_role_resources[resource_id] = resource_data
+                        
+            except Exception as e:
+                print(f"Warning: Could not read {input_file.name} for PractitionerRole collection: {e}")
+        
+        return practitioner_role_resources
+    
+    def get_available_resources(self) -> List[str]:
+        """Get list of supported resource types."""
+        return list(self.transformers.keys())
+    
+    def transform_resource(self, resource_data: Dict[str, Any], practitioner_role_resources: Optional[Dict[str, Dict[str, Any]]] = None) -> Optional[Dict[str, Any]]:
         """
         Transform a single FHIR resource from R4 to STU3.
         
         Args:
             resource_data: R4 resource as dictionary
+            practitioner_role_resources: Optional dict of PractitionerRole resources for reference resolution
             
         Returns:
             STU3 resource as dictionary, or None if resource should be skipped
@@ -93,15 +125,22 @@ class FhirR4ToStu3Transformer:
             raise ValueError(f"Unsupported resource type: {resource_type}")
         
         transformer = self.transformers[resource_type]
-        return transformer.transform_resource(resource_data)
+        stu3_resource = transformer.transform_resource(resource_data)
+        
+        # Apply PractitionerRole reference transformations if resources are available
+        if practitioner_role_resources and stu3_resource:
+            stu3_resource = transformer.process_practitioner_role_references_in_object(stu3_resource, practitioner_role_resources)
+        
+        return stu3_resource
     
-    def transform_file(self, input_file: Path, output_file: Path) -> bool:
+    def transform_file(self, input_file: Path, output_file: Path, practitioner_role_resources: Optional[Dict[str, Dict[str, Any]]] = None) -> Optional[bool]:
         """
         Transform a single FHIR resource file from R4 to STU3.
         
         Args:
             input_file: Path to R4 resource file
             output_file: Path for STU3 output file
+            practitioner_role_resources: Optional dict of PractitionerRole resources for reference resolution
             
         Returns:
             True if transformation succeeded, False otherwise, None if skipped
@@ -118,7 +157,7 @@ class FhirR4ToStu3Transformer:
             
             print(f"Transforming: {input_file.name} -> {output_file.name}")
             
-            stu3_resource = self.transform_resource(r4_resource)
+            stu3_resource = self.transform_resource(r4_resource, practitioner_role_resources)
             
             # If transform_resource returns None, the resource was skipped
             if stu3_resource is None:
@@ -158,6 +197,11 @@ class FhirR4ToStu3Transformer:
         
         print(f"Found {len(input_files)} files to process")
         
+        # First pass: collect all PractitionerRole resources for reference resolution
+        print("Collecting PractitionerRole resources for reference resolution...")
+        practitioner_role_resources = self._collect_practitioner_role_resources(input_files)
+        print(f"Found {len(practitioner_role_resources)} PractitionerRole resources")
+        
         success_count = 0
         error_count = 0
         skipped_count = 0
@@ -178,7 +222,7 @@ class FhirR4ToStu3Transformer:
                 # Generate output filename
                 output_file = output_dir / f"converted-{input_file.name}"
                 
-                result = self.transform_file(input_file, output_file)
+                result = self.transform_file(input_file, output_file, practitioner_role_resources)
                 if result is True:
                     success_count += 1
                 elif result is False:
@@ -237,7 +281,11 @@ def main():
     
     try:
         if input_path.is_file():
-            if not transformer.transform_file(input_path, output_path):
+            # For single file processing, we can't resolve PractitionerRole references
+            # Log a warning and proceed without reference resolution
+            print("Warning: Single file processing - PractitionerRole reference resolution not available")
+            result = transformer.transform_file(input_path, output_path)
+            if result is False:
                 sys.exit(1)
         elif input_path.is_dir():
             transformer.transform_directory(input_path, output_path, args.pattern, resource_types)
