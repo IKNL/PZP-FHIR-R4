@@ -49,6 +49,7 @@ class GoalTransformer(BaseTransformer):
         self._transform_status_fields(r4_resource, stu3_resource)
         self._transform_start_field(r4_resource, stu3_resource)
         self._transform_target_array(r4_resource, stu3_resource)
+        self._copy_encounter_reference_extension(r4_resource, stu3_resource)
         
         # Clean references throughout the resource
         stu3_resource = self.clean_references_in_object(stu3_resource)
@@ -143,6 +144,28 @@ class GoalTransformer(BaseTransformer):
                 stu3_targets.append(stu3_target)
             
             stu3_resource['target'] = stu3_targets
+    
+    def _copy_encounter_reference_extension(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """
+        Copy the ext-EncounterReference extension from R4 to STU3.
+        
+        This extension is at the root level and should be preserved in STU3.
+        Extension URL: https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference
+        """
+        if 'extension' in r4_resource:
+            encounter_ref_extensions = []
+            
+            for extension in r4_resource['extension']:
+                if extension.get('url') == 'https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference':
+                    encounter_ref_extensions.append(extension)
+            
+            if encounter_ref_extensions:
+                # Ensure extension array exists in STU3 resource
+                if 'extension' not in stu3_resource:
+                    stu3_resource['extension'] = []
+                
+                # Add the EncounterReference extensions
+                stu3_resource['extension'].extend(encounter_ref_extensions)
     
     def get_field_mappings(self) -> Dict[str, str]:
         """

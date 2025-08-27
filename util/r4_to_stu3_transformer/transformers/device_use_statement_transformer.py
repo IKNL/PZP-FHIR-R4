@@ -47,6 +47,8 @@ class DeviceUseStatementTransformer(BaseTransformer):
         self._transform_when_used_extension(r4_resource, stu3_resource)
         self._transform_timing_field(r4_resource, stu3_resource)
         self._transform_reason_code(r4_resource, stu3_resource)
+        self._copy_encounter_reference_extension(r4_resource, stu3_resource)
+        self._transform_health_professional_extension(r4_resource, stu3_resource)
         
         # Clean references throughout the resource
         stu3_resource = self.clean_references_in_object(stu3_resource)
@@ -81,19 +83,24 @@ class DeviceUseStatementTransformer(BaseTransformer):
     
     def _transform_timing_field(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """
-        Transform the polymorphic timing field.
+        Transform the polymorphic timing field and timingPeriod.
         
         R4 timing can be:
         - Timing
         - Period  
         - dateTime
         
+        R4 also has timingPeriod as a separate field.
         All are supported in STU3 as well, so direct copy.
         """
         if 'timing' in r4_resource:
             # The timing field is polymorphic but doesn't need transformation
             # Just copy it over (base transformer handles reference cleaning if needed)
             stu3_resource['timing'] = r4_resource['timing']
+        
+        if 'timingPeriod' in r4_resource:
+            # The timingPeriod field is also supported in STU3
+            stu3_resource['timingPeriod'] = r4_resource['timingPeriod']
     
     def _transform_reason_code(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """
@@ -103,6 +110,55 @@ class DeviceUseStatementTransformer(BaseTransformer):
         """
         if 'reasonCode' in r4_resource:
             stu3_resource['indication'] = r4_resource['reasonCode']
+    
+    def _copy_encounter_reference_extension(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """
+        Copy the ext-EncounterReference extension from R4 to STU3.
+        
+        This extension is at the root level and should be preserved in STU3.
+        Extension URL: https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference
+        """
+        if 'extension' in r4_resource:
+            encounter_ref_extensions = []
+            
+            for extension in r4_resource['extension']:
+                if extension.get('url') == 'https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference':
+                    encounter_ref_extensions.append(extension)
+            
+            if encounter_ref_extensions:
+                # Ensure extension array exists in STU3 resource
+                if 'extension' not in stu3_resource:
+                    stu3_resource['extension'] = []
+                
+                # Add the EncounterReference extensions
+                stu3_resource['extension'].extend(encounter_ref_extensions)
+    
+    def _transform_health_professional_extension(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """
+        Transform the ext-MedicalDevice.HealthProfessional extension from R4 to STU3.
+        
+        Changes the extension URL from:
+        http://nictiz.nl/fhir/StructureDefinition/ext-MedicalDevice.HealthProfessional
+        to:
+        http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner
+        """
+        if 'extension' in r4_resource:
+            health_professional_extensions = []
+            
+            for extension in r4_resource['extension']:
+                if extension.get('url') == 'http://nictiz.nl/fhir/StructureDefinition/ext-MedicalDevice.HealthProfessional':
+                    # Create a copy of the extension with the new URL
+                    stu3_extension = extension.copy()
+                    stu3_extension['url'] = 'http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner'
+                    health_professional_extensions.append(stu3_extension)
+            
+            if health_professional_extensions:
+                # Ensure extension array exists in STU3 resource
+                if 'extension' not in stu3_resource:
+                    stu3_resource['extension'] = []
+                
+                # Add the transformed HealthProfessional extensions
+                stu3_resource['extension'].extend(health_professional_extensions)
     
     def get_field_mappings(self) -> Dict[str, str]:
         """
@@ -140,6 +196,8 @@ DeviceUseStatement R4 to STU3 Transformations:
 +----------------------------------+----------------------------------+----------------------------------+
 | timing (Timing/Period/dateTime)  | timing                           | Polymorphic field - direct copy  |
 +----------------------------------+----------------------------------+----------------------------------+
+| timingPeriod                     | timingPeriod                     | Direct mapping                   |
++----------------------------------+----------------------------------+----------------------------------+
 | reasonCode                       | indication                       | Field name change               |
 +----------------------------------+----------------------------------+----------------------------------+
 | identifier                       | identifier                       | Direct mapping                   |
@@ -151,10 +209,20 @@ DeviceUseStatement R4 to STU3 Transformations:
 | bodySite                         | bodySite                         | Direct mapping                   |
 | note                             | note                             | Direct mapping                   |
 +----------------------------------+----------------------------------+----------------------------------+
+| extension[ext-EncounterReference]| extension[ext-EncounterReference]| Direct copy of extension         |
++----------------------------------+----------------------------------+----------------------------------+
+| extension[ext-MedicalDevice.     | extension[zib-MedicalDevice-     | URL transformation:              |
+| HealthProfessional]              | Practitioner]                    | ext-MedicalDevice.HealthProfes-  |
+|                                  |                                  | sional -> zib-MedicalDevice-     |
+|                                  |                                  | Practitioner                     |
++----------------------------------+----------------------------------+----------------------------------+
 
 Special Cases:
 - whenUsed extracted from R4 extension (reverse conversion pattern)
 - Polymorphic timing field supports Timing, Period, or dateTime
+- timingPeriod field copied directly from R4 to STU3
 - Reference cleaning applied to subject, source, device fields
 - reasonCode becomes indication in STU3
+- ext-EncounterReference extension preserved at root level
+- ext-MedicalDevice.HealthProfessional extension URL transformed to STU3 equivalent
 """
