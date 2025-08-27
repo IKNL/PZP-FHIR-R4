@@ -19,7 +19,7 @@ Description: "A person who receives medical, psychological, paramedical, or nurs
 Invariant: ACP-Patient-1
 Description: "If the patient is not legally capable, there should be a legal representative."
 * severity = #warning
-* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').where(url='legallyCapable').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
+* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').extension.where(url='legallyCapable').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension.where(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
 
 
 Mapping: MapACPPatient

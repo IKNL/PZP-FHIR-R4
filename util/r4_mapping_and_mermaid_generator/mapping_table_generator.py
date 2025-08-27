@@ -97,7 +97,7 @@ def extract_profile_ids(fsh_directory):
                             current_profile_name = None
     return profile_id_map
 
-def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_path):
+def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_path, mode="develop"):
     """
     Parses all .fsh files, extracts mappings, and generates Markdown tables
     for mapped, unmapped, and orphan mappings, handling multiple mappings per ID.
@@ -183,11 +183,9 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
                 # Iterate over all mappings for this ID
                 for mapping in mappings_map[functional_id]:
                     resource_type, profile_name, fhir_element = mapping
-                    
                     depth = concept['depth']
                     indentation = "&emsp;" * depth if depth > 0 else ""
                     dataset_name = indentation + concept['name']
-                    
                     profile_id = profile_ids.get(profile_name, profile_name)
                     resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
                     f.write(f"| {functional_id} | {dataset_name} | {resource_display} | `{fhir_element}`  |\n")
@@ -195,33 +193,33 @@ def extract_mappings_from_fsh(fsh_directory, output_markdown_file, json_file_pat
                 mapped_ids.add(functional_id)
             elif functional_id not in UNMAPPED_IGNORE_LIST:
                 unmapped_concepts.append(concept)
-                
+
         if rows_written == 0:
             f.write("| | No mappings were found matching the JSON dataset. | | |\n")
 
-        f.write("\n\n##### Overview of Unmapped Elements\n\n")
-        if unmapped_concepts:
-            f.write("| ID | Name |\n")
-            f.write("|---|---|\n")
-            for concept in unmapped_concepts:
-                f.write(f"| {concept['id']} | {concept['name']} |\n")
-        else:
-            f.write("All relevant elements from the JSON dataset are mapped or ignored.\n")
+        if mode == "develop":
+            f.write("\n\n##### Overview of Unmapped Elements\n\n")
+            if unmapped_concepts:
+                f.write("| ID | Name |\n")
+                f.write("|---|---|\n")
+                for concept in unmapped_concepts:
+                    f.write(f"| {concept['id']} | {concept['name']} |\n")
+            else:
+                f.write("All relevant elements from the JSON dataset are mapped or ignored.\n")
 
-        f.write("\n\n##### Overview of Orphan Mappings\n\n")
-        orphan_mappings = {fid: data for fid, data in mappings_map.items() if fid not in json_concept_ids}
-        
-        if orphan_mappings:
-            f.write("| ID | Resource | FHIR element |\n")
-            f.write("|---|---|---|\n")
-            for functional_id, mappings in sorted(orphan_mappings.items()):
-                for mapping in mappings:
-                    resource_type, profile_name, fhir_element = mapping
-                    profile_id = profile_ids.get(profile_name, profile_name)
-                    resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
-                    f.write(f"| {functional_id} | {resource_display} | `{fhir_element}` |\n")
-        else:
-            f.write("No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).\n")
+            f.write("\n\n##### Overview of Orphan Mappings\n\n")
+            orphan_mappings = {fid: data for fid, data in mappings_map.items() if fid not in json_concept_ids}
+            if orphan_mappings:
+                f.write("| ID | Resource | FHIR element |\n")
+                f.write("|---|---|---|\n")
+                for functional_id, mappings in sorted(orphan_mappings.items()):
+                    for mapping in mappings:
+                        resource_type, profile_name, fhir_element = mapping
+                        profile_id = profile_ids.get(profile_name, profile_name)
+                        resource_display = f'{resource_type} (<a href="StructureDefinition-{profile_id}.html">{profile_name}</a>)'
+                        f.write(f"| {functional_id} | {resource_display} | `{fhir_element}` |\n")
+            else:
+                f.write("No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).\n")
 
     print(f"Successfully generated Markdown file at: {output_markdown_file}")
 
@@ -233,8 +231,9 @@ def main():
     parser.add_argument('--fsh-dir', default='../../R4/input/fsh', help="Directory containing .fsh files.\n(default: '/R4/input/fsh')")
     parser.add_argument('--output-file', default='../../R4/input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'R4/input/includes/mappings.md')")
     parser.add_argument('--json-file', default='../DS_pzp_dataset_raadplegen_(download_2025-07-29T11_58_18).json', help="Path to the JSON dataset file.")
+    parser.add_argument('--mode', choices=['normal', 'develop'], default='normal', help="Output mode: 'normal' for main table only, 'develop' for full output (default: develop)")
     args = parser.parse_args()
-    extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file)
+    extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file, args.mode)
 
 if __name__ == "__main__":
     main()

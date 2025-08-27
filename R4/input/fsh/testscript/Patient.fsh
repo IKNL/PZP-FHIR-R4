@@ -7,28 +7,28 @@ Usage: #example
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
 * identifier.value = "999998298"
 * name[0].use = #official
-* name[nameInformation].text = "Samira van der Sluijs"
-* name[nameInformation].family = "van der Sluijs"
-* name[nameInformation].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
-* name[nameInformation].family.extension[=].valueString = "Sluijs"
-* name[nameInformation].family.extension[1].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
-* name[nameInformation].family.extension[=].valueString = "van der"
-* name[nameInformation].given[0] = "Samira"
-* name[nameInformation].given[+] = "Louise"
-* name[nameInformation].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name[nameInformation].given[=].extension.valueCode = #BR
-* name[nameInformation].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name[nameInformation].given[=].extension.valueCode = #BR
+* name[=].text = "Samira van der Sluijs"
+* name[=].family = "van der Sluijs"
+* name[=].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name[=].family.extension[=].valueString = "Sluijs"
+* name[=].family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+* name[=].family.extension[=].valueString = "van der"
+* name[=].given[0] = "Samira"
+* name[=].given[+] = "Louise"
+* name[=].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[=].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
 * name[+].use = #usual
 * name[=].given = "Samira"
-* telecom[telephoneNumbers].system = #phone
-* telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* telecom[telephoneNumbers].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
-* telecom[telephoneNumbers].value = "0688877788"
-* telecom[telephoneNumbers].use = #home
-* telecom[emailAddresses].system = #email
-* telecom[emailAddresses].value = "samira.test@iknl.nl"
-* telecom[emailAddresses].use = #work
+* telecom[+].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0688877788"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "samira.test@iknl.nl"
+* telecom[=].use = #work
 * gender = #female
 * gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"

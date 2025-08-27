@@ -1,11 +1,6 @@
 {
   "resourceType": "Questionnaire",
   "id": "ACP-zib2020",
-  "meta": {
-    "profile": [
-      "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
-    ]
-  },
   "url": "https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020",
   "version": "beta3-20250828",
   "name": "ACPzib2020",

@@ -276,24 +276,3 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 728 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 729 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment].value[x]`  |
 | 734 | Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken? | Communication (<a href="StructureDefinition-ACP-Communication.html">ACPCommunication</a>) | ``  |
-
-
-##### Overview of Unmapped Elements
-
-| ID | Name |
-|---|---|
-| 629 | Probleem |
-| 634 | Zorgaanbieder |
-| 694 | Probleem |
-| 704 | Probleem |
-| 725 | Probleem |
-| 730 | Heeft de patient eerder behandelafspraken vastgelegd? |
-| 731 | Heeft de patient eerder behandelafspraken vastgelegd? |
-| 732 | Toelichting |
-| 733 | Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring? |
-| 735 | Patient gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners |
-
-
-##### Overview of Orphan Mappings
-
-No orphan mappings found (all mappings in FSH files correspond to an ID in the JSON dataset).
