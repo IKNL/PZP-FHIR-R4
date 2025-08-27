@@ -135,12 +135,6 @@
           }
         ]
       }
-    },
-    {
-      "given": [
-        "Hendrik"
-      ],
-      "use": "usual"
     }
   ],
   "birthDate": "1961-01-01"
