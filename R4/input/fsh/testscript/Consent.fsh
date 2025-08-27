@@ -42,9 +42,9 @@ Usage: #example
 * provision.code = $snomed#40617009 "kunstmatige beademing"
 
 
-Instance: P2-ACP-TreatmentDirective-30351004
+Instance: P2-ACP-TreatmentDirective-305351004
 InstanceOf: ACPTreatmentDirective
-Title: "P2 ACP TreatmentDirective 30351004"
+Title: "P2 ACP TreatmentDirective 305351004"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -61,7 +61,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#305351004 "opname in ziekenhuis"
+* provision.code = $snomed#305351004 "opname op intensive care"
 
 
 Instance: P2-ACP-TreatmentDirective-32485007

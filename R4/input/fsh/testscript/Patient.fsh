@@ -5,7 +5,7 @@ Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
-* identifier.value = "999911121" // TODO toevoegen juiste bsn
+* identifier.value = "999998298"
 * name[0].use = #official
 * name[=].text = "Samira van der Sluijs"
 * name[=].family = "van der Sluijs"
