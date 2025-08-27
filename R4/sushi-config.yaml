@@ -142,12 +142,20 @@ menu:
 # The following are simple examples to demonstrate what this might
 # look like:
 #
-# resources:
-#   Patient/my-example-patient:
-#     name: My Example Patient
-#     description: An example Patient
-#     exampleBoolean: true
-#   Patient/bad-example: omit
+resources:
+  Questionnaire/ACP-zib2020:
+    name: ACP Questionnaire based on zib2020
+    description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025
+    exampleBoolean: false
+  QuestionnaireResponse/HendrikHartman-20201001:
+    name: QuestionnaireResponse Hendrik Hartman 20201001
+    description: An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01
+    exampleBoolean: false
+  QuestionnaireResponse/HendrikHartman-20221108:
+    name: QuestionnaireResponse Hendrik Hartman 20221108
+    description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
+    exampleBoolean: false
+  Parameters/expansion: omit
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG
@@ -159,13 +167,15 @@ menu:
 # is specified by id or name, SUSHI will replace it with the correct
 # URL when generating the IG JSON.
 #
-# groups:
-#   GroupA:
-#     name: Group A
-#     description: The Alpha Group
-#     resources:
-#     - StructureDefinition/animal-patient
-#     - StructureDefinition/arm-procedure
+groups:
+  Q-QR:
+    name: "Structures: Questionnaire and QuestionnaireResponses"
+    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
+    resources:
+    - Questionnaire/ACP-zib2020
+    - QuestionnaireResponse/HendrikHartman-20201001
+    - QuestionnaireResponse/HendrikHartman-20221108
+
 #   GroupB:
 #     name: Group B
 #     description: The Beta Group
