@@ -23,7 +23,7 @@
       "system": "urn:oid:2.16.840.1.1138836.96",
       "filter": [ {
         "property": "concept",
-        "op": "descendent-of",
+        "op": "is-a",
         "value": "72506001"
       } ]
     } ]

@@ -32,6 +32,9 @@ ERROR: ValueSet/ACP-MedicalPolicyGoal: ValueSet.compose.include[0].concept[1]: T
 ERROR: Questionnaire/ACP-zib2020: Questionnaire.item[6].item[1].answerOption[1].value.ofType(Coding).code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
 ERROR: QuestionnaireResponse/HendrikHartman-20201001: QuestionnaireResponse.item[6].item[1].answer[0].value.ofType(Coding).code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
 
+# Manually checked: 72506001 is in the ValueSet, even in the expansion. The ValueSet in the profile bound is allowed as it restricts the zib's required binding. 72506001 zit in "Include codes from SNOMED_CT where concept DescendentOf 260787004"  
+ERROR: Device/P1-ACP-MedicalDevice.Product-ICD: Device.type: None of the codings provided are in the value set 'MedicalDevice ProductType ICD' (https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD|0.1.0), and a coding from this value set is required) (codes = http://snomed.info/sct#72506001)
+ERROR: Device/P2-ACP-MedicalDevice.Product-ICD: Device.type: None of the codings provided are in the value set 'MedicalDevice ProductType ICD' (https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD|0.1.0), and a coding from this value set is required) (codes = http://snomed.info/sct#72506001)
 
 # This is a proposed fixed value in the Nictiz Consent profiles as there is no better alternative.
 WARNING: Consent/F1-ACP-TreatmentDirective-116762002: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
