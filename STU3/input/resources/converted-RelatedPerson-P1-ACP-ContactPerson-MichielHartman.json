@@ -94,7 +94,7 @@
       "_system": {
         "extension": [
           {
-            "url": "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification",
+            "url": "http://nictiz.nl/fhir/StructureDefinition/code-specification",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -120,7 +120,7 @@
     {
       "extension": [
         {
-          "url": "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType",
+          "url": "http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType",
           "valueCodeableConcept": {
             "coding": [
               {
@@ -176,7 +176,7 @@
                 }
               ]
             },
-            "url": "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+            "url": "http://nictiz.nl/fhir/StructureDefinition/code-specification"
           }
         ]
       }

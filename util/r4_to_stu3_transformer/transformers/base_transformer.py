@@ -236,6 +236,79 @@ class BaseTransformer(ABC):
             # Primitive values - return as-is
             return obj
     
+    def transform_extensions_in_object(self, obj: Any) -> Any:
+        """
+        Recursively transform extension URLs in any FHIR object/structure.
+        
+        This method applies global extension URL transformations that need to happen
+        across all resource types and all nested structures.
+        """
+        if isinstance(obj, dict):
+            # Check if this is an extension array
+            if 'extension' in obj and isinstance(obj['extension'], list):
+                # Transform extension URLs in this extension array
+                obj['extension'] = self.transform_extension_urls(obj['extension'])
+            
+            # Recursively process all dictionary values
+            transformed_obj = {}
+            for key, value in obj.items():
+                transformed_obj[key] = self.transform_extensions_in_object(value)
+            return transformed_obj
+        elif isinstance(obj, list):
+            # Recursively process all list items
+            return [self.transform_extensions_in_object(item) for item in obj]
+        else:
+            # Primitive values - return as-is
+            return obj
+    
+    def transform_extension_urls(self, extensions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Transform extension URLs from R4 to STU3 format.
+        
+        This method handles global extension URL transformations that apply
+        across all resource types.
+        """
+        transformed_extensions = []
+        
+        for ext in extensions:
+            transformed_ext = ext.copy()
+            original_url = ext.get('url', '')
+            
+            # Apply global URL transformations
+            new_url = self.apply_global_extension_url_mappings(original_url)
+            
+            if new_url != original_url:
+                transformed_ext['url'] = new_url
+                logger.debug(f"Transformed extension URL: {original_url} -> {new_url}")
+            
+            # Recursively transform nested extensions
+            if 'extension' in transformed_ext and isinstance(transformed_ext['extension'], list):
+                transformed_ext['extension'] = self.transform_extension_urls(transformed_ext['extension'])
+            
+            transformed_extensions.append(transformed_ext)
+        
+        return transformed_extensions
+    
+    def apply_global_extension_url_mappings(self, url: str) -> str:
+        """
+        Apply global extension URL mappings that apply to all resource types.
+        
+        Args:
+            url: The original R4 extension URL
+            
+        Returns:
+            The transformed STU3 extension URL
+        """
+        # Global extension URL mappings
+        global_mappings = {
+            'http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification': 
+                'http://nictiz.nl/fhir/StructureDefinition/code-specification',
+            'http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType':
+                'http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType'
+        }
+        
+        return global_mappings.get(url, url)
+    
     def log_transformation_start(self, resource_id: str):
         """Log the start of a transformation."""
         logger.debug(f"Starting transformation of {self.resource_type} {resource_id}")

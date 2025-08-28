@@ -54,6 +54,9 @@ class DeviceUseStatementTransformer(BaseTransformer):
         # Clean references throughout the resource
         stu3_resource = self.clean_references_in_object(stu3_resource)
         
+        # Transform extension URLs globally
+        stu3_resource = self.transform_extensions_in_object(stu3_resource)
+        
         return stu3_resource
     
     def _transform_when_used_extension(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
