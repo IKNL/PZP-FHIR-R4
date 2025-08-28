@@ -48,15 +48,15 @@
         <generation value="markdown" />
       </page>
       <page>
+        <nameUrl value="data-model.html" />
+        <title value="Data Model" />
+        <generation value="markdown" />
+      </page>
+      <page>
         <nameUrl value="data-exchange.html" />
         <title value="Data Exchange" />
         <generation value="markdown" />
       </page>
-      <page>
-        <nameUrl value="data-model.html" />
-        <title value="Data Model" />
-        <generation value="markdown" />
-      </page>      
     </page>
     <!--
     <resource>
