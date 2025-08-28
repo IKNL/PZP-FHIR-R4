@@ -103,6 +103,7 @@
   ],
   "except": [
     {
+      "type": "deny",
       "extension": [
         {
           "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Restrictions",

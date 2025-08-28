@@ -76,6 +76,7 @@ class ProcedureTransformer(BaseTransformer):
             self._transform_focal_device(r4_resource, stu3_resource)
             self._copy_direct_mappings(r4_resource, stu3_resource)
             self._transform_body_site_extensions(stu3_resource)
+            self._add_consultation_category_for_acp(stu3_resource)
             
             # Clean all Reference objects to remove R4-specific 'type' fields
             stu3_resource = self.clean_references_in_object(stu3_resource)
@@ -197,6 +198,67 @@ class ProcedureTransformer(BaseTransformer):
                             extension['url'] = 'http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier'
                             logger.debug(f"Transformed bodySite extension URL: ext-AnatomicalLocation.Laterality -> BodySite-Qualifier")
     
+    def _add_consultation_category_for_acp(self, stu3_resource: Dict[str, Any]) -> None:
+        """
+        Add consultation category when the procedure code is "Advance care planning (procedure)".
+        
+        When code.coding contains SNOMED code "713603004" (Advance care planning (procedure)),
+        automatically populate category with SNOMED code "11429006" (Consultation (procedure)).
+        """
+        # Check if the procedure has the ACP code
+        if 'code' in stu3_resource and 'coding' in stu3_resource['code']:
+            has_acp_code = False
+            
+            for coding in stu3_resource['code']['coding']:
+                if (coding.get('code') == '713603004' and 
+                    coding.get('system') == 'http://snomed.info/sct'):
+                    has_acp_code = True
+                    break
+            
+            if has_acp_code:
+                # Only add category if it doesn't already exist or is empty
+                if 'category' not in stu3_resource or not stu3_resource['category']:
+                    consultation_category = {
+                        "coding": [
+                            {
+                                "code": "11429006",
+                                "system": "http://snomed.info/sct",
+                                "display": "Consultation (procedure)"
+                            }
+                        ]
+                    }
+                    stu3_resource['category'] = consultation_category
+                    logger.debug(f"Added consultation category for ACP procedure")
+                else:
+                    # Category already exists, check if it needs the consultation coding
+                    category = stu3_resource['category']
+                    if 'coding' in category:
+                        # Check if consultation code already exists
+                        has_consultation_code = any(
+                            coding.get('code') == '11429006' and 
+                            coding.get('system') == 'http://snomed.info/sct'
+                            for coding in category['coding']
+                        )
+                        
+                        if not has_consultation_code:
+                            # Add consultation coding to existing category
+                            category['coding'].append({
+                                "code": "11429006",
+                                "system": "http://snomed.info/sct",
+                                "display": "Consultation (procedure)"
+                            })
+                            logger.debug(f"Added consultation coding to existing category for ACP procedure")
+                    else:
+                        # Category exists but has no coding array
+                        category['coding'] = [
+                            {
+                                "code": "11429006",
+                                "system": "http://snomed.info/sct",
+                                "display": "Consultation (procedure)"
+                            }
+                        ]
+                        logger.debug(f"Added consultation coding array to existing category for ACP procedure")
+    
     def _copy_direct_mappings(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """Copy fields that map directly between R4 and STU3."""
         
@@ -242,7 +304,8 @@ class ProcedureTransformer(BaseTransformer):
                 "statusReason": "Mapped to 'notDoneReason' when status='not-done'",
                 "notDone": "Set to true when R4 status='not-done'",
                 "extension.url": "Extension URLs mapped from Nictiz R4 to HL7 STU3",
-                "Reference.type": "Removed from all Reference objects (R4-specific)"
+                "Reference.type": "Removed from all Reference objects (R4-specific)",
+                "category": "Auto-populated with 'Consultation (procedure)' for ACP procedures"
             },
             "extension_mappings": {
                 "http://nictiz.nl/fhir/StructureDefinition/ext-Procedure.ProcedureMethod": 
@@ -336,6 +399,10 @@ Special Transformations:
 3. performer.function becomes performer.role
 4. Extension URLs are mapped from Nictiz R4 to HL7 STU3 equivalents
 5. Reference.type fields are removed (R4-specific, not supported in STU3)
+6. Auto-population of category field for ACP procedures:
+   - When code.coding contains SNOMED "713603004" (Advance care planning (procedure))
+   - Automatically adds/updates category with SNOMED "11429006" (Consultation (procedure))
+   - Preserves existing category codings if present
 
 Reference Datatype Transformation:
 - R4 introduced the 'type' field in Reference objects

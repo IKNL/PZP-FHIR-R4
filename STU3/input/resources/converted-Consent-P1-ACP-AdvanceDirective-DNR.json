@@ -39,6 +39,10 @@
       ]
     }
   ],
+  "patient": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
   "dateTime": "2025-04-28",
   "extension": [
     {

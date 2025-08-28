@@ -256,8 +256,9 @@ class ConsentTransformer(BaseTransformer):
                             }]
                         }
                     })
-                    # Add except with restrictions extension
+                    # Add except with restrictions extension and type='deny' for JA_MAAR
                     except_item = {
+                        'type': 'deny',
                         'extension': [{
                             'url': stu3_extension_urls['restrictions'],
                             'valueString': mod_ext.get('valueString', '')

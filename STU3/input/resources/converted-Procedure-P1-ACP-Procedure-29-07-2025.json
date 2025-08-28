@@ -62,5 +62,14 @@
   "subject": {
     "reference": "Patient/P1-ACP-Patient-HendrikHartman",
     "display": "Patient, Hendrik Hartman"
+  },
+  "category": {
+    "coding": [
+      {
+        "code": "11429006",
+        "system": "http://snomed.info/sct",
+        "display": "Consultation (procedure)"
+      }
+    ]
   }
 }

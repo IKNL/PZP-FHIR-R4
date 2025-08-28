@@ -35,6 +35,7 @@
     "display": "Patient, Hendrik Hartman"
   },
   "statusDate": "2020-10-01",
+  "status": "active",
   "extension": [
     {
       "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",

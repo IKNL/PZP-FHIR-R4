@@ -35,6 +35,7 @@
     "display": "Patient, Samira van der Sluijs"
   },
   "statusDate": "2025-08-07",
+  "status": "active",
   "extension": [
     {
       "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",

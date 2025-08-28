@@ -63,5 +63,14 @@
   "subject": {
     "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
     "display": "Patient, Samira van der Sluijs"
+  },
+  "category": {
+    "coding": [
+      {
+        "code": "11429006",
+        "system": "http://snomed.info/sct",
+        "display": "Consultation (procedure)"
+      }
+    ]
   }
 }

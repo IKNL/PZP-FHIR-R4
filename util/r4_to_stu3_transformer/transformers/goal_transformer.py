@@ -74,7 +74,7 @@ class GoalTransformer(BaseTransformer):
         
         # Handle lifecycleStatus mappings
         if lifecycle_status:
-            if lifecycle_status in ['proposed', 'planned', 'accepted', 'on-hold', 
+            if lifecycle_status in ['proposed', 'planned', 'accepted', 'active', 'on-hold', 
                                   'cancelled', 'entered-in-error', 'rejected']:
                 stu3_resource['status'] = lifecycle_status
             elif lifecycle_status == 'completed':
@@ -95,6 +95,11 @@ class GoalTransformer(BaseTransformer):
                         stu3_resource['status'] = 'ahead-of-target'
                     elif code == 'worsening':
                         stu3_resource['status'] = 'behind-target'
+        
+        # If no status was set, provide a default
+        if 'status' not in stu3_resource:
+            # Set a reasonable default status
+            stu3_resource['status'] = 'planned'
     
     def _transform_start_field(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """
