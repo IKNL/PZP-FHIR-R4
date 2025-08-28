@@ -75,6 +75,7 @@ class ProcedureTransformer(BaseTransformer):
             self._transform_performer(r4_resource, stu3_resource)
             self._transform_focal_device(r4_resource, stu3_resource)
             self._copy_direct_mappings(r4_resource, stu3_resource)
+            self._transform_body_site_extensions(stu3_resource)
             
             # Clean all Reference objects to remove R4-specific 'type' fields
             stu3_resource = self.clean_references_in_object(stu3_resource)
@@ -172,6 +173,26 @@ class ProcedureTransformer(BaseTransformer):
         if "focalDevice" in r4_resource:
             # focalDevice structure is the same in both versions
             stu3_resource["focalDevice"] = r4_resource["focalDevice"]
+    
+    def _transform_body_site_extensions(self, stu3_resource: Dict[str, Any]) -> None:
+        """
+        Transform bodySite extensions from R4 to STU3.
+        
+        Changes extension URL from:
+        http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality
+        to:
+        http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier
+        """
+        if 'bodySite' in stu3_resource:
+            # Handle both single bodySite and array of bodySites
+            body_sites = stu3_resource['bodySite'] if isinstance(stu3_resource['bodySite'], list) else [stu3_resource['bodySite']]
+            
+            for body_site in body_sites:
+                if 'extension' in body_site:
+                    for extension in body_site['extension']:
+                        if extension.get('url') == 'http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality':
+                            extension['url'] = 'http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier'
+                            logger.debug(f"Transformed bodySite extension URL: ext-AnatomicalLocation.Laterality -> BodySite-Qualifier")
     
     def _copy_direct_mappings(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """Copy fields that map directly between R4 and STU3."""

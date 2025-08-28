@@ -47,6 +47,7 @@ class DeviceUseStatementTransformer(BaseTransformer):
         self._transform_when_used_extension(r4_resource, stu3_resource)
         self._transform_timing_field(r4_resource, stu3_resource)
         self._transform_reason_code(r4_resource, stu3_resource)
+        self._transform_body_site_extensions(r4_resource, stu3_resource)
         self._copy_encounter_reference_extension(r4_resource, stu3_resource)
         self._transform_health_professional_extension(r4_resource, stu3_resource)
         
@@ -110,6 +111,25 @@ class DeviceUseStatementTransformer(BaseTransformer):
         """
         if 'reasonCode' in r4_resource:
             stu3_resource['indication'] = r4_resource['reasonCode']
+    
+    def _transform_body_site_extensions(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
+        """
+        Transform bodySite extensions from R4 to STU3.
+        
+        Changes extension URL from:
+        http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality
+        to:
+        http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier
+        """
+        if 'bodySite' in stu3_resource:
+            # Handle both single bodySite and array of bodySites
+            body_sites = stu3_resource['bodySite'] if isinstance(stu3_resource['bodySite'], list) else [stu3_resource['bodySite']]
+            
+            for body_site in body_sites:
+                if 'extension' in body_site:
+                    for extension in body_site['extension']:
+                        if extension.get('url') == 'http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality':
+                            extension['url'] = 'http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier'
     
     def _copy_encounter_reference_extension(self, r4_resource: Dict[str, Any], stu3_resource: Dict[str, Any]) -> None:
         """
@@ -206,7 +226,8 @@ DeviceUseStatement R4 to STU3 Transformations:
 | recordedOn                       | recordedOn                       | Direct mapping                   |
 | source                           | source                           | Direct mapping + reference clean |
 | device                           | device                           | Direct mapping + reference clean |
-| bodySite                         | bodySite                         | Direct mapping                   |
+| bodySite                         | bodySite                         | Direct mapping + extension URL   |
+|                                  |                                  | transformation                   |
 | note                             | note                             | Direct mapping                   |
 +----------------------------------+----------------------------------+----------------------------------+
 | extension[ext-EncounterReference]| extension[ext-EncounterReference]| Direct copy of extension         |
@@ -225,4 +246,5 @@ Special Cases:
 - reasonCode becomes indication in STU3
 - ext-EncounterReference extension preserved at root level
 - ext-MedicalDevice.HealthProfessional extension URL transformed to STU3 equivalent
+- bodySite.extension[ext-AnatomicalLocation.Laterality] URL transformed to BodySite-Qualifier
 """

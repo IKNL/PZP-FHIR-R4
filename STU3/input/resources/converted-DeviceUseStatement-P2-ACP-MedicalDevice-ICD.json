@@ -48,7 +48,7 @@
             }
           ]
         },
-        "url": "http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality"
+        "url": "http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier"
       }
     ]
   },
