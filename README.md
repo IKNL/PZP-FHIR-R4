@@ -28,3 +28,4 @@ This project uses the HL7 FHIR Publisher to build the implementation guides. The
    - Builds the STU3 Implementation Guide with converted examples (run conversion first)
 
 For detailed development instructions, see the [Copilot Instructions](.github/copilot-instructions.md).
+
