@@ -4,10 +4,10 @@
   xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R3/fhir-single.xsd">
   <id value="iknl.fhir.stu3.pzp" />
   <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp" />
-  <version value="0.1.0" />
+  <version value="0.1.3-beta3" />
   <name value="PZP" />
   <title value="IKNL PZP STU3" />
-  <status value="draft" />
+  <status value="active" />
   <experimental value="false" />
   <publisher value="IKNL" />
   <contact>
@@ -16,7 +16,7 @@
       <value value="https://www.iknl.nl" />
     </telecom>
   </contact>
-  <description value="TODO" />
+  <description value="Advance Care Planning (PZP) IG for FHIR STU3 based on zib release 2017" />
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm" />
@@ -73,7 +73,7 @@
     <!-- releaselabel should be the ballot status for HL7-published IGs. -->
     <parameter>
       <code value="releaselabel" />
-      <value value="CI Build" />
+      <value value="consultation" />
     </parameter>
     <parameter>
       <code value="find-other-resources" />
