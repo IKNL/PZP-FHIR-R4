@@ -296,9 +296,8 @@ class ConsentTransformer(BaseTransformer):
             'url': stu3_extension_urls['verification'],
             'extension': []
         }
-        has_patient = False
+        has_verification_actors = False
         has_representative = False
-        has_consenter_related_person = False
         
         if 'actor' in provision:
             for actor in provision['actor']:
@@ -308,11 +307,8 @@ class ConsentTransformer(BaseTransformer):
                 
                 # Check if this is a Patient (for verification)
                 if ref_type == 'Patient':
-                    has_patient = True
-                    verification_ext['extension'].append({
-                        'url': 'Verified',
-                        'valueBoolean': True
-                    })
+                    has_verification_actors = True
+                    # Add VerifiedWith for Patient
                     verification_ext['extension'].append({
                         'url': 'VerifiedWith',
                         'valueCodeableConcept': {
@@ -323,22 +319,13 @@ class ConsentTransformer(BaseTransformer):
                             }]
                         }
                     })
-                    # Add VerificationDate from Consent.dateTime if present
-                    if 'dateTime' in r4_consent:
-                        verification_ext['extension'].append({
-                            'url': 'VerificationDate',
-                            'valueDateTime': r4_consent['dateTime']
-                        })
                 
                 # Check if this is a RelatedPerson with CONSENTER role
                 elif ref_type == 'RelatedPerson' and self._is_consenter_role(role):
-                    has_consenter_related_person = True
+                    has_verification_actors = True
                     # Use display text from reference if available, otherwise fallback to "ContactPerson"
                     display_text = ref.get('display', 'ContactPerson')
-                    verification_ext['extension'].append({
-                        'url': 'Verified',
-                        'valueBoolean': True
-                    })
+                    # Add VerifiedWith for RelatedPerson
                     verification_ext['extension'].append({
                         'url': 'VerifiedWith',
                         'valueCodeableConcept': {
@@ -350,12 +337,6 @@ class ConsentTransformer(BaseTransformer):
                             'text': display_text
                         }
                     })
-                    # Add VerificationDate from Consent.dateTime if present
-                    if 'dateTime' in r4_consent:
-                        verification_ext['extension'].append({
-                            'url': 'VerificationDate',
-                            'valueDateTime': r4_consent['dateTime']
-                        })
                 
                 # Check if this is a Representative (RESPRSN role)
                 elif self._is_representative_role(role):
@@ -365,7 +346,20 @@ class ConsentTransformer(BaseTransformer):
                         stu3_consent['consentingParty'] = []
                     stu3_consent['consentingParty'].append(ref)
         
-        if has_patient or has_consenter_related_person:
+        # If we have verification actors, add the common verification fields and the extension
+        if has_verification_actors:
+            # Add common Verified and VerificationDate at the beginning
+            verification_ext['extension'].insert(0, {
+                'url': 'Verified',
+                'valueBoolean': True
+            })
+            # Add VerificationDate from Consent.dateTime if present
+            if 'dateTime' in r4_consent:
+                verification_ext['extension'].insert(1, {
+                    'url': 'VerificationDate',
+                    'valueDateTime': r4_consent['dateTime']
+                })
+            
             stu3_consent['extension'].append(verification_ext)
 
         # --- Treatment extension and LivingWillType category mapping ---

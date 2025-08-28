@@ -56,6 +56,10 @@
           "valueBoolean": true
         },
         {
+          "url": "VerificationDate",
+          "valueDateTime": "2025-07-29"
+        },
+        {
           "url": "VerifiedWith",
           "valueCodeableConcept": {
             "coding": [
@@ -67,10 +71,6 @@
             ],
             "text": "ContactPerson, Michiel Hartman"
           }
-        },
-        {
-          "url": "VerificationDate",
-          "valueDateTime": "2025-07-29"
         }
       ]
     },

@@ -52,6 +52,10 @@
           "valueBoolean": true
         },
         {
+          "url": "VerificationDate",
+          "valueDateTime": "2025-08-07"
+        },
+        {
           "url": "VerifiedWith",
           "valueCodeableConcept": {
             "coding": [
@@ -62,10 +66,6 @@
               }
             ]
           }
-        },
-        {
-          "url": "VerificationDate",
-          "valueDateTime": "2025-08-07"
         }
       ]
     },
