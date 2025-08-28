@@ -28,7 +28,9 @@
   "abstract": false,
   "contextType": "resource",
   "context": [
-    "DeviceUseStatement"
+    "DeviceUseStatement",
+    "Consent",
+    "Goal"
   ],
   "type": "Extension",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
