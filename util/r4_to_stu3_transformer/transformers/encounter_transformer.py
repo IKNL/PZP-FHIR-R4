@@ -35,6 +35,8 @@ This module transforms FHIR Encounter resources from R4 to STU3 format.
 │ Encounter.basedOn                  │ Not supported in STU3                     │
 │ Encounter.classHistory             │ No direct equivalent in STU3              │
 │ Encounter.location.physicalType    │ Not supported in STU3                     │
+│ reasonCode.extension[ext-Comment]  │ ext-Comment extension filtered out        │
+│ reasonReference.extension[ext-Comment] │ ext-Comment extension filtered out    │
 └────────────────────────────────────┴───────────────────────────────────────────┘
 """
 
@@ -128,7 +130,14 @@ class EncounterTransformer(BaseTransformer):
         
         for reason in r4_reason_code:
             stu3_reason_item = reason.copy()
-            # Text field is preserved as-is for STU3
+            
+            # Remove ext-Comment extension from reasonCode.extension
+            if 'extension' in stu3_reason_item:
+                stu3_reason_item['extension'] = self.filter_ext_comment_extensions(stu3_reason_item['extension'])
+                # Remove extension array if it's empty after filtering
+                if not stu3_reason_item['extension']:
+                    del stu3_reason_item['extension']
+            
             stu3_reason.append(stu3_reason_item)
         
         return stu3_reason
@@ -138,12 +147,33 @@ class EncounterTransformer(BaseTransformer):
         stu3_diagnosis = []
         
         for reason_ref in r4_reason_reference:
+            # Filter out ext-Comment extensions from reasonReference.extension
+            filtered_reason_ref = reason_ref.copy()
+            if 'extension' in filtered_reason_ref:
+                filtered_reason_ref['extension'] = self.filter_ext_comment_extensions(filtered_reason_ref['extension'])
+                # Remove extension array if it's empty after filtering
+                if not filtered_reason_ref['extension']:
+                    del filtered_reason_ref['extension']
+            
             diagnosis_item = {
-                'condition': reason_ref
+                'condition': filtered_reason_ref
             }
             stu3_diagnosis.append(diagnosis_item)
         
         return stu3_diagnosis
+    
+    def filter_ext_comment_extensions(self, extensions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Filter out ext-Comment extensions from an extension array."""
+        ext_comment_url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
+        
+        filtered_extensions = []
+        for ext in extensions:
+            if ext.get('url') != ext_comment_url:
+                filtered_extensions.append(ext)
+            else:
+                logger.debug(f"Filtered out ext-Comment extension: {ext_comment_url}")
+        
+        return filtered_extensions
     
     def transform_hospitalization(self, r4_hospitalization: Dict[str, Any]) -> Dict[str, Any]:
         """Transform hospitalization section."""

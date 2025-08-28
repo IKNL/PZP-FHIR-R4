@@ -61,12 +61,6 @@
   "diagnosis": [
     {
       "condition": {
-        "extension": [
-          {
-            "url": "http://nictiz.nl/fhir/StructureDefinition/ext-Comment",
-            "valueString": "Derde PZP gesprek van mevrouw"
-          }
-        ],
         "reference": "Procedure/P2-ACP-Procedure-07-08-2025",
         "display": "Procedure, ACP"
       }
