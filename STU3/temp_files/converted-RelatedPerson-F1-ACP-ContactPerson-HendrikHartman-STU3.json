@@ -1,0 +1,56 @@
+{
+  "resourceType": "RelatedPerson",
+  "id": "F1-ACP-ContactPerson-HendrikHartman",
+  "identifier": [ {
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "RI",
+        "display": "Resource identifier"
+      } ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "ebe579d0-fda9-4440-ac6c-6afb0b338006"
+  } ],
+  "patient": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "relationship": {
+    "coding": [ {
+      "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+      "code": "01",
+      "display": "Eerste relatie/contactpersoon"
+    } ]
+  },
+  "name": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order",
+      "valueCode": "NL1"
+    } ],
+    "use": "official",
+    "text": "Michiel Hartman",
+    "family": "Hartman",
+    "_family": {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+        "valueString": "Hartman"
+      } ]
+    },
+    "given": [ "Michiel" ],
+    "_given": [ {
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+        "valueCode": "BR"
+      } ]
+    } ]
+  }, {
+    "use": "usual",
+    "given": [ "Michiel" ]
+  } ],
+  "telecom": [ {
+    "system": "email",
+    "value": "michiel.hartman@iknl.nl",
+    "use": "work"
+  } ]
+}

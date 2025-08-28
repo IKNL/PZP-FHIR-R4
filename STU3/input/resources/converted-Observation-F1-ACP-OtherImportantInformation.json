@@ -1,0 +1,57 @@
+{
+  "resourceType": "Observation",
+  "id": "F1-ACP-OtherImportantInformation",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OtherImportantInformation"
+    ]
+  },
+  "context": {
+    "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+    "display": "Encounter, 2020-10-01"
+  },
+  "valueString": "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "eef80c58-5721-45fa-8f05-210f9e1f0b63"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "247751003",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+      "display": "Healthcare professional (person), van Huissen",
+      "extension": [
+        {
+          "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+          "valueReference": {
+            "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+            "display": "Healthcare professional (role), van Huissen"
+          }
+        }
+      ]
+    }
+  ]
+}

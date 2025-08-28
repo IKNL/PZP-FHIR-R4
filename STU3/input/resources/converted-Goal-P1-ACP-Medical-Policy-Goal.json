@@ -1,0 +1,53 @@
+{
+  "resourceType": "Goal",
+  "id": "P1-ACP-Medical-Policy-Goal",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "ecd53b68-d9d2-4945-b1f0-0eccb07f48a3"
+    }
+  ],
+  "description": {
+    "coding": [
+      {
+        "code": "713148004",
+        "system": "http://snomed.info/sct",
+        "display": "Symptom management (procedure)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "statusDate": "2025-07-29",
+  "note": [
+    {
+      "text": "De behandeling van Hendrik is na verslechtering en gesprekken hierover bijgesteld van levensverlenging naar symptoomgericht"
+    }
+  ],
+  "status": "in-progress",
+  "extension": [
+    {
+      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "valueReference": {
+        "reference": "Encounter/P1-ACP-Encounter-29-07-2025",
+        "display": "Encounter, 2025-07-29"
+      }
+    }
+  ]
+}

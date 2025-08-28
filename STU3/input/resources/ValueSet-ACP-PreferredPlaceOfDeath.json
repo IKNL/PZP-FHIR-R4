@@ -1,0 +1,204 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ACP-PreferredPlaceOfDeath",
+  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-PreferredPlaceOfDeath",
+  "version": "0.1.0",
+  "name": "ACPPreferredPlaceOfDeathVS",
+  "title": "Preferred Place Of Death",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [ {
+    "name": "IKNL",
+    "telecom": [ {
+      "system": "email",
+      "value": "info@iknl.nl",
+      "use": "work"
+    } ]
+  } ],
+  "description": "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "compose": {
+    "include": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+      "concept": [ {
+        "code": "OTH",
+        "display": "Anders"
+      }, {
+        "code": "UNK",
+        "display": "Nog onbekend"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "concept": [ {
+        "code": "264362003",
+        "display": "Thuis",
+        "designation": [ {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Home (environment)"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Home"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Private home"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Dwelling"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Private dwelling"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "thuis (omgeving)"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "thuis"
+        } ]
+      }, {
+        "code": "22232009",
+        "display": "Ziekenhuis",
+        "designation": [ {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Hospital (environment)"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Hospital"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "ziekenhuis (omgeving)"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "ziekenhuis"
+        } ]
+      }, {
+        "code": "108344006",
+        "display": "Verpleeghuis",
+        "designation": [ {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Nursing home AND/OR ambulatory care site (environment)"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Nursing home AND/OR ambulatory care site"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "verpleeghuis en/of locatie voor ambulante zorg (omgeving)"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "verpleeghuis en/of locatie voor ambulante zorg"
+        } ]
+      }, {
+        "code": "284546000",
+        "display": "Hospice",
+        "designation": [ {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Hospice (environment)"
+        }, {
+          "language": "en-US",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Hospice"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "hospice (omgeving)"
+        }, {
+          "language": "nl-NL",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "hospice"
+        } ]
+      } ]
+    } ]
+  }
+}

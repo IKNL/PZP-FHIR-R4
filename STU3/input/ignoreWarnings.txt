@@ -1,0 +1,119 @@
+== Suppressed Messages ==
+
+# Add warning and/or information messages here after you've confirmed that they aren't really a problem
+# instructions for ignoreWarnings.txt https://confluence.hl7.org/pages/viewpage.action?pageId=66938614#ImplementationGuideParameters-ManagingWarningsandHints
+# (And include comments like this justifying why)
+
+# We expect that all of the 'structural' resources will only be validated against their respective 'core' resource definitions
+Validate resource against profile http://hl7.org/fhir/StructureDefinition/ImplementationGuide
+Validate resource against profile http://hl7.org/fhir/StructureDefinition/Library
+Validate resource against profile http://hl7.org/fhir/StructureDefinition/ValueSet
+Validate resource against profile http://hl7.org/fhir/StructureDefinition/
+
+# Have verified that these examples are being checked against the expected profiles/resources.
+INFORMATION: Binary/example: Binary: Validate resource against profile http://hl7.org/fhir/StructureDefinition/Binary
+INFORMATION: Bundle/h1: Bundle: Validate resource against profile http://hl7.org/fhir/StructureDefinition/Bundle
+INFORMATION: Bundle/h1: Bundle.entry[0].resource.ofType(Provenance): Validate resource against profile http://hl7.org/fhir/StructureDefinition/Provenance
+INFORMATION: Patient/example: Patient: Validate resource against profile http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient
+
+# This is inherited from the base resource
+WARNING: StructureDefinition/myObservation: StructureDefinition.snapshot.element[15].mapping[3].map: value should not start or finish with whitespace
+
+# These examples are fake code systems - they're not expected to be checked
+Code System URI 'http://example.org/some-id-type-system' is unknown so the code cannot be validated
+Code System URI 'http://example.org/some-system' is unknown so the code cannot be validated
+
+# We're expecting these to not match the slice - we're showing how you can use slicing to define the one repetition you want even when many repetitions might be present
+INFORMATION: Patient/example: Patient.name[0]: This element does not match any known slice defined in the profile http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient
+INFORMATION: Patient/example: Patient.name[1]: This element does not match any known slice defined in the profile http://somewhere.org/fhir/uv/myig/StructureDefinition/mypatient
+
+# If this was a real IG, there should be examples for these profiles too.  But it's not, and I'm lazy...
+WARNING: StructureDefinition.where(url = 'http://somewhere.org/fhir/uv/myig/StructureDefinition/mypractitioner'): The Implementation Guide contains no examples for this profile
+WARNING: StructureDefinition.where(url = 'http://somewhere.org/fhir/uv/myig/StructureDefinition/myObservation'): The Implementation Guide contains no examples for this profile
+
+# The objective is to show a reference to an unknown code system, so these warnings are expected
+WARNING: ValueSet/valueset-no-codesystem: ValueSet.compose[0].include[0]: Unknown System/Version specified, so Concepts and Filters can''t be checked
+WARNING: ValueSet.where(id = 'valueset-no-codesystem'): Error from server: Unable to provide support for code system http://not-a-known-code-system
+
+# We don't want a code for the change reason (and this binding shouldn't be extensible anyhow)
+WARNING: Bundle/h1: Bundle.entry[0].resource.ofType(Provenance).reason[0]: No code provided, and a code should be provided from the value set 'PurposeOfUse' (http://terminology.hl7.org/ValueSet/v3-PurposeOfUse)
+WARNING: Bundle/h1: Bundle.entry[0].resource.ofType(Provenance).reason[0]: No code provided, and a code should be provided from the value set 'PurposeOfUse' (http://terminology.hl7.org/ValueSet/v3-PurposeOfUse)
+
+# This error is intentional to demonstrate that CQL files not included in a Library resource in the IG are an error:
+ERROR: sample-ig\input\cql\notincluded.cql: CQL source was not associated with a library resource in the IG.
+
+# These errors are intentional to demonstrate that specifying the canonical URL for value sets in the CQL is expected
+ERROR: Library/example: Library.relatedArtifact[7].resource: Canonical URLs must be absolute URLs if they are not fragment references (TBD)
+ERROR: Library/example: Library.dataRequirement[4].codeFilter[0].valueSet: Canonical URLs must be absolute URLs if they are not fragment references (TBD)
+
+
+# This is a proposed fixed value in the Nictiz Consent profiles as there is no better alternative.
+WARNING: Consent/F1-ACP-TreatmentDirective-116762002: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F1-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/F2-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-116762002: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-305351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P1-ACP-TreatmentDirective-OTH: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-281789004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-30351004: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-32485007: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-400231000146108: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-40617009: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-89666000: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+WARNING: Consent/P2-ACP-TreatmentDirective-other: Consent.policy[0].uri: No definition could be found for URL value 'https://wetten.overheid.nl/'
+
+
+
+# Something in the base FHIR definition. Not in our control.
+ERROR: StructureDefinition​.snapshot​.element[19]​.example[0]​.value​.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
+ERROR: StructureDefinition​.snapshot​.element[24]​.example[0]​.value​.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
+ERROR: StructureDefinition/ACP-AdvanceDirective: StructureDefinition.snapshot.element[24].example[0].value.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
+ERROR: StructureDefinition/ACP-TreatmentDirective: StructureDefinition.snapshot.element[29].example[0].value.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
+
+# DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in profile is not loaded into tx.fhir.org
+ERROR: Procedure/F1-ACP-Procedure-01-10-2020: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
+ERROR: Procedure/P1-ACP-Procedure-29-07-2025: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
+ERROR: Procedure/P2-ACP-Procedure-07-08-2025: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
+
+# SNOMED code 570801000146104 is added after 'http://snomed.info/sct/11000146104/version/20240930' which is the one currently known by tx.fhir.org/r4
+ERROR: Observation/F1-ACP-OrganDonationChoiceRegistration-Yes: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: Observation/P1-ACP-OrganDonationChoiceRegistration-Yes: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: Observation/P2-ACP-OrganDonationChoiceRegistration-20250807: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: StructureDefinition/ACP-OrganDonationChoiceRegistration: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept).coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: StructureDefinition/ACP-OrganDonationChoiceRegistration: StructureDefinition.differential.element[1].pattern.ofType(CodeableConcept).coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: Questionnaire/ACP-zib2020: Questionnaire.item[8].item[3].item[0].answerOption[0].value.ofType(Coding).code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: QuestionnaireResponse/HendrikHartman-20201001: QuestionnaireResponse.item[8].item[3].item[0].answer[0].value.ofType(Coding).code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: QuestionnaireResponse/HendrikHartman-20221108: QuestionnaireResponse.item[8].item[3].item[0].answer[0].value.ofType(Coding).code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+
+# Manual check in latest version of SNOMED does find the code '1351964001'. The error might be due to a older version of SNOMED available in tx.fhir.org/r4 
+ERROR: Goal/F1-ACP-Medical-Policy-Goal: Goal.description.coding[0].code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: Goal/F1-ACP-Medical-Policy-Goal: Goal.description: None of the codings provided are in the value set 'Most Important Agreed-upon Goal of Medical Policy' (https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal|0.1.0), and a coding from this value set is required) (codes = http://snomed.info/sct#1351964001)
+ERROR: ValueSet/ACP-MedicalPolicyGoal: ValueSet.compose.include[0].concept[1]: The code '1351964001' is not valid in the system http://snomed.info/sct (Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930')
+ERROR: Questionnaire/ACP-zib2020: Questionnaire.item[6].item[1].answerOption[1].value.ofType(Coding).code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: QuestionnaireResponse/HendrikHartman-20201001: QuestionnaireResponse.item[6].item[1].answer[0].value.ofType(Coding).code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+
+# Manually checked: 72506001 is in the ValueSet, even in the expansion. The ValueSet in the profile bound is allowed as it restricts the zib's required binding. 72506001 zit in "Include codes from SNOMED_CT where concept DescendentOf 260787004"  
+ERROR: Device/P1-ACP-MedicalDevice.Product-ICD: Device.type: None of the codings provided are in the value set 'MedicalDevice ProductType ICD' (https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD|0.1.0), and a coding from this value set is required) (codes = http://snomed.info/sct#72506001)
+ERROR: Device/P2-ACP-MedicalDevice.Product-ICD: Device.type: None of the codings provided are in the value set 'MedicalDevice ProductType ICD' (https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD|0.1.0), and a coding from this value set is required) (codes = http://snomed.info/sct#72506001)
+
+# Definition can be found in the Nictiz package. Not sure why the IG publisher cannot access it. Also not a big deal for this IG.
+WARNING: Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen: Practitioner.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
+WARNING: Practitioner/P1-ACP-HealthProfessional-Practitioner-DrVanHuissen: Practitioner.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
+WARNING: Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters: Practitioner.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
+WARNING: Patient/F1-ACP-Patient-HendrikHartman: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
+WARNING: Patient/P1-ACP-Patient-HendrikHartman: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
+WARNING: Patient/P2-ACP-Patient-SamiraVanDerSluijs: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
+WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/big'
+WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
+WARNING: StructureDefinition/ACP-Patient: StructureDefinition.snapshot.element[40].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
+WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/uzi-nr-pers'

@@ -1,0 +1,148 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-PreferredPlaceOfDeath",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath",
+  "version": "0.1.0",
+  "name": "ACPPreferredPlaceOfDeath",
+  "title": "Preferred Place Of Death",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "105",
+            "comment": "Gewenste plek van overlijden (AlgemeneMeting)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "395091006"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "110",
+            "comment": "MetingNaam voor Gewenste plek van overlijden"
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Observation.context",
+        "path": "Observation.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "113",
+            "comment": "UitslagDatumTijd"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-PreferredPlaceOfDeath"
+          }
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "111",
+            "comment": "Voorkeursplek (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "111",
+            "comment": "Voorkeursplek (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.comment",
+        "path": "Observation.comment",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "108",
+            "comment": "Toelichting"
+          }
+        ]
+      }
+    ]
+  }
+}

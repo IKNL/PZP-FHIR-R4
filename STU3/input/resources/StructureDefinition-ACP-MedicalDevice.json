@@ -1,0 +1,198 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-MedicalDevice",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice",
+  "version": "0.1.0",
+  "name": "ACPMedicalDevice",
+  "title": "MedicalDevice",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "Any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease. In the context of ACP, this profile is used to declare the use of an implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDevice and HCIM MedicalDevice.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "DeviceUseStatement",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DeviceUseStatement",
+        "path": "DeviceUseStatement",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "218",
+            "comment": "Heeft de patient een ICD?"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "75",
+            "comment": "ICD (MedischHulpmiddel)"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.extension:HealthcareProvider",
+        "path": "DeviceUseStatement.extension",
+        "sliceName": "HealthcareProvider",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "86",
+            "comment": "Locatie"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.extension:HealthProfessional",
+        "path": "DeviceUseStatement.extension",
+        "sliceName": "HealthProfessional",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "88",
+            "comment": "Zorgverlener"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.extension:encounter",
+        "path": "DeviceUseStatement.extension",
+        "sliceName": "encounter",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.extension:encounter.value[x]",
+        "path": "DeviceUseStatement.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.subject",
+        "path": "DeviceUseStatement.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.whenUsed.start",
+        "path": "DeviceUseStatement.whenUsed.start",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "80",
+            "comment": "BeginDatum"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.timing[x]:timingPeriod",
+        "path": "DeviceUseStatement.timing[x]",
+        "sliceName": "timingPeriod",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.device",
+        "path": "DeviceUseStatement.device",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "76",
+            "comment": "Product"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.indication.extension:indication_Problem",
+        "path": "DeviceUseStatement.indication.extension",
+        "sliceName": "indication_Problem",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "81",
+            "comment": "Indicatie"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.bodySite",
+        "path": "DeviceUseStatement.bodySite",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "84",
+            "comment": "AnatomischeLocatie"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.bodySite.extension:Laterality",
+        "path": "DeviceUseStatement.bodySite.extension",
+        "sliceName": "Laterality",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "85",
+            "comment": "Lateraliteit"
+          }
+        ]
+      },
+      {
+        "id": "DeviceUseStatement.note.text",
+        "path": "DeviceUseStatement.note.text",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "83",
+            "comment": "Toelichting"
+          }
+        ]
+      }
+    ]
+  }
+}

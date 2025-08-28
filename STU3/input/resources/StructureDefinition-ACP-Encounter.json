@@ -1,0 +1,145 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-Encounter",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter",
+  "version": "0.1.0",
+  "name": "ACPEncounter",
+  "title": "Encounter",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "Any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions. Based on nl-core-Encounter and HCIM Encounter.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter",
+        "path": "Encounter",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "764",
+            "comment": "Contact"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "765",
+            "comment": "ContactType"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.subject",
+        "path": "Encounter.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant",
+        "path": "Encounter.participant",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "766",
+            "comment": "ContactMet"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.participant.individual",
+        "path": "Encounter.participant.individual",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+          },
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "807",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "148",
+            "comment": "Gesprek gevoerd in bijzijn van (Contactpersoon)"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.period.start",
+        "path": "Encounter.period.start",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "770",
+            "comment": "BeginDatumTijd"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "304",
+            "comment": "Datum van invullen (DatumTijd)"
+          }
+        ]
+      },
+      {
+        "id": "Encounter.diagnosis.condition",
+        "path": "Encounter.diagnosis.condition",
+        "short": "Condition that this encounter was created for",
+        "definition": "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "772",
+            "comment": "RedenContact"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "775",
+            "comment": "Verrichting"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "resourceType": "Goal",
+  "id": "P2-ACP-Medical-Policy-Goal",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "b3aaf1a9-cbe3-4b7a-a6c8-ecc55a65e5e9"
+    }
+  ],
+  "description": {
+    "coding": [
+      {
+        "code": "713148004",
+        "system": "http://snomed.info/sct",
+        "display": "voorkomen en behandelen van symptomen"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "statusDate": "2025-08-07",
+  "status": "in-progress",
+  "extension": [
+    {
+      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "valueReference": {
+        "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
+        "display": "Encounter, 2025-08-07"
+      }
+    }
+  ]
+}

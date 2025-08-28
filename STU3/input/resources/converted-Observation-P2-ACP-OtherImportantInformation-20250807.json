@@ -1,0 +1,57 @@
+{
+  "resourceType": "Observation",
+  "id": "P2-ACP-OtherImportantInformation-20250807",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OtherImportantInformation"
+    ]
+  },
+  "context": {
+    "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
+    "display": "Encounter, 2025-08-07"
+  },
+  "valueString": "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door.",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "45ff425e-5c09-4930-b4ea-3819dc857734"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "247751003",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters",
+      "display": "Healthcare professional (person), Desiree Wolters",
+      "extension": [
+        {
+          "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+          "valueReference": {
+            "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+            "display": "Healthcare professional (role), Desiree Wolters"
+          }
+        }
+      ]
+    }
+  ]
+}

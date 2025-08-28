@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R3/fhir-single.xsd">
+  <id value="iknl.fhir.stu3.pzp" />
+  <url value="https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.stu3.pzp" />
+  <version value="0.1.3-beta3" />
+  <name value="PZP" />
+  <title value="IKNL PZP STU3" />
+  <status value="active" />
+  <experimental value="false" />
+  <publisher value="IKNL" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="https://www.iknl.nl" />
+    </telecom>
+  </contact>
+  <description value="Advance Care Planning (PZP) IG for FHIR STU3 based on zib release 2017" />
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm" />
+      <code value="001" />
+    </coding>
+  </jurisdiction>
+  <packageId value="iknl.fhir.stu3.pzp" />
+  <license value="CC0-1.0" />
+  <fhirVersion value="3.0.2" />
+  <dependsOn>
+    <uri value="https://simplifier.net/packages/nictiz.fhir.nl.stu3.zib2017/2.2.20" />
+    <packageId value="nictiz.fhir.nl.stu3.zib2017" />
+    <version value="2.2.20" />
+  </dependsOn>
+  <definition>
+    <page>
+      <!-- The root will always be toc.html - the template will force it if you don't do it -->
+      <nameUrl value="toc.html" />
+      <title value="Table of Contents" />
+      <generation value="html" />
+      <page>
+        <nameUrl value="index.html" />
+        <title value="Index" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="information-standard.html" />
+        <title value="Information Standard" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="data-model.html" />
+        <title value="Data Model" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="data-exchange.html" />
+        <title value="Data Exchange" />
+        <generation value="markdown" />
+      </page>
+    </page>
+    <!--
+    <resource>
+      <reference>
+        <reference value="SearchParameter/Communication-reason-code" />
+      </reference>
+      <description value="SearchParameter for Communication reason code" />
+    </resource>
+    -->
+    <parameter>
+      <code value="copyrightyear" />
+      <value value="2025+" />
+    </parameter>
+    <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+    <parameter>
+      <code value="releaselabel" />
+      <value value="consultation" />
+    </parameter>
+    <parameter>
+      <code value="find-other-resources" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="path-liquid" />
+      <value value="templates\liquid" />
+    </parameter>
+    <parameter>
+      <code value="shownav" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="showsource" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="i18n-default-lang" />
+      <value value="en" />
+    </parameter>
+    <parameter>
+      <code value="fcp-approved-specification" />
+      <value value="false" />
+    </parameter>
+    <parameter>
+      <code value="pin-canonicals" />
+      <value value="pin-all" />
+    </parameter>
+    <parameter>
+      <code value="display-warnings" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="no-cibuild-issues" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="suppress-mappings" />
+      <value value="*" />
+    </parameter>
+  </definition>
+</ImplementationGuide>

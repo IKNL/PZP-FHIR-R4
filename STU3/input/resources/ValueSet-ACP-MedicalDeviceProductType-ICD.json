@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ACP-MedicalDeviceProductType-ICD",
+  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD",
+  "version": "0.1.0",
+  "name": "ACPMedicalDeviceProductTypeICDVS",
+  "title": "MedicalDevice ProductType ICD",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [ {
+    "name": "IKNL",
+    "telecom": [ {
+      "system": "email",
+      "value": "info@iknl.nl",
+      "use": "work"
+    } ]
+  } ],
+  "description": "ICD product code for MedicalDevice ProductType.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "compose": {
+    "include": [ {
+      "system": "urn:oid:2.16.840.1.1138836.96",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "72506001"
+      } ]
+    } ]
+  }
+}

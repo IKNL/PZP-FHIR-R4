@@ -1,0 +1,71 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ext-EncounterReference",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+  "version": "0.1.0",
+  "name": "ExtEncounterReference",
+  "title": "ext Encounter Reference",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "An extension to link the Encounter during which the Consent, Goal or DeviceUseStatement was created or to which the creation is tightly associated.",
+  "purpose": "For some resources it may be important to know the link between the resource and a particular encounter while this is not part of the base resource. This extension allows to link the resource to the Encounter context.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "kind": "complex-type",
+  "abstract": false,
+  "contextType": "resource",
+  "context": [
+    "DeviceUseStatement",
+    "Consent",
+    "Goal"
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "ext Encounter Reference",
+        "definition": "An extension to link the Encounter during which the Consent, Goal or DeviceUseStatement was created or to which the creation is tightly associated."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "Encounter",
+        "definition": "The Encounter during which this resource was created or to which the creation is tightly associated.",
+        "comment": "This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. completing the administrative registration after the encounter).",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "http://hl7.org/fhir/StructureDefinition/Encounter"
+          }
+        ]
+      }
+    ]
+  }
+}

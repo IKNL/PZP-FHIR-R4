@@ -1,0 +1,65 @@
+{
+  "resourceType": "Observation",
+  "id": "P1-ACP-OrganDonationChoiceRegistration-Yes",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+    ]
+  },
+  "context": {
+    "reference": "Encounter/P1-ACP-Encounter-29-07-2025",
+    "display": "Encounter, 2025-07-29"
+  },
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "373066001",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "ec6d52d0-4ebc-4904-bf8b-8610d049be24"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "570801000146104",
+        "system": "http://snomed.info/sct",
+        "display": "geregistreerd in orgaan donorregister (bevinding)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/P1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+      "display": "Healthcare professional (person), van Huissen",
+      "extension": [
+        {
+          "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+          "valueReference": {
+            "reference": "PractitionerRole/P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+            "display": "Healthcare professional (role), van Huissen"
+          }
+        }
+      ]
+    }
+  ]
+}

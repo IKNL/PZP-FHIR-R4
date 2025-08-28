@@ -1,0 +1,80 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-HealthProfessional-PractitionerRole",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
+  "version": "0.1.0",
+  "name": "ACPHealthProfessionalPractitionerRole",
+  "title": "HealthProfessional PractitionerRole",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "The specialty of a person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitionerRole and HCIM HealthProfessional.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole",
+        "path": "PractitionerRole",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "24",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "89",
+            "comment": "Zorgverlener"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "28",
+            "comment": "Functie (Specialisme)"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-OrganDonationChoiceRegistration",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration",
+  "version": "0.1.0",
+  "name": "ACPOrganDonationChoiceRegistration",
+  "title": "Organ donation choice registration in donor register",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "737",
+            "comment": "Keuze orgaandonatie vastgelegd in donorregister? (AlgemeneMeting)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "570801000146104"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "742",
+            "comment": "MetingNaam voor Keuze orgaandonatie vastgelegd in donorregister?"
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Observation.context",
+        "path": "Observation.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "745",
+            "comment": "UitslagDatumTijd"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "definition": "Organ donation choice recorded in donor register.",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-YesNoUnknownVS"
+          }
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "743",
+            "comment": "Keuze orgaandonatie in donorregister (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "743",
+            "comment": "Keuze orgaandonatie in donorregister (UitslagWaarde)"
+          }
+        ]
+      }
+    ]
+  }
+}

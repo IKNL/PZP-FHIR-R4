@@ -1,0 +1,150 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-Medical-Policy-Goal",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal",
+  "version": "0.1.0",
+  "name": "ACPMedicalPolicyGoal",
+  "title": "Medical Policy Goal",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Goal",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Goal",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Goal",
+        "path": "Goal",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "157",
+            "comment": "Belangrijkste doel van behandeling (AlgemeneMeting)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "162",
+            "comment": "MetingNaam voor Belangrijkste doel van behandeling"
+          }
+        ]
+      },
+      {
+        "id": "Goal.extension:encounter",
+        "path": "Goal.extension",
+        "sliceName": "encounter",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "Goal.extension:encounter.value[x]",
+        "path": "Goal.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Goal.description",
+        "path": "Goal.description",
+        "binding": {
+          "strength": "required",
+          "valueSetReference": {
+            "reference": "https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal"
+          }
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "163",
+            "comment": "Doel (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Goal.subject",
+        "path": "Goal.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Goal.start[x]",
+        "path": "Goal.start[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Goal.start[x]:startDate",
+        "path": "Goal.start[x]",
+        "sliceName": "startDate",
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "165",
+            "comment": "UitslagDatumTijd"
+          }
+        ]
+      },
+      {
+        "id": "Goal.note.text",
+        "path": "Goal.note.text",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "160",
+            "comment": "Toelichting"
+          }
+        ]
+      }
+    ]
+  }
+}

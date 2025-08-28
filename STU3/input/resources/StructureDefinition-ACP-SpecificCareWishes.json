@@ -1,0 +1,151 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-SpecificCareWishes",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes",
+  "version": "0.1.0",
+  "name": "ACPSpecificCareWishes",
+  "title": "Specific Care Wishes",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "190",
+            "comment": "Specifieke wensen (AlgemeneMeting)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "153851000146100"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "203",
+            "comment": "Wens en verwachting patient (MetingNaam)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Observation.context",
+        "path": "Observation.context",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "206",
+            "comment": "UitslagDatumTijd"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "204",
+            "comment": "Wens en verwachting patient (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
+        "comment": "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: \r\n- if the question has been asked but the source does not know the value (code = _asked-unknown_) \r\n- if the question has not been asked (code = _not-asked_) ",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "204",
+            "comment": "Wens en verwachting patient (UitslagWaarde)"
+          }
+        ]
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "370819000"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "205",
+            "comment": "Vaststellen wens en verwachting patiënt (Meetmethode)"
+          }
+        ]
+      }
+    ]
+  }
+}

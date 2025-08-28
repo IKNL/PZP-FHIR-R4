@@ -1,0 +1,186 @@
+- action: validate
+  name: validate-resources
+  # The ImplementationGuide resource is not really used. It gives two errors... Therefore let's exclude it.
+  filter: ImplementationGuide.exists().not()
+  files: 
+    - resources/*.json
+    - resources/*.xml
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  status: "Validating all resources with .NET validator"
+  suppress: 
+    - eld-16
+
+- name: no-snapshot
+  status: "Checking that structure definitions do not have a pre-generated snapshot"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  predicate: snapshot.element.count() = 0
+  error-message: You should not generate a snapshot in your source. Allow consuming tools to generate the snapshot.
+
+- name: id-mandatory
+  status: "Checking if all resources have an id"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  predicate: id.exists()
+  error: https://fhir.iknl.nl/fhir/qa/errors|id-mandatory
+  error-message: "Resource must have an id"
+
+- name: id-unique-conformance
+  status: "Checking if all conformance resources have a unique id"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  unique: id
+  error: https://fhir.iknl.nl/fhir/qa/errors|id-unique-conformance
+
+- name: id-unique-terminology
+  status: "Checking if all terminology resources have a unique id"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  unique: id
+  error: https://fhir.iknl.nl/fhir/qa/errors|id-unique-terminology
+
+- name: id-unique-examples
+  files: 
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  error: https://fhir.iknl.nl/fhir/qa/errors|id-unique-examples
+  status: "Checking if all examples have a unique id"
+  unique: id
+
+- name: url-unique
+  status: "Checking if all resources have a unique url"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or ConceptMap).exists()
+  unique: url
+  error: https://fhir.iknl.nl/fhir/qa/errors|url-unique
+
+- name: url-starts-with-correct-base
+  status: "Checking if all resources have a canonical URL that start with the correct base"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or ConceptMap).exists()
+  predicate: url.exists() and url.startsWith('https://fhir.iknl.nl/fhir/')
+  error: https://fhir.iknl.nl/fhir/qa/errors|url-starts-with-correct-base
+  error-message: "Resource canonical URL doesn't start with 'https://fhir.iknl.nl/fhir/'"  
+  
+- name: id-profiles-starts-with-ACP
+  status: "Checking if all profiles ids start with ACP"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: (StructureDefinition.exists() and StructureDefinition.type != 'Extension' and id.startsWith('pattern') = false)
+  predicate: StructureDefinition.id.startsWith('ACP')
+  error: https://fhir.iknl.nl/fhir/QA/errors|id-profiles-starts-with-ACP
+  error-message: "Resource id does not start with 'ACP'"
+
+- name: id-examples-starts-with-ACP
+  status: "Checking if all example ids start with ACP"
+  files: 
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  filter: (NamingSystem.exists().not() and MessageDefinition.exists().not())
+  predicate: id.startsWith('ACP-') or id.length() = 64
+  error: https://fhir.iknl.nl/fhir/QA/errors|id-examples-starts-with-ACP
+  error-message: "Example id does not start with 'ACP'" 
+
+- name: name-mandatory
+  status: "Checking if all conformance resources contain a name"
+  files: 
+    - resources/*.json
+    - resources/*.xml  
+  filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
+  predicate: name.exists()
+  error: https://fhir.iknl.nl/fhir/qa/errors|name-mandatory
+  error-message: "Resource does not have a name"
+
+- name: title-mandatory
+  status: "Checking if all profiles contain a title"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: StructureDefinition.exists()
+  predicate: title.exists()
+  error: https://fhir.iknl.nl/fhir/qa/errors|title-mandatory
+  error-message: "Resource does not contain a title" 
+
+- name: description-mandatory
+  status: "Checking if resource contain a description"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
+  predicate: description.exists()
+  error: https://fhir.iknl.nl/fhir/qa/errors|description-mandatory
+  error-message: "Resource does not contain a description" 
+
+- name: publisher-filled
+  status: "Checking if all resources have a correct publisher"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  filter: (StructureDefinition or ValueSet or CodeSystem or CapabilityStatement or SearchParameter or NamingSystem or ConceptMap).exists()
+  predicate: publisher = 'IKNL'
+  error: https://fhir.iknl.nl/fhir/qa/errors|publisher-filled
+  error-message: "Incorrect publisher info." 
+
+- name: abstract-false
+  status: "Checking if all profiles are not considered abstract"
+  files: 
+    - resources/*.json
+    - resources/*.xml
+  predicate: abstract = false
+  error: https://fhir.iknl.nl/fhir/qa/errors|abstract-false
+  error-message: "Resource has abstract = true" 
+
+- name: example-profile-mandatory
+
+  status: "Checking if example has a meta.profile"
+  files: 
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  filter: (NamingSystem).exists().not()
+  predicate: meta.profile.exists()
+  error: https://fhir.iknl.nl/fhir/qa/errors|example-profile-mandatory
+  error-message: "Example resource does not claim conformance to a profile" 
+
+# - name: example-reference-display
+#   error: https://fhir.iknl.nl/fhir/qa/errors|example-reference-display
+#   error-message: "Reference does not have a display value" 
+#   severity: warning
+#   status: "Checking if all References have a display value"
+#   predicate: descendants().where($this.is(Reference)).all(display.exists() or extension.exists())
+
+- name: example-reference-makeup
+  severity: warning
+  status: "Checking if all literal References (Reference.reference) are an absolute URL, a relative URL or an internal fragment reference (contained)."
+  files: 
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  predicate: descendants().where($this.is(Reference)).reference.all(
+                startsWith('http://') or
+                startsWith('https://') or
+                startsWith('#') or
+                matches('^urn:oid:[0-2](\\.(0|[1-9]\\d*))*$') or
+                matches('^urn:uuid:[A-Fa-f\\d]{8}-[A-Fa-f\\d]{4}-[A-Fa-f\\d]{4}-[A-Fa-f\\d]{4}-[A-Fa-f\\d]{12}$') or
+                (startsWith('urn:').not() and startsWith('#').not() and matches('^[A-Za-z]{3,}/[^/]+$'))
+                )
+  error: https://fhir.iknl.nl/fhir/qa/errors|example-reference-makeup
+  error-message: "Reference.reference is not absolute URL, relative URL or an internal fragment reference." 
+
+- name: example-codeableconcept-display-text
+  status: "Checking if all CodeableConcept elements contain either a coding.display or a text value if no Coding exists or has an extension (e.g. a nullFlavor or data-absent-reason extension)."
+  files: 
+    - resources/examples/*.json
+    - resources/examples/*.xml
+  severity: warning
+  predicate: descendants().where($this.is(CodeableConcept)).all(coding.display.exists() or text.exists() or extension.exists())
+  error: https://fhir.iknl.nl/fhir/qa/errors|example-codeableconcept-display-text
+  error-message: "CodeableConcept does not have a .coding.display or a .text value or an extension." 

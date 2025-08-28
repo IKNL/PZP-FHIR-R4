@@ -1,0 +1,34 @@
+{
+  "resourceType": "Practitioner",
+  "id": "P1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://fhir.nl/fhir/NamingSystem/agb-z",
+      "value": "000002222"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "text": "Marleen van Huissen",
+      "family": "van Huissen",
+      "_family": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+            "valueString": "van"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+            "valueString": "Huissen"
+          }
+        ]
+      }
+    }
+  ]
+}

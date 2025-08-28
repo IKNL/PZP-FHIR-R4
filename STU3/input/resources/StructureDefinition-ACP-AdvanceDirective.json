@@ -1,0 +1,225 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-AdvanceDirective",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective",
+  "version": "0.1.0",
+  "name": "ACPAdvanceDirective",
+  "title": "AdvanceDirective",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "A living will is a verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Consent",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Consent",
+        "path": "Consent",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "66",
+            "comment": "Wilsverklaring"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "102",
+            "comment": "Wilsverklaring"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "123",
+            "comment": "Keuze orgaandonatie vastgelegd (Wilsverklaring)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "139",
+            "comment": "Eerder vastgelegde behandelafspraken (Wilsverklaring)"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "166",
+            "comment": "Euthanasieverklaring (Wilsverklaring)"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:disorder",
+        "path": "Consent.extension",
+        "sliceName": "disorder",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "126",
+            "comment": "Aandoening"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "142",
+            "comment": "Aandoening"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:comment",
+        "path": "Consent.extension",
+        "sliceName": "comment",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "131",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "147",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter",
+        "path": "Consent.extension",
+        "sliceName": "encounter",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:encounter.value[x]",
+        "path": "Consent.extension.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+          }
+        ]
+      },
+      {
+        "id": "Consent.category:typeOfLivingWill",
+        "path": "Consent.category",
+        "sliceName": "typeOfLivingWill",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "124",
+            "comment": "Orgaandonatie (WilsverklaringType)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "140",
+            "comment": "WilsverklaringType"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "175",
+            "comment": "Euthanasieverklaring (WilsverklaringType)"
+          }
+        ]
+      },
+      {
+        "id": "Consent.patient",
+        "path": "Consent.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Consent.dateTime",
+        "path": "Consent.dateTime",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "125",
+            "comment": "WilsverklaringDatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "141",
+            "comment": "WilsverklaringDatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "176",
+            "comment": "WilsverklaringDatum"
+          }
+        ]
+      },
+      {
+        "id": "Consent.consentingParty",
+        "path": "Consent.consentingParty",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "128",
+            "comment": "Vertegenwoordiger"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "144",
+            "comment": "Vertegenwoordiger"
+          }
+        ]
+      },
+      {
+        "id": "Consent.source[x]:sourceAttachment",
+        "path": "Consent.source[x]",
+        "sliceName": "sourceAttachment",
+        "type": [
+          {
+            "code": "Attachment"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "130",
+            "comment": "WilsverklaringDocument"
+          },
+          {
+            "identity": "pall-izppz-zibs2017-v2025-03-11",
+            "map": "146",
+            "comment": "WilsverklaringDocument"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "181",
+            "comment": "WilsverklaringDocument"
+          }
+        ]
+      }
+    ]
+  }
+}

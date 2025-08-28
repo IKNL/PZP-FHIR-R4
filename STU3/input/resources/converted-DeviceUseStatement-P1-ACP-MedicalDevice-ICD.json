@@ -1,0 +1,83 @@
+{
+  "resourceType": "DeviceUseStatement",
+  "id": "P1-ACP-MedicalDevice-ICD",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "19f6c62e-dc54-46ff-b350-99f1e7a5a566"
+    }
+  ],
+  "status": "active",
+  "subject": {
+    "reference": "Patient/P1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "device": {
+    "reference": "Device/P1-ACP-MedicalDevice.Product-ICD"
+  },
+  "bodySite": {
+    "extension": [
+      {
+        "url": "http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "7771000",
+              "system": "http://snomed.info/sct",
+              "display": "Links"
+            }
+          ]
+        }
+      }
+    ],
+    "coding": [
+      {
+        "code": "80891009",
+        "system": "http://snomed.info/sct",
+        "display": "Heart structure (body structure)"
+      }
+    ]
+  },
+  "timingPeriod": {
+    "start": "2020-05-19"
+  },
+  "extension": [
+    {
+      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "valueReference": {
+        "reference": "Encounter/P1-ACP-Encounter-29-07-2025",
+        "display": "Encounter, 2025-07-29"
+      }
+    },
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner",
+      "valueReference": {
+        "reference": "Practitioner/P1-ACP-HealthProfessional-Practitioner-Santos",
+        "display": "Healthcare professional (person), Santos",
+        "extension": [
+          {
+            "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+            "valueReference": {
+              "reference": "PractitionerRole/P1-ACP-HealthProfessional-PractitionerRole-Santos",
+              "display": "Healthcare professional, Santos"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

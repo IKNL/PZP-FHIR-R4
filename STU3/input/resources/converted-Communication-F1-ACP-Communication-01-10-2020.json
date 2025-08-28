@@ -1,0 +1,60 @@
+{
+  "resourceType": "Communication",
+  "id": "F1-ACP-Communication-01-10-2020",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication"
+    ]
+  },
+  "status": "completed",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "dd6d7146-1014-4ef4-9145-e8207364c942"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "recipient": [
+    {
+      "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+      "display": "Patient, Hendrik Hartman"
+    }
+  ],
+  "sent": "2020-10-01",
+  "sender": {
+    "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+    "display": "Healthcare professional (person), van Huissen",
+    "extension": [
+      {
+        "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+        "valueReference": {
+          "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+          "display": "Healthcare professional (role), van Huissen"
+        }
+      }
+    ]
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "code": "713603004",
+          "system": "http://snomed.info/sct",
+          "display": "Advance care planning (procedure)"
+        }
+      ]
+    }
+  ]
+}

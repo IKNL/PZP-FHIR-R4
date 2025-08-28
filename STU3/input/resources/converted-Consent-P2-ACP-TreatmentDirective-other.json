@@ -1,0 +1,113 @@
+{
+  "resourceType": "Consent",
+  "id": "P2-ACP-TreatmentDirective-other",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+    ]
+  },
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "e3419bc6-ba15-4d29-ad32-a384d1846747"
+  },
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "11291000146105",
+          "display": "Treatment instructions (record artifact)"
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "dateTime": "2025-08-07",
+  "extension": [
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/Comment",
+      "valueString": "wanneer door complicaties peritoneaal dialyse niet meer mogelijk is en de patiënt elke week in het ziekenhuis gedialyseerd zou moeten worden dan wil ze dat de dialyse stopt."
+    },
+    {
+      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "valueReference": {
+        "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
+        "display": "Encounter, 2025-08-07"
+      }
+    },
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification",
+      "extension": [
+        {
+          "url": "Verified",
+          "valueBoolean": true
+        },
+        {
+          "url": "VerificationDate",
+          "valueDateTime": "2025-08-07"
+        },
+        {
+          "url": "VerifiedWith",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116154003",
+                "display": "Patient"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "OTH",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor"
+          }
+        ],
+        "text": "Dialyse in het ziekenhuis"
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
+            "code": "NEE",
+            "display": "Nee"
+          }
+        ]
+      }
+    }
+  ],
+  "except": [
+    {
+      "type": "deny"
+    }
+  ]
+}

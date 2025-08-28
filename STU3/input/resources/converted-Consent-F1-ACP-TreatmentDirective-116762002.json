@@ -1,0 +1,109 @@
+{
+  "resourceType": "Consent",
+  "id": "F1-ACP-TreatmentDirective-116762002",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+    ]
+  },
+  "identifier": {
+    "type": {
+      "coding": [
+        {
+          "code": "RI",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "display": "Resource identifier"
+        }
+      ]
+    },
+    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+    "value": "d023ee6f-88d6-4a1e-99a7-40118b4cea45"
+  },
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "11291000146105",
+          "display": "Treatment instructions (record artifact)"
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "dateTime": "2020-10-01",
+  "extension": [
+    {
+      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "valueReference": {
+        "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
+        "display": "Encounter, 2020-10-01"
+      }
+    },
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification",
+      "extension": [
+        {
+          "url": "Verified",
+          "valueBoolean": true
+        },
+        {
+          "url": "VerificationDate",
+          "valueDateTime": "2020-10-01"
+        },
+        {
+          "url": "VerifiedWith",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "116154003",
+                "display": "Patient"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "116762002",
+            "system": "http://snomed.info/sct",
+            "display": "administration of blood product"
+          }
+        ]
+      }
+    }
+  ],
+  "policy": [
+    {
+      "uri": "https://wetten.overheid.nl/"
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4",
+            "code": "JA",
+            "display": "Ja"
+          }
+        ]
+      }
+    }
+  ],
+  "except": [
+    {
+      "type": "permit"
+    }
+  ]
+}

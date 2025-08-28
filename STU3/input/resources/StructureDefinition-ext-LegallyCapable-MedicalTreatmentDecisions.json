@@ -1,0 +1,118 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ext-LegallyCapable-MedicalTreatmentDecisions",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions",
+  "version": "0.1.0",
+  "name": "ExtLegallyCapableMedicalTreatmentDecisions",
+  "title": "ext LegallyCapable regarding medical treatment decisions",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "An extension to indicate the patient's legal capability regarding medical treatment decisions, and to provide a comment on this capability.",
+  "purpose": "This extension is based on the [extension FreedomRestrictingIntervention.LegallyCapable](http://nictiz.nl/fhir/StructureDefinition/ext-FreedomRestrictingIntervention.LegallyCapable), but is adapted for the ACP context by allowing its use on the Patient resource and specifying its application to treatment decisions.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "kind": "complex-type",
+  "abstract": false,
+  "contextType": "resource",
+  "context": [
+    "Patient"
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "ext LegallyCapable regarding medical treatment decisions",
+        "definition": "An extension to indicate the patient's legal capability regarding medical treatment decisions, and to provide a comment on this capability."
+      },
+      {
+        "id": "Extension.extension:legallyCapable",
+        "path": "Extension.extension",
+        "sliceName": "legallyCapable",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:legallyCapable.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:legallyCapable.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "legallyCapable"
+      },
+      {
+        "id": "Extension.extension:legallyCapable.value[x]",
+        "path": "Extension.extension.value[x]",
+        "short": "LegallyCapable",
+        "definition": "Indicates the patient's legal capacity (LegallyCapable) regarding medical treatment decisions.",
+        "alias": [
+          "Wilsbekwaam"
+        ],
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment",
+        "path": "Extension.extension",
+        "sliceName": "legallyCapableComment",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment.extension",
+        "path": "Extension.extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment.url",
+        "path": "Extension.extension.url",
+        "fixedUri": "legallyCapableComment"
+      },
+      {
+        "id": "Extension.extension:legallyCapableComment.value[x]",
+        "path": "Extension.extension.value[x]",
+        "short": "LegallyCapableComment",
+        "definition": "A comment regarding the patient's legal capacity regarding medical treatment decisions.",
+        "alias": [
+          "WilsbekwaamToelichting"
+        ],
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "max": "0"
+      }
+    ]
+  }
+}

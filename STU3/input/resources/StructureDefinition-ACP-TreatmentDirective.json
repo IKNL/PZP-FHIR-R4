@@ -1,0 +1,287 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-TreatmentDirective",
+  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective",
+  "version": "0.1.0",
+  "name": "ACPTreatmentDirective",
+  "title": "TreatmentDirective",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "This profile specifies **verified** treatment directives. A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "3.0.2",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2017v2025-03-11",
+      "uri": "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00",
+      "name": "PZP zib2017 dataset"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Consent",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Consent",
+        "path": "Consent",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "54",
+            "comment": "Behandelgrens (BehandelAanwijzing)"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "90",
+            "comment": "Afspraak uitzetten ICD (BehandelAanwijzing)"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension",
+        "path": "Consent.extension",
+        "min": 1
+      },
+      {
+        "id": "Consent.extension:verification",
+        "path": "Consent.extension",
+        "sliceName": "verification",
+        "min": 1,
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "55",
+            "comment": "Verificatie"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "91",
+            "comment": "Verificatie"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:verification.extension",
+        "path": "Consent.extension.extension",
+        "min": 1
+      },
+      {
+        "id": "Consent.extension:verification.extension:Verified",
+        "path": "Consent.extension.extension",
+        "sliceName": "Verified",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "56",
+            "comment": "Geverifieerd"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "92",
+            "comment": "Geverifieerd"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:verification.extension:Verified.valueBoolean",
+        "path": "Consent.extension.extension.valueBoolean",
+        "min": 1,
+        "fixedBoolean": true
+      },
+      {
+        "id": "Consent.extension:verification.extension:VerifiedWith",
+        "path": "Consent.extension.extension",
+        "sliceName": "VerifiedWith",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "57",
+            "comment": "GeverifieerdBij"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "93",
+            "comment": "GeverifieerdBij"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:verification.extension:VerificationDate",
+        "path": "Consent.extension.extension",
+        "sliceName": "VerificationDate",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "58",
+            "comment": "VerificatieDatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "94",
+            "comment": "VerificatieDatum"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:comment",
+        "path": "Consent.extension",
+        "sliceName": "comment",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "64",
+            "comment": "Toelichting"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "100",
+            "comment": "Toelichting"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:treatment",
+        "path": "Consent.extension",
+        "sliceName": "treatment",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "59",
+            "comment": "Behandeling"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "95",
+            "comment": "Behandeling van uitzetten ICD"
+          }
+        ]
+      },
+      {
+        "id": "Consent.extension:additionalSources",
+        "path": "Consent.extension",
+        "sliceName": "additionalSources",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "65"
+          }
+        ]
+      },
+      {
+        "id": "Consent.modifierExtension",
+        "path": "Consent.modifierExtension",
+        "min": 1
+      },
+      {
+        "id": "Consent.modifierExtension:treatmentPermitted",
+        "path": "Consent.modifierExtension",
+        "sliceName": "treatmentPermitted",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "60",
+            "comment": "BehandelingToegestaan"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "96",
+            "comment": "Afspraak uitzetten ICD (BehandelingToegestaan)"
+          }
+        ]
+      },
+      {
+        "id": "Consent.patient",
+        "path": "Consent.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+          }
+        ]
+      },
+      {
+        "id": "Consent.period.start",
+        "path": "Consent.period.start",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "62",
+            "comment": "BeginDatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "98",
+            "comment": "BeginDatum"
+          }
+        ]
+      },
+      {
+        "id": "Consent.period.end",
+        "path": "Consent.period.end",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "63",
+            "comment": "EindDatum"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "99",
+            "comment": "EindDatum"
+          }
+        ]
+      },
+      {
+        "id": "Consent.source[x]:sourceReference",
+        "path": "Consent.source[x]",
+        "sliceName": "sourceReference",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "65",
+            "comment": "Wilsverklaring"
+          },
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "101",
+            "comment": "Wilsverklaring"
+          }
+        ]
+      },
+      {
+        "id": "Consent.except.extension:restrictions",
+        "path": "Consent.except.extension",
+        "sliceName": "restrictions",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2017v2025-03-11",
+            "map": "61",
+            "comment": "Beperkingen"
+          }
+        ]
+      }
+    ]
+  }
+}
