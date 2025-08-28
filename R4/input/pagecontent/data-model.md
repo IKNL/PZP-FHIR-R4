@@ -19,9 +19,11 @@ Two example QuestionnaireResponse resources, based on this Questionnaire, are in
 
 ### Associating ACP dataset to FHIR 
 
-The FHIR profiles in this guide are directly traceable to the ACP dataset elements published in ART-DECOR.
+The FHIR profiles in this guide are directly linked to the ACP dataset elements published in ART-DECOR.
 
-Each StructureDefinition contains a mapping in `StructureDefinition.mapping.uri` that resolves to the specific version of the ACP dataset used. Furthermore, every element within a profile is individually mapped to its corresponding dataset element using the `ElementDefinition.mapping` property. A user-friendly rendering of these mappings is available on the "Mappings" tab of each profile page.
+Each StructureDefinition includes a `StructureDefinition.mapping.uri` that points to the specific version of the ACP dataset used. Additionally, every element within a profile is individually mapped to its corresponding dataset element using the `ElementDefinition.mapping` property. A user-friendly rendering of these mappings is available on the "Mappings" tab of each profile page.
+
+These mappings provide a straightforward way to highlight the elements that are especially relevant for the ACP use case, without the need to set or define mustSupport flags. As a result, the profile's differential table now shows all elements marked as relevant.
 
 #### Note on referenced zibs
 

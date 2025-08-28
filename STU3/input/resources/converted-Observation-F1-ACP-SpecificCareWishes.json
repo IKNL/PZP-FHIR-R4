@@ -2,45 +2,65 @@
   "resourceType": "Observation",
   "id": "F1-ACP-SpecificCareWishes",
   "meta": {
-    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes" ]
-  },
-  "identifier": [ {
-    "type": {
-      "coding": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-        "code": "RI",
-        "display": "Resource identifier"
-      } ]
-    },
-    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-    "value": "c68d0feb-ee43-45d5-86f5-a7f43a20f167"
-  } ],
-  "status": "final",
-  "code": {
-    "coding": [ {
-      "system": "http://snomed.info/sct",
-      "code": "153851000146100"
-    } ]
-  },
-  "subject": {
-    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
-    "display": "Patient, Hendrik Hartman"
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes"
+    ]
   },
   "context": {
     "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
     "display": "Encounter, 2020-10-01"
   },
-  "effectiveDateTime": "2020-10-01",
-  "performer": [ {
-    "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
-    "display": "Healthcare professional (role), van Huissen"
-  } ],
   "valueString": "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik",
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "c68d0feb-ee43-45d5-86f5-a7f43a20f167"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "153851000146100",
+        "system": "http://snomed.info/sct"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
+      "display": "Healthcare professional (person), van Huissen",
+      "extension": [
+        {
+          "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+          "valueReference": {
+            "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
+            "display": "Healthcare professional (role), van Huissen"
+          }
+        }
+      ]
+    }
+  ],
   "method": {
-    "coding": [ {
-      "system": "http://snomed.info/sct",
-      "code": "370819000",
-      "display": "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
-    } ]
+    "coding": [
+      {
+        "code": "370819000",
+        "system": "http://snomed.info/sct",
+        "display": "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
+      }
+    ]
   }
 }

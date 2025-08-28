@@ -2,42 +2,74 @@
   "resourceType": "Encounter",
   "id": "P2-ACP-Encounter-07-08-2025",
   "meta": {
-    "profile": [ "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter" ]
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+    ]
   },
-  "identifier": [ {
-    "type": {
-      "coding": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-        "code": "RI",
-        "display": "Resource identifier"
-      } ]
-    },
-    "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-    "value": "ba69d05c-85d2-4773-8db4-4eb69d12d110"
-  } ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "ba69d05c-85d2-4773-8db4-4eb69d12d110"
+    }
+  ],
   "status": "finished",
   "class": {
-    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
     "code": "IMP",
-    "display": "Inpatient"
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "inpatient encounter"
   },
   "subject": {
     "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
     "display": "Patient, Samira van der Sluijs"
   },
-  "participant": [ {
-    "individual": {
-      "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
-      "display": "Healthcare professional (role), Desiree Wolters"
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters",
+        "display": "Healthcare professional (person), Desiree Wolters",
+        "extension": [
+          {
+            "url": "http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference",
+            "valueReference": {
+              "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+              "display": "Healthcare professional (role), Desiree Wolters"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "individual": {
+        "reference": "RelatedPerson/P2-ACP-ContactPerson-MayaVanDerSluijsMulder",
+        "display": "ContactPerson, Maya van der Sluijs"
+      }
     }
-  }, {
-    "individual": {
-      "reference": "RelatedPerson/P2-ACP-ContactPerson-MayaVanDerSluijsMulder",
-      "display": "ContactPerson, Maya van der Sluijs"
-    }
-  } ],
+  ],
   "period": {
     "start": "2025-08-07",
     "end": "2025-08-07"
-  }
+  },
+  "diagnosis": [
+    {
+      "condition": {
+        "extension": [
+          {
+            "url": "http://nictiz.nl/fhir/StructureDefinition/ext-Comment",
+            "valueString": "Derde PZP gesprek van mevrouw"
+          }
+        ],
+        "reference": "Procedure/P2-ACP-Procedure-07-08-2025",
+        "display": "Procedure, ACP"
+      }
+    }
+  ]
 }

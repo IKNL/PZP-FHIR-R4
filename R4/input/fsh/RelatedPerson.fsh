@@ -132,8 +132,8 @@ Usage: #example
 * name[=].use = #official
 * name[=].text = "Michiel Hartman"
 * name[=].family = "Hartman"
-* name[=].family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
-* name[=].family.extension[=].valueString = "Hartman"
+* name[=].family.extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name[=].family.extension.valueString = "Hartman"
 * name[=].given[0] = "Michiel"
 * name[=].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
 * name[=].given[=].extension.valueCode = #BR

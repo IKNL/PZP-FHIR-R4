@@ -10,7 +10,7 @@ Usage: #example
 * performer[0].actor = Reference(P1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
 * performer[+].actor = Reference(P1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
-* performer[=].actor.type = "ContactPerson"
+* performer[=].actor.type = "RelatedPerson"
 * performer[+].actor = Reference(P1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2025-07-29"

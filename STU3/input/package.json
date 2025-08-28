@@ -1,0 +1,11 @@
+{
+  "name": "input",
+  "version": "0.1.0",
+  "description": "Put a description here",
+  "dependencies": {
+    "nictiz.fhir.nl.stu3.zib2017": "2.3.0"
+  },
+  "fhirVersions": [
+    "3.0.2"
+  ]
+}

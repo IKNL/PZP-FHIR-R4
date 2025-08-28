@@ -5,33 +5,33 @@ Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
-* identifier.value = "999911121" // TODO toevoegen juiste bsn
+* identifier.value = "999998298"
 * name[0].use = #official
-* name[nameInformation].text = "Samira van der Sluijs"
-* name[nameInformation].family = "van der Sluijs"
-* name[nameInformation].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
-* name[nameInformation].family.extension[=].valueString = "Sluijs"
-* name[nameInformation].family.extension[1].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
-* name[nameInformation].family.extension[=].valueString = "van der"
-* name[nameInformation].given[0] = "Samira"
-* name[nameInformation].given[+] = "Louise"
-* name[nameInformation].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name[nameInformation].given[=].extension.valueCode = #BR
-* name[nameInformation].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
-* name[nameInformation].given[=].extension.valueCode = #BR
+* name[=].text = "Samira van der Sluijs"
+* name[=].family = "van der Sluijs"
+* name[=].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name[=].family.extension[=].valueString = "Sluijs"
+* name[=].family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+* name[=].family.extension[=].valueString = "van der"
+* name[=].given[0] = "Samira"
+* name[=].given[+] = "Louise"
+* name[=].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[=].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
 * name[+].use = #usual
 * name[=].given = "Samira"
-* telecom[telephoneNumbers].system = #phone
-* telecom[telephoneNumbers].system.extension[+].url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* telecom[telephoneNumbers].system.extension[=].valueCode = #MC
-* telecom[telephoneNumbers].value = "0688877788"
-* telecom[telephoneNumbers].use = #home
-* telecom[emailAddresses].system = #email
-* telecom[emailAddresses].value = "samira.test@iknl.nl"
-* telecom[emailAddresses].use = #work
+* telecom[+].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0688877788"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "samira.test@iknl.nl"
+* telecom[=].use = #work
 * gender = #female
 * gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* gender.extension.valueCodeableConcept = #F "Female"
+* gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"
 * birthDate = "1959-07-31"
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
 * address.extension.valueCodeableConcept = #HP
@@ -48,4 +48,4 @@ Usage: #example
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
-* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Nederland"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"

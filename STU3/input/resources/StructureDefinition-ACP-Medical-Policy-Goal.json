@@ -135,13 +135,6 @@
         ]
       },
       {
-        "id": "Goal.start[x]:startDate.value",
-        "path": "Goal.start[x].value",
-        "type": [
-          {}
-        ]
-      },
-      {
         "id": "Goal.note.text",
         "path": "Goal.note.text",
         "mapping": [

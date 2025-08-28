@@ -38,6 +38,16 @@
       <title value="Table of Contents" />
       <generation value="html" />
       <page>
+        <nameUrl value="index.html" />
+        <title value="Index" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="information-standard.html" />
+        <title value="Information Standard" />
+        <generation value="markdown" />
+      </page>
+      <page>
         <nameUrl value="data-exchange.html" />
         <title value="Data Exchange" />
         <generation value="markdown" />
@@ -46,162 +56,16 @@
         <nameUrl value="data-model.html" />
         <title value="Data Model" />
         <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="functioneel-ontwerp.html" />
-        <title value="Functioneel Ontwerp" />
-        <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="index.html" />
-        <title value="Index" />
-        <generation value="markdown" />
-      </page>
+      </page>      
     </page>
+    <!--
     <resource>
       <reference>
         <reference value="SearchParameter/Communication-reason-code" />
       </reference>
       <description value="SearchParameter for Communication reason code" />
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-AdvanceDirective" />
-      </reference>
-      <description value="Profile for ACP AdvanceDirective" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Communication" />
-      </reference>
-      <description value="Profile for ACP Communication" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-ContactPerson" />
-      </reference>
-      <description value="Profile for ACP ContactPerson" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Encounter" />
-      </reference>
-      <description value="Profile for ACP Encounter" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-HealthProfessional-Practitioner" />
-      </reference>
-      <description value="Profile for ACP HealthProfessional Practitioner" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-HealthProfessional-PractitionerRole" />
-      </reference>
-      <description value="Profile for ACP HealthProfessional PractitionerRole" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Medical-Policy-Goal" />
-      </reference>
-      <description value="Profile for ACP Medical Policy Goal" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-MedicalDevice" />
-      </reference>
-      <description value="Profile for ACP MedicalDevice" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-MedicalDevice.Product-ICD" />
-      </reference>
-      <description value="Profile for ACP MedicalDevice.Product ICD" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-OrganDonationChoiceRegistration" />
-      </reference>
-      <description value="Profile for ACP OrganDonationChoiceRegistration" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-OtherImportantInformation" />
-      </reference>
-      <description value="Profile for ACP OtherImportantInformation" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Patient" />
-      </reference>
-      <description value="Profile for ACP Patient" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-PositionRegardingEuthanasia" />
-      </reference>
-      <description value="Profile for ACP PositionRegardingEuthanasia" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-PreferredPlaceOfDeath" />
-      </reference>
-      <description value="Profile for ACP PreferredPlaceOfDeath" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-Procedure" />
-      </reference>
-      <description value="Profile for ACP Procedure" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-SpecificCareWishes" />
-      </reference>
-      <description value="Profile for ACP SpecificCareWishes" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ACP-TreatmentDirective" />
-      </reference>
-      <description value="Profile for ACP TreatmentDirective" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ext-EncounterReference" />
-      </reference>
-      <description value="Profile for ext EncounterReference" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions" />
-      </reference>
-      <description value="Profile for ext LegallyCapable MedicalTreatmentDecisions" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ACP-EuthanasiaStatement" />
-      </reference>
-      <description value="ValueSet for ACP EuthanasiaStatement" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ACP-MedicalDeviceProductType-ICD" />
-      </reference>
-      <description value="ValueSet for ACP MedicalDeviceProductType ICD" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ACP-MedicalPolicyGoal" />
-      </reference>
-      <description value="ValueSet for ACP MedicalPolicyGoal" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/ACP-YesNoUnknownVS" />
-      </reference>
-      <description value="ValueSet for ACP YesNoUnknownVS" />
-    </resource>
+    -->
     <parameter>
       <code value="copyrightyear" />
       <value value="2025+" />
@@ -234,6 +98,22 @@
     <parameter>
       <code value="fcp-approved-specification" />
       <value value="false" />
+    </parameter>
+    <parameter>
+      <code value="pin-canonicals" />
+      <value value="pin-all" />
+    </parameter>
+    <parameter>
+      <code value="display-warnings" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="no-cibuild-issues" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="suppress-mappings" />
+      <value value="*" />
     </parameter>
   </definition>
 </ImplementationGuide>
