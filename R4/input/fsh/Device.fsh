@@ -11,7 +11,7 @@ Mapping: MapACPMedicalDeviceProductICD
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
 Source: ACPMedicalDeviceProductICD
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/datasets/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10:37:48/"
+Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "621" "Product"
 * identifier[gs1ProductID] -> "622" "ProductID"
 * identifier[hibcProductID] -> "622" "ProductID"
