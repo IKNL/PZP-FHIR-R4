@@ -264,7 +264,7 @@ def main():
                        help="Directory containing STU3 StructureDefinition JSON files.\n(default: '../../STU3/input/resources')")
     parser.add_argument('--output-file', default='../../STU3/input/includes/zib2017_stu3_mappings.md', 
                        help="Path for the output Markdown file.\n(default: '../../STU3/input/includes/zib2017_stu3_mappings.md')")
-    parser.add_argument('--json-file', default='../DS_pzp_dataset_raadplegen_(download_2025-07-29T11_58_18).json', 
+    parser.add_argument('--json-file', default='../DS_pzp_dataset_beschikbaarstellen_(download_2025-08-28T07_27_33).json', 
                        help="Path to the JSON dataset file.")
     parser.add_argument('--mode', choices=['normal', 'develop'], default='normal', help="Output mode: 'normal' for main table only, 'develop' for full output (default: develop)")
     args = parser.parse_args()
