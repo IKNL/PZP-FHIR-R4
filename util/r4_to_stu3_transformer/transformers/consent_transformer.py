@@ -298,6 +298,7 @@ class ConsentTransformer(BaseTransformer):
         }
         has_patient = False
         has_representative = False
+        has_consenter_related_person = False
         
         if 'actor' in provision:
             for actor in provision['actor']:
@@ -329,6 +330,33 @@ class ConsentTransformer(BaseTransformer):
                             'valueDateTime': r4_consent['dateTime']
                         })
                 
+                # Check if this is a RelatedPerson with CONSENTER role
+                elif ref_type == 'RelatedPerson' and self._is_consenter_role(role):
+                    has_consenter_related_person = True
+                    # Use display text from reference if available, otherwise fallback to "ContactPerson"
+                    display_text = ref.get('display', 'ContactPerson')
+                    verification_ext['extension'].append({
+                        'url': 'Verified',
+                        'valueBoolean': True
+                    })
+                    verification_ext['extension'].append({
+                        'url': 'VerifiedWith',
+                        'valueCodeableConcept': {
+                            'coding': [{
+                                'system': 'http://hl7.org/fhir/v3/NullFlavor',
+                                'code': 'OTH',
+                                'display': 'Other'
+                            }],
+                            'text': display_text
+                        }
+                    })
+                    # Add VerificationDate from Consent.dateTime if present
+                    if 'dateTime' in r4_consent:
+                        verification_ext['extension'].append({
+                            'url': 'VerificationDate',
+                            'valueDateTime': r4_consent['dateTime']
+                        })
+                
                 # Check if this is a Representative (RESPRSN role)
                 elif self._is_representative_role(role):
                     has_representative = True
@@ -337,7 +365,7 @@ class ConsentTransformer(BaseTransformer):
                         stu3_consent['consentingParty'] = []
                     stu3_consent['consentingParty'].append(ref)
         
-        if has_patient:
+        if has_patient or has_consenter_related_person:
             stu3_consent['extension'].append(verification_ext)
 
         # --- Treatment extension and LivingWillType category mapping ---
@@ -369,6 +397,17 @@ class ConsentTransformer(BaseTransformer):
         for coding in role['coding']:
             if (coding.get('system') == 'http://terminology.hl7.org/CodeSystem/v3-RoleCode' and 
                 coding.get('code') == 'RESPRSN'):
+                return True
+        return False
+
+    def _is_consenter_role(self, role: Dict[str, Any]) -> bool:
+        """Check if role represents a consenter (CONSENTER)."""
+        if 'coding' not in role:
+            return False
+        
+        for coding in role['coding']:
+            if (coding.get('system') == 'http://terminology.hl7.org/CodeSystem/v3-RoleCode' and 
+                coding.get('code') == 'CONSENTER'):
                 return True
         return False
 

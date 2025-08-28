@@ -66,6 +66,27 @@
         {
           "url": "VerificationDate",
           "valueDateTime": "2022-11-08"
+        },
+        {
+          "url": "Verified",
+          "valueBoolean": true
+        },
+        {
+          "url": "VerifiedWith",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v3/NullFlavor",
+                "code": "OTH",
+                "display": "Other"
+              }
+            ],
+            "text": "ContactPerson, Michiel Hartman"
+          }
+        },
+        {
+          "url": "VerificationDate",
+          "valueDateTime": "2022-11-08"
         }
       ]
     },

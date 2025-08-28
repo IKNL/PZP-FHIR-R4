@@ -45,6 +45,32 @@
       }
     },
     {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification",
+      "extension": [
+        {
+          "url": "Verified",
+          "valueBoolean": true
+        },
+        {
+          "url": "VerifiedWith",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v3/NullFlavor",
+                "code": "OTH",
+                "display": "Other"
+              }
+            ],
+            "text": "ContactPerson, Michiel Hartman"
+          }
+        },
+        {
+          "url": "VerificationDate",
+          "valueDateTime": "2025-07-29"
+        }
+      ]
+    },
+    {
       "url": "http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment",
       "valueCodeableConcept": {
         "coding": [
