@@ -25,6 +25,6 @@ This project uses the HL7 FHIR Publisher to build the implementation guides. The
    - Compiles FSH files and generates the R4 Implementation Guide
    
 3. **Build STU3 IG**: `cd STU3 && ./_genonce.bat`
-   - Builds the STU3 Implementation Guide with converted examples
+   - Builds the STU3 Implementation Guide with converted examples (run conversion first)
 
 For detailed development instructions, see the [Copilot Instructions](.github/copilot-instructions.md).

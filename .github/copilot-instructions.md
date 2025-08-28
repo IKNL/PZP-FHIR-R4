@@ -13,7 +13,10 @@ This project is a dual-version FHIR Implementation Guide for Advance Care Planni
 
 - `R4/` – Develop all profiles, extensions, and examples here using FSH (FHIR Shorthand).
 - `STU3/` – Manual conformance resources and auto-converted example instances.
-- `util/` – Mapping tools, conversion scripts, and dataset utilities.
+- `util/` – Conversion tools, mapping generators, and dataset utilities:
+  - `r4_to_stu3_transformer/` – Python-based R4→STU3 resource transformation system
+  - `r4_mapping_and_mermaid_generator/` – R4 mapping table and diagram generation
+  - `stu3_mapping_generator/` – STU3-specific mapping table generation
 
 ## Key Workflows
 
@@ -37,13 +40,16 @@ cd STU3
 - Conformance resources should be prefixed with `manual-` for clarity.
 
 ### 3. Resource Instance Conversion
-- The Java-based converter in `util/r4-to-r3-converter/` converts only resource instances.
-- **All StructureDefinitions are automatically excluded** from conversion.
+- **Python-based converter**: Modern system in `util/r4_to_stu3_transformer/` with auto-discovery pattern
+- **All StructureDefinitions are automatically excluded** from conversion
 - Examples include Patient, Observation, Consent, etc.
+- Supports complex transformations with PractitionerRole reference resolution
 
 ### 4. Mapping Table Generation
-- Use `util/mapping_table_generator.py` to generate mapping tables from ART-DECOR datasets.
-- Deduplication is handled in the script; review output for accuracy.
+- **R4 mappings**: Use `util/r4_mapping_and_mermaid_generator/mapping_table_generator.py`
+- **STU3 mappings**: Use `util/stu3_mapping_generator/stu3_mapping_table_generator.py`
+- **Mermaid diagrams**: Use `util/r4_mapping_and_mermaid_generator/mermaid_diagram_generator.py`
+- Generate from ART-DECOR datasets with automatic deduplication
 
 ## Conversion Pipeline (Examples Only)
 - **StructureDefinitions**: Completely excluded from automatic conversion.
@@ -84,11 +90,6 @@ cd STU3
 
 _Last updated: 2025-08. Simplified to exclude StructureDefinition conversion._
 
-### 3. Debugging Conversion Issues
-- **Validation logs**: `util/r4-to-r3-converter/fhirconverter/debug-logs/`
-- **StructureMap validation**: Uses custom `MapFileValidator`
-- **Extension analysis**: Check temporary conversion extensions in debug output
-
 ## Project-Specific Patterns
 
 ### FSH Profile Conventions
@@ -125,22 +126,6 @@ Description: "If the patient is not legally capable..."
 * expression = "extension.where(url='...').value = false implies..." // FHIRPath
 ```
 
-## Conversion Architecture Understanding
-
-### Extension-Based Bridge Pattern
-The converter cannot directly transform R4→STU3 due to HAPI FHIR limitations, so it uses:
-1. **R4→R4 + Extensions**: StructureMaps add temporary conversion hints
-2. **Extension Processor**: Converts extensions to native STU3 properties
-
-### StructureMap Files
-- Located in `util/r4-to-r3-converter/maps/r4/`
-- Handle complex business logic transformations
-- Add temporary extensions with pattern: `http://fhir.conversion/cross-version/{ResourceType}.{property}`
-
-### ZIB Version Mapping
-- `matched_concepts_between_zib2017_and_zib2020.json`: Maps concept IDs between zib versions
-- Essential for maintaining compatibility between R4 (zib2020) and STU3 (zib2017)
-
 ## Key Files to Understand
 
 ### Configuration
@@ -150,12 +135,13 @@ The converter cannot directly transform R4→STU3 due to HAPI FHIR limitations, 
 
 ### Build Infrastructure
 - `R4/_genonce.bat`: Windows IG Publisher runner with offline detection
-- `convert-r4-to-stu3.bat`: Main conversion orchestrator
-- `util/r4-to-r3-converter/fhirconverter/convert.bat`: Java converter entry point
+- `STU3/_genonce.bat`: Windows IG Publisher runner for STU3
 
 ### Analysis Tools
-- `util/mapping_table_generator.py`: Generates mapping tables from ART-DECOR datasets
-- `util/r4-to-r3-converter/analyze_conversion.py`: Post-conversion analysis
+- `util/r4_mapping_and_mermaid_generator/mapping_table_generator.py`: R4 mapping tables from ART-DECOR datasets
+- `util/stu3_mapping_generator/stu3_mapping_table_generator.py`: STU3-specific mapping tables
+- `util/r4_mapping_and_mermaid_generator/mermaid_diagram_generator.py`: Visual diagram generation
+- `util/r4_to_stu3_transformer/fhir_r4_to_stu3_transformer.py`: Python-based R4→STU3 converter
 
 ## Integration Dependencies
 
@@ -165,21 +151,13 @@ The converter cannot directly transform R4→STU3 due to HAPI FHIR limitations, 
 - **SNOMED CT**: Primary terminology (alias: `$snomed`)
 
 ### Build Dependencies
-- **Java 8+**: Required for IG Publisher and custom converter
+- **Java 8+**: Required for IG Publisher
 - **SUSHI**: FSH compilation (auto-updated by IG Publisher)
 - **Python 3.8+**: For utility scripts and analysis tools
-
-## Common Gotchas
-
-1. **Always develop in R4 first** - STU3 is generated, never edit directly
-2. **Conversion extensions are temporary** - they disappear in final STU3 output
-3. **zib version alignment** - R4 uses zib2020, STU3 uses zib2017 mappings
-4. **Windows batch scripts** - Development workflow assumes Windows environment
-5. **Internet connectivity** - IG Publisher checks online/offline mode for terminology validation
 
 ## When Making Changes
 
 1. **Profile changes**: Edit FSH files in `R4/input/fsh/`, follow existing patterns
-2. **Conversion issues**: Check StructureMaps in `maps/r4/` and Java converter logic
+2. **Conversion issues**: Check Python transformer logic in `util/r4_to_stu3_transformer/`
 3. **Dataset alignment**: Update mappings when ART-DECOR datasets change
 4. **Cross-version compatibility**: Always test full conversion pipeline after changes
