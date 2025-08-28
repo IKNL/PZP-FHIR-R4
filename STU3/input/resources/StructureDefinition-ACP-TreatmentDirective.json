@@ -99,11 +99,10 @@
         ]
       },
       {
-        "id": "Consent.extension:verification.extension:Verified.valueBoolean:valueBoolean",
-        "path": "Consent.extension.extension.value[x]",
-        "sliceName": "valueBoolean",
+        "id": "Consent.extension:verification.extension:Verified.valueBoolean",
+        "path": "Consent.extension.extension.valueBoolean",
         "min": 1,
-        "defaultValueBoolean": true
+        "fixedBoolean": true
       },
       {
         "id": "Consent.extension:verification.extension:VerifiedWith",
