@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary.",
+  "description": "This profile specifies **verified** treatment directives. A treatment directive contains a joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary.",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
   "fhirVersion": "3.0.2",
   "mapping": [
@@ -54,9 +54,15 @@
         ]
       },
       {
+        "id": "Consent.extension",
+        "path": "Consent.extension",
+        "min": 1
+      },
+      {
         "id": "Consent.extension:verification",
         "path": "Consent.extension",
         "sliceName": "verification",
+        "min": 1,
         "mapping": [
           {
             "identity": "pall-izppz-zib2017v2025-03-11",
@@ -91,6 +97,13 @@
             "comment": "Geverifieerd"
           }
         ]
+      },
+      {
+        "id": "Consent.extension:verification.extension:Verified.valueBoolean:valueBoolean",
+        "path": "Consent.extension.extension.value[x]",
+        "sliceName": "valueBoolean",
+        "min": 1,
+        "defaultValueBoolean": true
       },
       {
         "id": "Consent.extension:verification.extension:VerifiedWith",
