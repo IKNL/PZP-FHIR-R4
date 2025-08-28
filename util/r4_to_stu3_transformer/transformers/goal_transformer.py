@@ -74,9 +74,11 @@ class GoalTransformer(BaseTransformer):
         
         # Handle lifecycleStatus mappings
         if lifecycle_status:
-            if lifecycle_status in ['proposed', 'planned', 'accepted', 'active', 'on-hold', 
+            if lifecycle_status in ['proposed', 'planned', 'accepted', 'on-hold', 
                                   'cancelled', 'entered-in-error', 'rejected']:
                 stu3_resource['status'] = lifecycle_status
+            elif lifecycle_status == 'active':
+                stu3_resource['status'] = 'in-progress'
             elif lifecycle_status == 'completed':
                 stu3_resource['status'] = 'achieved'
         

@@ -160,5 +160,7 @@ full-ig.zip
 *.db
 *.sqlite
 *.sqlite3
-/.simplifier
-STU3/input/fhirpkg.lock.json
+
+# simplifier files
+*/.simplifier
+*/fhirpkg.lock.json
