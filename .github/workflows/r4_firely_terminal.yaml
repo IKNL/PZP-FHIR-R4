@@ -1,17 +1,14 @@
 name: R4 Firely Terminal Validation
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ "main", "feature/#14-QA" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
   # Validate all resources using Firely Terminal 
@@ -23,16 +20,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        
-      - name: Prepare R4 package.json in workspace root
-        run: |
-          if [ -f R4/package.json ]; then
-            cp R4/package.json package.json
-          fi
-          if [ -f R4/package-lock.json ]; then
-            cp R4/package-lock.json package-lock.json
-          fi
 
+      - name: Mirror R4 to repository root and remove STU3
+        run: |
+          set -e
+          # Copy R4 project contents to repository root
+          cp -a R4/. .
+          # Remove STU3 to avoid multiple project confusion for SUSHI
+          rm -rf STU3 || true
+        
       # Install .NET runtime
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5
@@ -49,8 +45,8 @@ jobs:
       - name: Firely.Terminal (GitHub Actions)
         uses: FirelyTeam/firely-terminal-pipeline@v0.7.13
         with:
-          PATH_TO_CONFORMANCE_RESOURCES: R4/fsh-generated/resources
-          PATH_TO_EXAMPLES: R4/fsh-generated/resources
+          PATH_TO_CONFORMANCE_RESOURCES: fsh-generated/resources
+          PATH_TO_EXAMPLES: fsh-generated/resources
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
           DOTNET_VALIDATION_ENABLED: true
           JAVA_VALIDATION_ENABLED: true

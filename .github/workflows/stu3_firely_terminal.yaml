@@ -1,12 +1,12 @@
-name: R4 Firely Terminal Validation
+name: STU3 Firely Terminal Validation
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main, feature/#14-QA ]
+    branches: [ "main", "feature/#14-QA" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,6 +23,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Mirror STU3 to repository root and remove R4
+        run: |
+          set -e
+          # Copy STU3 project contents to repository root
+          cp -a STU3/. .
+          # Remove R4 to avoid multiple project confusion for SUSHI
+          rm -rf R4 || true
         
       # Install .NET runtime
       - name: Setup .NET Core SDK
@@ -40,8 +48,8 @@ jobs:
       - name: Firely.Terminal (GitHub Actions)
         uses: FirelyTeam/firely-terminal-pipeline@v0.7.13
         with:
-          PATH_TO_CONFORMANCE_RESOURCES: STU3/input/resources
-          PATH_TO_EXAMPLES: STU3\input\resources
+          PATH_TO_CONFORMANCE_RESOURCES: input/resources
+          PATH_TO_EXAMPLES: input/resources
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
           DOTNET_VALIDATION_ENABLED: true
           JAVA_VALIDATION_ENABLED: true
