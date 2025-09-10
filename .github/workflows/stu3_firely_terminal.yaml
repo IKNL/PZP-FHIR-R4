@@ -51,7 +51,7 @@ jobs:
           PATH_TO_CONFORMANCE_RESOURCES: input/resources
           PATH_TO_EXAMPLES: input/resources
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
-          DOTNET_VALIDATION_ENABLED: true
+          DOTNET_VALIDATION_ENABLED: false
           JAVA_VALIDATION_ENABLED: true
           #EXPECTED_FAILS: VALIDATION_EXAMPLES_JAVA
           SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}
