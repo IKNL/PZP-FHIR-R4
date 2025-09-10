@@ -66,6 +66,12 @@
           }
         ]
       }
+    },
+    {
+      "given": [
+        "Samira"
+      ],
+      "use": "usual"
     }
   ],
   "telecom": [
