@@ -24,6 +24,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
         
+      - name: Prepare R4 package.json in workspace root
+        run: |
+          if [ -f R4/package.json ]; then
+            cp R4/package.json package.json
+          fi
+          if [ -f R4/package-lock.json ]; then
+            cp R4/package-lock.json package-lock.json
+          fi
+
       # Install .NET runtime
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5
