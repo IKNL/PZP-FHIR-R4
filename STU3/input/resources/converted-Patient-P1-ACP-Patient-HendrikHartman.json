@@ -263,6 +263,12 @@
           }
         ]
       }
+    },
+    {
+      "given": [
+        "Rik"
+      ],
+      "use": "usual"
     }
   ],
   "telecom": [
