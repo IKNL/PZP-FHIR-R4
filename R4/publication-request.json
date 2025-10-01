@@ -1,0 +1,14 @@
+{
+   "package-id" : "iknl.fhir.r4.pzp",
+   "version" : "0.1.3-beta3",
+   "path" : "https://fhir.iknl.nl/fhir/r4/pzp/0.1.3-beta3",
+   "mode" : "working",
+   "status" : "release",
+   "sequence" : "Release 1",
+   "desc" : "Initial version for 0.1.3-beta3 release of the IKNL PZP information standard.",
+   "first" : true,
+   "title" : "Advance Care Planning (PZP)",
+   "ci-build" : "http://build.fhir.org/ig/iknl/pzp-fhir",
+   "category" : "Care Management",
+   "introduction" : "This Implementation Guide supports the Advance Care Planning (ACP) information standard (Dutch: Proactieve Zorgplanning) and is intended for use within the palliative care domain in the Netherlands. This domain involves care for patients with an incurable illness or condition from which they are expected to die. Developed by the Netherlands Comprehensive Cancer Organisation (Dutch: Integraal kankercentrum Nederland (IKNL)), this guide provides technical direction for using FHIR to exchange ACP data. It is based on HL7 FHIR R4 and builds on top of the Dutch Core R4 profiles."
+}

@@ -4,7 +4,7 @@ SETLOCAL
 
 SET dlurl=https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
 SET publisher_jar=publisher.jar
-SET input_cache_path=%CD%\input-cache\
+SET input_cache_path="C:\git\hl7-ig-input-cache"
 SET skipPrompts=false
 
 SET scriptdlroot=https://raw.githubusercontent.com/HL7/ig-publisher-scripts/main
