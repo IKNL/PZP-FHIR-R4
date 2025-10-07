@@ -6,6 +6,6 @@
     "4.0.1"
   ],
   "dependencies": {
-    "nictiz.fhir.nl.r4.nl-core": "0.12.0-beta.1"
+    "nictiz.fhir.nl.r4.nl-core": "0.12.0-beta.4"
   }
 }
