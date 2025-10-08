@@ -50,7 +50,7 @@ jobs:
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
           DOTNET_VALIDATION_ENABLED: true
           JAVA_VALIDATION_ENABLED: true
-          JAVA_VALIDATION_OPTIONS: -show-message-ids 
+          JAVA_VALIDATION_OPTIONS: -show-message-ids -advisor-file input/validation-advisor-file.txt
           EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA
           SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}
           SIMPLIFIER_PASSWORD: ${{ secrets.SIMPLIFIER_PASSWORD }}
