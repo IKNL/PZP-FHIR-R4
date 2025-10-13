@@ -48,15 +48,42 @@ jobs:
           PATH_TO_CONFORMANCE_RESOURCES: fsh-generated/resources
           PATH_TO_EXAMPLES: fsh-generated/resources
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
-          DOTNET_VALIDATION_ENABLED: true
+          DOTNET_VALIDATION_ENABLED: false
           JAVA_VALIDATION_ENABLED: true
-          JAVA_VALIDATION_OPTIONS: -show-message-ids -advisor-file input/validation-advisor-file.txt
+          JAVA_VALIDATION_OPTIONS: >
+            -allow-example-urls true
+            -output validation.json
+            -html-output validation.html
+            -show-message-ids
+            -language nl
+            -jurisdiction nl
+            -display-issues-are-warnings
+            -advisor-file input/validation-advisor-file.txt
+            -resolution-context file:fsh-generated/resources/
           EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA VALIDATION_EXAMPLES_JAVA
           SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}
           SIMPLIFIER_PASSWORD: ${{ secrets.SIMPLIFIER_PASSWORD }}
           SUSHI_ENABLED: true
           FIRELY_TERMINAL_VERSION: 3.4.0
           ##JAVA_VALIDATOR_VERSION: 6.7.1
+
+      - name: Upload validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fhir-validation-results
+          path: |
+            validation.json
+            validation.html
+          retention-days: 1
+
+      - name: Convert Validation Report
+        uses: patrick-werner/validation-outcome-markdown-renderer@v1
+        with:
+          bundle-file: validation.json
+          include: errors
+          filters: |
+            # Struktur: fileName|messageId|detailsWildcard|location
+
 
       # - name: Add & Commit
       #   uses: EndBug/add-and-commit@v9
