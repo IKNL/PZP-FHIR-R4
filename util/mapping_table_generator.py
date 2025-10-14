@@ -228,9 +228,9 @@ def main():
         description="Extracts FHIR Shorthand (FSH) mappings to a Markdown file.",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('--fsh-dir', default='../../R4/input/fsh', help="Directory containing .fsh files.\n(default: '/R4/input/fsh')")
-    parser.add_argument('--output-file', default='../../R4/input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'R4/input/includes/mappings.md')")
-    parser.add_argument('--json-file', default='../DS_pzp_dataset_beschikbaarstellen_(download_2025-08-28T07_27_33).json', help="Path to the JSON dataset file.")
+    parser.add_argument('--fsh-dir', default='input/fsh', help="Directory containing .fsh files.\n(default: '/R4/input/fsh')")
+    parser.add_argument('--output-file', default='input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'R4/input/includes/mappings.md')")
+    parser.add_argument('--json-file', default='util/DS_pzp_dataset_beschikbaarstellen_(download_2025-08-28T07_27_33).json', help="Path to the JSON dataset file.")
     parser.add_argument('--mode', choices=['normal', 'develop'], default='normal', help="Output mode: 'normal' for main table only, 'develop' for full output (default: develop)")
     args = parser.parse_args()
     extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file, args.mode)
