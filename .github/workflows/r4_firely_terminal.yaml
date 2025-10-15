@@ -75,9 +75,9 @@ jobs:
           bundle-file: validation.json
           include: errors
           filters: |
-            # Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known 
-            Procedure-F1-ACP-Procedure-01-10-2020.json|||Procedure.​code
-            Procedure-P2-ACP-Procedure-07-08-2025.json|||Procedure.​code
+            # DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
+            Procedure-F1-ACP-Procedure-01-10-2020.json||*SNOMED CT Concept 41000147108*|*
+            Procedure-P2-ACP-Procedure-07-08-2025.json||*SNOMED CT Concept 41000147108*|*
             # Struktur: fileName|messageId|detailsWildcard|location
 
 
