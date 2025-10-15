@@ -4,7 +4,7 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: iknl.fhir.r4.pzp
-canonical: https://fhir.iknl.nl/fhir/r4/pzp
+canonical: https://api.iknl.nl/docs/r4/pzp
 name: PZP
 title: Advance Care Planning (PZP)
 description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020

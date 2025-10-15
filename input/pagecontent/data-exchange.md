@@ -33,11 +33,11 @@ The below listed search request show how all the ACP agreements, procedural info
 
 3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=[id]&description:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal
+4 GET [base]/Goal?patient=[id]&description:in=https://api.iknl.nl/docs/r4/pzp/ValueSet/ACP-MedicalPolicyGoal
 
 5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
-6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
+6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://api.iknl.nl/docs/r4/pzp/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
 
 7 GET [base]/Communication?patient=[id]&reason-code=http://snomed.info/sct|713603004
 ```
@@ -80,7 +80,7 @@ This approach is used to retrieve the complete form for uniform registration of 
 
 A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the <a href="Questionnaire-ACP-zib2020.html">ACP Questionnaire</a> to ensure that only the correct form is returned.
 
-> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020
+> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://api.iknl.nl/docs/r4/pzp/Questionnaire/ACP-zib2020
 
 
 #### Server Response

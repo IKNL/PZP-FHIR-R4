@@ -1,7 +1,7 @@
 Instance: Communication-reason-code
 InstanceOf: SearchParameter
 Usage: #definition
-* url = "https://fhir.iknl.nl/fhir/SearchParameter/Communication-reason-code"
+* url = "https://api.iknl.nl/docs/r4/pzp/SearchParameter/Communication-reason-code"
 * version = "4.0.1"
 * name = "ReasonCode"
 * status = #draft
