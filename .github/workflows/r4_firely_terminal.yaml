@@ -49,6 +49,7 @@ jobs:
             -show-message-ids
             -language nl
             -jurisdiction nl
+            -sct nl
             -display-issues-are-warnings
             -advisor-file validator/advisor.json
             -resolution-context file:fsh-generated/resources/
