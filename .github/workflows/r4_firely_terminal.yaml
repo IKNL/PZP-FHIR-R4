@@ -50,7 +50,7 @@ jobs:
             -language nl
             -jurisdiction nl
             -display-issues-are-warnings
-            -advisor-file input/validation-advisor-file.txt
+            -advisor-file validator/advisor.txt
             -resolution-context file:fsh-generated/resources/
           EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA VALIDATION_EXAMPLES_JAVA
           SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}

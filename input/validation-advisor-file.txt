@@ -1,1 +1,0 @@
-- TYPE_SPECIFIC_CHECKS_DT_URL_EXAMPLE # We use example URLs like https://acme.com/fhir/NamingSystem/resource-business-identifier
