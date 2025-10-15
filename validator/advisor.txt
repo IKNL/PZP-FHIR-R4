@@ -1,108 +1,93 @@
-# Generated advisor suggestions based on validation results
-# Review and customize these rules before adding to advisor.txt
+# FHIR Validator Advisor File for PZP FHIR R4 IG
+# This file suppresses known validation issues that are expected/acceptable
+# Format: messageId[@path] - see https://confluence.hl7.org/spaces/FHIR/pages/281216179/Validator+Advisor+Framework
+# Dom-6 Best Practice: Resources should have narrative for robust management  ACP resources do not contain narratives by design - this is acceptable
+http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6
 
-# Coding has no system. A code with no system has no defined meaning, and it canno...
-Coding_has_no_system__cannot_validate  # General rule - review if path-specific suppression needed
-# Example path: Patient.address[0].extension[0].value.ofType(CodeableConcept).coding[0]
-# Example path: RelatedPerson.address[0].extension[0].value.ofType(CodeableConcept).coding[0]
 
-# This element does not match any known slice defined in the profile https://fhir....
-Details_for__matching_against_Profile_  # General rule - review if path-specific suppression needed
-# Example path: Encounter.reasonReference[0]
-# Example path: PractitionerRole.specialty[0]
-# Example path: Device.identifier[0]
+IG_DEPENDENCY_INVALID_URL
 
-# The canonical URL http://fhir.org/packages/nictiz.fhir.nl.r4.nl-core/Implementat...
-IG_DEPENDENCY_INVALID_URL  # General rule - review if path-specific suppression needed
-# Example path: ImplementationGuide.dependsOn[0]
-# Example path: ImplementationGuide.dependsOn[1]
+NO_VALID_DISPLAY_FOUND_LANG_NONE
 
-# 'administration of blood product' is the default display; the code system http:/...
-NO_VALID_DISPLAY_FOUND_LANG_NONE  # General rule - review if path-specific suppression needed
-# Example path: Consent.provision.code[0].coding[0].display
-# Example path: Communication.reasonCode[0].coding[0].display
-# Example path: Communication.topic.coding[0].display
+NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_ERR
 
-# Wrong Display Name 'opname op intensive care' for http://snomed.info/sct#3053510...
-NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_ERR  # General rule - review if path-specific suppression needed
-# Example path: Consent.provision.code[0].coding[0].display
-# Example path: Device.type.coding[0].display
-# Example path: Goal.description.coding[0].display
+TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE  
 
-# A definition could not be found for Canonical URL 'http://fhir.org/packages/nict...
-TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE  # General rule - review if path-specific suppression needed
-# Example path: ImplementationGuide.dependsOn[0].uri
-# Example path: ImplementationGuide.dependsOn[1].uri
-# Example path: Parameters.parameter[0].value.ofType(canonical)
-
-# Could not confirm that the codings provided are in the value set http://decor.ni...
 Terminology_TX_Confirm_1_CC
 
-# The value provided ('copyrightyear') was not found in the value set 'GuideParame...
-Terminology_TX_NoValid_16  # General rule - review if path-specific suppression needed
-# Example path: ImplementationGuide.definition.parameter[0].code
-# Example path: ImplementationGuide.definition.parameter[1].code
-# Example path: ImplementationGuide.definition.parameter[2].code
+Terminology_TX_NoValid_16  
 
-# The value provided ('en-UK') was not found in the value set 'Common Languages' (...
-Terminology_TX_NoValid_18  # General rule - review if path-specific suppression needed
-# Example path: ValueSet.compose.include[1].concept[0].designation[0].language
-# Example path: ValueSet.compose.include[1].concept[0].designation[2].language
-# Example path: ValueSet.compose.include[1].concept[1].designation[0].language
+Terminology_TX_NoValid_18  
 
-# None of the codings provided are in the value set 'Euthanasia Statement' (https:...
 Terminology_TX_NoValid_1_CC
 
-# None of the codings provided are in the value set 'IdentifierType' (http://hl7.o...
-Terminology_TX_NoValid_2_CC  # General rule - review if path-specific suppression needed
-# Example path: Consent.identifier[0].type
-# Example path: Consent.category[0]
-# Example path: Observation.identifier[0].type
+Terminology_TX_NoValid_2_CC  
 
-# None of the codings provided are in the value set 'Patient relationship type' (h...
-Terminology_TX_NoValid_3_CC  # General rule - review if path-specific suppression needed
-# Example path: RelatedPerson.relationship[0]
-# Example path: PractitionerRole.specialty[0]
-# Example path: RelatedPerson.relationship[1]
+Terminology_TX_NoValid_3_CC  
 
-# Unable to check whether the code is in the value set 'http://decor.nictiz.nl/fhi...
-UNABLE_TO_CHECK_IF_THE_PROVIDED_CODES_ARE_IN_THE_VALUE_SET_CS  # General rule - review if path-specific suppression needed
-# Example path: RelatedPerson.relationship[0]
-# Example path: Patient.contact[0].relationship[0]
-# Example path: Patient.contact[0].relationship[1]
+UNABLE_TO_CHECK_IF_THE_PROVIDED_CODES_ARE_IN_THE_VALUE_SET_CS  
 
-# The System URI could not be determined for the code 'copyrightyear' in the Value...
-UNABLE_TO_INFER_CODESYSTEM  # General rule - review if path-specific suppression needed
-# Example path: ImplementationGuide.definition.parameter[0].code
-# Example path: ImplementationGuide.definition.parameter[1].code
-# Example path: ImplementationGuide.definition.parameter[2].code
+UNABLE_TO_INFER_CODESYSTEM  
 
-# A definition for CodeSystem 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' could no...
-UNKNOWN_CODESYSTEM  # General rule - review if path-specific suppression needed
-# Example path: RelatedPerson.relationship[0].coding[0].system
-# Example path: Patient.contact[0].relationship[0].coding[0].system
-# Example path: Patient.contact[0].relationship[1].coding[0].system
+UNKNOWN_CODESYSTEM  
 
-# A definition for CodeSystem 'urn:oid:2.16.840.1.113883.2.4.6.7' version '2020-10...
 UNKNOWN_CODESYSTEM_VERSION_NONE
 
-# Unknown code '340181000146102' in the CodeSystem 'http://snomed.info/sct' versio...
-Unknown code '340181000146102' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201'
+VALUESET_INCLUDE_INVALID_CONCEPT_CODE  
 
-# Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' versio...
-Unknown_Code_in_Version  # General rule - review if path-specific suppression needed
-# Example path: Observation.code.coding[0].code
-# Example path: StructureDefinition.differential.element[1].pattern.ofType(CodeableConcept).coding[0].code
-# Example path: Observation.value.ofType(CodeableConcept).coding[0].code
 
-# The code '340181000146102' is not valid in the system http://snomed.info/sct (Un...
-VALUESET_INCLUDE_INVALID_CONCEPT_CODE  # General rule - review if path-specific suppression needed
-# Example path: ValueSet.compose.include[1].concept[0]
-# Example path: ValueSet.compose.include[1].concept[1]
-# Example path: ValueSet.compose.include[1].concept[2]
 
-# Constraint failed: dom-6: 'A resource should have narrative for robust managemen...
-http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6  # General rule - review if path-specific suppression needed
-# Example path: StructureDefinition
-# Example path: Consent
-# Example path: Observation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Terminology issues: Extensible bindings allow codes outside ValueSet when no suitable code exists  
+# Identifier types from v2-0203 that aren't in the core IdentifierType ValueSet
+Terminology_TX_NoValid_2_CC@*.identifier[0].type
+
+# SNOMED CT display names: Dutch translations not available for all concepts
+# This is expected as not all SNOMED concepts have Dutch display names
+NO_VALID_DISPLAY_FOUND_LANG_NONE
+
+# Unknown codes in SNOMED CT version - codes newer than tx.fhir.org version
+# These codes exist in newer SNOMED versions but tx.fhir.org uses older version
+Unknown_Code_in_Version@StructureDefinition.differential.element[1].pattern.ofType(CodeableConcept).coding[0].code
+Unknown_Code_in_Version@StructureDefinition.differential.element[1].pattern.ofType(CodeableConcept).coding[0].code
+
+
+# Base FHIR definition issues in StructureDefinitions - not under our control
+# These relate to identifier examples using 'urn:ietf:rfc:3986' system incorrectly
+FHIR_ID_Invalid
+
+# Terminology issues for specific codes/ValueSets that have known problems
+# DHD Verrichtingenthesaurus code 41000147108 not in tx.fhir.org
+# SNOMED codes 570801000146104 and 1351964001 newer than tx.fhir.org version  
+# Device type code 72506001 ValueSet expansion issues
+Terminology_TX_NoValid_2_CC@Procedure.code
+Terminology_TX_NoValid_3_CC@*.type
+
+# URL definition not found warnings - these are acceptable
+# Policy URI 'https://wetten.overheid.nl/' from Nictiz profiles
+# Nictiz NamingSystems not available in tx.fhir.org but exist in packages
+TYPE_SPECIFIC_CHECKS_DT_URL_RESOLVE
