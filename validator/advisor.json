@@ -1,0 +1,19 @@
+{
+  "suppress" : [
+    //All filters containing: `#dom-6` - ISiK resources do not contain a narrative.
+    // Ignore this best practice warning for now.
+    "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6",
+    // filters expected information messages for the violation of preferred bindings.
+    "Terminology_TX_NoValid_3_CC@Coverage.type",
+    "Terminology_TX_NoValid_3_CC@Encounter.hospitalization.admitSource",
+    // filters expected information messages for the violation of extensible bindings.
+    "Terminology_TX_NoValid_2_CC@Coverage.subscriber.identifier.type",
+    "Terminology_TX_NoValid_2_CC@Encounter.identifier[0].type",
+    "Terminology_TX_NoValid_2_CC@Organization.identifier[0].type",
+    "Terminology_TX_NoValid_2_CC@RelatedPerson.identifier[0].type",
+    //Filter Bug with coding pattern only containing the system in the java validate (Issue: https://github.com/hapifhir/org.hl7.fhir.core/issues/2108 - can't filter on path, so filtering on message id only)
+    "Unknown_Code_in_Version",
+    //Filter Bug with ignoring the display language '-langage de' (https://github.com/hapifhir/org.hl7.fhir.core/issues/2111 - can't filter on path, so filtering on message id only)
+   "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_ERR"
+  ]
+}
