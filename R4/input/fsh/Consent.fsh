@@ -59,9 +59,9 @@ Description: "A joint decision between a health professional (for example a gene
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
 * provision.type ^comment = "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance: 
 - BehandelBesluit (dataset id 603) values: 
-    - _Ja_ -> _permit_
-    - _Nee_ -> _deny_
-    - _Ja maar met beperkingen_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.
+    - _Wel uitvoeren_ -> _permit_
+    - _Niet uitvoeren_ -> _deny_
+    - _Anders_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.
 - Afspraak uitzetten ICD (dataset id 638) values: 
     - _Wel uitvoeren_ -> _permit_ 
     - No value is mapped to _deny_
