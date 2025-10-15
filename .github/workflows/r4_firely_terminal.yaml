@@ -20,14 +20,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-
-      - name: Mirror R4 to repository root and remove STU3
-        run: |
-          set -e
-          # Copy R4 project contents to repository root
-          cp -a R4/. .
-          # Remove STU3 to avoid multiple project confusion for SUSHI
-          rm -rf STU3 || true
         
       # Install .NET runtime
       - name: Setup .NET Core SDK
