@@ -10,14 +10,13 @@
     "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@ImplementationGuide.dependsOn[0].uri",
     "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@ImplementationGuide.dependsOn[1].uri",
     "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@Parameters.parameter[0].value.ofType(canonical)",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[0].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[1].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[2].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[3].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[4].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[5].​code",
-    "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[6].​code",
-    "UNABLE_TO_INFER_CODESYSTEM@ImplementationGuide.​definition.*",
+
+
+    "Terminology_TX_NoValid_16@ImplementationGuide.*",
+    "UNABLE_TO_INFER_CODESYSTEM@ImplementationGuide.*",
+
+    // Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known which is in the NL ref set
+    "exception@Procedure.code",
 
     // Snomed code 340201000146103 cannot be found and thus not checked if it is in the valueset
     "Terminology_TX_NoValid_1_CC@Observation.value.ofType(CodeableConcept)",
