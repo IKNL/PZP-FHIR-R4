@@ -10,7 +10,7 @@ ERROR: StructureDefinition​.snapshot​.element[24]​.example[0]​.value​.
 ERROR: StructureDefinition/ACP-AdvanceDirective: StructureDefinition.snapshot.element[24].example[0].value.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
 ERROR: StructureDefinition/ACP-TreatmentDirective: StructureDefinition.snapshot.element[29].example[0].value.ofType(Identifier): if identifier.system is 'urn:ietf:rfc:3986', then the identifier.value must be a full URI (e.g. start with a scheme), not 'Local eCMS identifier'
 
-# DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in profile is not loaded into tx.fhir.org
+# DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
 ERROR: Procedure/F1-ACP-Procedure-01-10-2020: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
 ERROR: Procedure/P1-ACP-Procedure-29-07-2025: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
 ERROR: Procedure/P2-ACP-Procedure-07-08-2025: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
