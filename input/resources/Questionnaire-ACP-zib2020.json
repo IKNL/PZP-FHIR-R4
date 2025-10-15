@@ -190,7 +190,8 @@
           "item": [
             {
               "linkId": "30",
-              "text": "a) Naam wettelijk vertegenwoordiger",
+              "prefix": "a)",
+              "text": "Naam wettelijk vertegenwoordiger",
               "type": "group",
               "repeats": false,
               "item": [
@@ -219,7 +220,8 @@
             },
             {
               "linkId": "39",
-              "text": "b) Contactgegevens wettelijk vertegenwoordiger",
+              "prefix": "b)",
+              "text": "Contactgegevens wettelijk vertegenwoordiger",
               "type": "group",
               "repeats": false,
               "item": [
@@ -359,7 +361,8 @@
             },
             {
               "linkId": "982",
-              "text": "c) Relatie tot patiënt (1)",
+              "prefix": "c)",
+              "text": "Relatie tot patiënt (1)",
               "type": "choice",
               "required": false,
               "repeats": true,
@@ -456,7 +459,8 @@
             },
             {
               "linkId": "983",
-              "text": "c) Relatie tot patiënt (2)",
+              "prefix": "c)",
+              "text": "Relatie tot patiënt (2)",
               "type": "choice",
               "required": false,
               "repeats": false,
@@ -598,7 +602,8 @@
             {
               "type": "choice",
               "linkId": "984",
-              "text": "d) Is de wettelijk vertegenwoordiger ook de eerste contactpersoon?",
+              "prefix": "d)",
+              "text": "Is de wettelijk vertegenwoordiger ook de eerste contactpersoon?",
               "required": false,
               "repeats": false,
               "answerOption": [
@@ -642,7 +647,8 @@
               ],
               "type": "group",
               "linkId": "53",
-              "text": "e) Naam eerste contactpersoon",
+              "prefix": "e)",
+              "text": "Naam eerste contactpersoon",
               "enableWhen": [
                 {
                   "question": "984",
@@ -793,7 +799,8 @@
               ],
               "type": "group",
               "linkId": "61",
-              "text": "f) Contactgegevens eerste contactpersoon",
+              "prefix": "f)",
+              "text": "Contactgegevens eerste contactpersoon",
               "enableWhen": [
                 {
                   "question": "984",
@@ -872,7 +879,8 @@
                   "code": "OTH"
                 }
               ],
-              "text": "g) Relatie tot patiënt",
+              "prefix": "g)",
+              "text": "Relatie tot patiënt",
               "enableWhen": [
                 {
                   "question": "984",
@@ -968,7 +976,8 @@
       ],
       "type": "group",
       "linkId": "26",
-      "text": "1. Wilsbekwaamheid & Wettelijke vertegenwoordiging",
+      "prefix": "1.",
+      "text": "Wilsbekwaamheid & Wettelijke vertegenwoordiging",
       "repeats": false
     },
     {
@@ -1196,12 +1205,14 @@
       ],
       "type": "group",
       "linkId": "78",
-      "text": "2 Gesprek gevoerd in bijzijn van",
+      "prefix": "2",
+      "text": "Gesprek gevoerd in bijzijn van",
       "repeats": false
     },
     {
       "linkId": "586",
-      "text": "3. Belangrijkste overeengekomen doel van medisch beleid",
+      "prefix": "3.",
+      "text": "Belangrijkste overeengekomen doel van medisch beleid",
       "type": "group",
       "repeats": false,
       "item": [
@@ -1270,13 +1281,15 @@
     },
     {
       "linkId": "83",
-      "text": "4. Behandelgrenzen",
+      "prefix": "4.",
+      "text": "Behandelgrenzen",
       "type": "group",
       "repeats": false,
       "item": [
         {
           "linkId": "1409",
-          "text": "a) Reanimatie",
+          "prefix": "a)",
+          "text": "Reanimatie",
           "type": "group",
           "repeats": false,
           "item": [
@@ -1406,7 +1419,8 @@
         },
         {
           "linkId": "1411",
-          "text": "b) Kunstmatige invasieve beademing",
+          "prefix": "b)",
+          "text": "Kunstmatige invasieve beademing",
           "type": "group",
           "repeats": false,
           "item": [
@@ -1522,7 +1536,8 @@
         },
         {
           "linkId": "1413",
-          "text": "c) Opname op intensive care",
+          "prefix": "c)",
+          "text": "Opname op intensive care",
           "type": "group",
           "repeats": false,
           "item": [
@@ -1638,7 +1653,8 @@
         },
         {
           "linkId": "1415",
-          "text": "d) Opname in ziekenhuis",
+          "prefix": "d)",
+          "text": "Opname in ziekenhuis",
           "type": "group",
           "repeats": false,
           "item": [
@@ -1754,7 +1770,8 @@
         },
         {
           "linkId": "1417",
-          "text": "e) Behandeling met antibiotica",
+          "prefix": "e)",
+          "text": "Behandeling met antibiotica",
           "type": "group",
           "repeats": false,
           "item": [
@@ -1870,7 +1887,8 @@
         },
         {
           "linkId": "1419",
-          "text": "f) Toediening van een bloedproduct",
+          "prefix": "f)",
+          "text": "Toediening van een bloedproduct",
           "type": "group",
           "repeats": false,
           "item": [
@@ -2086,7 +2104,8 @@
           ],
           "type": "group",
           "linkId": "1421",
-          "text": "g) Overige behandelgrenzen",
+          "prefix": "g)",
+          "text": "Overige behandelgrenzen",
           "repeats": false
         },
         {
@@ -2138,7 +2157,8 @@
           ],
           "type": "choice",
           "linkId": "1006",
-          "text": "h) Heeft de patiënt een ICD?",
+          "prefix": "h)",
+          "text": "Heeft de patiënt een ICD?",
           "required": false,
           "repeats": false,
           "answerOption": [
@@ -2263,7 +2283,8 @@
           ],
           "type": "group",
           "linkId": "1425",
-          "text": "i) Is er een afspraak over het moment van uitzetten ICD?",
+          "prefix": "i)",
+          "text": "Is er een afspraak over het moment van uitzetten ICD?",
           "enableWhen": [
             {
               "question": "1006",
@@ -2281,13 +2302,15 @@
     },
     {
       "linkId": "107",
-      "text": "5. Behandelwensen",
+      "prefix": "5.",
+      "text": "Behandelwensen",
       "type": "group",
       "repeats": false,
       "item": [
         {
           "linkId": "1427",
-          "text": "a) Wat zouden zorgverleners, volgens de patiënt, moeten weten om goede zorg te kunnen verlenen? Heeft deze patiënt specifieke wensen met betrekking tot zijn zorg? (incl. culturele/religieuze/sociale/spirituele aspecten) ",
+          "prefix": "a)",
+          "text": "Wat zouden zorgverleners, volgens de patiënt, moeten weten om goede zorg te kunnen verlenen? Heeft deze patiënt specifieke wensen met betrekking tot zijn zorg? (incl. culturele/religieuze/sociale/spirituele aspecten) ",
           "type": "group",
           "repeats": false,
           "item": [
@@ -2326,7 +2349,8 @@
         },
         {
           "linkId": "1429",
-          "text": "b) Gewenste plek van overlijden",
+          "prefix": "b)",
+          "text": "Gewenste plek van overlijden",
           "type": "group",
           "repeats": false,
           "item": [
@@ -2423,7 +2447,8 @@
         },
         {
           "linkId": "1431",
-          "text": "c) Euthanasie standpunt",
+          "prefix": "c)",
+          "text": "Euthanasie standpunt",
           "type": "group",
           "repeats": false,
           "item": [
@@ -2506,7 +2531,8 @@
         },
         {
           "linkId": "1433",
-          "text": "d) Keuze orgaandonatie vastgelegd in donorregister?",
+          "prefix": "d)",
+          "text": "Keuze orgaandonatie vastgelegd in donorregister?",
           "type": "group",
           "repeats": false,
           "item": [
@@ -2570,7 +2596,8 @@
     },
     {
       "linkId": "598",
-      "text": "6. Wat verder nog belangrijk is",
+      "prefix": "6.",
+      "text": "Wat verder nog belangrijk is",
       "type": "group",
       "repeats": false,
       "item": [
@@ -2635,7 +2662,8 @@
           ],
           "type": "choice",
           "linkId": "1197",
-          "text": "a) Heeft de patiënt eerder behandelafspraken vastgelegd?",
+          "prefix": "a)",
+          "text": "Heeft de patiënt eerder behandelafspraken vastgelegd?",
           "required": false,
           "repeats": false,
           "answerOption": [
@@ -2664,7 +2692,8 @@
         },
         {
           "linkId": "1199",
-          "text": "b) Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring?",
+          "prefix": "b)",
+          "text": "Staan in eerder vastgelegde behandelafspraken andere wensen dan nu in deze verklaring?",
           "type": "choice",
           "enableWhen": [
             {
@@ -2706,18 +2735,21 @@
       ],
       "type": "group",
       "linkId": "115",
-      "text": "7. Eerder vastgelegde behandelwensen",
+      "prefix": "7.",
+      "text": "Eerder vastgelegde behandelwensen",
       "repeats": false
     },
     {
       "linkId": "119",
-      "text": "8. Informatie delen",
+      "prefix": "8.",
+      "text": "Informatie delen",
       "type": "group",
       "repeats": false,
       "item": [
         {
           "linkId": "1200",
-          "text": "a) Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?",
+          "prefix": "a)",
+          "text": "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?",
           "type": "choice",
           "required": false,
           "repeats": false,
@@ -2744,7 +2776,8 @@
         },
         {
           "linkId": "1201",
-          "text": "b) Patiënt gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners",
+          "prefix": "b)",
+          "text": "Patiënt gaat akkoord met het delen van deze behandelafspraken met andere betrokken hulpverleners",
           "type": "choice",
           "required": false,
           "repeats": false,
