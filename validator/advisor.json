@@ -17,10 +17,10 @@
     "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[4].​code",
     "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[5].​code",
     "Terminology_TX_NoValid_16@ImplementationGuide.​definition.​parameter[6].​code",
-    "UNABLE_TO_INFER_CODESYSTEM@ImplementationGuide.​definition.*.​code",
+    "UNABLE_TO_INFER_CODESYSTEM@ImplementationGuide.​definition.*",
 
     // Snomed code 340201000146103 cannot be found and thus not checked if it is in the valueset
-    "Terminology_TX_NoValid_1_CC@Observation.​valueCodeableConcept",
+    "Terminology_TX_NoValid_1_CC@Observation.value.ofType(CodeableConcept)",
 
     // filters expected information messages for the violation of preferred bindings.
     "Terminology_TX_NoValid_3_CC@PractitionerRole.specialty[*]",
@@ -32,6 +32,7 @@
 
     // filters expected information messages for the violation of extensible bindings.
     "Terminology_TX_NoValid_2_CC@*.identifier.type",
+    "Terminology_TX_NoValid_2_CC@*Consent.category",
 
     //Filter Bug with coding pattern only containing the system in the java validate (Issue: https://github.com/hapifhir/org.hl7.fhir.core/issues/2108 - can't filter on path, so filtering on message id only)
     "Unknown_Code_in_Version",
