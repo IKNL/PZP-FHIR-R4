@@ -1,94 +1,80 @@
-# IKNL PZP FHIR Implementation Guide - AI Coding Assistant Instructions
+# IKNL PZP FHIR R4 Implementation Guide - AI Coding Assistant Instructions
 
 ## Project Overview
 
-This project is a dual-version FHIR Implementation Guide for Advance Care Planning (PZP), supporting both FHIR R4 and STU3. The current strategy is:
+This project is a FHIR R4 Implementation Guide for Advance Care Planning (PZP). Key characteristics:
 
-- **R4 is the primary development target.**
-- **STU3 conformance resources (StructureDefinition, ValueSet, etc.) are maintained manually.**
-- **Only resource instances (examples) are converted automatically from R4 to STU3.**
-- **Mapping table generation is simplified and deduplicated.**
+- **R4 is the sole focus of this repository.**
+- **STU3 implementation has been moved to a separate repository.**
+- **This repository focuses on R4 profile development and mapping table generation.**
 
 ## Directory Structure
 
-- `R4/` – Develop all profiles, extensions, and examples here using FSH (FHIR Shorthand).
-- `STU3/` – Manual conformance resources and auto-converted example instances.
-- `util/` – Conversion tools, mapping generators, and dataset utilities:
-  - `r4_to_stu3_transformer/` – Python-based R4→STU3 resource transformation system
-  - `r4_mapping_and_mermaid_generator/` – R4 mapping table and diagram generation
-  - `stu3_mapping_generator/` – STU3-specific mapping table generation
+- `input/` – Develop all profiles, extensions, and examples here using FSH (FHIR Shorthand).
+- `fsh-generated/` – Generated FHIR resources from FSH compilation.
+- `output/` – Built implementation guide output.
+- `util/` – Mapping generators and dataset utilities:
+  - `mapping_table_generator.py` – R4 mapping table generation from ART-DECOR datasets
+  - `mermaid_diagram_generator.py` – Visual diagram generation from profiles
 
 ## Key Workflows
 
 ### 1. Standard Development Cycle
 ```powershell
-# 1. Develop in R4 directory
-cd R4
+# 1. Develop FSH profiles and examples
+# Edit files in input/fsh/
+
+# 2. Build R4 IG
 ./_genonce.bat                    # Build R4 IG
 
-# 2. Convert R4 examples to STU3 (from repo root)
-convert-r4-to-stu3.bat             # Only resource instances are converted
+# 3. Generate mapping tables (optional)
+python util/mapping_table_generator.py
 
-# 3. Build STU3 IG (manual conformance resources)
-cd STU3
-./_genonce.bat                    # Build STU3 IG
+# 4. Generate diagrams (optional)
+python util/mermaid_diagram_generator.py
 ```
 
-### 2. Manual Maintenance of STU3 Conformance Resources
-- Edit or add StructureDefinition, ValueSet, etc. directly in `STU3/input/resources/`.
-- **Do not edit auto-converted example files (prefixed with `converted-`).**
-- Conformance resources should be prefixed with `manual-` for clarity.
+### 2. Profile Development
+- Edit or add StructureDefinition, ValueSet, etc. using FSH in `input/fsh/`.
+- Examples should be placed in `input/examples/` or defined in FSH.
+- All conformance resources are maintained in FSH format.
 
-### 3. Resource Instance Conversion
-- **Python-based converter**: Modern system in `util/r4_to_stu3_transformer/` with auto-discovery pattern
-- **All StructureDefinitions are automatically excluded** from conversion
-- Examples include Patient, Observation, Consent, etc.
-- Supports complex transformations with PractitionerRole reference resolution
-
-### 4. Mapping Table Generation
-- **R4 mappings**: Use `util/r4_mapping_and_mermaid_generator/mapping_table_generator.py`
-- **STU3 mappings**: Use `util/stu3_mapping_generator/stu3_mapping_table_generator.py`
-- **Mermaid diagrams**: Use `util/r4_mapping_and_mermaid_generator/mermaid_diagram_generator.py`
+### 3. Mapping Table Generation
+- **R4 mappings**: Use `util/mapping_table_generator.py`
+- **Mermaid diagrams**: Use `util/mermaid_diagram_generator.py`
 - Generate from ART-DECOR datasets with automatic deduplication
-
-## Conversion Pipeline (Examples Only)
-- **StructureDefinitions**: Completely excluded from automatic conversion.
-- **ValueSets**: Handled manually (not converted).
-- **Resource Instances**: Automatically converted using StructureMaps.
-- **Complex Resources**: Implementation Guides excluded from conversion.
 
 ## Common Patterns
 
-- **FSH Profiles:** Develop in `R4/input/fsh/`, always inherit from Nictiz base profiles.
+- **FSH Profiles:** Develop in `input/fsh/`, always inherit from Nictiz base profiles.
 - **Extensions:** Use `ext-` prefix, explicit context, and standard slicing.
 - **Mappings:** Include ART-DECOR mappings in all profiles.
 - **Invariants:** Use FHIRPath, usually as warnings.
 
 ## File Naming Conventions
 
-- **R4 generated resources:** Standard FHIR resource names (e.g., `StructureDefinition-ACP-Patient.json`)
-- **STU3 converted instances:** `converted-{ResourceType}-{ID}.json` (no `-STU3` suffix)
-- **STU3 manual conformance:** `manual-{ResourceType}-{ID}.json`
+- **Generated resources:** Standard FHIR resource names (e.g., `StructureDefinition-ACP-Patient.json`)
+- **FSH files:** Use meaningful names that reflect the profile purpose
+- **Examples:** Should have descriptive identifiers
 
 ## Gotchas & Best Practices
 
-1. **Always develop in R4 first.**
-2. **STU3 conformance resources are manual only.**
-3. **Only resource instances are auto-converted.**
-4. **StructureDefinitions are never auto-converted.**
-5. **Mapping tables must be deduplicated.**
-6. **Test the full pipeline after changes.**
+1. **Always use FSH for profile development.**
+2. **Include comprehensive mappings to ART-DECOR datasets.**
+3. **Mapping tables must be deduplicated.**
+4. **Test the build after changes.**
+5. **Follow Nictiz base profile inheritance patterns.**
 
 ## When Making Changes
 
-- **Profiles/Extensions:** Edit FSH in `R4/input/fsh/`.
-- **STU3 Conformance:** Edit JSON directly in `STU3/input/resources/` with `manual-` prefix.
-- **Examples:** Review auto-converted files after running the pipeline.
+- **Profiles/Extensions:** Edit FSH in `input/fsh/`.
+- **Examples:** Add to `input/examples/` or define in FSH.
 - **Mappings:** Regenerate and review mapping tables as needed.
+- **Build validation:** Always run `./_genonce.bat` after changes.
 
 ---
 
-_Last updated: 2025-08. Simplified to exclude StructureDefinition conversion._
+_Last updated: 2025-10. Updated to reflect R4-only repository structure._
 
 ## Project-Specific Patterns
 
@@ -129,19 +115,16 @@ Description: "If the patient is not legally capable..."
 ## Key Files to Understand
 
 ### Configuration
-- `R4/sushi-config.yaml`: Primary IG configuration, dependencies
-- `R4/ig.ini`: IG Publisher settings
+- `sushi-config.yaml`: Primary IG configuration, dependencies
+- `ig.ini`: IG Publisher settings
 - `decisions.md`: **Critical** - documents all profiling decisions and rationale
 
 ### Build Infrastructure
-- `R4/_genonce.bat`: Windows IG Publisher runner with offline detection
-- `STU3/_genonce.bat`: Windows IG Publisher runner for STU3
+- `_genonce.bat`: Windows IG Publisher runner with offline detection
 
 ### Analysis Tools
-- `util/r4_mapping_and_mermaid_generator/mapping_table_generator.py`: R4 mapping tables from ART-DECOR datasets
-- `util/stu3_mapping_generator/stu3_mapping_table_generator.py`: STU3-specific mapping tables
-- `util/r4_mapping_and_mermaid_generator/mermaid_diagram_generator.py`: Visual diagram generation
-- `util/r4_to_stu3_transformer/fhir_r4_to_stu3_transformer.py`: Python-based R4→STU3 converter
+- `util/mapping_table_generator.py`: R4 mapping tables from ART-DECOR datasets
+- `util/mermaid_diagram_generator.py`: Visual diagram generation
 
 ## Integration Dependencies
 
@@ -157,7 +140,7 @@ Description: "If the patient is not legally capable..."
 
 ## When Making Changes
 
-1. **Profile changes**: Edit FSH files in `R4/input/fsh/`, follow existing patterns
-2. **Conversion issues**: Check Python transformer logic in `util/r4_to_stu3_transformer/`
-3. **Dataset alignment**: Update mappings when ART-DECOR datasets change
-4. **Cross-version compatibility**: Always test full conversion pipeline after changes
+1. **Profile changes**: Edit FSH files in `input/fsh/`, follow existing patterns
+2. **Dataset alignment**: Update mappings when ART-DECOR datasets change
+3. **Build validation**: Always test the build after making changes
+4. **Mapping updates**: Regenerate mapping tables and diagrams as needed

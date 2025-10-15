@@ -3,15 +3,19 @@
 # ================================
 
 # FSH Generated content
-*/fsh-generated/
+fsh-generated/
 
 # FHIR IG Publisher cache and output
-*/input-cache/
-*/output/
-*/temp/
+input-cache/
+output/
+temp/
 
 # Template files (usually auto-downloaded)
-*/template/
+template/
+
+# simplifier files
+.simplifier
+fhirpkg.lock.json
 
 
 # ================================
@@ -161,6 +165,3 @@ full-ig.zip
 *.sqlite
 *.sqlite3
 
-# simplifier files
-*/.simplifier
-*/fhirpkg.lock.json
