@@ -75,6 +75,8 @@ jobs:
           bundle-file: validation.json
           include: errors
           filters: |
+            Procedure-F1-ACP-Procedure-01-10-2020.json|exception|Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known|Procedure.​code
+            Procedure-P2-ACP-Procedure-07-08-2025.json|exception|Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known|Procedure.​code
             # Struktur: fileName|messageId|detailsWildcard|location
 
 
