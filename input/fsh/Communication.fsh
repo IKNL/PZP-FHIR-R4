@@ -10,7 +10,7 @@ Description: "Communication events that have taken place in context of Advance C
 * sender only Reference(ACPHealthProfessionalPractitionerRole)
 * sent ^comment = "Indicate the date and preferrably time when the communication was sent"
 * reasonCode 1..1
-* reasonCode = $snomed#713603004 // "Advance care planning (procedure)"
+* reasonCode = $snomed#713603004 // "advance care planning"
 
 
 Mapping: MapACPCommunication
@@ -28,11 +28,11 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "dd6d7146-1014-4ef4-9145-e8207364c942"
-* topic = $snomed#223449006 "Recommendation to inform someone (procedure)"
+* topic = $snomed#223449006 "adviseren om iemand te informeren"
 * topic.text = "Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
 * status = #completed
 * sent = "2020-10-01"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * recipient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * sender = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
-* reasonCode = $snomed#713603004 "Advance care planning (procedure)"
+* reasonCode = $snomed#713603004 "advance care planning"

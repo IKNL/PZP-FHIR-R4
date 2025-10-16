@@ -121,7 +121,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#305351004 "Admit to ITU"
+* provision.code = $snomed#305351004 "opname op intensive care"
 
 
 Instance: F1-ACP-TreatmentDirective-89666000
@@ -141,7 +141,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#89666000 "Cardiopulmonary resuscitation"
+* provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
 
 
 Instance: F1-ACP-TreatmentDirective-40617009
@@ -161,7 +161,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#40617009 "Artificial respiration"
+* provision.code = $snomed#40617009 "kunstmatige beademing"
 
 
 Instance: F1-ACP-TreatmentDirective-116762002
@@ -181,7 +181,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#116762002 "administration of blood product"
+* provision.code = $snomed#116762002 "toediening van bloedproduct"
 
 
 Instance: F1-ACP-TreatmentDirective-281789004
@@ -201,7 +201,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#281789004 "Antibiotic therapy"
+* provision.code = $snomed#281789004 "antibiotische therapie"
 
 
 Instance: F1-ACP-TreatmentDirective-32485007
@@ -221,7 +221,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#32485007 "Hospital admission"
+* provision.code = $snomed#32485007 "opname in ziekenhuis"
 
 
 Instance: F1-ACP-TreatmentDirective-400231000146108
@@ -242,7 +242,7 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
-* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
+* provision.code.text = "uitzetten van cardioverter-defibrillator in laatste levensfase (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
 
 
 Instance: F2-ACP-TreatmentDirective-305351004
@@ -264,4 +264,4 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.actor[agreementParty][+].reference = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "RelatedPerson"
-* provision.code = $snomed#305351004 "Admit to ITU"
+* provision.code = $snomed#305351004 "opname op intensive care"

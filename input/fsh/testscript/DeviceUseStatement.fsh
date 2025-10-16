@@ -11,8 +11,8 @@ Usage: #example
 * device = Reference(P2-ACP-MedicalDevice.Product-ICD)
 * status = #active
 * timingPeriod.start = "2024"
-* bodySite.coding = $snomed#80891009 "Heart structure (body structure)"
+* bodySite.coding = $snomed#80891009 "structuur van cor"
 * bodySite.extension[laterality].url = "http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality"
-* bodySite.extension[laterality].valueCodeableConcept.coding = $snomed#7771000 "Left (qualifier value)"
+* bodySite.extension[laterality].valueCodeableConcept.coding = $snomed#7771000 "links"
 * note.text = "ICD is ongeveer eén jaar geleden geïmplanteerd."
 
