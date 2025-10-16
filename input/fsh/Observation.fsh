@@ -38,7 +38,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#153851000146100
+* code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
 * valueString = "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
 * effectiveDateTime = "2020-10-01"
 * method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
@@ -86,7 +86,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#395091006
+* code =  $snomed#395091006 "Preferred place of death"
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown 
 * effectiveDateTime = "2020-10-01"
@@ -132,7 +132,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#340171000146104
+* code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
 * valueCodeableConcept = $v3-NullFlavor#UNK
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
@@ -175,8 +175,8 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code = $snomed#570801000146104 "geregistreerd in orgaan donorregister (bevinding)"
-* valueCodeableConcept = $snomed#373066001
+* code = $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2020-10-01"
 
 
@@ -216,6 +216,6 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#247751003
+* code =  $snomed#247751003 "gevoel van zingeving"
 * valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"

@@ -15,7 +15,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#89666000 "Cardiopulmonary resuscitation (procedure)"
+* provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
 // TODO toevoegen wilsverklaring 
 // comment: Hoe gaan we om met .code velden en de display. In de testscripts staat op dit moment de NL tekst.
 
@@ -82,7 +82,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#32485007 "Hospital admission (procedure)"
+* provision.code = $snomed#32485007 "opname in ziekenhuis"
 
 
 Instance: P2-ACP-TreatmentDirective-281789004
@@ -102,7 +102,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#281789004 "Antibiotic therapy (procedure)"
+* provision.code = $snomed#281789004 "antibiotische therapie"
 
 
 Instance: P2-ACP-TreatmentDirective-other
@@ -149,7 +149,7 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
-* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" 
+* provision.code.text = "uitzetten van cardioverter-defibrillator in laatste levensfase (SNOMED CT - 400231000146108)" 
 
 
 Instance: P2-ACP-AdvanceDirective

@@ -29,4 +29,4 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "00e66024-84a5-44f8-84e9-f8ac339bfd5a"
-* type = $snomed#465460004 "univentriculaire implanteerbare hartdefibrillator"
+* type = $snomed#72506001 "implanteerbare cardioverter-defibrillator"

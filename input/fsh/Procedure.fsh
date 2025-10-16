@@ -38,4 +38,4 @@ Usage: #example
 * performer[=].actor.type = "Patient"
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
-* code = $snomed#713603004 "Advance care planning (procedure)"
+* code = $snomed#713603004 "advance care planning"
