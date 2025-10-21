@@ -18,11 +18,11 @@ All interactions adhere to the following principles.
 
 This approach provides granular access to the individual clinical statements that constitute the ACP. It allows applications to query for specific data points without processing an entire form.
 
-This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with a identifier (e.g. BSN).
+This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below listed client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with an identifier (e.g. BSN).
 
 #### Client Requests
 
-The below listed search request show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
 
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
