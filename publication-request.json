@@ -1,7 +1,7 @@
 {
    "package-id" : "iknl.fhir.r4.pzp",
    "version" : "1.0.0-alpha1",
-   "path" : "https://api.iknl.nl/docs/r4/pzp/1.0.0-alpha1",
+   "path" : "https://api.iknl.nl/docs/pzp/r4/1.0.0-alpha1",
    "mode" : "working",
    "status" : "release",
    "sequence" : "Release 1",

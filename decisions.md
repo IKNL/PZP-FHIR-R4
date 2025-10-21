@@ -77,7 +77,7 @@ to
 ```json
 {
     "id": "ACP-zib2020",
-    "url": "https://api.iknl.nl/docs/pzp/r4//Questionnaire/ACP-zib2020",
+    "url": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020",
     "version": "beta3-20250828",
     "name": "ACPzib2020",    
     "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
