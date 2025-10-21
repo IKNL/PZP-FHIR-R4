@@ -1,4 +1,4 @@
-This page provides an overview of the FHIR resources used to represent the ACP dataset, many of which are based on nl-core profiles.
+This page provides an overview of the FHIR profiles used to represent the ACP dataset, many of which are based on nl-core profiles.
 
 ### FHIR Data Model Overview
 
