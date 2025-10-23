@@ -40,7 +40,6 @@ Description: "A person not being a healthcare professional who is involved in th
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
 
-
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"

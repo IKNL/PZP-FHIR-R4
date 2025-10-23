@@ -12,12 +12,11 @@ Description: "Communication events that have taken place in context of Advance C
 * reasonCode 1..1
 * reasonCode = $snomed#713603004 // "advance care planning"
 
-* insert ObligationRules(topic)
 * insert ObligationRules(subject)
+* insert ObligationRules(topic)
 * insert ObligationRules(recipient)
 * insert ObligationRules(sender)
 * insert ObligationRules(sent)
-* insert ObligationRules(reasonCode)
 
 Mapping: MapACPCommunication
 Id: pall-izppz-zib2020v2025-03-11

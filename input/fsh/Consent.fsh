@@ -14,14 +14,12 @@ Description: "A verbal or written description of the patient’s wishes with reg
 // Why not NR?
 * patient only Reference(ACPPatient)
 
-* insert ObligationRules(extension[encounter])
-* insert ObligationRules(extension[comment].value[x])
-* insert ObligationRules(extension[disorder].value[x])
+* insert ObligationRules(extension[comment])
+* insert ObligationRules(extension[disorder])
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
 * insert ObligationRules(provision.actor[representative].reference)
 * insert ObligationRules(provision.code)
-
 
 
 Mapping: MapACPAdvanceDirective

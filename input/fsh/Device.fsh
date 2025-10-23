@@ -13,6 +13,7 @@ Description: "The medical device (internally or externally). In the context of A
 * insert ObligationRules(type)
 * insert ObligationRules(note.text)
 
+
 Mapping: MapACPMedicalDeviceProductICD
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"

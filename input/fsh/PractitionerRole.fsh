@@ -9,7 +9,6 @@ Description: "The specialty of a person who is authorized to perform actions in 
 * insert ObligationRules(practitioner)
 * insert ObligationRules(specialty[specialty])
 
-
 Mapping: MapACPHealthProfessionalPractitionerRole
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"

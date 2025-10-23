@@ -12,14 +12,12 @@ Description: "Any internally implanted and external devices and/or aids used by 
 
 * insert ObligationRules(subject)
 * insert ObligationRules(device)
-* insert ObligationRules(extension[encounter])
 * insert ObligationRules(timingPeriod.start)
 * insert ObligationRules(timingPeriod.end)
 * insert ObligationRules(reasonReference[indication])
 * insert ObligationRules(bodySite)
 * insert ObligationRules(bodySite.extension[laterality])
 * insert ObligationRules(note.text)
-
 
 Mapping: MapACPMedicalDevice
 Id: pall-izppz-zib2020v2025-03-11

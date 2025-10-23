@@ -14,7 +14,6 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * insert ObligationRules(encounter)
 * insert ObligationRules(code)
 
-
 Mapping: MapACPProcedure
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"

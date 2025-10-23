@@ -4,6 +4,7 @@ Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
 Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource."
 * insert MetaRules
+
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#153851000146100 
@@ -20,7 +21,6 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(method)
 * insert ObligationRules(effective[x])  
-
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-zib2020v2025-03-11
@@ -76,8 +76,6 @@ Description: "The preferred place of death. This is the place where the patient 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])  
 
-
-
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
@@ -130,6 +128,7 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])  
 
+
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
@@ -180,7 +179,6 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])  
 
-
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
@@ -226,7 +224,7 @@ Description: "Other relevant and important information related to the Patient’
 * insert ObligationRules(code)
 * insert ObligationRules(valueString)
 * insert ObligationRules(dataAbsentReason)
-* insert ObligationRules(effective[x])  
+* insert ObligationRules(effective[x])
 
 
 Mapping: MapACPOtherImportantInformation
