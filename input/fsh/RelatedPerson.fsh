@@ -10,6 +10,36 @@ Description: "A person not being a healthcare professional who is involved in th
 * relationship[role] 1..* 
 * relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
+* insert ObligationRules(patient)
+* insert ObligationRules(relationship[role])
+* insert ObligationRules(relationship[relationship])
+* insert ObligationRules(name[nameInformation].given)
+* insert ObligationRules(name[nameInformation-GivenName].given)
+* insert ObligationRules(name[nameInformation].use)
+* insert ObligationRules(name[nameInformation].family.extension[prefix])
+* insert ObligationRules(name[nameInformation].family.extension[lastName])
+* insert ObligationRules(name[nameInformation].family.extension[partnerPrefix])
+* insert ObligationRules(name[nameInformation].family.extension[partnerLastName])
+* insert ObligationRules(name[nameInformation].suffix)
+* insert ObligationRules(telecom[telephoneNumbers].value)
+* insert ObligationRules(telecom[telephoneNumbers].system)
+* insert ObligationRules(telecom[telephoneNumbers].system.extension[telecomType])   
+* insert ObligationRules(telecom[telephoneNumbers].use)
+* insert ObligationRules(telecom[telephoneNumbers].extension[comment])
+* insert ObligationRules(telecom[emailAddresses].value)
+* insert ObligationRules(telecom[emailAddresses].system)      
+* insert ObligationRules(address.line.extension[streetName])
+* insert ObligationRules(address.line.extension[houseNumber])
+* insert ObligationRules(address.line.extension[houseNumberLetter-houseNumberAddition])
+* insert ObligationRules(address.line.extension[houseNumberIndication])
+* insert ObligationRules(address.postalCode)
+* insert ObligationRules(address.city)
+* insert ObligationRules(address.district)
+* insert ObligationRules(address.country.extension[countryCode])
+* insert ObligationRules(address.line.extension[additionalInformation])
+* insert ObligationRules(address.use)
+* insert ObligationRules(address.type)
+
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11

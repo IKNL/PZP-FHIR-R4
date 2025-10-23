@@ -10,6 +10,11 @@ Description: "The primary, agreed-upon goal of a patient's medical treatment pol
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
+* insert ObligationRules(description)
+* insert ObligationRules(subject)
+* insert ObligationRules(startDate)
+* insert ObligationRules(note.text)
+
 Mapping: MapACPMedicalPolicyGoal
 Id: pall-izppz-zib2020v2025-03-11
 Title: "PZP dataset"
