@@ -12,12 +12,12 @@ Description: "A verbal or written description of the patient’s wishes with reg
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
 - For Organ Donation, code _DO_ (Verklaring donorschap)."
 // Why not NR?
-* patient only Reference(ACPPatient)
 
 * insert ObligationRules(extension[comment])
 * insert ObligationRules(extension[disorder])
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
+* insert ObligationRules(sourceAttachment)
 * insert ObligationRules(provision.actor[representative].reference)
 * insert ObligationRules(provision.code)
 

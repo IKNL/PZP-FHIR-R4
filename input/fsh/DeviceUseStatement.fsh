@@ -10,6 +10,8 @@ Description: "Any internally implanted and external devices and/or aids used by 
 * subject only Reference(ACPPatient)
 * device only Reference(ACPMedicalDeviceProductICD or http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product)
 
+* insert ObligationRules(extension[healthProfessional])
+* insert ObligationRules(extension[location])
 * insert ObligationRules(subject)
 * insert ObligationRules(device)
 * insert ObligationRules(timingPeriod.start)

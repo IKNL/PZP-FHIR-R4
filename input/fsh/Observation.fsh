@@ -74,7 +74,8 @@ Description: "The preferred place of death. This is the place where the patient 
 * insert ObligationRules(code)
 * insert ObligationRules(valueCodeableConcept)
 * insert ObligationRules(dataAbsentReason)
-* insert ObligationRules(effective[x])  
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
@@ -126,7 +127,8 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * insert ObligationRules(code)
 * insert ObligationRules(valueCodeableConcept)
 * insert ObligationRules(dataAbsentReason)
-* insert ObligationRules(effective[x])  
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
 
 
 Mapping: MapACPPositionRegardingEuthanasia

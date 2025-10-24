@@ -28,7 +28,7 @@ Usage: #example
 * description = "The ACP Actor Responder is a system that responds to data access requests for digital health and administrative information."
 * jurisdiction = urn:iso:std:iso:3166#NL
 * type = #system
-* documentation = "An ACP Responder, also known as ACP Server:\n\n
+* documentation = "An ACP Actor Server, also known as ACP Actor Responder:\n\n
 - **SHALL** correctly populate all obligation-marked elements if they know a value for the element.\n\n
 - **SHALL** populate the data-absent-reason extension when an element cannot be shared due to policy or technical constraints.\n\n
 
