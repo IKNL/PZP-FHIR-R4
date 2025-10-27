@@ -5,9 +5,14 @@ Usage: #example
 * title = "ACP Actor Requester"
 * status = #active
 * description = "The ACP Actor Requester is a system that creates and initiates a data access request to retrieve digital health and administrative information."
-* jurisdiction = urn:iso:std:iso:3166#NL
+* jurisdiction = urn:iso:std:iso:3166#NL "Netherlands"
 * type = #system
-* documentation = "An ACP Actor Client, also known as ACP Actor Requester:\n\n 
+* documentation = "The ACP Actor Requester is a system role fulfilled by a consulting information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Care Record (ECD)). It is responsible for initiating the transaction to retrieve Advance Care Planning (ACP) information.
+
+In the Dutch functional design, this role is identified as **PZPInformatieRaadplegendSysteem** with the code **PZP-RPZPI-PZPIR**. This code is a composite of the use case (`PZP` - Proactieve Zorgplanning), the transaction (`RPZPI` - Raadplegen PZP Informatie), and the system role (`PZPIR` - PZP Informatie Raadplegend).
+
+An ACP Actor Requester:
+
 - **SHALL** accept resources containing obligation-marked elements without error\n\n 
 - **SHALL** accept resources containing obligation-marked elements with missing data (e.g., usage of data-absent-reason extension) without error.\n\n
 
@@ -26,9 +31,14 @@ Usage: #example
 * title = "ACP Actor Responder"
 * status = #active
 * description = "The ACP Actor Responder is a system that responds to data access requests for digital health and administrative information."
-* jurisdiction = urn:iso:std:iso:3166#NL
+* jurisdiction = urn:iso:std:iso:3166#NL "Netherlands"
 * type = #system
-* documentation = "An ACP Actor Server, also known as ACP Actor Responder:\n\n
+* documentation = "The ACP Actor Responder is a system role fulfilled by a source information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Care Record (ECD)). It is responsible for making the Advance Care Planning (ACP) information available in response to a request.
+
+In the Dutch functional design, this role is identified as **PZPInformatieBeschikbaarstellendSysteem** with the code **PZP-RPZPI-PZPIB**. This code is a composite of the use case (`PZP` - Proactieve Zorgplanning), the transaction (`RPZPI` - Raadplegen PZP Informatie), and the system role (`PZPIB` - PZP Informatie Beschikbaarstellend).
+
+An ACP Actor Responder:
+
 - **SHALL** correctly populate all obligation-marked elements if they know a value for the element.\n\n
 - **SHALL** populate the data-absent-reason extension when an element cannot be shared due to policy or technical constraints.\n\n
 
