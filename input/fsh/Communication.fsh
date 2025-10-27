@@ -17,6 +17,7 @@ Description: "Communication events that have taken place in context of Advance C
 * insert ObligationRules(recipient)
 * insert ObligationRules(sender)
 * insert ObligationRules(sent)
+* insert ObligationRules(reasonCode)
 
 Mapping: MapACPCommunication
 Id: pall-izppz-zib2020v2025-03-11
