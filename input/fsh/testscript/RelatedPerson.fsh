@@ -80,7 +80,7 @@ Usage: #example
 * telecom[=].value = "maya@test.nl"
 * telecom[=].use = #home
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
-* address.extension.valueCodeableConcept = #HP
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
 * address.use = #home
 * address.type = #both
 * address.line = "Spoorsingel 41B"
