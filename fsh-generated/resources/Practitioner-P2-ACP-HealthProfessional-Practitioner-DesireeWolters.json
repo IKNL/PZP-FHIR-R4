@@ -1,0 +1,43 @@
+{
+  "resourceType": "Practitioner",
+  "id": "P2-ACP-HealthProfessional-Practitioner-DesireeWolters",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://fhir.nl/fhir/NamingSystem/agb-z",
+      "value": "000003333"
+    }
+  ],
+  "name": [
+    {
+      "given": [
+        "Desiree"
+      ],
+      "_given": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+              "valueCode": "BR"
+            }
+          ]
+        }
+      ],
+      "use": "official",
+      "text": "Desiree Wolters",
+      "family": "Wolters",
+      "_family": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+            "valueString": "Wolters"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "resourceType": "Device",
+  "id": "P2-ACP-MedicalDevice.Product-ICD",
+  "meta": {
+    "profile": [
+      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://www.gs1.org/gtin",
+      "value": "8700000000001"
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "code": "72506001",
+        "system": "http://snomed.info/sct",
+        "display": "implanteerbare hartdefibrillator"
+      }
+    ]
+  }
+}
