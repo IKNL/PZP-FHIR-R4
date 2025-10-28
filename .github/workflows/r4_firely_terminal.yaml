@@ -69,6 +69,14 @@ jobs:
             validation.html
           retention-days: 1
 
+      - name: Upload FSH generated artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fhir-fsh-results
+          path: |
+            fsh-generated/resources/Structure*.json
+          retention-days: 1
+
       - name: Convert Validation Report
         uses: patrick-werner/validation-outcome-markdown-renderer@1.2.1
         with:
