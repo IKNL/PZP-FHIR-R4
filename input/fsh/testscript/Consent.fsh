@@ -138,6 +138,7 @@ Usage: #example
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Patiënt gaat dit volgende week met de cardioloog bespreken."
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
+* modifierExtension[specificationOther].valueString = "Niet besproken" 
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
