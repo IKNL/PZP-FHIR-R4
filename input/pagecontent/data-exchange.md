@@ -1,8 +1,23 @@
-This page describes the two primary methods for retrieving a patient's Advance Care Planning (ACP) information using the FHIR API. The best method depends on your application's needs.
+This page describes the two transaction methods for exchanging a patient's Advance Care Planning (ACP) information using RESTful API.
+
 1. As individual resources. By fetching specific resources (`Consent`, `Goal`, `Observation`, etc.) that together form the patient's ACP. See <a href="data-model.html">Data Model page</a> for a complete overview.
 2. As a form. Fetching `QuestionnaireResponse` resource(s). This contains the ACP agreements recorded according to the structured form for uniform registration of ACP.
 
----
+This guide, in conjunction with its STU3 counterpart, specifies four distinct transactions for data exchange:
+1.  <a href="#method-1-retrieve-acp-as-individual-resources">R4 Individual Resources</a> 
+2.  <a href="#method-2-retrieve-acp-questionnaireresponse">R4 QuestionnaireResponse</a> 
+3.  STU3 Individual Resources
+4.  STU3 QuestionnaireResponse
+
+### Conformance Requirements Actors
+
+This implementation guide defines two actors:
+- <a href="ActorDefinition-ACPActorConsulter.html">ACP Actor Consulter</a>: a client application that retrieves a patient's ACP information.
+- <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: a server application that exposes a patient's ACP information.
+
+To be conformant the ACP Actor Consulter SHALL support all four transaction groups. This ensures the actor can retrieve ACP information from any provider, regardless of the FHIR version (STU3 or R4) or exchange method implemented.
+The ACP Actor Provider SHALL support at least one of the four transaction groups. While support for a single transaction group is the minimum requirement, providers SHOULD support multiple methods to enhance interoperability. The individual resources method is preferred over the form-based method for system-to-system exchange, as it offers a more standardized and reusable data structure.
+
 
 ### General API requirements
 
