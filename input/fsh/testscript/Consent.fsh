@@ -25,7 +25,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "bc70c02f-f4f3-44a1-833b-41965885cc02"
-* extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-28-07-2024) "Encounter, 2024-07-28"
 * modifierExtension[specificationOther].valueString = "Onbekend"
 * status = #inactive
