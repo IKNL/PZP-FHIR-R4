@@ -78,6 +78,7 @@ jobs:
             # DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
             Procedure-F1-ACP-Procedure-01-10-2020.json||*SNOMED CT Concept 41000147108*|*
             Procedure-P2-ACP-Procedure-07-08-2025.json||*SNOMED CT Concept 41000147108*|*
+            Procedure-P2-ACP-Procedure-28-07-2024.json||*SNOMED CT Concept 41000147108*|*
             # Struktur: fileName|messageId|detailsWildcard|location
 
 
