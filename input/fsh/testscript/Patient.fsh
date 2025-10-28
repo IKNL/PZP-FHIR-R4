@@ -34,7 +34,7 @@ Usage: #example
 * gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"
 * birthDate = "1959-07-31"
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
-* address.extension.valueCodeableConcept = #HP
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
 * address.use = #home
 * address.type = #both
 * address.line = "Vasteland 78"
