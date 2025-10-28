@@ -7,7 +7,7 @@ Usage: #example
 * description = "The ACP Actor Requester is a system that creates and initiates a data access request to retrieve digital health and administrative information."
 * jurisdiction = urn:iso:std:iso:3166#NL "Netherlands"
 * type = #system
-* documentation = "The ACP Actor Requester is a system role fulfilled by a consulting information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Care Record (ECD)). It is responsible for initiating the transaction to retrieve Advance Care Planning (ACP) information.
+* documentation = "The ACP Actor Requester is a system role fulfilled by a consulting information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Client Record (ECD)). It is responsible for initiating the transaction to retrieve Advance Care Planning (ACP) information.
 
 In the Dutch functional design, this role is identified as **PZPInformatieRaadplegendSysteem** with the code **PZP-RPZPI-PZPIR**. This code is a composite of the use case (`PZP` - Proactieve Zorgplanning), the transaction (`RPZPI` - Raadplegen PZP Informatie), and the system role (`PZPIR` - PZP Informatie Raadplegend).
 
@@ -33,7 +33,7 @@ Usage: #example
 * description = "The ACP Actor Responder is a system that responds to data access requests for digital health and administrative information."
 * jurisdiction = urn:iso:std:iso:3166#NL "Netherlands"
 * type = #system
-* documentation = "The ACP Actor Responder is a system role fulfilled by a source information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Care Record (ECD)). It is responsible for making the Advance Care Planning (ACP) information available in response to a request.
+* documentation = "The ACP Actor Responder is a system role fulfilled by a source information system (e.g., GP Information System (HIS), Electronic Patient Record (EPD), Electronic Client Record (ECD)). It is responsible for making the Advance Care Planning (ACP) information available in response to a request.
 
 In the Dutch functional design, this role is identified as **PZPInformatieBeschikbaarstellendSysteem** with the code **PZP-RPZPI-PZPIB**. This code is a composite of the use case (`PZP` - Proactieve Zorgplanning), the transaction (`RPZPI` - Raadplegen PZP Informatie), and the system role (`PZPIB` - PZP Informatie Beschikbaarstellend).
 
