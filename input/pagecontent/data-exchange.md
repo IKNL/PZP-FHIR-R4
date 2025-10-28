@@ -91,6 +91,8 @@ Standard FHIR rules apply for every resource request:
 
 This approach is used to retrieve the complete form for uniform registration of ACP in its original context. It retrieves `QuestionnaireResponse` resources that contain the content discussed by the individuals involved in the ACP conversation.
 
+This method is included to lower the implementation burden for data providers who already use a form-based registration process. By allowing them to expose their existing form as a `QuestionnaireResponse`, it accelerates the availability of exchangeable ACP data. The trade-off is that this approach requires more effort from the ACP Actor Consulter, as they need to support multiple methods. The preferred method for system-to-system exchange is the individual resources method, as it offers a more standardized and reusable data structure.
+
 #### Client Request
 
 A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the <a href="Questionnaire-ACP-zib2020.html">ACP Questionnaire</a> to ensure that only the correct form is returned.
