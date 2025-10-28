@@ -16,7 +16,7 @@ Description: "A verbal or written description of the patient’s wishes with reg
 
 Mapping: MapACPAdvanceDirective
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPAdvanceDirective
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "690" "Euthanasieverklaring (Wilsverklaring)"
@@ -72,7 +72,7 @@ Description: "A joint decision between a health professional (for example a gene
 
 Mapping: MapACPTreatmentDirective
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPTreatmentDirective
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "602" "Behandelgrens (BehandelAanwijzing)"

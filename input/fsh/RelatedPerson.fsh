@@ -13,7 +13,7 @@ Description: "A person not being a healthcare professional who is involved in th
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)"
