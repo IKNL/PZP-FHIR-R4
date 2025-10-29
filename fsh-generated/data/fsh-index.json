@@ -320,14 +320,6 @@
     "endLine": 15
   },
   {
-    "outputFile": "Parameters-expansion.json",
-    "fshName": "expansion",
-    "fshType": "Instance",
-    "fshFile": "Parameters.fsh",
-    "startLine": 1,
-    "endLine": 8
-  },
-  {
     "outputFile": "Patient-F1-ACP-Patient-HendrikHartman.json",
     "fshName": "F1-ACP-Patient-HendrikHartman",
     "fshType": "Instance",

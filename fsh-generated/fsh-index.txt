@@ -39,7 +39,6 @@ Observation-P2-ACP-OtherImportantInformation-20250807.json                      
 Observation-P2-ACP-PositionRegardingEuthanasia-20250807.json                     P2-ACP-PositionRegardingEuthanasia-20250807                Instance   testscript\Observation.fsh         35 - 48
 Observation-P2-ACP-PreferredPlaceOfDeath-20250807.json                           P2-ACP-PreferredPlaceOfDeath-20250807                      Instance   testscript\Observation.fsh         18 - 32
 Observation-P2-ACP-SpecificCareWishes-20250807.json                              P2-ACP-SpecificCareWishes-20250807                         Instance   testscript\Observation.fsh         1 - 15
-Parameters-expansion.json                                                        expansion                                                  Instance   Parameters.fsh                     1 - 8
 Patient-F1-ACP-Patient-HendrikHartman.json                                       F1-ACP-Patient-HendrikHartman                              Instance   Patient.fsh                        122 - 158
 Patient-P2-ACP-Patient-SamiraVanDerSluijs.json                                   P2-ACP-Patient-SamiraVanDerSluijs                          Instance   testscript\Patient.fsh             1 - 51
 Practitioner-F1-ACP-HealthProfessional-Practitioner-DrVanHuissen.json            F1-ACP-HealthProfessional-Practitioner-DrVanHuissen        Instance   Practitioner.fsh                   28 - 40

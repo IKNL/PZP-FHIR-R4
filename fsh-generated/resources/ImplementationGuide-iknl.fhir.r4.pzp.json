@@ -53,6 +53,11 @@
         "id": "Q-QR",
         "name": "Structures: Questionnaire and QuestionnaireResponses",
         "description": "These define forms used by systems conforming to this implementation guide to capture or expose data to end users."
+      },
+      {
+        "id": "AD",
+        "name": "Requirements: Actor Definitions",
+        "description": "The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."
       }
     ],
     "resource": [
@@ -62,7 +67,8 @@
         },
         "name": "ACP Actor Consulter",
         "description": "The ACP Actor Consulter is a system that creates and initiates a data access request to retrieve digital health and administrative information.",
-        "exampleBoolean": true
+        "exampleBoolean": true,
+        "groupingId": "AD"
       },
       {
         "reference": {
@@ -70,7 +76,8 @@
         },
         "name": "ACP Actor Provider",
         "description": "The ACP Actor Provider is a system that responds to data access requests for digital health and administrative information.",
-        "exampleBoolean": true
+        "exampleBoolean": true,
+        "groupingId": "AD"
       },
       {
         "reference": {
@@ -688,6 +695,16 @@
           "nameUrl": "data-exchange.html",
           "title": "Data Exchange Overview",
           "generation": "markdown"
+        },
+        {
+          "nameUrl": "changelog.html",
+          "title": "Change Log",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
         }
       ]
     },
@@ -702,7 +719,7 @@
       },
       {
         "code": "path-expansion-params",
-        "value": "Parameters-expansion.json"
+        "value": "..\\..\\input\\_resources\\Parameters-expansion.json"
       },
       {
         "code": "pin-canonicals",
