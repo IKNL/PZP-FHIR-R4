@@ -57,6 +57,8 @@ pages:
     title: Data Model Overview
   data-exchange.md:
     title: Data Exchange Overview
+  changelog.md:
+    title: Change Log
 #
 #
 # The parameters property represents IG.definition.parameter. Rather
@@ -94,6 +96,7 @@ menu:
   Data Model: data-model.html
   Data Exchange: data-exchange.html
   Artifacts: artifacts.html
+  Change Log: changelog.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
