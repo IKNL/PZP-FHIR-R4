@@ -3,10 +3,6 @@
   "id": "expansion",
   "parameter": [
     {
-      "name": "displayLanguage",
-      "valueCode": "nl"
-    },
-    {
       "name": "system-version",
       "valueCanonical": "http://snomed.info/sct|http://snomed.info/sct/11000146104"
     }

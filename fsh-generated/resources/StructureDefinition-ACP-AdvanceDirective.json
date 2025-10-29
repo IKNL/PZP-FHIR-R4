@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ACP-AdvanceDirective",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-AdvanceDirective",
   "version": "0.1.0",
   "name": "ACPAdvanceDirective",
   "title": "AdvanceDirective",
@@ -70,6 +70,34 @@
       },
       {
         "id": "Consent.extension:disorder",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.extension",
         "sliceName": "disorder"
       },
@@ -96,6 +124,34 @@
       },
       {
         "id": "Consent.extension:comment",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.extension",
         "sliceName": "comment"
       },
@@ -130,7 +186,7 @@
           {
             "code": "Extension",
             "profile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference"
             ]
           }
         ]
@@ -142,25 +198,81 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
             ]
           }
         ]
       },
       {
         "id": "Consent.patient",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.patient",
         "type": [
           {
             "code": "Reference",
             "targetProfile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
             ]
           }
         ]
       },
       {
         "id": "Consent.dateTime",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.dateTime",
         "mapping": [
           {
@@ -182,6 +294,34 @@
       },
       {
         "id": "Consent.source[x]:sourceAttachment",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.source[x]",
         "sliceName": "sourceAttachment",
         "type": [
@@ -214,6 +354,34 @@
       },
       {
         "id": "Consent.provision.actor:representative.reference",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.provision.actor.reference",
         "mapping": [
           {
@@ -235,6 +403,34 @@
       },
       {
         "id": "Consent.provision.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Consent.provision.code",
         "definition": " The following codes are in scope of this profile:\r\n- For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).\r\n- For Organ Donation, code _DO_ (Verklaring donorschap).",
         "mapping": [

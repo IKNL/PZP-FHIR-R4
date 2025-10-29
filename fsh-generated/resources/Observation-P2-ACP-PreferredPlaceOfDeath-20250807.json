@@ -3,7 +3,7 @@
   "id": "P2-ACP-PreferredPlaceOfDeath-20250807",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
     ]
   },
   "identifier": [
@@ -36,7 +36,8 @@
     "coding": [
       {
         "code": "395091006",
-        "system": "http://snomed.info/sct"
+        "system": "http://snomed.info/sct",
+        "display": "Preferred place of death"
       }
     ]
   },
@@ -55,7 +56,7 @@
       {
         "code": "264362003",
         "system": "http://snomed.info/sct",
-        "display": "thuis (omgeving)"
+        "display": "thuis"
       }
     ]
   }

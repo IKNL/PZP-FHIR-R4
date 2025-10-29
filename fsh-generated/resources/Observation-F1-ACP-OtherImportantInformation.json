@@ -3,7 +3,7 @@
   "id": "F1-ACP-OtherImportantInformation",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OtherImportantInformation"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
     ]
   },
   "identifier": [
@@ -31,7 +31,8 @@
     "coding": [
       {
         "code": "247751003",
-        "system": "http://snomed.info/sct"
+        "system": "http://snomed.info/sct",
+        "display": "gevoel van zingeving"
       }
     ]
   },

@@ -3,7 +3,7 @@
   "id": "P2-ACP-ContactPerson-GertJanDeJong",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
     ]
   },
   "identifier": [

@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ACP-HealthProfessional-PractitionerRole",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
   "version": "0.1.0",
   "name": "ACPHealthProfessionalPractitionerRole",
   "title": "HealthProfessional PractitionerRole",
@@ -65,18 +65,74 @@
       },
       {
         "id": "PractitionerRole.practitioner",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "PractitionerRole.practitioner",
         "type": [
           {
             "code": "Reference",
             "targetProfile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
             ]
           }
         ]
       },
       {
         "id": "PractitionerRole.specialty:specialty",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "PractitionerRole.specialty",
         "sliceName": "specialty",
         "mapping": [

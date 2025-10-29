@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ACP-PositionRegardingEuthanasia",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PositionRegardingEuthanasia",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia",
   "version": "0.1.0",
   "name": "ACPPositionRegardingEuthanasia",
   "title": "Position Regarding Euthanasia",
@@ -50,6 +50,34 @@
       },
       {
         "id": "Observation.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.code",
         "patternCodeableConcept": {
           "coding": [
@@ -69,30 +97,114 @@
       },
       {
         "id": "Observation.subject",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.subject",
         "type": [
           {
             "code": "Reference",
             "targetProfile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
             ]
           }
         ]
       },
       {
         "id": "Observation.encounter",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.encounter",
         "type": [
           {
             "code": "Reference",
             "targetProfile": [
-              "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
             ]
           }
         ]
       },
       {
         "id": "Observation.effective[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.effective[x]",
         "mapping": [
           {
@@ -104,6 +216,34 @@
       },
       {
         "id": "Observation.value[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.value[x]",
         "definition": "Position regarding euthanesia.",
         "type": [
@@ -113,7 +253,7 @@
         ],
         "binding": {
           "strength": "required",
-          "valueSet": "https://fhir.iknl.nl/fhir/ValueSet/ACP-EuthanasiaStatement"
+          "valueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-EuthanasiaStatement"
         },
         "mapping": [
           {
@@ -125,6 +265,34 @@
       },
       {
         "id": "Observation.dataAbsentReason",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.dataAbsentReason",
         "mapping": [
           {
@@ -136,6 +304,34 @@
       },
       {
         "id": "Observation.note.text",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
         "path": "Observation.note.text",
         "definition": "Comment accompanying position regarding euthanesia.",
         "mapping": [

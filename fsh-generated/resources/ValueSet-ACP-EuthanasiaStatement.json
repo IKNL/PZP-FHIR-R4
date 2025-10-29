@@ -5,7 +5,7 @@
   "id": "ACP-EuthanasiaStatement",
   "title": "Euthanasia Statement",
   "description": "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement.",
-  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-EuthanasiaStatement",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-EuthanasiaStatement",
   "version": "0.1.0",
   "experimental": false,
   "publisher": "IKNL",
@@ -29,7 +29,7 @@
         "concept": [
           {
             "code": "UNK",
-            "display": "Nog onbekend",
+            "display": "nog onbekend",
             "designation": [
               {
                 "language": "nl-NL",
@@ -38,7 +38,7 @@
                   "system": "http://snomed.info/sct",
                   "display": "Synonym"
                 },
-                "value": "Onbekend"
+                "value": "onbekend"
               }
             ]
           }
@@ -49,15 +49,15 @@
         "concept": [
           {
             "code": "340181000146102",
-            "display": "Heeft euthanasieverklaring"
+            "display": "heeft euthanasieverklaring"
           },
           {
             "code": "340201000146103",
-            "display": "Wenst geen euthanasie"
+            "display": "wil geen euthanasie"
           },
           {
             "code": "340191000146100",
-            "display": "Geen euthanasieverklaring, zou wel verzoek kunnen doen in bepaalde situaties"
+            "display": "heeft geen euthanasieverklaring"
           }
         ]
       }

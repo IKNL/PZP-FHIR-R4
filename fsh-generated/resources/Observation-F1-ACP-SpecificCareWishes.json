@@ -3,7 +3,7 @@
   "id": "F1-ACP-SpecificCareWishes",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
     ]
   },
   "identifier": [
@@ -31,7 +31,8 @@
     "coding": [
       {
         "code": "153851000146100",
-        "system": "http://snomed.info/sct"
+        "system": "http://snomed.info/sct",
+        "display": "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
       }
     ]
   },

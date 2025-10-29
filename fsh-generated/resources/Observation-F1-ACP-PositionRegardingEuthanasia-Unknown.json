@@ -3,7 +3,7 @@
   "id": "F1-ACP-PositionRegardingEuthanasia-Unknown",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PositionRegardingEuthanasia"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
     ]
   },
   "identifier": [
@@ -36,7 +36,8 @@
     "coding": [
       {
         "code": "340171000146104",
-        "system": "http://snomed.info/sct"
+        "system": "http://snomed.info/sct",
+        "display": "standpunt ten opzichte van euthanasie"
       }
     ]
   },

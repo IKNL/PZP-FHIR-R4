@@ -1,3 +1,5 @@
+[ACPActorConsulter]: ActorDefinition-ACPActorConsulter.html
+[ACPActorProvider]: ActorDefinition-ACPActorProvider.html
 [ACPzib2020]: Questionnaire-ACP-zib2020.html
 [ACPProcedure]: StructureDefinition-ACP-Procedure.html
 [ACPAdvanceDirective]: StructureDefinition-ACP-AdvanceDirective.html

@@ -5,7 +5,7 @@
   "id": "ACP-MedicalDeviceProductType-ICD",
   "title": "MedicalDevice ProductType ICD",
   "description": "ICD product code for MedicalDevice ProductType.",
-  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD",
   "version": "0.1.0",
   "experimental": false,
   "publisher": "IKNL",

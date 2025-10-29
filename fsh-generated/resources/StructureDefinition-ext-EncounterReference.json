@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ext-EncounterReference",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
   "version": "0.1.0",
   "name": "ExtEncounterReference",
   "title": "ext Encounter Reference",
@@ -59,7 +59,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference"
+        "fixedUri": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference"
       },
       {
         "id": "Extension.value[x]",

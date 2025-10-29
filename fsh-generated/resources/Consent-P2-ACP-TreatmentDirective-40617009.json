@@ -3,7 +3,7 @@
   "id": "P2-ACP-TreatmentDirective-40617009",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
   "identifier": [
@@ -27,7 +27,7 @@
       "valueString": "Mevrouw wil geen kunstmatige beademing omdat er te weinig kans is om nog van de beademing af te komen i.v.m. gezondheid."
     },
     {
-      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
       "valueReference": {
         "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
         "display": "Encounter, 2025-08-07"

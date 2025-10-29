@@ -5,7 +5,7 @@
   "id": "ACP-PreferredPlaceOfDeath",
   "title": "Preferred Place Of Death",
   "description": "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible.",
-  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-PreferredPlaceOfDeath",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeath",
   "version": "0.1.0",
   "experimental": false,
   "publisher": "IKNL",
@@ -42,7 +42,7 @@
         "concept": [
           {
             "code": "264362003",
-            "display": "Thuis",
+            "display": "thuis",
             "designation": [
               {
                 "language": "en-US",
@@ -111,7 +111,7 @@
           },
           {
             "code": "22232009",
-            "display": "Ziekenhuis",
+            "display": "ziekenhuis",
             "designation": [
               {
                 "language": "en-US",
@@ -153,7 +153,7 @@
           },
           {
             "code": "108344006",
-            "display": "Verpleeghuis",
+            "display": "verpleeghuis en/of locatie voor ambulante zorg",
             "designation": [
               {
                 "language": "en-US",
@@ -195,7 +195,7 @@
           },
           {
             "code": "284546000",
-            "display": "Hospice",
+            "display": "hospice",
             "designation": [
               {
                 "language": "en-US",

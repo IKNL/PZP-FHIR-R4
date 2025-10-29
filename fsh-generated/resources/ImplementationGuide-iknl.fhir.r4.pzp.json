@@ -1,8 +1,8 @@
 {
   "resourceType": "ImplementationGuide",
   "id": "iknl.fhir.r4.pzp",
-  "url": "https://fhir.iknl.nl/fhir/ImplementationGuide/iknl.fhir.r4.pzp",
-  "version": "0.1.3-beta3",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ImplementationGuide/iknl.fhir.r4.pzp",
+  "version": "1.0.0-alpha1",
   "name": "PZP",
   "title": "Advance Care Planning (PZP)",
   "status": "active",
@@ -39,6 +39,12 @@
       "version": "0.12.0-beta.4",
       "uri": "http://fhir.org/packages/nictiz.fhir.nl.r4.zib2020/ImplementationGuide/nictiz.fhir.nl.r4.zib2020",
       "id": "nictiz_fhir_nl_r4_zib2020"
+    },
+    {
+      "packageId": "hl7.fhir.uv.extensions.r4",
+      "version": "5.2.0",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions_r4"
     }
   ],
   "definition": {
@@ -50,6 +56,22 @@
       }
     ],
     "resource": [
+      {
+        "reference": {
+          "reference": "ActorDefinition/ACPActorConsulter"
+        },
+        "name": "ACP Actor Consulter",
+        "description": "The ACP Actor Consulter is a system that creates and initiates a data access request to retrieve digital health and administrative information.",
+        "exampleBoolean": true
+      },
+      {
+        "reference": {
+          "reference": "ActorDefinition/ACPActorProvider"
+        },
+        "name": "ACP Actor Provider",
+        "description": "The ACP Actor Provider is a system that responds to data access requests for digital health and administrative information.",
+        "exampleBoolean": true
+      },
       {
         "reference": {
           "reference": "Questionnaire/ACP-zib2020"
@@ -136,161 +158,161 @@
           "reference": "Procedure/F1-ACP-Procedure-01-10-2020"
         },
         "name": "F1 ACP ACPProcedure 01-10-2020",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
       },
       {
         "reference": {
           "reference": "Communication/F1-ACP-Communication-01-10-2020"
         },
         "name": "F1 ACP Communication",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
       },
       {
         "reference": {
           "reference": "RelatedPerson/F1-ACP-ContactPerson-MichielHartman"
         },
         "name": "F1 ACP ContactPerson Michiel Hartman",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
       },
       {
         "reference": {
           "reference": "Observation/F1-ACP-OrganDonationChoiceRegistration-Yes"
         },
         "name": "F1 ACP Donor Registration Yes",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
       },
       {
         "reference": {
           "reference": "Encounter/F1-ACP-Encounter-01-10-2020"
         },
         "name": "F1 ACP Encounter 01-10-2020",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
       },
       {
         "reference": {
           "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen"
         },
         "name": "F1 ACP HealthProfessional Practitioner Dr. van Huissen",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
       },
       {
         "reference": {
           "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen"
         },
         "name": "F1 ACP HealthProfessional PractitionerRole Dr. van Huissen",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
       },
       {
         "reference": {
           "reference": "Goal/F1-ACP-Medical-Policy-Goal"
         },
         "name": "F1 ACP Medical Policy Goal - Life-sustaining treatment",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
       },
       {
         "reference": {
           "reference": "DeviceUseStatement/F1-ACP-MedicalDevice-ICD"
         },
         "name": "F1 ACP MedicalDevice ICD",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice"
       },
       {
         "reference": {
           "reference": "Device/F1-ACP-MedicalDevice.Product-ICD"
         },
         "name": "F1 ACP MedicalDevice.Product ICD",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice.Product-ICD"
       },
       {
         "reference": {
           "reference": "Observation/F1-ACP-OtherImportantInformation"
         },
         "name": "F1 ACP Other Important Information",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OtherImportantInformation"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
       },
       {
         "reference": {
           "reference": "Patient/F1-ACP-Patient-HendrikHartman"
         },
         "name": "F1 ACP Patient Hendrik Hartman",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
       },
       {
         "reference": {
           "reference": "Observation/F1-ACP-PositionRegardingEuthanasia-Unknown"
         },
         "name": "F1 ACP Position Regarding Euthanasia Unknown",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PositionRegardingEuthanasia"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
       },
       {
         "reference": {
           "reference": "Observation/F1-ACP-PreferredPlaceOfDeath-Unknown"
         },
         "name": "F1 ACP Preferred Place Of Death Unknown",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
       },
       {
         "reference": {
           "reference": "Observation/F1-ACP-SpecificCareWishes"
         },
         "name": "F1 ACP Specific Care Wishes",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-400231000146108"
         },
         "name": "F1 ACP TreatmentDirective",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-116762002"
         },
         "name": "F1 ACP TreatmentDirective 116762002",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-281789004"
         },
         "name": "F1 ACP TreatmentDirective 281789004",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-305351004"
         },
         "name": "F1 ACP TreatmentDirective 305351004",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-32485007"
         },
         "name": "F1 ACP TreatmentDirective 32485007",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-40617009"
         },
         "name": "F1 ACP TreatmentDirective 40617009",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F1-ACP-TreatmentDirective-89666000"
         },
         "name": "F1 ACP TreatmentDirective 89666000",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/F2-ACP-TreatmentDirective-305351004"
         },
         "name": "F2 ACP TreatmentDirective 305351004",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
@@ -369,182 +391,182 @@
           "reference": "Procedure/P2-ACP-Procedure-07-08-2025"
         },
         "name": "P2 ACP ACPProcedure 07-08-2025",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-AdvanceDirective"
         },
         "name": "P2 ACP AdvanceDirective",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-AdvanceDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-AdvanceDirective"
       },
       {
         "reference": {
           "reference": "Communication/P2-ACP-Communication-07-08-2025"
         },
         "name": "P2 ACP Communication",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
       },
       {
         "reference": {
           "reference": "RelatedPerson/P2-ACP-ContactPerson-GertJanDeJong"
         },
         "name": "P2 ACP ContactPerson Gert-Jan de Jong",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
       },
       {
         "reference": {
           "reference": "RelatedPerson/P2-ACP-ContactPerson-MayaVanDerSluijsMulder"
         },
         "name": "P2 ACP ContactPerson Maya van der Sluijs-Mulder",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-ContactPerson"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
       },
       {
         "reference": {
           "reference": "Encounter/P2-ACP-Encounter-07-08-2025"
         },
         "name": "P2 ACP Encounter 07-08-2025",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
       },
       {
         "reference": {
           "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters"
         },
         "name": "P2 ACP HealthProfessional Practitioner Desiree Wolters",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
       },
       {
         "reference": {
           "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-Santos"
         },
         "name": "P2 ACP HealthProfessional Practitioner Santos",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
       },
       {
         "reference": {
           "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters"
         },
         "name": "P2 ACP HealthProfessional PractitionerRole Desiree Wolters",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
       },
       {
         "reference": {
           "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-Santos"
         },
         "name": "P2 ACP HealthProfessional PractitionerRole Santos",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
       },
       {
         "reference": {
           "reference": "Goal/P2-ACP-Medical-Policy-Goal"
         },
         "name": "P2 ACP Medical Policy Goal - Life-sustaining treatment",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Medical-Policy-Goal"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
       },
       {
         "reference": {
           "reference": "DeviceUseStatement/P2-ACP-MedicalDevice-ICD"
         },
         "name": "P2 ACP MedicalDevice ICD",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice"
       },
       {
         "reference": {
           "reference": "Device/P2-ACP-MedicalDevice.Product-ICD"
         },
         "name": "P2 ACP MedicalDevice.Product ICD",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice.Product-ICD"
       },
       {
         "reference": {
           "reference": "Observation/P2-ACP-OrganDonationChoiceRegistration-20250807"
         },
         "name": "P2 ACP Organ Donation Choice Registration 2025 08 07",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
       },
       {
         "reference": {
           "reference": "Observation/P2-ACP-OtherImportantInformation-20250807"
         },
         "name": "P2 ACP Other Important Information 2025 08 07",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-OtherImportantInformation"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
       },
       {
         "reference": {
           "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs"
         },
         "name": "P2 ACP Patient Samira van der Sluijs",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Patient"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
       },
       {
         "reference": {
           "reference": "Observation/P2-ACP-PositionRegardingEuthanasia-20250807"
         },
         "name": "P2 ACP Position Regarding Euthanasia 2025 08 07",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PositionRegardingEuthanasia"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
       },
       {
         "reference": {
           "reference": "Observation/P2-ACP-PreferredPlaceOfDeath-20250807"
         },
         "name": "P2 ACP Preferred Place Of Death 2025 08 07",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PreferredPlaceOfDeath"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
       },
       {
         "reference": {
           "reference": "Observation/P2-ACP-SpecificCareWishes-20250807"
         },
         "name": "P2 ACP Specific Care Wishes 2025 08 07",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-SpecificCareWishes"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-281789004"
         },
         "name": "P2 ACP TreatmentDirective 281789004",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-305351004"
         },
         "name": "P2 ACP TreatmentDirective 305351004",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-32485007"
         },
         "name": "P2 ACP TreatmentDirective 32485007",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-400231000146108"
         },
         "name": "P2 ACP TreatmentDirective 400231000146108",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-40617009"
         },
         "name": "P2 ACP TreatmentDirective 40617009",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-89666000"
         },
         "name": "P2 ACP TreatmentDirective 89666000",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {
           "reference": "Consent/P2-ACP-TreatmentDirective-other"
         },
         "name": "P2 ACP TreatmentDirective other",
-        "exampleCanonical": "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {
         "reference": {

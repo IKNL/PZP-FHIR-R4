@@ -3,7 +3,7 @@
   "id": "P2-ACP-TreatmentDirective-89666000",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
   "identifier": [
@@ -23,7 +23,7 @@
   ],
   "extension": [
     {
-      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
       "valueReference": {
         "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
         "display": "Encounter, 2025-08-07"
@@ -74,7 +74,7 @@
           {
             "code": "89666000",
             "system": "http://snomed.info/sct",
-            "display": "Cardiopulmonary resuscitation (procedure)"
+            "display": "cardiopulmonale resuscitatie"
           }
         ]
       }

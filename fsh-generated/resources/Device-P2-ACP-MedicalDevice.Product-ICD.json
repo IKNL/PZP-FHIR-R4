@@ -3,7 +3,7 @@
   "id": "P2-ACP-MedicalDevice.Product-ICD",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice.Product-ICD"
     ]
   },
   "identifier": [
@@ -17,7 +17,7 @@
       {
         "code": "72506001",
         "system": "http://snomed.info/sct",
-        "display": "implanteerbare hartdefibrillator"
+        "display": "implanteerbare cardioverter-defibrillator"
       }
     ]
   }

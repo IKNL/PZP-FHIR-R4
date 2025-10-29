@@ -3,7 +3,7 @@
   "id": "P2-ACP-Procedure-07-08-2025",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Procedure"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
     ]
   },
   "identifier": [
@@ -53,7 +53,7 @@
       {
         "code": "713603004",
         "system": "http://snomed.info/sct",
-        "display": "Advance care planning (procedure)"
+        "display": "advance care planning"
       }
     ]
   },

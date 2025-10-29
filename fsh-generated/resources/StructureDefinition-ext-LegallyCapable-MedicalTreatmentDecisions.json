@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "ext-LegallyCapable-MedicalTreatmentDecisions",
-  "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions",
   "version": "0.1.0",
   "name": "ExtLegallyCapableMedicalTreatmentDecisions",
   "title": "ext LegallyCapable regarding medical treatment decisions",
@@ -108,7 +108,7 @@
       {
         "id": "Extension.url",
         "path": "Extension.url",
-        "fixedUri": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+        "fixedUri": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
       },
       {
         "id": "Extension.value[x]",

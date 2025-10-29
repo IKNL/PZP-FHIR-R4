@@ -3,7 +3,7 @@
   "id": "P2-ACP-Communication-07-08-2025",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Communication"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
     ]
   },
   "identifier": [
@@ -26,7 +26,7 @@
       {
         "code": "223449006",
         "system": "http://snomed.info/sct",
-        "display": "Recommendation to inform someone (procedure)"
+        "display": "adviseren om iemand te informeren"
       }
     ],
     "text": "Informing the patient about their own responsibility to discuss these treatment agreements with relatives."
@@ -43,7 +43,7 @@
         {
           "code": "713603004",
           "system": "http://snomed.info/sct",
-          "display": "Advance care planning (procedure)"
+          "display": "advance care planning"
         }
       ]
     }

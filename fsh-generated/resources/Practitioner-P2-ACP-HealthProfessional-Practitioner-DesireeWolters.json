@@ -3,7 +3,7 @@
   "id": "P2-ACP-HealthProfessional-Practitioner-DesireeWolters",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-HealthProfessional-Practitioner"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
     ]
   },
   "identifier": [

@@ -5,7 +5,7 @@
   "id": "ACP-YesNoUnknownVS",
   "title": "Yes, No, Unknown valueSet",
   "description": "ValueSet representing 'Yes, No, Unknown' answers.",
-  "url": "https://fhir.iknl.nl/fhir/ValueSet/ACP-YesNoUnknownVS",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-YesNoUnknownVS",
   "version": "0.1.0",
   "experimental": false,
   "publisher": "IKNL",
@@ -29,7 +29,7 @@
         "concept": [
           {
             "code": "UNK",
-            "display": "Nog onbekend",
+            "display": "nog onbekend",
             "designation": [
               {
                 "language": "nl-NL",
@@ -49,7 +49,7 @@
         "concept": [
           {
             "code": "373066001",
-            "display": "Ja",
+            "display": "ja",
             "designation": [
               {
                 "language": "en-UK",
@@ -118,7 +118,7 @@
           },
           {
             "code": "373067005",
-            "display": "Nee",
+            "display": "nee",
             "designation": [
               {
                 "language": "en-UK",

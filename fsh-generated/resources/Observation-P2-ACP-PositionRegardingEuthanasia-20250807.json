@@ -3,7 +3,7 @@
   "id": "P2-ACP-PositionRegardingEuthanasia-20250807",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-PositionRegardingEuthanasia"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
     ]
   },
   "identifier": [
@@ -31,7 +31,8 @@
     "coding": [
       {
         "code": "340171000146104",
-        "system": "http://snomed.info/sct"
+        "system": "http://snomed.info/sct",
+        "display": "standpunt ten opzichte van euthanasie"
       }
     ]
   },
@@ -49,7 +50,7 @@
       {
         "code": "340201000146103",
         "system": "http://snomed.info/sct",
-        "display": "Wil geen euthanasie (bevinding)"
+        "display": "wil geen euthanasie"
       }
     ]
   },

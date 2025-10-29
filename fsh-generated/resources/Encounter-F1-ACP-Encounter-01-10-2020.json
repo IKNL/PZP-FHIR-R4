@@ -3,7 +3,7 @@
   "id": "F1-ACP-Encounter-01-10-2020",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-Encounter"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
     ]
   },
   "identifier": [

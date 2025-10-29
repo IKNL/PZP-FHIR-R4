@@ -3,7 +3,7 @@
   "id": "P2-ACP-TreatmentDirective-305351004",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
   "identifier": [
@@ -27,7 +27,7 @@
       "valueString": "Hoeft niet meer van de patient"
     },
     {
-      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
       "valueReference": {
         "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
         "display": "Encounter, 2025-08-07"

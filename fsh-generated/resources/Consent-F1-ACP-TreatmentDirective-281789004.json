@@ -3,12 +3,12 @@
   "id": "F1-ACP-TreatmentDirective-281789004",
   "meta": {
     "profile": [
-      "https://fhir.iknl.nl/fhir/StructureDefinition/ACP-TreatmentDirective"
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
     ]
   },
   "extension": [
     {
-      "url": "https://fhir.iknl.nl/fhir/StructureDefinition/ext-EncounterReference",
+      "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
       "valueReference": {
         "reference": "Encounter/F1-ACP-Encounter-01-10-2020",
         "display": "Encounter, 2020-10-01"
@@ -74,7 +74,7 @@
           {
             "code": "281789004",
             "system": "http://snomed.info/sct",
-            "display": "Antibiotic therapy"
+            "display": "antibiotische therapie"
           }
         ]
       }

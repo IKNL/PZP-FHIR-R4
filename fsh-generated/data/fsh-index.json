@@ -1,11 +1,27 @@
 [
   {
+    "outputFile": "ActorDefinition-ACPActorConsulter.json",
+    "fshName": "ACPActorConsulter",
+    "fshType": "Instance",
+    "fshFile": "ActorDefinition.fsh",
+    "startLine": 1,
+    "endLine": 10
+  },
+  {
+    "outputFile": "ActorDefinition-ACPActorProvider.json",
+    "fshName": "ACPActorProvider",
+    "fshType": "Instance",
+    "fshFile": "ActorDefinition.fsh",
+    "startLine": 27,
+    "endLine": 36
+  },
+  {
     "outputFile": "Communication-F1-ACP-Communication-01-10-2020.json",
     "fshName": "F1-ACP-Communication-01-10-2020",
     "fshType": "Instance",
     "fshFile": "Communication.fsh",
-    "startLine": 24,
-    "endLine": 38
+    "startLine": 30,
+    "endLine": 44
   },
   {
     "outputFile": "Communication-P2-ACP-Communication-07-08-2025.json",
@@ -20,64 +36,64 @@
     "fshName": "F1-ACP-TreatmentDirective-116762002",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 167,
-    "endLine": 184
+    "startLine": 188,
+    "endLine": 205
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-281789004.json",
     "fshName": "F1-ACP-TreatmentDirective-281789004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 187,
-    "endLine": 204
+    "startLine": 208,
+    "endLine": 225
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-305351004.json",
     "fshName": "F1-ACP-TreatmentDirective-305351004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 107,
-    "endLine": 124
+    "startLine": 128,
+    "endLine": 145
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-32485007.json",
     "fshName": "F1-ACP-TreatmentDirective-32485007",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 207,
-    "endLine": 224
+    "startLine": 228,
+    "endLine": 245
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-400231000146108.json",
     "fshName": "F1-ACP-TreatmentDirective-400231000146108",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 227,
-    "endLine": 245
+    "startLine": 248,
+    "endLine": 266
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-40617009.json",
     "fshName": "F1-ACP-TreatmentDirective-40617009",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 147,
-    "endLine": 164
+    "startLine": 168,
+    "endLine": 185
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-89666000.json",
     "fshName": "F1-ACP-TreatmentDirective-89666000",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 127,
-    "endLine": 144
+    "startLine": 148,
+    "endLine": 165
   },
   {
     "outputFile": "Consent-F2-ACP-TreatmentDirective-305351004.json",
     "fshName": "F2-ACP-TreatmentDirective-305351004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 248,
-    "endLine": 267
+    "startLine": 269,
+    "endLine": 288
   },
   {
     "outputFile": "Consent-P2-ACP-AdvanceDirective.json",
@@ -148,8 +164,8 @@
     "fshName": "F1-ACP-MedicalDevice.Product-ICD",
     "fshType": "Instance",
     "fshFile": "Device.fsh",
-    "startLine": 25,
-    "endLine": 32
+    "startLine": 32,
+    "endLine": 39
   },
   {
     "outputFile": "Device-P2-ACP-MedicalDevice.Product-ICD.json",
@@ -164,8 +180,8 @@
     "fshName": "F1-ACP-MedicalDevice-ICD",
     "fshType": "Instance",
     "fshFile": "DeviceUseStatement.fsh",
-    "startLine": 32,
-    "endLine": 44
+    "startLine": 42,
+    "endLine": 54
   },
   {
     "outputFile": "DeviceUseStatement-P2-ACP-MedicalDevice-ICD.json",
@@ -180,8 +196,8 @@
     "fshName": "F1-ACP-Encounter-01-10-2020",
     "fshType": "Instance",
     "fshFile": "Encounter.fsh",
-    "startLine": 36,
-    "endLine": 52
+    "startLine": 45,
+    "endLine": 61
   },
   {
     "outputFile": "Encounter-P2-ACP-Encounter-07-08-2025.json",
@@ -196,8 +212,8 @@
     "fshName": "F1-ACP-Medical-Policy-Goal",
     "fshType": "Instance",
     "fshFile": "Goal.fsh",
-    "startLine": 25,
-    "endLine": 36
+    "startLine": 30,
+    "endLine": 41
   },
   {
     "outputFile": "Goal-P2-ACP-Medical-Policy-Goal.json",
@@ -212,40 +228,40 @@
     "fshName": "F1-ACP-OrganDonationChoiceRegistration-Yes",
     "fshType": "Instance",
     "fshFile": "Observation.fsh",
-    "startLine": 167,
-    "endLine": 180
+    "startLine": 196,
+    "endLine": 209
   },
   {
     "outputFile": "Observation-F1-ACP-OtherImportantInformation.json",
     "fshName": "F1-ACP-OtherImportantInformation",
     "fshType": "Instance",
     "fshFile": "Observation.fsh",
-    "startLine": 208,
-    "endLine": 221
+    "startLine": 245,
+    "endLine": 258
   },
   {
     "outputFile": "Observation-F1-ACP-PositionRegardingEuthanasia-Unknown.json",
     "fshName": "F1-ACP-PositionRegardingEuthanasia-Unknown",
     "fshType": "Instance",
     "fshFile": "Observation.fsh",
-    "startLine": 124,
-    "endLine": 138
+    "startLine": 147,
+    "endLine": 161
   },
   {
     "outputFile": "Observation-F1-ACP-PreferredPlaceOfDeath-Unknown.json",
     "fshName": "F1-ACP-PreferredPlaceOfDeath-Unknown",
     "fshType": "Instance",
     "fshFile": "Observation.fsh",
-    "startLine": 78,
-    "endLine": 93
+    "startLine": 93,
+    "endLine": 108
   },
   {
     "outputFile": "Observation-F1-ACP-SpecificCareWishes.json",
     "fshName": "F1-ACP-SpecificCareWishes",
     "fshType": "Instance",
     "fshFile": "Observation.fsh",
-    "startLine": 30,
-    "endLine": 44
+    "startLine": 38,
+    "endLine": 52
   },
   {
     "outputFile": "Observation-P2-ACP-OrganDonationChoiceRegistration-20250807.json",
@@ -300,8 +316,8 @@
     "fshName": "F1-ACP-Patient-HendrikHartman",
     "fshType": "Instance",
     "fshFile": "Patient.fsh",
-    "startLine": 89,
-    "endLine": 125
+    "startLine": 122,
+    "endLine": 158
   },
   {
     "outputFile": "Patient-P2-ACP-Patient-SamiraVanDerSluijs.json",
@@ -316,8 +332,8 @@
     "fshName": "F1-ACP-HealthProfessional-Practitioner-DrVanHuissen",
     "fshType": "Instance",
     "fshFile": "Practitioner.fsh",
-    "startLine": 23,
-    "endLine": 35
+    "startLine": 28,
+    "endLine": 40
   },
   {
     "outputFile": "Practitioner-P2-ACP-HealthProfessional-Practitioner-DesireeWolters.json",
@@ -340,8 +356,8 @@
     "fshName": "F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen",
     "fshType": "Instance",
     "fshFile": "PractitionerRole.fsh",
-    "startLine": 22,
-    "endLine": 32
+    "startLine": 24,
+    "endLine": 34
   },
   {
     "outputFile": "PractitionerRole-P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters.json",
@@ -364,8 +380,8 @@
     "fshName": "F1-ACP-Procedure-01-10-2020",
     "fshType": "Instance",
     "fshFile": "Procedure.fsh",
-    "startLine": 23,
-    "endLine": 41
+    "startLine": 26,
+    "endLine": 44
   },
   {
     "outputFile": "Procedure-P2-ACP-Procedure-07-08-2025.json",
@@ -380,8 +396,8 @@
     "fshName": "F1-ACP-ContactPerson-MichielHartman",
     "fshType": "Instance",
     "fshFile": "RelatedPerson.fsh",
-    "startLine": 118,
-    "endLine": 144
+    "startLine": 147,
+    "endLine": 173
   },
   {
     "outputFile": "RelatedPerson-P2-ACP-ContactPerson-GertJanDeJong.json",
@@ -413,7 +429,7 @@
     "fshType": "Profile",
     "fshFile": "Consent.fsh",
     "startLine": 1,
-    "endLine": 14
+    "endLine": 22
   },
   {
     "outputFile": "StructureDefinition-ACP-Communication.json",
@@ -421,7 +437,7 @@
     "fshType": "Profile",
     "fshFile": "Communication.fsh",
     "startLine": 1,
-    "endLine": 13
+    "endLine": 20
   },
   {
     "outputFile": "StructureDefinition-ACP-ContactPerson.json",
@@ -429,7 +445,7 @@
     "fshType": "Profile",
     "fshFile": "RelatedPerson.fsh",
     "startLine": 2,
-    "endLine": 11
+    "endLine": 41
   },
   {
     "outputFile": "StructureDefinition-ACP-Encounter.json",
@@ -437,7 +453,7 @@
     "fshType": "Profile",
     "fshFile": "Encounter.fsh",
     "startLine": 1,
-    "endLine": 15
+    "endLine": 24
   },
   {
     "outputFile": "StructureDefinition-ACP-HealthProfessional-Practitioner.json",
@@ -445,7 +461,7 @@
     "fshType": "Profile",
     "fshFile": "Practitioner.fsh",
     "startLine": 1,
-    "endLine": 6
+    "endLine": 11
   },
   {
     "outputFile": "StructureDefinition-ACP-HealthProfessional-PractitionerRole.json",
@@ -453,7 +469,7 @@
     "fshType": "Profile",
     "fshFile": "PractitionerRole.fsh",
     "startLine": 1,
-    "endLine": 7
+    "endLine": 10
   },
   {
     "outputFile": "StructureDefinition-ACP-Medical-Policy-Goal.json",
@@ -461,7 +477,7 @@
     "fshType": "Profile",
     "fshFile": "Goal.fsh",
     "startLine": 1,
-    "endLine": 11
+    "endLine": 16
   },
   {
     "outputFile": "StructureDefinition-ACP-MedicalDevice.Product-ICD.json",
@@ -469,7 +485,7 @@
     "fshType": "Profile",
     "fshFile": "Device.fsh",
     "startLine": 1,
-    "endLine": 7
+    "endLine": 14
   },
   {
     "outputFile": "StructureDefinition-ACP-MedicalDevice.json",
@@ -477,23 +493,23 @@
     "fshType": "Profile",
     "fshFile": "DeviceUseStatement.fsh",
     "startLine": 1,
-    "endLine": 11
+    "endLine": 22
   },
   {
     "outputFile": "StructureDefinition-ACP-OrganDonationChoiceRegistration.json",
     "fshName": "ACPOrganDonationChoiceRegistration",
     "fshType": "Profile",
     "fshFile": "Observation.fsh",
-    "startLine": 141,
-    "endLine": 152
+    "startLine": 164,
+    "endLine": 182
   },
   {
     "outputFile": "StructureDefinition-ACP-OtherImportantInformation.json",
     "fshName": "ACPOtherImportantInformation",
     "fshType": "Profile",
     "fshFile": "Observation.fsh",
-    "startLine": 183,
-    "endLine": 193
+    "startLine": 212,
+    "endLine": 229
   },
   {
     "outputFile": "StructureDefinition-ACP-Patient.json",
@@ -501,23 +517,23 @@
     "fshType": "Profile",
     "fshFile": "Patient.fsh",
     "startLine": 1,
-    "endLine": 16
+    "endLine": 49
   },
   {
     "outputFile": "StructureDefinition-ACP-PositionRegardingEuthanasia.json",
     "fshName": "ACPPositionRegardingEuthanasia",
     "fshType": "Profile",
     "fshFile": "Observation.fsh",
-    "startLine": 96,
-    "endLine": 108
+    "startLine": 111,
+    "endLine": 131
   },
   {
     "outputFile": "StructureDefinition-ACP-PreferredPlaceOfDeath.json",
     "fshName": "ACPPreferredPlaceOfDeath",
     "fshType": "Profile",
     "fshFile": "Observation.fsh",
-    "startLine": 52,
-    "endLine": 62
+    "startLine": 60,
+    "endLine": 78
   },
   {
     "outputFile": "StructureDefinition-ACP-Procedure.json",
@@ -525,7 +541,7 @@
     "fshType": "Profile",
     "fshFile": "Procedure.fsh",
     "startLine": 1,
-    "endLine": 11
+    "endLine": 15
   },
   {
     "outputFile": "StructureDefinition-ACP-SpecificCareWishes.json",
@@ -533,15 +549,15 @@
     "fshType": "Profile",
     "fshFile": "Observation.fsh",
     "startLine": 1,
-    "endLine": 14
+    "endLine": 23
   },
   {
     "outputFile": "StructureDefinition-ACP-TreatmentDirective.json",
     "fshName": "ACPTreatmentDirective",
     "fshType": "Profile",
     "fshFile": "Consent.fsh",
-    "startLine": 47,
-    "endLine": 70
+    "startLine": 55,
+    "endLine": 91
   },
   {
     "outputFile": "StructureDefinition-ext-EncounterReference.json",
