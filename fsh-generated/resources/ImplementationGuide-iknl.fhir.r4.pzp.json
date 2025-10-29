@@ -74,6 +74,14 @@
       },
       {
         "reference": {
+          "reference": "CapabilityStatement/ACPActorProviderCapabilityStatement"
+        },
+        "name": "ACP Actor Provider CapabilityStatement",
+        "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "Questionnaire/ACP-zib2020"
         },
         "description": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
@@ -687,6 +695,11 @@
         {
           "nameUrl": "data-exchange.html",
           "title": "Data Exchange Overview",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "changelog.html",
+          "title": "Change Log",
           "generation": "markdown"
         }
       ]

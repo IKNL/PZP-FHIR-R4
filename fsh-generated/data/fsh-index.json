@@ -16,6 +16,14 @@
     "endLine": 36
   },
   {
+    "outputFile": "CapabilityStatement-ACPActorProviderCapabilityStatement.json",
+    "fshName": "ACPActorProviderCapabilityStatement",
+    "fshType": "Instance",
+    "fshFile": "CapabilityStatement.fsh",
+    "startLine": 1,
+    "endLine": 83
+  },
+  {
     "outputFile": "Communication-F1-ACP-Communication-01-10-2020.json",
     "fshName": "F1-ACP-Communication-01-10-2020",
     "fshType": "Instance",
@@ -318,14 +326,6 @@
     "fshFile": "testscript\\Observation.fsh",
     "startLine": 1,
     "endLine": 15
-  },
-  {
-    "outputFile": "Parameters-expansion.json",
-    "fshName": "expansion",
-    "fshType": "Instance",
-    "fshFile": "Parameters.fsh",
-    "startLine": 1,
-    "endLine": 8
   },
   {
     "outputFile": "Patient-F1-ACP-Patient-HendrikHartman.json",
