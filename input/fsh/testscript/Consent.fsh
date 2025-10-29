@@ -156,13 +156,11 @@ Usage: #example
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Patiënt gaat dit volgende week met de cardioloog bespreken."
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
-* modifierExtension[specificationOther].valueString = "Niet besproken" 
+* modifierExtension[specificationOther].valueString = "Nee, nog geen besluit genomen" 
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
 * policy.uri = "https://wetten.overheid.nl/"
-// * provision.type = $DataAbsentReason#ASKU "nee, nog geen besluit genomen"
-// The above is not possible because type is a code with a required binding with only two codes as potion (permit, deny).
 * provision.actor[agreementParty][0].reference = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
