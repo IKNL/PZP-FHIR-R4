@@ -24,7 +24,7 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPSpecificCareWishes
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "654" "Specifieke wensen ([Meting])"
@@ -79,7 +79,7 @@ Description: "The preferred place of death. This is the place where the patient 
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPPreferredPlaceOfDeath
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "666" "Gewenste plek van overlijden ([Meting]))"
@@ -133,7 +133,7 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPPositionRegardingEuthanasia
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "678" "Euthanasie standpunt ([Meting])"
@@ -183,7 +183,7 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPOrganDonationChoiceRegistration
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "746" "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
@@ -231,7 +231,7 @@ Description: "Other relevant and important information related to the Patient’
 
 Mapping: MapACPOtherImportantInformation
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPOtherImportantInformation
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "709" "Wat verder nog belangrijk is ([Meting])"

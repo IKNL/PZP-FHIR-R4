@@ -13,7 +13,7 @@ Description: "A person who is authorized to perform actions in the field of indi
 
 Mapping: MapACPHealthProfessionalPractitioner
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPHealthProfessionalPractitioner
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "391" "Gesprek gevoerd door (Zorgverlener)"

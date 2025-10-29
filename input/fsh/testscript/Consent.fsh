@@ -16,13 +16,31 @@ Usage: #example
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
-// TODO toevoegen wilsverklaring 
-// comment: Hoe gaan we om met .code velden en de display. In de testscripts staat op dit moment de NL tekst.
 
 
-Instance: P2-ACP-TreatmentDirective-40617009
+Instance: P2-ACP-TreatmentDirective-40617009-1
 InstanceOf: ACPTreatmentDirective
-Title: "P2 ACP TreatmentDirective 40617009"
+Title: "P2 ACP TreatmentDirective 40617009-1"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "bc70c02f-f4f3-44a1-833b-41965885cc02"
+* extension[encounter].valueReference = Reference(P2-ACP-Encounter-28-07-2024) "Encounter, 2024-07-28"
+* modifierExtension[specificationOther].valueString = "Onbekend"
+* status = #inactive
+* patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* dateTime = 2024-07-28
+* policy.uri = "https://wetten.overheid.nl/"
+* provision.period.end = 2025-06-09
+* provision.actor[agreementParty][0].reference = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* provision.actor[agreementParty][=].reference.type = "Patient"
+* provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][=].reference.type = "PractitionerRole"
+* provision.code = $snomed#40617009 "kunstmatige beademing"
+
+Instance: P2-ACP-TreatmentDirective-40617009-2
+InstanceOf: ACPTreatmentDirective
+Title: "P2 ACP TreatmentDirective 40617009-2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -138,6 +156,7 @@ Usage: #example
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Patiënt gaat dit volgende week met de cardioloog bespreken."
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
+* modifierExtension[specificationOther].valueString = "Niet besproken" 
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
