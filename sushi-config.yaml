@@ -28,6 +28,9 @@ dependencies:
    nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
    nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4
 
+   # IG publisher adds this dependency automatically, so it's not usually needed here but it may be needed for the Java and the DotNet validator in the GitHub Actions workflows.
+   hl7.fhir.uv.extensions.r4: 5.2.0
+
 #   hl7.fhir.us.mcode:
 #     id: mcode
 #     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode

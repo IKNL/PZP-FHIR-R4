@@ -10,6 +10,9 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * code 1..1
 * code = $snomed#713603004
 
+* insert ObligationRules(subject)
+* insert ObligationRules(encounter)
+* insert ObligationRules(code)
 
 Mapping: MapACPProcedure
 Id: pall-izppz-zib2020v2025-03-11

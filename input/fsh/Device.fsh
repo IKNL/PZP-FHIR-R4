@@ -6,6 +6,13 @@ Description: "The medical device (internally or externally). In the context of A
 * insert MetaRules
 * type from ACPMedicalDeviceProductTypeICDVS (required)
 
+* insert ObligationRules(identifier[gs1ProductID])
+* insert ObligationRules(identifier[hibcProductID])
+* insert ObligationRules(udiCarrier[gs1UdiCarrier].carrierHRF)
+* insert ObligationRules(udiCarrier[hibcUdiCarrier].carrierHRF)
+* insert ObligationRules(type)
+* insert ObligationRules(note.text)
+
 
 Mapping: MapACPMedicalDeviceProductICD
 Id: pall-izppz-zib2020v2025-03-11

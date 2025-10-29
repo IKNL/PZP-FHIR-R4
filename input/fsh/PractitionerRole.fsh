@@ -6,6 +6,8 @@ Description: "The specialty of a person who is authorized to perform actions in 
 * insert MetaRules
 * practitioner only Reference(ACPHealthProfessionalPractitioner)
 
+* insert ObligationRules(practitioner)
+* insert ObligationRules(specialty[specialty])
 
 Mapping: MapACPHealthProfessionalPractitionerRole
 Id: pall-izppz-zib2020v2025-03-11

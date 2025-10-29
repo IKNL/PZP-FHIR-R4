@@ -4,6 +4,7 @@ Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
 Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource."
 * insert MetaRules
+
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#153851000146100 
@@ -13,6 +14,13 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 - if the question has not been asked (code = _not-asked_) "
 * method = $snomed#370819000
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueString)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(method)
+* insert ObligationRules(effective[x])  
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-zib2020v2025-03-11
@@ -61,6 +69,13 @@ Description: "The preferred place of death. This is the place where the patient 
 * value[x] only CodeableConcept 
 * value[x] from ACPPreferredPlaceOfDeathVS (extensible)
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
@@ -107,6 +122,14 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * value[x] from ACPEuthanasiaStatementVS (required)
 * note.text ^definition = "Comment accompanying position regarding euthanesia."
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
+
 
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-zib2020v2025-03-11
@@ -151,6 +174,12 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required)
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])  
 
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-zib2020v2025-03-11
@@ -192,6 +221,13 @@ Description: "Other relevant and important information related to the Patient’
 * value[x] only string
 * value[x] ^definition = "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueString)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+
 
 Mapping: MapACPOtherImportantInformation
 Id: pall-izppz-zib2020v2025-03-11
@@ -203,6 +239,7 @@ Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1
 * valueString -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
 * dataAbsentReason -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
 * effective[x] -> "715" "[MeetDatumBeginTijd]"
+
 
 
 Instance: F1-ACP-OtherImportantInformation

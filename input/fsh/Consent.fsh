@@ -7,11 +7,19 @@ Description: "A verbal or written description of the patient’s wishes with reg
 * extension contains
     ExtEncounterReference  named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
+* patient only Reference(ACPPatient)
 * provision.code ^definition = " The following codes are in scope of this profile:
 - For Euthanasia, codes _EU_ (Euthanasieverzoek) or _EUD_ (Euthanasieverzoek met aanvulling Dementie).
 - For Organ Donation, code _DO_ (Verklaring donorschap)."
 // Why not NR?
-* patient only Reference(ACPPatient)
+
+* insert ObligationRules(extension[comment])
+* insert ObligationRules(extension[disorder])
+* insert ObligationRules(patient)
+* insert ObligationRules(dateTime)
+* insert ObligationRules(sourceAttachment)
+* insert ObligationRules(provision.actor[representative].reference)
+* insert ObligationRules(provision.code)
 
 
 Mapping: MapACPAdvanceDirective
@@ -68,6 +76,20 @@ Description: "A joint decision between a health professional (for example a gene
     - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element." 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
+
+* insert ObligationRules(extension[encounter])
+* insert ObligationRules(extension[additionalAdvanceDirective])
+* insert ObligationRules(extension[comment].value[x])
+* insert ObligationRules(modifierExtension[specificationOther])
+* insert ObligationRules(patient)
+* insert ObligationRules(dateTime)
+* insert ObligationRules(sourceReference)
+* insert ObligationRules(provision.type)
+* insert ObligationRules(provision.extension[reasonForEnding])
+* insert ObligationRules(provision.period.end)
+// Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
+* insert ObligationRulesInsertWithExtensionLocation(provision.actor[agreementParty], 1)
+* insert ObligationRulesInsertWithExtensionLocation(provision.code.text, 1)
 
 
 Mapping: MapACPTreatmentDirective

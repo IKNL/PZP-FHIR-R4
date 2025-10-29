@@ -4,6 +4,11 @@ Id: ACP-HealthProfessional-Practitioner
 Title: "HealthProfessional Practitioner"
 Description: "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional."
 * insert MetaRules
+* insert ObligationRules(identifier)
+* insert ObligationRules(name[nameInformation-GivenName].given)
+* insert ObligationRules(name[nameInformation].family)
+* insert ObligationRules(name[nameInformation].family.extension[prefix])
+* insert ObligationRules(name[nameInformation].family.extension[lastName])
 
 
 Mapping: MapACPHealthProfessionalPractitioner

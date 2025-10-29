@@ -3,7 +3,7 @@
 # ================================
 
 # FSH Generated content
-fsh-generated/
+# fsh-generated/
 
 # FHIR IG Publisher cache and output
 input-cache/
