@@ -16,7 +16,7 @@ This implementation guide defines two actors:
 - <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: a server application that exposes a patient's ACP information.
 
 To be conformant the ACP Actor Consulter SHALL support all four transaction groups. This ensures the actor can retrieve ACP information from any provider, regardless of the FHIR version (STU3 or R4) or exchange method implemented.
-The ACP Actor Provider SHALL support at least one of the four transaction groups. While support for a single transaction group is the minimum requirement, providers SHOULD support multiple methods to enhance interoperability. The individual resources method is preferred over the form-based method for system-to-system exchange, as it offers a more standardized and reusable data structure.
+The ACP Actor Provider SHALL support at least one of the four transaction groups. The individual resources method is preferred over the form-based method for system-to-system exchange, as it offers a more standardized and reusable data structure.
 
 
 ### General API requirements
