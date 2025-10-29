@@ -550,8 +550,11 @@
         "id": "Consent.provision.actor:agreementParty",
         "extension": [
           {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+            "valueString": "provisionActor"
+          },
+          {
             "url": "http://hl7.org/fhir/StructureDefinition/obligation",
-            "valueString": "provisionActor",
             "extension": [
               {
                 "url": "code",
@@ -653,8 +656,11 @@
         "id": "Consent.provision.code.text",
         "extension": [
           {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
             "url": "http://hl7.org/fhir/StructureDefinition/obligation",
-            "valueBoolean": true,
             "extension": [
               {
                 "url": "code",

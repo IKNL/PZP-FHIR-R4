@@ -23,3 +23,17 @@ RuleSet: ObligationRules(path)
 * {path} ^extension[=].extension[+].url = "actor"
 * {path} ^extension[=].extension[=].valueCanonical = Canonical(ACPActorConsulter)
 
+// Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
+RuleSet: ObligationRulesInsertWithExtensionLocation(path, location)
+* {path} ^extension[{location}].url = "http://hl7.org/fhir/StructureDefinition/obligation"
+* {path} ^extension[=].extension[+].url = "code"
+* {path} ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
+* {path} ^extension[=].extension[+].url = "actor"
+* {path} ^extension[=].extension[=].valueCanonical = Canonical(ACPActorProvider)
+
+* {path} ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
+* {path} ^extension[=].extension[+].url = "code"
+* {path} ^extension[=].extension[=].valueCode = #SHALL:no-error
+* {path} ^extension[=].extension[+].url = "actor"
+* {path} ^extension[=].extension[=].valueCanonical = Canonical(ACPActorConsulter)
+

@@ -87,8 +87,9 @@ Description: "A joint decision between a health professional (for example a gene
 * insert ObligationRules(provision.type)
 * insert ObligationRules(provision.extension[reasonForEnding])
 * insert ObligationRules(provision.period.end)
-* insert ObligationRules(provision.actor[agreementParty])
-* insert ObligationRules(provision.code.text)
+// Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
+* insert ObligationRulesInsertWithExtensionLocation(provision.actor[agreementParty], 1)
+* insert ObligationRulesInsertWithExtensionLocation(provision.code.text, 1)
 
 
 Mapping: MapACPTreatmentDirective
