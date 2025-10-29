@@ -1,6 +1,6 @@
 {
   "resourceType": "Consent",
-  "id": "P2-ACP-TreatmentDirective-40617009",
+  "id": "P2-ACP-TreatmentDirective-40617009-1",
   "meta": {
     "profile": [
       "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
@@ -18,20 +18,22 @@
         ]
       },
       "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
-      "value": "9173e0ef-c00e-4ed3-bf64-97e490dd1dc0"
+      "value": "bc70c02f-f4f3-44a1-833b-41965885cc02"
     }
   ],
   "extension": [
     {
-      "url": "http://nictiz.nl/fhir/StructureDefinition/ext-Comment",
-      "valueString": "Mevrouw wil geen kunstmatige beademing omdat er te weinig kans is om nog van de beademing af te komen i.v.m. gezondheid."
-    },
-    {
       "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-EncounterReference",
       "valueReference": {
-        "reference": "Encounter/P2-ACP-Encounter-07-08-2025",
-        "display": "Encounter, 2025-08-07"
+        "reference": "Encounter/P2-ACP-Encounter-28-07-2024",
+        "display": "Encounter, 2024-07-28"
       }
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://nictiz.nl/fhir/StructureDefinition/ext-TreatmentDirective2.SpecificationOther",
+      "valueString": "Onbekend"
     }
   ],
   "policy": [
@@ -40,6 +42,9 @@
     }
   ],
   "provision": {
+    "period": {
+      "end": "2025-06-09"
+    },
     "actor": [
       {
         "reference": {
@@ -82,8 +87,7 @@
           }
         ]
       }
-    ],
-    "type": "deny"
+    ]
   },
   "scope": {
     "coding": [
@@ -103,10 +107,10 @@
       ]
     }
   ],
-  "status": "active",
+  "status": "inactive",
   "patient": {
     "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
     "display": "Patient, Samira van der Sluijs"
   },
-  "dateTime": "2025-08-07"
+  "dateTime": "2024-07-28"
 }

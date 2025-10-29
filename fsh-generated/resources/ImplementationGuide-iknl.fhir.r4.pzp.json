@@ -395,6 +395,13 @@
       },
       {
         "reference": {
+          "reference": "Procedure/P2-ACP-Procedure-28-07-2024"
+        },
+        "name": "P2 ACP ACPProcedure 28-07-2024",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+      },
+      {
+        "reference": {
           "reference": "Consent/P2-ACP-AdvanceDirective"
         },
         "name": "P2 ACP AdvanceDirective",
@@ -426,6 +433,13 @@
           "reference": "Encounter/P2-ACP-Encounter-07-08-2025"
         },
         "name": "P2 ACP Encounter 07-08-2025",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+      },
+      {
+        "reference": {
+          "reference": "Encounter/P2-ACP-Encounter-28-07-2024"
+        },
+        "name": "P2 ACP Encounter 28-07-2025",
         "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
       },
       {
@@ -549,9 +563,16 @@
       },
       {
         "reference": {
-          "reference": "Consent/P2-ACP-TreatmentDirective-40617009"
+          "reference": "Consent/P2-ACP-TreatmentDirective-40617009-1"
         },
-        "name": "P2 ACP TreatmentDirective 40617009",
+        "name": "P2 ACP TreatmentDirective 40617009-1",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-40617009-2"
+        },
+        "name": "P2 ACP TreatmentDirective 40617009-2",
         "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
       },
       {

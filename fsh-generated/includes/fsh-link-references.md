@@ -43,11 +43,13 @@
 [ACPOrganDonationChoiceRegistration]: StructureDefinition-ACP-OrganDonationChoiceRegistration.html
 [ACPOtherImportantInformation]: StructureDefinition-ACP-OtherImportantInformation.html
 [P2-ACP-Procedure-07-08-2025]: Procedure-P2-ACP-Procedure-07-08-2025.html
+[P2-ACP-Procedure-28-07-2024]: Procedure-P2-ACP-Procedure-28-07-2024.html
 [P2-ACP-AdvanceDirective]: Consent-P2-ACP-AdvanceDirective.html
 [P2-ACP-Communication-07-08-2025]: Communication-P2-ACP-Communication-07-08-2025.html
 [P2-ACP-ContactPerson-GertJanDeJong]: RelatedPerson-P2-ACP-ContactPerson-GertJanDeJong.html
 [P2-ACP-ContactPerson-MayaVanDerSluijsMulder]: RelatedPerson-P2-ACP-ContactPerson-MayaVanDerSluijsMulder.html
 [P2-ACP-Encounter-07-08-2025]: Encounter-P2-ACP-Encounter-07-08-2025.html
+[P2-ACP-Encounter-28-07-2024]: Encounter-P2-ACP-Encounter-28-07-2024.html
 [P2-ACP-HealthProfessional-Practitioner-DesireeWolters]: Practitioner-P2-ACP-HealthProfessional-Practitioner-DesireeWolters.html
 [P2-ACP-HealthProfessional-Practitioner-Santos]: Practitioner-P2-ACP-HealthProfessional-Practitioner-Santos.html
 [P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters]: PractitionerRole-P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters.html
@@ -65,7 +67,8 @@
 [P2-ACP-TreatmentDirective-305351004]: Consent-P2-ACP-TreatmentDirective-305351004.html
 [P2-ACP-TreatmentDirective-32485007]: Consent-P2-ACP-TreatmentDirective-32485007.html
 [P2-ACP-TreatmentDirective-400231000146108]: Consent-P2-ACP-TreatmentDirective-400231000146108.html
-[P2-ACP-TreatmentDirective-40617009]: Consent-P2-ACP-TreatmentDirective-40617009.html
+[P2-ACP-TreatmentDirective-40617009-1]: Consent-P2-ACP-TreatmentDirective-40617009-1.html
+[P2-ACP-TreatmentDirective-40617009-2]: Consent-P2-ACP-TreatmentDirective-40617009-2.html
 [P2-ACP-TreatmentDirective-89666000]: Consent-P2-ACP-TreatmentDirective-89666000.html
 [P2-ACP-TreatmentDirective-other]: Consent-P2-ACP-TreatmentDirective-other.html
 [ACPPatient]: StructureDefinition-ACP-Patient.html

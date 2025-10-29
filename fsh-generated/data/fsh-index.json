@@ -36,112 +36,120 @@
     "fshName": "F1-ACP-TreatmentDirective-116762002",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 191,
-    "endLine": 208
+    "startLine": 189,
+    "endLine": 206
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-281789004.json",
     "fshName": "F1-ACP-TreatmentDirective-281789004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 211,
-    "endLine": 228
+    "startLine": 209,
+    "endLine": 226
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-305351004.json",
     "fshName": "F1-ACP-TreatmentDirective-305351004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 131,
-    "endLine": 148
+    "startLine": 129,
+    "endLine": 146
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-32485007.json",
     "fshName": "F1-ACP-TreatmentDirective-32485007",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 231,
-    "endLine": 248
+    "startLine": 229,
+    "endLine": 246
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-400231000146108.json",
     "fshName": "F1-ACP-TreatmentDirective-400231000146108",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 251,
-    "endLine": 269
+    "startLine": 249,
+    "endLine": 267
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-40617009.json",
     "fshName": "F1-ACP-TreatmentDirective-40617009",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 171,
-    "endLine": 188
+    "startLine": 169,
+    "endLine": 186
   },
   {
     "outputFile": "Consent-F1-ACP-TreatmentDirective-89666000.json",
     "fshName": "F1-ACP-TreatmentDirective-89666000",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 151,
-    "endLine": 168
+    "startLine": 149,
+    "endLine": 166
   },
   {
     "outputFile": "Consent-F2-ACP-TreatmentDirective-305351004.json",
     "fshName": "F2-ACP-TreatmentDirective-305351004",
     "fshType": "Instance",
     "fshFile": "Consent.fsh",
-    "startLine": 272,
-    "endLine": 291
+    "startLine": 270,
+    "endLine": 289
   },
   {
     "outputFile": "Consent-P2-ACP-AdvanceDirective.json",
     "fshName": "P2-ACP-AdvanceDirective",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 155,
-    "endLine": 172
+    "startLine": 172,
+    "endLine": 189
   },
   {
     "outputFile": "Consent-P2-ACP-TreatmentDirective-281789004.json",
     "fshName": "P2-ACP-TreatmentDirective-281789004",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 88,
-    "endLine": 105
+    "startLine": 106,
+    "endLine": 123
   },
   {
     "outputFile": "Consent-P2-ACP-TreatmentDirective-305351004.json",
     "fshName": "P2-ACP-TreatmentDirective-305351004",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 45,
-    "endLine": 64
+    "startLine": 63,
+    "endLine": 82
   },
   {
     "outputFile": "Consent-P2-ACP-TreatmentDirective-32485007.json",
     "fshName": "P2-ACP-TreatmentDirective-32485007",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 67,
-    "endLine": 85
+    "startLine": 85,
+    "endLine": 103
   },
   {
     "outputFile": "Consent-P2-ACP-TreatmentDirective-400231000146108.json",
     "fshName": "P2-ACP-TreatmentDirective-400231000146108",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 131,
-    "endLine": 152
+    "startLine": 149,
+    "endLine": 169
   },
   {
-    "outputFile": "Consent-P2-ACP-TreatmentDirective-40617009.json",
-    "fshName": "P2-ACP-TreatmentDirective-40617009",
+    "outputFile": "Consent-P2-ACP-TreatmentDirective-40617009-1.json",
+    "fshName": "P2-ACP-TreatmentDirective-40617009-1",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 23,
-    "endLine": 42
+    "startLine": 21,
+    "endLine": 39
+  },
+  {
+    "outputFile": "Consent-P2-ACP-TreatmentDirective-40617009-2.json",
+    "fshName": "P2-ACP-TreatmentDirective-40617009-2",
+    "fshType": "Instance",
+    "fshFile": "testscript\\Consent.fsh",
+    "startLine": 41,
+    "endLine": 60
   },
   {
     "outputFile": "Consent-P2-ACP-TreatmentDirective-89666000.json",
@@ -156,8 +164,8 @@
     "fshName": "P2-ACP-TreatmentDirective-other",
     "fshType": "Instance",
     "fshFile": "testscript\\Consent.fsh",
-    "startLine": 108,
-    "endLine": 128
+    "startLine": 126,
+    "endLine": 146
   },
   {
     "outputFile": "Device-F1-ACP-MedicalDevice.Product-ICD.json",
@@ -206,6 +214,14 @@
     "fshFile": "testscript\\Encounter.fsh",
     "startLine": 1,
     "endLine": 19
+  },
+  {
+    "outputFile": "Encounter-P2-ACP-Encounter-28-07-2024.json",
+    "fshName": "P2-ACP-Encounter-28-07-2024",
+    "fshType": "Instance",
+    "fshFile": "testscript\\Encounter.fsh",
+    "startLine": 21,
+    "endLine": 39
   },
   {
     "outputFile": "Goal-F1-ACP-Medical-Policy-Goal.json",
@@ -392,6 +408,14 @@
     "endLine": 18
   },
   {
+    "outputFile": "Procedure-P2-ACP-Procedure-28-07-2024.json",
+    "fshName": "P2-ACP-Procedure-28-07-2024",
+    "fshType": "Instance",
+    "fshFile": "testscript\\Procedure.fsh",
+    "startLine": 20,
+    "endLine": 37
+  },
+  {
     "outputFile": "RelatedPerson-F1-ACP-ContactPerson-MichielHartman.json",
     "fshName": "F1-ACP-ContactPerson-MichielHartman",
     "fshType": "Instance",
@@ -557,7 +581,7 @@
     "fshType": "Profile",
     "fshFile": "Consent.fsh",
     "startLine": 55,
-    "endLine": 91
+    "endLine": 92
   },
   {
     "outputFile": "StructureDefinition-ext-EncounterReference.json",
