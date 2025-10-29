@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "iknl.fhir.r4.pzp",
   "url": "https://api.iknl.nl/docs/pzp/r4/ImplementationGuide/iknl.fhir.r4.pzp",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-rc1",
   "name": "PZP",
   "title": "Advance Care Planning (PZP)",
   "status": "active",

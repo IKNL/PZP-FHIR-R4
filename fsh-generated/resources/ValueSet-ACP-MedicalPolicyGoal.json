@@ -6,7 +6,7 @@
   "title": "Most Important Agreed-upon Goal of Medical Policy",
   "description": "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy.",
   "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoal",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "experimental": false,
   "publisher": "IKNL",
   "contact": [

@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "ACP-HealthProfessional-PractitionerRole",
   "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "name": "ACPHealthProfessionalPractitionerRole",
   "title": "HealthProfessional PractitionerRole",
   "status": "draft",
