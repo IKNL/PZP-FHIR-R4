@@ -4,12 +4,12 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: iknl.fhir.r4.pzp
-canonical: https://fhir.iknl.nl/fhir
+canonical: https://api.iknl.nl/docs/pzp/r4
 name: PZP
 title: Advance Care Planning (PZP)
 description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020
 status: active # draft | active | retired | unknown
-version: 0.1.3-beta3
+version: 1.0.0-alpha1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: consultation
@@ -27,6 +27,9 @@ publisher:
 dependencies:
    nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
    nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4
+
+   # IG publisher adds this dependency automatically, so it's not usually needed here but it may be needed for the Java and the DotNet validator in the GitHub Actions workflows.
+   hl7.fhir.uv.extensions.r4: 5.2.0
 
 #   hl7.fhir.us.mcode:
 #     id: mcode

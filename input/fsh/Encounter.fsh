@@ -15,9 +15,18 @@ Description: "Any interaction, regardless of the situation, between a patient an
 * participant[contactPerson].individual only Reference(ACPContactPerson)
 // Patient is not allowed like this.... in R5 it will be.* participant[patient].individual only Reference(ACPPatient) --> Patient is set in .subject.
 
+* insert ObligationRules(subject)
+* insert ObligationRules(participant[contactPerson])
+* insert ObligationRules(participant[healthProfessional])
+* insert ObligationRules(period.start)
+* insert ObligationRules(reasonReference[procedure])
+* insert ObligationRules(reasonReference.extension[commentContactReason])
+* insert ObligationRules(reasonCode[deviatingResult].extension[commentContactReason])
+
+
 Mapping: MapACPEncounter
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPEncounter
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "808" "Contact"

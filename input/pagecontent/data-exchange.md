@@ -33,11 +33,11 @@ All interactions adhere to the following principles.
 
 This approach provides granular access to the individual clinical statements that constitute the ACP. It allows applications to query for specific data points without processing an entire form.
 
-This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with a identifier (e.g. BSN).
+This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below listed client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with an identifier (e.g. BSN).
 
 #### Client Requests
 
-The below listed search request show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
 
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
@@ -48,11 +48,11 @@ The below listed search request show how all the ACP agreements, procedural info
 
 3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=[id]&description:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal
+4 GET [base]/Goal?patient=[id]&description=http://snomed.info/sct|385987000,1351964001,713148004
 
 5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
-6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
+6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
 
 7 GET [base]/Communication?patient=[id]&reason-code=http://snomed.info/sct|713603004
 ```
@@ -97,7 +97,7 @@ This method is included to lower the implementation burden for data providers wh
 
 A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the <a href="Questionnaire-ACP-zib2020.html">ACP Questionnaire</a> to ensure that only the correct form is returned.
 
-> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020
+> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020
 
 
 #### Server Response

@@ -15,16 +15,49 @@ Description: "A person who receives medical, psychological, paramedical, or nurs
 * contact.extension[relatedPerson].valueReference only Reference(ACPContactPerson)
 * contact.relationship ^condition = "ACP-Patient-1"
 
+* insert ObligationRules(extension[legallyCapableMedicalTreatmentDecisions])
+* insert ObligationRules(contact.extension[relatedPerson])
+* insert ObligationRules(identifier)
+* insert ObligationRules(name[nameInformation].given)
+* insert ObligationRules(name[nameInformation-GivenName].given)
+* insert ObligationRules(name[nameInformation].use)
+* insert ObligationRules(name[nameInformation].family.extension[prefix])
+* insert ObligationRules(name[nameInformation].family.extension[lastName])
+* insert ObligationRules(name[nameInformation].family.extension[partnerPrefix])
+* insert ObligationRules(name[nameInformation].family.extension[partnerLastName])
+* insert ObligationRules(name[nameInformation].suffix)
+* insert ObligationRules(telecom[telephoneNumbers].value)
+* insert ObligationRules(telecom[telephoneNumbers].system)
+* insert ObligationRules(telecom[telephoneNumbers].system.extension[telecomType])   
+* insert ObligationRules(telecom[telephoneNumbers].use)
+* insert ObligationRules(telecom[telephoneNumbers].extension[comment])
+* insert ObligationRules(telecom[emailAddresses].value)
+* insert ObligationRules(telecom[emailAddresses].system)    
+* insert ObligationRules(gender) 
+* insert ObligationRules(gender.extension[genderCodelist])   
+* insert ObligationRules(birthDate)
+* insert ObligationRules(address.line.extension[streetName])
+* insert ObligationRules(address.line.extension[houseNumber])
+* insert ObligationRules(address.line.extension[houseNumberLetter-houseNumberAddition])
+* insert ObligationRules(address.line.extension[houseNumberIndication])
+* insert ObligationRules(address.postalCode)
+* insert ObligationRules(address.city)
+* insert ObligationRules(address.district)
+* insert ObligationRules(address.country.extension[countryCode])
+* insert ObligationRules(address.line.extension[additionalInformation])
+* insert ObligationRules(address.use)
+* insert ObligationRules(address.type)
+
 
 Invariant: ACP-Patient-1
 Description: "If the patient is not legally capable, there should be a legal representative."
 * severity = #warning
-* expression = "extension.where(url='https://fhir.iknl.nl/fhir/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').extension.where(url='legallyCapable').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension.where(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
+* expression = "extension.where(url='https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').extension.where(url='legallyCapable').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension.where(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
 
 
 Mapping: MapACPPatient
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPPatient
 Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
 * -> "351" "Patient"
