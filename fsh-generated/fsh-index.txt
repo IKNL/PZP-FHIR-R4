@@ -40,7 +40,7 @@ Observation-P2-ACP-PositionRegardingEuthanasia-20250807.json                    
 Observation-P2-ACP-PreferredPlaceOfDeath-20250807.json                           P2-ACP-PreferredPlaceOfDeath-20250807                      Instance   testscript\Observation.fsh         18 - 32
 Observation-P2-ACP-SpecificCareWishes-20250807.json                              P2-ACP-SpecificCareWishes-20250807                         Instance   testscript\Observation.fsh         1 - 15
 Patient-F1-ACP-Patient-HendrikHartman.json                                       F1-ACP-Patient-HendrikHartman                              Instance   Patient.fsh                        122 - 158
-Patient-P2-ACP-Patient-SamiraVanDerSluijs.json                                   P2-ACP-Patient-SamiraVanDerSluijs                          Instance   testscript\Patient.fsh             1 - 51
+Patient-P2-ACP-Patient-SamiraVanDerSluijs.json                                   P2-ACP-Patient-SamiraVanDerSluijs                          Instance   testscript\Patient.fsh             1 - 50
 Practitioner-F1-ACP-HealthProfessional-Practitioner-DrVanHuissen.json            F1-ACP-HealthProfessional-Practitioner-DrVanHuissen        Instance   Practitioner.fsh                   28 - 40
 Practitioner-P2-ACP-HealthProfessional-Practitioner-DesireeWolters.json          P2-ACP-HealthProfessional-Practitioner-DesireeWolters      Instance   testscript\Practitioner.fsh        1 - 14
 Practitioner-P2-ACP-HealthProfessional-Practitioner-Santos.json                  P2-ACP-HealthProfessional-Practitioner-Santos              Instance   testscript\Practitioner.fsh        17 - 22
@@ -51,8 +51,8 @@ Procedure-F1-ACP-Procedure-01-10-2020.json                                      
 Procedure-P2-ACP-Procedure-07-08-2025.json                                       P2-ACP-Procedure-07-08-2025                                Instance   testscript\Procedure.fsh           1 - 18
 Procedure-P2-ACP-Procedure-28-07-2024.json                                       P2-ACP-Procedure-28-07-2024                                Instance   testscript\Procedure.fsh           20 - 37
 RelatedPerson-F1-ACP-ContactPerson-MichielHartman.json                           F1-ACP-ContactPerson-MichielHartman                        Instance   RelatedPerson.fsh                  147 - 173
-RelatedPerson-P2-ACP-ContactPerson-GertJanDeJong.json                            P2-ACP-ContactPerson-GertJanDeJong                         Instance   testscript\RelatedPerson.fsh       1 - 47
-RelatedPerson-P2-ACP-ContactPerson-MayaVanDerSluijsMulder.json                   P2-ACP-ContactPerson-MayaVanDerSluijsMulder                Instance   testscript\RelatedPerson.fsh       49 - 99
+RelatedPerson-P2-ACP-ContactPerson-GertJanDeJong.json                            P2-ACP-ContactPerson-GertJanDeJong                         Instance   testscript\RelatedPerson.fsh       1 - 46
+RelatedPerson-P2-ACP-ContactPerson-MayaVanDerSluijsMulder.json                   P2-ACP-ContactPerson-MayaVanDerSluijsMulder                Instance   testscript\RelatedPerson.fsh       48 - 97
 SearchParameter-Communication-reason-code.json                                   Communication-reason-code                                  Instance   SearchParameter.fsh                1 - 17
 StructureDefinition-ACP-AdvanceDirective.json                                    ACPAdvanceDirective                                        Profile    Consent.fsh                        1 - 22
 StructureDefinition-ACP-Communication.json                                       ACPCommunication                                           Profile    Communication.fsh                  1 - 20
