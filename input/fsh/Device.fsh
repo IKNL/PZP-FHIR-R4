@@ -6,12 +6,19 @@ Description: "The medical device (internally or externally). In the context of A
 * insert MetaRules
 * type from ACPMedicalDeviceProductTypeICDVS (required)
 
+* insert ObligationRules(identifier[gs1ProductID])
+* insert ObligationRules(identifier[hibcProductID])
+* insert ObligationRules(udiCarrier[gs1UdiCarrier].carrierHRF)
+* insert ObligationRules(udiCarrier[hibcUdiCarrier].carrierHRF)
+* insert ObligationRules(type)
+* insert ObligationRules(note.text)
+
 
 Mapping: MapACPMedicalDeviceProductICD
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPMedicalDeviceProductICD
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "621" "Product"
 * identifier[gs1ProductID] -> "622" "ProductID"
 * identifier[hibcProductID] -> "622" "ProductID"
@@ -29,4 +36,4 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "00e66024-84a5-44f8-84e9-f8ac339bfd5a"
-* type = $snomed#465460004 "univentriculaire implanteerbare hartdefibrillator"
+* type = $snomed#72506001 "implanteerbare cardioverter-defibrillator"

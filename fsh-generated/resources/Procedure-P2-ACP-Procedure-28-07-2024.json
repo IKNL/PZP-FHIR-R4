@@ -1,0 +1,65 @@
+{
+  "resourceType": "Procedure",
+  "id": "P2-ACP-Procedure-28-07-2024",
+  "meta": {
+    "profile": [
+      "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "RI",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Resource identifier"
+          }
+        ]
+      },
+      "system": "https://acme.com/fhir/NamingSystem/resource-business-identifier",
+      "value": "f527654a-5fa4-4394-95bc-50a9f50a5b1f"
+    }
+  ],
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+        "display": "Healthcare professional (role), Desiree Wolters",
+        "type": "PractitionerRole"
+      }
+    },
+    {
+      "actor": {
+        "reference": "RelatedPerson/P2-ACP-ContactPerson-GertJanDeJong",
+        "display": "ContactPerson, Gert-Jan de Jong",
+        "type": "RelatedPerson"
+      }
+    },
+    {
+      "actor": {
+        "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+        "display": "Patient, Samira van der Sluijs",
+        "type": "Patient"
+      }
+    }
+  ],
+  "performedPeriod": {
+    "start": "2024-07-28",
+    "end": "2024-07-28"
+  },
+  "code": {
+    "coding": [
+      {
+        "code": "713603004",
+        "system": "http://snomed.info/sct",
+        "display": "advance care planning"
+      }
+    ]
+  },
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs",
+    "display": "Patient, Samira van der Sluijs"
+  }
+}

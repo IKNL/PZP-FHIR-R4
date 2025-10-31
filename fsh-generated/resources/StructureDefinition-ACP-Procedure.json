@@ -1,0 +1,195 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-Procedure",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure",
+  "version": "1.0.0-rc1",
+  "name": "ACPProcedure",
+  "title": "Advance Care Planning Procedure",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "name": "ACP dataset",
+      "uri": "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure",
+        "path": "Procedure",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "820",
+            "comment": "Verrichting"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
+        "path": "Procedure.code",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "713603004",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "827",
+            "comment": "PZP gesprek (VerrichtingType)"
+          }
+        ]
+      },
+      {
+        "id": "Procedure.subject",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
+        "path": "Procedure.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.encounter",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
+        "path": "Procedure.encounter",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson",
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

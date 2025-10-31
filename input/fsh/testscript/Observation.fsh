@@ -9,10 +9,10 @@ Usage: #example
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#153851000146100
+* code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
 * valueString = "De kleinzoon van mevrouw van der Sluijs is geboren en mevrouw is dolgelukkig dat ze hem heeft kunnen zien. Ze merkt dat ze fysiek erg achteruitgaat. Mevrouw heeft daar nu vrede mee, in tegenstelling tot eerdere gesprekken."
 * effectiveDateTime = "2025-08-07"
-* method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
+* method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg"
 
 
 Instance: P2-ACP-PreferredPlaceOfDeath-20250807
@@ -26,9 +26,9 @@ Usage: #example
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#395091006
+* code =  $snomed#395091006 "Preferred place of death"
 * effectiveDateTime = "2025-08-07"
-* valueCodeableConcept = $snomed#264362003 "thuis (omgeving)"
+* valueCodeableConcept = $snomed#264362003 "thuis"
 * note.text = "Het liefst rustig thuis"
 
 
@@ -43,8 +43,8 @@ Usage: #example
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#340171000146104
-* valueCodeableConcept = $snomed#340201000146103 "Wil geen euthanasie (bevinding)"
+* code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
+* valueCodeableConcept = $snomed#340201000146103 "wil geen euthanasie"
 * effectiveDateTime = "2025-08-07"
 
 
@@ -59,7 +59,7 @@ Usage: #example
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister (bevinding)"
+* code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister"
 * valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2025-08-07"
 
@@ -75,7 +75,7 @@ Usage: #example
 * subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#247751003
+* code =  $snomed#247751003 "gevoel van zingeving"
 * valueString = "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door."
 * effectiveDateTime = "2025-08-07"
 

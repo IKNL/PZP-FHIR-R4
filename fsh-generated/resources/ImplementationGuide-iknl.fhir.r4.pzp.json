@@ -1,0 +1,742 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "iknl.fhir.r4.pzp",
+  "url": "https://api.iknl.nl/docs/pzp/r4/ImplementationGuide/iknl.fhir.r4.pzp",
+  "version": "1.0.0-rc1",
+  "name": "PZP",
+  "title": "Advance Care Planning (PZP)",
+  "status": "active",
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://iknl.nl/"
+        },
+        {
+          "system": "email",
+          "value": "info@iknl.nl"
+        }
+      ]
+    }
+  ],
+  "description": "Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020",
+  "packageId": "iknl.fhir.r4.pzp",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "nictiz.fhir.nl.r4.nl-core",
+      "version": "0.12.0-beta.4",
+      "uri": "http://fhir.org/packages/nictiz.fhir.nl.r4.nl-core/ImplementationGuide/nictiz.fhir.nl.r4.nl-core",
+      "id": "nictiz_fhir_nl_r4_nl_core"
+    },
+    {
+      "packageId": "nictiz.fhir.nl.r4.zib2020",
+      "version": "0.12.0-beta.4",
+      "uri": "http://fhir.org/packages/nictiz.fhir.nl.r4.zib2020/ImplementationGuide/nictiz.fhir.nl.r4.zib2020",
+      "id": "nictiz_fhir_nl_r4_zib2020"
+    },
+    {
+      "packageId": "hl7.fhir.uv.extensions.r4",
+      "version": "5.2.0",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions_r4"
+    }
+  ],
+  "definition": {
+    "grouping": [
+      {
+        "id": "Q-QR",
+        "name": "Structures: Questionnaire and QuestionnaireResponses",
+        "description": "These define forms used by systems conforming to this implementation guide to capture or expose data to end users."
+      },
+      {
+        "id": "AD",
+        "name": "Requirements: Actor Definitions",
+        "description": "The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."
+      }
+    ],
+    "resource": [
+      {
+        "reference": {
+          "reference": "ActorDefinition/ACPActorConsulter"
+        },
+        "name": "ACP Actor Consulter",
+        "description": "The ACP Actor Consulter is a system that creates and initiates a data access request to retrieve digital health and administrative information.",
+        "exampleBoolean": true,
+        "groupingId": "AD"
+      },
+      {
+        "reference": {
+          "reference": "ActorDefinition/ACPActorProvider"
+        },
+        "name": "ACP Actor Provider",
+        "description": "The ACP Actor Provider is a system that responds to data access requests for digital health and administrative information.",
+        "exampleBoolean": true,
+        "groupingId": "AD"
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/ACP-zib2020"
+        },
+        "description": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+        "exampleBoolean": false,
+        "name": "ACP Questionnaire based on zib2020",
+        "groupingId": "Q-QR"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-Procedure"
+        },
+        "name": "Advance Care Planning Procedure",
+        "description": "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-AdvanceDirective"
+        },
+        "name": "AdvanceDirective",
+        "description": "A verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider. Based on nl-core-AdvanceDirective and HCIM AdvanceDirective.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-Communication"
+        },
+        "name": "Communication",
+        "description": "Communication events that have taken place in context of Advance Care Planning. Based on Communication resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "SearchParameter/Communication-reason-code"
+        },
+        "name": "Communication-reason-code",
+        "description": "ReasonCode for the Communication",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-ContactPerson"
+        },
+        "name": "ContactPerson",
+        "description": "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-Encounter"
+        },
+        "name": "Encounter",
+        "description": "Any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions. Based on nl-core-Encounter and HCIM Encounter.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ACP-EuthanasiaStatement"
+        },
+        "name": "Euthanasia Statement",
+        "description": "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ext-EncounterReference"
+        },
+        "name": "ext Encounter Reference",
+        "description": "An extension to link the Encounter during which the Consent, Goal or DeviceUseStatement was created or to which the creation is tightly associated.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions"
+        },
+        "name": "ext LegallyCapable regarding medical treatment decisions",
+        "description": "An extension to indicate the patient's legal capability regarding medical treatment decisions, and to provide a comment on this capability.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Procedure/F1-ACP-Procedure-01-10-2020"
+        },
+        "name": "F1 ACP ACPProcedure 01-10-2020",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+      },
+      {
+        "reference": {
+          "reference": "Communication/F1-ACP-Communication-01-10-2020"
+        },
+        "name": "F1 ACP Communication",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+      },
+      {
+        "reference": {
+          "reference": "RelatedPerson/F1-ACP-ContactPerson-MichielHartman"
+        },
+        "name": "F1 ACP ContactPerson Michiel Hartman",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
+      },
+      {
+        "reference": {
+          "reference": "Observation/F1-ACP-OrganDonationChoiceRegistration-Yes"
+        },
+        "name": "F1 ACP Donor Registration Yes",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+      },
+      {
+        "reference": {
+          "reference": "Encounter/F1-ACP-Encounter-01-10-2020"
+        },
+        "name": "F1 ACP Encounter 01-10-2020",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/F1-ACP-HealthProfessional-Practitioner-DrVanHuissen"
+        },
+        "name": "F1 ACP HealthProfessional Practitioner Dr. van Huissen",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen"
+        },
+        "name": "F1 ACP HealthProfessional PractitionerRole Dr. van Huissen",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "Goal/F1-ACP-Medical-Policy-Goal"
+        },
+        "name": "F1 ACP Medical Policy Goal - Life-sustaining treatment",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+      },
+      {
+        "reference": {
+          "reference": "DeviceUseStatement/F1-ACP-MedicalDevice-ICD"
+        },
+        "name": "F1 ACP MedicalDevice ICD",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice"
+      },
+      {
+        "reference": {
+          "reference": "Device/F1-ACP-MedicalDevice.Product-ICD"
+        },
+        "name": "F1 ACP MedicalDevice.Product ICD",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+      },
+      {
+        "reference": {
+          "reference": "Observation/F1-ACP-OtherImportantInformation"
+        },
+        "name": "F1 ACP Other Important Information",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
+      },
+      {
+        "reference": {
+          "reference": "Patient/F1-ACP-Patient-HendrikHartman"
+        },
+        "name": "F1 ACP Patient Hendrik Hartman",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
+      },
+      {
+        "reference": {
+          "reference": "Observation/F1-ACP-PositionRegardingEuthanasia-Unknown"
+        },
+        "name": "F1 ACP Position Regarding Euthanasia Unknown",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
+      },
+      {
+        "reference": {
+          "reference": "Observation/F1-ACP-PreferredPlaceOfDeath-Unknown"
+        },
+        "name": "F1 ACP Preferred Place Of Death Unknown",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+      },
+      {
+        "reference": {
+          "reference": "Observation/F1-ACP-SpecificCareWishes"
+        },
+        "name": "F1 ACP Specific Care Wishes",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-400231000146108"
+        },
+        "name": "F1 ACP TreatmentDirective",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-116762002"
+        },
+        "name": "F1 ACP TreatmentDirective 116762002",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-281789004"
+        },
+        "name": "F1 ACP TreatmentDirective 281789004",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-305351004"
+        },
+        "name": "F1 ACP TreatmentDirective 305351004",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-32485007"
+        },
+        "name": "F1 ACP TreatmentDirective 32485007",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-40617009"
+        },
+        "name": "F1 ACP TreatmentDirective 40617009",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F1-ACP-TreatmentDirective-89666000"
+        },
+        "name": "F1 ACP TreatmentDirective 89666000",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/F2-ACP-TreatmentDirective-305351004"
+        },
+        "name": "F2 ACP TreatmentDirective 305351004",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-HealthProfessional-Practitioner"
+        },
+        "name": "HealthProfessional Practitioner",
+        "description": "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+        },
+        "name": "HealthProfessional PractitionerRole",
+        "description": "The specialty of a person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitionerRole and HCIM HealthProfessional.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-Medical-Policy-Goal"
+        },
+        "name": "Medical Policy Goal",
+        "description": "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-MedicalDevice"
+        },
+        "name": "MedicalDevice",
+        "description": "Any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease. In the context of ACP, this profile is used to declare the use of an implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDevice and HCIM MedicalDevice.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-MedicalDevice.Product-ICD"
+        },
+        "name": "MedicalDevice Product ICD",
+        "description": "The medical device (internally or externally). In the context of ACP, this profile is used to capture information on a patient's implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDeviceProduct and HCIM MedicalDevice.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ACP-MedicalDeviceProductType-ICD"
+        },
+        "name": "MedicalDevice ProductType ICD",
+        "description": "ICD product code for MedicalDevice ProductType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ACP-MedicalPolicyGoal"
+        },
+        "name": "Most Important Agreed-upon Goal of Medical Policy",
+        "description": "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-OrganDonationChoiceRegistration"
+        },
+        "name": "Organ donation choice registration in donor register",
+        "description": "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-OtherImportantInformation"
+        },
+        "name": "Other Important Information",
+        "description": "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "Procedure/P2-ACP-Procedure-07-08-2025"
+        },
+        "name": "P2 ACP ACPProcedure 07-08-2025",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+      },
+      {
+        "reference": {
+          "reference": "Procedure/P2-ACP-Procedure-28-07-2024"
+        },
+        "name": "P2 ACP ACPProcedure 28-07-2024",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-AdvanceDirective"
+        },
+        "name": "P2 ACP AdvanceDirective",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-AdvanceDirective"
+      },
+      {
+        "reference": {
+          "reference": "Communication/P2-ACP-Communication-07-08-2025"
+        },
+        "name": "P2 ACP Communication",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+      },
+      {
+        "reference": {
+          "reference": "RelatedPerson/P2-ACP-ContactPerson-GertJanDeJong"
+        },
+        "name": "P2 ACP ContactPerson Gert-Jan de Jong",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
+      },
+      {
+        "reference": {
+          "reference": "RelatedPerson/P2-ACP-ContactPerson-MayaVanDerSluijsMulder"
+        },
+        "name": "P2 ACP ContactPerson Maya van der Sluijs-Mulder",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-ContactPerson"
+      },
+      {
+        "reference": {
+          "reference": "Encounter/P2-ACP-Encounter-07-08-2025"
+        },
+        "name": "P2 ACP Encounter 07-08-2025",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+      },
+      {
+        "reference": {
+          "reference": "Encounter/P2-ACP-Encounter-28-07-2024"
+        },
+        "name": "P2 ACP Encounter 28-07-2025",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters"
+        },
+        "name": "P2 ACP HealthProfessional Practitioner Desiree Wolters",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
+      },
+      {
+        "reference": {
+          "reference": "Practitioner/P2-ACP-HealthProfessional-Practitioner-Santos"
+        },
+        "name": "P2 ACP HealthProfessional Practitioner Santos",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters"
+        },
+        "name": "P2 ACP HealthProfessional PractitionerRole Desiree Wolters",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-Santos"
+        },
+        "name": "P2 ACP HealthProfessional PractitionerRole Santos",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole"
+      },
+      {
+        "reference": {
+          "reference": "Goal/P2-ACP-Medical-Policy-Goal"
+        },
+        "name": "P2 ACP Medical Policy Goal - Life-sustaining treatment",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+      },
+      {
+        "reference": {
+          "reference": "DeviceUseStatement/P2-ACP-MedicalDevice-ICD"
+        },
+        "name": "P2 ACP MedicalDevice ICD",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice"
+      },
+      {
+        "reference": {
+          "reference": "Device/P2-ACP-MedicalDevice.Product-ICD"
+        },
+        "name": "P2 ACP MedicalDevice.Product ICD",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice.Product-ICD"
+      },
+      {
+        "reference": {
+          "reference": "Observation/P2-ACP-OrganDonationChoiceRegistration-20250807"
+        },
+        "name": "P2 ACP Organ Donation Choice Registration 2025 08 07",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+      },
+      {
+        "reference": {
+          "reference": "Observation/P2-ACP-OtherImportantInformation-20250807"
+        },
+        "name": "P2 ACP Other Important Information 2025 08 07",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
+      },
+      {
+        "reference": {
+          "reference": "Patient/P2-ACP-Patient-SamiraVanDerSluijs"
+        },
+        "name": "P2 ACP Patient Samira van der Sluijs",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Patient"
+      },
+      {
+        "reference": {
+          "reference": "Observation/P2-ACP-PositionRegardingEuthanasia-20250807"
+        },
+        "name": "P2 ACP Position Regarding Euthanasia 2025 08 07",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
+      },
+      {
+        "reference": {
+          "reference": "Observation/P2-ACP-PreferredPlaceOfDeath-20250807"
+        },
+        "name": "P2 ACP Preferred Place Of Death 2025 08 07",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+      },
+      {
+        "reference": {
+          "reference": "Observation/P2-ACP-SpecificCareWishes-20250807"
+        },
+        "name": "P2 ACP Specific Care Wishes 2025 08 07",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-281789004"
+        },
+        "name": "P2 ACP TreatmentDirective 281789004",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-305351004"
+        },
+        "name": "P2 ACP TreatmentDirective 305351004",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-32485007"
+        },
+        "name": "P2 ACP TreatmentDirective 32485007",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-400231000146108"
+        },
+        "name": "P2 ACP TreatmentDirective 400231000146108",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-40617009-1"
+        },
+        "name": "P2 ACP TreatmentDirective 40617009-1",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-40617009-2"
+        },
+        "name": "P2 ACP TreatmentDirective 40617009-2",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-89666000"
+        },
+        "name": "P2 ACP TreatmentDirective 89666000",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "Consent/P2-ACP-TreatmentDirective-other"
+        },
+        "name": "P2 ACP TreatmentDirective other",
+        "exampleCanonical": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-Patient"
+        },
+        "name": "Patient",
+        "description": "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-PositionRegardingEuthanasia"
+        },
+        "name": "Position Regarding Euthanasia",
+        "description": "The patient's position regarding euthanasia. Based on Observation resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-PreferredPlaceOfDeath"
+        },
+        "name": "Preferred Place Of Death",
+        "description": "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ACP-PreferredPlaceOfDeath"
+        },
+        "name": "Preferred Place Of Death",
+        "description": "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "QuestionnaireResponse/HendrikHartman-20201001"
+        },
+        "description": "An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01",
+        "exampleBoolean": false,
+        "name": "QuestionnaireResponse Hendrik Hartman 20201001",
+        "groupingId": "Q-QR"
+      },
+      {
+        "reference": {
+          "reference": "QuestionnaireResponse/HendrikHartman-20221108"
+        },
+        "description": "An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08",
+        "exampleBoolean": false,
+        "name": "QuestionnaireResponse Hendrik Hartman 20221108",
+        "groupingId": "Q-QR"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-SpecificCareWishes"
+        },
+        "name": "Specific Care Wishes",
+        "description": "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/ACP-TreatmentDirective"
+        },
+        "name": "TreatmentDirective",
+        "description": "A joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary. Based on nl-core-TreatmentDirective2 and HCIM TreatmentDirective2.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/ACP-YesNoUnknownVS"
+        },
+        "name": "Yes, No, Unknown valueSet",
+        "description": "ValueSet representing 'Yes, No, Unknown' answers.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Home",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "information-standard.html",
+          "title": "Information Standard",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "data-model.html",
+          "title": "Data Model Overview",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "data-exchange.html",
+          "title": "Data Exchange Overview",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "changelog.html",
+          "title": "Change Log",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2025+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "trial-use"
+      },
+      {
+        "code": "path-expansion-params",
+        "value": "..\\..\\input\\_resources\\Parameters-expansion.json"
+      },
+      {
+        "code": "pin-canonicals",
+        "value": "pin-all"
+      },
+      {
+        "code": "display-warnings",
+        "value": "true"
+      },
+      {
+        "code": "no-cibuild-issues",
+        "value": "true"
+      },
+      {
+        "code": "suppress-mappings",
+        "value": "*"
+      }
+    ]
+  }
+}

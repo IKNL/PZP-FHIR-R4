@@ -1,0 +1,43 @@
+{
+  "suppress" : [
+    //All filters containing: `#dom-6` - IKNL resources do not contain a narrative.
+    // Ignore this best practice warning for now.
+    "http://hl7.org/fhir/StructureDefinition/DomainResource#dom-6",
+
+    // filter IG errors invalid URL warnings -e.
+    "IG_DEPENDENCY_INVALID_URL@ImplementationGuide.dependsOn[0]",
+    "IG_DEPENDENCY_INVALID_URL@ImplementationGuide.dependsOn[1]",
+    "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@ImplementationGuide.dependsOn[0].uri",
+    "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@ImplementationGuide.dependsOn[1].uri",
+    "TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE@Parameters.parameter[0].value.ofType(canonical)",
+    "Terminology_TX_NoValid_16@ImplementationGuide.*",
+    "UNABLE_TO_INFER_CODESYSTEM@ImplementationGuide.*",
+
+    // Snomed code 340201000146103 cannot be found and thus not checked if it is in the valueset
+    "Terminology_TX_NoValid_1_CC@Observation.value.ofType(CodeableConcept)",
+
+    // filters expected information messages for the violation of preferred bindings.
+    "Terminology_TX_NoValid_3_CC@PractitionerRole.specialty[*]",
+    "Terminology_TX_NoValid_3_CC@RelatedPerson.relationship[*]",
+
+    // Unable to check whether the code is in the value set 'http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000|2020-09-01T00:00:00' because the code system urn:oid:2.16.840.1.113883.2.4.3.11.22.472 was not found
+    "UNABLE_TO_CHECK_IF_THE_PROVIDED_CODES_ARE_IN_THE_VALUE_SET_CS@PractitionerRole.specialty[*]",
+    "UNABLE_TO_CHECK_IF_THE_PROVIDED_CODES_ARE_IN_THE_VALUE_SET_CS@RelatedPerson.relationship[*]",
+
+    // filters expected information messages for the violation of extensible bindings.
+    "Terminology_TX_NoValid_2_CC@*.identifier.type",
+    "Terminology_TX_NoValid_2_CC@Consent.category",
+
+    //Filter Bug with coding pattern only containing the system in the java validate (Issue: https://github.com/hapifhir/org.hl7.fhir.core/issues/2108 - can't filter on path, so filtering on message id only)
+    "Unknown_Code_in_Version",
+
+    // Dutch codes not in snomed version yet
+    "VALUESET_INCLUDE_INVALID_CONCEPT_CODE@ValueSet.compose.include[1].concept[0]",
+    "VALUESET_INCLUDE_INVALID_CONCEPT_CODE@ValueSet.compose.include[1].concept[1]",
+    "VALUESET_INCLUDE_INVALID_CONCEPT_CODE@ValueSet.compose.include[1].concept[2]",
+
+    //Filter Bug with ignoring the display language '-langage de' (https://github.com/hapifhir/org.hl7.fhir.core/issues/2111 - can't filter on path, so filtering on message id only)
+   "NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_ERR",
+   "NO_VALID_DISPLAY_FOUND_LANG_NONE"
+  ]
+}

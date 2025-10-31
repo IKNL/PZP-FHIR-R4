@@ -4,15 +4,15 @@
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: iknl.fhir.r4.pzp
-canonical: https://fhir.iknl.nl/fhir
+canonical: https://api.iknl.nl/docs/pzp/r4
 name: PZP
 title: Advance Care Planning (PZP)
 description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020
 status: active # draft | active | retired | unknown
-version: 0.1.3-beta3
+version: 1.0.0-rc1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
-releaseLabel: consultation
+releaseLabel: trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#NL "Netherlands" # https://www.hl7.org/fhir/valueset-jurisdiction.html  -- this drives the SNOMED version selection too.
 publisher:
@@ -27,6 +27,9 @@ publisher:
 dependencies:
    nictiz.fhir.nl.r4.nl-core: 0.12.0-beta.4
    nictiz.fhir.nl.r4.zib2020: 0.12.0-beta.4
+
+   # IG publisher adds this dependency automatically, so it's not usually needed here but it may be needed for the Java and the DotNet validator in the GitHub Actions workflows.
+   hl7.fhir.uv.extensions.r4: 5.2.0
 
 #   hl7.fhir.us.mcode:
 #     id: mcode
@@ -54,6 +57,10 @@ pages:
     title: Data Model Overview
   data-exchange.md:
     title: Data Exchange Overview
+  changelog.md:
+    title: Change Log
+  downloads.md:
+    title: Downloads
 #
 #
 # The parameters property represents IG.definition.parameter. Rather
@@ -70,7 +77,7 @@ pages:
 #   validation: [allow-any-extensions, no-broken-links]
 
 parameters:
-  path-expansion-params: Parameters-expansion.json
+  path-expansion-params: ..\..\input\_resources\Parameters-expansion.json
   pin-canonicals: pin-all
   display-warnings: true
   # currently we don't have a CI build
@@ -91,6 +98,8 @@ menu:
   Data Model: data-model.html
   Data Exchange: data-exchange.html
   Artifacts: artifacts.html
+  Change Log: changelog.html
+  Downloads: downloads.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
@@ -155,7 +164,7 @@ resources:
     name: QuestionnaireResponse Hendrik Hartman 20221108
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
-  Parameters/expansion: omit
+
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG
@@ -175,6 +184,14 @@ groups:
     - Questionnaire/ACP-zib2020
     - QuestionnaireResponse/HendrikHartman-20201001
     - QuestionnaireResponse/HendrikHartman-20221108
+
+  AD:
+    name: "Requirements: Actor Definitions"
+    description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
+    resources:
+    - ActorDefinition/ACPActorConsulter
+    - ActorDefinition/ACPActorProvider
+
 
 #   GroupB:
 #     name: Group B

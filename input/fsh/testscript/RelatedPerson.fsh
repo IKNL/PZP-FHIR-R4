@@ -43,7 +43,6 @@ Usage: #example
 * address.postalCode = "3011BN"
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
 * address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
 
 Instance: P2-ACP-ContactPerson-MayaVanDerSluijsMulder
@@ -80,7 +79,7 @@ Usage: #example
 * telecom[=].value = "maya@test.nl"
 * telecom[=].use = #home
 * address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
-* address.extension.valueCodeableConcept = #HP
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
 * address.use = #home
 * address.type = #both
 * address.line = "Spoorsingel 41B"
@@ -95,5 +94,4 @@ Usage: #example
 * address.postalCode = "2613BG"
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
-* address.country.extension.valueCodeableConcept.coding.version = "2020-10-26T00:00:00"
 * address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"

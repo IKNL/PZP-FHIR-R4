@@ -4,6 +4,7 @@ Id: ACP-SpecificCareWishes
 Title: "Specific Care Wishes"
 Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource."
 * insert MetaRules
+
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#153851000146100 
@@ -13,12 +14,19 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 - if the question has not been asked (code = _not-asked_) "
 * method = $snomed#370819000
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueString)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(method)
+* insert ObligationRules(effective[x])  
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPSpecificCareWishes
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "654" "Specifieke wensen ([Meting])"
 * code -> "655" "Wens en verwachting patient ([MetingNaam])"
 * valueString -> "656" "Wens en verwachting patient ([MetingWaarde])"
@@ -38,7 +46,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#153851000146100
+* code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
 * valueString = "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
 * effectiveDateTime = "2020-10-01"
 * method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
@@ -61,12 +69,19 @@ Description: "The preferred place of death. This is the place where the patient 
 * value[x] only CodeableConcept 
 * value[x] from ACPPreferredPlaceOfDeathVS (extensible)
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPPreferredPlaceOfDeath
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "666" "Gewenste plek van overlijden ([Meting]))"
 * code -> "667" "Gewenste plek van overlijden ([Meting])"
 * valueCodeableConcept -> "668" "Voorkeursplek ([MetingWaarde])"
@@ -86,7 +101,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#395091006
+* code =  $snomed#395091006 "Preferred place of death"
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown 
 * effectiveDateTime = "2020-10-01"
@@ -107,12 +122,20 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * value[x] from ACPEuthanasiaStatementVS (required)
 * note.text ^definition = "Comment accompanying position regarding euthanesia."
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
+
 
 Mapping: MapACPPositionRegardingEuthanasia
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPPositionRegardingEuthanasia
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "678" "Euthanasie standpunt ([Meting])"
 * code -> "679" "Euthanasie standpunt ([MetingNaam])"
 * valueCodeableConcept -> "680" "Euthanasie standpunt ([MetingWaarde])"
@@ -132,7 +155,7 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#340171000146104
+* code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
 * valueCodeableConcept = $v3-NullFlavor#UNK
 * effectiveDateTime = "2020-10-01"
 * note.text = "Nog niet besproken"
@@ -151,12 +174,18 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required)
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueCodeableConcept)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])  
 
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPOrganDonationChoiceRegistration
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "746" "Keuze orgaandonatie vastgelegd in donorregister? ([Meting])"
 * code -> "747" "Keuze orgaandonatie vastgelegd in donorregister? ([MetingNaam])"
 * valueCodeableConcept -> "748" "Keuze orgaandonatie in donorregister ([MetingWaarde])"
@@ -175,8 +204,8 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code = $snomed#570801000146104 "geregistreerd in orgaan donorregister (bevinding)"
-* valueCodeableConcept = $snomed#373066001
+* code = $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2020-10-01"
 
 
@@ -192,17 +221,25 @@ Description: "Other relevant and important information related to the Patient’
 * value[x] only string
 * value[x] ^definition = "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements."
 
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueString)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+
 
 Mapping: MapACPOtherImportantInformation
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPOtherImportantInformation
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "709" "Wat verder nog belangrijk is ([Meting])"
 * code -> "710" "Wat verder nog belangrijk is ([MetingNaam])"
 * valueString -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
 * dataAbsentReason -> "711" "Wat verder nog belangrijk is ([MetingWaarde])"
 * effective[x] -> "715" "[MeetDatumBeginTijd]"
+
 
 
 Instance: F1-ACP-OtherImportantInformation
@@ -216,6 +253,6 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#247751003
+* code =  $snomed#247751003 "gevoel van zingeving"
 * valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"

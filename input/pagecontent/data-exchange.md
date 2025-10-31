@@ -1,8 +1,23 @@
-This page describes the two primary methods for retrieving a patient's Advance Care Planning (ACP) information using the FHIR API. The best method depends on your application's needs.
+This page describes the two transaction methods for exchanging a patient's Advance Care Planning (ACP) information using RESTful API.
+
 1. As individual resources. By fetching specific resources (`Consent`, `Goal`, `Observation`, etc.) that together form the patient's ACP. See <a href="data-model.html">Data Model page</a> for a complete overview.
 2. As a form. Fetching `QuestionnaireResponse` resource(s). This contains the ACP agreements recorded according to the structured form for uniform registration of ACP.
 
----
+This guide, in conjunction with its STU3 counterpart, specifies four distinct transactions for data exchange:
+1.  <a href="#method-1-retrieve-acp-as-individual-resources">R4 Individual Resources</a> 
+2.  <a href="#method-2-retrieve-acp-questionnaireresponse">R4 QuestionnaireResponse</a> 
+3.  STU3 Individual Resources
+4.  STU3 QuestionnaireResponse
+
+### Conformance Requirements Actors
+
+This implementation guide defines two actors:
+- <a href="ActorDefinition-ACPActorConsulter.html">ACP Actor Consulter</a>: a client application that retrieves a patient's ACP information.
+- <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: a server application that exposes a patient's ACP information.
+
+To be conformant the ACP Actor Consulter SHALL support all four transaction groups. This ensures the actor can retrieve ACP information from any provider, regardless of the FHIR version (STU3 or R4) or exchange method implemented.
+The ACP Actor Provider SHALL support at least one of the four transaction groups. The individual resources method is preferred over the form-based method for system-to-system exchange, as it offers a more standardized and reusable data structure.
+
 
 ### General API requirements
 
@@ -18,11 +33,11 @@ All interactions adhere to the following principles.
 
 This approach provides granular access to the individual clinical statements that constitute the ACP. It allows applications to query for specific data points without processing an entire form.
 
-This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with a identifier (e.g. BSN).
+This approach is useful for applications that need to query specific parts of a patient's ACP, like treatment wishes or stated goals. While it requires multiple API calls, it provides more granular control and returns the ACP in usable resources. The below listed client requests are in scope of a Patient's context for which an initial request may be needed to match the Patient resource id with an identifier (e.g. BSN).
 
 #### Client Requests
 
-The below listed search request show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
 
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
@@ -33,11 +48,11 @@ The below listed search request show how all the ACP agreements, procedural info
 
 3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=[id]&description:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalPolicyGoal
+4 GET [base]/Goal?patient=[id]&description=http://snomed.info/sct|385987000,1351964001,713148004
 
 5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
-6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://fhir.iknl.nl/fhir/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
+6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseSatement:device
 
 7 GET [base]/Communication?patient=[id]&reason-code=http://snomed.info/sct|713603004
 ```
@@ -76,11 +91,13 @@ Standard FHIR rules apply for every resource request:
 
 This approach is used to retrieve the complete form for uniform registration of ACP in its original context. It retrieves `QuestionnaireResponse` resources that contain the content discussed by the individuals involved in the ACP conversation.
 
+This method is included to lower the implementation burden for data providers who already use a form-based registration process. By allowing them to expose their existing form as a `QuestionnaireResponse`, it accelerates the availability of exchangeable ACP data. The trade-off is that this approach requires more effort from the ACP Actor Consulter, as they need to support multiple methods. The preferred method for system-to-system exchange is the individual resources method, as it offers a more standardized and reusable data structure.
+
 #### Client Request
 
 A client retrieves the `QuestionnaireResponse` by performing a `GET` search operation. The search is scoped to a specific patient and is filtered by the canonical URL of the <a href="Questionnaire-ACP-zib2020.html">ACP Questionnaire</a> to ensure that only the correct form is returned.
 
-> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://fhir.iknl.nl/fhir/Questionnaire/ACP-zib2020
+> GET [base]/QuestionnaireResponse?subject=Patient/[id]&questionnaire=https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020
 
 
 #### Server Response

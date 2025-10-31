@@ -4,13 +4,18 @@ Id: ACP-HealthProfessional-Practitioner
 Title: "HealthProfessional Practitioner"
 Description: "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional."
 * insert MetaRules
+* insert ObligationRules(identifier)
+* insert ObligationRules(name[nameInformation-GivenName].given)
+* insert ObligationRules(name[nameInformation].family)
+* insert ObligationRules(name[nameInformation].family.extension[prefix])
+* insert ObligationRules(name[nameInformation].family.extension[lastName])
 
 
 Mapping: MapACPHealthProfessionalPractitioner
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPHealthProfessionalPractitioner
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "391" "Gesprek gevoerd door (Zorgverlener)"
 * identifier -> "392" "ZorgverlenerIdentificatienummer"
 * name -> "393" "Naamgegevens"

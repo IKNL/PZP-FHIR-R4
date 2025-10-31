@@ -10,11 +10,16 @@ Description: "The primary, agreed-upon goal of a patient's medical treatment pol
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
+* insert ObligationRules(description)
+* insert ObligationRules(subject)
+* insert ObligationRules(startDate)
+* insert ObligationRules(note.text)
+
 Mapping: MapACPMedicalPolicyGoal
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPMedicalPolicyGoal
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "590" "Belangrijkste doel van behandeling ([Meting])"
 * -> "591" "Belangrijkste doel van behandeling ([MetingNaam])"
 * description -> "592" "Doel ([MetingWaarde])"

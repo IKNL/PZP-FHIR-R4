@@ -10,12 +10,15 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * code 1..1
 * code = $snomed#713603004
 
+* insert ObligationRules(subject)
+* insert ObligationRules(encounter)
+* insert ObligationRules(code)
 
 Mapping: MapACPProcedure
 Id: pall-izppz-zib2020v2025-03-11
-Title: "PZP dataset"
+Title: "ACP dataset"
 Source: ACPProcedure
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "820" "Verrichting"
 * code -> "827" "PZP gesprek (VerrichtingType)"
 
@@ -38,4 +41,4 @@ Usage: #example
 * performer[=].actor.type = "Patient"
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"
-* code = $snomed#713603004 "Advance care planning (procedure)"
+* code = $snomed#713603004 "advance care planning"

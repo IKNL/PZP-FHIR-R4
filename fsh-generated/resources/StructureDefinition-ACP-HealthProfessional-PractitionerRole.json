@@ -1,0 +1,148 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ACP-HealthProfessional-PractitionerRole",
+  "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-PractitionerRole",
+  "version": "1.0.0-rc1",
+  "name": "ACPHealthProfessionalPractitionerRole",
+  "title": "HealthProfessional PractitionerRole",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "IKNL",
+  "contact": [
+    {
+      "name": "IKNL",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "info@iknl.nl",
+          "use": "work"
+        }
+      ]
+    }
+  ],
+  "description": "The specialty of a person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitionerRole and HCIM HealthProfessional.",
+  "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "pall-izppz-zib2020v2025-03-11",
+      "name": "ACP dataset",
+      "uri": "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-PractitionerRole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole",
+        "path": "PractitionerRole",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "391",
+            "comment": "Gesprek gevoerd door (Zorgverlener)"
+          },
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "617",
+            "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "636",
+            "comment": "Zorgverlener"
+          },
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "652",
+            "comment": "Zorgverlener"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
+        "path": "PractitionerRole.practitioner",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.specialty:specialty",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:populate-if-known"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorProvider"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/obligation",
+            "extension": [
+              {
+                "url": "code",
+                "valueCode": "SHALL:no-error"
+              },
+              {
+                "url": "actor",
+                "valueCanonical": "https://api.iknl.nl/docs/pzp/r4/ActorDefinition/ACPActorConsulter"
+              }
+            ]
+          }
+        ],
+        "path": "PractitionerRole.specialty",
+        "sliceName": "specialty",
+        "mapping": [
+          {
+            "identity": "pall-izppz-zib2020v2025-03-11",
+            "map": "405",
+            "comment": "Specialisme"
+          }
+        ]
+      }
+    ]
+  }
+}

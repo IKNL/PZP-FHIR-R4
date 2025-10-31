@@ -15,14 +15,32 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#89666000 "Cardiopulmonary resuscitation (procedure)"
-// TODO toevoegen wilsverklaring 
-// comment: Hoe gaan we om met .code velden en de display. In de testscripts staat op dit moment de NL tekst.
+* provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
 
 
-Instance: P2-ACP-TreatmentDirective-40617009
+Instance: P2-ACP-TreatmentDirective-40617009-1
 InstanceOf: ACPTreatmentDirective
-Title: "P2 ACP TreatmentDirective 40617009"
+Title: "P2 ACP TreatmentDirective 40617009-1"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "bc70c02f-f4f3-44a1-833b-41965885cc02"
+* extension[encounter].valueReference = Reference(P2-ACP-Encounter-28-07-2024) "Encounter, 2024-07-28"
+* modifierExtension[specificationOther].valueString = "Onbekend"
+* status = #inactive
+* patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* dateTime = 2024-07-28
+* policy.uri = "https://wetten.overheid.nl/"
+* provision.period.end = 2025-06-09
+* provision.actor[agreementParty][0].reference = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* provision.actor[agreementParty][=].reference.type = "Patient"
+* provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][=].reference.type = "PractitionerRole"
+* provision.code = $snomed#40617009 "kunstmatige beademing"
+
+Instance: P2-ACP-TreatmentDirective-40617009-2
+InstanceOf: ACPTreatmentDirective
+Title: "P2 ACP TreatmentDirective 40617009-2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -82,7 +100,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#32485007 "Hospital admission (procedure)"
+* provision.code = $snomed#32485007 "opname in ziekenhuis"
 
 
 Instance: P2-ACP-TreatmentDirective-281789004
@@ -102,7 +120,7 @@ Usage: #example
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.code = $snomed#281789004 "Antibiotic therapy (procedure)"
+* provision.code = $snomed#281789004 "antibiotische therapie"
 
 
 Instance: P2-ACP-TreatmentDirective-other
@@ -138,18 +156,17 @@ Usage: #example
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Patiënt gaat dit volgende week met de cardioloog bespreken."
 * extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
+* modifierExtension[specificationOther].valueString = "Nee, nog geen besluit genomen" 
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
 * policy.uri = "https://wetten.overheid.nl/"
-// * provision.type = $DataAbsentReason#ASKU "nee, nog geen besluit genomen"
-// The above is not possible because type is a code with a required binding with only two codes as potion (permit, deny).
 * provision.actor[agreementParty][0].reference = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
 * provision.actor[agreementParty][+].reference = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
-* provision.code.text = "Uitzetten van cardioverter-defibrillator in laatste levensfase (verrichting) (SNOMED CT - 400231000146108)" 
+* provision.code.text = "uitzetten van cardioverter-defibrillator in laatste levensfase (SNOMED CT - 400231000146108)" 
 
 
 Instance: P2-ACP-AdvanceDirective

@@ -16,6 +16,7 @@ This project is a FHIR R4 Implementation Guide for Advance Care Planning (PZP). 
 - `util/` – Mapping generators and dataset utilities:
   - `mapping_table_generator.py` – R4 mapping table generation from ART-DECOR datasets
   - `mermaid_diagram_generator.py` – Visual diagram generation from profiles
+  - `questionnaire_item_prefix_populator.py` – Questionnaire prefix processing for compliance
 
 ## Key Workflows
 
@@ -32,6 +33,9 @@ python util/mapping_table_generator.py
 
 # 4. Generate diagrams (optional)
 python util/mermaid_diagram_generator.py
+
+# 5. Process questionnaire prefixes (optional)
+python util/questionnaire_item_prefix_populator.py [options]
 ```
 
 ### 2. Profile Development
@@ -43,6 +47,12 @@ python util/mermaid_diagram_generator.py
 - **R4 mappings**: Use `util/mapping_table_generator.py`
 - **Mermaid diagrams**: Use `util/mermaid_diagram_generator.py`
 - Generate from ART-DECOR datasets with automatic deduplication
+
+### 4. Questionnaire Prefix Processing
+- **Dual resource support**: Processes both Questionnaire and QuestionnaireResponse resources
+- **Prefix handling**: Adds prefix fields to Questionnaire items, removes prefixes from QuestionnaireResponse for compliance
+- **CLI options**: `--questionnaire-only`, `--response-only`, `--dry-run` for targeted processing
+- **Pattern detection**: Detects a), b), 1., 2. etc. prefixes in questionnaire items
 
 ## Common Patterns
 
@@ -125,6 +135,7 @@ Description: "If the patient is not legally capable..."
 ### Analysis Tools
 - `util/mapping_table_generator.py`: R4 mapping tables from ART-DECOR datasets
 - `util/mermaid_diagram_generator.py`: Visual diagram generation
+- `util/questionnaire_item_prefix_populator.py`: Questionnaire/QuestionnaireResponse prefix processing
 
 ## Integration Dependencies
 
