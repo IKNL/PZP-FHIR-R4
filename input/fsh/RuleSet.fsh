@@ -38,6 +38,15 @@ RuleSet: CapabilityStatementInteractionandReferencePolicyExpectation
     * url = "$CapExpectation"
     * valueCode = #SHOULD
 
+RuleSet: CapabilityStatementSearchParmeterClinicalPatientExpectation
+* searchParam[0]
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHALL
+  * name = "patient"
+  * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+  * type = #reference
+
 RuleSet: ObligationRules(path)
 * {path} ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * {path} ^extension[=].extension[+].url = "code"

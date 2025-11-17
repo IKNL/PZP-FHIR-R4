@@ -81,9 +81,17 @@
       },
       {
         "reference": {
-          "reference": "CapabilityStatement/ACPActorProviderCapabilityStatement"
+          "reference": "CapabilityStatement/ACPCapabilityStatementConsulter"
         },
-        "name": "ACP Actor Provider CapabilityStatement",
+        "name": "ACP CapabilityStatement Consulter",
+        "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Consulters are defined in this CapabilityStatement.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CapabilityStatement/ACPCapabilityStatementProvider"
+        },
+        "name": "ACP CapabilityStatement Provider",
         "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
         "exampleBoolean": false
       },

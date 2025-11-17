@@ -16,12 +16,20 @@
     "endLine": 36
   },
   {
-    "outputFile": "CapabilityStatement-ACPActorProviderCapabilityStatement.json",
-    "fshName": "ACPActorProviderCapabilityStatement",
+    "outputFile": "CapabilityStatement-ACPCapabilityStatementConsulter.json",
+    "fshName": "ACPCapabilityStatementConsulter",
+    "fshType": "Instance",
+    "fshFile": "CapabilityStatement.fsh",
+    "startLine": 362,
+    "endLine": 715
+  },
+  {
+    "outputFile": "CapabilityStatement-ACPCapabilityStatementProvider.json",
+    "fshName": "ACPCapabilityStatementProvider",
     "fshType": "Instance",
     "fshFile": "CapabilityStatement.fsh",
     "startLine": 1,
-    "endLine": 185
+    "endLine": 360
   },
   {
     "outputFile": "Communication-F1-ACP-Communication-01-10-2020.json",
