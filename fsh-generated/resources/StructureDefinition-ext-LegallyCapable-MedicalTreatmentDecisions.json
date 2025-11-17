@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "ext-LegallyCapable-MedicalTreatmentDecisions",
   "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "name": "ExtLegallyCapableMedicalTreatmentDecisions",
   "title": "ext LegallyCapable regarding medical treatment decisions",
   "status": "draft",

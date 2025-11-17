@@ -6,7 +6,7 @@
   "title": "MedicalDevice ProductType ICD",
   "description": "ICD product code for MedicalDevice ProductType.",
   "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "experimental": false,
   "publisher": "IKNL",
   "contact": [

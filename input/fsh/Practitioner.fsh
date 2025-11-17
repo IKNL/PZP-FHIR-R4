@@ -15,7 +15,7 @@ Mapping: MapACPHealthProfessionalPractitioner
 Id: pall-izppz-zib2020v2025-03-11
 Title: "ACP dataset"
 Source: ACPHealthProfessionalPractitioner
-Target: "https://decor.nictiz.nl/ad/#/pall-izppz-/scenarios/scenarios/2.16.840.1.113883.2.4.3.11.60.117.4.14/2025-08-05T00:00:00"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "391" "Gesprek gevoerd door (Zorgverlener)"
 * identifier -> "392" "ZorgverlenerIdentificatienummer"
 * name -> "393" "Naamgegevens"

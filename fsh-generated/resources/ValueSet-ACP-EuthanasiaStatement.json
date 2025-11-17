@@ -6,7 +6,7 @@
   "title": "Euthanasia Statement",
   "description": "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement.",
   "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-EuthanasiaStatement",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "experimental": false,
   "publisher": "IKNL",
   "contact": [

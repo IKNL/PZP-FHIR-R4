@@ -2,7 +2,7 @@
   "resourceType": "ImplementationGuide",
   "id": "iknl.fhir.r4.pzp",
   "url": "https://api.iknl.nl/docs/pzp/r4/ImplementationGuide/iknl.fhir.r4.pzp",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0-rc1",
   "name": "PZP",
   "title": "Advance Care Planning (PZP)",
   "status": "active",
@@ -53,6 +53,11 @@
         "id": "Q-QR",
         "name": "Structures: Questionnaire and QuestionnaireResponses",
         "description": "These define forms used by systems conforming to this implementation guide to capture or expose data to end users."
+      },
+      {
+        "id": "AD",
+        "name": "Requirements: Actor Definitions",
+        "description": "The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."
       }
     ],
     "resource": [
@@ -62,7 +67,8 @@
         },
         "name": "ACP Actor Consulter",
         "description": "The ACP Actor Consulter is a system that creates and initiates a data access request to retrieve digital health and administrative information.",
-        "exampleBoolean": true
+        "exampleBoolean": true,
+        "groupingId": "AD"
       },
       {
         "reference": {
@@ -70,15 +76,8 @@
         },
         "name": "ACP Actor Provider",
         "description": "The ACP Actor Provider is a system that responds to data access requests for digital health and administrative information.",
-        "exampleBoolean": true
-      },
-      {
-        "reference": {
-          "reference": "CapabilityStatement/ACPActorProviderCapabilityStatement"
-        },
-        "name": "ACP Actor Provider CapabilityStatement",
-        "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
-        "exampleBoolean": false
+        "exampleBoolean": true,
+        "groupingId": "AD"
       },
       {
         "reference": {
@@ -701,6 +700,11 @@
           "nameUrl": "changelog.html",
           "title": "Change Log",
           "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Downloads",
+          "generation": "markdown"
         }
       ]
     },
@@ -711,11 +715,11 @@
       },
       {
         "code": "releaselabel",
-        "value": "consultation"
+        "value": "trial-use"
       },
       {
         "code": "path-expansion-params",
-        "value": "Parameters-expansion.json"
+        "value": "..\\..\\input\\_resources\\Parameters-expansion.json"
       },
       {
         "code": "pin-canonicals",

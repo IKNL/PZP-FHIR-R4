@@ -9,10 +9,10 @@ name: PZP
 title: Advance Care Planning (PZP)
 description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020
 status: active # draft | active | retired | unknown
-version: 1.0.0-alpha1
+version: 1.0.0-rc1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
-releaseLabel: consultation
+releaseLabel: trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#NL "Netherlands" # https://www.hl7.org/fhir/valueset-jurisdiction.html  -- this drives the SNOMED version selection too.
 publisher:
@@ -59,6 +59,8 @@ pages:
     title: Data Exchange Overview
   changelog.md:
     title: Change Log
+  downloads.md:
+    title: Downloads
 #
 #
 # The parameters property represents IG.definition.parameter. Rather
@@ -75,7 +77,7 @@ pages:
 #   validation: [allow-any-extensions, no-broken-links]
 
 parameters:
-  path-expansion-params: Parameters-expansion.json
+  path-expansion-params: ..\..\input\_resources\Parameters-expansion.json
   pin-canonicals: pin-all
   display-warnings: true
   # currently we don't have a CI build
@@ -97,6 +99,7 @@ menu:
   Data Exchange: data-exchange.html
   Artifacts: artifacts.html
   Change Log: changelog.html
+  Downloads: downloads.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
@@ -161,7 +164,7 @@ resources:
     name: QuestionnaireResponse Hendrik Hartman 20221108
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
-  Parameters/expansion: omit
+
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG
@@ -181,6 +184,14 @@ groups:
     - Questionnaire/ACP-zib2020
     - QuestionnaireResponse/HendrikHartman-20201001
     - QuestionnaireResponse/HendrikHartman-20221108
+
+  AD:
+    name: "Requirements: Actor Definitions"
+    description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
+    resources:
+    - ActorDefinition/ACPActorConsulter
+    - ActorDefinition/ACPActorProvider
+
 
 #   GroupB:
 #     name: Group B

@@ -6,7 +6,7 @@
   "title": "Preferred Place Of Death",
   "description": "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible.",
   "url": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeath",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "experimental": false,
   "publisher": "IKNL",
   "contact": [

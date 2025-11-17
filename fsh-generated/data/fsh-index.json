@@ -341,7 +341,7 @@
     "fshType": "Instance",
     "fshFile": "testscript\\Patient.fsh",
     "startLine": 1,
-    "endLine": 51
+    "endLine": 50
   },
   {
     "outputFile": "Practitioner-F1-ACP-HealthProfessional-Practitioner-DrVanHuissen.json",
@@ -429,15 +429,15 @@
     "fshType": "Instance",
     "fshFile": "testscript\\RelatedPerson.fsh",
     "startLine": 1,
-    "endLine": 47
+    "endLine": 46
   },
   {
     "outputFile": "RelatedPerson-P2-ACP-ContactPerson-MayaVanDerSluijsMulder.json",
     "fshName": "P2-ACP-ContactPerson-MayaVanDerSluijsMulder",
     "fshType": "Instance",
     "fshFile": "testscript\\RelatedPerson.fsh",
-    "startLine": 49,
-    "endLine": 99
+    "startLine": 48,
+    "endLine": 97
   },
   {
     "outputFile": "SearchParameter-Communication-reason-code.json",
