@@ -37,7 +37,7 @@ This approach is useful for applications that need to query specific parts of a 
 
 #### Client Requests
 
-The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACPCapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACPCapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structued overview of the below requirements.
+The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACPCapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACPCapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structured overview of the below requirements.
 
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter

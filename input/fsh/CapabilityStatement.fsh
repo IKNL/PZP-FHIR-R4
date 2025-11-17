@@ -135,10 +135,6 @@ Usage: #definition
       * name = "description"
       * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
       * type = #token
-    * searchInclude[0] = "Consent:actor"
-      * extension
-        * url = $CapExpectation
-        * valueCode = #SHOULD
 
 
   // OBSERVATION RESOURCE 
@@ -164,7 +160,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
-    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
@@ -351,7 +347,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "device"
+      * name = "questionnaire"
       * definition = "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-questionnaire"
       * type = #reference
     * referencePolicy = #resolves
@@ -490,11 +486,6 @@ Usage: #definition
       * name = "description"
       * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
       * type = #token
-    * searchInclude[0] = "Consent:actor"
-      * extension
-        * url = $CapExpectation
-        * valueCode = #SHOULD
-
 
   // OBSERVATION RESOURCE 
   * resource[+]
@@ -519,7 +510,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
-    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
@@ -706,7 +697,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "device"
+      * name = "questionnaire"
       * definition = "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-questionnaire"
       * type = #reference
     * referencePolicy = #resolves
