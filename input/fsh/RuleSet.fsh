@@ -10,7 +10,7 @@ RuleSet: MetaRules
 * ^copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise."
 
 RuleSet: MetaRulesDefinitionalArtifact
-* version = "0.1.0"
+* version = "1.0.0-rc1"
 * date = "2025-10-29"
 * status = #active
 * experimental = false
@@ -22,6 +22,21 @@ RuleSet: MetaRulesDefinitionalArtifact
 * copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise."
 * jurisdiction = urn:iso:std:iso:3166#NL "Netherlands"
 
+RuleSet: CapabilityStatementInteractionandReferencePolicyExpectation
+* interaction[0]
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHALL
+  * code = #read
+* interaction[+]
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHALL
+  * code = #search-type
+* referencePolicy = #resolves
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHOULD
 
 RuleSet: ObligationRules(path)
 * {path} ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"

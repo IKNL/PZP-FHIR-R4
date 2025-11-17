@@ -1,7 +1,7 @@
 {
   "resourceType": "CapabilityStatement",
   "id": "ACPActorProviderCapabilityStatement",
-  "url": "http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder",
+  "url": "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-ActorProviderCapabilityStatement",
   "contact": [
     {
       "telecom": [
@@ -33,7 +33,7 @@
     {
       "extension": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+          "url": "$CapExpectation",
           "valueCode": "SHALL"
         }
       ]
@@ -41,8 +41,8 @@
     {
       "extension": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-          "valueCode": "SHOULD"
+          "url": "$CapExpectation",
+          "valueCode": "SHALL"
         }
       ]
     }
@@ -56,8 +56,8 @@
         {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-              "valueCode": "SHALL"
+              "url": "$CapExpectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -67,8 +67,8 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHALL"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             }
@@ -77,7 +77,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -86,7 +86,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -100,7 +100,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -110,26 +110,38 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
               "name": "reason-reference",
               "definition": "http://hl7.org/fhir/SearchParameter/Encounter-reason-reference",
               "type": "reference",
-              "documentation": "The consulter **SHALL** provide at least an id value and **MAY** provide both the Type and id values.\n\nThe responder **SHALL** support both."
+              "documentation": "The provider **SHOULD** support chained search Procedure.code using the SNOMED CT code as defined in the ACP Procedure profile."
             },
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
               "name": "patient",
-              "definition": "http://hl7.org.au/fhir/core/SearchParameter/au-core-clinical-patient",
-              "type": "reference",
-              "documentation": "The consulter **SHALL** provide at least an id value and **MAY** provide both the Type and id values.\n\nThe responder **SHALL** support both.\n\nThe consulter **SHOULD** support chained search patient.identifier using IHI, Medicare Number, and DVA Number identifiers as defined in the AU Core Patient profile.\n\nThe responder **SHOULD** support chained search patient.identifier using IHI, Medicare Number, and DVA Number identifiers as defined in the AU Core Patient profile."
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference"
+            }
+          ],
+          "searchInclude": [
+            "Encounter:reason-reference"
+          ],
+          "_searchInclude": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
             }
           ],
           "type": "Encounter"
@@ -137,7 +149,303 @@
         {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "url": "$CapExpectation",
+              "valueCode": "SHOULD"
+            }
+          ],
+          "supportedProfile": [
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+          ],
+          "_supportedProfile": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type"
+            }
+          ],
+          "referencePolicy": [
+            "resolves"
+          ],
+          "_referencePolicy": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "searchParam": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "code",
+              "definition": "http://hl7.org/fhir/SearchParameter/Procedure-code",
+              "type": "token"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/Procedure-subject",
+              "type": "reference"
+            }
+          ],
+          "searchInclude": [
+            "Procedure:encounter"
+          ],
+          "_searchInclude": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "type": "Procedure"
+        },
+        {
+          "extension": [
+            {
+              "url": "$CapExpectation",
+              "valueCode": "SHOULD"
+            }
+          ],
+          "supportedProfile": [
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-AdvanceDirective",
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+          ],
+          "_supportedProfile": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type"
+            }
+          ],
+          "referencePolicy": [
+            "resolves"
+          ],
+          "_referencePolicy": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "searchParam": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "scope",
+              "definition": "http://hl7.org/fhir/SearchParameter/Consent-scope",
+              "type": "token"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "category",
+              "definition": "http://hl7.org/fhir/SearchParameter/Consent-category",
+              "type": "token"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference"
+            }
+          ],
+          "searchInclude": [
+            "Consent:actor"
+          ],
+          "_searchInclude": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "type": "Consent"
+        },
+        {
+          "extension": [
+            {
+              "url": "$CapExpectation",
+              "valueCode": "SHOULD"
+            }
+          ],
+          "supportedProfile": [
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+          ],
+          "_supportedProfile": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type"
+            }
+          ],
+          "referencePolicy": [
+            "resolves"
+          ],
+          "_referencePolicy": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "searchParam": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "description",
+              "definition": "http://hl7.org/fhir/SearchParameter/Goal-description",
+              "type": "token"
+            },
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-patient",
+              "type": "reference"
+            }
+          ],
+          "searchInclude": [
+            "Consent:actor"
+          ],
+          "_searchInclude": [
+            {
+              "extension": [
+                {
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
+                }
+              ]
+            }
+          ],
+          "type": "Goal"
+        },
+        {
+          "extension": [
+            {
+              "url": "$CapExpectation",
               "valueCode": "SHOULD"
             }
           ],
@@ -152,39 +460,40 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHALL"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             },
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHALL"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             },
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHALL"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             },
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHALL"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             },
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
+                  "url": "$CapExpectation",
+                  "valueCode": "SHOULD"
                 }
               ]
             }
@@ -193,7 +502,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -202,7 +511,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -216,7 +525,7 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "url": "$CapExpectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -229,15 +538,15 @@
       "documentation": "TODO"
     }
   ],
-  "version": "0.1.0",
   "name": "ACPActorProviderCapabilityStatement",
   "title": "ACP Actor Provider CapabilityStatement",
+  "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
+  "version": "1.0.0-rc1",
   "date": "2025-10-29",
   "status": "active",
   "experimental": false,
   "publisher": "IKNL",
   "copyright": "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise.",
-  "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
   "kind": "requirements",
   "fhirVersion": "4.0.1"
 }

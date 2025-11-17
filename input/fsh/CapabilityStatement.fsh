@@ -1,83 +1,231 @@
 Instance: ACPActorProviderCapabilityStatement
 InstanceOf: CapabilityStatement
 Usage: #definition
-* url = "http://hl7.org.au/fhir/core/CapabilityStatement/au-core-responder"
-* version = "2.0.0-ci-build"
+* url = "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-ActorProviderCapabilityStatement"
 * name = "ACPActorProviderCapabilityStatement"
 * title = "ACP Actor Provider CapabilityStatement"
-* insert MetaRulesDefinitionalArtifact
 * description = "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement."
+* insert MetaRulesDefinitionalArtifact
 
 * kind = #requirements
 * fhirVersion = #4.0.1
 * format[0] = #json
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHALL
 * format[+] = #xml
-* format[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* format[=].extension.valueCode = #SHALL
-* format[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* format[=].extension.valueCode = #SHOULD
-// * implementationGuide[0] = "http://nictiz.nl/fhir/StructureDefinition/nl-core"
-// * implementationGuide[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-// * implementationGuide[=].extension.valueCode = #SHALL
+  * extension
+    * url = "$CapExpectation"
+    * valueCode = #SHALL
+* rest
+  * mode = #server
+  * documentation = "TODO"
+  * security.description = "Accessing ACP information is subject to strict privacy and security rules. All API requests MUST be properly authenticated and authorized. The client application is expected to use a secure mechanism to obtain an access token with the necessary scopes to read the patient's clinical data. The exact methods may be found in the used infrastructure specification and agreements of e.g. LSP, Twiin and or Nuts."
+  * resource[0]
 
-* rest.mode = #server
-* rest.documentation = "TODO"
-* rest.security.description = "Accessing ACP information is subject to strict privacy and security rules. All API requests MUST be properly authenticated and authorized. The client application is expected to use a secure mechanism to obtain an access token with the necessary scopes to read the patient's clinical data. The exact methods may be found in the used infrastructure specification and agreements of e.g. LSP, Twiin and or Nuts."
+    // ENCOUNTER RESOURCE
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #Encounter
+    * supportedProfile = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "reason-reference"
+      * definition = "http://hl7.org/fhir/SearchParameter/Encounter-reason-reference"
+      * type = #reference
+      * documentation = "The provider **SHOULD** support chained search Procedure.code using the SNOMED CT code as defined in the ACP Procedure profile."
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+      * type = #reference
+    * searchInclude[0] = "Encounter:reason-reference"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
 
-* rest.resource[0].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].extension[=].valueCode = #SHALL
+  // PROCEDURE RESOURCE
+  * resource[+]
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #Procedure
+    * supportedProfile = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Procedure"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "code"
+      * definition = "http://hl7.org/fhir/SearchParameter/Procedure-code"
+      * type = #token
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/Procedure-subject"
+      * type = #reference
+    * searchInclude[0] = "Procedure:encounter"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+
+  // CONSENT RESOURCE 
+  * resource[+]
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #Consent
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-AdvanceDirective"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD 
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-TreatmentDirective"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "scope"
+      * definition = "http://hl7.org/fhir/SearchParameter/Consent-scope"
+      * type = #token
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/Consent-category"
+      * type = #token
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+      * type = #reference
+    * searchInclude[0] = "Consent:actor"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+
+  // GOAL RESOURCE 
+  * resource[+]
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #Goal
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD 
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "description"
+      * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
+      * type = #token
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+      * type = #reference
+    * searchInclude[0] = "Consent:actor"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
 
 
-* rest.resource[=].type = #Encounter
-* rest.resource[=].supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Encounter"
-* rest.resource[=].supportedProfile[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].supportedProfile[=].extension.valueCode = #SHALL
-* rest.resource[=].interaction[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].interaction[=].extension.valueCode = #SHALL
-* rest.resource[=].interaction[=].code = #read
-* rest.resource[=].interaction[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].interaction[=].extension.valueCode = #SHALL
-* rest.resource[=].interaction[=].code = #search-type
-* rest.resource[=].referencePolicy = #resolves
-* rest.resource[=].referencePolicy.extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].referencePolicy.extension.valueCode = #SHOULD
+  // OBSERVATION RESOURCE 
+  * resource[+]
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #Observation
+    // Supported profiles for Observation resource are set to SHOULD because not all Observation have to be implemented.
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD 
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "code"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
+      * type = #token
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+      * type = #reference
 
 
-* rest.resource[=].searchParam[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].searchParam[=].extension.valueCode = #SHALL
-* rest.resource[=].searchParam[=].name = "reason-reference"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Encounter-reason-reference"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The consulter **SHALL** provide at least an id value and **MAY** provide both the Type and id values.\n\nThe responder **SHALL** support both."
-* rest.resource[=].searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].searchParam[=].extension.valueCode = #SHALL
-* rest.resource[=].searchParam[=].name = "patient"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org.au/fhir/core/SearchParameter/au-core-clinical-patient"
-* rest.resource[=].searchParam[=].type = #reference
-* rest.resource[=].searchParam[=].documentation = "The consulter **SHALL** provide at least an id value and **MAY** provide both the Type and id values.\n\nThe responder **SHALL** support both.\n\nThe consulter **SHOULD** support chained search patient.identifier using IHI, Medicare Number, and DVA Number identifiers as defined in the AU Core Patient profile.\n\nThe responder **SHOULD** support chained search patient.identifier using IHI, Medicare Number, and DVA Number identifiers as defined in the AU Core Patient profile."
-* rest.resource[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].extension.valueCode = #SHOULD
-* rest.resource[=].type = #Observation
-* rest.resource[=].supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
-* rest.resource[=].supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
-* rest.resource[=].supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia"
-* rest.resource[=].supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
-* rest.resource[=].supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
-* rest.resource[=].supportedProfile[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].supportedProfile[=].extension.valueCode = #SHALL
-* rest.resource[=].supportedProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].supportedProfile[=].extension.valueCode = #SHALL
-* rest.resource[=].supportedProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].supportedProfile[=].extension.valueCode = #SHALL
-* rest.resource[=].supportedProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].supportedProfile[=].extension.valueCode = #SHALL
-* rest.resource[=].supportedProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].interaction[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].interaction[=].extension.valueCode = #SHALL
-* rest.resource[=].interaction[=].code = #read
-* rest.resource[=].interaction[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].interaction[=].extension.valueCode = #SHALL
-* rest.resource[=].interaction[=].code = #search-type
-* rest.resource[=].referencePolicy = #resolves
-* rest.resource[=].referencePolicy.extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].referencePolicy.extension.valueCode = #SHOULD
+  // DeviceUseStatement RESOURCE 
+  * resource[+]
+    * extension
+      * url = "$CapExpectation"
+      * valueCode = #SHOULD
+    * type = #DeviceUseStatement
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalDevice"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD 
+    * insert CapabilityStatementInteractionandReferencePolicyExpectation
+    * searchParam[0]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "device"
+      * definition = "http://hl7.org/fhir/SearchParameter/DeviceUseStatement-device"
+      * type = #reference
+    * searchParam[+]
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHALL
+      * name = "patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+      * type = #reference
+    * searchInclude[0] = "DeviceUseStatement:device"
+      * extension
+        * url = "$CapExpectation"
+        * valueCode = #SHOULD
+
