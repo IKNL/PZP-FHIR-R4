@@ -20,8 +20,8 @@
     "fshName": "ACP-CapabilityStatementConsulter",
     "fshType": "Instance",
     "fshFile": "CapabilityStatement.fsh",
-    "startLine": 362,
-    "endLine": 715
+    "startLine": 358,
+    "endLine": 706
   },
   {
     "outputFile": "CapabilityStatement-ACP-CapabilityStatementProvider.json",
@@ -29,7 +29,7 @@
     "fshType": "Instance",
     "fshFile": "CapabilityStatement.fsh",
     "startLine": 1,
-    "endLine": 360
+    "endLine": 356
   },
   {
     "outputFile": "Communication-F1-ACP-Communication-01-10-2020.json",

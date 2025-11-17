@@ -427,19 +427,6 @@
               "type": "token"
             }
           ],
-          "searchInclude": [
-            "Consent:actor"
-          ],
-          "_searchInclude": [
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                  "valueCode": "SHOULD"
-                }
-              ]
-            }
-          ],
           "type": "Goal"
         },
         {
@@ -454,7 +441,7 @@
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation",
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia",
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath",
-            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath"
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"
           ],
           "_supportedProfile": [
             {
@@ -1054,7 +1041,7 @@
                   "valueCode": "SHALL"
                 }
               ],
-              "name": "device",
+              "name": "questionnaire",
               "definition": "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-questionnaire",
               "type": "reference"
             }

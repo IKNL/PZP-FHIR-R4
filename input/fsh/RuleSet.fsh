@@ -25,23 +25,23 @@ RuleSet: MetaRulesDefinitionalArtifact
 RuleSet: CapabilityStatementInteractionandReferencePolicyExpectation
 * interaction[0]
   * extension
-    * url = "$CapExpectation"
+    * url = $CapExpectation
     * valueCode = #SHALL
   * code = #read
 * interaction[+]
   * extension
-    * url = "$CapExpectation"
+    * url = $CapExpectation
     * valueCode = #SHALL
   * code = #search-type
 * referencePolicy = #resolves
   * extension
-    * url = "$CapExpectation"
+    * url = $CapExpectation
     * valueCode = #SHOULD
 
 RuleSet: CapabilityStatementSearchParmeterClinicalPatientExpectation
 * searchParam[0]
   * extension
-    * url = "$CapExpectation"
+    * url = $CapExpectation
     * valueCode = #SHALL
   * name = "patient"
   * definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
