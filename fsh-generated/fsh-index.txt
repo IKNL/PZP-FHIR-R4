@@ -1,8 +1,8 @@
 Output File                                                                      Name                                                       Type       FSH File                           Lines
 ActorDefinition-ACPActorConsulter.json                                           ACPActorConsulter                                          Instance   ActorDefinition.fsh                1 - 10
 ActorDefinition-ACPActorProvider.json                                            ACPActorProvider                                           Instance   ActorDefinition.fsh                27 - 36
-CapabilityStatement-ACPCapabilityStatementConsulter.json                         ACPCapabilityStatementConsulter                            Instance   CapabilityStatement.fsh            362 - 715
-CapabilityStatement-ACPCapabilityStatementProvider.json                          ACPCapabilityStatementProvider                             Instance   CapabilityStatement.fsh            1 - 360
+CapabilityStatement-ACP-CapabilityStatementConsulter.json                        ACP-CapabilityStatementConsulter                           Instance   CapabilityStatement.fsh            362 - 715
+CapabilityStatement-ACP-CapabilityStatementProvider.json                         ACP-CapabilityStatementProvider                            Instance   CapabilityStatement.fsh            1 - 360
 Communication-F1-ACP-Communication-01-10-2020.json                               F1-ACP-Communication-01-10-2020                            Instance   Communication.fsh                  30 - 44
 Communication-P2-ACP-Communication-07-08-2025.json                               P2-ACP-Communication-07-08-2025                            Instance   testscript\Communication.fsh       1 - 15
 Consent-F1-ACP-TreatmentDirective-116762002.json                                 F1-ACP-TreatmentDirective-116762002                        Instance   Consent.fsh                        189 - 206

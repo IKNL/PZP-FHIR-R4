@@ -1,7 +1,7 @@
 {
   "resourceType": "CapabilityStatement",
-  "id": "ACPCapabilityStatementConsulter",
-  "url": "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-CapabilityStatementConsulter",
+  "id": "ACP-CapabilityStatementProvider",
+  "url": "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-CapabilityStatementProvider",
   "contact": [
     {
       "telecom": [
@@ -33,16 +33,16 @@
     {
       "extension": [
         {
-          "url": "$CapExpectation",
-          "valueCode": "SHOULD"
+          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+          "valueCode": "SHALL"
         }
       ]
     },
     {
       "extension": [
         {
-          "url": "$CapExpectation",
-          "valueCode": "SHOULD"
+          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+          "valueCode": "SHALL"
         }
       ]
     }
@@ -56,8 +56,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -67,7 +67,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -121,7 +121,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -138,7 +138,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -149,8 +149,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -160,7 +160,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -214,12 +214,12 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
               "name": "code",
-              "definition": "http://hl7.org/fhir/SearchParameter/Procedure-code",
+              "definition": "http://hl7.org/fhir/SearchParameter/clinical-code",
               "type": "token"
             }
           ],
@@ -230,7 +230,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -241,8 +241,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -253,7 +253,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -261,7 +261,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -315,7 +315,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -326,7 +326,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -342,7 +342,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -353,8 +353,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -364,7 +364,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -418,7 +418,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -434,7 +434,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -445,8 +445,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -460,7 +460,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -468,7 +468,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -476,7 +476,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -484,7 +484,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -492,7 +492,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -546,7 +546,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -560,8 +560,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -571,7 +571,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -625,7 +625,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -642,7 +642,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -653,8 +653,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -664,7 +664,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -707,7 +707,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -724,7 +724,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -735,8 +735,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -746,7 +746,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -789,7 +789,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -800,7 +800,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -814,8 +814,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -825,7 +825,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -835,7 +835,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -849,7 +849,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -860,8 +860,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -871,7 +871,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -881,7 +881,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -895,7 +895,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -906,8 +906,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -917,7 +917,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -927,7 +927,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -941,7 +941,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -952,8 +952,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "supportedProfile": [
@@ -963,7 +963,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -973,7 +973,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -987,7 +987,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -998,8 +998,8 @@
         {
           "extension": [
             {
-              "url": "$CapExpectation",
-              "valueCode": "SHALL"
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHOULD"
             }
           ],
           "interaction": [
@@ -1029,7 +1029,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHOULD"
                 }
               ]
@@ -1039,7 +1039,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -1050,7 +1050,7 @@
             {
               "extension": [
                 {
-                  "url": "$CapExpectation",
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
                   "valueCode": "SHALL"
                 }
               ],
@@ -1062,13 +1062,13 @@
           "type": "QuestionnaireResponse"
         }
       ],
-      "mode": "client",
-      "documentation": " The ACP Consulter **SHALL**:\r\n* Support all ACP resource interactions as defined in this CapabilityStatement.\r\n* Implement the RESTful behaviour according to the FHIR specification.\r\n* Support JSON and/or XML formats for all ACP resource interactions.\r\n"
+      "mode": "server",
+      "documentation": " The ACP Provider **SHALL**:\r\n* Support at least the QuestionnaireResponse resource, or as many of the other resources defined in this CapabilityStatement for which the Provider has information available.\r\n* Implement the RESTful behaviour according to the FHIR specification.\r\n* Return the following response classes:\r\n  * (Status 400): invalid parameter\r\n  * (Status 401/4xx): unauthorized request\r\n  * (Status 403): insufficient scope\r\n  * (Status 404): unknown resource\r\n* Support both JSON and XML formats for all ACP resource interactions.\r\n* Declare a CapabilityStatement identifying the list of profiles, operations, and search parameters supported.\r\n"
     }
   ],
-  "name": "ACPCapabilityStatementConsulter",
-  "title": "ACP CapabilityStatement Consulter",
-  "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Consulters are defined in this CapabilityStatement.",
+  "name": "ACPCapabilityStatementProvider",
+  "title": "ACP CapabilityStatement Provider",
+  "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement.",
   "version": "1.0.0-rc1",
   "date": "2025-10-29",
   "status": "active",

@@ -16,16 +16,16 @@
     "endLine": 36
   },
   {
-    "outputFile": "CapabilityStatement-ACPCapabilityStatementConsulter.json",
-    "fshName": "ACPCapabilityStatementConsulter",
+    "outputFile": "CapabilityStatement-ACP-CapabilityStatementConsulter.json",
+    "fshName": "ACP-CapabilityStatementConsulter",
     "fshType": "Instance",
     "fshFile": "CapabilityStatement.fsh",
     "startLine": 362,
     "endLine": 715
   },
   {
-    "outputFile": "CapabilityStatement-ACPCapabilityStatementProvider.json",
-    "fshName": "ACPCapabilityStatementProvider",
+    "outputFile": "CapabilityStatement-ACP-CapabilityStatementProvider.json",
+    "fshName": "ACP-CapabilityStatementProvider",
     "fshType": "Instance",
     "fshFile": "CapabilityStatement.fsh",
     "startLine": 1,
