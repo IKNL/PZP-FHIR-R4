@@ -1,0 +1,5 @@
+### Changes compared to nl-core
+
+This profile adds mappings and specifies actor obligations for all elements that are in scope of the ACP dataset. Where relevant, profile references have been constrained to ACP profiles when a matching profile is available. In addition, the following concrete change has been made:
+
+* A mandatory code binding on `.code` to indicate that an ACP procedure has taken place.

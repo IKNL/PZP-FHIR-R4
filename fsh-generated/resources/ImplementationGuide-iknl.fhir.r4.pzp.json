@@ -58,6 +58,16 @@
         "id": "AD",
         "name": "Requirements: Actor Definitions",
         "description": "The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide."
+      },
+      {
+        "id": "NLCoreStructures",
+        "name": "Structures: NL Core Derived Resource Profiles",
+        "description": "These are ACP profiles are derived from the nl-core profiles and are based on the Dutch Healthcare Information Models (Zorginformatiebouwstenen - zibs)."
+      },
+      {
+        "id": "ACPStructures",
+        "name": "Structures: Resource Profiles",
+        "description": "These are the ACP profiles based on FHIR core resources."
       }
     ],
     "resource": [
@@ -94,7 +104,8 @@
         },
         "name": "Advance Care Planning Procedure",
         "description": "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -102,7 +113,8 @@
         },
         "name": "AdvanceDirective",
         "description": "A verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider. Based on nl-core-AdvanceDirective and HCIM AdvanceDirective.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -110,7 +122,8 @@
         },
         "name": "Communication",
         "description": "Communication events that have taken place in context of Advance Care Planning. Based on Communication resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -126,7 +139,8 @@
         },
         "name": "ContactPerson",
         "description": "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -134,7 +148,8 @@
         },
         "name": "Encounter",
         "description": "Any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions. Based on nl-core-Encounter and HCIM Encounter.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -327,7 +342,8 @@
         },
         "name": "HealthProfessional Practitioner",
         "description": "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -335,7 +351,8 @@
         },
         "name": "HealthProfessional PractitionerRole",
         "description": "The specialty of a person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitionerRole and HCIM HealthProfessional.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -343,7 +360,8 @@
         },
         "name": "Medical Policy Goal",
         "description": "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -351,7 +369,8 @@
         },
         "name": "MedicalDevice",
         "description": "Any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease. In the context of ACP, this profile is used to declare the use of an implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDevice and HCIM MedicalDevice.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -359,7 +378,8 @@
         },
         "name": "MedicalDevice Product ICD",
         "description": "The medical device (internally or externally). In the context of ACP, this profile is used to capture information on a patient's implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDeviceProduct and HCIM MedicalDevice.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -383,7 +403,8 @@
         },
         "name": "Organ donation choice registration in donor register",
         "description": "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -391,7 +412,8 @@
         },
         "name": "Other Important Information",
         "description": "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -602,7 +624,8 @@
         },
         "name": "Patient",
         "description": "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
@@ -610,7 +633,8 @@
         },
         "name": "Position Regarding Euthanasia",
         "description": "The patient's position regarding euthanasia. Based on Observation resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -618,7 +642,8 @@
         },
         "name": "Preferred Place Of Death",
         "description": "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -652,7 +677,8 @@
         },
         "name": "Specific Care Wishes",
         "description": "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "ACPStructures"
       },
       {
         "reference": {
@@ -660,7 +686,8 @@
         },
         "name": "TreatmentDirective",
         "description": "A joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary. Based on nl-core-TreatmentDirective2 and HCIM TreatmentDirective2.",
-        "exampleBoolean": false
+        "exampleBoolean": false,
+        "groupingId": "NLCoreStructures"
       },
       {
         "reference": {
