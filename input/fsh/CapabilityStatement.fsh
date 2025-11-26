@@ -4,7 +4,7 @@ Usage: #definition
 * url = "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-CapabilityStatementProvider"
 * name = "ACPCapabilityStatementProvider"
 * title = "ACP CapabilityStatement Provider"
-* description = "This CapabilityStatement describes the basic rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Providers are defined in this CapabilityStatement."
+* description = "This CapabilityStatement describes the rules for the [ACP Actor Provider](ActorDefinition-ACPActorProvider.html) that is responsible for providing responses to queries submitted by ACP Consultors."
 * insert MetaRulesDefinitionalArtifact
 
 * kind = #requirements
@@ -361,7 +361,7 @@ Usage: #definition
 * url = "https://api.iknl.nl/docs/pzp/r4/CapabilityStatement/ACP-CapabilityStatementConsulter"
 * name = "ACPCapabilityStatementConsulter"
 * title = "ACP CapabilityStatement Consulter"
-* description = "This CapabilityStatement describes the basic rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Consulters are defined in this CapabilityStatement."
+* description = "This CapabilityStatement describes the rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors."
 * insert MetaRulesDefinitionalArtifact
 
 * kind = #requirements
