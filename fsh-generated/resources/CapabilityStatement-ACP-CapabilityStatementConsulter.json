@@ -1055,7 +1055,7 @@
   ],
   "name": "ACPCapabilityStatementConsulter",
   "title": "ACP CapabilityStatement Consulter",
-  "description": "This CapabilityStatement describes the basic rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by ACP Actor Consulters are defined in this CapabilityStatement.",
+  "description": "This CapabilityStatement describes the rules for the [ACP Actor Consulter](ActorDefinition-ACPActorConsulter.html) that is responsible for providing responses to queries submitted by ACP Consultors.",
   "version": "1.0.0-rc1",
   "date": "2025-10-29",
   "status": "active",
