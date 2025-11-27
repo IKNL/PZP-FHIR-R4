@@ -83,7 +83,7 @@
         "reference": {
           "reference": "Questionnaire/ACP-zib2020"
         },
-        "description": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+        "description": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020.",
         "exampleBoolean": false,
         "name": "ACP Questionnaire based on zib2020",
         "groupingId": "Q-QR"
