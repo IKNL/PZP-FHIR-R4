@@ -1,5 +1,6 @@
 [ACPActorConsulter]: ActorDefinition-ACPActorConsulter.html
 [ACPActorProvider]: ActorDefinition-ACPActorProvider.html
+[ACPAdministrative]: Questionnaire-ACP-Administrative.html
 [ACPzib2020]: Questionnaire-ACP-zib2020.html
 [ACPProcedure]: StructureDefinition-ACP-Procedure.html
 [ACPAdvanceDirective]: StructureDefinition-ACP-AdvanceDirective.html
@@ -76,7 +77,9 @@
 [ACPPreferredPlaceOfDeath]: StructureDefinition-ACP-PreferredPlaceOfDeath.html
 [ACPPreferredPlaceOfDeathVS]: ValueSet-ACP-PreferredPlaceOfDeath.html
 [HendrikHartman-20201001]: QuestionnaireResponse-HendrikHartman-20201001.html
+[HendrikHartman-20201001-Administrative]: QuestionnaireResponse-HendrikHartman-20201001-Administrative.html
 [HendrikHartman-20221108]: QuestionnaireResponse-HendrikHartman-20221108.html
+[HendrikHartman-20221108-Administrative]: QuestionnaireResponse-HendrikHartman-20221108-Administrative.html
 [ACPSpecificCareWishes]: StructureDefinition-ACP-SpecificCareWishes.html
 [ACPTreatmentDirective]: StructureDefinition-ACP-TreatmentDirective.html
 [ACPYesNoUnknownVS]: ValueSet-ACP-YesNoUnknownVS.html

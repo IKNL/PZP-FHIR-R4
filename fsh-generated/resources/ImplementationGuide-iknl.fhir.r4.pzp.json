@@ -50,9 +50,14 @@
   "definition": {
     "grouping": [
       {
-        "id": "Q-QR",
-        "name": "Structures: Questionnaire and QuestionnaireResponses",
-        "description": "These define forms used by systems conforming to this implementation guide to capture or expose data to end users."
+        "id": "Q-QR-Complete",
+        "name": "Structures: Complete ACP Questionnaire",
+        "description": "Complete questionnaire and responses used for comprehensive advance care planning documentation, capturing all treatment agreements, preferences, and related information."
+      },
+      {
+        "id": "Q-QR-Administrative",
+        "name": "Structures: Administrative ACP Questionnaire",
+        "description": "Administrative questionnaire and responses used when exchanging discrete FHIR resources, focusing on previously recorded agreements and information sharing arrangements."
       },
       {
         "id": "AD",
@@ -81,12 +86,21 @@
       },
       {
         "reference": {
+          "reference": "Questionnaire/ACP-Administrative"
+        },
+        "description": "Administrative questionnaire for recording previously made ACP treatment agreements and documenting information sharing arrangements",
+        "exampleBoolean": false,
+        "name": "ACP Administrative Questionnaire",
+        "groupingId": "Q-QR-Administrative"
+      },
+      {
+        "reference": {
           "reference": "Questionnaire/ACP-zib2020"
         },
         "description": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
         "exampleBoolean": false,
         "name": "ACP Questionnaire based on zib2020",
-        "groupingId": "Q-QR"
+        "groupingId": "Q-QR-Complete"
       },
       {
         "reference": {
@@ -635,7 +649,16 @@
         "description": "An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01",
         "exampleBoolean": false,
         "name": "QuestionnaireResponse Hendrik Hartman 20201001",
-        "groupingId": "Q-QR"
+        "groupingId": "Q-QR-Complete"
+      },
+      {
+        "reference": {
+          "reference": "QuestionnaireResponse/HendrikHartman-20201001-Administrative"
+        },
+        "description": "An example of an administrative QuestionnaireResponse for Hendrik Hartman on 2020-10-01",
+        "exampleBoolean": false,
+        "name": "QuestionnaireResponse Hendrik Hartman 20201001 Administrative",
+        "groupingId": "Q-QR-Administrative"
       },
       {
         "reference": {
@@ -644,7 +667,16 @@
         "description": "An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08",
         "exampleBoolean": false,
         "name": "QuestionnaireResponse Hendrik Hartman 20221108",
-        "groupingId": "Q-QR"
+        "groupingId": "Q-QR-Complete"
+      },
+      {
+        "reference": {
+          "reference": "QuestionnaireResponse/HendrikHartman-20221108-Administrative"
+        },
+        "description": "An example of an administrative QuestionnaireResponse for Hendrik Hartman on 2022-11-08",
+        "exampleBoolean": false,
+        "name": "QuestionnaireResponse Hendrik Hartman 20221108 Administrative",
+        "groupingId": "Q-QR-Administrative"
       },
       {
         "reference": {

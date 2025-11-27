@@ -189,15 +189,20 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
-  Q-QR:
-    name: "Structures: Questionnaire and QuestionnaireResponses"
-    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
+  Q-QR-Complete:
+    name: "Structures: Complete ACP Questionnaire"
+    description: Complete questionnaire and responses used for comprehensive advance care planning documentation, capturing all treatment agreements, preferences, and related information.
     resources:
     - Questionnaire/ACP-zib2020
-    - Questionnaire/ACP-Administrative
     - QuestionnaireResponse/HendrikHartman-20201001
-    - QuestionnaireResponse/HendrikHartman-20201001-Administrative
     - QuestionnaireResponse/HendrikHartman-20221108
+
+  Q-QR-Administrative:
+    name: "Structures: Administrative ACP Questionnaire"
+    description: Administrative questionnaire and responses used when exchanging discrete FHIR resources, focusing on previously recorded agreements and information sharing arrangements.
+    resources:
+    - Questionnaire/ACP-Administrative
+    - QuestionnaireResponse/HendrikHartman-20201001-Administrative
     - QuestionnaireResponse/HendrikHartman-20221108-Administrative
 
   AD:
