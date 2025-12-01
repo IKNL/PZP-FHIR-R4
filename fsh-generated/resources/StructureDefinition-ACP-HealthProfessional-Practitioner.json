@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "ACP-HealthProfessional-Practitioner",
   "url": "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-HealthProfessional-Practitioner",
-  "version": "0.1.0",
+  "version": "1.0.0-rc1",
   "name": "ACPHealthProfessionalPractitioner",
   "title": "HealthProfessional Practitioner",
   "status": "draft",
