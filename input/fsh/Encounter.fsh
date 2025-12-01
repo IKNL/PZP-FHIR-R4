@@ -20,8 +20,8 @@ Description: "Any interaction, regardless of the situation, between a patient an
 * insert ObligationRules(participant[healthProfessional])
 * insert ObligationRules(period.start)
 * insert ObligationRules(reasonReference[procedure])
-* insert ObligationRules(reasonReference.extension[commentContactReason])
-* insert ObligationRules(reasonCode[deviatingResult].extension[commentContactReason])
+* insert ObligationRulesInsertWithExtensionLocation(reasonReference.extension[commentContactReason], 2)
+* insert ObligationRulesInsertWithExtensionLocation(reasonCode[deviatingResult].extension[commentContactReason], 2)
 
 
 Mapping: MapACPEncounter

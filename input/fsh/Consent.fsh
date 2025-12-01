@@ -13,8 +13,8 @@ Description: "A verbal or written description of the patient’s wishes with reg
 - For Organ Donation, code _DO_ (Verklaring donorschap)."
 // Why not NR?
 
-* insert ObligationRules(extension[comment])
-* insert ObligationRules(extension[disorder])
+* insert ObligationRulesInsertWithExtensionLocation(extension[comment], 2)
+* insert ObligationRulesInsertWithExtensionLocation(extension[disorder], 2)
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
 * insert ObligationRules(sourceAttachment)
@@ -59,7 +59,7 @@ Title: "TreatmentDirective"
 Description: "A joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary. Based on nl-core-TreatmentDirective2 and HCIM TreatmentDirective2."
 * insert MetaRules
 * extension contains
-    ExtEncounterReference  named encounter 0..1
+    ExtEncounterReference named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
 * extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
 * modifierExtension[specificationOther].valueString ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
@@ -78,14 +78,14 @@ Description: "A joint decision between a health professional (for example a gene
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
 * insert ObligationRules(extension[encounter])
-* insert ObligationRules(extension[additionalAdvanceDirective])
-* insert ObligationRules(extension[comment])
-* insert ObligationRules(modifierExtension[specificationOther])
+* insert ObligationRulesInsertWithExtensionLocation(extension[additionalAdvanceDirective], 2)
+* insert ObligationRulesInsertWithExtensionLocation(extension[comment],2)
+* insert ObligationRulesInsertWithExtensionLocation(modifierExtension[specificationOther], 2)
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
 * insert ObligationRules(sourceReference)
 * insert ObligationRules(provision.type)
-* insert ObligationRules(provision.extension[reasonForEnding])
+* insert ObligationRulesInsertWithExtensionLocation(provision.extension[reasonForEnding], 2)
 * insert ObligationRules(provision.period.end)
 // Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
 * insert ObligationRulesInsertWithExtensionLocation(provision.actor[agreementParty], 1)
