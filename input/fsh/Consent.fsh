@@ -32,12 +32,12 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * -> "721" "Eerder vastgelegde behandelafspraken (Wilsverklaring)"
 * -> "610" "Wilsverklaring"
 * -> "645" "Wilsverklaring"
-* extension[comment].value[x] -> "698" "Toelichting"
-* extension[comment].value[x] -> "708" "Toelichting"
-* extension[comment].value[x] -> "729" "Toelichting"
-* extension[disorder].value[x]  -> "693" "Aandoening"
-* extension[disorder].value[x]  -> "703" "Aandoening"
-* extension[disorder].value[x]  -> "724" "Aandoening"
+* extension[comment] -> "698" "Toelichting"
+* extension[comment] -> "708" "Toelichting"
+* extension[comment] -> "729" "Toelichting"
+* extension[disorder]  -> "693" "Aandoening"
+* extension[disorder]  -> "703" "Aandoening"
+* extension[disorder]  -> "724" "Aandoening"
 * dateTime -> "692" "WilsverklaringDatum"
 * dateTime -> "702" "WilsverklaringDatum"
 * dateTime -> "723" "WilsverklaringDatum"
@@ -62,24 +62,24 @@ Description: "A joint decision between a health professional (for example a gene
     ExtEncounterReference  named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
 * extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
-* modifierExtension[specificationOther].value[x] ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
+* modifierExtension[specificationOther].valueString ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
 * patient only Reference(ACPPatient)
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
 * provision.type ^comment = "Additional terminology mapping guidance, in addition to the default zib/nl-core guidance: 
 - BehandelBesluit (dataset id 603) values: 
     - _Wel uitvoeren_ -> _permit_
     - _Niet uitvoeren_ -> _deny_
-    - _Anders_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element.
+    - _Anders_ or _Onbekend_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].valueString` element.
 - Afspraak uitzetten ICD (dataset id 638) values: 
     - _Wel uitvoeren_ -> _permit_ 
     - No value is mapped to _deny_
-    - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].value[x]` element." 
+    - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].valueString` element." 
 * provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
 * insert ObligationRules(extension[encounter])
 * insert ObligationRules(extension[additionalAdvanceDirective])
-* insert ObligationRules(extension[comment].value[x])
+* insert ObligationRules(extension[comment])
 * insert ObligationRules(modifierExtension[specificationOther])
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
@@ -99,15 +99,15 @@ Source: ACPTreatmentDirective
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "602" "Behandelgrens (BehandelAanwijzing)"
 * -> "637" "Afspraak uitzetten ICD (BehandelAanwijzing)"
-* modifierExtension[specificationOther].value[x]  -> "605" "SpecificatieAnders"
-* modifierExtension[specificationOther].value[x]  -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
-* extension[comment].value[x] -> "618" "Toelichting"
-* extension[comment].value[x] -> "653" "Toelichting"
+* modifierExtension[specificationOther] -> "605" "SpecificatieAnders"
+* modifierExtension[specificationOther] -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
+* extension[comment] -> "618" "Toelichting"
+* extension[comment] -> "653" "Toelichting"
 * extension[additionalAdvanceDirective].valueReference -> "644" "Wilsverklaring"
 * dateTime -> "606" "MeestRecenteBespreekdatum"
 * sourceReference -> "609" "Wilsverklaring"
 * provision.type -> "603" "BehandelBesluit"
-* provision.extension[reasonForEnding].value[x]  -> "608" "RedenBeeindigd"
+* provision.extension[reasonForEnding]  -> "608" "RedenBeeindigd"
 * provision.period.end -> "607" "DatumBeeindigd"
 * provision.actor[agreementParty] -> "611" "AfspraakPartij"
 * provision.actor[agreementParty].reference -> "612" "Patient"

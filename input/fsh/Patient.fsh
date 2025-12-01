@@ -102,7 +102,7 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * telecom[emailAddresses].value -> "383" "EmailAdres"
 * telecom[emailAddresses].system -> "384" "EmailSoort"
 * gender -> "387" "Geslacht"
-* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" 
+* gender.extension[genderCodelist] -> "387" "Geslacht" 
 * birthDate -> "386" "Geboortedatum"
 * address -> "364" "Adresgegevens"
 * address.line.extension[streetName].valueString -> "365" "Straat"
