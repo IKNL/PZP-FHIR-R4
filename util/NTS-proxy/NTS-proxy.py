@@ -24,13 +24,23 @@ class CombinedTX:
                 flow.response = http.Response.make(401, "No NTS authentication token available")
     
     def response(self, flow):
-        # Rewrite response headers to ensure client continues using HTTP through proxy
+        # Rewrite response headers and body to ensure client continues using HTTP through proxy
         if flow.request.pretty_host == self.NTS_HOSTNAME:
             # Rewrite content-location and other headers from https to http
             for header in ["content-location", "location"]:
                 if header in flow.response.headers:
                     flow.response.headers[header] = flow.response.headers[header].replace("https://", "http://")
                     ctx.log.info(f"Rewrote {header} header from https to http")
+            
+            # Rewrite URLs in JSON response body
+            if flow.response.content and "application/json" in flow.response.headers.get("content-type", ""):
+                try:
+                    body = flow.response.text
+                    body = body.replace("https://terminologieserver.nl", "http://terminologieserver.nl")
+                    flow.response.text = body
+                    ctx.log.info("Rewrote URLs in JSON response body from https to http")
+                except Exception as e:
+                    ctx.log.error(f"Failed to rewrite response body: {e}")
 
     def _refreshNTSToken(self):
         """ Retrieve an access token to perform NTS operations and set it to self._nts_token.
