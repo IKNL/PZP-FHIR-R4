@@ -1,24 +1,26 @@
 
-# NTS proxy
+# NTS Proxy
 
-A HTTP proxy specifically for handling authentication on the Nationale Terminologieserver. Copied from https://github.com/Nictiz/snippets/tree/main
+HTTP proxy for handling OAuth2 authentication on the Dutch National Terminology Server (Nationale Terminologieserver).
+
+Based on: https://github.com/Nictiz/snippets/tree/main
 
 ## Prerequisites
 
-- Docker and Docker Compose installed
-- NTS credentials (username and password)
-- Java JDK installed
+- Docker and Docker Compose V2
+- NTS credentials (username and password) - [Request access](https://nictiz.atlassian.net/servicedesk/customer/portal/4)
+- Java JDK 21+ (for certificate installation)
 
-## Setup
+## Quick Start
 
 ### 1. Set Environment Variables
 
-Set your NTS credentials as environment variables:
+Set your NTS credentials as environment variables. These persist only for the current session:
 
 **PowerShell:**
 ```powershell
-$env:NTS_USER="your-username"
-$env:NTS_PASS="your-password"
+$env:NTS_USER = "your-username"
+$env:NTS_PASS = "your-password"
 ```
 
 **Command Prompt:**
@@ -27,92 +29,224 @@ set NTS_USER=your-username
 set NTS_PASS=your-password
 ```
 
+> **Tip**: For persistent credentials, add these to your system environment variables via Windows Settings.
+
 ### 2. Start the Proxy
 
-From the project root directory:
+Navigate to the proxy directory and start the container:
+
 ```powershell
 cd util\NTS-proxy
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
-The proxy will run on `localhost:8080`.
+The proxy runs on `localhost:8080` and intercepts requests to `terminologieserver.nl`.
+
+Verify it's running:
+```powershell
+docker ps
+docker logs nts-proxy-nts-proxy-1
+```
 
 ### 3. Install mitmproxy Certificate
 
-Since the IG Publisher uses HTTPS connections, you need to install the mitmproxy certificate into Java's truststore:
+**⚠️ Required for HTTPS interception**
 
-**Run as Administrator:**
+Run as Administrator:
 ```cmd
 cd util\NTS-proxy
 install-cert.bat
 ```
 
-This will:
-- Extract the certificate from the Docker container
-- Find your Java installation
-- Import the certificate into Java's truststore (default password: `changeit`)
+This script:
+1. Extracts the mitmproxy CA certificate from the container
+2. Locates your Java installation (via `JAVA_HOME`)
+3. Imports the certificate into Java's truststore (`cacerts`)
+4. Removes any existing certificate first to avoid conflicts
+
+Default truststore password: `changeit`
 
 ## Usage
 
-### Building the Implementation Guide
+### Local Development: IG Publisher
 
-Use the `_genonce_nts.bat` script from the project root:
+Use the provided batch script from the project root:
+
 ```cmd
 _genonce_nts.bat
 ```
 
-This script automatically:
-- Configures Java to use the NTS proxy via system properties
-- Connects to https://terminologieserver.nl/fhir through the proxy with authentication
+This runs the IG Publisher with:
+- `-proxy localhost:8080` - Routes requests through the proxy
+- `-tx http://terminologieserver.nl/fhir` - Terminology server endpoint
 
-### Manual Usage with HL7 Validator
+The IG Publisher's HTTP client properly uses the `-proxy` parameter and routes all terminology validation through the authenticated proxy.
 
-If you want to use the validator directly:
+### CI/CD: GitHub Actions
+
+The workflow automatically:
+1. Starts the NTS proxy container
+2. Installs the mitmproxy certificate into the GitHub runner's Java truststore
+3. Sets Java system properties to force ALL HTTP/HTTPS traffic through the proxy:
+   ```bash
+   JAVA_TOOL_OPTIONS="-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080"
+   ```
+4. Runs the Java validator with `-tx https://terminologieserver.nl/fhir`
+
+See `.github/workflows/r4_firely_terminal.yaml` for implementation details.
+
+### Manual Usage: Standalone Java Validator
+
+For direct validator usage:
+
+**Windows (Command Prompt):**
 ```cmd
 set JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080
-java -jar validator_cli.jar -tx https://terminologieserver.nl/fhir
+java -jar validator_cli.jar -tx https://terminologieserver.nl/fhir -ig input -txLog tx.log
+```
+
+**PowerShell:**
+```powershell
+$env:JAVA_TOOL_OPTIONS = "-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080"
+java -jar validator_cli.jar -tx https://terminologieserver.nl/fhir -ig input -txLog tx.log
+```
+
+**Linux/macOS:**
+```bash
+export JAVA_TOOL_OPTIONS="-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080"
+java -jar validator_cli.jar -tx https://terminologieserver.nl/fhir -ig input -txLog tx.log
 ```
 
 ## How It Works
 
-1. **System-wide proxy**: Java is configured to route ALL HTTP/HTTPS traffic through localhost:8080
-2. **mitmproxy intercepts**: The proxy intercepts HTTPS requests to `terminologieserver.nl`
-3. **Authentication**: Adds OAuth2 Bearer token using your NTS credentials
-4. **URL rewriting**: Converts HTTPS URLs in responses back to HTTP to ensure continued proxy usage
-5. **Returns response**: Sends authenticated response back to the FHIR validator
+The proxy uses [mitmproxy](https://mitmproxy.org/) to intercept and modify HTTP/HTTPS traffic:
 
-The key is using Java system properties (`-Dhttp.proxyHost`, `-Dhttps.proxyHost`) to ensure ALL requests go through the proxy, not just those the validator explicitly sends through its `-proxy` parameter.
+1. **Request interception**: mitmproxy intercepts HTTPS requests to `terminologieserver.nl`
+2. **Token retrieval**: Authenticates with NTS using OAuth2 password grant flow
+3. **Header injection**: Adds `Authorization: Bearer <token>` to each request
+4. **URL rewriting**: Converts HTTPS URLs in responses to HTTP to ensure continued proxy usage
+5. **Response forwarding**: Returns authenticated response to client
+
+### Why Two Approaches?
+
+- **IG Publisher** (`-proxy` parameter): Built-in proxy support works correctly
+- **Java Validator** (system properties): Requires system-level proxy configuration because it caches URLs from CapabilityStatement responses and bypasses the `-proxy` parameter for subsequent requests
+
+## Architecture
+
+```
+FHIR Validator/IG Publisher
+         ↓
+   localhost:8080 (mitmproxy)
+         ↓
+   OAuth2 Token Injection
+         ↓
+terminologieserver.nl (HTTPS + Bearer token)
+```
 
 ## Troubleshooting
 
-### Certificate Issues
+### ❌ Certificate/SSL Errors
 
-If you see SSL/certificate errors:
-- Ensure you've run `install-cert.bat` as Administrator
-- Verify the certificate was installed: Check for "mitmproxy" alias in Java's cacerts
+**Error**: `PKIX path building failed: unable to find valid certification path`
 
-### Proxy Not Working
+**Solution**:
+1. Ensure `install-cert.bat` ran as Administrator
+2. Verify certificate installation:
+   ```cmd
+   keytool -list -keystore "%JAVA_HOME%\lib\security\cacerts" -storepass changeit | findstr mitmproxy
+   ```
+3. Restart your terminal after installation
+4. Check the proxy container is running: `docker ps`
 
-Check if the proxy container is running:
+### ❌ 401 Unauthorized / "No credentials provided"
+
+**Error**: Validation fails with authentication errors in `tx.log`
+
+**Possible causes**:
+- Environment variables not set: `Get-ChildItem Env: | Where-Object Name -like "*NTS*"`
+- Proxy not running: `docker ps`
+- Invalid credentials: Verify username/password at [NTS Service Desk](https://nictiz.atlassian.net/servicedesk/customer/portal/4)
+- Java not using proxy: Check `JAVA_TOOL_OPTIONS` for standalone validator
+
+**Solution**:
 ```powershell
-docker ps
-```
+# Check environment variables
+Get-ChildItem Env: | Where-Object Name -like "*NTS*"
 
-View proxy logs:
-```powershell
+# Restart proxy with fresh credentials
+docker compose down
+$env:NTS_USER = "your-username"
+$env:NTS_PASS = "your-password"
+docker compose up -d
+
+# Check logs for token retrieval
 docker logs nts-proxy-nts-proxy-1
 ```
 
-### Environment Variables Not Set
+### ❌ Proxy Container Not Starting
 
-Ensure NTS_USER and NTS_PASS are set before starting docker-compose:
+**Error**: Container fails to start or exits immediately
+
+**Solution**:
+1. Check Docker is running: `docker ps`
+2. Verify environment variables are set before `docker compose up`
+3. Check container logs: `docker logs nts-proxy-nts-proxy-1`
+4. Rebuild the image: `docker compose up -d --build --force-recreate`
+
+### ℹ️ Viewing Proxy Traffic
+
+Monitor all requests and responses:
 ```powershell
-Get-ChildItem Env: | Where-Object Name -like "*NTS*"
+docker logs -f nts-proxy-nts-proxy-1
 ```
+
+Look for:
+- `Got an NTS access token` - Successful authentication
+- `Added NTS auth token to GET/POST` - Requests being proxied
+- `Rewrote URLs in JSON response` - Response modification working
+
+### ℹ️ Testing the Proxy
+
+Quick test without running full validation:
+
+```powershell
+# Set proxy environment
+$env:HTTP_PROXY = "http://localhost:8080"
+$env:HTTPS_PROXY = "http://localhost:8080"
+
+# Test with curl (if installed)
+curl -k http://terminologieserver.nl/fhir/metadata
+```
+
+You should see a successful CapabilityStatement response.
 
 ## Stopping the Proxy
 
 ```powershell
 cd util\NTS-proxy
-docker-compose down
+docker compose down
 ```
+
+Removes the container but preserves the Docker image for faster restarts.
+
+## Files
+
+- `Dockerfile` - Container image definition (Debian + mitmproxy)
+- `docker-compose.yml` - Container orchestration
+- `NTS-proxy.py` - mitmproxy addon for authentication and URL rewriting
+- `install-cert.bat` - Windows script for certificate installation
+- `README.md` - This file
+
+## Security Notes
+
+- Credentials are passed via environment variables (not stored in files)
+- OAuth2 tokens are cached in memory only (not persisted)
+- The mitmproxy certificate is self-signed and only trusted by your local Java installation
+- For production use, consider using GitHub Secrets for CI/CD credentials
+
+## Further Reading
+
+- [NTS Documentation](https://informatiestandaarden.nictiz.nl/wiki/Terminologie:Terminologieserver)
+- [mitmproxy Documentation](https://docs.mitmproxy.org/)
+- [FHIR Terminology Service](https://www.hl7.org/fhir/terminology-service.html)
