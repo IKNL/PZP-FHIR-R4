@@ -22,6 +22,15 @@ class CombinedTX:
             else:
                 ctx.log.error("No NTS token available")
                 flow.response = http.Response.make(401, "No NTS authentication token available")
+    
+    def response(self, flow):
+        # Rewrite response headers to ensure client continues using HTTP through proxy
+        if flow.request.pretty_host == self.NTS_HOSTNAME:
+            # Rewrite content-location and other headers from https to http
+            for header in ["content-location", "location"]:
+                if header in flow.response.headers:
+                    flow.response.headers[header] = flow.response.headers[header].replace("https://", "http://")
+                    ctx.log.info(f"Rewrote {header} header from https to http")
 
     def _refreshNTSToken(self):
         """ Retrieve an access token to perform NTS operations and set it to self._nts_token.
