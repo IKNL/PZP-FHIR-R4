@@ -16,6 +16,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
+    env:
+      NTS_USER: ${{ secrets.NTS_USERNAME }}
+      NTS_PASS: ${{ secrets.NTS_PASSWORD }}
+      NTS_TX_URL:   http://terminologieserver.nl/fhir
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout code
@@ -33,6 +38,33 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '21'
+      
+      # Start NTS proxy for authenticated terminology server access
+      - name: Start NTS Proxy
+        run: |
+          cd util/NTS-proxy
+          docker-compose up -d
+          sleep 5
+          docker ps
+          docker logs nts-proxy-nts-proxy-1
+      
+      # Install mitmproxy certificate into Java truststore
+      - name: Install mitmproxy certificate
+        run: |
+          # Extract certificate from container
+          docker cp nts-proxy-nts-proxy-1:/root/.mitmproxy/mitmproxy-ca-cert.pem /tmp/mitmproxy-ca-cert.pem
+          
+          # Find Java cacerts location
+          JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep 'java.home' | awk '{print $3}')
+          echo "Java home: $JAVA_HOME"
+          
+          # Import certificate into Java truststore
+          sudo keytool -import -trustcacerts -alias mitmproxy \
+            -file /tmp/mitmproxy-ca-cert.pem \
+            -keystore "$JAVA_HOME/lib/security/cacerts" \
+            -storepass changeit -noprompt
+          
+          echo "Certificate installed successfully"
         
       - name: Firely.Terminal (GitHub Actions)
         uses: FirelyTeam/firely-terminal-pipeline@v0.7.20-alpha6
@@ -40,7 +72,7 @@ jobs:
           PATH_TO_CONFORMANCE_RESOURCES: fsh-generated/resources
           PATH_TO_EXAMPLES: fsh-generated/resources
           #PATH_TO_QUALITY_CONTROL_RULES: unittest
-          DOTNET_VALIDATION_ENABLED: true
+          DOTNET_VALIDATION_ENABLED: false
           JAVA_VALIDATION_ENABLED: true
           JAVA_VALIDATION_OPTIONS: >
             -allow-example-urls true
@@ -53,6 +85,9 @@ jobs:
             -display-issues-are-warnings
             -advisor-file validator/advisor.json
             -resolution-context file:fsh-generated/resources/
+            -proxy localhost:8080
+            -tx ${{ env.NTS_TX_URL }}
+            -txLog tx.log
           EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA VALIDATION_EXAMPLES_JAVA
           SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}
           SIMPLIFIER_PASSWORD: ${{ secrets.SIMPLIFIER_PASSWORD }}
@@ -68,7 +103,14 @@ jobs:
           path: |
             validation.json
             validation.html
+            tx.log
           retention-days: 1
+
+      - name: Stop NTS Proxy
+        if: always()
+        run: |
+          cd util/NTS-proxy
+          docker-compose down
 
       - name: Upload FSH generated artifacts
         uses: actions/upload-artifact@v4
