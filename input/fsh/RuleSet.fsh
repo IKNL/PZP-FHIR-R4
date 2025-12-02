@@ -13,4 +13,5 @@ RuleSet: MetaRules
 RuleSet: ObligationRules(path)
 * {path} ^extension[$obligation][+].extension[code].valueCode = #SHALL:populate-if-known
 * {path} ^extension[$obligation][=].extension[actor].valueCanonical = Canonical(ACPActorProvider)
-
+* {path} ^extension[$obligation][+].extension[code].valueCode = #SHALL:no-error
+* {path} ^extension[$obligation][=].extension[actor].valueCanonical = Canonical(ACPActorConsulter)
