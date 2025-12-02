@@ -43,7 +43,7 @@ jobs:
       - name: Start NTS Proxy
         run: |
           cd util/NTS-proxy
-          docker-compose up -d
+          docker compose up -d
           sleep 5
           docker ps
           docker logs nts-proxy-nts-proxy-1
@@ -110,7 +110,7 @@ jobs:
         if: always()
         run: |
           cd util/NTS-proxy
-          docker-compose down
+          docker compose down
 
       - name: Upload FSH generated artifacts
         uses: actions/upload-artifact@v4
