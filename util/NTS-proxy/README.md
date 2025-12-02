@@ -62,22 +62,26 @@ _genonce_nts.bat
 ```
 
 This script automatically:
-- Uses the NTS proxy on localhost:8080
-- Connects to http://terminologieserver.nl/fhir (the proxy converts to HTTPS and adds authentication)
+- Configures Java to use the NTS proxy via system properties
+- Connects to https://terminologieserver.nl/fhir through the proxy with authentication
 
 ### Manual Usage with HL7 Validator
 
 If you want to use the validator directly:
 ```cmd
-java -jar validator_cli.jar -proxy localhost:8080 -tx http://terminologieserver.nl/fhir
+set JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080
+java -jar validator_cli.jar -tx https://terminologieserver.nl/fhir
 ```
 
 ## How It Works
 
-1. The proxy intercepts requests to `terminologieserver.nl`
-2. Converts HTTP to HTTPS
-3. Adds Bearer token authentication using your NTS credentials
-4. Returns the response to the client
+1. **System-wide proxy**: Java is configured to route ALL HTTP/HTTPS traffic through localhost:8080
+2. **mitmproxy intercepts**: The proxy intercepts HTTPS requests to `terminologieserver.nl`
+3. **Authentication**: Adds OAuth2 Bearer token using your NTS credentials
+4. **URL rewriting**: Converts HTTPS URLs in responses back to HTTP to ensure continued proxy usage
+5. **Returns response**: Sends authenticated response back to the FHIR validator
+
+The key is using Java system properties (`-Dhttp.proxyHost`, `-Dhttps.proxyHost`) to ensure ALL requests go through the proxy, not just those the validator explicitly sends through its `-proxy` parameter.
 
 ## Troubleshooting
 

@@ -19,7 +19,7 @@ jobs:
     env:
       NTS_USER: ${{ secrets.NTS_USERNAME }}
       NTS_PASS: ${{ secrets.NTS_PASSWORD }}
-      NTS_TX_URL:   http://terminologieserver.nl/fhir
+      NTS_TX_URL: https://terminologieserver.nl/fhir
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -65,6 +65,11 @@ jobs:
             -storepass changeit -noprompt
           
           echo "Certificate installed successfully"
+      
+      # Configure Java to use proxy for all HTTP/HTTPS connections
+      - name: Set Java proxy system properties
+        run: |
+          echo "JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts=" >> $GITHUB_ENV
         
       - name: Firely.Terminal (GitHub Actions)
         uses: FirelyTeam/firely-terminal-pipeline@v0.7.20-alpha6
@@ -85,8 +90,6 @@ jobs:
             -display-issues-are-warnings
             -advisor-file validator/advisor.json
             -resolution-context file:fsh-generated/resources/
-            -proxy localhost:8080
-            -auth ${{ env.NTS_USER }}:${{ env.NTS_PASS }}
             -tx ${{ env.NTS_TX_URL }}
             -txLog tx.log
           EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA VALIDATION_EXAMPLES_JAVA
