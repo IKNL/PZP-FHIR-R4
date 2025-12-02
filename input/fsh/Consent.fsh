@@ -13,8 +13,8 @@ Description: "A verbal or written description of the patient’s wishes with reg
 - For Organ Donation, code _DO_ (Verklaring donorschap)."
 // Why not NR?
 
-* insert ObligationRulesInsertWithExtensionLocation(extension[comment], 2)
-* insert ObligationRulesInsertWithExtensionLocation(extension[disorder], 2)
+* insert ObligationRules(extension[comment])
+* insert ObligationRules(extension[disorder])
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
 * insert ObligationRules(sourceAttachment)
@@ -78,18 +78,18 @@ Description: "A joint decision between a health professional (for example a gene
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
 * insert ObligationRules(extension[encounter])
-* insert ObligationRulesInsertWithExtensionLocation(extension[additionalAdvanceDirective], 2)
-* insert ObligationRulesInsertWithExtensionLocation(extension[comment],2)
-* insert ObligationRulesInsertWithExtensionLocation(modifierExtension[specificationOther], 2)
+* insert ObligationRules(extension[additionalAdvanceDirective])
+* insert ObligationRules(extension[comment])
+* insert ObligationRules(modifierExtension[specificationOther])
 * insert ObligationRules(patient)
 * insert ObligationRules(dateTime)
 * insert ObligationRules(sourceReference)
 * insert ObligationRules(provision.type)
-* insert ObligationRulesInsertWithExtensionLocation(provision.extension[reasonForEnding], 2)
+* insert ObligationRules(provision.extension[reasonForEnding])
 * insert ObligationRules(provision.period.end)
 // Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
-* insert ObligationRulesInsertWithExtensionLocation(provision.actor[agreementParty], 1)
-* insert ObligationRulesInsertWithExtensionLocation(provision.code.text, 1)
+* insert ObligationRules(provision.actor[agreementParty])
+* insert ObligationRules(provision.code.text)
 
 
 Mapping: MapACPTreatmentDirective
