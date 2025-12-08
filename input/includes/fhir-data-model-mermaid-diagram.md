@@ -85,18 +85,15 @@ flowchart TB
     %% ---- Resource Type References ----
     Communication -- "recipient, subject" --> Patient
     Communication -- "sender" --> PractitionerRole
-    Consent -- "extension" --> Encounter
     Consent -- "patient, provision.actor" --> Patient
     Consent -- "provision.actor" --> PractitionerRole
     Consent -- "provision.actor" --> RelatedPerson
     DeviceUseStatement -- "device" --> Device
-    DeviceUseStatement -- "extension" --> Encounter
     DeviceUseStatement -- "subject" --> Patient
     Encounter -- "subject" --> Patient
     Encounter -- "participant" --> PractitionerRole
     Encounter -- "reasonReference" --> Procedure
     Encounter -- "participant" --> RelatedPerson
-    Goal -- "extension" --> Encounter
     Goal -- "subject" --> Patient
     Observation -- "encounter" --> Encounter
     Observation -- "subject" --> Patient

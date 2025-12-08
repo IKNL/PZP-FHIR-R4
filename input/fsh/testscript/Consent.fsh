@@ -5,7 +5,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "c703a102-b02b-4762-858d-026b88a68111"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
@@ -25,7 +24,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "bc70c02f-f4f3-44a1-833b-41965885cc02"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-28-07-2024) "Encounter, 2024-07-28"
 * modifierExtension[specificationOther].valueString = "Onbekend"
 * status = #inactive
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
@@ -47,7 +45,6 @@ Usage: #example
 * identifier.value = "9173e0ef-c00e-4ed3-bf64-97e490dd1dc0"
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Mevrouw wil geen kunstmatige beademing omdat er te weinig kans is om nog van de beademing af te komen i.v.m. gezondheid."
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
@@ -69,7 +66,6 @@ Usage: #example
 * identifier.value = "ec970704-2e21-4fa0-a006-bacfe66811bd"
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Hoeft niet meer van de patient"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
@@ -89,7 +85,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "e70a0ec8-f77a-4c4d-8876-c9103f09bbc2"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * modifierExtension[specificationOther].url = "http://nictiz.nl/fhir/StructureDefinition/ext-TreatmentDirective2.SpecificationOther"
 * modifierExtension[specificationOther].valueString = "Alleen als de patiënt een kans heeft om weer uit het ziekenhuis te komen, anders hoeft het niet meer van mevrouw."
 * status = #active
@@ -110,7 +105,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "3a701afb-3234-475f-b2b2-46ff428a070d"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
@@ -132,7 +126,6 @@ Usage: #example
 * identifier.value = "e3419bc6-ba15-4d29-ad32-a384d1846747"
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "wanneer door complicaties peritoneaal dialyse niet meer mogelijk is en de patiënt elke week in het ziekenhuis gedialyseerd zou moeten worden dan wil ze dat de dialyse stopt."
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-08-07
@@ -155,7 +148,6 @@ Usage: #example
 * identifier.value = "0b7b1248-a209-4205-b1ab-c308efcce769"
 * extension[comment].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * extension[comment].valueString = "Patiënt gaat dit volgende week met de cardioloog bespreken."
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * modifierExtension[specificationOther].valueString = "Nee, nog geen besluit genomen" 
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
@@ -176,7 +168,6 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "db81a3f9-bec0-4437-bc2c-8907d94bf766"
-* extension[encounter].valueReference = Reference(P2-ACP-Encounter-07-08-2025) "Encounter, 2025-08-07"
 * status = #active
 * patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
 * dateTime = 2025-06-28
