@@ -55,7 +55,6 @@ Id: ACP-TreatmentDirective
 Title: "TreatmentDirective"
 Description: "A joint decision between a health professional (for example a general practitioner) and a patient or his representative(s) about the desirability of performing a certain treatment, such as resuscitation, before this treatment becomes (acute) necessary. Based on nl-core-TreatmentDirective2 and HCIM TreatmentDirective2."
 * insert MetaRules
-* extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
 * modifierExtension[specificationOther].valueString ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
 * patient only Reference(ACPPatient)
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
