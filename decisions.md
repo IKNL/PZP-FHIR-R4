@@ -57,8 +57,8 @@
 ```json
 {
 {
-    "name": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
-    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+    "name": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020",
+    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020",
     "resourceType": "Questionnaire",
     "status": "draft",
     "item": [
@@ -80,7 +80,7 @@ to
     "url": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020",
     "version": "beta3-20250828",
     "name": "ACPzib2020",    
-    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025",
+    "title": "Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020",
     "resourceType": "Questionnaire",
     "status": "draft",
     "experimental": true,
