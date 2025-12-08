@@ -1,5 +1,7 @@
 ### Changes compared to nl-core
 
-This profile adds mappings and specifies actor obligations for all elements that are in scope of the ACP dataset. Where relevant, profile references have been constrained to ACP profiles when a matching profile is available. In addition, the following concrete change has been made:
+This profile adds ACP-specific mappings to the ART-DECOR dataset and obligation extensions for Provider and Consulter actors. Profile references are constrained to ACP profiles where available. 
 
-* TODO
+The following change affects implementation beoyond the base profile:
+
+* `.code` must use a fixed value to indicate that an ACP procedure has taken place.
