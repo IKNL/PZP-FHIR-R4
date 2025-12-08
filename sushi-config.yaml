@@ -194,7 +194,7 @@ groups:
 
   NLCoreStructures:
     name: "Structures: NL Core Derived Resource Profiles"
-    description: These are ACP profiles are derived from the nl-core profiles and are based on the Dutch Healthcare Information Models (Zorginformatiebouwstenen - zibs).
+    description: These are ACP profiles derived from the nl-core profiles and are based on the Dutch Health and Care Information models (Zorginformatiebouwstenen - zibs).
     resources:
     - StructureDefinition/ACP-Procedure
     - StructureDefinition/ACP-AdvanceDirective
@@ -209,7 +209,7 @@ groups:
 
   ACPStructures:
     name: "Structures: Resource Profiles"
-    description: These are the ACP profiles based on FHIR core resources.
+    description: These are ACP profiles based on FHIR core resources.
     resources:
     - StructureDefinition/ACP-Communication
     - StructureDefinition/ACP-Medical-Policy-Goal
@@ -218,7 +218,6 @@ groups:
     - StructureDefinition/ACP-PositionRegardingEuthanasia
     - StructureDefinition/ACP-PreferredPlaceOfDeath
     - StructureDefinition/ACP-SpecificCareWishes
-
 
 
 #   GroupB:
