@@ -38,8 +38,8 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * period.start -> "814" "BeginDatumTijd"
 * period.start -> "736" "Datum van invullen"
 * reasonReference[procedure] -> "819" "Verrichting"
-* reasonReference.extension[commentContactReason].value[x] -> "822" "ToelichtingRedenContact"
-* reasonCode[deviatingResult].extension[commentContactReason].value[x] -> "822" "ToelichtingRedenContact"
+* reasonReference.extension[commentContactReason] -> "822" "ToelichtingRedenContact"
+* reasonCode[deviatingResult].extension[commentContactReason] -> "822" "ToelichtingRedenContact"
 
 
 Instance: F1-ACP-Encounter-01-10-2020
