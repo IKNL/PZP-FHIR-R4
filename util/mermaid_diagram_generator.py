@@ -134,7 +134,10 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         f.write("\n")
 
         f.write("    %% ---- Subgraph Definitions ----\n")
-        for resource_type, profile_list in sorted(resource_to_profiles.items()):
+        # Sort resource types, placing Observation last to appear on the right
+        sorted_resources = sorted(resource_to_profiles.items(), key=lambda x: (x[0] == "Observation", x[0]))
+        
+        for resource_type, profile_list in sorted_resources:
             f.write(f'    subgraph "{resource_type}"\n')
             for profile_name in sorted(profile_list):
                 f.write(f'        {profile_name}\n')
