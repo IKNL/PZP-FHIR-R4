@@ -61,7 +61,6 @@ Description: "A joint decision between a health professional (for example a gene
 * extension contains
     ExtEncounterReference named encounter 0..1
 * extension[encounter].valueReference only Reference(ACPEncounter) 
-* extension[additionalAdvanceDirective].valueReference only Reference(ACPAdvanceDirective)
 * modifierExtension[specificationOther].valueString ^comment = "In addition to the default zib/nl-core guidance, this extension is used to communicate further details about agreements concerning ICD."
 * patient only Reference(ACPPatient)
 * source[x][sourceReference] only Reference(ACPAdvanceDirective)
