@@ -1,7 +1,5 @@
 ### Changes compared to nl-core
 
-This profile adds ACP-specific mappings to the ART-DECOR dataset and obligation extensions for Provider and Consulter actors. Profile references are constrained to ACP profiles where available. 
-
-The following change affects implementation beoyond the base profile:
+This profile adds ACP-specific mappings to the ART-DECOR dataset and obligation extensions for Provider and Consulter actors. Profile references are constrained to ACP profiles where available. The following change affects implementation beoyond the base nl-core profile:
 
 * `.type` must be a value from the bound ValueSet.
