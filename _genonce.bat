@@ -22,6 +22,12 @@ IF EXIST "%input_cache_path%\%publisher_jar%" (
 	JAVA -jar "..\%publisher_jar%" -ig . %txoption% %*
 ) ELSE (
 	ECHO IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
+	GOTO end
 )
 
+ECHO.
+ECHO Stripping standards status extensions from generated resources...
+python util\strip_standards_status_extensions.py
+
+:end
 PAUSE
