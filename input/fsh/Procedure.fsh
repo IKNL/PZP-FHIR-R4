@@ -6,7 +6,6 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
-* performer.actor only Reference(ACPHealthProfessionalPractitionerRole or ACPContactPerson or ACPPatient)
 * code 1..1
 * code = $snomed#713603004
 
@@ -25,7 +24,7 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 
 Instance: F1-ACP-Procedure-01-10-2020
 InstanceOf: ACPProcedure
-Title: "F1 ACP ACPProcedure 01-10-2020"
+Title: "F1 ACP Procedure 01-10-2020"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

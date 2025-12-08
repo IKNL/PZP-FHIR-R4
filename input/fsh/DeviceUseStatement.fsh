@@ -28,14 +28,14 @@ Source: ACPMedicalDevice
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "619" "Heeft de patient een ICD?"
 * -> "620" "ICD (MedischHulpmiddel)"
-* extension[healthProfessional].value[x]  -> "635" "Zorgverlener"
-* extension[location].value[x]  -> "633" "Locatie"
+* extension[healthProfessional]  -> "635" "Zorgverlener"
+* extension[location]  -> "633" "Locatie"
 * timingPeriod.start -> "630" "BeginDatum"
 * timingPeriod.end -> "631" "EndDate"
 * reasonReference[indication] -> "628" "Indicatie"
 * bodySite -> "625" "AnatomischeLocatie"
 * bodySite -> "626" "Locatie"
-* bodySite.extension[laterality].valueCodeableConcept -> "627" "Lateraliteit"
+* bodySite.extension[laterality] -> "627" "Lateraliteit"
 * note.text -> "632" "Toelichting"
 
 
