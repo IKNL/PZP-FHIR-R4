@@ -35,14 +35,6 @@ flowchart TB
         ACPMedicalPolicyGoal
     end
 
-    subgraph "Observation"
-        ACPOrganDonationChoiceRegistration
-        ACPOtherImportantInformation
-        ACPPositionRegardingEuthanasia
-        ACPPreferredPlaceOfDeath
-        ACPSpecificCareWishes
-    end
-
     subgraph "Patient"
         ACPPatient
     end
@@ -61,6 +53,14 @@ flowchart TB
 
     subgraph "RelatedPerson"
         ACPContactPerson
+    end
+
+    subgraph "Observation"
+        ACPOrganDonationChoiceRegistration
+        ACPOtherImportantInformation
+        ACPPositionRegardingEuthanasia
+        ACPPreferredPlaceOfDeath
+        ACPSpecificCareWishes
     end
 
     %% ---- Style Assignments ----
