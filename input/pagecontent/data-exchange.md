@@ -85,6 +85,10 @@ Standard FHIR rules apply for every resource request:
 * Success: `200 OK`. The server will return a Bundle containing the matching resource(s) for the patient.
 * Not Found: If the patient has no matching resources, the server will return a 200 OK with an empty Bundle.
 
+#### Sequence Diagram 
+
+{% include fhir-data-exchange-individual-resources-mermaid-diagram %}
+
 ---
 
 ### Method 2: Retrieve ACP QuestionnaireResponse
@@ -106,3 +110,7 @@ The server follows standard FHIR response rules:
 
 * Success: `200 OK`. The response body will contain a Bundle with the matching QuestionnaireResponse resource(s). Example QuestionnaireResponse resources are available <a href="QuestionnaireResponse-HendrikHartman-20201001.html">here</a> and <a href="QuestionnaireResponse-HendrikHartman-20221108.html">here</a>.
 * Not Found: `200 OK`. If there is no completed form for this patient, the server will return an empty Bundle.
+
+#### Sequence Diagram 
+
+{% include fhir-data-exchange-questionnaireresponse-mermaid-diagram %}
