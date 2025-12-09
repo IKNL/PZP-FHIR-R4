@@ -158,12 +158,11 @@ Complete the form with realistic example data representing a patient scenario.
 ### Step 4: Save and Clean Up
 1. Save as `QuestionnaireResponse-[PatientName]-[Date].json` in `input/resources/`
    - Example: `QuestionnaireResponse-HendrikHartman-20201001.json`
-2. Clean up the exported JSON:
-   - Remove the `meta.tag` field containing `lformsVersion`
+2. Enhance the exported JSON:
+   - Add an `id` field following pattern `[PatientName]-[Date]`
    - Add proper `subject` and `author` references
    - Ensure `questionnaire` canonical URL matches your Questionnaire
    - Add appropriate `status` and `authored` date
-
 
 
 ### Step 5: Register in Configuration for better presentation in IG
