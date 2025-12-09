@@ -22,11 +22,6 @@ Usage: #definition
   * documentation = " The ACP Provider **SHALL**:
 * Support at least the QuestionnaireResponse resource, or as many of the other resources defined in this CapabilityStatement for which the Provider has information available.
 * Implement the RESTful behaviour according to the FHIR specification.
-* Return the following response classes:
-  * (Status 400): invalid parameter
-  * (Status 401/4xx): unauthorized request
-  * (Status 403): insufficient scope
-  * (Status 404): unknown resource
 * Support both JSON and XML formats for all ACP resource interactions.
 * Declare a CapabilityStatement identifying the list of profiles, operations, and search parameters supported.
 "
@@ -193,7 +188,7 @@ Usage: #definition
       * name = "device"
       * definition = "http://hl7.org/fhir/SearchParameter/DeviceUseStatement-device"
       * type = #reference
-      * documentation = "The provider **SHALL** support chained search Device.type using the codes as defined in the ACP Procedure profile."
+      * documentation = "The provider **SHOULD** support chained search Device.type using the codes as defined in the ACP Procedure profile."
     * searchInclude[0] = "DeviceUseStatement:device"
       * extension
         * url = $CapExpectation
