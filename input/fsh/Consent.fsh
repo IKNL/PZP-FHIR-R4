@@ -67,7 +67,7 @@ Description: "A joint decision between a health professional (for example a gene
     - _Wel uitvoeren_ -> _permit_ 
     - No value is mapped to _deny_
     - _Nee, nog geen besluit genomen_ or _Niet besproken_ -> do not set a value. Instead, communicate this via the `modifierExtension[specificationOther].valueString` element." 
-* provision.code.text ^comment = "`.provision.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
+* provision.code.text ^comment = "`.code.type` has a required binding. Therefore, only codes in the bound ValueSet are permitted. For concepts not present in the ValueSet, such as SNOMED CT code 400231000146108 (Uitzetten van cardioverter-defibrillator in laatste levensfase), use the `.text` field as per FHIR guidance."
 * provision.actor[agreementParty].reference only Reference(ACPPatient or ACPHealthProfessionalPractitionerRole or ACPContactPerson)
 
 * insert ObligationRules(extension[additionalAdvanceDirective])
