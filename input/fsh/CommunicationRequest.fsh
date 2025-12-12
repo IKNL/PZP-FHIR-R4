@@ -1,27 +1,33 @@
-Profile: ACPCommunicationRequest
+Profile: ACPInformRelativesRequest
 Parent: CommunicationRequest
-Id: ACP-CommunicationRequest
-Title: "CommunicationRequest"
-Description: "CommunicationRequest events that have taken place in context of Advance Care Planning. Based on CommunicationRequest resource."
+Id: ACP-InformRelativesRequest
+Title: "ACP Request to Inform Relatives"
+Description: "A CommunicationRequest representing the advice or instruction given to the patient to discuss their advance care planning (ACP) and treatment agreements with their relatives or proxies."
 * insert MetaRules
-* subject only Reference(ACPPatient)
-* recipient only Reference(ACPPatient)
-* sender only Reference(ACPHealthProfessionalPractitionerRole)
-* reasonCode 1..1
+* category 1..*
+* category = $snomed#223449006
+* requester only Reference(ACPHealthProfessionalPractitionerRole or ACPHealthProfessionalPractitioner) 
+* sender only Reference(ACPPatient)
+* recipient only Reference(ACPContactPerson)
+* reasonCode 1..*
 * reasonCode = $snomed#713603004 // "advance care planning"
-
-
+* insert ObligationRules(category)
+* insert ObligationRules(requester)
+* insert ObligationRules(sender)
+* insert ObligationRules(recipient)
+* insert ObligationRules(reasonCode)
+* insert ObligationRules(encounter)
 
 Mapping: MapACPCommunicationRequest
 Id: pall-izppz-zib2020v2025-03-11
 Title: "ACP dataset"
-Source: ACPCommunicationRequest
+Source: ACPInformRelativesRequest
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "734" "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?"
 
 
 Instance: F1-ACP-CommunicationRequest-01-10-2020
-InstanceOf: ACPCommunicationRequest
+InstanceOf: ACPInformRelativesRequest
 Title: "F1 ACP CommunicationRequest"
 Usage: #example
 
@@ -33,5 +39,5 @@ Usage: #example
 * encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter on 01-10-2020"
 * requester = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * sender = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* recipient = "RelatedPerson xyz or family" // if there are known related persons they can be referenced here otherwise left out completely
+//* recipient = "RelatedPerson xyz or family" // if there are known related persons they can be referenced here otherwise left out completely
 * reasonCode = $snomed#713603004 "advance care planning"

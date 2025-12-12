@@ -156,27 +156,14 @@ resources:
     name: ACP Questionnaire based on zib2020
     description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025
     exampleBoolean: false
-  Questionnaire/ACP-Administrative:
-    name: ACP Administrative Questionnaire
-    description: Administrative questionnaire for recording previously made ACP treatment agreements and documenting information sharing arrangements
-    exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20201001:
     name: QuestionnaireResponse Hendrik Hartman 20201001
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01
-    exampleBoolean: false
-  QuestionnaireResponse/HendrikHartman-20201001-Administrative:
-    name: QuestionnaireResponse Hendrik Hartman 20201001 Administrative
-    description: An example of an administrative QuestionnaireResponse for Hendrik Hartman on 2020-10-01
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20221108:
     name: QuestionnaireResponse Hendrik Hartman 20221108
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
-  QuestionnaireResponse/HendrikHartman-20221108-Administrative:
-    name: QuestionnaireResponse Hendrik Hartman 20221108 Administrative
-    description: An example of an administrative QuestionnaireResponse for Hendrik Hartman on 2022-11-08
-    exampleBoolean: false
-
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG
@@ -196,14 +183,6 @@ groups:
     - Questionnaire/ACP-zib2020
     - QuestionnaireResponse/HendrikHartman-20201001
     - QuestionnaireResponse/HendrikHartman-20221108
-
-  Q-QR-Administrative:
-    name: "Structures: Administrative ACP Questionnaire"
-    description: Administrative questionnaire and responses used when exchanging discrete FHIR resources, focusing on previously recorded agreements and information sharing arrangements.
-    resources:
-    - Questionnaire/ACP-Administrative
-    - QuestionnaireResponse/HendrikHartman-20201001-Administrative
-    - QuestionnaireResponse/HendrikHartman-20221108-Administrative
 
   AD:
     name: "Requirements: Actor Definitions"
