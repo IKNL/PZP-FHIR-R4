@@ -87,7 +87,7 @@ Standard FHIR rules apply for every resource request:
 
 #### Sequence Diagram 
 
-{% include fhir-data-exchange-individual-resources-mermaid-diagram %}
+{% include fhir-data-exchange-individual-resources-mermaid-diagram.md %}
 
 ---
 
@@ -113,4 +113,4 @@ The server follows standard FHIR response rules:
 
 #### Sequence Diagram 
 
-{% include fhir-data-exchange-questionnaireresponse-mermaid-diagram %}
+{% include fhir-data-exchange-questionnaireresponse-mermaid-diagram.md %}
