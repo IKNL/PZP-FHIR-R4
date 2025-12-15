@@ -1,4 +1,5 @@
-```mermaid
+<div class="mermaid" style="height: 800px; overflow: visible;">
+
 sequenceDiagram
     autonumber
     participant C as ACP Actor Consulter<br>(Client)
@@ -58,4 +59,5 @@ sequenceDiagram
         C->>S: GET [Reference URL]
         S-->>C: 200 OK (Referenced Resource)
     end
-```
+
+</div>
