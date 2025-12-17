@@ -11,9 +11,9 @@ This guide, in conjunction with its STU3 counterpart, specifies four distinct tr
 
 ### Conformance Requirements Actors
 
-This implementation guide defines two actors:
-- <a href="ActorDefinition-ACPActorConsulter.html">ACP Actor Consulter</a>: a client application that retrieves a patient's ACP information.
-- <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: a server application that exposes a patient's ACP information.
+This implementation guide defines two actors, each with their own CapabilityStatements that specify the capabilities required for compliance:
+- <a href="ActorDefinition-ACPActorConsulter.html">ACP Actor Consulter</a>: A client application that retrieves a patient's ACP information following this <a href="CapabilityStatement-ACP-CapabilityStatementConsulter.html">CapabilityStatement</a>.
+- <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: A server application that exposes a patient's ACP information following this <a href="CapabilityStatement-ACP-CapabilityStatementProvider.html">CapabilityStatement</a>.
 
 To be conformant the ACP Actor Consulter SHALL support all four transaction groups. This ensures the actor can retrieve ACP information from any provider, regardless of the FHIR version (STU3 or R4) or exchange method implemented.
 The ACP Actor Provider SHALL support at least one of the four transaction groups. The individual resources method is preferred over the form-based method for system-to-system exchange, as it offers a more standardized and reusable data structure.
@@ -37,7 +37,7 @@ This approach is useful for applications that need to query specific parts of a 
 
 #### Client Requests
 
-The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax.
+The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACP-CapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACP-CapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structured overview of the below requirements.
 
 ```
 1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter

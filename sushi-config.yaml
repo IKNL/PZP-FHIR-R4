@@ -154,7 +154,7 @@ menu:
 resources:
   Questionnaire/ACP-zib2020:
     name: ACP Questionnaire based on zib2020
-    description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025
+    description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020.
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20201001:
     name: QuestionnaireResponse Hendrik Hartman 20201001
@@ -190,6 +190,33 @@ groups:
     resources:
     - ActorDefinition/ACPActorConsulter
     - ActorDefinition/ACPActorProvider
+
+  NLCoreStructures:
+    name: "Structures: NL Core Derived Resource Profiles"
+    description: These are ACP profiles derived from the nl-core profiles and are based on the Dutch Health and Care Information models (Zorginformatiebouwstenen - zibs).
+    resources:
+    - StructureDefinition/ACP-Procedure
+    - StructureDefinition/ACP-AdvanceDirective
+    - StructureDefinition/ACP-ContactPerson
+    - StructureDefinition/ACP-Encounter
+    - StructureDefinition/ACP-HealthProfessional-Practitioner
+    - StructureDefinition/ACP-HealthProfessional-PractitionerRole
+    - StructureDefinition/ACP-MedicalDevice
+    - StructureDefinition/ACP-MedicalDevice.Product-ICD
+    - StructureDefinition/ACP-Patient
+    - StructureDefinition/ACP-TreatmentDirective
+
+  ACPStructures:
+    name: "Structures: Resource Profiles"
+    description: These are ACP profiles based on FHIR core resources.
+    resources:
+    - StructureDefinition/ACP-Communication
+    - StructureDefinition/ACP-Medical-Policy-Goal
+    - StructureDefinition/ACP-OrganDonationChoiceRegistration
+    - StructureDefinition/ACP-OtherImportantInformation
+    - StructureDefinition/ACP-PositionRegardingEuthanasia
+    - StructureDefinition/ACP-PreferredPlaceOfDeath
+    - StructureDefinition/ACP-SpecificCareWishes
 
 
 #   GroupB:

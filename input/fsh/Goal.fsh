@@ -4,9 +4,6 @@ Id: ACP-Medical-Policy-Goal
 Title: "Medical Policy Goal"
 Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
-* extension contains
-    ExtEncounterReference  named encounter 0..1
-* extension[encounter].valueReference only Reference(ACPEncounter) 
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
@@ -31,7 +28,6 @@ Instance: F1-ACP-Medical-Policy-Goal
 InstanceOf: ACPMedicalPolicyGoal
 Title: "F1 ACP Medical Policy Goal - Life-sustaining treatment"
 Usage: #example
-* extension[encounter].valueReference = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
