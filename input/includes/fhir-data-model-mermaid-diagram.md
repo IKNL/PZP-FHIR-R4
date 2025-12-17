@@ -1,5 +1,5 @@
 #### Data Model Overview Diagram
-```mermaid
+<div class="mermaid" style="height: 700px; overflow: visible;">
 flowchart TB
 
     %% ---- Style Definitions for Categories ----
@@ -105,4 +105,4 @@ flowchart TB
     Procedure -- "performer" --> PractitionerRole
     Procedure -- "performer" --> RelatedPerson
     RelatedPerson -- "patient" --> Patient
-```
+</div>
