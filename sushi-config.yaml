@@ -210,13 +210,13 @@ groups:
     name: "Structures: Resource Profiles"
     description: These are ACP profiles based on FHIR core resources.
     resources:
-    - StructureDefinition/ACP-Communication
     - StructureDefinition/ACP-Medical-Policy-Goal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration
     - StructureDefinition/ACP-OtherImportantInformation
     - StructureDefinition/ACP-PositionRegardingEuthanasia
     - StructureDefinition/ACP-PreferredPlaceOfDeath
     - StructureDefinition/ACP-SpecificCareWishes
+    - StructureDefinition/ACP-InformRelativesRequest
 
 
 #   GroupB:
