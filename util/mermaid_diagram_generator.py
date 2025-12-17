@@ -122,7 +122,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
         f.write("#### Data Model Overview Diagram\n")
-        f.write("```mermaid\n")
+        f.write('<div class="mermaid" style="height: 700px; overflow: visible;">\n')
         f.write("flowchart TB\n\n")
 
         f.write("    %% ---- Style Definitions for Categories ----\n")
@@ -157,7 +157,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
             label = ", ".join(sorted(list(paths)))
             f.write(f'    {source_resource} -- "{label}" --> {target_resource}\n')
         
-        f.write("```\n")
+        f.write("</div>\n")
     
     print(f"\nSuccessfully generated final Mermaid diagram at: {output_markdown_file}")
 
