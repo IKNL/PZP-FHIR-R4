@@ -176,14 +176,6 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
-  Q-QR-Complete:
-    name: "Structures: Complete ACP Questionnaire"
-    description: Complete questionnaire and responses used for comprehensive advance care planning documentation, capturing all treatment agreements, preferences, and related information.
-    resources:
-    - Questionnaire/ACP-zib2020
-    - QuestionnaireResponse/HendrikHartman-20201001
-    - QuestionnaireResponse/HendrikHartman-20221108
-
   AD:
     name: "Requirements: Actor Definitions"
     description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
@@ -218,6 +210,13 @@ groups:
     - StructureDefinition/ACP-SpecificCareWishes
     - StructureDefinition/ACP-InformRelativesRequest
 
+  Q-QR-Complete:
+    name: "Structures: Questionnaire and QuestionnaireResponses"
+    description: ACP Questionnaire and example QuestionnaireResponses used for comprehensive advance care planning documentation, capturing all treatment agreements, preferences, and related information.
+    resources:
+    - Questionnaire/ACP-zib2020
+    - QuestionnaireResponse/HendrikHartman-20201001
+    - QuestionnaireResponse/HendrikHartman-20221108
 
 #   GroupB:
 #     name: Group B
