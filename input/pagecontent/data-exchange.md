@@ -54,7 +54,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseStatement:device
 
-7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|713603004
+7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
