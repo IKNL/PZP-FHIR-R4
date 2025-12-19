@@ -214,11 +214,10 @@ groups:
     - StructureDefinition/ACP-Communication
     - StructureDefinition/ACP-Medical-Policy-Goal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration
-    - StructureDefinition/ACP-OtherImportantInformation
     - StructureDefinition/ACP-PositionRegardingEuthanasia
     - StructureDefinition/ACP-PreferredPlaceOfDeath
+    - StructureDefinition/ACP-SenseOfPurpose
     - StructureDefinition/ACP-SpecificCareWishes
-
 
 #   GroupB:
 #     name: Group B

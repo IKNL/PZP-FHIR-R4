@@ -64,9 +64,9 @@ Usage: #example
 * effectiveDateTime = "2025-08-07"
 
 
-Instance: P2-ACP-OtherImportantInformation-20250807
-InstanceOf: ACPOtherImportantInformation
-Title: "P2 ACP Other Important Information 2025 08 07"
+Instance: P2-ACP-SenseOfPurpose-20250807
+InstanceOf: ACPSenseOfPurpose
+Title: "P2 ACP Sense Of Purpose 2025 08 07"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

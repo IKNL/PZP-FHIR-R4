@@ -209,11 +209,11 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 
 
-Profile: ACPOtherImportantInformation
+Profile: ACPSenseOfPurpose
 Parent: Observation
-Id: ACP-OtherImportantInformation
-Title: "Other Important Information"
-Description: "Other relevant and important information related to the Patient’s Advance Care Planning (ACP) agreements. Based on Observation resource."
+Id: ACP-SenseOfPurpose
+Title: "Sense of Purpose"
+Description: "Observation capturing the patient's sense of purpose and other important information in the context of Advance Care Planning. While the primary concept is 'sense of purpose' (SNOMED 247751003), this profile serves as a container in the ACP dataset for capturing additional relevant information that may influence care decisions. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -229,10 +229,10 @@ Description: "Other relevant and important information related to the Patient’
 * insert ObligationRules(effective[x])
 
 
-Mapping: MapACPOtherImportantInformation
+Mapping: MapACPSenseOfPurpose
 Id: pall-izppz-zib2020v2025-03-11
 Title: "ACP dataset"
-Source: ACPOtherImportantInformation
+Source: ACPSenseOfPurpose
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "709" "Wat verder nog belangrijk is ([Meting])"
 * code -> "710" "Wat verder nog belangrijk is ([MetingNaam])"
@@ -242,9 +242,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 
 
 
-Instance: F1-ACP-OtherImportantInformation
-InstanceOf: ACPOtherImportantInformation
-Title: "F1 ACP Other Important Information"
+Instance: F1-ACP-ACPSenseOfPurpose
+InstanceOf: ACPSenseOfPurpose
+Title: "F1 ACP Sense of Purpose"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -253,6 +253,6 @@ Usage: #example
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#247751003 "gevoel van zingeving"
+* code =  $snomed#247751003 "gevoel van zingeving" // Sense of purpose (observable entity)
 * valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"

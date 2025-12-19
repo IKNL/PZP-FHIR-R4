@@ -438,7 +438,7 @@
           ],
           "supportedProfile": [
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration",
-            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation",
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SenseOfPurpose",
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia",
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PreferredPlaceOfDeath",
             "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SpecificCareWishes"

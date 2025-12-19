@@ -143,7 +143,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
-    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SenseOfPurpose"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
@@ -493,7 +493,7 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
-    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OtherImportantInformation"
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-SenseOfPurpose"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD
