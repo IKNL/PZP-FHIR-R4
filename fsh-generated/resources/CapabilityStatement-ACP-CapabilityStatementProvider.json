@@ -619,7 +619,7 @@
               "name": "device",
               "definition": "http://hl7.org/fhir/SearchParameter/DeviceUseStatement-device",
               "type": "reference",
-              "documentation": "The provider **SHALL** support chained search Device.type using the codes as defined in the ACP Procedure profile."
+              "documentation": "The provider **SHOULD** support chained search Device.type using the codes as defined in the ACP Procedure profile."
             }
           ],
           "searchInclude": [
@@ -727,7 +727,7 @@
             }
           ],
           "supportedProfile": [
-            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
           ],
           "_supportedProfile": [
             {
@@ -781,7 +781,7 @@
                 }
               ],
               "name": "patient",
-              "definition": "http://hl7.org/fhir/SearchParameter/Communication-patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient",
               "type": "reference"
             },
             {
@@ -791,12 +791,12 @@
                   "valueCode": "SHALL"
                 }
               ],
-              "name": "reason-code",
-              "definition": "https://api.iknl.nl/docs/pzp/r4/SearchParameter/Communication-reason-code",
+              "name": "category",
+              "definition": "http://hl7.org/fhir/SearchParameter/CommunicationRequest-category",
               "type": "token"
             }
           ],
-          "type": "Communication"
+          "type": "CommunicationRequest"
         },
         {
           "extension": [
@@ -1050,7 +1050,7 @@
         }
       ],
       "mode": "server",
-      "documentation": " The ACP Provider **SHALL**:\r\n* Support at least the QuestionnaireResponse resource, or as many of the other resources defined in this CapabilityStatement for which the Provider has information available.\r\n* Implement the RESTful behaviour according to the FHIR specification.\r\n* Return the following response classes:\r\n  * (Status 400): invalid parameter\r\n  * (Status 401/4xx): unauthorized request\r\n  * (Status 403): insufficient scope\r\n  * (Status 404): unknown resource\r\n* Support both JSON and XML formats for all ACP resource interactions.\r\n* Declare a CapabilityStatement identifying the list of profiles, operations, and search parameters supported.\r\n"
+      "documentation": "The ACP Provider **SHALL**:\r\n* Support at least the QuestionnaireResponse resource, or as many of the other resources defined in this CapabilityStatement for which the Provider has information available.\r\n* Implement the RESTful behaviour according to the FHIR specification.\r\n* Support both JSON and XML formats for all ACP resource interactions.\r\n* Declare a CapabilityStatement identifying the list of profiles, operations, and search parameters supported.\r\n"
     }
   ],
   "name": "ACPCapabilityStatementProvider",

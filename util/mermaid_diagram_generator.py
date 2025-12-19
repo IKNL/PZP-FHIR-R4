@@ -19,7 +19,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         "PractitionerRole": "ACP Individuals",
         "DeviceUseStatement": "ACP Supporting information",
         "Device": "ACP Supporting information",
-        "Communication": "ACP Supporting information",
+        "CommunicationRequest": "ACP Supporting information",
         "Encounter": "ACP Consultation",
         "Procedure": "ACP Consultation",
     }

@@ -727,7 +727,7 @@
             }
           ],
           "supportedProfile": [
-            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+            "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
           ],
           "_supportedProfile": [
             {
@@ -781,7 +781,7 @@
                 }
               ],
               "name": "patient",
-              "definition": "http://hl7.org/fhir/SearchParameter/Communication-patient",
+              "definition": "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient",
               "type": "reference"
             },
             {
@@ -791,12 +791,12 @@
                   "valueCode": "SHALL"
                 }
               ],
-              "name": "reason-code",
-              "definition": "https://api.iknl.nl/docs/pzp/r4/SearchParameter/Communication-reason-code",
+              "name": "category",
+              "definition": "http://hl7.org/fhir/SearchParameter/CommunicationRequest-category",
               "type": "token"
             }
           ],
-          "type": "Communication"
+          "type": "CommunicationRequest"
         },
         {
           "extension": [

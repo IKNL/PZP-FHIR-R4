@@ -19,7 +19,7 @@ Usage: #definition
     * valueCode = #SHALL
 * rest
   * mode = #server
-  * documentation = " The ACP Provider **SHALL**:
+  * documentation = "The ACP Provider **SHALL**:
 * Support at least the QuestionnaireResponse resource, or as many of the other resources defined in this CapabilityStatement for which the Provider has information available.
 * Implement the RESTful behaviour according to the FHIR specification.
 * Support both JSON and XML formats for all ACP resource interactions.
@@ -218,13 +218,13 @@ Usage: #definition
         * url = $CapExpectation
         * valueCode = #SHOULD
 
-  // COMMUNICATION RESOURCE
+  // COMMUNICATIONREQUEST RESOURCE
   * resource[+]
     * extension
       * url = $CapExpectation
       * valueCode = #SHOULD
-    * type = #Communication
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+    * type = #CommunicationRequest
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
@@ -234,14 +234,14 @@ Usage: #definition
         * url = $CapExpectation
         * valueCode = #SHALL
       * name = "patient"
-      * definition = "http://hl7.org/fhir/SearchParameter/Communication-patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient"
       * type = #reference
     * searchParam[+]
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "reason-code"
-      * definition = "https://api.iknl.nl/docs/pzp/r4/SearchParameter/Communication-reason-code"
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-category"
       * type = #token      
   
   // RELATEDPERSON RESOURCE
@@ -568,13 +568,13 @@ Usage: #definition
         * url = $CapExpectation
         * valueCode = #SHOULD
 
-  // COMMUNICATION RESOURCE
+  // COMMUNICATIONREQUEST RESOURCE
   * resource[+]
     * extension
       * url = $CapExpectation
       * valueCode = #SHALL
-    * type = #Communication
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Communication"
+    * type = #CommunicationRequest
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
@@ -584,14 +584,14 @@ Usage: #definition
         * url = $CapExpectation
         * valueCode = #SHALL
       * name = "patient"
-      * definition = "http://hl7.org/fhir/SearchParameter/Communication-patient"
+      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient"
       * type = #reference
     * searchParam[+]
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "reason-code"
-      * definition = "https://api.iknl.nl/docs/pzp/r4/SearchParameter/Communication-reason-code"
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-category"
       * type = #token      
   
   // RELATEDPERSON RESOURCE
