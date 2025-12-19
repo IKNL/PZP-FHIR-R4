@@ -46,10 +46,10 @@ sequenceDiagram
             S-->>C: 200 OK: Bundle (DeviceUseStatement + Device)
             deactivate S
         and
-            %% 7. Communication
-            C->>S: GET /Communication?patient=[id]<br>&reason-code=http://snomed.info/sct|713603004
+            %% 7. CommunicationRequests
+            C->>S: GET /CommunicationRequest?patient=Patient/[id]<br>&reason-code=http://snomed.info/sct|713603004
             activate S
-            S-->>C: 200 OK: Bundle (Communication)
+            S-->>C: 200 OK: Bundle (CommunicationRequest)
             deactivate S
         end
     end
