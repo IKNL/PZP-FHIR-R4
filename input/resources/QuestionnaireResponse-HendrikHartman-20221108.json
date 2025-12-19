@@ -11,6 +11,16 @@
   "status": "completed",
   "authored": "2025-08-25T19:18:32.253Z",
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
+  "author": [
+    {
+      "reference": "PractitionerRole/P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters",
+      "display": "Healthcare professional (role), Desiree Wolters"
+    }
+  ],
+  "source": {
+    "reference": "Patient/F1-ACP-Patient-HendrikHartman",
+    "display": "Patient, Hendrik Hartman"
+  },
   "item": [
     {
       "answer": [
