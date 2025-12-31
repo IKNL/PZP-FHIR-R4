@@ -177,14 +177,6 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
-  Q-QR:
-    name: "Structures: Questionnaire and QuestionnaireResponses"
-    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
-    resources:
-    - Questionnaire/ACP-zib2020
-    - QuestionnaireResponse/HendrikHartman-20201001
-    - QuestionnaireResponse/HendrikHartman-20221108
-
   AD:
     name: "Requirements: Actor Definitions"
     description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
@@ -211,7 +203,7 @@ groups:
     name: "Structures: Resource Profiles"
     description: These are ACP profiles based on FHIR core resources.
     resources:
-    - StructureDefinition/ACP-Communication
+    - StructureDefinition/ACP-InformRelativesRequest
     - StructureDefinition/ACP-Medical-Policy-Goal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration
     - StructureDefinition/ACP-PositionRegardingEuthanasia
@@ -219,6 +211,13 @@ groups:
     - StructureDefinition/ACP-SenseOfPurpose
     - StructureDefinition/ACP-SpecificCareWishes
 
+  Q-QR:
+    name: "Structures: Questionnaire and QuestionnaireResponses"
+    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
+    resources:
+    - Questionnaire/ACP-zib2020
+    - QuestionnaireResponse/HendrikHartman-20201001
+    - QuestionnaireResponse/HendrikHartman-20221108
 #   GroupB:
 #     name: Group B
 #     description: The Beta Group
