@@ -262,11 +262,11 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 706 | &emsp;&emsp;Contactpersoon | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 707 | &emsp;WilsverklaringDocument | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `sourceAttachment`  |
 | 708 | &emsp;Toelichting | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `extension[comment]`  |
-| 709 | Wat verder nog belangrijk is ([Meting]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | ``  |
-| 710 | &emsp;Wat verder nog belangrijk is ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `code`  |
-| 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `valueString`  |
-| 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `dataAbsentReason`  |
-| 715 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-OtherImportantInformation.html">ACPOtherImportantInformation</a>) | `effective[x]`  |
+| 709 | Wat verder nog belangrijk is ([Meting]) | Observation (<a href="StructureDefinition-ACP-SenseOfPurpose.html">ACPSenseOfPurpose</a>) | ``  |
+| 710 | &emsp;Wat verder nog belangrijk is ([MetingNaam]) | Observation (<a href="StructureDefinition-ACP-SenseOfPurpose.html">ACPSenseOfPurpose</a>) | `code`  |
+| 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-SenseOfPurpose.html">ACPSenseOfPurpose</a>) | `valueString`  |
+| 711 | &emsp;Wat verder nog belangrijk is ([MetingWaarde]) | Observation (<a href="StructureDefinition-ACP-SenseOfPurpose.html">ACPSenseOfPurpose</a>) | `dataAbsentReason`  |
+| 715 | &emsp;[MeetDatumBeginTijd] | Observation (<a href="StructureDefinition-ACP-SenseOfPurpose.html">ACPSenseOfPurpose</a>) | `effective[x]`  |
 | 721 | Eerder vastgelegde behandelafspraken (Wilsverklaring) | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | ``  |
 | 722 | &emsp;WilsverklaringType | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `provision.code`  |
 | 723 | &emsp;WilsverklaringDatum | Consent (<a href="StructureDefinition-ACP-AdvanceDirective.html">ACPAdvanceDirective</a>) | `dateTime`  |
