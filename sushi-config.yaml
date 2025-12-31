@@ -164,6 +164,7 @@ resources:
     name: QuestionnaireResponse Hendrik Hartman 20221108
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
+
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG
@@ -176,6 +177,14 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
+  Q-QR:
+    name: "Structures: Questionnaire and QuestionnaireResponses"
+    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
+    resources:
+    - Questionnaire/ACP-zib2020
+    - QuestionnaireResponse/HendrikHartman-20201001
+    - QuestionnaireResponse/HendrikHartman-20221108
+
   AD:
     name: "Requirements: Actor Definitions"
     description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
@@ -202,21 +211,13 @@ groups:
     name: "Structures: Resource Profiles"
     description: These are ACP profiles based on FHIR core resources.
     resources:
+    - StructureDefinition/ACP-Communication
     - StructureDefinition/ACP-Medical-Policy-Goal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration
-    - StructureDefinition/ACP-OtherImportantInformation
     - StructureDefinition/ACP-PositionRegardingEuthanasia
     - StructureDefinition/ACP-PreferredPlaceOfDeath
+    - StructureDefinition/ACP-SenseOfPurpose
     - StructureDefinition/ACP-SpecificCareWishes
-    - StructureDefinition/ACP-InformRelativesRequest
-
-  Q-QR-Complete:
-    name: "Structures: Questionnaire and QuestionnaireResponses"
-    description: ACP Questionnaire and example QuestionnaireResponses used for comprehensive advance care planning documentation, capturing all treatment agreements, preferences, and related information.
-    resources:
-    - Questionnaire/ACP-zib2020
-    - QuestionnaireResponse/HendrikHartman-20201001
-    - QuestionnaireResponse/HendrikHartman-20221108
 
 #   GroupB:
 #     name: Group B

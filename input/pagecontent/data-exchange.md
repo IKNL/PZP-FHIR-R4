@@ -40,21 +40,21 @@ This approach is useful for applications that need to query specific parts of a 
 The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACP-CapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACP-CapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structured overview of the below requirements.
 
 ```
-1a GET [base]/Procedure?patient=[id]&code=http://snomed.info/sct|713603004&_include:Procedure:encounter
+1a GET [base]/Procedure?patient=Patient/[id]&code=http://snomed.info/sct|713603004&_include=Procedure:encounter
 
-1b GET [base]/Encounter?patient=[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include:Encounter:reason-reference
+1b GET [base]/Encounter?patient=Patient/[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include=Encounter:reason-reference
 
-2 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
+2 GET [base]/Consent?patient=Patient/[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
 
-3 GET [base]/Consent?patient=[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
+3 GET [base]/Consent?patient=Patient/[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=[id]&description=http://snomed.info/sct|385987000,1351964001,713148004
+4 GET [base]/Goal?patient=Patient/[id]&description=http://snomed.info/sct|385987000,1351964001,713148004
 
-5 GET [base]/Observation?patient=[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
+5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 
-6 GET [base]/DeviceUseStatement?patient=[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include:DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include=DeviceUseStatement:device
 
-7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
+7 GET [base]/Communication?patient=Patient/[id]&reason-code=http://snomed.info/sct|713603004
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
@@ -65,12 +65,13 @@ The below listed search requests show how all the ACP agreements, procedural inf
 4. Retrieves `Goal` resources with a Medical Policy Goal code in the `Goal.description`.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
-7. Retrieves `CommunicationRequest` resources representing requests made to the patient to inform their relatives.
+7. Retrieves `Communication` resources representing all communication events related to the ACP procedure.
 
 #### Advanced Search Parameters Supported
 
 Custom search parameters:
-* The `description` parameter allows searching on `Goal.description`. This search parameter is defined from R5 onwards. The parameter definition can be found in the <a href="https://hl7.org/fhir/searchparameter-registry.html#:~:text=Goal.%E2%80%8Bcategory-,description,-token">Search Parameter Registry</a> and needs to be applied for this version.
+* The `reason-code` parameter allows searching on `Communication.reasonCode`. See the custom `SearchParameter` resource definition in the artifacts tab.
+* The `description` parameter allows searching on `Goal.description`. This search parameter is defined from R5 onwards. The parameter definition can be found in the <a href="https://hl7.org/fhir/searchparameter-registry.html#:~:text=Goal.%E2%80%8Bcategory-,description,-token">Search Parameter Registry</a> and be applied for this version.
 
 The queries above use several search parameter types and modifiers:
 * `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
