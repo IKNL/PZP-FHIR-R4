@@ -242,7 +242,7 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 
 
 
-Instance: F1-ACP-ACPSenseOfPurpose
+Instance: F1-ACP-SenseOfPurpose
 InstanceOf: ACPSenseOfPurpose
 Title: "F1 ACP Sense of Purpose"
 Usage: #example
