@@ -21,6 +21,7 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(method)
 * insert ObligationRules(effective[x])  
+* insert ObligationRules(performer)
 
 Mapping: MapACPSpecificCareWishes
 Id: pall-izppz-zib2020v2025-03-11
@@ -76,6 +77,7 @@ Description: "The preferred place of death. This is the place where the patient 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])
 * insert ObligationRules(note.text)
+* insert ObligationRules(performer)
 
 Mapping: MapACPSPreferredPlaceOfDeath
 Id: pall-izppz-zib2020v2025-03-11
@@ -129,6 +131,7 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])
 * insert ObligationRules(note.text)
+* insert ObligationRules(performer)
 
 
 Mapping: MapACPPositionRegardingEuthanasia
@@ -179,7 +182,8 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * insert ObligationRules(code)
 * insert ObligationRules(valueCodeableConcept)
 * insert ObligationRules(dataAbsentReason)
-* insert ObligationRules(effective[x])  
+* insert ObligationRules(effective[x]) 
+* insert ObligationRules(performer) 
 
 Mapping: MapACPOrganDonationChoiceRegistration
 Id: pall-izppz-zib2020v2025-03-11
@@ -227,6 +231,7 @@ Description: "Observation capturing the patient's sense of purpose and other imp
 * insert ObligationRules(valueString)
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x])
+* insert ObligationRules(performer)
 
 
 Mapping: MapACPSenseOfPurpose
