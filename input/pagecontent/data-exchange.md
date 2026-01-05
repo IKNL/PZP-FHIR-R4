@@ -54,7 +54,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include=DeviceUseStatement:device
 
-7 GET [base]/Communication?patient=Patient/[id]&reason-code=http://snomed.info/sct|713603004
+7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
@@ -65,12 +65,11 @@ The below listed search requests show how all the ACP agreements, procedural inf
 4. Retrieves `Goal` resources with a Medical Policy Goal code in the `Goal.description`.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
-7. Retrieves `Communication` resources representing all communication events related to the ACP procedure.
+7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
 
 #### Advanced Search Parameters Supported
 
 Custom search parameters:
-* The `reason-code` parameter allows searching on `Communication.reasonCode`. See the custom `SearchParameter` resource definition in the artifacts tab.
 * The `description` parameter allows searching on `Goal.description`. This search parameter is defined from R5 onwards. The parameter definition can be found in the <a href="https://hl7.org/fhir/searchparameter-registry.html#:~:text=Goal.%E2%80%8Bcategory-,description,-token">Search Parameter Registry</a> and be applied for this version.
 
 The queries above use several search parameter types and modifiers:
