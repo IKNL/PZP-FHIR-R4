@@ -229,13 +229,7 @@ Usage: #definition
         * url = $CapExpectation
         * valueCode = #SHOULD 
     * insert CapabilityStatementInteractionandReferencePolicyExpectation
-    * searchParam[0]
-      * extension
-        * url = $CapExpectation
-        * valueCode = #SHALL
-      * name = "patient"
-      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient"
-      * type = #reference
+    * insert CapabilityStatementSearchParmeterClinicalPatientExpectation
     * searchParam[+]
       * extension
         * url = $CapExpectation
@@ -573,19 +567,13 @@ Usage: #definition
     * extension
       * url = $CapExpectation
       * valueCode = #SHALL
-    * type = #CommunicationRequest
+    * type = #Communication
     * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
     * insert CapabilityStatementInteractionandReferencePolicyExpectation
-    * searchParam[0]
-      * extension
-        * url = $CapExpectation
-        * valueCode = #SHALL
-      * name = "patient"
-      * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient"
-      * type = #reference
+    * insert CapabilityStatementSearchParmeterClinicalPatientExpectation
     * searchParam[+]
       * extension
         * url = $CapExpectation
@@ -593,7 +581,7 @@ Usage: #definition
       * name = "category"
       * definition = "http://hl7.org/fhir/SearchParameter/CommunicationRequest-category"
       * type = #token      
-  
+
   // RELATEDPERSON RESOURCE
   * resource[+]
     * extension
