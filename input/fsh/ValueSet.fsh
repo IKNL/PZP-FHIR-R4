@@ -1,6 +1,6 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
 Id: ACP-PreferredPlaceOfDeath
-Title: "Preferred Place Of Death"
+Title: "ACP Preferred Place Of Death"
 Description: "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible."
 * insert MetaRules
 * $v3-NullFlavor#OTH "Anders"
@@ -94,7 +94,7 @@ Description: "ValueSet for Preferred Place of Death, representing the place wher
 
 ValueSet: ACPEuthanasiaStatementVS
 Id: ACP-EuthanasiaStatement
-Title: "Euthanasia Statement"
+Title: "ACP Euthanasia Statement"
 Description: "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement."
 * insert MetaRules
 * $v3-NullFlavor#UNK "nog onbekend"
@@ -108,7 +108,7 @@ Description: "ValueSet for Position Regarding Euthanasia, representing the the p
 
 ValueSet: MedicalPolicyGoalVS
 Id: ACP-MedicalPolicyGoal
-Title: "Most Important Agreed-upon Goal of Medical Policy"
+Title: "ACP Most Important Agreed-upon Goal of Medical Policy"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
 * $snomed#385987000 "zorg bij ziekte en/of letsel"
@@ -118,7 +118,7 @@ Description: "ValueSet for Medical Policy Goal, representing the primary agreed-
 
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
-Title: "MedicalDevice ProductType ICD"
+Title: "ACP MedicalDevice ProductType ICD"
 Description: "ICD product code for MedicalDevice ProductType."
 * insert MetaRules
 * include codes from system http://snomed.info/sct where concept is-a #72506001
@@ -126,7 +126,7 @@ Description: "ICD product code for MedicalDevice ProductType."
 
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
-Title: "Yes, No, Unknown valueSet"
+Title: "ACP Yes, No, Unknown valueSet"
 Description: "ValueSet representing 'Yes, No, Unknown' answers."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."

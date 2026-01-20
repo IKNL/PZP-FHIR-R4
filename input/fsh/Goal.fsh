@@ -1,7 +1,7 @@
 Profile: ACPMedicalPolicyGoal
 Parent: Goal
 Id: ACP-Medical-Policy-Goal
-Title: "Medical Policy Goal"
+Title: "ACP Medical Policy Goal"
 Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
 * description from MedicalPolicyGoalVS (required)

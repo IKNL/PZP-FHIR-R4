@@ -1,7 +1,7 @@
 Profile: ACPHealthProfessionalPractitioner
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner
 Id: ACP-HealthProfessional-Practitioner
-Title: "HealthProfessional Practitioner"
+Title: "ACP HealthProfessional Practitioner"
 Description: "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional."
 * insert MetaRules
 * insert ObligationRules(identifier)

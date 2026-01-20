@@ -1,7 +1,7 @@
 Profile: ACPSpecificCareWishes
 Parent: Observation
 Id: ACP-SpecificCareWishes
-Title: "Specific Care Wishes"
+Title: "ACP Specific Care Wishes"
 Description: "The patient's wishes and expectations concerning their treatment, as an answer to the questions: 'What, according to the patient, should healthcare providers know to provide good care? Does this patient have specific wishes regarding their care (including cultural, religious, social, and spiritual aspects)?' Based on Observation resource."
 * insert MetaRules
 
@@ -61,7 +61,7 @@ Usage: #example
 Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
-Title: "Preferred Place Of Death"
+Title: "ACP Preferred Place Of Death"
 Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -113,7 +113,7 @@ Usage: #example
 Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
-Title: "Position Regarding Euthanasia"
+Title: "ACP Position Regarding Euthanasia"
 Description: "The patient's position regarding euthanasia. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -167,7 +167,7 @@ Usage: #example
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
-Title: "Organ donation choice registration in donor register"
+Title: "ACP Organ donation choice registration in donor register"
 Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -216,7 +216,7 @@ Usage: #example
 Profile: ACPSenseOfPurpose
 Parent: Observation
 Id: ACP-SenseOfPurpose
-Title: "Sense of Purpose"
+Title: "ACP Sense of Purpose"
 Description: "Observation capturing the patient's sense of purpose and other important information in the context of Advance Care Planning. While the primary concept is 'sense of purpose' (SNOMED 247751003), this profile serves as a container in the ACP dataset for capturing additional relevant information that may influence care decisions. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)

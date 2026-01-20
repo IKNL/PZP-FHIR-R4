@@ -1,6 +1,6 @@
 Instance: P2-ACP-Procedure-07-08-2025
 InstanceOf: ACP-Procedure
-Title: "P2 ACP ACPProcedure 07-08-2025"
+Title: "P2 ACP Procedure 07-08-2025"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -19,7 +19,7 @@ Usage: #example
 
 Instance: P2-ACP-Procedure-28-07-2024
 InstanceOf: ACP-Procedure
-Title: "P2 ACP ACPProcedure 28-07-2024"
+Title: "P2 ACP Procedure 28-07-2024"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

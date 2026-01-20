@@ -116,7 +116,7 @@ _Last updated: 2025-10. Updated to reflect R4-only repository structure._
 Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient  // Always inherit from Nictiz
 Id: ACP-Patient                                                    // ACP- prefix pattern
-Title: "Patient"                                                   // Human-readable
+Title: "ACP Patient"                                                   // Human-readable
 Description: "A person who receives medical..."                   // Clinical context
 * insert MetaRules                                                 // Consistent metadata
 ```
