@@ -111,6 +111,7 @@ Id: ACP-MedicalPolicyGoal
 Title: "Most Important Agreed-upon Goal of Medical Policy"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
+* $v3-NullFlavor#UNK "Nog onbekend"
 * $snomed#385987000 "zorg bij ziekte en/of letsel"
 * $snomed#1351964001 "levensverlengende behandeling"
 * $snomed#713148004 "voorkomen en behandelen van symptomen"
