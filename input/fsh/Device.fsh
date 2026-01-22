@@ -1,7 +1,7 @@
 Profile: ACPMedicalDeviceProductICD
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice.Product
 Id: ACP-MedicalDevice.Product-ICD
-Title: "MedicalDevice Product ICD"
+Title: "ACP MedicalDevice Product ICD"
 Description: "The medical device (internally or externally). In the context of ACP, this profile is used to capture information on a patient's implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDeviceProduct and HCIM MedicalDevice."
 * insert MetaRules
 * type from ACPMedicalDeviceProductTypeICDVS (required)

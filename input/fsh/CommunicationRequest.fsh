@@ -1,7 +1,7 @@
 Profile: ACPInformRelativesRequest
 Parent: CommunicationRequest
 Id: ACP-InformRelativesRequest
-Title: "Request to Inform Relatives"
+Title: "ACP Request to Inform Relatives"
 Description: "A CommunicationRequest representing the advice or instruction given to the patient to discuss their advance care planning (ACP) and treatment agreements with their relatives or proxies."
 * insert MetaRules
 * category 1..*

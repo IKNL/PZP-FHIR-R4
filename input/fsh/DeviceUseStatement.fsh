@@ -1,7 +1,7 @@
 Profile: ACPMedicalDevice
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-MedicalDevice
 Id: ACP-MedicalDevice
-Title: "MedicalDevice"
+Title: "ACP MedicalDevice"
 Description: "Any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease. In the context of ACP, this profile is used to declare the use of an implantable cardioverter defibrillator (ICD). Based on nl-core-MedicalDevice and HCIM MedicalDevice."
 * insert MetaRules
 * subject only Reference(ACPPatient)
