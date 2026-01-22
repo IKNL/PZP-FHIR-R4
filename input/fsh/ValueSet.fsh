@@ -3,6 +3,7 @@ Id: ACP-PreferredPlaceOfDeath
 Title: "ACP Preferred Place Of Death"
 Description: "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible."
 * insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
 * $v3-NullFlavor#OTH "Anders"
 * $v3-NullFlavor#UNK "Nog onbekend"
 * $snomed#264362003 "thuis"
@@ -97,6 +98,7 @@ Id: ACP-EuthanasiaStatement
 Title: "ACP Euthanasia Statement"
 Description: "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement."
 * insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
 * $v3-NullFlavor#UNK "nog onbekend"
 * $v3-NullFlavor#UNK ^designation.language = #nl-NL
 * $v3-NullFlavor#UNK ^designation.use = $snomed#900000000000013009 "Synonym"
@@ -111,6 +113,8 @@ Id: ACP-MedicalPolicyGoal
 Title: "ACP Most Important Agreed-upon Goal of Medical Policy"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
+* $v3-NullFlavor#UNK "Nog onbekend"
 * $snomed#385987000 "zorg bij ziekte en/of letsel"
 * $snomed#1351964001 "levensverlengende behandeling"
 * $snomed#713148004 "voorkomen en behandelen van symptomen"
@@ -121,6 +125,7 @@ Id: ACP-MedicalDeviceProductType-ICD
 Title: "ACP MedicalDevice ProductType ICD"
 Description: "ICD product code for MedicalDevice ProductType."
 * insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
 * include codes from system http://snomed.info/sct where concept is-a #72506001
 
 

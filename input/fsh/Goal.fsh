@@ -4,9 +4,12 @@ Id: ACP-Medical-Policy-Goal
 Title: "ACP Medical Policy Goal"
 Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
+* category 1..*
+* category = $snomed#713603004 //"advance care planning"
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
+* insert ObligationRules(category)
 * insert ObligationRules(description)
 * insert ObligationRules(subject)
 * insert ObligationRules(startDate)
@@ -32,6 +35,7 @@ Usage: #example
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
 * lifecycleStatus = #active
+* category = $snomed#713603004 "advance care planning"
 * subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
 * description = $snomed#1351964001 "levensverlengende behandeling"
 * statusDate = "2020-10-01"
