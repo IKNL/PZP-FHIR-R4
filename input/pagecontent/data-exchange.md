@@ -48,7 +48,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 3 GET [base]/Consent?patient=Patient/[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|adr&category=http://terminology.hl7.org/CodeSystem/consentcategorycodes|acd&_include=Consent:actor
 
-4 GET [base]/Goal?patient=Patient/[id]&description=http://snomed.info/sct|385987000,1351964001,713148004
+4 GET [base]/Goal?patient=Patient/[id]&category=http://snomed.info/sct|713603004
 
 5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
 

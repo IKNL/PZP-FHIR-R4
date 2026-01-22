@@ -4,6 +4,7 @@ Id: ACP-Medical-Policy-Goal
 Title: "Medical Policy Goal"
 Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
+* category 1..*
 * category = $snomed#713603004 "advance care planning"
 * description from MedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
