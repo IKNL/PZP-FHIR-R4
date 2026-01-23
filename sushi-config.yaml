@@ -153,15 +153,15 @@ menu:
 #
 resources:
   Questionnaire/ACP-zib2020:
-    name: ACP Questionnaire based on zib2020
-    description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020.
+    name: ACP Questionnaire
+    description: Questionnaire based on structured form 'Uniform vastleggen proactieve zorgpanning advance care planning (ACP)'
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20201001:
-    name: QuestionnaireResponse Hendrik Hartman 20201001
+    name: ACP QuestionnaireResponse Hendrik Hartman 1
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20221108:
-    name: QuestionnaireResponse Hendrik Hartman 20221108
+    name: ACP QuestionnaireResponse Hendrik Hartman 2
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
 
