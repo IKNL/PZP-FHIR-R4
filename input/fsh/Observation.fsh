@@ -118,7 +118,7 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#340171000146104 
+* code = $snomed#340171000146104
 * value[x] only CodeableConcept
 * value[x] ^definition = "Position regarding euthanesia."
 * value[x] from ACPEuthanasiaStatementVS (required)
@@ -173,6 +173,7 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#570801000146104
+* method = $snomed#1156040003
 * value[x] only CodeableConcept
 * value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required)
@@ -180,6 +181,7 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * insert ObligationRules(encounter)
 * insert ObligationRules(subject)
 * insert ObligationRules(code)
+* insert ObligationRules(method)
 * insert ObligationRules(valueCodeableConcept)
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x]) 
@@ -209,6 +211,7 @@ Usage: #example
 * performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
 * status = #final
 * code = $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* method = $snomed#1156040003 "self reported"
 * valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2020-10-01"
 
