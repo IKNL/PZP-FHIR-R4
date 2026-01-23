@@ -33,9 +33,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * -> "734" "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?"
 
 
-Instance: F1-ACP-InformRelativesRequest-01-10-2020
+Instance: ACP-InformRelativesRequest-Example1
 InstanceOf: ACPInformRelativesRequest
-Title: "F1 ACP InformRelativesRequest 01-10-2020"
+Title: "ACP Request to Inform Relatives - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -43,10 +43,10 @@ Usage: #example
 * category = $snomed#223449006 "adviseren om iemand te informeren" 
 * category.text = "Request for patient to inform relatives about treatment agreements"
 * status = #active // either 'active' or 'completed' depending on whether the communication has taken place yet
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
 * authoredOn = "2020-10-01"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter on 01-10-2020"
-* requester = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
-* sender = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter on 01-10-2020"
+* requester = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* sender = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
 //* recipient = "RelatedPerson xyz or family" // if there are known related persons they can be referenced here otherwise left out completely
 * reasonCode = $snomed#713603004 "advance care planning"

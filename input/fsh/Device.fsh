@@ -29,9 +29,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "624" "ProductOmschrijving"
 
 
-Instance: F1-ACP-MedicalDevice.Product-ICD
+Instance: ACP-MedicalDeviceProduct-ICD-Example1
 InstanceOf: ACPMedicalDeviceProductICD
-Title: "F1 ACP MedicalDevice.Product ICD"
+Title: "ACP MedicalDevice Product ICD - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

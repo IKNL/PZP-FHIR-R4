@@ -36,16 +36,16 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * effective[x] -> "660" "[MeetDatumBeginTijd]"
 
 
-Instance: F1-ACP-SpecificCareWishes
+Instance: ACP-SpecificCareWishes-Example1
 InstanceOf: ACPSpecificCareWishes
-Title: "F1 ACP Specific Care Wishes"
+Title: "ACP Specific Care Wishes - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "c68d0feb-ee43-45d5-86f5-a7f43a20f167"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
 * valueString = "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
@@ -61,7 +61,7 @@ Usage: #example
 Profile: ACPPreferredPlaceOfDeath
 Parent: Observation
 Id: ACP-PreferredPlaceOfDeath
-Title: "ACP Preferred Place Of Death"
+Title: "ACP Preferred Place of Death"
 Description: "The preferred place of death. This is the place where the patient prefers to die, if possible. The preferred place of death can be a home, a hospital, a nursing home, hospice or another location. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -92,16 +92,16 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "674" "[Toelichting]"
 
 
-Instance: F1-ACP-PreferredPlaceOfDeath-Unknown
+Instance: ACP-PreferredPlaceOfDeath-Example1
 InstanceOf: ACPPreferredPlaceOfDeath
-Title: "F1 ACP Preferred Place Of Death Unknown"
+Title: "ACP Preferred Place of Death - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "023ba125-94c3-492c-8379-958ac9fbb9d6"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#395091006 "Preferred place of death"
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
@@ -147,16 +147,16 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "686" "[Toelichting]"
 
 
-Instance: F1-ACP-PositionRegardingEuthanasia-Unknown
+Instance: ACP-PositionRegardingEuthanasia-Example1
 InstanceOf: ACPPositionRegardingEuthanasia
-Title: "F1 ACP Position Regarding Euthanasia Unknown"
+Title: "ACP Position Regarding Euthanasia - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "f2314b60-1b52-4f29-b231-8b74869fc34b"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
 * valueCodeableConcept = $v3-NullFlavor#UNK
@@ -167,7 +167,7 @@ Usage: #example
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
-Title: "ACP Organ donation choice registration in donor register"
+Title: "ACP Organ Donation Choice Registration in Donor Register"
 Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -197,16 +197,16 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * effective[x] -> "752" "[MeetDatumBeginTijd]"
 
 
-Instance: F1-ACP-OrganDonationChoiceRegistration-Yes
+Instance: ACP-OrganDonationChoiceRegistration-Example1
 InstanceOf: ACPOrganDonationChoiceRegistration
-Title: "F1 ACP Donor Registration Yes"
+Title: "ACP Organ Donation Choice Registration in Donor Register - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "31952dca-757c-4e4e-b7f6-fab66a79deba"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code = $snomed#570801000146104 "geregistreerd in orgaan donorregister"
 * valueCodeableConcept = $snomed#373066001 "ja"
@@ -247,17 +247,17 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 
 
 
-Instance: F1-ACP-SenseOfPurpose
+Instance: ACP-SenseOfPurpose-Example1
 InstanceOf: ACPSenseOfPurpose
-Title: "F1 ACP Sense of Purpose"
+Title: "ACP Sense of Purpose - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "eef80c58-5721-45fa-8f05-210f9e1f0b63"
-* encounter = Reference(F1-ACP-Encounter-01-10-2020) "Encounter, 2020-10-01"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* performer = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Example1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code =  $snomed#247751003 "gevoel van zingeving" // Sense of purpose (observable entity)
-* valueString = "Michiel gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
+* valueString = "Hendrik gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"

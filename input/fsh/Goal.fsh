@@ -27,15 +27,15 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "598" "[Toelichting]"
 
 
-Instance: F1-ACP-Medical-Policy-Goal
+Instance: ACP-Medical-Policy-Goal-Example1
 InstanceOf: ACPMedicalPolicyGoal
-Title: "F1 ACP Medical Policy Goal - Life-sustaining treatment"
+Title: "ACP Medical Policy Goal - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
 * lifecycleStatus = #active
 * category = $snomed#713603004 "advance care planning"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
 * description = $snomed#1351964001 "levensverlengende behandeling"
 * statusDate = "2020-10-01"

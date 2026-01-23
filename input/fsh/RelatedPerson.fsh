@@ -144,14 +144,14 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * relationship[relationship] -> "589" "Relatie"
 
 
-Instance: F1-ACP-ContactPerson-MichielHartman
+Instance: ACP-ContactPerson-MichielHartman-Example1
 InstanceOf: ACPContactPerson
-Title: "F1 ACP ContactPerson Michiel Hartman"
+Title: "ACP ContactPerson - Michiel Hartman - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "ebe579d0-fda9-4440-ac6c-6afb0b338006"
-* patient = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"

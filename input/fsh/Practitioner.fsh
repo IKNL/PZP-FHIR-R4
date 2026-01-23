@@ -25,9 +25,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * name[nameInformation].family.extension[lastName] -> "400" "Achternaam"
 
 
-Instance: F1-ACP-HealthProfessional-Practitioner-DrVanHuissen
+Instance: ACP-HealthProfessional-Practitioner-DrVanHuissen-Example1
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "F1 ACP HealthProfessional Practitioner Dr. van Huissen"
+Title: "ACP HealthProfessional Practitioner - Dr. van Huissen - Example 1"
 Usage: #example
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
 * identifier.value = "01999999"

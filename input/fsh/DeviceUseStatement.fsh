@@ -36,15 +36,15 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "632" "Toelichting"
 
 
-Instance: F1-ACP-MedicalDevice-ICD
+Instance: ACP-MedicalDevice-ICD-Example1
 InstanceOf: ACPMedicalDevice
-Title: "F1 ACP MedicalDevice ICD"
+Title: "ACP MedicalDevice - ICD - Example 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "99a671c0-f756-4c29-bba2-ad8d6f05a5fe"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* device = Reference(F1-ACP-MedicalDevice.Product-ICD)
+* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* device = Reference(ACP-MedicalDeviceProduct-ICD-Example1)
 * status = #active
 * timingPeriod.start = "2018"
 * note.text = "Geïmplanteerd in 2018"
