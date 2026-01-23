@@ -120,9 +120,9 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * subject only Reference(ACPPatient)
 * code = $snomed#340171000146104 
 * value[x] only CodeableConcept
-* value[x] ^definition = "Position regarding euthanesia."
-* value[x] from ACPEuthanasiaStatementVS (required)
-* note.text ^definition = "Comment accompanying position regarding euthanesia."
+* value[x] ^definition = "Position regarding euthanasia."
+* value[x] from ACPPositionRegardingEuthanasiaVS (required)
+* note.text ^definition = "Comment accompanying position regarding euthanasia."
 
 * insert ObligationRules(encounter)
 * insert ObligationRules(subject)

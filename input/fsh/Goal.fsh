@@ -6,7 +6,7 @@ Description: "The primary, agreed-upon goal of a patient's medical treatment pol
 * insert MetaRules
 * category 1..*
 * category = $snomed#713603004 //"advance care planning"
-* description from MedicalPolicyGoalVS (required)
+* description from ACPMedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
 * insert ObligationRules(category)

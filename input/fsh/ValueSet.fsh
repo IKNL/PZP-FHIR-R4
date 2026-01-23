@@ -1,6 +1,6 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
 Id: ACP-PreferredPlaceOfDeath
-Title: "ACP Preferred Place Of Death"
+Title: "ACP Preferred Place of Death"
 Description: "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -93,9 +93,9 @@ Description: "ValueSet for Preferred Place of Death, representing the place wher
 * $snomed#284546000 ^designation[=].value = "hospice"
 
 
-ValueSet: ACPEuthanasiaStatementVS
-Id: ACP-EuthanasiaStatement
-Title: "ACP Euthanasia Statement"
+ValueSet: ACPPositionRegardingEuthanasiaVS
+Id: ACP-PositionRegardingEuthanasia
+Title: "ACP Position Regarding Euthanasia"
 Description: "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -108,9 +108,9 @@ Description: "ValueSet for Position Regarding Euthanasia, representing the the p
 * $snomed#340191000146100 "heeft geen euthanasieverklaring" // by aligning this display with display of snomed code, the nuance 'zou wel verzoek kunnen doen in bepaalde situaties' is gone. Do we want that?
 
 
-ValueSet: MedicalPolicyGoalVS
+ValueSet: ACPMedicalPolicyGoalVS
 Id: ACP-MedicalPolicyGoal
-Title: "ACP Most Important Agreed-upon Goal of Medical Policy"
+Title: "ACP Primary Agreed-upon Goal of Medical Policy"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
