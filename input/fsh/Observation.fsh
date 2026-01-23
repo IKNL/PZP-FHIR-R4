@@ -168,7 +168,8 @@ Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
 Title: "ACP Organ donation choice registration in donor register"
-Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource."
+Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.
+This information is exchanged so the next caregiver knows whether the topic requires attention in future ACP conversations. The profile only captures the patient's indication whether their choice is registered in the donor register. It does not capture the actual choice regarding organ donation itself."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
