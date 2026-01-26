@@ -79,15 +79,13 @@ jobs:
           retention-days: 1
 
       - name: Convert Validation Report
-        uses: patrick-werner/validation-outcome-markdown-renderer@1.2.1
+        uses: patrick-werner/validation-outcome-markdown-renderer@v1.2.2
         with:
           bundle-file: validation.json
           include: errors
           filters: |
             # DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
-            Procedure-F1-ACP-Procedure-01-10-2020.json||*SNOMED CT Concept 41000147108*|*
-            Procedure-P2-ACP-Procedure-07-08-2025.json||*SNOMED CT Concept 41000147108*|*
-            Procedure-P2-ACP-Procedure-28-07-2024.json||*SNOMED CT Concept 41000147108*|*
+            Procedure-*.json||*SNOMED CT Concept 41000147108*|*
             
             # ActorDefinition resources is from R5 onwards, but we use it in R4 anyway.
             ActorDefinition-ACPActorConsulter.json||*content cannot be parsed*|*
