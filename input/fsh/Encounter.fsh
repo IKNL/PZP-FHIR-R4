@@ -42,20 +42,20 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * reasonCode[deviatingResult].extension[commentContactReason] -> "822" "ToelichtingRedenContact"
 
 
-Instance: ACP-Encounter-Example1
+Instance: ACP-Encounter-Pat1
 InstanceOf: ACPEncounter
-Title: "ACP Encounter - Example 1"
+Title: "ACP Encounter - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "64627bfa-a127-4d3a-8187-39426d7937dc"
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
-* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
-* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * participant[=].individual.type = "PractitionerRole"
-* participant[+].individual = Reference(ACP-ContactPerson-MichielHartman-Example1) "ContactPerson, Michiel Hartman"
+* participant[+].individual = Reference(ACP-ContactPerson-MichielHartman-Pat1) "ContactPerson, Michiel Hartman"
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"
-* reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-Example1) "Procedure, ACP"
+* reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-Pat1) "Procedure, ACP"

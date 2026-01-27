@@ -1,11 +1,11 @@
-Instance: P2-ACP-ContactPerson-GertJanDeJong
+Instance: ACP-ContactPerson-GertJanDeJong-Pat2
 InstanceOf: ACP-ContactPerson
-Title: "P2 ACP ContactPerson Gert-Jan de Jong"
+Title: "ACP ContactPerson Gert-Jan de Jong - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "944f2f14-ccec-47cb-a90f-d2401332a316"
-* patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* patient = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * relationship[+] = $v3-RoleCode#HUSB "husband"
@@ -45,14 +45,14 @@ Usage: #example
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
 
-Instance: P2-ACP-ContactPerson-MayaVanDerSluijsMulder
+Instance: ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2
 InstanceOf: ACP-ContactPerson
-Title: "P2 ACP ContactPerson Maya van der Sluijs-Mulder"
+Title: "ACP ContactPerson - Maya van der Sluijs-Mulder - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "833d8550-2e63-4c31-a210-20eaeb1d43da"
-* patient = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* patient = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#23 "contactpersoon"
 * relationship[+] = $v3-RoleCode#SIS "sister"

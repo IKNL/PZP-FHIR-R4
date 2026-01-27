@@ -1,6 +1,6 @@
-Instance: P2-ACP-InformRelativesRequest-07-08-2025
+Instance: ACP-InformRelativesRequest-Pat2
 InstanceOf: ACPInformRelativesRequest
-Title: "P2 ACP InformRelativesRequest 07-08-2025"
+Title: "ACP Request to Inform Relatives - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -8,10 +8,10 @@ Usage: #example
 * category = $snomed#223449006 "adviseren om iemand te informeren" 
 * category.text = "Request for patient to inform relatives about treatment agreements"
 * status = #completed 
-* subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * authoredOn = "2025-08-07"
-* encounter = Reference(P2-ACP-Encounter-07-08-2025) "Encounter on 07-08-2025"
-* requester = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
-* sender = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
-* recipient = Reference(P2-ACP-ContactPerson-GertJanDeJong) "ContactPerson, Gert-Jan de Jong"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter on 07-08-2025"
+* requester = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* sender = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* recipient = Reference(ACP-ContactPerson-GertJanDeJong-Pat2) "ContactPerson, Gert-Jan de Jong"
 * reasonCode = $snomed#713603004 "advance care planning"

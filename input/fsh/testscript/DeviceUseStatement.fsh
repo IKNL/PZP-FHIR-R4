@@ -1,13 +1,13 @@
-Instance: P2-ACP-MedicalDevice-ICD
+Instance: ACP-MedicalDevice-ICD-Pat2
 InstanceOf: ACPMedicalDevice
-Title: "P2 ACP MedicalDevice ICD"
+Title: "ACP MedicalDevice - ICD - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "3fdc0ec5-2984-4b47-b6b8-f9822fb8c425"
-* extension[healthProfessional].valueReference = Reference(P2-ACP-HealthProfessional-PractitionerRole-Santos) "Healthcare professional, Santos"
-* subject = Reference(P2-ACP-Patient-SamiraVanDerSluijs) "Patient, Samira van der Sluijs"
-* device = Reference(P2-ACP-MedicalDevice.Product-ICD)
+* extension[healthProfessional].valueReference = Reference(ACP-HealthProfessionalPractitionerRole-Santos-Pat2) "Healthcare professional, Santos"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* device = Reference(ACP-MedicalDeviceProduct-ICD-Pat2)
 * status = #active
 * timingPeriod.start = "2024"
 * bodySite.coding = $snomed#80891009 "structuur van cor"

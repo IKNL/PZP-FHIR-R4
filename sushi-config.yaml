@@ -164,6 +164,10 @@ resources:
     name: ACP QuestionnaireResponse Hendrik Hartman 2
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
     exampleBoolean: false
+  QuestionnaireResponse/SamiravanderSluijs-20251117:
+    name: ACP QuestionnaireResponse Samira van der Sluijs
+    description: An example of a QuestionnaireResponse for Samira van der Sluijs on 2025-11-17
+    exampleBoolean: false
 
 #
 #
@@ -218,6 +222,7 @@ groups:
     - Questionnaire/ACP-zib2020
     - QuestionnaireResponse/HendrikHartman-20201001
     - QuestionnaireResponse/HendrikHartman-20221108
+    - QuestionnaireResponse/SamiravanderSluijs-20251117
 #   GroupB:
 #     name: Group B
 #     description: The Beta Group

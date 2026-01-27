@@ -1,6 +1,6 @@
-Instance: P2-ACP-MedicalDevice.Product-ICD
+Instance: ACP-MedicalDeviceProduct-ICD-Pat2
 InstanceOf: ACPMedicalDeviceProductICD
-Title: "P2 ACP MedicalDevice.Product ICD"
+Title: "ACP MedicalDevice Product ICD - Pat 2"
 Usage: #example
 * identifier[gs1ProductID].system = "https://www.gs1.org/gtin"
 * identifier[gs1ProductID].value = "8700000000001"

@@ -1,6 +1,6 @@
-Instance: P2-ACP-Patient-SamiraVanDerSluijs
+Instance: ACP-Patient-SamiraVanDerSluijs-Pat2
 InstanceOf: ACPPatient
-Title: "P2 ACP Patient Samira van der Sluijs"
+Title: "ACP Patient - Samira van der Sluijs - Pat 2"
 Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."

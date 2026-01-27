@@ -119,9 +119,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * address.type -> "375" "AdresSoort"
 
 
-Instance: ACP-Patient-HendrikHartman-Example1
+Instance: ACP-Patient-HendrikHartman-Pat1
 InstanceOf: ACPPatient
-Title: "ACP Patient - Hendrik Hartman - Example 1"
+Title: "ACP Patient - Hendrik Hartman - Pat 1"
 Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
@@ -139,7 +139,7 @@ Usage: #example
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Hendrik"
 * birthDate = "1961-01-01"
-* contact.extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MichielHartman-Example1)
+* contact.extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MichielHartman-Pat1)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * contact.relationship[+] = $v3-RoleCode#BRO "brother"

@@ -22,21 +22,21 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * code -> "827" "PZP gesprek (VerrichtingType)"
 
 
-Instance: ACP-AdvanceCarePlanningProcedure-Example1
+Instance: ACP-AdvanceCarePlanningProcedure-Pat1
 InstanceOf: ACPProcedure
-Title: "ACP Advance Care Planning Procedure - Example 1"
+Title: "ACP Advance Care Planning Procedure - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "64627bfa-f127-4d3a-2387-39426d7937dc"
 * status = #completed 
-* encounter = Reference(ACP-Encounter-Example1) "Encounter, 01-10-2020"
-* subject = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
-* performer[0].actor = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* encounter = Reference(ACP-Encounter-Pat1) "Encounter, 01-10-2020"
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
+* performer[0].actor = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * performer[=].actor.type = "PractitionerRole"
-* performer[+].actor = Reference(ACP-ContactPerson-MichielHartman-Example1) "ContactPerson, Michiel Hartman"
+* performer[+].actor = Reference(ACP-ContactPerson-MichielHartman-Pat1) "ContactPerson, Michiel Hartman"
 * performer[=].actor.type = "RelatedPerson"
-* performer[+].actor = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* performer[+].actor = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * performer[=].actor.type = "Patient"
 * performedPeriod.start = "2020-10-01"
 * performedPeriod.end = "2020-10-01"

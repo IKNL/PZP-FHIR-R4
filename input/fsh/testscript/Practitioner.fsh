@@ -1,6 +1,6 @@
-Instance: P2-ACP-HealthProfessional-Practitioner-DesireeWolters
+Instance: ACP-HealthProfessionalPractitioner-DesireeWolters-Pat2
 InstanceOf: ACP-HealthProfessional-Practitioner
-Title: "P2 ACP HealthProfessional Practitioner Desiree Wolters"
+Title: "ACP HealthProfessional Practitioner - Desiree Wolters - Pat 2"
 Usage: #example
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
 * identifier.value = "000003333"
@@ -14,9 +14,9 @@ Usage: #example
 * name.given.extension.valueCode = #BR
 
 
-Instance: P2-ACP-HealthProfessional-Practitioner-Santos
+Instance: ACP-HealthProfessionalPractitioner-Santos-Pat2
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "P2 ACP HealthProfessional Practitioner Santos"
+Title: "ACP HealthProfessional Practitioner - Santos - Pat 2"
 Usage: #example
 * name.use = #official
 * name.text = "Richard Santos"

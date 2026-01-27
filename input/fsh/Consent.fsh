@@ -118,156 +118,156 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * provision.code.text -> "639" "Behandeling van ICD (Behandeling)" 
 
 
-Instance: ACP-TreatmentDirective-AdmissionToICU-1-Example1
+Instance: ACP-TreatmentDirective-AdmissionToICU-1-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Admission to intensive care unit - 1 - Example 1"
+Title: "ACP TreatmentDirective - Admission to intensive care unit - 1 - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d543b9f3-4b87-4f10-bbbb-1425d66f451c"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#305351004 "opname op intensive care"
 
 
-Instance: ACP-TreatmentDirective-CardiopulmonaryResuscitation-Example1
+Instance: ACP-TreatmentDirective-CardiopulmonaryResuscitation-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Cardiopulmonary resuscitation - Example 1"
+Title: "ACP TreatmentDirective - Cardiopulmonary resuscitation - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "943eff64-86a4-4057-b41c-08a849e244c4"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
 
 
-Instance: ACP-TreatmentDirective-ArtificialRespiration-Example1
+Instance: ACP-TreatmentDirective-ArtificialRespiration-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Artificial respiration - Example 1"
+Title: "ACP TreatmentDirective - Artificial respiration - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "4db3052d-370a-40e6-b3a8-0c48347747f2"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#40617009 "kunstmatige beademing"
 
 
-Instance: ACP-TreatmentDirective-AdministrationOfBloodProduct-Example1
+Instance: ACP-TreatmentDirective-AdministrationOfBloodProduct-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Administration of blood product - Example 1"
+Title: "ACP TreatmentDirective - Administration of blood product - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d023ee6f-88d6-4a1e-99a7-40118b4cea45"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#116762002 "toediening van bloedproduct"
 
 
-Instance: ACP-TreatmentDirective-AntibioticTherapy-Example1
+Instance: ACP-TreatmentDirective-AntibioticTherapy-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Antibiotic therapy - Example 1"
+Title: "ACP TreatmentDirective - Antibiotic therapy - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "e2ad3d52-a925-4f82-9c39-e036fc7190a4"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#281789004 "antibiotische therapie"
 
 
-Instance: ACP-TreatmentDirective-HospitalAdmission-Example1
+Instance: ACP-TreatmentDirective-HospitalAdmission-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Hospital admission - Example 1"
+Title: "ACP TreatmentDirective - Hospital admission - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "23b43ae7-b092-47ef-b992-8c54e716531c"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#32485007 "opname in ziekenhuis"
 
 
-Instance: ACP-TreatmentDirective-SwitchOffICD-Example1
+Instance: ACP-TreatmentDirective-SwitchOffICD-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Switch off ICD - Example 1"
+Title: "ACP TreatmentDirective - Switch off ICD - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "b56faf40-f7d7-40a8-869e-a5683d0e1004"
 * modifierExtension[specificationOther].valueString = "Niet besproken" 
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * status = #active
 * dateTime = 2020-10-01
 * policy.uri = "https://wetten.overheid.nl/"
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
 * provision.code.text = "uitzetten van cardioverter-defibrillator in laatste levensfase (SNOMED CT - 400231000146108)" // 20250710 - This seems now as an OK approach. Created: https://nictiz.atlassian.net/browse/ZIB-2796
 
 
-Instance: ACP-TreatmentDirective-AdmissionToICU-2-Example1
+Instance: ACP-TreatmentDirective-AdmissionToICU-2-Pat1
 InstanceOf: ACPTreatmentDirective
-Title: "ACP TreatmentDirective - Admission to intensive care unit - 2 - Example 1"
+Title: "ACP TreatmentDirective - Admission to intensive care unit - 2 - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "d543b9f3-4b87-4f10-bbbb-1425d66f485c"
 * status = #active
-* patient = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* patient = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * dateTime = 2022-11-08
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.type = #permit
-* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Example1) "Patient, Hendrik Hartman"
+* provision.actor[agreementParty][0].reference = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Example1) "Healthcare professional (role), van Huissen"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
-* provision.actor[agreementParty][+].reference = Reference(ACP-ContactPerson-MichielHartman-Example1) "ContactPerson, Michiel Hartman"
+* provision.actor[agreementParty][+].reference = Reference(ACP-ContactPerson-MichielHartman-Pat1) "ContactPerson, Michiel Hartman"
 * provision.actor[agreementParty][=].reference.type = "RelatedPerson"
 * provision.code = $snomed#305351004 "opname op intensive care"

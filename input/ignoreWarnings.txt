@@ -17,9 +17,7 @@ ERROR: Procedure/P2-ACP-Procedure-07-08-2025: Procedure.code: Error from https:/
 ERROR: Procedure/P2-ACP-Procedure-28-07-2024: Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known
 
 # SNOMED code 570801000146104 is added after 'http://snomed.info/sct/11000146104/version/20240930' which is the one currently known by tx.fhir.org/r4
-ERROR: Observation/F1-ACP-OrganDonationChoiceRegistration-Yes: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
-ERROR: Observation/P1-ACP-OrganDonationChoiceRegistration-Yes: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
-ERROR: Observation/P2-ACP-OrganDonationChoiceRegistration-20250807: Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
+ERROR: %Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'%
 ERROR: StructureDefinition/ACP-OrganDonationChoiceRegistration: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept).coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
 ERROR: StructureDefinition/ACP-OrganDonationChoiceRegistration: StructureDefinition.differential.element[1].pattern.ofType(CodeableConcept).coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
 ERROR: Questionnaire/ACP-zib2020: Questionnaire.item[8].item[3].item[0].answerOption[0].value.ofType(Coding).code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'
@@ -70,8 +68,9 @@ WARNING: Practitioner/P1-ACP-HealthProfessional-Practitioner-DrVanHuissen: Pract
 WARNING: Practitioner/P2-ACP-HealthProfessional-Practitioner-DesireeWolters: Practitioner.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
 WARNING: Patient/F1-ACP-Patient-HendrikHartman: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
 WARNING: Patient/P1-ACP-Patient-HendrikHartman: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
-WARNING: Patient/P2-ACP-Patient-SamiraVanDerSluijs: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
+WARNING: Patient/ACP-Patient-SamiraVanDerSluijs-Example2: Patient.identifier[0].system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
 WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/big'
 WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/agb-z'
 WARNING: StructureDefinition/ACP-Patient: StructureDefinition.snapshot.element[40].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/bsn'
 WARNING: StructureDefinition/ACP-HealthProfessional-Practitioner: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier).system: No definition could be found for URL value 'http://fhir.nl/fhir/NamingSystem/uzi-nr-pers'
+
