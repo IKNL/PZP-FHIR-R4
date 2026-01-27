@@ -12,6 +12,7 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 * dataAbsentReason ^comment = "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: 
 - if the question has been asked but the source does not know the value (code = _asked-unknown_) 
 - if the question has not been asked (code = _not-asked_) "
+* method 1..1
 * method = $snomed#370819000
 
 * insert ObligationRules(encounter)
@@ -168,12 +169,12 @@ Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
 Title: "ACP Organ donation choice registration in donor register"
-Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource.
-This information is exchanged so the next caregiver knows whether the topic requires attention in future ACP conversations. The profile only captures the patient's indication whether their choice is registered in the donor register. It does not capture the actual choice regarding organ donation itself."
+Description: "Observation capturing whether the patient's organ donation choice is recorded in the donor register as reported by the patient. It is intended to track the administrative status of the decision rather than the clinical or legal specifics of the donation choice itself. This information is exchanged so the next caregiver knows whether the topic requires attention in future ACP conversations. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#570801000146104
+* method 1..1
 * method = $snomed#1156040003
 * value[x] only CodeableConcept
 * value[x] ^definition = "Organ donation choice recorded in donor register."
