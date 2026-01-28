@@ -36,4 +36,4 @@ Usage: #example
 * period.end = "2024-07-28"
 * reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-2-Pat2) "Procedure, ACP"
 * reasonReference.extension[commentContactReason].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
-* reasonReference.extension[commentContactReason].valueString = "Eerste PZP gesprek van mevrouw " 
+* reasonReference.extension[commentContactReason].valueString = "Eerste PZP gesprek van mevrouw" 
