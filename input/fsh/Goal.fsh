@@ -42,7 +42,7 @@ Usage: #example
 
 
 Instance: ACP-MedicalPolicyGoal-Pat2
-InstanceOf: ACP-Medical-Policy-Goal
+InstanceOf: ACPMedical-Policy-Goal
 Title: "ACP Medical Policy Goal - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"

@@ -44,7 +44,7 @@ Usage: #example
 
 
 Instance: ACP-AdvanceCarePlanningProcedure-1-Pat2
-InstanceOf: ACP-Procedure
+InstanceOf: ACPProcedure
 Title: "ACP Advance Care Planning Procedure - 1 - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
@@ -63,7 +63,7 @@ Usage: #example
 * code = $snomed#713603004 "advance care planning"
 
 Instance: ACP-AdvanceCarePlanningProcedure-2-Pat2
-InstanceOf: ACP-Procedure
+InstanceOf: ACPProcedure
 Title: "ACP Advance Care Planning Procedure - 2 - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"

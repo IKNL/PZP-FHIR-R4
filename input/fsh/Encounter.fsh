@@ -62,7 +62,7 @@ Usage: #example
 
 
 Instance: ACP-Encounter-1-Pat2
-InstanceOf: ACP-Encounter
+InstanceOf: ACPEncounter
 Title: "ACP Encounter - 1 -  Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
@@ -82,7 +82,7 @@ Usage: #example
 * reasonReference.extension[commentContactReason].valueString = "Derde PZP gesprek van mevrouw" 
 
 Instance: ACP-Encounter-2-Pat2
-InstanceOf: ACP-Encounter
+InstanceOf: ACPEncounter
 Title: "ACP Encounter - 2 - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"

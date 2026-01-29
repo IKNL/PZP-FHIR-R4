@@ -174,7 +174,7 @@ Usage: #example
 
 
 Instance: ACP-ContactPerson-GertJanDeJong-Pat2
-InstanceOf: ACP-ContactPerson
+InstanceOf: ACPContactPerson
 Title: "ACP ContactPerson Gert-Jan de Jong - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
@@ -222,7 +222,7 @@ Usage: #example
 
 
 Instance: ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2
-InstanceOf: ACP-ContactPerson
+InstanceOf: ACPContactPerson
 Title: "ACP ContactPerson - Maya van der Sluijs-Mulder - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"

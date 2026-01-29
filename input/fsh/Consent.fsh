@@ -392,7 +392,7 @@ Usage: #example
 
 
 Instance: ACP-TreatmentDirective-HospitalAdmission-Pat2
-InstanceOf: ACP-TreatmentDirective
+InstanceOf: ACPTreatmentDirective
 Title: "ACP TreatmentDirective - Hospital Admission - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
