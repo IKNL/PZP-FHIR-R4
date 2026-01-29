@@ -65,7 +65,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * authoredOn = "2025-08-07"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter on 07-08-2025"
-* requester = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* requester = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * sender = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * recipient = Reference(ACP-ContactPerson-GertJanDeJong-Pat2) "ContactPerson, Gert-Jan de Jong"
 * reasonCode = $snomed#713603004 "advance care planning"

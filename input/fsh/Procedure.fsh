@@ -52,7 +52,7 @@ Usage: #example
 * identifier.value = "e2efbdd1-b926-46c1-a18c-f72b4b281fbc"
 * status = #completed
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer[0].actor = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer[0].actor = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * performer[=].actor.type = "PractitionerRole"
 * performer[+].actor = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2) "ContactPerson, Maya van der Sluijs"
 * performer[=].actor.type = "RelatedPerson"
@@ -71,7 +71,7 @@ Usage: #example
 * identifier.value = "f527654a-5fa4-4394-95bc-50a9f50a5b1f"
 * status = #completed
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer[0].actor = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer[0].actor = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * performer[=].actor.type = "PractitionerRole"
 * performer[+].actor = Reference(ACP-ContactPerson-GertJanDeJong-Pat2) "ContactPerson, Gert-Jan de Jong"
 * performer[=].actor.type = "RelatedPerson"

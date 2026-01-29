@@ -16,7 +16,7 @@
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
     "author": [
     {
-      "reference": "PractitionerRole/ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2",
+      "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2",
       "display": "Healthcare professional (role), Desiree Wolters"
     }
   ],

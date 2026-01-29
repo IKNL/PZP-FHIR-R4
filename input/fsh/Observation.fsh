@@ -62,7 +62,7 @@ Usage: #example
 * identifier.value = "171c806c-a4bf-4b1e-a7d4-497e9ed44278"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
 * valueString = "De kleinzoon van mevrouw van der Sluijs is geboren en mevrouw is dolgelukkig dat ze hem heeft kunnen zien. Ze merkt dat ze fysiek erg achteruitgaat. Mevrouw heeft daar nu vrede mee, in tegenstelling tot eerdere gesprekken."
@@ -136,7 +136,7 @@ Usage: #example
 * identifier.value = "d1866b00-aa64-4155-aa20-25ce51dac894"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#395091006 "Preferred place of death"
 * effectiveDateTime = "2025-08-07"
@@ -207,7 +207,7 @@ Usage: #example
 * identifier.value = "1e73ad4f-6822-412e-a8e1-8a9f235e5a54"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
 * valueCodeableConcept = $snomed#340201000146103 "wil geen euthanasie"
@@ -272,7 +272,7 @@ Usage: #example
 * identifier.value = "856791c1-91cf-404a-ab2e-e1ed05c7c880"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister"
 * valueCodeableConcept = $snomed#373066001 "ja"
@@ -337,7 +337,7 @@ Usage: #example
 * identifier.value = "45ff425e-5c09-4930-b4ea-3819dc857734"
 * encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#247751003 "gevoel van zingeving"
 * valueString = "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door."

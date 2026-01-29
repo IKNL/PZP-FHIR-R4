@@ -40,8 +40,8 @@ Usage: #example
 * name.family.extension[=].valueString = "Huissen"
 
 
-Instance: ACP-HealthProfessionalPractitioner-DesireeWolters-Pat2
-InstanceOf: ACP-HealthProfessional-Practitioner
+Instance: ACP-HealthProfessional-Practitioner-DesireeWolters-Pat2
+InstanceOf: ACPHealthProfessionalPractitioner
 Title: "ACP HealthProfessional Practitioner - Desiree Wolters - Pat 2"
 Usage: #example
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
@@ -56,7 +56,7 @@ Usage: #example
 * name.given.extension.valueCode = #BR
 
 
-Instance: ACP-HealthProfessionalPractitioner-Santos-Pat2
+Instance: ACP-HealthProfessional-Practitioner-Santos-Pat2
 InstanceOf: ACPHealthProfessionalPractitioner
 Title: "ACP HealthProfessional Practitioner - Santos - Pat 2"
 Usage: #example

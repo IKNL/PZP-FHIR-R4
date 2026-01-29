@@ -57,7 +57,7 @@ Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "3fdc0ec5-2984-4b47-b6b8-f9822fb8c425"
-* extension[healthProfessional].valueReference = Reference(ACP-HealthProfessionalPractitionerRole-Santos-Pat2) "Healthcare professional, Santos"
+* extension[healthProfessional].valueReference = Reference(ACP-HealthProfessional-PractitionerRole-Santos-Pat2) "Healthcare professional, Santos"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * device = Reference(ACP-MedicalDeviceProduct-ICD-Pat2)
 * status = #active

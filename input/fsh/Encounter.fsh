@@ -71,7 +71,7 @@ Usage: #example
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* participant[0].individual = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * participant[=].individual.type = "PractitionerRole"
 * participant[+].individual = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2) "ContactPerson, Maya van der Sluijs"
 * participant[=].individual.type = "RelatedPerson"
@@ -91,7 +91,7 @@ Usage: #example
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
-* participant[0].individual = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * participant[=].individual.type = "PractitionerRole"
 * participant[+].individual = Reference(ACP-ContactPerson-GertJanDeJong-Pat2) "ContactPerson, Gert-Jan de Jong"
 * participant[=].individual.type = "RelatedPerson"

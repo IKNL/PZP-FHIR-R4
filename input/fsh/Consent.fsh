@@ -325,7 +325,7 @@ Usage: #example
 * provision.type = #deny
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#89666000 "cardiopulmonale resuscitatie"
 
@@ -345,7 +345,7 @@ Usage: #example
 * provision.period.end = 2025-06-09
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#40617009 "kunstmatige beademing"
 
@@ -365,7 +365,7 @@ Usage: #example
 * provision.type = #deny
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#40617009 "kunstmatige beademing"
 
@@ -386,7 +386,7 @@ Usage: #example
 * provision.type = #deny
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#305351004 "opname op intensive care"
 
@@ -406,7 +406,7 @@ Usage: #example
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#32485007 "opname in ziekenhuis"
 
@@ -425,7 +425,7 @@ Usage: #example
 * provision.type = #permit
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $snomed#281789004 "antibiotische therapie"
 
@@ -446,7 +446,7 @@ Usage: #example
 * provision.type = #deny
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code[0] = $v3-NullFlavor#OTH
 * provision.code[=].text = "Dialyse in het ziekenhuis"
@@ -468,7 +468,7 @@ Usage: #example
 * policy.uri = "https://wetten.overheid.nl/"
 * provision.actor[agreementParty][0].reference = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * provision.actor[agreementParty][=].reference.type = "Patient"
-* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* provision.actor[agreementParty][+].reference = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * provision.actor[agreementParty][=].reference.type = "PractitionerRole"
 * provision.code = $v3-NullFlavor#OTH
 * provision.code.text = "uitzetten van cardioverter-defibrillator in laatste levensfase (SNOMED CT - 400231000146108)" 
