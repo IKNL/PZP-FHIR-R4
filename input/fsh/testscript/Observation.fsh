@@ -60,6 +60,7 @@ Usage: #example
 * performer = Reference(P2-ACP-HealthProfessional-PractitionerRole-DesireeWolters) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* method = $snomed#1156040003 "self reported"
 * valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2025-08-07"
 
