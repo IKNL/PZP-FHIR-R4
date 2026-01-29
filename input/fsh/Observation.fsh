@@ -53,6 +53,23 @@ Usage: #example
 * method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg (verrichting)"
 
 
+Instance: ACP-SpecificCareWishes-Pat2
+InstanceOf: ACPSpecificCareWishes
+Title: "ACP Specific Care Wishes - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "171c806c-a4bf-4b1e-a7d4-497e9ed44278"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#153851000146100 "wensen en verwachtingen met betrekking tot uitkomst van behandeling"
+* valueString = "De kleinzoon van mevrouw van der Sluijs is geboren en mevrouw is dolgelukkig dat ze hem heeft kunnen zien. Ze merkt dat ze fysiek erg achteruitgaat. Mevrouw heeft daar nu vrede mee, in tegenstelling tot eerdere gesprekken."
+* effectiveDateTime = "2025-08-07"
+* method = $snomed#370819000 "vaststellen van persoonlijke waarden en wensen met betrekking tot zorg"
+
+
 // In R5/build of FHIR at CarePlan this is noted: 
 //  "Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken. 
 //  This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive. 
@@ -110,6 +127,23 @@ Usage: #example
 * note.text = "Nog niet besproken"
 
 
+Instance: ACP-PreferredPlaceOfDeath-Pat2
+InstanceOf: ACPPreferredPlaceOfDeath
+Title: "ACP Preferred Place Of Death - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "d1866b00-aa64-4155-aa20-25ce51dac894"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#395091006 "Preferred place of death"
+* effectiveDateTime = "2025-08-07"
+* valueCodeableConcept = $snomed#264362003 "thuis"
+* note.text = "Het liefst rustig thuis"
+
+
 Profile: ACPPositionRegardingEuthanasia
 Parent: Observation
 Id: ACP-PositionRegardingEuthanasia
@@ -164,6 +198,22 @@ Usage: #example
 * note.text = "Nog niet besproken"
 
 
+Instance: ACP-PositionRegardingEuthanasia-Pat2
+InstanceOf: ACPPositionRegardingEuthanasia
+Title: "ACP Position Regarding Euthanasia - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "1e73ad4f-6822-412e-a8e1-8a9f235e5a54"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#340171000146104 "standpunt ten opzichte van euthanasie"
+* valueCodeableConcept = $snomed#340201000146103 "wil geen euthanasie"
+* effectiveDateTime = "2025-08-07"
+
+
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
@@ -213,6 +263,22 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 
 
+Instance: ACP-OrganDonationChoiceRegistrationInDonorRegister-Pat2
+InstanceOf: ACPOrganDonationChoiceRegistration
+Title: "ACP Organ Donation Choice Registration In Donor Register - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "856791c1-91cf-404a-ab2e-e1ed05c7c880"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* valueCodeableConcept = $snomed#373066001 "ja"
+* effectiveDateTime = "2025-08-07"
+
+
 Profile: ACPSenseOfPurpose
 Parent: Observation
 Id: ACP-SenseOfPurpose
@@ -246,7 +312,6 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * effective[x] -> "715" "[MeetDatumBeginTijd]"
 
 
-
 Instance: ACP-SenseOfPurpose-Pat1
 InstanceOf: ACPSenseOfPurpose
 Title: "ACP Sense of Purpose - Pat 1"
@@ -261,3 +326,19 @@ Usage: #example
 * code =  $snomed#247751003 "gevoel van zingeving" // Sense of purpose (observable entity)
 * valueString = "Hendrik gaat nadenken over wat hij belangrijk vindt. Over een tijdje vervolggesprek"
 * effectiveDateTime = "2020-10-01"
+
+
+Instance: ACP-SenseOfPurpose-Pat2
+InstanceOf: ACPSenseOfPurpose
+Title: "ACP Sense Of Purpose - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "45ff425e-5c09-4930-b4ea-3819dc857734"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessionalPractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#247751003 "gevoel van zingeving"
+* valueString = "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door."
+* effectiveDateTime = "2025-08-07"
