@@ -1,7 +1,7 @@
 Profile: ACPProcedure
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Procedure-event
 Id: ACP-Procedure
-Title: "ACP Advance Care Planning Procedure"
+Title: "ACP Procedure"
 Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event profile and HCIM Procedure."
 * insert MetaRules
 * subject only Reference(ACPPatient)
@@ -22,9 +22,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * code -> "827" "PZP gesprek (VerrichtingType)"
 
 
-Instance: ACP-AdvanceCarePlanningProcedure-Pat1
+Instance: ACP-Procedure-Pat1
 InstanceOf: ACPProcedure
-Title: "ACP Advance Care Planning Procedure - Pat 1"
+Title: "ACP Procedure - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -43,9 +43,9 @@ Usage: #example
 * code = $snomed#713603004 "advance care planning"
 
 
-Instance: ACP-AdvanceCarePlanningProcedure-1-Pat2
+Instance: ACP-Procedure-1-Pat2
 InstanceOf: ACPProcedure
-Title: "ACP Advance Care Planning Procedure - 1 - Pat 2"
+Title: "ACP Procedure - 1 - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -62,9 +62,9 @@ Usage: #example
 * performedPeriod.end = "2025-08-07"
 * code = $snomed#713603004 "advance care planning"
 
-Instance: ACP-AdvanceCarePlanningProcedure-2-Pat2
+Instance: ACP-Procedure-2-Pat2
 InstanceOf: ACPProcedure
-Title: "ACP Advance Care Planning Procedure - 2 - Pat 2"
+Title: "ACP Procedure - 2 - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

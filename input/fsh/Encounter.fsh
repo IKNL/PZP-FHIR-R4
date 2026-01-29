@@ -58,7 +58,7 @@ Usage: #example
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"
-* reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-Pat1) "Procedure, ACP"
+* reasonReference = Reference(ACP-Procedure-Pat1) "Procedure, ACP"
 
 
 Instance: ACP-Encounter-1-Pat2
@@ -77,7 +77,7 @@ Usage: #example
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2025-08-07"
 * period.end = "2025-08-07"
-* reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-1-Pat2) "Procedure, ACP"
+* reasonReference = Reference(ACP-Procedure-1-Pat2) "Procedure, ACP"
 * reasonReference.extension[commentContactReason].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * reasonReference.extension[commentContactReason].valueString = "Derde PZP gesprek van mevrouw" 
 
@@ -97,6 +97,6 @@ Usage: #example
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2024-07-28"
 * period.end = "2024-07-28"
-* reasonReference = Reference(ACP-AdvanceCarePlanningProcedure-2-Pat2) "Procedure, ACP"
+* reasonReference = Reference(ACP-Procedure-2-Pat2) "Procedure, ACP"
 * reasonReference.extension[commentContactReason].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
 * reasonReference.extension[commentContactReason].valueString = "Eerste PZP gesprek van mevrouw" 
