@@ -83,7 +83,7 @@ Examples follow naming pattern `[PatientName]-[Date]` with `-Administrative` suf
 - **Generated resources:** Standard FHIR resource names (e.g., `StructureDefinition-ACP-Patient.json`)
 - **FSH files:** Use meaningful names that reflect the profile purpose
 - **Profile IDs:** Use `ACP-` prefix for profiles (e.g., `ACP-Patient`, `ACP-AdvanceDirective`)
-- **Extension IDs:** Use `ext-` prefix (e.g., `ext-LegallyCapable-MedicalTreatmentDecisions`)
+- **Extension IDs:** Use `ext-` prefix (e.g., `ext-Patient.LegallyCapableMedicalTreatmentDecisions`)
 - **Questionnaires:** 
   - Complete: `Questionnaire-ACP-zib2020.json`
   - Administrative: `Questionnaire-ACP-Administrative.json`
