@@ -123,8 +123,8 @@ Description: "A person who receives medical..."                   // Clinical co
 
 ### Extension Pattern
 ```fsh
-Extension: ExtLegallyCapableMedicalTreatmentDecisions
-Id: ext-LegallyCapable-MedicalTreatmentDecisions                  // ext- prefix
+Extension: ExtPatientLegallyCapableMedicalTreatmentDecisions
+Id: ext-Patient.LegallyCapableMedicalTreatmentDecisions                  // ext- prefix
 Context: Patient                                                   // Explicit context
 * extension ^slicing.discriminator.type = #value                  // Standard slicing
 ```

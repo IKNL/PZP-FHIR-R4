@@ -6,7 +6,7 @@ Description: "A person who receives medical, psychological, paramedical, or nurs
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
-    ExtLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
+    ExtPatientLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
 * extension[legallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
 * contact ^condition = "ACP-Patient-1"
