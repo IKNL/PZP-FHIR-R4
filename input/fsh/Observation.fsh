@@ -218,7 +218,6 @@ Usage: #example
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
-<<<<<<< HEAD
 Title: "ACP Organ Donation Choice Registration in Donor Register"
 Description: "Observation capturing whether the patient's organ donation choice is recorded in the donor register as reported by the patient. It is intended to track the administrative status of the decision rather than the clinical or legal specifics of the donation choice itself. This information is exchanged so the next caregiver knows whether the topic requires attention in future ACP conversations. Based on Observation resource."
 * insert MetaRules
