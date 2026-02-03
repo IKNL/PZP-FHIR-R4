@@ -12,6 +12,7 @@ Description: "The patient's wishes and expectations concerning their treatment, 
 * dataAbsentReason ^comment = "The `dataAbsentReason` is helpful to indicate a more detailed reason on why the data is absent if this is known, namely: 
 - if the question has been asked but the source does not know the value (code = _asked-unknown_) 
 - if the question has not been asked (code = _not-asked_) "
+* method 1..1
 * method = $snomed#370819000
 
 * insert ObligationRules(encounter)
@@ -152,7 +153,7 @@ Description: "The patient's position regarding euthanasia. Based on Observation 
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#340171000146104 
+* code = $snomed#340171000146104
 * value[x] only CodeableConcept
 * value[x] ^definition = "Position regarding euthanasia."
 * value[x] from ACPPositionRegardingEuthanasiaVS (required)
@@ -217,12 +218,15 @@ Usage: #example
 Profile: ACPOrganDonationChoiceRegistration
 Parent: Observation
 Id: ACP-OrganDonationChoiceRegistration
+<<<<<<< HEAD
 Title: "ACP Organ Donation Choice Registration in Donor Register"
-Description: "Answer, captured in an observation, to the question: 'Is the choice on organ donation recorded in the donor register?' Based on Observation resource."
+Description: "Observation capturing whether the patient's organ donation choice is recorded in the donor register as reported by the patient. It is intended to track the administrative status of the decision rather than the clinical or legal specifics of the donation choice itself. This information is exchanged so the next caregiver knows whether the topic requires attention in future ACP conversations. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#570801000146104
+* method 1..1
+* method = $snomed#1156040003
 * value[x] only CodeableConcept
 * value[x] ^definition = "Organ donation choice recorded in donor register."
 * value[x] from ACPYesNoUnknownVS (required)
@@ -230,6 +234,7 @@ Description: "Answer, captured in an observation, to the question: 'Is the choic
 * insert ObligationRules(encounter)
 * insert ObligationRules(subject)
 * insert ObligationRules(code)
+* insert ObligationRules(method)
 * insert ObligationRules(valueCodeableConcept)
 * insert ObligationRules(dataAbsentReason)
 * insert ObligationRules(effective[x]) 
@@ -259,6 +264,7 @@ Usage: #example
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * status = #final
 * code = $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* method = $snomed#1156040003 "self reported"
 * valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2020-10-01"
 
@@ -275,6 +281,7 @@ Usage: #example
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
 * code =  $snomed#570801000146104 "geregistreerd in orgaan donorregister"
+* method = $snomed#1156040003 "self reported"
 * valueCodeableConcept = $snomed#373066001 "ja"
 * effectiveDateTime = "2025-08-07"
 
