@@ -6,17 +6,11 @@ Developed by the <a href="https://iknl.nl/en">Netherlands Comprehensive Cancer O
 
 This guide assumes that readers are familiar with the functional specifications of ACP and the R4 version of FHIR.
 
-### Call for Feedback
-
-This implementation guide is a work in progress, and its quality and usefulness depend on community input. We welcome feedback on all aspects of this guide, and we are particularly interested in your thoughts on the following decisions and sections:
-
-
-1. The <a href="StructureDefinition-ACP-TreatmentDirective.html">TreatmentDirective profile</a> is reused for directives regarding deactivation of Implantable Cardioverter Defibrillators (ICDs). However, this does not fully align with the zib TreatmentDirective2 for two reasons:
-    - First, ICD codes cannot be added to `Consent.provision.code` due to binding constraints, so the mapping is placed in `Consent.provision.code.text` with `OTH` as the code. A zib ticket (<a href="https://nictiz.atlassian.net/browse/ZIB-2796">ZIB-2796</a>) has been created to address this issue. 
-     - Second, for `Consent.provision.type`, only the _permit_ code should be used; the other two nullflavor codes (_ASKU_ and _NASK_) from the dataset valueset are not appropriate here. The profile describes using `Consent.modifierExtension.specificationOther` to capture information about these choices, which is somewhat questionable. Alternatively, a specialized profile for ICDs could be created, not based on the nl-core profile but following the same structure where possible.
-
-2. The <a href="Questionnaire-ACP-zib2020.html">ACP Questionnaire</a> has been developed based on the ACP form dataset and aims to preserve the zib structure as much as possible. We welcome any feedback on its design and implementation.
-
 ### Dependencies
 
 {% include dependency-table.xhtml %}
+
+<div class="warning">
+You are currently viewing the <strong>FHIR R4</strong> version of the implementation guide for the Advance Care Planning.  
+If you are looking for the <strong>STU3</strong> version, you can find it here: <a href="https://api.iknl.nl/docs/pzp/stu3/">Advance Care Planning STU3 HCIM 2017.</a>
+</div>
