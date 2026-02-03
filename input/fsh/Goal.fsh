@@ -6,7 +6,7 @@ Description: "The primary, agreed-upon goal of a patient's medical treatment pol
 * insert MetaRules
 * category 1..*
 * category = $snomed#713603004 //"advance care planning"
-* description from MedicalPolicyGoalVS (required)
+* description from ACPMedicalPolicyGoalVS (required)
 * subject only Reference(ACPPatient)
 
 * insert ObligationRules(category)
@@ -27,15 +27,29 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "598" "[Toelichting]"
 
 
-Instance: F1-ACP-Medical-Policy-Goal
+Instance: ACP-Medical-Policy-Goal-Pat1
 InstanceOf: ACPMedicalPolicyGoal
-Title: "F1 ACP Medical Policy Goal - Life-sustaining treatment"
+Title: "ACP Medical Policy Goal - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "a1e0d113-bf6d-4e5c-9bf4-044eda75b709"
 * lifecycleStatus = #active
 * category = $snomed#713603004 "advance care planning"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * description = $snomed#1351964001 "levensverlengende behandeling"
 * statusDate = "2020-10-01"
+
+
+Instance: ACP-MedicalPolicyGoal-Pat2
+InstanceOf: ACPMedicalPolicyGoal
+Title: "ACP Medical Policy Goal - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "b3aaf1a9-cbe3-4b7a-a6c8-ecc55a65e5e9"
+* lifecycleStatus = #active
+* category = $snomed#713603004 "advance care planning"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* description = $snomed#713148004 "voorkomen en behandelen van symptomen"
+* statusDate = "2025-08-07"

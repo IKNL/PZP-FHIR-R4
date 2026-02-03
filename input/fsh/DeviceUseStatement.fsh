@@ -36,15 +36,33 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "632" "Toelichting"
 
 
-Instance: F1-ACP-MedicalDevice-ICD
+Instance: ACP-MedicalDevice-ICD-Pat1
 InstanceOf: ACPMedicalDevice
-Title: "F1 ACP MedicalDevice ICD"
+Title: "ACP MedicalDevice - ICD - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "99a671c0-f756-4c29-bba2-ad8d6f05a5fe"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* device = Reference(F1-ACP-MedicalDevice.Product-ICD)
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
+* device = Reference(ACP-MedicalDeviceProduct-ICD-Pat1)
 * status = #active
 * timingPeriod.start = "2018"
 * note.text = "Geïmplanteerd in 2018"
+
+
+Instance: ACP-MedicalDevice-ICD-Pat2
+InstanceOf: ACPMedicalDevice
+Title: "ACP MedicalDevice - ICD - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "3fdc0ec5-2984-4b47-b6b8-f9822fb8c425"
+* extension[healthProfessional].valueReference = Reference(ACP-HealthProfessional-PractitionerRole-Santos-Pat2) "Healthcare professional, Santos"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* device = Reference(ACP-MedicalDeviceProduct-ICD-Pat2)
+* status = #active
+* timingPeriod.start = "2024"
+* bodySite.coding = $snomed#80891009 "structuur van cor"
+* bodySite.extension[laterality].url = "http://nictiz.nl/fhir/StructureDefinition/ext-AnatomicalLocation.Laterality"
+* bodySite.extension[laterality].valueCodeableConcept.coding = $snomed#7771000 "links"
+* note.text = "ICD is ongeveer eén jaar geleden geïmplanteerd."

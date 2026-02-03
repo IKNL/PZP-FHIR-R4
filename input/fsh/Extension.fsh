@@ -1,6 +1,6 @@
-Extension: ExtLegallyCapableMedicalTreatmentDecisions
-Id: ext-LegallyCapable-MedicalTreatmentDecisions
-Title: "ext LegallyCapable regarding medical treatment decisions"
+Extension: ExtPatientLegallyCapableMedicalTreatmentDecisions
+Id: ext-Patient.LegallyCapableMedicalTreatmentDecisions
+Title: "ext Patient.LegallyCapableMedicalTreatmentDecisions"
 Description: "An extension to indicate the patient's legal capability regarding medical treatment decisions, and to provide a comment on this capability."
 Context: Patient
 * ^purpose = "This extension is based on the [extension FreedomRestrictingIntervention.LegallyCapable](http://nictiz.nl/fhir/StructureDefinition/ext-FreedomRestrictingIntervention.LegallyCapable), but is adapted for the ACP context by allowing its use on the Patient resource and specifying its application to treatment decisions."

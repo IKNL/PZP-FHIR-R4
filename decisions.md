@@ -6,7 +6,7 @@
 - ACPMedicalPolicyGoal - Mapping on Goal in stead of Observation.
 
 ## 22/07/2025
-- ExtLegallyCapableMedicalTreatmentDecisions naming is set and extension is considerd Ok.
+- ExtLegallyCapableMedicalTreatmentDecisions naming is set and extension is considerd Ok. 2/2/2026: Changed to ExtPatientLegallyCapableMedicalTreatmentDecisions
 - Patient invariant about mandating a legal contact person when LegallyCapableMedicalTreatmentDecisions is false will become a warning
 - All ContactPersons will be populated in the RelatedPerson resource, optionally in the Patient.contact field. The http://hl7.org/fhir/StructureDefinition/patient-relatedPerson extension should be used to link the contact persons.
 - Patient contactgegevens is in de zib 0..1 en dataset 0..1 maar in nl core 0..* - discussed with Lonekke and ok. Leave as it profiled in nl-core.
