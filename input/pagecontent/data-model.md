@@ -21,9 +21,16 @@ Two example QuestionnaireResponse resources, based on this Questionnaire, are in
 
 The FHIR profiles in this guide are directly linked to the ACP dataset elements published in ART-DECOR.
 
-Each StructureDefinition includes a `StructureDefinition.mapping.uri` that points to the specific version of the ACP dataset used. Additionally, every element within a profile is individually mapped to its corresponding dataset element using the `ElementDefinition.mapping` property. The mapping table below shows all mappings in one view, while the "Mappings" tab of each profile page displays the mappings consolidated per profile.
+Each StructureDefinition includes a `StructureDefinition.mapping.uri` that points to the specific version of the ACP dataset used. Additionally, every element within a profile is individually mapped to its corresponding dataset element using the `ElementDefinition.mapping` property. The mapping table below shows all mappings in one view, while the "Mappings" tab of each profile page displays the mappings consolidated per profile. These mappings provide a straightforward way to highlight the elements that are especially relevant for the ACP use case. 
 
-These mappings provide a straightforward way to highlight the elements that are especially relevant for the ACP use case. To further clarify which elements are important for the ACP use case, <a href="https://hl7.org/fhir/extensions/StructureDefinition-obligation.html">Obligation flags</a> have been added to all elements that contain a mapping to the ACP dataset. As a result, the profile's differential table now clearly shows all elements marked as relevant.
+#### Obligation flags
+To indicate which elements are essential for the ACP use case, <a href="https://hl7.org/fhir/extensions/StructureDefinition-obligation.html">Obligation flags</a> have been added to all elements mapped to the ACP dataset. These flags are visible in the formal profile views.
+
+In this version of the IG, Obligation flags are applied to all mapped elements, regardless of whether the dataset element is mandatory or optional. The obligations are defined for the following actors:
+* <a href="ActorDefinition-ACPActorProvider.html">ACP Actor Provider</a>: `SHALL:populate-if-known`
+* <a href="ActorDefinition-ACPActorConsulter.html">ACP Actor Consulter</a>: `SHALL:no-error`
+
+In future versions of the IG, these obligations may be refined on a per-element basis.
 
 #### Note on referenced zibs
 
