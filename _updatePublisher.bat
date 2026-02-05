@@ -136,15 +136,16 @@ GOTO done
 
 
 ECHO.
-ECHO Updating scripts
-IF "%skipPrompts%"=="y" (
-	SET updateScripts=Y
-) ELSE (
-	SET /p updateScripts="Update scripts? (Y/N) "
-)
-IF /I "%updateScripts%"=="Y" (
-	GOTO scripts
-)
+ECHO Skipping script updates to preserve custom modifications
+REM ECHO Updating scripts
+REM IF "%skipPrompts%"=="y" (
+REM 	SET updateScripts=Y
+REM ) ELSE (
+REM 	SET /p updateScripts="Update scripts? (Y/N) "
+REM )
+REM IF /I "%updateScripts%"=="Y" (
+REM 	GOTO scripts
+REM )
 GOTO end
 
 
