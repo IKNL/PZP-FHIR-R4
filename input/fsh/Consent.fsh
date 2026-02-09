@@ -117,8 +117,8 @@ Description: "A joint decision between a health professional (for example a gene
 * insert ObligationRules(provision.type)
 * insert ObligationRules(provision.extension[reasonForEnding])
 * insert ObligationRules(provision.period.end)
-// Sometimes, there is already an extension on the element, so we need to specify the location to insert the obligation extension...
 * insert ObligationRules(provision.actor[agreementParty])
+* insert ObligationRules(provision.code)
 * insert ObligationRules(provision.code.text)
 
 
@@ -135,24 +135,24 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * extension[comment] -> "653" "Toelichting"
 * extension[additionalAdvanceDirective].valueReference -> "644" "Wilsverklaring"
 * dateTime -> "606" "MeestRecenteBespreekdatum"
+* dateTime -> "641" "MeestRecenteBespreekdatum"
 * sourceReference -> "609" "Wilsverklaring"
+* sourceReference -> "644" "Wilsverklaring"
 * provision.type -> "603" "BehandelBesluit"
+* provision.type -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
 * provision.extension[reasonForEnding]  -> "608" "RedenBeeindigd"
+* provision.extension[reasonForEnding] -> "643" "RedenBeeindigd"
 * provision.period.end -> "607" "DatumBeeindigd"
+* provision.period.end -> "642" "DatumBeeindigd"
 * provision.actor[agreementParty] -> "611" "AfspraakPartij"
 * provision.actor[agreementParty].reference -> "612" "Patient"
 * provision.actor[agreementParty].reference -> "614" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "616" "Zorgverlener"
-* provision.code -> "604" "Behandeling"
-* dateTime -> "641" "MeestRecenteBespreekdatum"
-* sourceReference -> "644" "Wilsverklaring"
-* provision.type -> "638" "Afspraak uitzetten ICD (BehandelBesluit)"
-* provision.extension[reasonForEnding] -> "643" "RedenBeeindigd"
-* provision.period.end -> "642" "DatumBeeindigd"
 * provision.actor[agreementParty] -> "646" "AfspraakPartij"
 * provision.actor[agreementParty].reference -> "647" "Patient"
 * provision.actor[agreementParty].reference -> "649" "Vertegenwoordiger"
 * provision.actor[agreementParty].reference -> "651" "Zorgverlener"
+* provision.code -> "604" "Behandeling"
 * provision.code.text -> "639" "Behandeling van ICD (Behandeling)" 
 
 
