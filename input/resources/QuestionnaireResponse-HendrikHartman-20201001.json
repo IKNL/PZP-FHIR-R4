@@ -67,7 +67,7 @@
     {
       "linkId": "967",
       "text": "Geboortedatum patiënt",
-      "type": "dateTime",
+      "type": "date",
       "required": false,
       "repeats": false
     },
@@ -2911,7 +2911,7 @@
     {
       "answer": [
         {
-          "valueDateTime": "1961-01-01T14:27:36.000Z"
+          "valueDate": "1961-01-01"
         }
       ],
       "linkId": "967",
