@@ -825,6 +825,55 @@
               "repeats": false
             },
             {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "1644",
+              "code": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                  "code": "01"
+                }
+              ],
+              "text": "Rol",
+              "enableWhen": [
+                {
+                  "question": "984",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "0",
+                    "display": "Nee"
+                  }
+                }
+              ],
+              "enableBehavior": "any",
+              "required": false,
+              "repeats": false,
+              "readOnly": true,
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                    "code": "01",
+                    "display": "Eerste relatie/contactpersoon"
+                  },
+                  "initialSelected": true
+                }
+              ]
+            },
+            {
               "item": [
                 {
                   "linkId": "412",
