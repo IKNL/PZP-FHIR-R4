@@ -163,11 +163,11 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 566 | &emsp;&emsp;Titels | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name[nameInformation].suffix`  |
 | 588 | &emsp;Rol | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[role]`  |
 | 589 | &emsp;Relatie | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `relationship[relationship]`  |
-| 590 | Belangrijkste doel van behandeling ([Meting]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | ``  |
-| 591 | &emsp;Belangrijkste doel van behandeling ([MetingNaam]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | ``  |
-| 592 | &emsp;Doel ([MetingWaarde]) | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `description`  |
-| 596 | &emsp;[MeetDatumBeginTijd] | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `startDate`  |
-| 598 | &emsp;[Toelichting] | Goal (<a href="StructureDefinition-ACP-Medical-Policy-Goal.html">ACPMedicalPolicyGoal</a>) | `note.text`  |
+| 590 | Belangrijkste doel van behandeling ([Meting]) | Goal (<a href="StructureDefinition-ACP-MedicalPolicyGoal.html">ACPMedicalPolicyGoal</a>) | ``  |
+| 591 | &emsp;Belangrijkste doel van behandeling ([MetingNaam]) | Goal (<a href="StructureDefinition-ACP-MedicalPolicyGoal.html">ACPMedicalPolicyGoal</a>) | ``  |
+| 592 | &emsp;Doel ([MetingWaarde]) | Goal (<a href="StructureDefinition-ACP-MedicalPolicyGoal.html">ACPMedicalPolicyGoal</a>) | `description`  |
+| 596 | &emsp;[MeetDatumBeginTijd] | Goal (<a href="StructureDefinition-ACP-MedicalPolicyGoal.html">ACPMedicalPolicyGoal</a>) | `startDate`  |
+| 598 | &emsp;[Toelichting] | Goal (<a href="StructureDefinition-ACP-MedicalPolicyGoal.html">ACPMedicalPolicyGoal</a>) | `note.text`  |
 | 602 | Behandelgrens (BehandelAanwijzing2) | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | ``  |
 | 603 | &emsp;BehandelBesluit | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.type`  |
 | 604 | &emsp;Behandeling | Consent (<a href="StructureDefinition-ACP-TreatmentDirective.html">ACPTreatmentDirective</a>) | `provision.code`  |
