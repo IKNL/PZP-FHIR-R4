@@ -64,7 +64,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
     * B) Retrieves `Encounter` resources that list an ACP procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
-4. Retrieves `Goal` resources related to ACP based on the `Goal.category`.
+4. Retrieves `Goal` resources related to advance care planning.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
