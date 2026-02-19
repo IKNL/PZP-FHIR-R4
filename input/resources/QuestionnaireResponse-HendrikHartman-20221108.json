@@ -25,7 +25,7 @@
     {
       "answer": [
         {
-          "valueDateTime": "2020-11-08T17:27:36.000Z"
+          "valueDateTime": "2022-11-08T17:27:36.000Z"
         }
       ],
       "linkId": "963",
@@ -58,7 +58,7 @@
     {
       "answer": [
         {
-          "valueDateTime": "1961-01-01T14:27:36.000Z"
+          "valueDate": "1961-01-01"
         }
       ],
       "linkId": "967",
