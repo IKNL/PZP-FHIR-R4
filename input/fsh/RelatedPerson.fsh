@@ -6,12 +6,17 @@ Title: "ACP ContactPerson"
 Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
 * patient only Reference(ACPPatient)
-* relationship 1..*
-* relationship[role] 1..* 
+* relationship contains
+    roleAdditional 0..*
+* relationship ^comment = "At least one relationship element must be provided with a role code from either the role or roleAdditional slice. The roleAdditional slice contains additional codes introduced in the zib2024 release."
+* relationship[role] ^comment = "For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
+* relationship[roleAdditional] from ACPContactPersonRoleVS (required)
+* relationship[roleAdditional] ^comment = "This slice contains codes not included in the RolCodelijst that is bound to the role slice."
 * relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
 
 * insert ObligationRules(patient)
 * insert ObligationRules(relationship[role])
+* insert ObligationRules(relationship[roleAdditional])
 * insert ObligationRules(relationship[relationship])
 * insert ObligationRules(name[nameInformation].given)
 * insert ObligationRules(name[nameInformation-GivenName].given)
