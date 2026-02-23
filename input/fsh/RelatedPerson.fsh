@@ -6,9 +6,10 @@ Title: "ACP ContactPerson"
 Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
 * patient only Reference(ACPPatient)
+* relationship obeys ACP-ContactPerson-1
 * relationship contains
     roleAdditional 0..*
-* relationship ^comment = "At least one relationship element must be provided with a role code from either the role or roleAdditional slice. The roleAdditional slice contains additional codes introduced in the zib2024 release."
+* relationship ^short = "At least one relationship element SHALL be provided with a role code from either the role or roleAdditional slice. The roleAdditional slice contains additional codes introduced in the zib2024 release."
 * relationship[role] ^comment = "For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
 * relationship[roleAdditional] from ACPContactPersonRoleVS (required)
 * relationship[roleAdditional] ^comment = "This slice contains codes not included in the RolCodelijst that is bound to the role slice."
@@ -44,6 +45,11 @@ Description: "A person not being a healthcare professional who is involved in th
 * insert ObligationRules(address.line.extension[additionalInformation])
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
+
+Invariant: ACP-ContactPerson-1
+Description: "At least one relationship element must contain a role code from the role slice (RolCodelijst) or the roleAdditional slice (ACPContactPersonRoleVS)."
+Severity: #error
+Expression: "coding.where((system = 'urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.23.1' and (code = '100001' or code = '100002' or code = '100003' or code = '100004')) or (system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and (code = '01' or code = '02' or code = '03' or code = '04' or code = '05' or code = '06' or code = '07' or code = '09' or code = '11' or code = '14' or code = '15' or code = '19' or code = '20' or code = '21' or code = '23' or code = '24')) or (system = 'http://snomed.info/sct' and code = '310141000146103')).exists()"
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
