@@ -5,8 +5,8 @@ Id: ACP-ContactPerson
 Title: "ACP ContactPerson"
 Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
+* obeys ACP-ContactPerson-1
 * patient only Reference(ACPPatient)
-* relationship obeys ACP-ContactPerson-1
 * relationship contains
     roleAdditional 0..*
 * relationship ^short = "At least one relationship element SHALL be provided with a role code from either the role or roleAdditional slice. The roleAdditional slice contains additional codes introduced in the zib2024 release."
@@ -49,7 +49,7 @@ Description: "A person not being a healthcare professional who is involved in th
 Invariant: ACP-ContactPerson-1
 Description: "At least one relationship element must contain a role code from the role slice (RolCodelijst) or the roleAdditional slice (ACPContactPersonRoleVS)."
 Severity: #error
-Expression: "coding.where((system = 'urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.23.1' and (code = '100001' or code = '100002' or code = '100003' or code = '100004')) or (system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and (code = '01' or code = '02' or code = '03' or code = '04' or code = '05' or code = '06' or code = '07' or code = '09' or code = '11' or code = '14' or code = '15' or code = '19' or code = '20' or code = '21' or code = '23' or code = '24')) or (system = 'http://snomed.info/sct' and code = '310141000146103')).exists()"
+Expression: "relationship.coding.where((system = 'urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.23.1' and (code = '100001' or code = '100002' or code = '100003' or code = '100004')) or (system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and (code = '01' or code = '02' or code = '03' or code = '04' or code = '05' or code = '06' or code = '07' or code = '09' or code = '11' or code = '14' or code = '15' or code = '19' or code = '20' or code = '21' or code = '23' or code = '24')) or (system = 'http://snomed.info/sct' and code = '310141000146103')).exists()"
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
