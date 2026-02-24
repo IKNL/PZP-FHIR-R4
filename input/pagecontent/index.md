@@ -6,11 +6,10 @@ Developed by the <a href="https://iknl.nl/en">Netherlands Comprehensive Cancer O
 
 This guide assumes that readers are familiar with the functional specifications of ACP and the R4 version of FHIR.
 
+### version
+You are currently viewing the <strong>FHIR R4</strong> version of the implementation guide for the Advance Care Planning information standard.  
+If you are looking for the <strong>STU3</strong> version, you can find it here: <a href="https://api.iknl.nl/docs/pzp/stu3/">Advance Care Planning STU3 HCIM 2017.</a>
+
 ### Dependencies
 
 {% include dependency-table.xhtml %}
-
-<div class="warning">
-You are currently viewing the <strong>FHIR R4</strong> version of the implementation guide for the Advance Care Planning.  
-If you are looking for the <strong>STU3</strong> version, you can find it here: <a href="https://api.iknl.nl/docs/pzp/stu3/">Advance Care Planning STU3 HCIM 2017.</a>
-</div>
