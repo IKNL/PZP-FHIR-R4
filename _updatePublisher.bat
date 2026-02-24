@@ -23,6 +23,7 @@ IF "%~1"=="/f" SET skipPrompts=y
 ECHO.
 ECHO Checking internet connection...
 PING tx.fhir.org -4 -n 1 -w 4000 | FINDSTR TTL && GOTO isonline
+powershell -command "try { $response = Invoke-WebRequest -Uri 'https://tx.fhir.org' -TimeoutSec 10 -ErrorAction Stop; if ($response.StatusCode -eq 200) { exit 0 } else { exit 1 } } catch { exit 1 }" && GOTO isonline
 ECHO We're offline, nothing to do...
 GOTO end
 
@@ -135,15 +136,16 @@ GOTO done
 
 
 ECHO.
-ECHO Updating scripts
-IF "%skipPrompts%"=="y" (
-	SET updateScripts=Y
-) ELSE (
-	SET /p updateScripts="Update scripts? (Y/N) "
-)
-IF /I "%updateScripts%"=="Y" (
-	GOTO scripts
-)
+ECHO Skipping script updates to preserve custom modifications
+REM ECHO Updating scripts
+REM IF "%skipPrompts%"=="y" (
+REM 	SET updateScripts=Y
+REM ) ELSE (
+REM 	SET /p updateScripts="Update scripts? (Y/N) "
+REM )
+REM IF /I "%updateScripts%"=="Y" (
+REM 	GOTO scripts
+REM )
 GOTO end
 
 
