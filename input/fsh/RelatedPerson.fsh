@@ -9,11 +9,12 @@ Description: "A person not being a healthcare professional who is involved in th
 * patient only Reference(ACPPatient)
 * relationship contains
     roleAdditional 0..*
-* relationship ^short = "At least one relationship element SHALL be provided with a role code from either the role or roleAdditional slice. The roleAdditional slice contains additional codes introduced in the zib2024 release."
-* relationship[role] ^comment = "For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
+* relationship[role] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
+* relationship[role] ^comment = "Note: For ACP dataset concepts id `441` (Wettelijk vertegenwoordiger / Contactpersoon) and id `478` (Eerste contactpersoon / Contactpersoon), `relationship[role]` is conceptually 1..*. However, this cardinality is not profiled because it is not mandatory in all contexts where a ContactPerson is used. Creating separate specialized profiles was considered but rejected.  A single generic profile was chosen to avoid unnecessary complexity.\n\n
+For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
 * relationship[roleAdditional] from ACPContactPersonRoleVS (required)
-* relationship[roleAdditional] ^comment = "This slice contains codes not included in the RolCodelijst that is bound to the role slice."
-* relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
+* relationship[roleAdditional] ^definition = "This slice contains codes not included in the RolCodelijst that is bound to the role slice. But has the same definition as the role slice."
+* relationship[roleAdditional] ^comment = "Currently, the ACPContactPersonRoleVS ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling / Holder of medical power of attorney). When the SNOMED CT code `310141000146103` (Holder of medical power of attorney) is present in the roleAdditional slice, a corresponding `relationship[role]` entry with code `24` (Wettelijke vertegenwoordiger) from code system `urn:oid:2.16.840.1.113883.2.4.3.11.22.472` SHALL also be provided. This is enforced by invariant `ACP-ContactPerson-1`."
 
 * insert ObligationRules(patient)
 * insert ObligationRules(relationship[role])
@@ -46,10 +47,12 @@ Description: "A person not being a healthcare professional who is involved in th
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
 
-Invariant: ACP-ContactPerson-1
-Description: "At least one relationship element must contain a role code from the role slice (RolCodelijst) or the roleAdditional slice (ACPContactPersonRoleVS)."
+
+Invariant: ACP-ContactPerson-2
+Description: "If the SNOMED CT code 310141000146103 (Holder of medical power of attorney) is present in the relationship, then a relationship role code 24 (Wettelijke vertegenwoordiger) from code system urn:oid:2.16.840.1.113883.2.4.3.11.22.472 must also be present."
 Severity: #error
-Expression: "relationship.coding.where((system = 'urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.23.1' and (code = '100001' or code = '100002' or code = '100003' or code = '100004')) or (system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and (code = '01' or code = '02' or code = '03' or code = '04' or code = '05' or code = '06' or code = '07' or code = '09' or code = '11' or code = '14' or code = '15' or code = '19' or code = '20' or code = '21' or code = '23' or code = '24')) or (system = 'http://snomed.info/sct' and code = '310141000146103')).exists()"
+Expression: "relationship.coding.where(system = 'http://snomed.info/sct' and code = '310141000146103').exists() implies relationship.coding.where(system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and code = '24').exists()"
+
 
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
@@ -57,6 +60,7 @@ Title: "ACP dataset"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)"
+* -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * -> "615" "Contactpersoon"
 * -> "650" "Contactpersoon"
 * -> "696" "Contactpersoon"
@@ -100,7 +104,6 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * relationship[role] -> "475" "Rol"
 * relationship[role] -> "477" "Vertegenwoordiger is contactpersoon"
 * relationship[relationship] -> "476" "Relatie"
-* -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * name -> "479" "Naamgegevens"
 * name[nameInformation].given -> "480" "Voornamen"
 * name[nameInformation].given -> "481" "Initialen"
@@ -166,6 +169,7 @@ Usage: #example
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
+* relationship[+] = $snomed#310141000146103 "Schriftelijk gemachtigde zorg en behandeling"
 * relationship[+] = $v3-RoleCode#BRO "brother"
 * name[0].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
 * name[=].extension.valueCode = #NL1
