@@ -48,7 +48,7 @@ For the ACP use case, additional codes beyond those in the existing ContactPerso
 * insert ObligationRules(address.type)
 
 
-Invariant: ACP-ContactPerson-2
+Invariant: ACP-ContactPerson-1
 Description: "If the SNOMED CT code 310141000146103 (Holder of medical power of attorney) is present in the relationship, then a relationship role code 24 (Wettelijke vertegenwoordiger) from code system urn:oid:2.16.840.1.113883.2.4.3.11.22.472 must also be present."
 Severity: #error
 Expression: "relationship.coding.where(system = 'http://snomed.info/sct' and code = '310141000146103').exists() implies relationship.coding.where(system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and code = '24').exists()"
