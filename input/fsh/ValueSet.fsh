@@ -133,6 +133,15 @@ Description: "ICD product code for MedicalDevice ProductType. This ValueSet is c
 * $snomed#1263462004 "pulsgenerator van defibrillator voor cardiale resynchronisatietherapie"
 * $snomed#1236894001 "subcutane implanteerbare cardioverter-defibrillator"
 
+ValueSet: ACPContactPersonRoleVS
+Id: ACP-ContactPersonRole
+Title: "ACP ContactPerson Role zib2024 backport"
+Description: "ValueSet containing additional codes to the ContactPerson's [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000). These codes are applied from the zib2024 release onwards. Currently, the ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling / Holder of medical power of attorney) from the zib2024 release. The ValueSet is bound to a slice in `RelatedPerson.relationship."
+* insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
+* $snomed#310141000146103 "Schriftelijk gemachtigde zorg en behandeling" // Holder of medical power of attorney
+
+
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
 Title: "ACP Yes, No, Unknown valueSet"
