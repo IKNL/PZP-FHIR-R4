@@ -8,7 +8,8 @@
 %als identifier.system 'urn:ietf:rfc:3986' is, dan moet de identifier.value een volledige uri zijn (dus beginnen met een scheme), niet 'Local eCMS identifier'%
 
 # DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
-%Procedure.code: Kan niet bevestigen dat de gevonden codings bestaan in de waardelijst http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.19--20200901000000|2020-09-01T00:00:00 en een coding uit deze waardelijst is verplicht (class = SERVER_ERROR)
+%Procedure.code: Error from https://tx.fhir.org/r4: The SNOMED CT Concept 41000147108 is not known%
+%The filter "concept in 41000147108" from the value set http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20200901000000%
 
 # SNOMED code 570801000146104 is added after 'http://snomed.info/sct/11000146104/version/20240930' which is the one currently known by tx.fhir.org/r4
 %Observation.code.coding[0].code: Unknown code '570801000146104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'%
