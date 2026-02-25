@@ -11,12 +11,12 @@
   "status": "completed",
   "authored": "2025-08-25T19:18:32.253Z",
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
-  "author": [
+  "author": 
     {
       "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1",
       "display": "Healthcare professional (role), Dr Van Huissen"
     }
-  ],
+  ,
   "source": {
     "reference": "Patient/ACP-Patient-HendrikHartman-Pat1",
     "display": "Patient, Hendrik Hartman"
