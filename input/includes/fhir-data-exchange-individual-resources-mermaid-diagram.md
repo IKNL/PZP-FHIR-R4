@@ -41,7 +41,7 @@ sequenceDiagram
             deactivate S
         and
             %% 6. Devices
-            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD<br>&_include=DeviceUseStatement:device
+            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device.type=http://snomed.info/sct|72506001,465460004,468542000,704707009,1263462004,1236894001<br>&_include=DeviceUseStatement:device
             activate S
             S-->>C: 200 OK: Bundle (DeviceUseStatement + Device)
             deactivate S

@@ -85,7 +85,10 @@ jobs:
           include: errors
           filters: |
             # DHD Verrichtingenthesaurus-referentieset (41000147108) referenced from ValueSet bound in nl-core profile is not loaded into tx.fhir.org
-            ||*SNOMED CT Concept 41000147108*|Procedure.code 
+            ||*The filter "concept in 41000147108"*|Procedure.code 
+
+            # Manual check in latest version of SNOMED does find the code '1351964001'. The error might be due to a older version of SNOMED available in tx.fhir.org/r4 
+            |Terminology_TX_NoValid_1_CC|*1351964001*|
             
             # ActorDefinition resources is from R5 onwards, but we use it in R4 anyway.
             ActorDefinition-ACPActorConsulter.json||*content cannot be parsed*|*
