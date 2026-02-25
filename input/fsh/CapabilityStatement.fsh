@@ -117,7 +117,7 @@ Usage: #definition
       * url = $CapExpectation
       * valueCode = #SHOULD
     * type = #Goal
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalPolicyGoal"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
@@ -127,8 +127,8 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "description"
-      * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/Goal-category"
       * type = #token
 
 
@@ -462,7 +462,7 @@ Usage: #definition
       * url = $CapExpectation
       * valueCode = #SHALL
     * type = #Goal
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-Medical-Policy-Goal"
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-MedicalPolicyGoal"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
@@ -472,8 +472,8 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "description"
-      * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/Goal-category"
       * type = #token
 
   // OBSERVATION RESOURCE 

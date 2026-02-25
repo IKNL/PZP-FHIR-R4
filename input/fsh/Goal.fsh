@@ -1,6 +1,6 @@
 Profile: ACPMedicalPolicyGoal
 Parent: Goal
-Id: ACP-Medical-Policy-Goal
+Id: ACP-MedicalPolicyGoal
 Title: "ACP Medical Policy Goal"
 Description: "The primary, agreed-upon goal of a patient's medical treatment policy. Based on Goal resource."
 * insert MetaRules
@@ -27,7 +27,7 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "598" "[Toelichting]"
 
 
-Instance: ACP-Medical-Policy-Goal-Pat1
+Instance: ACP-MedicalPolicyGoal-Pat1
 InstanceOf: ACPMedicalPolicyGoal
 Title: "ACP Medical Policy Goal - Pat 1"
 Usage: #example
