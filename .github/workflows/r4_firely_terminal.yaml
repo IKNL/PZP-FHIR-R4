@@ -88,7 +88,7 @@ jobs:
             ||*The filter "concept in 41000147108"*|Procedure.code 
 
             # Manual check in latest version of SNOMED does find the code '1351964001'. The error might be due to a older version of SNOMED available in tx.fhir.org/r4 
-            Goal-ACP-MedicalPolicyGoal-Pat1.json|Terminology_TX_NoValid_1_CC|*None of the codings provided are in the value set 'ACP Primary Agreed-upon Goal of Medical Policy'*|Goal.​description
+            Goal-ACP-MedicalPolicyGoal-Pat1.json||*None of the codings provided are in the value set*|Goal.​description
             
             # ActorDefinition resources is from R5 onwards, but we use it in R4 anyway.
             ActorDefinition-ACPActorConsulter.json||*content cannot be parsed*|*
