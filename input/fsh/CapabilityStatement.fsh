@@ -127,8 +127,8 @@ Usage: #definition
       * extension
         * url = $CapExpectation
         * valueCode = #SHALL
-      * name = "description"
-      * definition = "http://hl7.org/fhir/SearchParameter/Goal-description"
+      * name = "category"
+      * definition = "http://hl7.org/fhir/SearchParameter/Goal-category"
       * type = #token
 
 
