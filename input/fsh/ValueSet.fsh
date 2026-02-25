@@ -123,11 +123,15 @@ Description: "ValueSet for Medical Policy Goal, representing the primary agreed-
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
 Title: "ACP MedicalDevice ProductType ICD"
-Description: "ICD product code for MedicalDevice ProductType."
+Description: "ICD product code for MedicalDevice ProductType. This ValueSet is conceptually based on SNOMED CT codes that are descendants of `72506001` (implanteerbare cardioverter-defibrillator), i.e. an `is-a` filter. However, the codes are explicitly enumerated rather than using an intensional `is-a` filter to make the ValueSet easier to understand and implement for consumers."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
-* include codes from system http://snomed.info/sct where concept is-a #72506001
-
+* $snomed#72506001 "implanteerbare cardioverter-defibrillator"
+* $snomed#465460004 "univentriculaire implanteerbare cardioverter-defibrillator"
+* $snomed#468542000 "implanteerbare tweekamercardioverter-defibrillator"
+* $snomed#704707009 "implanteerbare biventriculaire cardioverter-defibrillator"
+* $snomed#1263462004 "pulsgenerator van defibrillator voor cardiale resynchronisatietherapie"
+* $snomed#1236894001 "subcutane implanteerbare cardioverter-defibrillator"
 
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
