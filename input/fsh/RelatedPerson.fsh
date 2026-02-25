@@ -5,7 +5,6 @@ Id: ACP-ContactPerson
 Title: "ACP ContactPerson"
 Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
-* obeys ACP-ContactPerson-1
 * patient only Reference(ACPPatient)
 * relationship contains
     roleAdditional 0..*
@@ -14,7 +13,7 @@ Description: "A person not being a healthcare professional who is involved in th
 For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
 * relationship[roleAdditional] from ACPContactPersonRoleVS (required)
 * relationship[roleAdditional] ^definition = "This slice contains codes not included in the RolCodelijst that is bound to the role slice. But has the same definition as the role slice."
-* relationship[roleAdditional] ^comment = "Currently, the ACPContactPersonRoleVS ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling / Holder of medical power of attorney). When the SNOMED CT code `310141000146103` (Holder of medical power of attorney) is present in the roleAdditional slice, a corresponding `relationship[role]` entry with code `24` (Wettelijke vertegenwoordiger) from code system `urn:oid:2.16.840.1.113883.2.4.3.11.22.472` SHALL also be provided. This is enforced by invariant `ACP-ContactPerson-1`."
+* relationship[roleAdditional] ^comment = "Currently, the ACPContactPersonRoleVS ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling).
 
 * insert ObligationRules(patient)
 * insert ObligationRules(relationship[role])
@@ -47,11 +46,6 @@ For the ACP use case, additional codes beyond those in the existing ContactPerso
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
 
-
-Invariant: ACP-ContactPerson-1
-Description: "If the SNOMED CT code 310141000146103 (Holder of medical power of attorney) is present in the relationship, then a relationship role code 24 (Wettelijke vertegenwoordiger) from code system urn:oid:2.16.840.1.113883.2.4.3.11.22.472 must also be present."
-Severity: #error
-Expression: "relationship.coding.where(system = 'http://snomed.info/sct' and code = '310141000146103').exists() implies relationship.coding.where(system = 'urn:oid:2.16.840.1.113883.2.4.3.11.22.472' and code = '24').exists()"
 
 
 Mapping: MapACPContactPerson
