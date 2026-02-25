@@ -123,10 +123,23 @@ Description: "ValueSet for Medical Policy Goal, representing the primary agreed-
 ValueSet: ACPMedicalDeviceProductTypeICDVS
 Id: ACP-MedicalDeviceProductType-ICD
 Title: "ACP MedicalDevice ProductType ICD"
-Description: "ICD product code for MedicalDevice ProductType."
+Description: "ICD product code for MedicalDevice ProductType. This ValueSet is conceptually based on SNOMED CT codes that are descendants of `72506001` (implanteerbare cardioverter-defibrillator), i.e. an `is-a` filter. However, the codes are explicitly enumerated rather than using an intensional `is-a` filter to make the ValueSet easier to understand and implement for consumers."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
-* include codes from system http://snomed.info/sct where concept is-a #72506001
+* $snomed#72506001 "implanteerbare cardioverter-defibrillator"
+* $snomed#465460004 "univentriculaire implanteerbare cardioverter-defibrillator"
+* $snomed#468542000 "implanteerbare tweekamercardioverter-defibrillator"
+* $snomed#704707009 "implanteerbare biventriculaire cardioverter-defibrillator"
+* $snomed#1263462004 "pulsgenerator van defibrillator voor cardiale resynchronisatietherapie"
+* $snomed#1236894001 "subcutane implanteerbare cardioverter-defibrillator"
+
+ValueSet: ACPContactPersonRoleVS
+Id: ACP-ContactPersonRole
+Title: "ACP ContactPerson Role zib2024 backport"
+Description: "ValueSet containing additional codes to the ContactPerson's [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000). These codes are applied from the zib2024 release onwards. Currently, the ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling / Holder of medical power of attorney) from the zib2024 release. The ValueSet is bound to a slice in `RelatedPerson.relationship."
+* insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
+* $snomed#310141000146103 "Schriftelijk gemachtigde zorg en behandeling" // Holder of medical power of attorney
 
 
 ValueSet: ACPYesNoUnknownVS

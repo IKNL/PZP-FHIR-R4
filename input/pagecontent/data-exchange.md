@@ -54,7 +54,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003,570801000146104
 
-6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type:in=https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD&_include=DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,465460004,468542000,704707009,1263462004,1236894001&_include=DeviceUseStatement:device
 
 7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
 ```
@@ -72,7 +72,6 @@ The below listed search requests show how all the ACP agreements, procedural inf
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:
 * `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
-* `in`: A modifier that enables searching against a ValueSet. In the client requests above, it checks if the device type is included in the specified ValueSet of ICD products.
 * Chained parameters: Used for searching within referenced resources. For example, to find `DeviceUseStatement` resources with a specific `Device`, or `Encounter` resources that have an advance care planning `Procedure` as their reason.
 
 #### Server Response

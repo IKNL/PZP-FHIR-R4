@@ -6,12 +6,18 @@ Title: "ACP ContactPerson"
 Description: "A person not being a healthcare professional who is involved in the patient’s care, such as family members, caregivers, mental caretakers, guardians and legal representatives. Based on nl-core-ContactPerson and HCIM ContactPerson."
 * insert MetaRules
 * patient only Reference(ACPPatient)
-* relationship 1..*
-* relationship[role] 1..* 
-* relationship[relationship] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
+* relationship contains
+    roleAdditional 0..*
+* relationship[role] ^definition = "When someone is or **will be** a legal representative, then a relationship code `24` from code system  _urn:oid:2.16.840.1.113883.2.4.3.11.22.472_ is added."
+* relationship[role] ^comment = "Note: For ACP dataset concepts id `441` (Wettelijk vertegenwoordiger / Contactpersoon) and id `478` (Eerste contactpersoon / Contactpersoon), `relationship[role]` is conceptually 1..*. However, this cardinality is not profiled because it is not mandatory in all contexts where a ContactPerson is used. Creating separate specialized profiles was considered but rejected.  A single generic profile was chosen to avoid unnecessary complexity.\n\n
+For the ACP use case, additional codes beyond those in the existing ContactPerson [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000) are required. This is permitted by the zib's extensible binding. However, the ValueSet is bound as 'required' in this slice to ensure the slicing works correctly. Therefore, an additional slice has been added containing a bound ValueSet with the extra codes."
+* relationship[roleAdditional] from ACPContactPersonRoleVS (required)
+* relationship[roleAdditional] ^definition = "This slice contains codes not included in the RolCodelijst that is bound to the role slice. But has the same definition as the role slice."
+* relationship[roleAdditional] ^comment = "Currently, the ACPContactPersonRoleVS ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling)."
 
 * insert ObligationRules(patient)
 * insert ObligationRules(relationship[role])
+* insert ObligationRules(relationship[roleAdditional])
 * insert ObligationRules(relationship[relationship])
 * insert ObligationRules(name[nameInformation].given)
 * insert ObligationRules(name[nameInformation-GivenName].given)
@@ -40,12 +46,15 @@ Description: "A person not being a healthcare professional who is involved in th
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
 
+
+
 Mapping: MapACPContactPerson
 Id: pall-izppz-zib2020v2025-03-11
 Title: "ACP dataset"
 Source: ACPContactPerson
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
 * -> "441" "Wettelijk vertegenwoordiger (Contactpersoon)"
+* -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * -> "615" "Contactpersoon"
 * -> "650" "Contactpersoon"
 * -> "696" "Contactpersoon"
@@ -89,7 +98,6 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * relationship[role] -> "475" "Rol"
 * relationship[role] -> "477" "Vertegenwoordiger is contactpersoon"
 * relationship[relationship] -> "476" "Relatie"
-* -> "478" "Eerste contactpersoon (Contactpersoon)" 
 * name -> "479" "Naamgegevens"
 * name[nameInformation].given -> "480" "Voornamen"
 * name[nameInformation].given -> "481" "Initialen"
@@ -155,6 +163,7 @@ Usage: #example
 * patient.type = "Patient"
 * relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
+* relationship[+] = $snomed#310141000146103 "Schriftelijk gemachtigde zorg en behandeling"
 * relationship[+] = $v3-RoleCode#BRO "brother"
 * name[0].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
 * name[=].extension.valueCode = #NL1
