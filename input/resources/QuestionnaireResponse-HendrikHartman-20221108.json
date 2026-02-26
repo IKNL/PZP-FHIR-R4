@@ -551,8 +551,9 @@
                   "answer": [
                     {
                       "valueCoding": {
-                        "code": "ICD",
-                        "display": "ICD"
+                        "system": "http://snomed.info/sct",
+                        "code": "72506001",
+                        "display": "implanteerbare cardioverter-defibrillator"
                       }
                     }
                   ],
