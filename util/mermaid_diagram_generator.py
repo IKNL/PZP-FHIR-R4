@@ -19,7 +19,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         "PractitionerRole": "ACP Individuals",
         "DeviceUseStatement": "ACP Supporting information",
         "Device": "ACP Supporting information",
-        "Communication": "ACP Supporting information",
+        "CommunicationRequest": "ACP Supporting information",
         "Encounter": "ACP Consultation",
         "Procedure": "ACP Consultation",
     }
@@ -122,7 +122,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
         f.write("#### Data Model Overview Diagram\n")
-        f.write("```mermaid\n")
+        f.write('<div class="mermaid" style="height: 700px; overflow: visible;">\n')
         f.write("flowchart TB\n\n")
 
         f.write("    %% ---- Style Definitions for Categories ----\n")
@@ -134,7 +134,10 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         f.write("\n")
 
         f.write("    %% ---- Subgraph Definitions ----\n")
-        for resource_type, profile_list in sorted(resource_to_profiles.items()):
+        # Sort resource types, placing Observation last to appear on the right
+        sorted_resources = sorted(resource_to_profiles.items(), key=lambda x: (x[0] == "Observation", x[0]))
+        
+        for resource_type, profile_list in sorted_resources:
             f.write(f'    subgraph "{resource_type}"\n')
             for profile_name in sorted(profile_list):
                 f.write(f'        {profile_name}\n')
@@ -154,7 +157,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
             label = ", ".join(sorted(list(paths)))
             f.write(f'    {source_resource} -- "{label}" --> {target_resource}\n')
         
-        f.write("```\n")
+        f.write("</div>\n")
     
     print(f"\nSuccessfully generated final Mermaid diagram at: {output_markdown_file}")
 

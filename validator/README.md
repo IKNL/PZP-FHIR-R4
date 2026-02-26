@@ -1,7 +1,7 @@
 # README Validator Quality Checks
 
 The CI pipeline (.github\workflows\r4_firely_terminal.yaml)
-ensures the quality of published ISiK conformance resources by utilizing the official Java FHIR
+ensures the quality of published conformance resources by utilizing the official Java FHIR
 validator. It performs comprehensive checks on most machine-readable FHIR artifacts in the
 repository. For detailed information about the validator, refer
 to [Using the FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator).

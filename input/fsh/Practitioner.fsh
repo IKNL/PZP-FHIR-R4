@@ -1,7 +1,7 @@
 Profile: ACPHealthProfessionalPractitioner
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-HealthProfessional-Practitioner
 Id: ACP-HealthProfessional-Practitioner
-Title: "HealthProfessional Practitioner"
+Title: "ACP HealthProfessional Practitioner"
 Description: "A person who is authorized to perform actions in the field of individual healthcare. Based on nl-core-HealthProfessionalPractitioner and HCIM HealthProfessional."
 * insert MetaRules
 * insert ObligationRules(identifier)
@@ -25,9 +25,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * name[nameInformation].family.extension[lastName] -> "400" "Achternaam"
 
 
-Instance: F1-ACP-HealthProfessional-Practitioner-DrVanHuissen
+Instance: ACP-HealthProfessional-Practitioner-DrVanHuissen-Pat1
 InstanceOf: ACPHealthProfessionalPractitioner
-Title: "F1 ACP HealthProfessional Practitioner Dr. van Huissen"
+Title: "ACP HealthProfessional Practitioner - Dr. van Huissen - Pat 1"
 Usage: #example
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
 * identifier.value = "01999999"
@@ -38,3 +38,27 @@ Usage: #example
 * name.family.extension[=].valueString = "van"
 * name.family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
 * name.family.extension[=].valueString = "Huissen"
+
+
+Instance: ACP-HealthProfessional-Practitioner-DesireeWolters-Pat2
+InstanceOf: ACPHealthProfessionalPractitioner
+Title: "ACP HealthProfessional Practitioner - Desiree Wolters - Pat 2"
+Usage: #example
+* identifier.system = "http://fhir.nl/fhir/NamingSystem/agb-z"
+* identifier.value = "000003333"
+* name.use = #official
+* name.text = "Desiree Wolters"
+* name.family = "Wolters"
+* name.family.extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name.family.extension.valueString = "Wolters"
+* name.given = "Desiree"
+* name.given.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name.given.extension.valueCode = #BR
+
+
+Instance: ACP-HealthProfessional-Practitioner-Santos-Pat2
+InstanceOf: ACPHealthProfessionalPractitioner
+Title: "ACP HealthProfessional Practitioner - Santos - Pat 2"
+Usage: #example
+* name.use = #official
+* name.text = "Richard Santos"

@@ -153,16 +153,20 @@ menu:
 #
 resources:
   Questionnaire/ACP-zib2020:
-    name: ACP Questionnaire based on zib2020
-    description: Uniform vastleggen proactieve zorgpanning advance care planning (ACP) o.b.v. zibs2020 - Beta3 28-08-2025
+    name: ACP Questionnaire
+    description: Questionnaire based on structured form 'Uniform vastleggen proactieve zorgpanning advance care planning (ACP)'
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20201001:
-    name: QuestionnaireResponse Hendrik Hartman 20201001
+    name: ACP QuestionnaireResponse Hendrik Hartman 1
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2020-10-01
     exampleBoolean: false
   QuestionnaireResponse/HendrikHartman-20221108:
-    name: QuestionnaireResponse Hendrik Hartman 20221108
+    name: ACP QuestionnaireResponse Hendrik Hartman 2
     description: An example of a QuestionnaireResponse for Hendrik Hartman on 2022-11-08
+    exampleBoolean: false
+  QuestionnaireResponse/SamiraVanDerSluijs-20251117:
+    name: ACP QuestionnaireResponse Samira van der Sluijs
+    description: An example of a QuestionnaireResponse for Samira van der Sluijs on 2025-11-17
     exampleBoolean: false
 
 #
@@ -177,14 +181,6 @@ resources:
 # URL when generating the IG JSON.
 #
 groups:
-  Q-QR:
-    name: "Structures: Questionnaire and QuestionnaireResponses"
-    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
-    resources:
-    - Questionnaire/ACP-zib2020
-    - QuestionnaireResponse/HendrikHartman-20201001
-    - QuestionnaireResponse/HendrikHartman-20221108
-
   AD:
     name: "Requirements: Actor Definitions"
     description: The following artifacts define the types of individuals and/or systems that will interact as part of the use cases covered by this implementation guide.
@@ -192,7 +188,41 @@ groups:
     - ActorDefinition/ACPActorConsulter
     - ActorDefinition/ACPActorProvider
 
+  NLCoreStructures:
+    name: "Structures: NL Core Derived Resource Profiles"
+    description: These are ACP profiles derived from the nl-core profiles and are based on the Dutch Health and Care Information models (Zorginformatiebouwstenen - zibs).
+    resources:
+    - StructureDefinition/ACP-Procedure
+    - StructureDefinition/ACP-AdvanceDirective
+    - StructureDefinition/ACP-ContactPerson
+    - StructureDefinition/ACP-Encounter
+    - StructureDefinition/ACP-HealthProfessional-Practitioner
+    - StructureDefinition/ACP-HealthProfessional-PractitionerRole
+    - StructureDefinition/ACP-MedicalDevice
+    - StructureDefinition/ACP-MedicalDevice.Product-ICD
+    - StructureDefinition/ACP-Patient
+    - StructureDefinition/ACP-TreatmentDirective
 
+  ACPStructures:
+    name: "Structures: Resource Profiles"
+    description: These are ACP profiles based on FHIR core resources.
+    resources:
+    - StructureDefinition/ACP-InformRelativesRequest
+    - StructureDefinition/ACP-MedicalPolicyGoal
+    - StructureDefinition/ACP-OrganDonationChoiceRegistration
+    - StructureDefinition/ACP-PositionRegardingEuthanasia
+    - StructureDefinition/ACP-PreferredPlaceOfDeath
+    - StructureDefinition/ACP-SenseOfPurpose
+    - StructureDefinition/ACP-SpecificCareWishes
+
+  Q-QR:
+    name: "Structures: Questionnaire and QuestionnaireResponses"
+    description: These define forms used by systems conforming to this implementation guide to capture or expose data to end users.
+    resources:
+    - Questionnaire/ACP-zib2020
+    - QuestionnaireResponse/HendrikHartman-20201001
+    - QuestionnaireResponse/HendrikHartman-20221108
+    - QuestionnaireResponse/SamiraVanDerSluijs-20251117
 #   GroupB:
 #     name: Group B
 #     description: The Beta Group

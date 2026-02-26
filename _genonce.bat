@@ -4,6 +4,7 @@ SET input_cache_path=%CD%\input-cache
 
 ECHO Checking internet connection...
 PING tx.fhir.org -4 -n 1 -w 1000 | FINDSTR TTL && GOTO isonline
+powershell -command "try { $response = Invoke-WebRequest -Uri 'https://tx.fhir.org' -TimeoutSec 10 -ErrorAction Stop; if ($response.StatusCode -eq 200) { exit 0 } else { exit 1 } } catch { exit 1 }" && GOTO isonline
 ECHO We're offline...
 SET txoption=-tx n/a
 GOTO igpublish
@@ -22,6 +23,12 @@ IF EXIST "%input_cache_path%\%publisher_jar%" (
 	JAVA -jar "..\%publisher_jar%" -ig . %txoption% %*
 ) ELSE (
 	ECHO IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
+	GOTO end
 )
 
+ECHO.
+ECHO Stripping standards status extensions from generated resources...
+python util\strip_standards_status_extensions.py
+
+:end
 PAUSE

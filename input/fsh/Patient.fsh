@@ -1,12 +1,12 @@
 Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
-Title: "Patient"
+Title: "ACP Patient"
 Description: "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient."
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
-    ExtLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
+    ExtPatientLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
 * extension[legallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
 * contact ^condition = "ACP-Patient-1"
@@ -64,8 +64,8 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * -> "613" "Patient"
 * -> "648" "Patient"
 * extension[legallyCapableMedicalTreatmentDecisions] -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen" 
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString -> "763" "Toelichting"
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable] -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment] -> "763" "Toelichting"
 * identifier -> "385" "Identificatienummer"
 * name -> "352" "Naamgegevens"
 * name[nameInformation].given -> "353" "Voornamen"
@@ -73,11 +73,11 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * name[nameInformation-GivenName].given -> "355" "Roepnaam"
 * name[nameInformation].use -> "356" "Naamgebruik"
 // 357 - Geslachtsnaam - is not mapped as there is no element for this container. It is also not mapped in the zib profile.
-* name[nameInformation].family.extension[prefix].valueString -> "358" "Voorvoegsels"
-* name[nameInformation].family.extension[lastName].valueString -> "359" "Achternaam"
+* name[nameInformation].family.extension[prefix] -> "358" "Voorvoegsels"
+* name[nameInformation].family.extension[lastName] -> "359" "Achternaam"
 // 360 - GeslachtsnaamPartner - is not mapped as there is no element for this container. It is also not mapped in the zib profile.
-* name[nameInformation].family.extension[partnerPrefix].valueString -> "361" "VoorvoegselsPartner"
-* name[nameInformation].family.extension[partnerLastName].valueString -> "362" "AchternaamPartner"
+* name[nameInformation].family.extension[partnerPrefix] -> "361" "VoorvoegselsPartner"
+* name[nameInformation].family.extension[partnerLastName] -> "362" "AchternaamPartner"
 * name[nameInformation].suffix -> "363" "Titels"
 * name -> "515" "Naamgegevens"
 * name[nameInformation].given -> "516" "Voornamen"
@@ -85,11 +85,11 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * name[nameInformation-GivenName].given -> "518" "Roepnaam"
 * name[nameInformation].use -> "519" "Naamgebruik"
 // 520 - Geslachtsnaam - is not mapped as there is no element for this container. It is also not mapped in the zib profile.
-* name[nameInformation].family.extension[prefix].valueString -> "521" "Voorvoegsels"
-* name[nameInformation].family.extension[lastName].valueString -> "522" "Achternaam"
+* name[nameInformation].family.extension[prefix] -> "521" "Voorvoegsels"
+* name[nameInformation].family.extension[lastName] -> "522" "Achternaam"
 // 523 - GeslachtsnaamPartner - is not mapped as there is no element for this container. It is also not mapped in the zib profile.
-* name[nameInformation].family.extension[partnerPrefix].valueString -> "524" "VoorvoegselsPartner"
-* name[nameInformation].family.extension[partnerLastName].valueString -> "525" "AchternaamPartner"
+* name[nameInformation].family.extension[partnerPrefix] -> "524" "VoorvoegselsPartner"
+* name[nameInformation].family.extension[partnerLastName] -> "525" "AchternaamPartner"
 * name[nameInformation].suffix -> "526" "Titels"
 * telecom -> "376" "Contactgegevens" 
 * telecom[telephoneNumbers] -> "377" "Telefoonnummers"
@@ -97,31 +97,31 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * telecom[telephoneNumbers].system -> "379" "TelecomType"
 * telecom[telephoneNumbers].system.extension[telecomType].valueCodeableConcept -> "379" "TelecomType"
 * telecom[telephoneNumbers].use -> "380" "NummerSoort"
-* telecom[telephoneNumbers].extension[comment].valueString -> "381" "Toelichting"
+* telecom[telephoneNumbers].extension[comment] -> "381" "Toelichting"
 * telecom[emailAddresses] -> "382" "EmailAdressen"
 * telecom[emailAddresses].value -> "383" "EmailAdres"
 * telecom[emailAddresses].system -> "384" "EmailSoort"
 * gender -> "387" "Geslacht"
-* gender.extension[genderCodelist].value[x] -> "387" "Geslacht" 
+* gender.extension[genderCodelist] -> "387" "Geslacht" 
 * birthDate -> "386" "Geboortedatum"
 * address -> "364" "Adresgegevens"
-* address.line.extension[streetName].valueString -> "365" "Straat"
-* address.line.extension[houseNumber].valueString -> "366" "Huisnummer"
-* address.line.extension[houseNumberLetter-houseNumberAddition].valueString -> "367" "Huisnummerletter"
-* address.line.extension[houseNumberLetter-houseNumberAddition].valueString -> "368" "Huisnummertoevoeging"
-* address.line.extension[houseNumberIndication].valueString -> "369" "AanduidingBijHuisnummer"
+* address.line.extension[streetName] -> "365" "Straat"
+* address.line.extension[houseNumber] -> "366" "Huisnummer"
+* address.line.extension[houseNumberLetter-houseNumberAddition] -> "367" "Huisnummerletter"
+* address.line.extension[houseNumberLetter-houseNumberAddition] -> "368" "Huisnummertoevoeging"
+* address.line.extension[houseNumberIndication] -> "369" "AanduidingBijHuisnummer"
 * address.postalCode -> "370" "Postcode"
 * address.city -> "371" "Woonplaats"
 * address.district -> "372" "Gemeente"
-* address.country.extension[countryCode].valueCodeableConcept -> "373" "Land"
-* address.line.extension[additionalInformation].valueString -> "374" "AdditioneleInformatie"
+* address.country.extension[countryCode] -> "373" "Land"
+* address.line.extension[additionalInformation] -> "374" "AdditioneleInformatie"
 * address.use -> "375" "AdresSoort"
 * address.type -> "375" "AdresSoort"
 
 
-Instance: F1-ACP-Patient-HendrikHartman
+Instance: ACP-Patient-HendrikHartman-Pat1
 InstanceOf: ACPPatient
-Title: "F1 ACP Patient Hendrik Hartman"
+Title: "ACP Patient - Hendrik Hartman - Pat 1"
 Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
@@ -139,7 +139,7 @@ Usage: #example
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Hendrik"
 * birthDate = "1961-01-01"
-* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-MichielHartman)
+* contact.extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MichielHartman-Pat1)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * contact.relationship[+] = $v3-RoleCode#BRO "brother"
@@ -156,3 +156,55 @@ Usage: #example
 * contact.telecom[0].system = #email
 * contact.telecom[=].value = "michiel.hartman@iknl.nl"
 * contact.telecom[=].use = #work
+
+
+Instance: ACP-Patient-SamiraVanDerSluijs-Pat2
+InstanceOf: ACPPatient
+Title: "ACP Patient - Samira van der Sluijs - Pat 2"
+Usage: #example
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
+* identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
+* identifier.value = "999998298"
+* name[0].use = #official
+* name[=].text = "Samira van der Sluijs"
+* name[=].family = "van der Sluijs"
+* name[=].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name[=].family.extension[=].valueString = "Sluijs"
+* name[=].family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+* name[=].family.extension[=].valueString = "van der"
+* name[=].given[0] = "Samira"
+* name[=].given[+] = "Louise"
+* name[=].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[=].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[+].use = #usual
+* name[=].given = "Samira"
+* telecom[+].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0688877788"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "samira.test@iknl.nl"
+* telecom[=].use = #work
+* gender = #female
+* gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"
+* birthDate = "1959-07-31"
+* address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
+* address.use = #home
+* address.type = #both
+* address.line = "Vasteland 78"
+* address.line.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+* address.line.extension[=].valueString = "Vasteland"
+* address.line.extension[+].url = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+* address.line.extension[=].valueString = "78"
+* address.city = "Rotterdam"
+* address.district = "Rotterdam"
+* address.postalCode = "3011BN"
+* address.country = "Nederland"
+* address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
