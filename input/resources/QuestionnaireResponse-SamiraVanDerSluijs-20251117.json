@@ -2,9 +2,6 @@
   "resourceType": "QuestionnaireResponse",
   "id": "SamiraVanDerSluijs-20251117",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse"
-    ],
     "tag": [
       {
         "code": "lformsVersion: 38.3.0"
