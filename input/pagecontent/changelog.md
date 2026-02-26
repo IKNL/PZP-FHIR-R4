@@ -3,33 +3,29 @@
 #### 1.0.0-rc2
 | Issue | Short Description |
 |-------|-------------------|
-| [#90](https://github.com/IKNL/PZP-FHIR-R4/issues/90) | Revisited the Medical Policy Goal profile to address reported inconsistencies and improve its alignment with the intended “medical policy” semantics. |
-| [#83](https://github.com/IKNL/PZP-FHIR-R4/issues/83) | Updated ACP-OtherImportantInformation metadata and identity to ensure consistent naming/canonical identity across generated artifacts. |
-| [#84](https://github.com/IKNL/PZP-FHIR-R4/issues/84) | Fixed search URL formatting by replacing an incorrect `_include:"` pattern with `_include=` to make queries valid and consistent. |
-| [#92](https://github.com/IKNL/PZP-FHIR-R4/issues/92) | Added an `ACP` prefix to all `StructureDefinition.title` elements to improve recognizability and consistency in rendered IG pages. |
-| [#81](https://github.com/IKNL/PZP-FHIR-R4/issues/81) | Resolved issues in the ACP Organ Donation Choice Registration content (questionnaire/profiles/terminology as applicable). |
-| [#93](https://github.com/IKNL/PZP-FHIR-R4/issues/93) | Expanded the obligations section in the IG to better explain mandatory expectations and obligation flags. |
+| [#90](https://github.com/IKNL/PZP-FHIR-R4/issues/90) | Refined the Medical Policy Goal profile by adding an ACP-specific SNOMED category, updating search parameters to use category-based retrieval and including the ‘unknown’ option to the valueset. |
+| [#83](https://github.com/IKNL/PZP-FHIR-R4/issues/83) | Aligned the ACP‑OtherImportantInformation profile metadata with the intended SNOMED concept by renaming the profile to ACPSenseOfPurpose, updating identity elements for consistency. |
+| [#84](https://github.com/IKNL/PZP-FHIR-R4/issues/84) | Corrected invalid `_include:` syntax in multiple search URLs and aligned all queries by standardizing the use of  `subject=Patient/[id]` notation.|
+| [#92](https://github.com/IKNL/PZP-FHIR-R4/issues/92) | Added an `ACP` prefix to all `StructureDefinition.title` elements. |
+| [#81](https://github.com/IKNL/PZP-FHIR-R4/issues/81) | Clarified that the organ‑donation finding is patient‑reported.|
+| [#93](https://github.com/IKNL/PZP-FHIR-R4/issues/93) | Expanded and refined the obligations guidance in the IG by adding the missing obligation flag for `Consent.provision.code` in the TreatmentDirective, and clarifying the overall obligation design principles and mapping approach.|
 | [#55](https://github.com/IKNL/PZP-FHIR-R4/issues/55) | Added a brief routing statement to the General API Requirements to clarify message/endpoint routing expectations. |
-| [#108](https://github.com/IKNL/PZP-FHIR-R4/issues/108) | Added a role for the first contact person in the FHIR questionnaire and changed the birthdate datatype to `date`. |
-| [#95](https://github.com/IKNL/PZP-FHIR-R4/issues/95) | Removed unnecessary constraints in the ACP Procedure profile to reduce over‑constraining and improve implementability. |
-| [#64](https://github.com/IKNL/PZP-FHIR-R4/issues/64) | Completed or fixed missing sequence diagrams to ensure the IG documentation fully reflects expected interactions. |
-| [#70](https://github.com/IKNL/PZP-FHIR-R4/issues/70) | Added or corrected references to sequence diagrams where they were missing in the documentation. |
-| [#71](https://github.com/IKNL/PZP-FHIR-R4/issues/71) | Clarified the EncounterReference extension to support linking relevant resources to an Encounter. |
-| [#72](https://github.com/IKNL/PZP-FHIR-R4/issues/72) | Set `provision.actor:agreementParty.role` to a fixed value `CONSENTER` for consistent interpretation. |
-| [#101](https://github.com/IKNL/PZP-FHIR-R4/issues/101) | Added a reference to IHE ITI‑119 (for section 4.2 item 2) to align guidance with established interoperability practice. |
-| [#7](https://github.com/IKNL/PZP-FHIR-R4/issues/7) | Restructured/rewrote IG headings and overall information architecture to improve readability and navigation. |
-| [#43](https://github.com/IKNL/PZP-FHIR-R4/issues/43) | Prettified and standardized the search queries to improve clarity for implementers. |
-| [#48](https://github.com/IKNL/PZP-FHIR-R4/issues/48) | Documented necessary modifications to Form Studio output to produce a valid FHIR Questionnaire. |
-| [#50](https://github.com/IKNL/PZP-FHIR-R4/issues/50) | Addressed a SUSHI `ElementDefinition.base` extension issue occurring when inserting Obligation extensions. |
-| [#54](https://github.com/IKNL/PZP-FHIR-R4/issues/54) | Removed outdated “Beta3 28‑08‑2025” text from the questionnaire title. |
-| [#56](https://github.com/IKNL/PZP-FHIR-R4/issues/56) | Reviewed and improved the organisation of examples to make them easier to locate and interpret. |
-| [#57](https://github.com/IKNL/PZP-FHIR-R4/issues/57) | Aligned STU3 value sets with R4 value sets for consistent terminology use across versions. |
-| [#59](https://github.com/IKNL/PZP-FHIR-R4/issues/59) | Investigated and addressed unexpected `0..0` cardinality rendering in TreatmentDirective. |
+| [#95](https://github.com/IKNL/PZP-FHIR-R4/issues/95) | Added the missing `role` field for the first contact person in the FHIR questionnaire and updated the birthdate datatype from `dateTime` to `date`.|
+| [#64](https://github.com/IKNL/PZP-FHIR-R4/issues/64) | Removed unnecessary constraints on `Procedure.performer.actor` in the ACP Procedure profile.|
+| [#70](https://github.com/IKNL/PZP-FHIR-R4/issues/70) | Addedd data‑exchange sequence diagrams. |
+| [#71](https://github.com/IKNL/PZP-FHIR-R4/issues/71) | Removed the `EncounterReference` extension |
+| [#101](https://github.com/IKNL/PZP-FHIR-R4/issues/101) | Added a reference to IHE‑ITI‑119 as an example mechanism for obtaining the Patient ID. |
+| [#43](https://github.com/IKNL/PZP-FHIR-R4/issues/43) | Prettified and standardized the search queries. |
+| [#50](https://github.com/IKNL/PZP-FHIR-R4/issues/50) | Fixed incorrect handling of obligation extensions. |
+| [#54](https://github.com/IKNL/PZP-FHIR-R4/issues/54) | Removed the outdated `Beta3 28‑08‑2025` from the questionnaire title. |
+| [#56](https://github.com/IKNL/PZP-FHIR-R4/issues/56) | Reorganized the R4 and STU3 example sets for consistency and aligned naming across all examples. |
+| [#57](https://github.com/IKNL/PZP-FHIR-R4/issues/57) | Aligned STU3 valueset displays with the updated R4 valuesets. |
+| [#59](https://github.com/IKNL/PZP-FHIR-R4/issues/59) | Fixed incorrect `0..0` cardinality in the TreatmentDirective.|
 | [#62](https://github.com/IKNL/PZP-FHIR-R4/issues/62) | Improved how impactful differences from base profiles are shown in the IG. |
-| [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Redesigned the Communication profile to better support the intended data capture. |
-| [#74](https://github.com/IKNL/PZP-FHIR-R4/issues/74) | Explained the rationale for prefixes like F1, P1 etc. in documentation. |
+| [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Improved how differences from base profiles are presented. |
 | [#73](https://github.com/IKNL/PZP-FHIR-R4/issues/73) | Corrected binding to apply to `provision.text` instead of `provision.code`. |
 | [#82](https://github.com/IKNL/PZP-FHIR-R4/issues/82) | Added an obligation flag for `Observation.performer`. |
+
 #### 1.0.0-rc1
 
 | Issue | Short Description | Changes |
