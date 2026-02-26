@@ -144,6 +144,44 @@ FHIR Validator/IG Publisher
 terminologieserver.nl (HTTPS + Bearer token)
 ```
 
+## ⚠️ Clearing the Terminology Cache
+
+When switching from the default terminology server (`tx.fhir.org`) to the NTS proxy, you should clear the local terminology cache. The IG Publisher caches terminology responses in `input-cache/txcache/`, and stale entries from a different server will cause validation errors or incorrect results.
+
+### Option 1: Use the `-resetTx` argument
+
+Pass `-resetTx` when running the IG Publisher to reset the cache automatically:
+
+```cmd
+_genonce_nts.bat -resetTx
+```
+
+This works because `_genonce_nts.bat` passes extra arguments (`%*`) to the IG Publisher. You only need to do this **once** after switching; subsequent runs can omit it.
+
+### Option 2: Manually delete the cache folder
+
+Delete the `input-cache/txcache/` directory before running the build:
+
+**PowerShell:**
+```powershell
+Remove-Item -Recurse -Force input-cache\txcache
+.\_genonce_nts.bat
+```
+
+**Command Prompt:**
+```cmd
+rmdir /s /q input-cache\txcache
+_genonce_nts.bat
+```
+
+### When is this needed?
+
+- Switching **from** `tx.fhir.org` **to** `terminologieserver.nl` (or vice versa)
+- After changing NTS credentials (tokens may be cached in responses)
+- When terminology validation produces unexpected errors after a server change
+
+> **Tip**: If you're unsure, it's always safe to run with `-resetTx` once. The cache will be rebuilt on the next run.
+
 ## Troubleshooting
 
 ### ❌ Certificate/SSL Errors
