@@ -14,12 +14,12 @@
   "status": "completed",
   "authored": "2025-11-27T16:15:00.733Z",
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
-    "author": [
+    "author": 
     {
       "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2",
       "display": "Healthcare professional (role), Desiree Wolters"
     }
-  ],
+  ,
   "source": {
     "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2", 
     "display": "Patient, Samira van der Sluijs"
