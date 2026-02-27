@@ -22,7 +22,7 @@
 | [#57](https://github.com/IKNL/PZP-FHIR-R4/issues/57) | Aligned STU3 valueset displays with the updated R4 valuesets. |
 | [#59](https://github.com/IKNL/PZP-FHIR-R4/issues/59) | Fixed incorrect `0..0` cardinality in the TreatmentDirective.|
 | [#62](https://github.com/IKNL/PZP-FHIR-R4/issues/62) | Improved how impactful differences from base profiles are shown in the IG. |
-| [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Improved how differences from base profiles are presented. |
+| [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Redesigned Communication profile into CommunicationRequest profile. |
 | [#73](https://github.com/IKNL/PZP-FHIR-R4/issues/73) | Corrected binding to apply to `provision.text` instead of `provision.code`. |
 | [#82](https://github.com/IKNL/PZP-FHIR-R4/issues/82) | Added an obligation flag for `Observation.performer`. |
 
