@@ -4,7 +4,7 @@
 | Issue | Short Description |
 |-------|-------------------|
 | [#90](https://github.com/IKNL/PZP-FHIR-R4/issues/90) | Refined the Medical Policy Goal profile by adding an ACP-specific SNOMED category, updating search parameters to use category-based retrieval and including the ‘unknown’ option to the valueset. |
-| [#83](https://github.com/IKNL/PZP-FHIR-R4/issues/83) | Aligned the ACP‑OtherImportantInformation profile metadata with the intended SNOMED concept by renaming the profile to ACPSenseOfPurpose, updating identity elements for consistency. |
+| [#83](https://github.com/IKNL/PZP-FHIR-R4/issues/83) | Aligned the `ACP‑OtherImportantInformation` profile metadata with the intended SNOMED concept by renaming the profile to `ACPSenseOfPurpose`, updating identity elements for consistency. |
 | [#84](https://github.com/IKNL/PZP-FHIR-R4/issues/84) | Corrected invalid `_include:` syntax in multiple search URLs and aligned all queries by standardizing the use of  `subject=Patient/[id]` notation.|
 | [#92](https://github.com/IKNL/PZP-FHIR-R4/issues/92) | Added an `ACP` prefix to all `StructureDefinition.title` elements. |
 | [#81](https://github.com/IKNL/PZP-FHIR-R4/issues/81) | Added `Observation.method.code` to clarify that the organ‑donation finding is patient‑reported and improved description.|
