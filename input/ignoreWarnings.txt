@@ -33,3 +33,5 @@
 %URL-waarde 'http://fhir.nl/fhir/NamingSystem/big' komt nergens uit%
 %URL-waarde 'http://fhir.nl/fhir/NamingSystem/uzi-nr-pers' komt nergens uit%
 
+# This is an incorrect link in the nl-core profile which we cannot change.
+%The link 'null.html' for "http://hl7.org/fhir/StructureDefinition/bodySite" cannot be resolved%
