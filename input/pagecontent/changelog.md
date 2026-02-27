@@ -7,7 +7,7 @@
 | [#83](https://github.com/IKNL/PZP-FHIR-R4/issues/83) | Aligned the ACP‑OtherImportantInformation profile metadata with the intended SNOMED concept by renaming the profile to ACPSenseOfPurpose, updating identity elements for consistency. |
 | [#84](https://github.com/IKNL/PZP-FHIR-R4/issues/84) | Corrected invalid `_include:` syntax in multiple search URLs and aligned all queries by standardizing the use of  `subject=Patient/[id]` notation.|
 | [#92](https://github.com/IKNL/PZP-FHIR-R4/issues/92) | Added an `ACP` prefix to all `StructureDefinition.title` elements. |
-| [#81](https://github.com/IKNL/PZP-FHIR-R4/issues/81) | Clarified that the organ‑donation finding is patient‑reported.|
+| [#81](https://github.com/IKNL/PZP-FHIR-R4/issues/81) | Added `Observation.method.code` to clarify that the organ‑donation finding is patient‑reported and improved description.|
 | [#93](https://github.com/IKNL/PZP-FHIR-R4/issues/93) | Expanded and refined the obligations guidance in the IG by adding the missing obligation flag for `Consent.provision.code` in the TreatmentDirective, and clarifying the overall obligation design principles and mapping approach.|
 | [#55](https://github.com/IKNL/PZP-FHIR-R4/issues/55) | Added a brief routing statement to the General API Requirements to clarify message/endpoint routing expectations. |
 | [#95](https://github.com/IKNL/PZP-FHIR-R4/issues/95) | Added the missing `role` field for the first contact person in the FHIR questionnaire and updated the birthdate datatype from `dateTime` to `date`.|
