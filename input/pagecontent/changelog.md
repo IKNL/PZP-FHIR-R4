@@ -19,7 +19,6 @@
 | [#50](https://github.com/IKNL/PZP-FHIR-R4/issues/50) | Fixed incorrect handling of obligation extensions. |
 | [#54](https://github.com/IKNL/PZP-FHIR-R4/issues/54) | Removed the outdated `Beta3 28‑08‑2025` from the questionnaire title. |
 | [#56](https://github.com/IKNL/PZP-FHIR-R4/issues/56) | Reorganized the R4 and STU3 example sets for consistency and aligned naming across all examples. |
-| [#57](https://github.com/IKNL/PZP-FHIR-R4/issues/57) | Aligned STU3 valueset displays with the updated R4 valuesets. |
 | [#59](https://github.com/IKNL/PZP-FHIR-R4/issues/59) | Improved rendering of advance directive extension in the IG. |
 | [#62](https://github.com/IKNL/PZP-FHIR-R4/issues/62) | Improved how impactful differences from base profiles are shown in the IG. |
 | [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Redesigned Communication profile into CommunicationRequest profile. |
