@@ -322,11 +322,26 @@ def main():
     
     total_modified = 0
     total_files = 0
-    
+
+    # Discover all JSON files and classify by resourceType
+    all_json_files = sorted(input_dir.glob("*.json"))
+    questionnaire_files = []
+    response_files = []
+
+    for file_path in all_json_files:
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            rt = data.get('resourceType') if isinstance(data, dict) else None
+            if rt == 'Questionnaire':
+                questionnaire_files.append(file_path)
+            elif rt == 'QuestionnaireResponse':
+                response_files.append(file_path)
+        except (json.JSONDecodeError, Exception):
+            pass  # Non-FHIR JSON files are silently skipped
+
     # Process Questionnaire files
     if not args.response_only:
-        questionnaire_files = list(input_dir.glob("Questionnaire*.json"))
-        
         if questionnaire_files:
             print("=== Processing Questionnaire resources ===")
             modified_count = 0
@@ -339,14 +354,12 @@ def main():
             total_modified += modified_count
             total_files += len(questionnaire_files)
         else:
-            print("No Questionnaire files found matching pattern 'Questionnaire*.json'")
+            print("No Questionnaire resources found")
         
         print()
     
     # Process QuestionnaireResponse files  
     if not args.questionnaire_only:
-        response_files = list(input_dir.glob("QuestionnaireResponse*.json"))
-        
         if response_files:
             print("=== Processing QuestionnaireResponse resources ===")
             modified_count = 0
@@ -359,7 +372,7 @@ def main():
             total_modified += modified_count
             total_files += len(response_files)
         else:
-            print("No QuestionnaireResponse files found matching pattern 'QuestionnaireResponse*.json'")
+            print("No QuestionnaireResponse resources found")
     
     print()
     print(f"Overall Summary: {total_modified}/{total_files} files modified")
