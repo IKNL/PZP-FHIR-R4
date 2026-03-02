@@ -22,7 +22,7 @@
 | [#59](https://github.com/IKNL/PZP-FHIR-R4/issues/59) | Improved rendering of advance directive extension in the IG. |
 | [#62](https://github.com/IKNL/PZP-FHIR-R4/issues/62) | Improved how impactful differences from base profiles are shown in the IG. |
 | [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Redesigned Communication profile into CommunicationRequest profile. |
-| [#73](https://github.com/IKNL/PZP-FHIR-R4/issues/73) | Corrected binding to apply to `provision.text` instead of `provision.code`. |
+| [#73](https://github.com/IKNL/PZP-FHIR-R4/issues/73) | Corrected typo in comment provision.code.text. |
 | [#82](https://github.com/IKNL/PZP-FHIR-R4/issues/82) | Added an obligation flag for `Observation.performer`. |
 
 #### 1.0.0-rc1
