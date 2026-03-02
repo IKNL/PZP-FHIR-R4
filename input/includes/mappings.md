@@ -11,7 +11,7 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 814 | &emsp;BeginDatumTijd | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
 | 819 | &emsp;&emsp;Verrichting | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonReference[procedure]`  |
 | 820 | &emsp;&emsp;&emsp;Verrichting | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | ``  |
-| 827 | &emsp;&emsp;&emsp;&emsp;PZP gesprek (VerrichtingType) | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | `code`  |
+| 827 | &emsp;&emsp;&emsp;&emsp;PZP-gesprek (VerrichtingType) | Procedure (<a href="StructureDefinition-ACP-Procedure.html">ACPProcedure</a>) | `code`  |
 | 822 | &emsp;&emsp;ToelichtingRedenContact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonReference.extension[commentContactReason]`  |
 | 822 | &emsp;&emsp;ToelichtingRedenContact | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `reasonCode[deviatingResult].extension[commentContactReason]`  |
 | 736 | Datum van invullen | Encounter (<a href="StructureDefinition-ACP-Encounter.html">ACPEncounter</a>) | `period.start`  |
