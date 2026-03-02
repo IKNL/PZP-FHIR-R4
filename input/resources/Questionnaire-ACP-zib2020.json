@@ -1794,8 +1794,44 @@
               "answerOption": [
                 {
                   "valueCoding": {
-                    "code": "ICD",
-                    "display": "ICD"
+                    "system": "http://snomed.info/sct",
+                    "code": "72506001",
+                    "display": "implanteerbare cardioverter-defibrillator"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "465460004",
+                    "display": "univentriculaire implanteerbare cardioverter-defibrillator"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "468542000",
+                    "display": "implanteerbare tweekamercardioverter-defibrillator"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "704707009",
+                    "display": "implanteerbare biventriculaire cardioverter-defibrillator"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "1263462004",
+                    "display": "pulsgenerator van defibrillator voor cardiale resynchronisatietherapie"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "1236894001",
+                    "display": "subcutane implanteerbare cardioverter-defibrillator"
                   }
                 }
               ]
