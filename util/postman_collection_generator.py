@@ -1,17 +1,68 @@
 #!/usr/bin/env python3
 """
-Script to generate a Postman collection for FHIR resources.
+postman_collection_generator.py
 
-This script scans the fsh-generated/resources folder for FHIR JSON files,
-extracts the resourceType and id, and creates PUT requests to localhost:4080
-for each resource (excluding StructureDefinition and ValueSet resources).
+Generates a Postman collection (v2.1) containing PUT and $validate requests
+for every FHIR instance resource produced by SUSHI.  This is a standalone
+utility that is **not** part of the IG build pipeline — it is intended to
+quickly populate and validate resources on a local (or remote) FHIR server.
+
+Workflow:
+  1. Scans the compiled resources directory for FHIR JSON files.
+  2. Skips definition / infrastructure resource types (StructureDefinition,
+     ValueSet, etc.).
+  3. For each remaining instance resource, creates:
+       - A PUT request to upload the resource.
+       - A GET $validate request to validate it server-side.
+  4. Writes the complete Postman collection to a JSON file.
+
+Usage:
+  python util/postman_collection_generator.py [--resources-dir DIR]
+                                              [--output-file FILE]
+                                              [--fhir-base URL]
+
+Examples:
+  # Default (localhost:4080)
+  python util/postman_collection_generator.py
+
+  # Against a remote FHIR server
+  python util/postman_collection_generator.py --fhir-base https://fhir.example.com
 """
 
 import json
 import os
+import argparse
 from datetime import datetime
 from pathlib import Path
 import uuid
+
+# =============================================================================
+# Configuration — edit these values to match your project / environment
+# =============================================================================
+
+# Directory containing the compiled FHIR JSON resources (output of SUSHI).
+DEFAULT_RESOURCES_DIR = "fsh-generated/resources"
+
+# Output file path for the generated Postman collection.
+DEFAULT_OUTPUT_FILE = "util/IKNL_PZP_FHIR_R4_Collection.postman_collection.json"
+
+# Base URL of the target FHIR server (scheme + host + optional port).
+# Used for all generated PUT and $validate requests.
+DEFAULT_FHIR_BASE = "http://localhost:4080"
+
+# Human-readable name for the generated Postman collection.
+COLLECTION_NAME = "IKNL PZP FHIR R4 Resources"
+
+# FHIR resource types that should be skipped (definition / infrastructure
+# resources that are not useful to PUT to a FHIR server).
+SKIP_RESOURCE_TYPES = {
+    'StructureDefinition',
+    'ValueSet',
+    'ImplementationGuide',
+    'ActorDefinition',
+    'SearchParameter',
+    'CapabilityStatement',
+}
 
 
 def load_fhir_resource(file_path):
@@ -26,11 +77,10 @@ def load_fhir_resource(file_path):
 
 def should_skip_resource(resource_type):
     """Check if a resource type should be skipped."""
-    skip_types = {'StructureDefinition', 'ValueSet'}
-    return resource_type in skip_types
+    return resource_type in SKIP_RESOURCE_TYPES
 
 
-def create_postman_requests(resource, file_name):
+def create_postman_requests(resource, file_name, fhir_base):
     """Create Postman request items for a FHIR resource (PUT + validation)."""
     resource_type = resource.get('resourceType')
     resource_id = resource.get('id')
@@ -38,6 +88,14 @@ def create_postman_requests(resource, file_name):
     if not resource_type or not resource_id:
         print(f"Warning: Missing resourceType or id in {file_name}")
         return []
+
+    # Parse the base URL into host / port / protocol components for Postman
+    from urllib.parse import urlparse
+    parsed = urlparse(fhir_base if '://' in fhir_base else f'http://{fhir_base}')
+    protocol = parsed.scheme or 'http'
+    host_parts = (parsed.hostname or 'localhost').split('.')
+    port = str(parsed.port) if parsed.port else ('443' if protocol == 'https' else '80')
+    base_path = [seg for seg in (parsed.path or '').split('/') if seg]
     
     # Create the PUT request
     put_request = {
@@ -61,15 +119,11 @@ def create_postman_requests(resource, file_name):
                 }
             },
             "url": {
-                "raw": f"localhost:4080/{resource_type}/{resource_id}",
-                "host": [
-                    "localhost"
-                ],
-                "port": "4080",
-                "path": [
-                    resource_type,
-                    resource_id
-                ]
+                "raw": f"{fhir_base}/{resource_type}/{resource_id}",
+                "protocol": protocol,
+                "host": host_parts,
+                "port": port,
+                "path": base_path + [resource_type, resource_id]
             }
         },
         "response": []
@@ -88,16 +142,11 @@ def create_postman_requests(resource, file_name):
                 }
             ],
             "url": {
-                "raw": f"localhost:4080/{resource_type}/{resource_id}/$validate",
-                "host": [
-                    "localhost"
-                ],
-                "port": "4080",
-                "path": [
-                    resource_type,
-                    resource_id,
-                    "$validate"
-                ]
+                "raw": f"{fhir_base}/{resource_type}/{resource_id}/$validate",
+                "protocol": protocol,
+                "host": host_parts,
+                "port": port,
+                "path": base_path + [resource_type, resource_id, "$validate"]
             }
         },
         "response": []
@@ -106,15 +155,22 @@ def create_postman_requests(resource, file_name):
     return [put_request, validate_request]
 
 
-def generate_postman_collection(resources_dir):
+def generate_postman_collection(resources_dir, fhir_base):
     """Generate a complete Postman collection from FHIR resources."""
     
+    skip_list = ', '.join(sorted(SKIP_RESOURCE_TYPES))
+
     # Initialize collection structure
     collection = {
         "info": {
             "_postman_id": str(uuid.uuid4()),
-            "name": "IKNL PZP FHIR R4 Resources",
-            "description": f"Generated Postman collection for FHIR resources\nGenerated on: {datetime.now().isoformat()}\nExcludes: StructureDefinition and ValueSet resources",
+            "name": COLLECTION_NAME,
+            "description": (
+                f"Generated Postman collection for FHIR resources\n"
+                f"Generated on: {datetime.now().isoformat()}\n"
+                f"FHIR server: {fhir_base}\n"
+                f"Excludes: {skip_list}"
+            ),
             "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
         },
         "item": []
@@ -151,7 +207,7 @@ def generate_postman_collection(resources_dir):
             continue
         
         # Create Postman requests (PUT + validation)
-        requests = create_postman_requests(resource, json_file.name)
+        requests = create_postman_requests(resource, json_file.name, fhir_base)
         if requests:
             for request in requests:
                 collection["item"].append(request)
@@ -171,20 +227,40 @@ def generate_postman_collection(resources_dir):
 
 def main():
     """Main function to run the script."""
-    # Define paths
+    parser = argparse.ArgumentParser(
+        description="Generates a Postman collection (v2.1) with PUT and $validate requests for compiled FHIR instance resources.",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument(
+        '--resources-dir', default=DEFAULT_RESOURCES_DIR,
+        help=f"Directory containing compiled FHIR JSON resources.\n(default: '{DEFAULT_RESOURCES_DIR}')"
+    )
+    parser.add_argument(
+        '--output-file', default=DEFAULT_OUTPUT_FILE,
+        help=f"Output path for the Postman collection JSON file.\n(default: '{DEFAULT_OUTPUT_FILE}')"
+    )
+    parser.add_argument(
+        '--fhir-base', default=DEFAULT_FHIR_BASE,
+        help=f"Base URL of the target FHIR server.\n(default: '{DEFAULT_FHIR_BASE}')"
+    )
+    args = parser.parse_args()
+
+    # Resolve relative paths from the project root (parent of util/)
     script_dir = Path(__file__).parent
-    project_root = script_dir.parent  # Go up one level from util folder
-    resources_dir = project_root / "fsh-generated" / "resources"
-    output_file = script_dir / "IKNL_PZP_FHIR_R4_Collection.postman_collection.json"  # Output in util folder
+    project_root = script_dir.parent
+    resources_dir = project_root / args.resources_dir
+    output_file = project_root / args.output_file
+    fhir_base = args.fhir_base.rstrip('/')
     
     print("IKNL PZP FHIR R4 Postman Collection Generator")
     print("=" * 50)
     print(f"Resources directory: {resources_dir}")
     print(f"Output file: {output_file}")
+    print(f"FHIR server: {fhir_base}")
     print()
     
     # Generate the collection
-    result = generate_postman_collection(resources_dir)
+    result = generate_postman_collection(resources_dir, fhir_base)
     
     if not result:
         print("Failed to generate collection")

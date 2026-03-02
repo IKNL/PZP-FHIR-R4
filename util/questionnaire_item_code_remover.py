@@ -1,19 +1,41 @@
 """
-Remove all 'code' elements from Questionnaire items at every nesting level.
+questionnaire_item_code_remover.py
+
+Removes all ``code`` elements from Questionnaire items at every nesting
+level.  This is a one-off cleanup utility for cases where item codes were
+added during authoring but are not desired in the published Questionnaire.
+
+Workflow:
+  1. Loads the target Questionnaire JSON resource.
+  2. Recursively walks every ``item`` and deletes the ``code`` property
+     when present.
+  3. Writes the modified resource back (unless ``--dry-run`` is given).
 
 Usage:
-    python util/remove_item_codes.py [--dry-run]
+  python util/questionnaire_item_code_remover.py [--dry-run]
 
-This script processes Questionnaire-ACP-zib2020.json and removes
-the 'code' property from every item (recursively through all nested items).
+Examples:
+  # Preview changes
+  python util/questionnaire_item_code_remover.py --dry-run
+
+  # Apply changes
+  python util/questionnaire_item_code_remover.py
 """
 
 import json
 import sys
 from pathlib import Path
 
+# =============================================================================
+# Configuration — edit these values to match your project
+# =============================================================================
+
+# Path to the Questionnaire resource to process (relative to project root).
+QUESTIONNAIRE_RELATIVE_PATH = "input/resources/Questionnaire-ACP-zib2020.json"
+
+# Resolved absolute path (derived from the script location).
 SCRIPT_DIR = Path(__file__).resolve().parent
-QUESTIONNAIRE_PATH = SCRIPT_DIR.parent / "input" / "resources" / "Questionnaire-ACP-zib2020.json"
+QUESTIONNAIRE_PATH = SCRIPT_DIR.parent / QUESTIONNAIRE_RELATIVE_PATH
 
 
 def remove_codes_from_items(items: list, path: str = "item") -> int:

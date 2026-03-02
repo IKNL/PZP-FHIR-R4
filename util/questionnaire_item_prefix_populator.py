@@ -1,25 +1,32 @@
 """
-Questionnaire Item Prefix Populator
+questionnaire_item_prefix_populator.py
 
-This script is used to populate the prefix of questionnaire items and fix QuestionnaireResponse items 
-to ensure FHIR validation compliance. It is intended to be run as a post-processing step after 
-generating FHIR Questionnaire and QuestionnaireResponse resources.
+Post-processes Questionnaire and QuestionnaireResponse JSON resources to
+ensure FHIR validation compliance around item prefixes.
 
-The script will:
-1. For Questionnaire resources:
-   - Transform/move the item.text values that start with a prefix like "a)", "b)", "1.", "2." etc 
-   - Populate the item.prefix field with that value and remove it from the item.text field
-
-2. For QuestionnaireResponse resources:
-   - Remove prefixes from item.text fields to match the corresponding Questionnaire definition
-   - This ensures compliance with the FHIR validation rule: "If text exists, it must match the questionnaire definition for linkId"
-
-Examples of text that will be processed:
-- Questionnaire: "text": "c) Relatie tot patiënt (2)" -> prefix: "c)", text: "Relatie tot patiënt (2)"
-- QuestionnaireResponse: "text": "c) Relatie tot patiënt (2)" -> text: "Relatie tot patiënt (2)"
+Workflow:
+  1. Scans the input directory for Questionnaire and QuestionnaireResponse
+     JSON files.
+  2. For Questionnaire resources — detects leading prefixes in ``item.text``
+     (e.g. "a)", "1.", "2)") and moves them into ``item.prefix``.
+  3. For QuestionnaireResponse resources — strips those same prefixes from
+     ``item.text`` so the text matches the Questionnaire definition (required
+     by the FHIR invariant on ``QuestionnaireResponse.item.text``).
+  4. Creates a ``.backup`` copy before writing any changes.
 
 Usage:
-    python questionnaire_item_prefix_populator.py [--dry-run] [--input-dir INPUT_DIR] [--questionnaire-only] [--response-only]
+  python util/questionnaire_item_prefix_populator.py [--dry-run]
+      [--input-dir DIR] [--questionnaire-only] [--response-only]
+
+Examples:
+  # Preview all changes
+  python util/questionnaire_item_prefix_populator.py --dry-run
+
+  # Process only Questionnaire resources
+  python util/questionnaire_item_prefix_populator.py --questionnaire-only
+
+  # Process only QuestionnaireResponse resources
+  python util/questionnaire_item_prefix_populator.py --response-only
 """
 
 import json
@@ -28,6 +35,14 @@ import argparse
 from pathlib import Path
 import shutil
 from typing import Dict, Any, Tuple, Optional
+
+# =============================================================================
+# Configuration — edit these values to match your project
+# =============================================================================
+
+# Default directory containing Questionnaire / QuestionnaireResponse JSON files
+# (relative to project root).
+DEFAULT_INPUT_DIR = "input/resources"
 
 
 def extract_prefix_from_text(text: str) -> Tuple[Optional[str], str]:
@@ -267,8 +282,8 @@ def main():
     parser.add_argument(
         '--input-dir', 
         type=Path, 
-        default='input/resources',
-        help='Directory containing questionnaire JSON files (default: input/resources)'
+        default=DEFAULT_INPUT_DIR,
+        help=f"Directory containing questionnaire JSON files (default: {DEFAULT_INPUT_DIR})"
     )
     parser.add_argument(
         '--questionnaire-only',

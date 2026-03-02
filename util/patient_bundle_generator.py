@@ -1,18 +1,64 @@
 #!/usr/bin/env python3
 """
-Script to generate FHIR Bundle resources per patient.
+patient_bundle_generator.py
 
-This script scans the fsh-generated/resources folder for FHIR JSON files,
-groups them by patient, and creates a Bundle resource containing all 
-resources related to each patient.
+Generates FHIR Bundle (transaction) resources per patient from the compiled
+FSH output.  This is a standalone utility that is **not** part of the IG
+build pipeline — it is intended to create ready-to-POST bundles for
+populating a FHIR server with test data.
+
+Workflow:
+  1. Scans the fsh-generated/resources folder for FHIR JSON files.
+  2. Groups instance resources by patient using the `-PatN` suffix that
+     appears in both resource IDs and Patient references.
+  3. Creates one Bundle (type "transaction") per patient group containing
+     all associated resources, with PUT requests for each entry.
+
+Usage:
+  python util/patient_bundle_generator.py [--resources-dir DIR]
+                                          [--output-dir DIR]
+
+Examples:
+  # Default paths
+  python util/patient_bundle_generator.py
+
+  # Custom paths
+  python util/patient_bundle_generator.py \\
+      --resources-dir fsh-generated/resources \\
+      --output-dir util/patient-bundles
 """
 
 import json
 import os
-import re
+import argparse
 from datetime import datetime
 from pathlib import Path
 import uuid
+
+# =============================================================================
+# Configuration — edit these values to match your project
+# =============================================================================
+
+# Directory containing the compiled FHIR JSON resources (output of SUSHI).
+DEFAULT_RESOURCES_DIR = "fsh-generated/resources"
+
+# Output directory where the generated patient Bundle files are written.
+DEFAULT_OUTPUT_DIR = "util/patient-bundles"
+
+# FHIR resource types that should be skipped (definition / infrastructure
+# resources that are not relevant for patient bundles).
+SKIP_RESOURCE_TYPES = {
+    'StructureDefinition',
+    'ValueSet',
+    'CodeSystem',
+    'ImplementationGuide',
+    'ActorDefinition',
+    'SearchParameter',
+    'CapabilityStatement',
+}
+
+# Base URL used for Bundle identifiers and tags.
+BUNDLE_SYSTEM_BASE = "https://api.iknl.nl/docs/pzp/r4"
 
 
 def load_fhir_resource(file_path):
@@ -27,52 +73,30 @@ def load_fhir_resource(file_path):
 
 def should_skip_resource(resource_type):
     """Check if a resource type should be skipped in patient bundles."""
-    # Skip definition and infrastructure resources
-    skip_types = {
-        'StructureDefinition', 
-        'ValueSet', 
-        'ImplementationGuide',
-        'ActorDefinition',
-        'SearchParameter'
-    }
-    return resource_type in skip_types
+    return resource_type in SKIP_RESOURCE_TYPES
 
 
-def extract_patient_prefix(resource_id):
-    """Extract patient prefix from resource ID (e.g., 'F1-ACP' from 'F1-ACP-Patient-HendrikHartman')."""
-    if not resource_id:
-        return None
-    
-    # Pattern to match patient prefixes like F1-ACP, P2-ACP, etc.
-    match = re.match(r'^([A-Z]\d+-ACP)', resource_id)
-    if match:
-        return match.group(1)
-    
-    return None
+def find_patient_references(resource):
+    """Return the set of Patient resource IDs referenced anywhere in *resource*.
 
+    Recursively walks the JSON structure looking for
+    ``{"reference": "Patient/<id>"}`` entries.
+    """
+    patient_ids = set()
 
-def find_patient_references_in_resource(resource):
-    """Find all Patient references in a resource."""
-    patient_refs = set()
-    
-    def search_for_patient_refs(obj, path=""):
-        """Recursively search for Patient references."""
+    def _walk(obj):
         if isinstance(obj, dict):
             for key, value in obj.items():
-                new_path = f"{path}.{key}" if path else key
                 if key == "reference" and isinstance(value, str) and value.startswith("Patient/"):
-                    patient_id = value.replace("Patient/", "")
-                    prefix = extract_patient_prefix(patient_id)
-                    if prefix:
-                        patient_refs.add(prefix)
+                    patient_ids.add(value[len("Patient/"):])
                 else:
-                    search_for_patient_refs(value, new_path)
+                    _walk(value)
         elif isinstance(obj, list):
-            for i, item in enumerate(obj):
-                search_for_patient_refs(item, f"{path}[{i}]")
-    
-    search_for_patient_refs(resource)
-    return patient_refs
+            for item in obj:
+                _walk(item)
+
+    _walk(resource)
+    return patient_ids
 
 
 def create_bundle_entry(resource):
@@ -95,71 +119,58 @@ def create_bundle_entry(resource):
     return entry
 
 
-def create_patient_bundle(patient_prefix, resources):
-    """Create a Bundle resource containing all resources for a patient."""
-    
-    # Find the actual patient resource
-    patient_resource = None
-    for resource in resources:
-        if resource.get('resourceType') == 'Patient':
-            patient_resource = resource
-            break
-    
-    if not patient_resource:
-        print(f"Warning: No Patient resource found for prefix {patient_prefix}")
-        return None
-    
+def create_patient_bundle(patient_id, patient_resource, associated_resources):
+    """Create a Bundle resource containing the Patient and all associated resources."""
     patient_name = patient_resource.get('name', [{}])[0].get('text', 'Unknown')
-    patient_id = patient_resource.get('id', 'Unknown')
-    
+
+    all_resources = [patient_resource] + associated_resources
+
     # Create the bundle
     bundle = {
         "resourceType": "Bundle",
-        "id": f"{patient_prefix}-PatientBundle",
+        "id": f"{patient_id}-PatientBundle",
         "meta": {
             "profile": [
                 "http://hl7.org/fhir/StructureDefinition/Bundle"
             ],
-            "lastUpdated": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+            "lastUpdated": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            "tag": [
+                {
+                    "system": f"{BUNDLE_SYSTEM_BASE}/CodeSystem/bundle-type",
+                    "code": "patient-data",
+                    "display": "Patient Data Bundle"
+                }
+            ]
         },
         "identifier": {
-            "system": "https://api.iknl.nl/docs/pzp/r4/NamingSystem/patient-bundle",
-            "value": f"{patient_prefix}-PatientBundle"
+            "system": f"{BUNDLE_SYSTEM_BASE}/NamingSystem/patient-bundle",
+            "value": f"{patient_id}-PatientBundle"
         },
         "type": "transaction",
         "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         "entry": []
     }
-    
-    # Add metadata
-    bundle["meta"]["tag"] = [
-        {
-            "system": "https://api.iknl.nl/docs/pzp/r4/CodeSystem/bundle-type",
-            "code": "patient-data",
-            "display": "Patient Data Bundle"
-        }
-    ]
-    
-    # Add description
-    total_resources = len(resources)
+
+    # Collect resource-type counts
+    total_resources = len(all_resources)
     resource_types = {}
-    for resource in resources:
+    for resource in all_resources:
         res_type = resource.get('resourceType', 'Unknown')
         resource_types[res_type] = resource_types.get(res_type, 0) + 1
-    
-    # Sort entries: Patient first, then alphabetically by resource type
-    sorted_resources = sorted(resources, key=lambda r: (
+
+    # Sort entries: Patient first, then alphabetically by resource type / id
+    sorted_resources = sorted(all_resources, key=lambda r: (
         0 if r.get('resourceType') == 'Patient' else 1,
         r.get('resourceType', ''),
         r.get('id', '')
     ))
-    
+
     # Create bundle entries
     for resource in sorted_resources:
         entry = create_bundle_entry(resource)
         if entry:
             bundle["entry"].append(entry)
-    
+
     return bundle, {
         'patient_name': patient_name,
         'patient_id': patient_id,
@@ -168,151 +179,173 @@ def create_patient_bundle(patient_prefix, resources):
     }
 
 
-def group_resources_by_patient(resources_dir):
-    """Group all resources by patient prefix."""
-    
+def discover_patients_and_resources(resources_dir):
+    """Load all FHIR instance resources and discover Patient resources.
+
+    Returns:
+        patients:   dict mapping Patient resource ID → Patient resource dict
+        instances:  list of (filename, resource) tuples for non-Patient,
+                    non-skipped instance resources
+    """
     resources_path = Path(resources_dir)
     if not resources_path.exists():
         print(f"Error: Resources directory not found: {resources_dir}")
-        return {}
-    
-    patient_groups = {}
-    ungrouped_resources = []
-    processed_count = 0
+        return {}, []
+
+    patients = {}       # patient_id → resource dict
+    instances = []      # [(filename, resource), …]
     skipped_count = 0
     error_count = 0
-    
-    # Get all JSON files and sort them
+
     json_files = sorted(resources_path.glob("*.json"))
-    
-    print(f"Processing {len(json_files)} files...")
-    
+    print(f"Scanning {len(json_files)} files...\n")
+
+    # --- Pass 1: discover all Patient resources ---
+    print("Pass 1 — discovering Patient resources...")
     for json_file in json_files:
-        print(f"  Processing: {json_file.name}")
-        
-        # Load the FHIR resource
         resource = load_fhir_resource(json_file)
         if not resource:
             error_count += 1
             continue
-        
+
         resource_type = resource.get('resourceType')
-        resource_id = resource.get('id')
-        
-        # Skip certain resource types
+
         if should_skip_resource(resource_type):
-            print(f"    Skipping {resource_type} resource")
             skipped_count += 1
             continue
-        
-        # Extract patient prefix from resource ID
-        direct_prefix = extract_patient_prefix(resource_id)
-        
-        # Also check for patient references in the resource content
-        referenced_prefixes = find_patient_references_in_resource(resource)
-        
-        # Determine which patient group(s) this resource belongs to
-        target_prefixes = set()
-        if direct_prefix:
-            target_prefixes.add(direct_prefix)
-        if referenced_prefixes:
-            target_prefixes.update(referenced_prefixes)
-        
-        if target_prefixes:
-            # Add to all relevant patient groups
-            for prefix in target_prefixes:
-                if prefix not in patient_groups:
-                    patient_groups[prefix] = []
-                patient_groups[prefix].append(resource)
-            
-            prefix_list = ', '.join(sorted(target_prefixes))
-            if len(target_prefixes) > 1:
-                print(f"    Added to patient groups: {prefix_list}")
-            else:
-                print(f"    Added to patient group: {prefix_list}")
-            processed_count += 1
+
+        if resource_type == 'Patient':
+            patient_id = resource.get('id')
+            patient_name = resource.get('name', [{}])[0].get('text', patient_id)
+            patients[patient_id] = resource
+            print(f"  Found Patient: {patient_name} ({patient_id})")
         else:
-            ungrouped_resources.append((json_file.name, resource))
-            print(f"    No patient association found - ungrouped")
-    
-    print(f"\nGrouping complete:")
-    print(f"  Processed: {processed_count} resources")
-    print(f"  Skipped: {skipped_count} resources") 
-    print(f"  Errors: {error_count} resources")
-    print(f"  Ungrouped: {len(ungrouped_resources)} resources")
-    print(f"  Patient groups: {len(patient_groups)}")
-    
-    if ungrouped_resources:
-        print(f"\nUngrouped resources:")
-        for filename, resource in ungrouped_resources:
-            print(f"    {filename} ({resource.get('resourceType', 'Unknown')})")
-    
-    return patient_groups
+            instances.append((json_file.name, resource))
+
+    print(f"\n  {len(patients)} Patient resource(s) found")
+    print(f"  {len(instances)} instance resource(s) to group")
+    print(f"  {skipped_count} definition resource(s) skipped")
+    if error_count:
+        print(f"  {error_count} file(s) could not be loaded")
+
+    return patients, instances
+
+
+def group_resources_by_patient(patients, instances):
+    """Group instance resources by the Patient(s) they reference.
+
+    Args:
+        patients:  dict of patient_id → Patient resource
+        instances: list of (filename, resource) tuples
+
+    Returns:
+        groups:    dict of patient_id → list of associated resources
+        ungrouped: list of (filename, resource) tuples with no patient reference
+    """
+    known_patient_ids = set(patients.keys())
+    groups = {pid: [] for pid in known_patient_ids}
+    ungrouped = []
+
+    print("\nPass 2 — grouping resources by Patient reference...")
+    for filename, resource in instances:
+        referenced_ids = find_patient_references(resource) & known_patient_ids
+
+        if referenced_ids:
+            for pid in referenced_ids:
+                groups[pid].append(resource)
+            ref_list = ', '.join(sorted(referenced_ids))
+            print(f"  {filename} → {ref_list}")
+        else:
+            ungrouped.append((filename, resource))
+            print(f"  {filename} → (no patient reference)")
+
+    return groups, ungrouped
 
 
 def generate_patient_bundles(resources_dir, output_dir):
     """Generate Bundle resources for each patient."""
-    
+
     print("IKNL PZP FHIR R4 Patient Bundle Generator")
     print("=" * 50)
     print(f"Resources directory: {resources_dir}")
     print(f"Output directory: {output_dir}")
     print()
-    
-    # Group resources by patient
-    patient_groups = group_resources_by_patient(resources_dir)
-    
-    if not patient_groups:
-        print("No patient groups found")
+
+    # Discover patients and load all instance resources
+    patients, instances = discover_patients_and_resources(resources_dir)
+
+    if not patients:
+        print("\nNo Patient resources found — nothing to bundle.")
         return False
-    
+
+    # Group non-Patient resources by referenced patient
+    groups, ungrouped = group_resources_by_patient(patients, instances)
+
+    if ungrouped:
+        print(f"\n{len(ungrouped)} resource(s) not associated with any patient:")
+        for filename, resource in ungrouped:
+            print(f"    {filename} ({resource.get('resourceType', 'Unknown')})")
+
     # Create output directory
     output_path = Path(output_dir)
-    output_path.mkdir(exist_ok=True)
-    
-    # Generate bundles
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    # Generate one bundle per patient
     bundles_created = 0
-    
-    for patient_prefix, resources in patient_groups.items():
-        print(f"\nGenerating bundle for patient group: {patient_prefix}")
-        print(f"  Resources: {len(resources)}")
-        
-        result = create_patient_bundle(patient_prefix, resources)
-        
+
+    for patient_id, patient_resource in patients.items():
+        associated = groups.get(patient_id, [])
+        patient_name = patient_resource.get('name', [{}])[0].get('text', patient_id)
+        print(f"\nGenerating bundle for: {patient_name} ({patient_id})")
+        print(f"  Associated resources: {len(associated)}")
+
+        result = create_patient_bundle(patient_id, patient_resource, associated)
+
         if result:
             bundle, metadata = result
-            # Write bundle to file
-            bundle_filename = f"{patient_prefix}-PatientBundle.json"
+            bundle_filename = f"{patient_id}-PatientBundle.json"
             bundle_path = output_path / bundle_filename
-            
+
             try:
                 with open(bundle_path, 'w', encoding='utf-8') as f:
                     json.dump(bundle, f, indent=2, ensure_ascii=False)
-                
+
                 print(f"  Created: {bundle_filename}")
-                print(f"  Patient: {metadata['patient_name']} ({metadata['patient_id']})")
                 print(f"  Total resources in bundle: {metadata['total_resources']}")
                 print(f"  Resource types: {', '.join(f'{k}({v})' for k, v in sorted(metadata['resource_types'].items()))}")
-                
                 bundles_created += 1
-                
+
             except IOError as e:
                 print(f"  Error writing bundle: {e}")
         else:
-            print(f"  Failed to create bundle for {patient_prefix}")
-    
-    print(f"\n{bundles_created} patient bundles created successfully!")
+            print(f"  Failed to create bundle for {patient_id}")
+
+    print(f"\n{bundles_created} patient bundle(s) created successfully!")
     return bundles_created > 0
 
 
 def main():
     """Main function to run the script."""
-    # Define paths
+    parser = argparse.ArgumentParser(
+        description="Generates FHIR Bundle (transaction) resources per patient from compiled FSH output.",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument(
+        '--resources-dir', default=DEFAULT_RESOURCES_DIR,
+        help=f"Directory containing compiled FHIR JSON resources.\n(default: '{DEFAULT_RESOURCES_DIR}')"
+    )
+    parser.add_argument(
+        '--output-dir', default=DEFAULT_OUTPUT_DIR,
+        help=f"Output directory for the generated patient Bundle files.\n(default: '{DEFAULT_OUTPUT_DIR}')"
+    )
+    args = parser.parse_args()
+
+    # Resolve relative paths from the project root (parent of util/)
     script_dir = Path(__file__).parent
-    project_root = script_dir.parent  # Go up one level from util folder
-    resources_dir = project_root / "fsh-generated" / "resources"
-    output_dir = script_dir / "patient-bundles"  # Output in util folder
-    
+    project_root = script_dir.parent
+    resources_dir = project_root / args.resources_dir
+    output_dir = project_root / args.output_dir
+
     success = generate_patient_bundles(resources_dir, output_dir)
     return 0 if success else 1
 
