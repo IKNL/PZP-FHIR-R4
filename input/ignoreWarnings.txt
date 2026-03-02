@@ -20,12 +20,12 @@
 %Goal.description.coding[0].code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'%
 %Questionnaire.item[6].item[1].answerOption[1].value.ofType(Coding).code: Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'%
 %Geen van de gevonden codings bestaan in waardelijst 'ACP Primary Agreed-upon Goal of Medical Policy' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoal|1.0.0-rc1) en een coding uit deze waardelijst is verplicht (codes = http://snomed.info/sct#1351964001)%
+%None of the codings provided are in the value set 'ACP Primary Agreed-upon Goal of Medical Policy' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoal|1.0.0-rc1), and a coding from this value set is required) (codes = http://snomed.info/sct#1351964001)%
 
-
-# Manually checked: 72506001 is in the ValueSet, even in the expansion. The ValueSet in the profile bound is allowed as it restricts the zib's required binding. 72506001 zit in "Include codes from SNOMED_CT where concept DescendentOf 260787004"  
 
 # This is a proposed fixed value in the Nictiz Consent profiles as there is no better alternative.
 %URL-waarde 'https://wetten.overheid.nl/' komt nergens uit%
+%No definition could be found for URL value 'https://wetten.overheid.nl/'%
 
 # Definition can be found in the Nictiz package. Not sure why the IG publisher cannot access it. Also not a big deal for this IG.
 %URL-waarde 'http://fhir.nl/fhir/NamingSystem/bsn' komt nergens uit%
@@ -35,3 +35,10 @@
 
 # This is an incorrect link in the nl-core profile which we cannot change.
 %The link 'null.html' for "http://hl7.org/fhir/StructureDefinition/bodySite" cannot be resolved%
+
+# Known issue in IG Publisher https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/expansion.20parameters.20error/with/575975049
+The HTML fragment 'expansion-params.xhtml' is not included anywhere in the produced implementation guide
+No definition could be found for URL value 'http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters'
+
+# Information about pinned version
+Pinned the version of%
