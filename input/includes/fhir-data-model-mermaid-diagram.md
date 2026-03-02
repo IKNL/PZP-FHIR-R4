@@ -92,6 +92,7 @@ flowchart TB
     Consent -- "provision.actor" --> RelatedPerson
     DeviceUseStatement -- "device" --> Device
     DeviceUseStatement -- "subject" --> Patient
+    DeviceUseStatement -- "extension" --> PractitionerRole
     Encounter -- "subject" --> Patient
     Encounter -- "participant" --> PractitionerRole
     Encounter -- "reasonReference" --> Procedure
