@@ -11,12 +11,12 @@
   "status": "completed",
   "authored": "2025-08-25T19:14:50.150Z",
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
-  "author": [
+  "author": 
     {
       "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1",
       "display": "Healthcare professional (role), DrVanHuissen"
     }
-  ],
+  ,
   "source": {
     "reference": "Patient/ACP-Patient-HendrikHartman-Pat1",
     "display": "Patient, Hendrik Hartman"
@@ -529,8 +529,9 @@
                   "answer": [
                     {
                       "valueCoding": {
-                        "code": "ICD",
-                        "display": "ICD"
+                        "system": "http://snomed.info/sct",
+                        "code": "72506001",
+                        "display": "implanteerbare cardioverter-defibrillator"
                       }
                     }
                   ],
@@ -603,7 +604,7 @@
       "item": [
         {
           "linkId": "1427",
-          "text": "Wat zouden zorgverleners, volgens de patiënt, moeten weten om goede zorg te kunnen verlenen? Heeft deze patiënt specifieke wensen met betrekking tot zijn zorg? (incl. culturele/religieuze/sociale/spirituele aspecten) ",
+          "text": "Wat zouden zorgverleners, volgens de patiënt, moeten weten om goede zorg te kunnen verlenen? Heeft deze patiënt specifieke wensen met betrekking tot zijn zorg? (incl. culturele/religieuze/sociale/spirituele aspecten)",
           "item": [
             {
               "answer": [

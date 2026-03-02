@@ -2,9 +2,6 @@
   "resourceType": "QuestionnaireResponse",
   "id": "SamiraVanDerSluijs-20251117",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/4.0/StructureDefinition/QuestionnaireResponse"
-    ],
     "tag": [
       {
         "code": "lformsVersion: 38.3.0"
@@ -14,12 +11,12 @@
   "status": "completed",
   "authored": "2025-11-27T16:15:00.733Z",
   "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc1",
-    "author": [
+    "author": 
     {
       "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2",
       "display": "Healthcare professional (role), Desiree Wolters"
     }
-  ],
+  ,
   "source": {
     "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2", 
     "display": "Patient, Samira van der Sluijs"
@@ -782,8 +779,9 @@
                   "answer": [
                     {
                       "valueCoding": {
-                        "code": "ICD",
-                        "display": "ICD"
+                        "system": "http://snomed.info/sct",
+                        "code": "72506001",
+                        "display": "implanteerbare cardioverter-defibrillator"
                       }
                     }
                   ],
