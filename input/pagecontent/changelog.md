@@ -24,6 +24,11 @@
 | [#63](https://github.com/IKNL/PZP-FHIR-R4/issues/63) | Redesigned Communication profile into CommunicationRequest profile. |
 | [#73](https://github.com/IKNL/PZP-FHIR-R4/issues/73) | Corrected typo in comment provision.code.text. |
 | [#82](https://github.com/IKNL/PZP-FHIR-R4/issues/82) | Added an obligation flag for `Observation.performer`. |
+| [#99](https://github.com/IKNL/PZP-FHIR-R4/issues/99) | Made all ICD SNOMED codes explicit in the ValueSet ACP-MedicalDeviceProductType-ICD and search URLs to reduce implementation burden. | 
+| [#107](https://github.com/IKNL/PZP-FHIR-R4/issues/107) | Added the missing contact‑person role code `310141000146103` for "schriftelijk gemachtigde" and relaxed the cardinality constraints. |
+| [#113](https://github.com/IKNL/PZP-FHIR-R4/issues/113) | Removed incorrect uses of `Questionnaire.item.code` and cleaned up all item code fields. |
+|[#91](https://github.com/IKNL/PZP-FHIR-R4/issues/91)  | Updated the IG text and homepage to clearly separate the STU3/zib2017 and R4/zib2020 versions.|
+
 
 #### 1.0.0-rc1
 
