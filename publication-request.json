@@ -4,7 +4,7 @@
    "path" : "https://api.iknl.nl/docs/pzp/r4/1.0.0-rc2",
    "mode" : "working",
    "status" : "trial-use",
-   "sequence" : "Release 2",
+   "sequence" : "Release 1",
    "desc" : "1.0.0 release candidate of the IKNL PZP information standard.",
    "first" : true,
    "title" : "Advance Care Planning (PZP)",
