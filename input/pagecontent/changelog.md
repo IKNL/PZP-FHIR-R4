@@ -43,7 +43,7 @@
 | [#25](https://github.com/IKNL/PZP-FHIR-R4/issues/25) | Commented out the `displayLanguage` parameter to prevent automatic Dutch translations in the IG profiles. |
 | [#23](https://github.com/IKNL/PZP-FHIR-R4/issues/23) | Updated ValueSet displays to consistently use Dutch terms without additional qualifiers, aligning with Nictiz conventions. |
 | [#22](https://github.com/IKNL/PZP-FHIR-R4/issues/22) | Included links to the GitHub repository and issue tracker in both the STU3 and R4 Implementation Guides. |
-| [#19](https://github.com/IKNL/PZP-FHIR-R4/issues/19) | history to the IG following HL7 guidelines, including setup for canonical alignment. |
+| [#19](https://github.com/IKNL/PZP-FHIR-R4/issues/19) | History to the IG following HL7 guidelines, including setup for canonical alignment. |
 | [#18](https://github.com/IKNL/PZP-FHIR-R4/issues/18) | Set up a process to publish FHIR packages on Simplifier.net, with plans for future automation via pipeline. |
 | [#14](https://github.com/IKNL/PZP-FHIR-R4/issues/14) | Added automated validation for R4 IG using a CI pipeline; STU3 support is pending improvements to Firely tooling. |
 | [#9](https://github.com/IKNL/PZP-FHIR-R4/issues/9) | Resolved a build error by updating resource instances and using IG Publisher v2.0.17 which handles multiple `name` elements. |
