@@ -29,7 +29,7 @@ sequenceDiagram
             deactivate S
         and
             %% 4. Goals
-            C->>S: GET /Goal?patient=Patient/[id]<br>&description=http://snomed.info/sct|385987000,1351964001,713148004
+            C->>S: GET /Goal?patient=Patient/[id]<br>&category=http://snomed.info/sct|713603004
             activate S
             S-->>C: 200 OK: Bundle (Goal)
             deactivate S
