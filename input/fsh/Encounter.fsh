@@ -1,7 +1,7 @@
 Profile: ACPEncounter
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Encounter
 Id: ACP-Encounter
-Title: "Encounter"
+Title: "ACP Encounter"
 Description: "Any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions. Based on nl-core-Encounter and HCIM Encounter."
 * insert MetaRules
 * subject only Reference(ACPPatient)
@@ -25,10 +25,10 @@ Description: "Any interaction, regardless of the situation, between a patient an
 
 
 Mapping: MapACPEncounter
-Id: pall-izppz-zib2020v2025-03-11
+Id: pall-izppz-zib2020v2026-02-24
 Title: "ACP dataset"
 Source: ACPEncounter
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
 * -> "808" "Contact"
 * class -> "809" "ContactType"
 * subject -> "514" "Gesprek gevoerd in bijzijn van (Patient)" // In R5 patient is added to .participant.individual. For now, if present at .subject, we assume the patient was present. Also clear from the definition of the subject element: "The patient or group present at the encounter" 
@@ -42,20 +42,61 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * reasonCode[deviatingResult].extension[commentContactReason] -> "822" "ToelichtingRedenContact"
 
 
-Instance: F1-ACP-Encounter-01-10-2020
+Instance: ACP-Encounter-Pat1
 InstanceOf: ACPEncounter
-Title: "F1 ACP Encounter 01-10-2020"
+Title: "ACP Encounter - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
 * identifier.value = "64627bfa-a127-4d3a-8187-39426d7937dc"
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
-* subject = Reference(F1-ACP-Patient-HendrikHartman) "Patient, Hendrik Hartman"
-* participant[0].individual = Reference(F1-ACP-HealthProfessional-PractitionerRole-DrVanHuissen) "Healthcare professional (role), van Huissen"
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * participant[=].individual.type = "PractitionerRole"
-* participant[+].individual = Reference(F1-ACP-ContactPerson-MichielHartman) "ContactPerson, Michiel Hartman"
+* participant[+].individual = Reference(ACP-ContactPerson-MichielHartman-Pat1) "ContactPerson, Michiel Hartman"
 * participant[=].individual.type = "RelatedPerson"
 * period.start = "2020-10-01"
 * period.end = "2020-10-01"
-* reasonReference = Reference(F1-ACP-Procedure-01-10-2020) "Procedure, ACP"
+* reasonReference = Reference(ACP-Procedure-Pat1) "Procedure, ACP"
+
+
+Instance: ACP-Encounter-1-Pat2
+InstanceOf: ACPEncounter
+Title: "ACP Encounter - 1 -  Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "ba69d05c-85d2-4773-8db4-4eb69d12d110"
+* status = #finished
+* class = $v3-ActCode#IMP "inpatient encounter"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* participant[=].individual.type = "PractitionerRole"
+* participant[+].individual = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2) "ContactPerson, Maya van der Sluijs"
+* participant[=].individual.type = "RelatedPerson"
+* period.start = "2025-08-07"
+* period.end = "2025-08-07"
+* reasonReference = Reference(ACP-Procedure-1-Pat2) "Procedure, ACP"
+* reasonReference.extension[commentContactReason].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
+* reasonReference.extension[commentContactReason].valueString = "Derde PZP gesprek van mevrouw" 
+
+Instance: ACP-Encounter-2-Pat2
+InstanceOf: ACPEncounter
+Title: "ACP Encounter - 2 - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "4fd4a47f-e5a2-410d-8f3b-10bd58539013"
+* status = #finished
+* class = $v3-ActCode#IMP "inpatient encounter"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* participant[0].individual = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* participant[=].individual.type = "PractitionerRole"
+* participant[+].individual = Reference(ACP-ContactPerson-GertJanDeJong-Pat2) "ContactPerson, Gert-Jan de Jong"
+* participant[=].individual.type = "RelatedPerson"
+* period.start = "2024-07-28"
+* period.end = "2024-07-28"
+* reasonReference = Reference(ACP-Procedure-2-Pat2) "Procedure, ACP"
+* reasonReference.extension[commentContactReason].url = "http://nictiz.nl/fhir/StructureDefinition/ext-Comment"
+* reasonReference.extension[commentContactReason].valueString = "Eerste PZP gesprek van mevrouw" 

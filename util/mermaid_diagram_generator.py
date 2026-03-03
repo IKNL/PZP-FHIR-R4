@@ -1,36 +1,84 @@
+"""
+mermaid_diagram_generator.py
+
+Generates a Mermaid flowchart diagram from FHIR Shorthand (FSH) profile
+definitions, visualising the relationships between FHIR resource profiles in
+the ACP Implementation Guide.
+
+Workflow:
+  1. Scans all .fsh files to discover Profile definitions and Instance-to-
+     Profile mappings (Pass 1).
+  2. Re-scans the .fsh files to extract inter-profile references, including
+     `only Reference(...)`, `contains`, and instance-level `= Reference(...)`
+     patterns (Pass 2).
+  3. Produces a Markdown file containing a Mermaid flowchart with:
+       - Resource-type subgraphs grouping related profiles.
+       - Colour-coded nodes by functional category (Agreements, Individuals,
+         Supporting information, Consultation).
+       - Labelled edges showing the FHIR element paths that link resources.
+
+Usage:
+  python util/mermaid_diagram_generator.py [--fsh-dir DIR] [--output-file FILE]
+
+Examples:
+  # Default paths
+  python util/mermaid_diagram_generator.py
+
+  # Custom paths
+  python util/mermaid_diagram_generator.py --fsh-dir input/fsh \\
+      --output-file input/includes/fhir-data-model-mermaid-diagram.md
+"""
+
 import os
 import re
 import argparse
 from collections import defaultdict
+
+# =============================================================================
+# Configuration — edit these values to match your project
+# =============================================================================
+
+# Default directory containing the .fsh profile files.
+DEFAULT_FSH_DIR = "input/fsh"
+
+# Default output path for the generated Mermaid diagram Markdown file.
+DEFAULT_OUTPUT_FILE = "input/includes/fhir-data-model-mermaid-diagram.md"
+
+# Maps each FHIR resource type to a functional category used for subgraph
+# grouping and colour-coding in the diagram.
+RESOURCE_CATEGORIES = {
+    "Observation": "ACP Agreements",
+    "Consent": "ACP Agreements",
+    "Goal": "ACP Agreements",
+    "Patient": "ACP Individuals",
+    "RelatedPerson": "ACP Individuals",
+    "Practitioner": "ACP Individuals",
+    "PractitionerRole": "ACP Individuals",
+    "DeviceUseStatement": "ACP Supporting information",
+    "Device": "ACP Supporting information",
+    "CommunicationRequest": "ACP Supporting information",
+    "Encounter": "ACP Consultation",
+    "Procedure": "ACP Consultation",
+}
+
+# Mermaid CSS class styles per category. The "default" entry is used for any
+# resource type not listed in RESOURCE_CATEGORIES.
+CATEGORY_STYLES = {
+    "ACP Agreements": "fill:#e6f3ff,stroke:#b3d9ff,color:#000",               # Light Blue
+    "ACP Individuals": "fill:#e6ffe6,stroke:#b3ffb3,color:#000",              # Light Green
+    "ACP Supporting information": "fill:#fff5e6,stroke:#ffddb3,color:#000",   # Light Orange
+    "ACP Consultation": "fill:#f0e6ff,stroke:#d9b3ff,color:#000",             # Light Purple
+    "default": "fill:#f2f2f2,stroke:#cccccc,color:#000",                      # Default Grey
+}
+
 
 def generate_mermaid_diagram(fsh_directory, output_markdown_file):
     """
     Parses FSH files to generate a Mermaid diagram with categorized and styled
     subgraphs, including labeled links between them.
     """
-    # --- Hardcoded Categories and Styles ---
-    resource_categories = {
-        "Observation": "ACP Agreements",
-        "Consent": "ACP Agreements",
-        "Goal": "ACP Agreements",
-        "Patient": "ACP Individuals",
-        "RelatedPerson": "ACP Individuals",
-        "Practitioner": "ACP Individuals",
-        "PractitionerRole": "ACP Individuals",
-        "DeviceUseStatement": "ACP Supporting information",
-        "Device": "ACP Supporting information",
-        "Communication": "ACP Supporting information",
-        "Encounter": "ACP Consultation",
-        "Procedure": "ACP Consultation",
-    }
-
-    category_styles = {
-        "ACP Agreements": "fill:#e6f3ff,stroke:#b3d9ff,color:#000", # Light Blue
-        "ACP Individuals": "fill:#e6ffe6,stroke:#b3ffb3,color:#000", # Light Green
-        "ACP Supporting information": "fill:#fff5e6,stroke:#ffddb3,color:#000", # Light Orange
-        "ACP Consultation": "fill:#f0e6ff,stroke:#d9b3ff,color:#000", # Light Purple
-        "default": "fill:#f2f2f2,stroke:#cccccc,color:#000" # Default Grey
-    }
+    resource_categories = RESOURCE_CATEGORIES
+    category_styles = CATEGORY_STYLES
 
 
     # --- Data Structures ---
@@ -122,7 +170,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
 
     with open(output_markdown_file, 'w', encoding='utf-8') as f:
         f.write("#### Data Model Overview Diagram\n")
-        f.write("```mermaid\n")
+        f.write('<div class="mermaid" style="height: 700px; overflow: visible;">\n')
         f.write("flowchart TB\n\n")
 
         f.write("    %% ---- Style Definitions for Categories ----\n")
@@ -134,7 +182,10 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
         f.write("\n")
 
         f.write("    %% ---- Subgraph Definitions ----\n")
-        for resource_type, profile_list in sorted(resource_to_profiles.items()):
+        # Sort resource types, placing Observation last to appear on the right
+        sorted_resources = sorted(resource_to_profiles.items(), key=lambda x: (x[0] == "Observation", x[0]))
+        
+        for resource_type, profile_list in sorted_resources:
             f.write(f'    subgraph "{resource_type}"\n')
             for profile_name in sorted(profile_list):
                 f.write(f'        {profile_name}\n')
@@ -154,7 +205,7 @@ def generate_mermaid_diagram(fsh_directory, output_markdown_file):
             label = ", ".join(sorted(list(paths)))
             f.write(f'    {source_resource} -- "{label}" --> {target_resource}\n')
         
-        f.write("```\n")
+        f.write("</div>\n")
     
     print(f"\nSuccessfully generated final Mermaid diagram at: {output_markdown_file}")
 
@@ -163,8 +214,8 @@ def main():
         description="Generates a categorized and styled Mermaid diagram with labeled links between subgraphs.",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('--fsh-dir', default='input/fsh', help="Directory containing .fsh files.")
-    parser.add_argument('--output-file', default='input/includes/fhir-data-model-mermaid-diagram.md', help="Path for the output diagram file.")
+    parser.add_argument('--fsh-dir', default=DEFAULT_FSH_DIR, help=f"Directory containing .fsh files.\n(default: '{DEFAULT_FSH_DIR}')")
+    parser.add_argument('--output-file', default=DEFAULT_OUTPUT_FILE, help=f"Path for the output diagram file.\n(default: '{DEFAULT_OUTPUT_FILE}')")
     args = parser.parse_args()
     generate_mermaid_diagram(args.fsh_dir, args.output_file)
 

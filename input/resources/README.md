@@ -117,7 +117,31 @@ This simplifies QuestionnaireResponse creation. Example result:
 1. In Form Builder, select top-right menu → **"Export"** → **"Export to file in FHIR R4 format"**
 2. Save and replace the file in `input/resources/`
 
-### Step 7: Register in Configuration for better presentation in IG
+### Step 7: Expand ICD valueset
+In the question concerning the 'ProductType van IC' (linkID 1008), replace the ICD code and display by the valueset values, including the system, the code and the display. Illustrated for first two answer options:
+```json
+"answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "72506001",
+                    "display": "implanteerbare cardioverter-defibrillator"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "465460004",
+                    "display": "univentriculaire implanteerbare cardioverter-defibrillator"
+                  }
+                },
+]
+```
+
+### Step 8: Remove 'code' keys from questionnaire items with Python script
+Run the Questionnaire Item Code Remover script (`/util\questionnaire_item_code_remover.py/`) that removes 'code' keys from all questionnaire items, including incorrect 'code' properties.
+
+### Step 9: Register in Configuration for better presentation in IG
 
 Add the Questionnaire to `sushi-config.yaml`:
 

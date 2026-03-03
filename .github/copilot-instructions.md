@@ -83,7 +83,7 @@ Examples follow naming pattern `[PatientName]-[Date]` with `-Administrative` suf
 - **Generated resources:** Standard FHIR resource names (e.g., `StructureDefinition-ACP-Patient.json`)
 - **FSH files:** Use meaningful names that reflect the profile purpose
 - **Profile IDs:** Use `ACP-` prefix for profiles (e.g., `ACP-Patient`, `ACP-AdvanceDirective`)
-- **Extension IDs:** Use `ext-` prefix (e.g., `ext-LegallyCapable-MedicalTreatmentDecisions`)
+- **Extension IDs:** Use `ext-` prefix (e.g., `ext-Patient.LegallyCapableMedicalTreatmentDecisions`)
 - **Questionnaires:** 
   - Complete: `Questionnaire-ACP-zib2020.json`
   - Administrative: `Questionnaire-ACP-Administrative.json`
@@ -116,15 +116,15 @@ _Last updated: 2025-10. Updated to reflect R4-only repository structure._
 Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient  // Always inherit from Nictiz
 Id: ACP-Patient                                                    // ACP- prefix pattern
-Title: "Patient"                                                   // Human-readable
+Title: "ACP Patient"                                                   // Human-readable
 Description: "A person who receives medical..."                   // Clinical context
 * insert MetaRules                                                 // Consistent metadata
 ```
 
 ### Extension Pattern
 ```fsh
-Extension: ExtLegallyCapableMedicalTreatmentDecisions
-Id: ext-LegallyCapable-MedicalTreatmentDecisions                  // ext- prefix
+Extension: ExtPatientLegallyCapableMedicalTreatmentDecisions
+Id: ext-Patient.LegallyCapableMedicalTreatmentDecisions                  // ext- prefix
 Context: Patient                                                   // Explicit context
 * extension ^slicing.discriminator.type = #value                  // Standard slicing
 ```

@@ -1,24 +1,30 @@
 """
-Strip Standards Status Extensions from FSH-Generated FHIR Resources
+strip_standards_status_extensions.py
 
-This script removes the following extensions from JSON files and normative badges from HTML files:
-- http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-- http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version
+Removes unwanted ``structuredefinition-standards-status`` and
+``structuredefinition-normative-version`` extensions from compiled FHIR
+resources, and their corresponding normative badges from generated HTML.
 
-These extensions are automatically added by SUSHI but can cause issues with validation
-or publication workflows. They will be removed in a future version of SUSHI, and the .NET SDK.
-See the related zulip thread here: https://chat.fhir.org/#narrow/channel/215610-shorthand/topic/.E2.9C.94.20Issue.20adding.20extension.20when.20base.20has.20extensions.20in.20snap.2E.2E.2E/with/561905267
+These extensions are automatically injected by SUSHI but can cause issues
+with validation or publication workflows.  They will be removed in a future
+SUSHI / .NET SDK version.  See the related Zulip thread:
+https://chat.fhir.org/#narrow/channel/215610-shorthand/topic/.E2.9C.94.20Issue.20adding.20extension.20when.20base.20has.20extensions.20in.20snap.2E.2E.2E/with/561905267
 
-The script processes both:
-1. JSON files in fsh-generated/resources/ - removes extension objects
-2. JSON files in output/ - removes extension objects
-3. HTML files in output/ - removes normative status badges
+Workflow:
+  1. Scans ``fsh-generated/resources/`` for JSON files and recursively
+     strips the target extension objects.
+  2. Scans ``output/`` for StructureDefinition HTML files and removes
+     normative status ``<a>`` badges.
 
 Usage:
-    python util/strip_standards_status_extensions.py [--dry-run]
+  python util/strip_standards_status_extensions.py [--dry-run]
 
-Options:
-    --dry-run    Show what would be changed without modifying files
+Examples:
+  # Preview changes
+  python util/strip_standards_status_extensions.py --dry-run
+
+  # Apply changes
+  python util/strip_standards_status_extensions.py
 """
 
 import json
@@ -28,7 +34,17 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-# Extensions to remove
+# =============================================================================
+# Configuration — edit these values to match your project
+# =============================================================================
+
+# Directory containing compiled FHIR JSON resources (output of SUSHI).
+FSH_GENERATED_DIR = "fsh-generated/resources"
+
+# IG Publisher output directory containing HTML files.
+OUTPUT_DIR = "output"
+
+# Extension URLs to remove from JSON resources.
 EXTENSIONS_TO_REMOVE = {
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version"
@@ -221,8 +237,8 @@ def main():
     # Find the script's directory and construct paths
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
-    fsh_generated_dir = project_root / "fsh-generated" / "resources"
-    output_dir = project_root / "output"
+    fsh_generated_dir = project_root / FSH_GENERATED_DIR
+    output_dir = project_root / OUTPUT_DIR
     
     # Track totals
     total_json_modified = 0

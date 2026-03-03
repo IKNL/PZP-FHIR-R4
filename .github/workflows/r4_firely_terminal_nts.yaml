@@ -1,0 +1,135 @@
+name: R4 Firely Terminal Validation (NTS)
+
+on:
+  # Only triggered manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  # Validate all resources using Firely Terminal with the Dutch National Terminology Server (NTS)
+  CI_FHIR_VALIDATION_NTS:
+    runs-on: ubuntu-latest
+    
+    env:
+      NTS_USER: ${{ secrets.NTS_USERNAME }}
+      NTS_PASS: ${{ secrets.NTS_PASSWORD }}
+      NTS_TX_URL: https://terminologieserver.nl/fhir
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        
+      # Install .NET runtime
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+      
+      # Install Java runtime (only needed if you want to run the offical HL7 Java validator)
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'microsoft'
+          java-version: '21'
+      
+      # Start NTS proxy for authenticated terminology server access
+      - name: Start NTS Proxy
+        run: |
+          cd util/NTS-proxy
+          docker compose up -d
+          sleep 5
+          docker ps
+          docker logs nts-proxy-nts-proxy-1
+      
+      # Install mitmproxy certificate into Java truststore
+      - name: Install mitmproxy certificate
+        run: |
+          # Extract certificate from container
+          docker cp nts-proxy-nts-proxy-1:/root/.mitmproxy/mitmproxy-ca-cert.pem /tmp/mitmproxy-ca-cert.pem
+          
+          # Find Java cacerts location
+          JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 | grep 'java.home' | awk '{print $3}')
+          echo "Java home: $JAVA_HOME"
+          
+          # Import certificate into Java truststore
+          sudo keytool -import -trustcacerts -alias mitmproxy \
+            -file /tmp/mitmproxy-ca-cert.pem \
+            -keystore "$JAVA_HOME/lib/security/cacerts" \
+            -storepass changeit -noprompt
+          
+          echo "Certificate installed successfully"
+      
+      # Configure Java to use proxy for all HTTP/HTTPS connections
+      - name: Set Java proxy system properties
+        run: |
+          echo "JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts=" >> $GITHUB_ENV
+        
+      - name: Firely.Terminal (GitHub Actions)
+        uses: FirelyTeam/firely-terminal-pipeline@v0.7.32-alpha2
+        with:
+          PATH_TO_CONFORMANCE_RESOURCES: fsh-generated/resources
+          PATH_TO_EXAMPLES: fsh-generated/resources
+          #PATH_TO_QUALITY_CONTROL_RULES: unittest
+          DOTNET_VALIDATION_ENABLED: false
+          JAVA_VALIDATION_ENABLED: true
+          JAVA_VALIDATION_OPTIONS: >
+            -allow-example-urls true
+            -output validation.json
+            -html-output validation.html
+            -show-message-ids
+            -language nl
+            -jurisdiction nl
+            -sct nl
+            -display-issues-are-warnings
+            -advisor-file validator/advisor.json
+            -resolution-context file:fsh-generated/resources/
+            -tx ${{ env.NTS_TX_URL }}
+            -txLog tx.log
+          EXPECTED_FAILS: VALIDATION_CONFORMANCE_DOTNET VALIDATION_CONFORMANCE_JAVA VALIDATION_EXAMPLES_JAVA
+          SIMPLIFIER_USERNAME: ${{ secrets.SIMPLIFIER_USERNAME }}
+          SIMPLIFIER_PASSWORD: ${{ secrets.SIMPLIFIER_PASSWORD }}
+          SUSHI_ENABLED: true
+          SUSHI_USE_CONFIG_DEPENDENCIES: true
+          ##FIRELY_TERMINAL_VERSION: 3.4.0
+          ##JAVA_VALIDATOR_VERSION: 6.7.1
+
+      - name: Upload validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fhir-validation-results-nts
+          path: |
+            validation.json
+            validation.html
+            tx.log
+          retention-days: 1
+
+      - name: Stop NTS Proxy
+        if: always()
+        run: |
+          cd util/NTS-proxy
+          docker compose down
+
+      - name: Upload FSH generated artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fhir-fsh-results-nts
+          path: |
+            fsh-generated/resources/Structure*.json
+          retention-days: 1
+
+      - name: Convert Validation Report
+        uses: patrick-werner/validation-outcome-markdown-renderer@v1.2.2
+        with:
+          bundle-file: validation.json
+          include: errors
+          filters: |
+            # ActorDefinition resources is from R5 onwards, but we use it in R4 anyway.
+            ActorDefinition-ACPActorConsulter.json||*content cannot be parsed*|*
+            ActorDefinition-ACPActorProvider.json||*content cannot be parsed*|*
+                        
+            # Struktur: fileName|messageId|detailsWildcard|location
+
+      # - name: Add & Commit
+      #   uses: EndBug/add-and-commit@v9
+      #   with:
+      #     add: 'fsh-generated/resources/'

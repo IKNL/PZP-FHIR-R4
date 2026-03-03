@@ -1,12 +1,12 @@
 Profile: ACPPatient
 Parent: http://nictiz.nl/fhir/StructureDefinition/nl-core-Patient
 Id: ACP-Patient
-Title: "Patient"
+Title: "ACP Patient"
 Description: "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient."
 * insert MetaRules
 * obeys ACP-Patient-1
 * extension contains
-    ExtLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
+    ExtPatientLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
 * extension[legallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
 * contact ^condition = "ACP-Patient-1"
@@ -56,10 +56,10 @@ Description: "If the patient is not legally capable, there should be a legal rep
 
 
 Mapping: MapACPPatient
-Id: pall-izppz-zib2020v2025-03-11
+Id: pall-izppz-zib2020v2026-02-24
 Title: "ACP dataset"
 Source: ACPPatient
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2025-10-29T13%3A09%3A23"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
 * -> "351" "Patient"
 * -> "613" "Patient"
 * -> "648" "Patient"
@@ -119,9 +119,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * address.type -> "375" "AdresSoort"
 
 
-Instance: F1-ACP-Patient-HendrikHartman
+Instance: ACP-Patient-HendrikHartman-Pat1
 InstanceOf: ACPPatient
-Title: "F1 ACP Patient Hendrik Hartman"
+Title: "ACP Patient - Hendrik Hartman - Pat 1"
 Usage: #example
 * extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
@@ -139,7 +139,7 @@ Usage: #example
 * name[nameInformation-GivenName].use = #usual
 * name[nameInformation-GivenName].given = "Hendrik"
 * birthDate = "1961-01-01"
-* contact.extension[relatedPerson].valueReference = Reference(F1-ACP-ContactPerson-MichielHartman)
+* contact.extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MichielHartman-Pat1)
 * contact.relationship[0] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#01 "Eerste relatie/contactpersoon"
 * contact.relationship[+] = urn:oid:2.16.840.1.113883.2.4.3.11.22.472#24 "Wettelijke vertegenwoordiger"
 * contact.relationship[+] = $v3-RoleCode#BRO "brother"
@@ -156,3 +156,55 @@ Usage: #example
 * contact.telecom[0].system = #email
 * contact.telecom[=].value = "michiel.hartman@iknl.nl"
 * contact.telecom[=].use = #work
+
+
+Instance: ACP-Patient-SamiraVanDerSluijs-Pat2
+InstanceOf: ACPPatient
+Title: "ACP Patient - Samira van der Sluijs - Pat 2"
+Usage: #example
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
+* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
+* identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
+* identifier.value = "999998298"
+* name[0].use = #official
+* name[=].text = "Samira van der Sluijs"
+* name[=].family = "van der Sluijs"
+* name[=].family.extension[0].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+* name[=].family.extension[=].valueString = "Sluijs"
+* name[=].family.extension[+].url = "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+* name[=].family.extension[=].valueString = "van der"
+* name[=].given[0] = "Samira"
+* name[=].given[+] = "Louise"
+* name[=].given[0].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[=].given[+].extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+* name[=].given[=].extension.valueCode = #BR
+* name[+].use = #usual
+* name[=].given = "Samira"
+* telecom[+].system = #phone
+* telecom[=].system.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* telecom[=].system.extension.valueCodeableConcept = $v3-AddressUse#MC "mobile contact"
+* telecom[=].value = "0688877788"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "samira.test@iknl.nl"
+* telecom[=].use = #work
+* gender = #female
+* gender.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* gender.extension.valueCodeableConcept = $v3-AdministrativeGender#F "Female"
+* birthDate = "1959-07-31"
+* address.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-AddressInformation.AddressType"
+* address.extension.valueCodeableConcept = $v3-AddressUse#HP "Primary Home"
+* address.use = #home
+* address.type = #both
+* address.line = "Vasteland 78"
+* address.line.extension[0].url = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+* address.line.extension[=].valueString = "Vasteland"
+* address.line.extension[+].url = "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+* address.line.extension[=].valueString = "78"
+* address.city = "Rotterdam"
+* address.district = "Rotterdam"
+* address.postalCode = "3011BN"
+* address.country = "Nederland"
+* address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
+* address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"

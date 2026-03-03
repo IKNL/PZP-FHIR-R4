@@ -1,5 +1,5 @@
 #### Data Model Overview Diagram
-```mermaid
+<div class="mermaid" style="height: 700px; overflow: visible;">
 flowchart TB
 
     %% ---- Style Definitions for Categories ----
@@ -10,8 +10,8 @@ flowchart TB
     classDef C4 fill:#f2f2f2,stroke:#cccccc,color:#000
 
     %% ---- Subgraph Definitions ----
-    subgraph "Communication"
-        ACPCommunication
+    subgraph "CommunicationRequest"
+        ACPInformRelativesRequest
     end
 
     subgraph "Consent"
@@ -35,14 +35,6 @@ flowchart TB
         ACPMedicalPolicyGoal
     end
 
-    subgraph "Observation"
-        ACPOrganDonationChoiceRegistration
-        ACPOtherImportantInformation
-        ACPPositionRegardingEuthanasia
-        ACPPreferredPlaceOfDeath
-        ACPSpecificCareWishes
-    end
-
     subgraph "Patient"
         ACPPatient
     end
@@ -63,8 +55,16 @@ flowchart TB
         ACPContactPerson
     end
 
+    subgraph "Observation"
+        ACPOrganDonationChoiceRegistration
+        ACPPositionRegardingEuthanasia
+        ACPPreferredPlaceOfDeath
+        ACPSenseOfPurpose
+        ACPSpecificCareWishes
+    end
+
     %% ---- Style Assignments ----
-    class ACPCommunication C2
+    class ACPInformRelativesRequest C2
     class ACPAdvanceDirective C0
     class ACPTreatmentDirective C0
     class ACPMedicalDeviceProductICD C2
@@ -75,7 +75,7 @@ flowchart TB
     class ACPPreferredPlaceOfDeath C0
     class ACPPositionRegardingEuthanasia C0
     class ACPOrganDonationChoiceRegistration C0
-    class ACPOtherImportantInformation C0
+    class ACPSenseOfPurpose C0
     class ACPPatient C1
     class ACPHealthProfessionalPractitioner C1
     class ACPHealthProfessionalPractitionerRole C1
@@ -83,20 +83,20 @@ flowchart TB
     class ACPContactPerson C1
 
     %% ---- Resource Type References ----
-    Communication -- "recipient, subject" --> Patient
-    Communication -- "sender" --> PractitionerRole
-    Consent -- "extension" --> Encounter
+    CommunicationRequest -- "encounter" --> Encounter
+    CommunicationRequest -- "sender, subject" --> Patient
+    CommunicationRequest -- "requester" --> PractitionerRole
+    CommunicationRequest -- "recipient" --> RelatedPerson
     Consent -- "patient, provision.actor" --> Patient
     Consent -- "provision.actor" --> PractitionerRole
     Consent -- "provision.actor" --> RelatedPerson
     DeviceUseStatement -- "device" --> Device
-    DeviceUseStatement -- "extension" --> Encounter
     DeviceUseStatement -- "subject" --> Patient
+    DeviceUseStatement -- "extension" --> PractitionerRole
     Encounter -- "subject" --> Patient
     Encounter -- "participant" --> PractitionerRole
     Encounter -- "reasonReference" --> Procedure
     Encounter -- "participant" --> RelatedPerson
-    Goal -- "extension" --> Encounter
     Goal -- "subject" --> Patient
     Observation -- "encounter" --> Encounter
     Observation -- "subject" --> Patient
@@ -108,4 +108,4 @@ flowchart TB
     Procedure -- "performer" --> PractitionerRole
     Procedure -- "performer" --> RelatedPerson
     RelatedPerson -- "patient" --> Patient
-```
+</div>

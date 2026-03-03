@@ -1,10 +1,70 @@
+"""
+mapping_table_generator.py
+
+Generates a Markdown mapping table from FHIR Shorthand (FSH) profile mappings
+and an ART-DECOR JSON dataset export.
+
+Workflow:
+  1. Parses the ART-DECOR JSON dataset to discover all dataset concept IDs and
+     their hierarchical structure (name, depth).
+  2. Scans all .fsh files in the FSH directory for Mapping blocks, extracting
+     the relationship between dataset concept IDs and FHIR resource elements.
+  3. Produces a Markdown file containing:
+       - A main table of all mapped dataset elements with links to their
+         corresponding FHIR StructureDefinitions.
+       - (develop mode only) A table of unmapped dataset elements that have no
+         corresponding FSH mapping.
+       - (develop mode only) A table of orphan mappings whose concept IDs do
+         not appear in the JSON dataset.
+
+Usage:
+  python util/mapping_table_generator.py [--fsh-dir DIR] [--output-file FILE]
+                                         [--json-file FILE] [--mode {normal,develop}]
+
+Examples:
+  # Default (normal mode)
+  python util/mapping_table_generator.py
+
+  # Development mode with full diagnostics
+  python util/mapping_table_generator.py --mode develop
+
+  # Custom paths
+  python util/mapping_table_generator.py --fsh-dir input/fsh \\
+      --json-file util/my_dataset.json --output-file input/includes/mappings.md
+"""
+
 import os
 import re
 import argparse
 import json
 
-# --- Configuration ---
-# Add any concept IDs here that you want to exclude from the "Unmapped Elements" table.
+# =============================================================================
+# Configuration — edit these values to match your project / dataset
+# =============================================================================
+
+# Default directory containing the .fsh profile files.
+DEFAULT_FSH_DIR = "input/fsh"
+
+# Default output path for the generated Markdown mapping table.
+DEFAULT_OUTPUT_FILE = "input/includes/mappings.md"
+
+# Default path to the ART-DECOR JSON dataset export.
+DEFAULT_JSON_FILE = "util/DS_pzp_dataset_beschikbaarstellen_(download_2026-03-02T10_20_00).json"
+
+# Default output mode: 'normal' (main table only) or 'develop' (includes
+# unmapped-elements and orphan-mapping diagnostic tables).
+DEFAULT_MODE = "normal"
+
+# Full OID of the root concept in the JSON dataset from which traversal begins.
+ROOT_CONCEPT_ID = "2.16.840.1.113883.2.4.3.11.60.117.2.350"
+
+# OID prefix shared by all relevant dataset concepts. Only concepts whose ID
+# starts with this prefix (and whose remaining part is a plain number without
+# dots) are included in the mapping.
+OID_PREFIX = "2.16.840.1.113883.2.4.3.11.60.117.2."
+
+# Concept IDs to exclude from the "Unmapped Elements" diagnostic table.
+# These are intentionally unmapped container/grouping concepts.
 UNMAPPED_IGNORE_LIST = [
     '357', '360', '447', '450', '484', '487',
     '520', '523', '560', '563', '816'
@@ -29,8 +89,8 @@ def extract_all_json_ids(json_file_path):
     Returns an ordered list of concept dictionaries.
     """
     ordered_concepts = []
-    root_concept_id = "2.16.840.1.113883.2.4.3.11.60.117.2.350"
-    oid_prefix = "2.16.840.1.113883.2.4.3.11.60.117.2."
+    root_concept_id = ROOT_CONCEPT_ID
+    oid_prefix = OID_PREFIX
     
     try:
         with open(json_file_path, 'r', encoding='utf-8') as f:
@@ -228,10 +288,10 @@ def main():
         description="Extracts FHIR Shorthand (FSH) mappings to a Markdown file.",
         formatter_class=argparse.RawTextHelpFormatter
     )
-    parser.add_argument('--fsh-dir', default='input/fsh', help="Directory containing .fsh files.\n(default: 'input/fsh')")
-    parser.add_argument('--output-file', default='input/includes/mappings.md', help="Path for the output Markdown file.\n(default: 'input/includes/mappings.md')")
-    parser.add_argument('--json-file', default='util/DS_pzp_dataset_beschikbaarstellen_(download_2025-08-28T07_27_33).json', help="Path to the JSON dataset file.")
-    parser.add_argument('--mode', choices=['normal', 'develop'], default='normal', help="Output mode: 'normal' for main table only, 'develop' for full output (default: normal)")
+    parser.add_argument('--fsh-dir', default=DEFAULT_FSH_DIR, help=f"Directory containing .fsh files.\n(default: '{DEFAULT_FSH_DIR}')")
+    parser.add_argument('--output-file', default=DEFAULT_OUTPUT_FILE, help=f"Path for the output Markdown file.\n(default: '{DEFAULT_OUTPUT_FILE}')")
+    parser.add_argument('--json-file', default=DEFAULT_JSON_FILE, help=f"Path to the JSON dataset file.\n(default: '{DEFAULT_JSON_FILE}')")
+    parser.add_argument('--mode', choices=['normal', 'develop'], default=DEFAULT_MODE, help=f"Output mode: 'normal' for main table only, 'develop' for full output (default: {DEFAULT_MODE})")
     args = parser.parse_args()
     extract_mappings_from_fsh(args.fsh_dir, args.output_file, args.json_file, args.mode)
 
