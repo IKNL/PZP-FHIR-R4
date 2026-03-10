@@ -6,7 +6,7 @@
    "status" : "trial-use",
    "sequence" : "Release 1",
    "desc" : "1.0.0 release candidate of the IKNL PZP information standard.",
-   "first" : true,
+   "first" : false,
    "title" : "Advance Care Planning (PZP)",
    "ci-build" : "https://build.fhir.org/ig/IKNL/PZP-FHIR-R4/branches/develop/",
    "category" : "Care Management",
