@@ -2,4 +2,4 @@
 
 This profile adds ACP-specific mappings to the ART-DECOR dataset and obligation extensions for Provider and Consulter actors. Profile references are constrained to ACP profiles where available. The following change affects implementation beyond the base nl-core profile:
 
-* An additional slice `.relationship:roleAdditional` has been added, bound to [ACPContactPersonRoleVS](ValueSet-ACPContactPersonRoleVS.html). This slice accommodates role codes required by the ACP dataset that are not included in the `RolCodelijst` bound to `.relationship:role` (e.g. SNOMED CT code `310141000146103` _Schriftelijk gemachtigde zorg en behandeling_).
+* An additional slice `.relationship:roleAdditional` has been added, bound to [ACPContactPersonRoleVS](ValueSet-ACPContactPersonRoleVS.html). This slice accommodates role codes required by the ACP dataset that are not included in the `RolCodelijst` bound to `.relationship:role` (e.g. SNOMED CT code `310141000146103` _Schriftelijk gemachtigde zorg en behandeling_, pre-adopted from the [RolCodelijst in zib Contactpersoon v4.1 (2024)](https://zibs.nl/wiki/Contactpersoon-v4.1(2024NL)#RolCodelijst)).
