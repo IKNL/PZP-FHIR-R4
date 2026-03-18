@@ -567,7 +567,7 @@ Usage: #definition
     * extension
       * url = $CapExpectation
       * valueCode = #SHALL
-    * type = #Communication
+    * type = #CommunicationRequest
     * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-InformRelativesRequest"
       * extension
         * url = $CapExpectation
