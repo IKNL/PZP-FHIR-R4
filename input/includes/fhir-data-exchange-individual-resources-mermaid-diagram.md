@@ -47,7 +47,7 @@ sequenceDiagram
             deactivate S
         and
             %% 7. CommunicationRequests
-            C->>S: GET /CommunicationRequest?patient=Patient/[id]<br>&category=http://snomed.info/sct|713603004
+            C->>S: GET /CommunicationRequest?patient=Patient/[id]<br>&category=http://snomed.info/sct|223449006
             activate S
             S-->>C: 200 OK: Bundle (CommunicationRequest)
             deactivate S
