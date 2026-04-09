@@ -359,7 +359,7 @@ Description: "Indicator of capability of patient to make informed decisions abou
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
 * code = $snomed#304686002
-* value[x] only Boolean
+* value[x] only boolean
 
 * insert ObligationRules(encounter)
 * insert ObligationRules(subject)
