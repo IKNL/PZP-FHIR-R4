@@ -78,7 +78,7 @@ pages:
 
 parameters:
   path-expansion-params: ..\..\input\_resources\Parameters-expansion.json
-  pin-canonicals: pin-all
+  pin-canonicals: pin-multiples
   display-warnings: true
   # currently we don't have a CI build
   no-cibuild-issues: true
