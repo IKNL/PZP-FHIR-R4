@@ -99,10 +99,14 @@
         {
           "answer": [
             {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "01.015",
-                "display": "Huisarts"
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
+                    "code": "01.015",
+                    "display": "Huisarts"
+                  }
+                ]
               }
             }
           ],
