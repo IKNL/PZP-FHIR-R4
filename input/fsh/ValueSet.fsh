@@ -226,6 +226,6 @@ Title: "ACP Health Professional Specialty"
 Description: "ValueSet for specialty of the health professional, to be used in the questionnaire. This ValueSet allows codes from both the UZI role coding and the AGB specialty list. The ValueSet is derived from the zib Healthcare Professional (zib2020) Specialty, representing the specialty of the healthcare professional using UZI and AGB codes."
 * insert MetaRules
 * include codes from system http://fhir.nl/fhir/NamingSystem/uzi-rolcode
-* include codes from system urn:oid:2.16.840.1.113883.2.4.6.7
+* include codes from system urn:oid:2.16.840.1.113883.2.4.6.7 //OID for AGB specialty list
 
 
