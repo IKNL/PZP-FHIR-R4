@@ -530,7 +530,7 @@
                 {
                   "question": "984",
                   "operator": "=",
-                  "answerBoolean": true
+                  "answerBoolean": false
                   }
               ],
               "enableBehavior": "any",
@@ -568,7 +568,7 @@
                 {
                   "question": "984",
                   "operator": "=",
-                  "answerBoolean": true
+                  "answerBoolean": false
                 }
               ],
               "enableBehavior": "any",
@@ -711,7 +711,7 @@
                 {
                   "question": "984",
                   "operator": "=",
-                  "answerBoolean": true
+                  "answerBoolean": false
                 }
               ],
               "enableBehavior": "any",
@@ -738,7 +738,7 @@
                 {
                   "question": "984",
                   "operator": "=",
-                  "answerBoolean": true
+                  "answerBoolean": false
                 }
               ],
               "enableBehavior": "any",
