@@ -118,7 +118,10 @@
         {
           "answer": [
             {
-              "valueBoolean": true
+              "valueCoding": {
+                "code": "1",
+                "display": "Ja"
+              }
             }
           ],
           "linkId": "1406",
@@ -202,7 +205,10 @@
             {
               "answer": [
                 {
-                  "valueBoolean": true
+                  "valueCoding": {
+                    "code": "1",
+                    "display": "Ja"
+                  }
                 }
               ],
               "linkId": "984",
@@ -826,7 +832,10 @@
         {
           "answer": [
             {
-              "valueBoolean": true
+              "valueCoding": {
+                "code": "1",
+                "display": "Ja"
+              }
             }
           ],
           "linkId": "1200",

@@ -125,7 +125,10 @@
         {
           "answer": [
             {
-              "valueBoolean": true,
+              "valueCoding": {
+                "code": "1",
+                "display": "Ja"
+              },
               "item": [
                 {
                   "answer": [
@@ -283,7 +286,10 @@
             {
               "answer": [
                 {
-                  "valueBoolean": false
+                  "valueCoding": {
+                    "code": "0",
+                    "display": "Nee"
+                  }
                 }
               ],
               "linkId": "984",
@@ -1063,7 +1069,10 @@
         {
           "answer": [
             {
-              "valueBoolean": true
+              "valueCoding": {
+                "code": "1",
+                "display": "Ja"
+              }
             }
           ],
           "linkId": "1200",
