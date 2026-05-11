@@ -358,7 +358,7 @@ Description: "Indicator of capability of patient to make informed decisions abou
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
-* code = $snomed#665631000146103
+* code = $snomed#665671000146101
 * value[x] only boolean
 
 * insert ObligationRules(encounter)
@@ -394,7 +394,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#665631000146103 "juridisch vermogen om beslissingen te nemen over medische behandelingen"
+* code =  $snomed#665671000146101 "juridisch in staat om beslissingen te nemen over medische behandelingen"
 * valueBoolean = true
 * effectiveDateTime = "2020-10-01"
 
@@ -410,7 +410,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#665631000146103 "juridisch vermogen om beslissingen te nemen over medische behandelingen"
+* code =  $snomed#665671000146101 "juridisch in staat om beslissingen te nemen over medische behandelingen"
 * valueBoolean = true
 * effectiveDateTime = "2025-08-07"
 * note.text = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
