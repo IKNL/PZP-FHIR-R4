@@ -6,8 +6,8 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
+* code from ACPProcedureTypeVS (required)
 * code 1..1
-* code = $snomed#713603004
 
 * insert ObligationRules(subject)
 * insert ObligationRules(encounter)
@@ -60,7 +60,7 @@ Usage: #example
 * performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2025-08-07"
 * performedPeriod.end = "2025-08-07"
-* code = $snomed#713603004 "advance care planning"
+* code = $DHD-CBV#411600B "PROACTIEVE ZORGPLANNING-OPSTEL. INDIV.ZORGPL.PALLIAT.FASE"
 
 Instance: ACP-Procedure-2-Pat2
 InstanceOf: ACPProcedure
@@ -79,4 +79,4 @@ Usage: #example
 * performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2024-07-28"
 * performedPeriod.end = "2024-07-28"
-* code = $snomed#713603004 "advance care planning"
+* code = $NZa#190099 "Proactieve zorgplanning"
