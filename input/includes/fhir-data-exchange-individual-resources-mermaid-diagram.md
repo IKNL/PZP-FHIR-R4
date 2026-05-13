@@ -11,7 +11,7 @@ sequenceDiagram
   
         par 
             %% 1. Procedures
-            C->>S: GET /Procedure?patient=Patient/[id]<br>&code=sct|713603004<br>&_include=Procedure:encounter
+            C->>S: GET /Procedure?patient=Patient/[id]<br>&code=http://snomed.info/sct|713603004,<br>urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,<br>urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099<br>&_include=Procedure:encounter
             activate S
             S-->>C: 200 OK: Bundle (Procedure + Encounter)
             deactivate S
