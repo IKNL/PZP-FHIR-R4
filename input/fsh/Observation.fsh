@@ -354,7 +354,7 @@ Profile: ACPLegallyCapable
 Parent: Observation
 Id: ACP-LegallyCapable
 Title: "ACP Legally Capable"
-Description: "Indicator of capability of patient to make informed decisions about their healthcare. Based on Observation resource."
+Description: "Indicates whether the patient is currently assessed as having the capacity to understand and oversee the consequences of medical treatment decisions. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
@@ -376,10 +376,8 @@ Title: "ACP dataset"
 Source: ACPLegallyCapable
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
 * -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-// * code -> "667" "Gewenste plek van overlijden ([Meting])"
 * valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-* dataAbsentReason -> "668" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-//* effective[x] -> "672" "[MeetDatumBeginTijd]"
+* dataAbsentReason -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
 * note.text -> "763" "[Toelichting]"
 
 
