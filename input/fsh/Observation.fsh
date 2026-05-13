@@ -121,7 +121,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#395091006 "Preferred place of death"
+* code =  $snomed#395091006 "gewenste plek van overlijden"
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown 
 * effectiveDateTime = "2020-10-01"
@@ -139,7 +139,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#395091006 "Preferred place of death"
+* code =  $snomed#395091006 "gewenste plek van overlijden"
 * effectiveDateTime = "2025-08-07"
 * valueCodeableConcept = $snomed#264362003 "thuis"
 * note.text = "Het liefst rustig thuis"
