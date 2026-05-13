@@ -35,7 +35,7 @@ sequenceDiagram
             deactivate S
         and
             %% 5. Observations
-            C->>S: GET /Observation?patient=Patient/[id]<br>&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
+            C->>S: GET /Observation?patient=Patient/[id]<br>&code=http://snomed.info/sct|665671000146101,153851000146100,395091006,340171000146104,247751003,570801000146104
             activate S
             S-->>C: 200 OK: Bundle (Observation)
             deactivate S

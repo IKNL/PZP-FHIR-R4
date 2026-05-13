@@ -354,7 +354,7 @@ Profile: ACPLegallyCapable
 Parent: Observation
 Id: ACP-LegallyCapable
 Title: "ACP Legally Capable"
-Description: "Indicates whether the patient is currently assessed as having the capacity to understand and oversee the consequences of medical treatment decisions. Based on Observation resource."
+Description: "Indicates whether the patient is currently assessed as having the capacity to understand and oversee the consequences of medical treatment decisions. If the patient is not legally capable, there should be a legal representative captured in a RelatedPerson resource. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
 * subject only Reference(ACPPatient)
