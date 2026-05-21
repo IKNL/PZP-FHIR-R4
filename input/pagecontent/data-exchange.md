@@ -46,9 +46,9 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 4 GET [base]/Goal?patient=Patient/[id]&category=http://snomed.info/sct|713603004
 
-5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003,570801000146104
+5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
 
-6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,465460004,468542000,704707009,1263462004,1236894001&_include=DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
 
 7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
 ```
