@@ -139,7 +139,11 @@ Usage: #definition
       * valueCode = #SHOULD
     * type = #Observation
     // Supported profiles for Observation resource are set to SHOULD because not all Observation have to be implemented.
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-LegallyCapable"
+      * extension
+        * url = $CapExpectation
+        * valueCode = #SHOULD
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 
@@ -483,7 +487,11 @@ Usage: #definition
       * valueCode = #SHALL
     * type = #Observation
     // Supported profiles for Observation resource are set to SHOULD because not all Observation have to be implemented.
-    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
+    * supportedProfile[0] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-LegallyCapable"
+      * extension
+        * url = $CapExpectation
+        * valueCode = #SHOULD 
+    * supportedProfile[+] = "https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-OrganDonationChoiceRegistration"
       * extension
         * url = $CapExpectation
         * valueCode = #SHOULD 

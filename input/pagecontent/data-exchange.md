@@ -46,7 +46,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 4 GET [base]/Goal?patient=Patient/[id]&category=http://snomed.info/sct|713603004
 
-5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
+5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|665671000146101,http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
 
 6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
 
@@ -59,7 +59,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
 4. Retrieves `Goal` resources related to advance care planning.
-5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
+5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
 
