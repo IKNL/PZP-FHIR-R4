@@ -56,12 +56,14 @@ The below listed search requests show how all the ACP agreements, procedural inf
 1. Both requests are designed to retrieve the same information, but with different approaches:
     * A) Retrieves `Procedure` resources representing ACP procedures and includes the associated `Encounter` resource where the procedure took place.
     * B) Retrieves `Encounter` resources that list an ACP procedure as their reason, and includes the referenced resources in the result. Request A is generally preferred because `Encounter.patient` may not always be present; if absent, it indicates the patient was not involved in the Encounter. Using request A ensures these cases are included as well.
-2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
-3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
+2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (`Patient`, `ContactPersons`, and `HealthProfessionals`).
+3. Retrieves `Consent` resources for Advance Directives and includes the representatives (`ContactPersons`).
 4. Retrieves `Goal` resources related to advance care planning.
 5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
+
+For `ContactPersons` and `HealthProfesionals` there is no specific query as according to the model there are references made to these persons. If there is a legal representative we expect that to be present in `patient.contact`. For related persons attending the encounter a reference is expected to be made in `encounter.participant`.
 
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:
