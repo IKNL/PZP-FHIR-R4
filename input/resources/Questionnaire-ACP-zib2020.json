@@ -390,78 +390,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "DOMPART",
-                    "display": "Partner"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "HUSB",
-                    "display": "Echtgenoot"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "WIFE",
-                    "display": "Echtgenote"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "FTH",
-                    "display": "Vader"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "MTH",
-                    "display": "Moeder"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "SONC",
-                    "display": "Zoon"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "DAUC",
-                    "display": "Dochter"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "BRO",
-                    "display": "Broer"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "SIS",
-                    "display": "Zuster"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "OTH",
-                    "display": "Anders"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20200901000000",
               "item": [
                 {
                   "linkId": "408",
@@ -584,36 +513,7 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1",
-                            "code": "LL",
-                            "display": "Land Line"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1",
-                            "code": "FAX",
-                            "display": "Fax"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "MC",
-                            "display": "Mobiel telefoonnummer"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "PG",
-                            "display": "Pieper"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-TelephoneNumbersSystem"
                     },
                     {
                       "linkId": "990",
@@ -741,78 +641,7 @@
               "enableBehavior": "any",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "DOMPART",
-                    "display": "Partner"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "HUSB",
-                    "display": "Echtgenoot"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "WIFE",
-                    "display": "Echtgenote"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "FTH",
-                    "display": "Vader"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "MTH",
-                    "display": "Moeder"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "SONC",
-                    "display": "Zoon"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "DAUC",
-                    "display": "Dochter"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "BRO",
-                    "display": "Broer"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "SIS",
-                    "display": "Zuster"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "OTH",
-                    "display": "Anders"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20200901000000",
               "item": [
                 {
                   "linkId": "412",
@@ -913,78 +742,7 @@
           "type": "choice",
           "required": false,
           "repeats": true,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "DOMPART",
-                "display": "Partner"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "HUSB",
-                "display": "Echtgenoot"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "WIFE",
-                "display": "Echtgenote"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "FTH",
-                "display": "Vader"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "MTH",
-                "display": "Moeder"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "SONC",
-                "display": "Zoon"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "DAUC",
-                "display": "Dochter"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "BRO",
-                "display": "Broer"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "SIS",
-                "display": "Zuster"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                "code": "OTH",
-                "display": "Anders"
-              }
-            }
-          ],
+          "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20200901000000",
           "item": [
             {
               "linkId": "413",
@@ -1040,36 +798,7 @@
           "type": "choice",
           "required": false,
           "repeats": false,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "385987000",
-                "display": "Curatief / actief ziektebeleid"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "1351964001",
-                "display": "Palliatief met als doel levensverlenging én symptoomverlichting"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "225353007",
-                "display": "Palliatief met als doel symptoomverlichting, waarbij levensverlenging niet gewenst is"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                "code": "UNK",
-                "display": "Nog onbekend"
-              }
-            }
-          ]
+          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoal"
         }
       ]
     },
@@ -1111,36 +840,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1001",
@@ -1203,36 +903,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1388",
@@ -1295,36 +966,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1391",
@@ -1387,36 +1029,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1394",
@@ -1479,36 +1092,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1397",
@@ -1571,36 +1155,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "1",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1400",
@@ -1684,29 +1239,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "0",
-                    "display": "Wel uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
-                    "code": "2",
-                    "display": "Niet uitvoeren"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
               "item": [
                 {
                   "linkId": "1404",
@@ -1768,50 +1301,7 @@
               "enableBehavior": "any",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "72506001",
-                    "display": "implanteerbare cardioverter-defibrillator"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "465460004",
-                    "display": "univentriculaire implanteerbare cardioverter-defibrillator"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "468542000",
-                    "display": "implanteerbare tweekamercardioverter-defibrillator"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "704707009",
-                    "display": "implanteerbare biventriculaire cardioverter-defibrillator"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "1263462004",
-                    "display": "pulsgenerator van defibrillator voor cardiale resynchronisatietherapie"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "1236894001",
-                    "display": "subcutane implanteerbare cardioverter-defibrillator"
-                  }
-                }
-              ]
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD"
             },
             {
               "linkId": "1009",
@@ -2016,50 +1506,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "264362003",
-                    "display": "Thuis"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "22232009",
-                    "display": "Ziekenhuis"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "108344006",
-                    "display": "Verpleeghuis"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "284546000",
-                    "display": "Hospice"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "OTH",
-                    "display": "Anders"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Nog onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeath",
               "item": [
                 {
                   "linkId": "1192",
@@ -2103,36 +1550,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "340181000146102",
-                    "display": "Heeft euthanasieverklaring"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "340201000146103",
-                    "display": "Wenst geen euthanasie"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "340191000146100",
-                    "display": "Geen euthanasieverklaring, zou wel verzoek kunnen doen in bepaalde situaties"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Nog onbekend"
-                  }
-                }
-              ],
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PositionRegardingEuthanasia",
               "item": [
                 {
                   "linkId": "1194",
