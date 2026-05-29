@@ -36,9 +36,9 @@ This approach is useful for applications that need to query specific parts of a 
 The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACP-CapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACP-CapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structured overview of the below requirements.
 
 ```
-1a GET [base]/Procedure?patient=Patient/[id]&code=http://snomed.info/sct|713603004&_include=Procedure:encounter
+1a GET [base]/Procedure?patient=Patient/[id]&code=http://snomed.info/sct|713603004,urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099&_include=Procedure:encounter
 
-1b GET [base]/Encounter?patient=Patient/[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include=Encounter:reason-reference
+1b GET [base]/Encounter?patient=Patient/[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004,urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099&_include=Encounter:reason-reference
 
 2 GET [base]/Consent?patient=Patient/[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
 

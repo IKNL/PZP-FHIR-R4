@@ -1,5 +1,7 @@
 Alias: $snomed = http://snomed.info/sct
 Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+Alias: $DHD-CBV = urn:oid:2.16.840.1.113883.2.4.3.120.5.3
+Alias: $NZa = urn:oid:2.16.840.1.113883.2.4.3.27.15.5
 Alias: $DataAbsentReason = http://terminology.hl7.org/CodeSystem/data-absent-reason
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
