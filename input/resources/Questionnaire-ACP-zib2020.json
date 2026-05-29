@@ -96,50 +96,7 @@
           "type": "choice",
           "required": false,
           "repeats": false,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "01.000",
-                "display": "Arts"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "01.015",
-                "display": "Huisarts"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "01.047",
-                "display": "Specialist ouderengeneeskunde"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "30.000",
-                "display": "Verpleegkundige"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "81.000",
-                "display": "Physician assistant"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://fhir.nl/fhir/NamingSystem/uzi-rolcode",
-                "code": "99.000",
-                "display": "Zorgverlener andere zorg"
-              }
-            }
-          ]
+          "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.22--20200901000000"
         }
       ]
     },
