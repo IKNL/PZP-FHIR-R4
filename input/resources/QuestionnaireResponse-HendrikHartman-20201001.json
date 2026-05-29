@@ -634,6 +634,14 @@
               "answer": [
                 {
                   "valueString": "Hendrik wil er alles aan doen om zo lang mogelijk in goede gezondheid te kunnen leven. Hij probeert regelmatig te sporten en zou graag willen blijven hardlopen. Broer Michiel woont om de hoek en is erg betrokken bij het proces van Hendrik"
+                }
+              ],
+              "linkId": "1190",
+              "text": "Wens en verwachting patient ([MetingWaarde])"
+            },
+            {
+              "answer": [
+                {
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "370819000",
