@@ -199,36 +199,8 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1",
-                            "code": "LL",
-                            "display": "Land Line"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1",
-                            "code": "FAX",
-                            "display": "Fax"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "PG",
-                            "display": "Pieper"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "MC",
-                            "display": "Mobiel telefoonnummer"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-TelephoneNumbersSystem"
+
                     },
                     {
                       "linkId": "978",
@@ -236,29 +208,7 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "HP",
-                            "display": "Telefoonnummer thuis"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "TMP",
-                            "display": "Tijdelijk telefoonnummer"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "WP",
-                            "display": "Zakelijk telefoonnummer"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-TelephoneNumbersUse"
                     },
                     {
                       "linkId": "979",
@@ -288,22 +238,7 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "HP",
-                            "display": "Privé e-mailadres"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "WP",
-                            "display": "Zakelijk e-mailadres"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-EmailAddressesUse"
                     }
                   ]
                 }
@@ -521,29 +456,7 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "HP",
-                            "display": "Telefoonnummer thuis"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "TMP",
-                            "display": "Tijdelijk telefoonnummer"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "WP",
-                            "display": "Zakelijk telefoonnummer"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-TelephoneNumbersUse"
                     },
                     {
                       "linkId": "991",
@@ -573,22 +486,7 @@
                       "type": "choice",
                       "required": false,
                       "repeats": false,
-                      "answerOption": [
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "HP",
-                            "display": "Privé e-mailadres"
-                          }
-                        },
-                        {
-                          "valueCoding": {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-AddressUse",
-                            "code": "WP",
-                            "display": "Zakelijk e-mailadres"
-                          }
-                        }
-                      ]
+                      "answerValueSet": "http://nictiz.nl/fhir/ValueSet/ContactInformation-EmailAddressesUse"
                     }
                   ]
                 }
