@@ -121,7 +121,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
 * status = #final
-* code =  $snomed#395091006 "Preferred place of death"
+* code =  $snomed#395091006 "gewenste plek van overlijden"
 // * valueCodeableConcept = $v3-NullFlavor#UNK  -- Cannot have a value[x] if you have data absent reason
 * dataAbsentReason = $DataAbsentReason#asked-unknown 
 * effectiveDateTime = "2020-10-01"
@@ -139,7 +139,7 @@ Usage: #example
 * subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
 * performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
 * status = #final
-* code =  $snomed#395091006 "Preferred place of death"
+* code =  $snomed#395091006 "gewenste plek van overlijden"
 * effectiveDateTime = "2025-08-07"
 * valueCodeableConcept = $snomed#264362003 "thuis"
 * note.text = "Het liefst rustig thuis"
@@ -348,3 +348,67 @@ Usage: #example
 * code =  $snomed#247751003 "gevoel van zingeving"
 * valueString = "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door."
 * effectiveDateTime = "2025-08-07"
+
+
+Profile: ACPLegallyCapable
+Parent: Observation
+Id: ACP-LegallyCapable
+Title: "ACP Legally Capable"
+Description: "Indicates whether the patient is currently assessed as having the capacity to understand and oversee the consequences of medical treatment decisions. If the patient is not legally capable, there should be a legal representative captured in a RelatedPerson resource. Based on Observation resource."
+* insert MetaRules
+* encounter only Reference(ACPEncounter)
+* subject only Reference(ACPPatient)
+* code = $snomed#665671000146101
+* value[x] only boolean
+
+* insert ObligationRules(encounter)
+* insert ObligationRules(subject)
+* insert ObligationRules(code)
+* insert ObligationRules(valueBoolean)
+* insert ObligationRules(dataAbsentReason)
+* insert ObligationRules(effective[x])
+* insert ObligationRules(note.text)
+* insert ObligationRules(performer)
+
+Mapping: MapACPLegallyCapable
+Id: pall-izppz-zib2020v2026-02-24
+Title: "ACP dataset"
+Source: ACPLegallyCapable
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
+* -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* dataAbsentReason -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
+* note.text -> "763" "[Toelichting]"
+
+
+Instance: ACP-LegallyCapable-Pat1
+InstanceOf: ACPLegallyCapable
+Title: "ACP Legally Capable - Pat 1"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "928e493b-3265-46ad-a155-b46d3d31b821"
+* encounter = Reference(ACP-Encounter-Pat1) "Encounter, 2020-10-01"
+* subject = Reference(ACP-Patient-HendrikHartman-Pat1) "Patient, Hendrik Hartman"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1) "Healthcare professional (role), van Huissen"
+* status = #final
+* code =  $snomed#665671000146101 "juridisch in staat om beslissingen te nemen over medische behandelingen"
+* valueBoolean = true
+* effectiveDateTime = "2020-10-01"
+
+
+Instance: ACP-LegallyCapable-Pat2
+InstanceOf: ACPLegallyCapable
+Title: "ACP Legally Capable - Pat 2"
+Usage: #example
+* identifier.type = $v2-0203#RI "Resource identifier"
+* identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
+* identifier.value = "337d9e4a-08a3-486f-9f24-d6c60c6f342a"
+* encounter = Reference(ACP-Encounter-1-Pat2) "Encounter, 2025-08-07"
+* subject = Reference(ACP-Patient-SamiraVanDerSluijs-Pat2) "Patient, Samira van der Sluijs"
+* performer = Reference(ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2) "Healthcare professional (role), Desiree Wolters"
+* status = #final
+* code =  $snomed#665671000146101 "juridisch in staat om beslissingen te nemen over medische behandelingen"
+* valueBoolean = true
+* effectiveDateTime = "2025-08-07"
+* note.text = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."

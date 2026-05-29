@@ -219,3 +219,35 @@ Description: "ValueSet representing 'Yes, No, Unknown' answers."
 * $snomed#373067005 ^designation[=].use = $snomed#900000000000013009 "Synonym"
 * $snomed#373067005 ^designation[=].value = "neen"
 
+
+ValueSet: ACPProcedureTypeVS
+Id: ACP-ProcedureType
+Title: "ACP ProcedureType"
+Description: "ValueSet for ProcedureType, representing allowed codes for the ACP conversation. The DHD Verrichtingenthesaurus code `0000106562` (proactieve zorgplanning in palliatieve fase) is not included in this ValueSet, as this set is not meant to be used for exchange (see [ZIB-1233](https://nictiz.atlassian.net/browse/ZIB-1233)). The included SNOMED code is part of the referentieset of the DHD Verrichtingenthesaurus."
+* insert MetaRules
+* ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
+* $snomed#713603004 "advance care planning"
+* $snomed#713603004 ^designation[0].language = #en-US
+* $snomed#713603004 ^designation[=].use.system = "http://snomed.info/sct"
+* $snomed#713603004 ^designation[=].use = $snomed#900000000000013009 "Synonym"
+* $snomed#713603004 ^designation[=].use.display = "Synonym"
+* $snomed#713603004 ^designation[=].value = "Advance care planning (procedure)"
+* $snomed#713603004 ^designation[+].language = #en-US
+* $snomed#713603004 ^designation[=].use.system = "http://snomed.info/sct"
+* $snomed#713603004 ^designation[=].use = $snomed#900000000000013009 "Synonym"
+* $snomed#713603004 ^designation[=].use.display = "Synonym"
+* $snomed#713603004 ^designation[=].value = "Advance care planning"
+* $snomed#713603004 ^designation[+].language = #nl-NL
+* $snomed#713603004 ^designation[=].use = $snomed#900000000000013009 "Synonym"
+* $snomed#713603004 ^designation[=].use.display = "Synonym"
+* $snomed#713603004 ^designation[=].value = "advance care planning (verrichting)"
+* $snomed#713603004 ^designation[+].language = #nl-NL
+* $snomed#713603004 ^designation[=].use = $snomed#900000000000013009 "Synonym"
+* $snomed#713603004 ^designation[=].use.display = "Synonym"
+* $snomed#713603004 ^designation[=].value = "bespreken van wensen en behoeften voor toekomstige zorg"
+* $snomed#713603004 ^designation[+].language = #nl-NL
+* $snomed#713603004 ^designation[=].use = $snomed#900000000000013009 "Synonym"
+* $snomed#713603004 ^designation[=].use.display = "Synonym"
+* $snomed#713603004 ^designation[=].value = "advance care planning"
+* $DHD-CBV#411600B "PROACTIEVE ZORGPLANNING-OPSTEL. INDIV.ZORGPL.PALLIAT.FASE"
+* $NZa#190099 "Proactieve zorgplanning"
