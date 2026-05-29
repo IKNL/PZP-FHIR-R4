@@ -1157,29 +1157,7 @@
           "type": "choice",
           "required": false,
           "repeats": false,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Ja"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373067005",
-                "display": "Nee"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                "code": "UNK",
-                "display": "Nog onbekend"
-              }
-            }
-          ],
+          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-YesNoUnknownVS",
           "item": [
             {
               "linkId": "1008",
@@ -1192,7 +1170,7 @@
                   "answerCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "373066001",
-                    "display": "Ja"
+                    "display": "ja"
                   }
                 }
               ],
@@ -1212,7 +1190,7 @@
                   "answerCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "373066001",
-                    "display": "Ja"
+                    "display": "ja"
                   }
                 }
               ],
@@ -1234,7 +1212,7 @@
               "answerCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               }
             }
           ],
@@ -1270,7 +1248,7 @@
                   "answerCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "373066001",
-                    "display": "Ja"
+                    "display": "ja"
                   }
                 }
               ],
@@ -1492,29 +1470,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "373066001",
-                    "display": "Ja"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "373067005",
-                    "display": "Nee"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "UNK",
-                    "display": "Nog onbekend"
-                  }
-                }
-              ]
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-YesNoUnknownVS"
             },
             {
               "linkId": "1650",
@@ -1586,29 +1542,7 @@
           "type": "choice",
           "required": false,
           "repeats": false,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Ja"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373067005",
-                "display": "Nee"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                "code": "UNK",
-                "display": "Nog onbekend"
-              }
-            }
-          ],
+          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-YesNoUnknownVS",
           "item": [
             {
               "linkId": "1198",
@@ -1631,36 +1565,14 @@
               "answerCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               }
             }
           ],
           "enableBehavior": "any",
           "required": false,
           "repeats": false,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Ja"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "373067005",
-                "display": "Nee"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                "code": "UNK",
-                "display": "Nog onbekend"
-              }
-            }
-          ]
+          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-YesNoUnknownVS"
         }
       ]
     },
