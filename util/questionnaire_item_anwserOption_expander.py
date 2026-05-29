@@ -79,6 +79,10 @@ OUTPUT_SUFFIX = "-expanded"
 # Preferred display language (the form is Dutch).
 PREFERRED_LANGUAGE = "nl-NL"
 
+# SNOMED CT system URL. SNOMED designations often carry a trailing semantic tag in
+# parentheses (e.g. "ja (kwalificatiewaarde)"); that tag is stripped from the display.
+SNOMED_SYSTEM = "http://snomed.info/sct"
+
 # ValueSets that cannot be resolved from the packages (their CodeSystem is not available).
 # Map the ValueSet canonical URL to a fixed list of FHIR answerOption entries.
 HARDCODED_ANSWER_OPTIONS = {
@@ -268,15 +272,38 @@ def _parse_sushi_dependencies(config_path: Path) -> dict[str, str]:
 # --------------------------------------------------------------------------------------
 
 
-def _dutch_display(concept: dict) -> str | None:
-    """Return the preferred display for a concept, favouring the Dutch designation."""
-    for designation in concept.get("designation", []):
-        if designation.get("language") == PREFERRED_LANGUAGE and designation.get("value"):
-            return designation["value"]
-    return concept.get("display")
+_SNOMED_SEMANTIC_TAG = re.compile(r"\s*\([^()]*\)\s*$")
 
 
-def _codesystem_display_map(codesystem: dict) -> dict[str, str]:
+def _clean_display(display: str | None, system: str | None) -> str | None:
+    """Strip the trailing SNOMED semantic tag (e.g. " (kwalificatiewaarde)") from a display."""
+    if display and system == SNOMED_SYSTEM:
+        stripped = _SNOMED_SEMANTIC_TAG.sub("", display).strip()
+        if stripped:
+            return stripped
+    return display
+
+
+def _dutch_display(concept: dict, system: str | None = None) -> str | None:
+    """Return the preferred display for a concept, favouring the Dutch designation.
+
+    For SNOMED concepts a parenthesis-free designation is preferred, and any remaining
+    trailing semantic tag is stripped (so "ja (kwalificatiewaarde)" becomes "ja").
+    """
+    nl_values = [
+        d["value"] for d in concept.get("designation", [])
+        if d.get("language") == PREFERRED_LANGUAGE and d.get("value")
+    ]
+    display = None
+    if nl_values:
+        # Prefer a Dutch designation without a parenthetical part, if one exists.
+        display = next((v for v in nl_values if "(" not in v), nl_values[0])
+    else:
+        display = concept.get("display")
+    return _clean_display(display, system)
+
+
+def _codesystem_display_map(codesystem: dict, system: str | None = None) -> dict[str, str]:
     """Flatten a (possibly hierarchical) CodeSystem into code -> display."""
     result: dict[str, str] = {}
 
@@ -284,7 +311,7 @@ def _codesystem_display_map(codesystem: dict) -> dict[str, str]:
         for concept in concepts:
             code = concept.get("code")
             if code is not None:
-                result[code] = _dutch_display(concept) or concept.get("display") or code
+                result[code] = _dutch_display(concept, system) or concept.get("display") or code
             if concept.get("concept"):
                 walk(concept["concept"])
 
@@ -345,7 +372,7 @@ class ValueSetExpander:
             if contains.get("system"):
                 coding["system"] = contains["system"]
             coding["code"] = contains["code"]
-            display = _dutch_display(contains)
+            display = _dutch_display(contains, contains.get("system"))
             if display:
                 coding["display"] = display
             out.append(coding)
@@ -368,11 +395,11 @@ class ValueSetExpander:
             # Explicit concept list; fill in missing displays from the CodeSystem.
             cs_map: dict[str, str] | None = None
             for concept in include["concept"]:
-                display = _dutch_display(concept)
+                display = _dutch_display(concept, system)
                 if not display:
                     if cs_map is None:
                         codesystem = self.resolver.get_codesystem(system)
-                        cs_map = _codesystem_display_map(codesystem) if codesystem else {}
+                        cs_map = _codesystem_display_map(codesystem, system) if codesystem else {}
                     display = cs_map.get(concept.get("code"))
                 coding = {"system": system, "code": concept.get("code")}
                 if display:
@@ -385,7 +412,7 @@ class ValueSetExpander:
                 print(f"    ! cannot enumerate system (CodeSystem not found): {system}",
                       file=sys.stderr)
             else:
-                for code, display in _codesystem_display_map(codesystem).items():
+                for code, display in _codesystem_display_map(codesystem, system).items():
                     coding = {"system": system, "code": code}
                     if display:
                         coding["display"] = display
