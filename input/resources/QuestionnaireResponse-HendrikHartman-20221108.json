@@ -242,15 +242,21 @@
           "text": "Patiënt"
         },
         {
-          "linkId": "998",
-          "text": "Relatie tot patiënt",
-          "answer": [
+          "linkId": "1652",
+          "text": "Contactperso(o)n(en)",
+          "item": [
             {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "BRO",
-                "display": "Broer"
-              }
+              "linkId": "998",
+              "text": "Relatie tot patiënt",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "BRO",
+                    "display": "Broer"
+                  }
+               }
+              ]
             }
           ]
         }
