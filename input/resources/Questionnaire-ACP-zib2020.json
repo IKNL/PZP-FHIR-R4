@@ -549,77 +549,98 @@
           ]
         },
         {
-          "linkId": "997",
-          "text": "Rol",
-          "type": "choice",
-          "required": false,
-          "repeats": true,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
-                "code": "03",
-                "display": "Curator (juridisch)"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
-                "code": "15",
-                "display": "Mentor"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "310141000146103",
-                "display": "Schriftelijk gemachtigde"
-              }
-            },
-            {
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
-                "code": "09",
-                "display": "Anders"
-              }
-            }
-          ],
+          "linkId": "1652",
+          "text": "Contactperso(o)n(en)",
+          "type": "group",
+          "repeats": false,
           "item": [
             {
-              "linkId": "414",
-              "text": "Anders, namelijk:",
-              "type": "string",
+              "linkId": "997",
+              "text": "Rol",
+              "type": "choice",
               "required": false,
-              "repeats": false
-            }
-          ]
-        },
-        {
-          "linkId": "998",
-          "text": "Relatie tot patiënt",
-          "type": "choice",
-          "required": false,
-          "repeats": true,
-          "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20200901000000",
-          "item": [
-            {
-              "linkId": "413",
-              "text": "Anders, namelijk:",
-              "type": "string",
-              "enableWhen": [
+              "repeats": true,
+              "answerOption": [
                 {
-                  "question": "998",
-                  "operator": "=",
-                  "answerCoding": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                    "code": "OTH",
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                    "code": "03",
+                    "display": "Curator (juridisch)"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                    "code": "15",
+                    "display": "Mentor"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "310141000146103",
+                    "display": "Schriftelijk gemachtigde"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                    "code": "09",
                     "display": "Anders"
                   }
                 }
               ],
-              "enableBehavior": "any",
+              "item": [
+                {
+                  "linkId": "414",
+                  "text": "Anders, namelijk:",
+                  "type": "string",
+                  "enableWhen": [
+                    {
+                      "question": "997",
+                      "operator": "=",
+                      "answerCoding": {
+                        "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                        "code": "09",
+                        "display": "Anders"
+                      }
+                    }
+                  ],
+                  "enableBehavior": "any",
+                  "required": false,
+                  "repeats": false
+                  
+                }
+              ]
+            },
+            {
+              "linkId": "998",
+              "text": "Relatie tot patiënt",
+              "type": "choice",
               "required": false,
-              "repeats": false
+              "repeats": true,
+              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20200901000000",
+              "item": [
+                {
+                  "linkId": "413",
+                  "text": "Anders, namelijk:",
+                  "type": "string",
+                  "enableWhen": [
+                    {
+                      "question": "998",
+                      "operator": "=",
+                      "answerCoding": {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                        "code": "OTH",
+                        "display": "Anders"
+                      }
+                    }
+                  ],
+                  "enableBehavior": "any",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
             }
           ]
         }
