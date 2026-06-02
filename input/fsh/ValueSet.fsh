@@ -1,6 +1,6 @@
 ValueSet: ACPPreferredPlaceOfDeathVS
-Id: ACP-PreferredPlaceOfDeath
-Title: "ACP Preferred Place of Death"
+Id: ACP-PreferredPlaceOfDeathVS
+Title: "ACP Preferred Place of Death Codes"
 Description: "ValueSet for Preferred Place of Death, representing the place where the patient prefers to die, if possible."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -94,8 +94,8 @@ Description: "ValueSet for Preferred Place of Death, representing the place wher
 
 
 ValueSet: ACPPositionRegardingEuthanasiaVS
-Id: ACP-PositionRegardingEuthanasia
-Title: "ACP Position Regarding Euthanasia"
+Id: ACP-PositionRegardingEuthanasiaVS
+Title: "ACP Position Regarding Euthanasia Codes"
 Description: "ValueSet for Position Regarding Euthanasia, representing the the patient's position regarding euthanasia and information on the presence of a euthanasia statement."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -109,8 +109,8 @@ Description: "ValueSet for Position Regarding Euthanasia, representing the the p
 
 
 ValueSet: ACPMedicalPolicyGoalVS
-Id: ACP-MedicalPolicyGoal
-Title: "ACP Primary Agreed-upon Goal of Medical Policy"
+Id: ACP-MedicalPolicyGoalVS
+Title: "ACP Primary Agreed-upon Goal of Medical Policy Codes"
 Description: "ValueSet for Medical Policy Goal, representing the primary agreed-upon goal of a patient's medical treatment policy."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -121,7 +121,7 @@ Description: "ValueSet for Medical Policy Goal, representing the primary agreed-
 
 
 ValueSet: ACPMedicalDeviceProductTypeICDVS
-Id: ACP-MedicalDeviceProductType-ICD
+Id: ACP-MedicalDeviceProductType-ICDVS
 Title: "ACP MedicalDevice ProductType ICD"
 Description: "ICD product code for MedicalDevice ProductType. This ValueSet is conceptually based on SNOMED CT codes that are descendants of `72506001` (implanteerbare cardioverter-defibrillator), i.e. an `is-a` filter. However, the codes are explicitly enumerated rather than using an intensional `is-a` filter to make the ValueSet easier to understand and implement for consumers."
 * insert MetaRules
@@ -134,7 +134,7 @@ Description: "ICD product code for MedicalDevice ProductType. This ValueSet is c
 * $snomed#1236894001 "subcutane implanteerbare cardioverter-defibrillator"
 
 ValueSet: ACPContactPersonRoleVS
-Id: ACP-ContactPersonRole
+Id: ACP-ContactPersonRoleVS
 Title: "ACP ContactPerson Role zib2024 backport"
 Description: "ValueSet containing additional codes to the ContactPerson's [RolCodelijst](http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20200901000000). These codes are applied from the zib2024 release onwards. Currently, the ValueSet contains only SNOMED CT code `310141000146103` (Schriftelijk gemachtigde zorg en behandeling / Holder of medical power of attorney) from the zib2024 release. The ValueSet is bound to a slice in `RelatedPerson.relationship."
 * insert MetaRules
@@ -144,7 +144,7 @@ Description: "ValueSet containing additional codes to the ContactPerson's [RolCo
 
 ValueSet: ACPYesNoUnknownVS
 Id: ACP-YesNoUnknownVS
-Title: "ACP Yes, No, Unknown valueSet"
+Title: "ACP Yes, No, Unknown Codes"
 Description: "ValueSet representing 'Yes, No, Unknown' answers."
 * insert MetaRules
 * ^copyright = "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/getsnomed-ct or info@snomed.org."
@@ -221,7 +221,7 @@ Description: "ValueSet representing 'Yes, No, Unknown' answers."
 
 
 ValueSet: ACPProcedureTypeVS
-Id: ACP-ProcedureType
+Id: ACP-ProcedureTypeVS
 Title: "ACP ProcedureType"
 Description: "ValueSet for ProcedureType, representing allowed codes for the ACP conversation. The DHD Verrichtingenthesaurus code `0000106562` (proactieve zorgplanning in palliatieve fase) is not included in this ValueSet, as this set is not meant to be used for exchange (see [ZIB-1233](https://nictiz.atlassian.net/browse/ZIB-1233)). The included SNOMED code is part of the referentieset of the DHD Verrichtingenthesaurus."
 * insert MetaRules

@@ -51,7 +51,7 @@
     {
       "linkId": "967",
       "text": "Geboortedatum patiënt",
-      "type": "dateTime",
+      "type": "date",
       "required": false,
       "repeats": false
     },
