@@ -1,4 +1,5 @@
 ### 1.0.0-rc3
+
 | Issue | Short Description |
 |-------|-------------------|
 | [#137](https://github.com/IKNL/PZP-FHIR-R4/issues/137) | Replaced legally capable extension on Patient with an Observation to better support representation of legal capacity. |
