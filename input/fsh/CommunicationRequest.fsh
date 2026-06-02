@@ -30,7 +30,7 @@ Description: "A CommunicationRequest representing the advice or instruction give
 
 
 Invariant: cr-date-required
-Description: "We want to have the date of the CommunicationRequest either in the resource itself or in the Encounter in which the CommunicationRequest originated."
+Description: "The date of the CommunicationRequest is expected to be captured either in the resource itself or in the Encounter in which the CommunicationRequest originated."
 Severity: #error
 Expression: "authoredOn.exists() or encounter.exists()"
  
