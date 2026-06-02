@@ -1,3 +1,14 @@
+### 1.0.0-rc3
+| Issue | Short Description |
+|-------|-------------------|
+| [#137](https://github.com/IKNL/PZP-FHIR-R4/issues/137) | Replaced legally capable extension on Patient with an Observation to better support representation of legal capacity. |
+|||
+| [#151](https://github.com/IKNL/PZP-FHIR-R4/issues/151) | Corrected search URLs by fixing code parameter syntax to ensure proper OR behavior. |
+| [#138](https://github.com/IKNL/PZP-FHIR-R4/issues/138) | Updated yes/no questions in the questionnaire to use `boolean` instead of `choice`. |
+| [#133](https://github.com/IKNL/PZP-FHIR-R4/issues/133) | Aligned API documentation by correcting CommunicationRequest category code in sequence diagram and updating CapabilityStatement to use CommunicationRequest. |
+| [#129](https://github.com/IKNL/PZP-FHIR-R4/issues/129) | Clarified ContactPerson artifact documentation for `.relationship:roleAdditional` slice. |
+| [#127](https://github.com/IKNL/PZP-FHIR-R4/issues/127) | Added missing `subject` references to QuestionnaireResponse examples and improved consistency of author/source formatting. |
+
 ### 1.0.0-rc2
 
 | Issue | Short Description |
