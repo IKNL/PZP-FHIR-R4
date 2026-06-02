@@ -102,7 +102,7 @@
     },
     {
       "linkId": "26",
-      "prefix": "1.",
+      "prefix": "1",
       "text": "Wilsbekwaamheid & Wettelijke vertegenwoordiging",
       "type": "group",
       "repeats": false,
@@ -991,7 +991,7 @@
     },
     {
       "linkId": "586",
-      "prefix": "3.",
+      "prefix": "3",
       "text": "Belangrijkste overeengekomen doel van medisch beleid",
       "type": "group",
       "repeats": false,
@@ -1026,7 +1026,7 @@
     },
     {
       "linkId": "83",
-      "prefix": "4.",
+      "prefix": "4",
       "text": "Behandelgrenzen",
       "type": "group",
       "repeats": false,
@@ -1814,7 +1814,7 @@
     },
     {
       "linkId": "107",
-      "prefix": "5.",
+      "prefix": "5",
       "text": "Behandelwensen",
       "type": "group",
       "repeats": false,
@@ -2016,7 +2016,7 @@
     },
     {
       "linkId": "598",
-      "prefix": "6.",
+      "prefix": "6",
       "text": "Wat verder nog belangrijk is",
       "type": "group",
       "repeats": false,
@@ -2050,7 +2050,7 @@
     },
     {
       "linkId": "115",
-      "prefix": "7.",
+      "prefix": "7",
       "text": "Eerder vastgelegde behandelwensen",
       "type": "group",
       "repeats": false,
@@ -2098,7 +2098,7 @@
     },
     {
       "linkId": "119",
-      "prefix": "8.",
+      "prefix": "8",
       "text": "Informatie delen",
       "type": "group",
       "repeats": false,
