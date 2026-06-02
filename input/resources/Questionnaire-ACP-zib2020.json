@@ -1062,7 +1062,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1001",
@@ -1125,7 +1154,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1388",
@@ -1188,7 +1246,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1391",
@@ -1251,7 +1338,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1394",
@@ -1314,7 +1430,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1397",
@@ -1377,7 +1522,36 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "1",
+                    "display": "Anders"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1400",
@@ -1461,7 +1635,29 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.2.2--20200901000000",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "0",
+                    "display": "Wel uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.25.1",
+                    "code": "2",
+                    "display": "Niet uitvoeren"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                    "code": "UNK",
+                    "display": "Onbekend"
+                  }
+                }
+              ],
               "item": [
                 {
                   "linkId": "1404",
