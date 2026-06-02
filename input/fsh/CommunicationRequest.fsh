@@ -7,13 +7,17 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * category 1..*
 * category = $snomed#223449006
 * category ^comment = "The `category.text` element may be used to provide additional context for human readers next to the pattern category coding, for example: 'Request for patient to inform relatives about treatment agreements'."
+* subject 1..1
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
+* requester 1..1
 * requester only Reference(ACPHealthProfessionalPractitionerRole or ACPHealthProfessionalPractitioner) 
+* sender 1..1
 * sender only Reference(ACPPatient)
 * recipient only Reference(ACPContactPerson)
 * reasonCode 1..*
 * reasonCode = $snomed#713603004 // "advance care planning"
+* obeys cr-date-required
 
 * insert ObligationRules(category) // already 1..1 so may not be needed place under obligation but added for consistency
 * insert ObligationRules(subject)
@@ -24,6 +28,12 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * insert ObligationRules(recipient)
 * insert ObligationRules(reasonCode) // already 1..1 so may not be needed place under obligation but added for consistency
 
+
+Invariant: cr-date-required
+Description: "The date of the CommunicationRequest is expected to be captured either in the resource itself or in the Encounter in which the CommunicationRequest originated."
+Severity: #error
+Expression: "authoredOn.exists() or encounter.exists()"
+ 
 
 Mapping: MapACPInformRelativesRequest
 Id: pall-izppz-zib2020v2026-02-24
