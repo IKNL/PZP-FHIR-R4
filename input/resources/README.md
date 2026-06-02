@@ -65,6 +65,9 @@ Transform the exported metadata to follow IG standards. Use English for all meta
 - **`publisher`**: Use simplified form `"PZNL & IKNL"`
 
 
+### Step: 2a
+Question for 967 - Geboortedatum patient needs to be a date instead of dateTime.
+
 ### Step 3: Save to Repository
 Save the adjusted Questionnaire as `Questionnaire-[id].json` in `input/resources/`
 

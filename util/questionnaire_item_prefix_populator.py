@@ -65,7 +65,9 @@ def extract_prefix_from_text(text: str) -> Tuple[Optional[str], str]:
         return match.group(1), match.group(2)
     
     # Pattern for number followed by . - e.g., "1.", "2.", "3."
-    number_dot_pattern = re.compile(r'^(\d+\.)\s*(.*)$')
+    # The trailing dot is dropped from the prefix (e.g. "1." -> "1"), while
+    # other separators like ")" are preserved by the patterns below.
+    number_dot_pattern = re.compile(r'^(\d+)\.\s*(.*)$')
     match = number_dot_pattern.match(text)
     if match:
         return match.group(1), match.group(2)
