@@ -1612,18 +1612,6 @@
                   "linkId": "1645",
                   "text": "Anders, namelijk:",
                   "type": "string",
-                  "enableWhen": [
-                    {
-                      "question": "1422",
-                      "operator": "=",
-                      "answerCoding": {
-                        "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-                        "code": "OTH",
-                        "display": "Anders"
-                      }
-                    }
-                  ],
-                  "enableBehavior": "any",
                   "required": false,
                   "repeats": false
                 }
