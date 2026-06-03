@@ -63,6 +63,8 @@ The below listed search requests show how all the ACP agreements, procedural inf
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
 
+For `RelatedPerson` and `Practitioner` there is no specific query as according to the model there are references made to these resources. If there is a legal representative we expect that to be present in `Patient.contact`. For related persons attending the encounter a reference is expected to be made in `Encounter.participant`.
+
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:
 * `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
