@@ -10,7 +10,7 @@ Description: "The specialty of a person who is authorized to perform actions in 
 * insert ObligationRules(specialty[specialty])
 
 Mapping: MapACPHealthProfessionalPractitionerRole
-Id: pall-izppz-zib2020v2026-02-24
+Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPHealthProfessionalPractitionerRole
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
