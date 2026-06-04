@@ -10,15 +10,17 @@
   },
   "status": "completed",
   "authored": "2025-11-27T16:15:00.733Z",
-  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc2",
-    "author": 
-    {
-      "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2",
-      "display": "Healthcare professional (role), Desiree Wolters"
-    }
-  ,
+  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc3",
+  "subject": {
+    "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2",
+    "display": "Patient, Samira van der Sluijs"
+  },
+  "author": {
+    "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DesireeWolters-Pat2",
+    "display": "Healthcare professional (role), Desiree Wolters"
+  },
   "source": {
-    "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2", 
+    "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2",
     "display": "Patient, Samira van der Sluijs"
   },
   "item": [
@@ -123,15 +125,12 @@
         {
           "answer": [
             {
-              "valueCoding": {
-                "code": "1",
-                "display": "Ja"
-              },
+              "valueBoolean": true,
               "item": [
                 {
                   "answer": [
                     {
-                      "valueString": "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar  partner haar wettelijk vertegenwoordiger."
+                      "valueString": "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
                     }
                   ],
                   "linkId": "1407",
@@ -140,7 +139,7 @@
               ]
             }
           ],
-          "linkId": "1406",
+          "linkId": "1651",
           "text": "Is de patiënt op dit moment wilsbekwaam m.b.t. medische behandelbeslissingen?"
         },
         {
@@ -284,10 +283,7 @@
             {
               "answer": [
                 {
-                  "valueCoding": {
-                    "code": "0",
-                    "display": "Nee"
-                  }
+                  "valueBoolean": false
                 }
               ],
               "linkId": "984",
@@ -448,15 +444,21 @@
           "text": "Patiënt"
         },
         {
-          "linkId": "998",
-          "text": "Relatie tot patiënt",
-          "answer": [
+          "linkId": "1652",
+          "text": "Contactperso(o)n(en)",
+          "item": [
             {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "SIS",
-                "display": "Zuster"
-              }
+              "linkId": "998",
+              "text": "Relatie tot patiënt",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "SIS",
+                    "display": "Zuster"
+                  }
+               }
+              ]
             }
           ]
         }
@@ -484,8 +486,8 @@
             {
               "valueCoding": {
                 "system": "http://snomed.info/sct",
-                "code": "225353007",
-                "display": "Palliatief met als doel symptoomverlichting, waarbij levensverlenging niet gewenst is"
+                "code": "713148004",
+                "display": "voorkomen en behandelen van symptomen"
               }
             }
           ],
@@ -645,7 +647,7 @@
                     {
                       "answer": [
                         {
-                          "valueString": "Alleen als de patiënt een kans heeft om weer uit het ziekenhuis te komen,  anders hoeft het niet meer voor mevrouw"
+                          "valueString": "Alleen als de patiënt een kans heeft om weer uit het ziekenhuis te komen, anders hoeft het niet meer voor mevrouw"
                         }
                       ],
                       "linkId": "1394",
@@ -733,7 +735,7 @@
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
                     "code": "OTH",
-                    "display": "Other"
+                    "display": "Anders"
                   }
                 }
               ],
@@ -772,7 +774,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               },
               "item": [
                 {
@@ -872,11 +874,24 @@
             {
               "answer": [
                 {
-                  "valueString": "De kleinzoon van mevrouw van der Sluijs is geboren en mevrouw is  dolgelukkig dat ze hem heeft kunnen zien. Ze merkt dat ze fysiek erg  achteruit gaat. Mevrouw heeft daar nu vrede mee, in tegenstelling tot  eerdere gesprekken."
+                  "valueString": "De kleinzoon van mevrouw van der Sluijs is geboren en mevrouw is dolgelukkig dat ze hem heeft kunnen zien. Ze merkt dat ze fysiek erg achteruit gaat. Mevrouw heeft daar nu vrede mee, in tegenstelling tot eerdere gesprekken."
                 }
               ],
               "linkId": "1190",
               "text": "Wens en verwachting patient ([MetingWaarde])"
+            },
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "370819000",
+                    "display": "Vaststellen van persoonlijke waarden en wensen met betrekking tot zorg"
+                  }
+                }
+              ],
+              "linkId": "1648",
+              "text": "Vaststellen wens en verwachting patiënt ([MeetMethode])"
             }
           ]
         },
@@ -890,11 +905,11 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "395091006",
-                    "display": "Gewenste plek van overlijden"
+                    "display": "Voorkeur voor plaats van overlijden (waarneembare entiteit)"
                   }
                 }
               ],
-              "linkId": "1430",
+              "linkId": "1649",
               "text": "Gewenste plek van overlijden ([MetingNaam])"
             },
             {
@@ -903,7 +918,7 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "264362003",
-                    "display": "Thuis"
+                    "display": "thuis"
                   },
                   "item": [
                     {
@@ -946,7 +961,7 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "340201000146103",
-                    "display": "Wenst geen euthanasie"
+                    "display": "wil geen euthanasie"
                   }
                 }
               ],
@@ -978,12 +993,25 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "373066001",
-                    "display": "Ja"
+                    "display": "ja"
                   }
                 }
               ],
               "linkId": "1435",
               "text": "Keuze orgaandonatie in donorregister ([MetingWaarde])"
+            },
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "1156040003",
+                    "display": "Self reported (qualifier value)"
+                  }
+                }
+              ],
+              "linkId": "1650",
+              "text": "Keuze orgaandonatie vastgelegd in donorregister? ([MeetMethode])"
             }
           ]
         }
@@ -1009,7 +1037,7 @@
         {
           "answer": [
             {
-              "valueString": "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem  door. Verder is ze gek op muziek en luistert ze dat graag als ze alleen is."
+              "valueString": "Mevrouw is gek op haar kleinzoon, dus brengt graag veel tijd met hem door. Verder is ze gek op muziek en luistert ze dat graag als ze alleen is."
             }
           ],
           "linkId": "1196",
@@ -1027,7 +1055,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               },
               "item": [
                 {
@@ -1051,7 +1079,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               }
             }
           ],
@@ -1067,10 +1095,7 @@
         {
           "answer": [
             {
-              "valueCoding": {
-                "code": "1",
-                "display": "Ja"
-              }
+              "valueBoolean": true
             }
           ],
           "linkId": "1200",

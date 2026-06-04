@@ -4,18 +4,11 @@ Id: ACP-Patient
 Title: "ACP Patient"
 Description: "A person who receives medical, psychological, paramedical, or nursing care. Based on nl-core-Patient and HCIM Patient."
 * insert MetaRules
-* obeys ACP-Patient-1
-* extension contains
-    ExtPatientLegallyCapableMedicalTreatmentDecisions  named legallyCapableMedicalTreatmentDecisions 0..1
-* extension[legallyCapableMedicalTreatmentDecisions] ^condition = "ACP-Patient-1"
 * name 1..*
-* contact ^condition = "ACP-Patient-1"
-* contact.extension[relatedPerson] ^condition = "ACP-Patient-1"
 * contact.extension[relatedPerson] ^comment = "All information regarding the patient's contact persons should preferably be stored in the RelatedPerson resource, and optionally in `Patient.contact`. The http://hl7.org/fhir/StructureDefinition/patient-relatedPerson extension is used to link the contact person to the Patient and to emphasize that the related person is also a contact person of the patient."
 * contact.extension[relatedPerson].valueReference only Reference(ACPContactPerson)
-* contact.relationship ^condition = "ACP-Patient-1"
 
-* insert ObligationRules(extension[legallyCapableMedicalTreatmentDecisions])
+
 * insert ObligationRules(contact.extension[relatedPerson])
 * insert ObligationRules(identifier)
 * insert ObligationRules(name[nameInformation].given)
@@ -48,24 +41,14 @@ Description: "A person who receives medical, psychological, paramedical, or nurs
 * insert ObligationRules(address.use)
 * insert ObligationRules(address.type)
 
-
-Invariant: ACP-Patient-1
-Description: "If the patient is not legally capable, there should be a legal representative."
-* severity = #warning
-* expression = "extension.where(url='https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ext-LegallyCapable-MedicalTreatmentDecisions').extension.where(url='legallyCapable').value = false implies (contact.where(relationship.coding.code = '24').exists() or contact.extension.where(url='http://hl7.org/fhir/StructureDefinition/patient-relatedPerson').exists())"
-
-
 Mapping: MapACPPatient
-Id: pall-izppz-zib2020v2026-02-24
+Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPPatient
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
 * -> "351" "Patient"
 * -> "613" "Patient"
 * -> "648" "Patient"
-* extension[legallyCapableMedicalTreatmentDecisions] -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen" 
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable] -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment] -> "763" "Toelichting"
 * identifier -> "385" "Identificatienummer"
 * name -> "352" "Naamgegevens"
 * name[nameInformation].given -> "353" "Voornamen"
@@ -123,7 +106,6 @@ Instance: ACP-Patient-HendrikHartman-Pat1
 InstanceOf: ACPPatient
 Title: "ACP Patient - Hendrik Hartman - Pat 1"
 Usage: #example
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
 * identifier.value = "999911120"
 * name[nameInformation].extension.url = "http://hl7.org/fhir/StructureDefinition/humanname-assembly-order"
@@ -162,8 +144,6 @@ Instance: ACP-Patient-SamiraVanDerSluijs-Pat2
 InstanceOf: ACPPatient
 Title: "ACP Patient - Samira van der Sluijs - Pat 2"
 Usage: #example
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable].valueBoolean = true
-* extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment].valueString = "Patiënt is wilsbekwaam. Bij verandering van de situatie wordt haar partner haar wettelijk vertegenwoordiger."
 * identifier.system = "http://fhir.nl/fhir/NamingSystem/bsn"
 * identifier.value = "999998298"
 * name[0].use = #official

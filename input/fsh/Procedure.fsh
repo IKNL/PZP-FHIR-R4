@@ -6,18 +6,18 @@ Description: "Advance Care Planning procedure. Based on nl-core-Procedure-event 
 * insert MetaRules
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
+* code from ACPProcedureTypeVS (required)
 * code 1..1
-* code = $snomed#713603004
 
 * insert ObligationRules(subject)
 * insert ObligationRules(encounter)
 * insert ObligationRules(code)
 
 Mapping: MapACPProcedure
-Id: pall-izppz-zib2020v2026-02-24
+Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPProcedure
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
 * -> "820" "Verrichting"
 * code -> "827" "PZP gesprek (VerrichtingType)"
 
@@ -60,7 +60,7 @@ Usage: #example
 * performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2025-08-07"
 * performedPeriod.end = "2025-08-07"
-* code = $snomed#713603004 "advance care planning"
+* code = $DHD-CBV#411600B "PROACTIEVE ZORGPLANNING-OPSTEL. INDIV.ZORGPL.PALLIAT.FASE"
 
 Instance: ACP-Procedure-2-Pat2
 InstanceOf: ACPProcedure
@@ -79,4 +79,4 @@ Usage: #example
 * performer[=].actor.type = "Patient" 
 * performedPeriod.start = "2024-07-28"
 * performedPeriod.end = "2024-07-28"
-* code = $snomed#713603004 "advance care planning"
+* code = $NZa#190099 "Proactieve zorgplanning"

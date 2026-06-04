@@ -62,9 +62,10 @@ This table provides an overview of all dataset elements that are mapped to FHIR 
 | 399 | &emsp;&emsp;&emsp;Voorvoegsels | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `name[nameInformation].family.extension[prefix]`  |
 | 400 | &emsp;&emsp;&emsp;Achternaam | Practitioner (<a href="StructureDefinition-ACP-HealthProfessional-Practitioner.html">ACPHealthProfessionalPractitioner</a>) | `name[nameInformation].family.extension[lastName]`  |
 | 405 | &emsp;Functie (Specialisme) | PractitionerRole (<a href="StructureDefinition-ACP-HealthProfessional-PractitionerRole.html">ACPHealthProfessionalPractitionerRole</a>) | `specialty[specialty]`  |
-| 761 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[legallyCapableMedicalTreatmentDecisions]`  |
-| 762 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapable]`  |
-| 763 | &emsp;Toelichting | Patient (<a href="StructureDefinition-ACP-Patient.html">ACPPatient</a>) | `extension[legallyCapableMedicalTreatmentDecisions].extension[legallyCapableComment]`  |
+| 761 | Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Observation (<a href="StructureDefinition-ACP-LegallyCapable.html">ACPLegallyCapable</a>) | ``  |
+| 762 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Observation (<a href="StructureDefinition-ACP-LegallyCapable.html">ACPLegallyCapable</a>) | `valueBoolean`  |
+| 762 | &emsp;Wilsbekwaamheid m.b.t. medische behandelbeslissingen | Observation (<a href="StructureDefinition-ACP-LegallyCapable.html">ACPLegallyCapable</a>) | `dataAbsentReason`  |
+| 763 | &emsp;Toelichting | Observation (<a href="StructureDefinition-ACP-LegallyCapable.html">ACPLegallyCapable</a>) | `note.text`  |
 | 441 | Wettelijk vertegenwoordiger (Contactpersoon) | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | ``  |
 | 442 | &emsp;Naamgegevens | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name`  |
 | 443 | &emsp;&emsp;Voornamen | RelatedPerson (<a href="StructureDefinition-ACP-ContactPerson.html">ACPContactPerson</a>) | `name[nameInformation].given`  |

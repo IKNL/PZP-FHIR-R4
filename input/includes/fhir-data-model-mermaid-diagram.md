@@ -56,6 +56,7 @@ flowchart TB
     end
 
     subgraph "Observation"
+        ACPLegallyCapable
         ACPOrganDonationChoiceRegistration
         ACPPositionRegardingEuthanasia
         ACPPreferredPlaceOfDeath
@@ -76,6 +77,7 @@ flowchart TB
     class ACPPositionRegardingEuthanasia C0
     class ACPOrganDonationChoiceRegistration C0
     class ACPSenseOfPurpose C0
+    class ACPLegallyCapable C0
     class ACPPatient C1
     class ACPHealthProfessionalPractitioner C1
     class ACPHealthProfessionalPractitionerRole C1

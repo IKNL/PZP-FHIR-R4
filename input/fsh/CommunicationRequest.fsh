@@ -7,13 +7,17 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * category 1..*
 * category = $snomed#223449006
 * category ^comment = "The `category.text` element may be used to provide additional context for human readers next to the pattern category coding, for example: 'Request for patient to inform relatives about treatment agreements'."
+* subject 1..1
 * subject only Reference(ACPPatient)
 * encounter only Reference(ACPEncounter)
+* requester 1..1
 * requester only Reference(ACPHealthProfessionalPractitionerRole or ACPHealthProfessionalPractitioner) 
+* sender 1..1
 * sender only Reference(ACPPatient)
 * recipient only Reference(ACPContactPerson)
 * reasonCode 1..*
 * reasonCode = $snomed#713603004 // "advance care planning"
+* obeys cr-date-required
 
 * insert ObligationRules(category) // already 1..1 so may not be needed place under obligation but added for consistency
 * insert ObligationRules(subject)
@@ -25,11 +29,17 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * insert ObligationRules(reasonCode) // already 1..1 so may not be needed place under obligation but added for consistency
 
 
+Invariant: cr-date-required
+Description: "The date of the CommunicationRequest is expected to be captured either in the resource itself or in the Encounter in which the CommunicationRequest originated."
+Severity: #error
+Expression: "authoredOn.exists() or encounter.exists()"
+ 
+
 Mapping: MapACPInformRelativesRequest
-Id: pall-izppz-zib2020v2026-02-24
+Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPInformRelativesRequest
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
 * -> "734" "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?"
 
 

@@ -65,83 +65,28 @@ Transform the exported metadata to follow IG standards. Use English for all meta
 - **`publisher`**: Use simplified form `"PZNL & IKNL"`
 
 
+### Step: 2a
+Question for 967 - Geboortedatum patient needs to be a date instead of dateTime.
+
 ### Step 3: Save to Repository
 Save the adjusted Questionnaire as `Questionnaire-[id].json` in `input/resources/`
 
-### Step 4: Fix Conditional Expressions
+### Step 4: Replace all anwserOption with a answerValueSet reference
+To ensure better maintainability and consistency, replace all `answerOption` arrays in the questionnaire items with a reference to an `answerValueSet`. Use a diff to identify all `answerValueSet` references and replace the corresponding `answerOption` arrays with the appropriate `ValueSet` reference.
 
-Use [NLM Form Builder](https://formbuilder.nlm.nih.gov/) to correct invalid FHIRPath expressions:
-
-1. Select **"Start with existing form"** → **"Import from local file"**
-2. Import your adjusted Questionnaire JSON
-3. Review warnings for invalid FHIRPath conditions
-4. Fix conditional displays (especially boolean comparisons)
-   
-   **Example fix needed:**
-   - Item: "Naam eerste contactpersoon" should display when:
-   - Question `984` ("Is de wettelijk vertegenwoordiger ook de eerste contactpersoon?") = `Nee (0)`
-
-### Step 5: Set Read-Only Treatment/Measurement Codes
-
-For sections **4. Behandelgrenzen** and **5. Behandelwensen**, configure treatment codes and measurement names as:
-- **Read only**: Yes
-- **Value method**: Pick initial value
-
-This simplifies QuestionnaireResponse creation. Example result:
-
-```json
-"item": [
-        {
-          "type": "choice",
-          "linkId": "1408",
-          "text": "Belangrijkste doel van behandeling ([MetingNaam])",
-          "required": false,
-          "repeats": false,
-          "readOnly": true,
-          "answerOption": [
-            {
-              "valueCoding": {
-                "system": "http://snomed.info/sct",
-                "code": "180771000146100",
-                "display": "Focus van behandeling (waarneembare entiteit)"
-              },
-              "initialSelected": true
-            }
-          ]
-        },
-]
-```
-
-### Step 6: Export and Replace
+### Step 5: Export and Replace
 
 1. In Form Builder, select top-right menu → **"Export"** → **"Export to file in FHIR R4 format"**
 2. Save and replace the file in `input/resources/`
 
-### Step 7: Expand ICD valueset
-In the question concerning the 'ProductType van IC' (linkID 1008), replace the ICD code and display by the valueset values, including the system, the code and the display. Illustrated for first two answer options:
-```json
-"answerOption": [
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "72506001",
-                    "display": "implanteerbare cardioverter-defibrillator"
-                  }
-                },
-                {
-                  "valueCoding": {
-                    "system": "http://snomed.info/sct",
-                    "code": "465460004",
-                    "display": "univentriculaire implanteerbare cardioverter-defibrillator"
-                  }
-                },
-]
-```
 
-### Step 8: Remove 'code' keys from questionnaire items with Python script
+### Step 6: Populate item prefix with Python script
+Run the Questionnaire Item Prefix Populator script (`/util\questionnaire_item_prefix_populator.py/`) that populates the `prefix` field for all questionnaire items based on their `linkId` values, following the pattern "Q[linkId]". This ensures consistent and clear identification of questionnaire items in the IG.
+
+### Step 7: Remove 'code' keys from questionnaire items with Python script
 Run the Questionnaire Item Code Remover script (`/util\questionnaire_item_code_remover.py/`) that removes 'code' keys from all questionnaire items, including incorrect 'code' properties.
 
-### Step 9: Register in Configuration for better presentation in IG
+### Step 8: Register in Configuration for better presentation in IG
 
 Add the Questionnaire to `sushi-config.yaml`:
 
@@ -166,8 +111,11 @@ groups:
 
 ## QuestionnaireResponse Creation Process
 
+### Step 0: Prepare Questionnaire
+Run `util\questionnaire_item_anwserOption_expander.py` to expand answer options with proper display values, ensuring that the questionnaire is fully functional for data entry.
+
 ### Step 1: Load Questionnaire
-Use [LHC Forms](https://lhcforms.nlm.nih.gov/lhcforms/) to create example responses:
+Use [LHC Forms](https://lhcforms.nlm.nih.gov/lhcforms/) to create example responses - use the expanded version of the questionnaire (output step 0):
 
 1. Select **"Load From File"**
 2. Choose the adjusted Questionnaire from `input/resources/`

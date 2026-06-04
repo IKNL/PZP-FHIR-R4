@@ -36,9 +36,9 @@ This approach is useful for applications that need to query specific parts of a 
 The below listed search requests show how all the ACP agreements, procedural information and relevant clinical context can be retrieved. Information on individuals involved in the ACP process are referenced from these resources and can be retrieved using the `_include` statement as defined below, or by resolving the references. Standard FHIR rules apply on the search syntax. The <a href="CapabilityStatement-ACP-CapabilityStatementProvider.html">Provider CapabilityStatement</a> and <a href="CapabilityStatement-ACP-CapabilityStatementConsulter.html">Consulter CapabilityStatement</a> resources may provide a more structured overview of the below requirements.
 
 ```
-1a GET [base]/Procedure?patient=Patient/[id]&code=http://snomed.info/sct|713603004&_include=Procedure:encounter
+1a GET [base]/Procedure?patient=Patient/[id]&code=http://snomed.info/sct|713603004,urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099&_include=Procedure:encounter
 
-1b GET [base]/Encounter?patient=Patient/[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004&_include=Encounter:reason-reference
+1b GET [base]/Encounter?patient=Patient/[id]&reason-reference:Procedure.code=http://snomed.info/sct|713603004,urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099&_include=Encounter:reason-reference
 
 2 GET [base]/Consent?patient=Patient/[id]&scope=http://terminology.hl7.org/CodeSystem/consentscope|treatment&category=http://snomed.info/sct|129125009&_include=Consent:actor
 
@@ -46,9 +46,9 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 4 GET [base]/Goal?patient=Patient/[id]&category=http://snomed.info/sct|713603004
 
-5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003,570801000146104
+5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|665671000146101,http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
 
-6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,465460004,468542000,704707009,1263462004,1236894001&_include=DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
 
 7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
 ```
@@ -59,9 +59,11 @@ The below listed search requests show how all the ACP agreements, procedural inf
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
 4. Retrieves `Goal` resources related to advance care planning.
-5. Retrieves `Observation` resources related to specific wishes and plans, as defined by the profiles in the Implementation Guide.
+5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
+
+For `RelatedPerson` and `Practitioner` there is no specific query as according to the model there are references made to these resources. If there is a legal representative we expect that to be present in `Patient.contact`. For related persons attending the encounter a reference is expected to be made in `Encounter.participant`.
 
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:

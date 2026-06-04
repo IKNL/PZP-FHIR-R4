@@ -4,13 +4,17 @@
   "meta": {
     "tag": [
       {
-        "code": "lformsVersion: 38.2.0"
+        "code": "lformsVersion: 42.2.0"
       }
     ]
   },
   "status": "completed",
   "authored": "2025-08-25T19:14:50.150Z",
-  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc2",
+  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc3",
+  "subject": {
+    "reference": "Patient/ACP-Patient-HendrikHartman-Pat1",
+    "display": "Patient, Hendrik Hartman"
+  },
   "author": 
     {
       "reference": "PractitionerRole/ACP-HealthProfessional-PractitionerRole-DrVanHuissen-Pat1",
@@ -114,13 +118,10 @@
         {
           "answer": [
             {
-              "valueCoding": {
-                "code": "1",
-                "display": "Ja"
-              }
+              "valueBoolean": true
             }
           ],
-          "linkId": "1406",
+          "linkId": "1651",
           "text": "Is de patiënt op dit moment wilsbekwaam m.b.t. medische behandelbeslissingen?"
         },
         {
@@ -186,6 +187,19 @@
               ]
             },
             {
+              "linkId": "982",
+              "text": "Relatie tot patiënt (1)",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.2.4.3.11.22.472",
+                    "code": "24",
+                    "display": "Wettelijke vertegenwoordiger"
+                  }
+                }
+              ]
+            },
+            {
               "answer": [
                 {
                   "valueCoding": {
@@ -201,10 +215,7 @@
             {
               "answer": [
                 {
-                  "valueCoding": {
-                    "code": "1",
-                    "display": "Ja"
-                  }
+                  "valueBoolean": true
                 }
               ],
               "linkId": "984",
@@ -231,15 +242,21 @@
           "text": "Patiënt"
         },
         {
-          "linkId": "998",
-          "text": "Relatie tot patiënt",
-          "answer": [
+          "linkId": "1652",
+          "text": "Contactperso(o)n(en)",
+          "item": [
             {
-              "valueCoding": {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "BRO",
-                "display": "Broer"
-              }
+              "linkId": "998",
+              "text": "Relatie tot patiënt",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "BRO",
+                    "display": "Broer"
+                  }
+               }
+              ]
             }
           ]
         }
@@ -268,7 +285,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "1351964001",
-                "display": "Palliatief met als doel levensverlenging én symptoomverlichting"
+                "display": "levensverlengende behandeling"
               }
             }
           ],
@@ -483,7 +500,7 @@
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
                     "code": "OTH",
-                    "display": "Other"
+                    "display": "Anders"
                   }
                 }
               ],
@@ -522,7 +539,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373066001",
-                "display": "Ja"
+                "display": "ja"
               },
               "item": [
                 {
@@ -627,6 +644,19 @@
               ],
               "linkId": "1190",
               "text": "Wens en verwachting patient ([MetingWaarde])"
+            },
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "370819000",
+                    "display": "Vaststellen van persoonlijke waarden en wensen met betrekking tot zorg"
+                  }
+                }
+              ],
+              "linkId": "1648",
+              "text": "Vaststellen wens en verwachting patiënt ([MeetMethode])"
             }
           ]
         },
@@ -640,11 +670,11 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "395091006",
-                    "display": "Gewenste plek van overlijden"
+                    "display": "Voorkeur voor plaats van overlijden (waarneembare entiteit)"
                   }
                 }
               ],
-              "linkId": "1430",
+              "linkId": "1649",
               "text": "Gewenste plek van overlijden ([MetingNaam])"
             },
             {
@@ -696,7 +726,7 @@
                   "valueCoding": {
                     "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
                     "code": "UNK",
-                    "display": "Nog onbekend"
+                    "display": "nog onbekend"
                   },
                   "item": [
                     {
@@ -739,12 +769,25 @@
                   "valueCoding": {
                     "system": "http://snomed.info/sct",
                     "code": "373066001",
-                    "display": "Ja"
+                    "display": "ja"
                   }
                 }
               ],
               "linkId": "1435",
               "text": "Keuze orgaandonatie in donorregister ([MetingWaarde])"
+            },
+            {
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "http://snomed.info/sct",
+                    "code": "1156040003",
+                    "display": "Self reported (qualifier value)"
+                  }
+                }
+              ],
+              "linkId": "1650",
+              "text": "Keuze orgaandonatie vastgelegd in donorregister? ([MeetMethode])"
             }
           ]
         }
@@ -788,7 +831,7 @@
               "valueCoding": {
                 "system": "http://snomed.info/sct",
                 "code": "373067005",
-                "display": "Nee"
+                "display": "nee"
               }
             }
           ],
@@ -804,10 +847,7 @@
         {
           "answer": [
             {
-              "valueCoding": {
-                "code": "1",
-                "display": "Ja"
-              }
+              "valueBoolean": true
             }
           ],
           "linkId": "1200",

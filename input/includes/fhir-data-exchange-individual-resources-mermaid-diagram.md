@@ -11,7 +11,7 @@ sequenceDiagram
   
         par 
             %% 1. Procedures
-            C->>S: GET /Procedure?patient=Patient/[id]<br>&code=sct|713603004<br>&_include=Procedure:encounter
+            C->>S: GET /Procedure?patient=Patient/[id]<br>&code=http://snomed.info/sct|713603004,<br>urn:oid:2.16.840.1.113883.2.4.3.120.5.3|411600B,<br>urn:oid:2.16.840.1.113883.2.4.3.27.15.5|190099<br>&_include=Procedure:encounter
             activate S
             S-->>C: 200 OK: Bundle (Procedure + Encounter)
             deactivate S
@@ -35,19 +35,19 @@ sequenceDiagram
             deactivate S
         and
             %% 5. Observations
-            C->>S: GET /Observation?patient=Patient/[id]<br>&code=http://snomed.info/sct|153851000146100,395091006,340171000146104,247751003
+            C->>S: GET /Observation?patient=Patient/[id]<br>&code=http://snomed.info/sct|665671000146101,http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003
             activate S
             S-->>C: 200 OK: Bundle (Observation)
             deactivate S
         and
             %% 6. Devices
-            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device.type=http://snomed.info/sct|72506001,465460004,468542000,704707009,1263462004,1236894001<br>&_include=DeviceUseStatement:device
+            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001<br>&_include=DeviceUseStatement:device
             activate S
             S-->>C: 200 OK: Bundle (DeviceUseStatement + Device)
             deactivate S
         and
             %% 7. CommunicationRequests
-            C->>S: GET /CommunicationRequest?patient=Patient/[id]<br>&category=http://snomed.info/sct|713603004
+            C->>S: GET /CommunicationRequest?patient=Patient/[id]<br>&category=http://snomed.info/sct|223449006
             activate S
             S-->>C: 200 OK: Bundle (CommunicationRequest)
             deactivate S

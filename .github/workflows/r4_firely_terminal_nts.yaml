@@ -65,7 +65,7 @@ jobs:
           echo "JAVA_TOOL_OPTIONS=-Dhttp.proxyHost=localhost -Dhttp.proxyPort=8080 -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts=" >> $GITHUB_ENV
         
       - name: Firely.Terminal (GitHub Actions)
-        uses: FirelyTeam/firely-terminal-pipeline@v0.7.32-alpha2
+        uses: FirelyTeam/firely-terminal-pipeline@v0.8.1
         with:
           PATH_TO_CONFORMANCE_RESOURCES: fsh-generated/resources
           PATH_TO_EXAMPLES: fsh-generated/resources
