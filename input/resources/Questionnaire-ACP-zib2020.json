@@ -1020,7 +1020,7 @@
           "type": "choice",
           "required": false,
           "repeats": false,
-          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoal"
+          "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoalVS"
         }
       ]
     },
@@ -1685,7 +1685,7 @@
               "enableBehavior": "any",
               "required": false,
               "repeats": false,
-              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICD"
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalDeviceProductType-ICDVS"
             },
             {
               "linkId": "1009",
@@ -1890,7 +1890,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeath",
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeathVS",
               "item": [
                 {
                   "linkId": "1192",
@@ -1934,7 +1934,7 @@
               "type": "choice",
               "required": false,
               "repeats": false,
-              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PositionRegardingEuthanasia",
+              "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PositionRegardingEuthanasiaVS",
               "item": [
                 {
                   "linkId": "1194",
