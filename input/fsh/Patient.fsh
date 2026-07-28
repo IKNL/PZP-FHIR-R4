@@ -189,8 +189,8 @@ Usage: #example
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
 * contact[0].name.text = "Gert-Jan de Jong"
-* contact[0].name.use = #official
-* contact[0].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-GertJanDeJong-Pat2)
+* contact[=].name.use = #official
+* contact[=].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-GertJanDeJong-Pat2)
 * contact[+].name.text = "Maya van der Sluijs-Mulder"
-* contact[+].name.use = #official
-* contact[+].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2)
+* contact[=].name.use = #official
+* contact[=].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2)
