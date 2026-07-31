@@ -70,6 +70,19 @@ The treatment directive regarding ICD deactivation is represented as a treatment
 To enable consistent identification of this specific directive, systems are expected to use the SNOMED CT code `400231000146108` in the `provision.code.text` element. Receiving systems are expected to use this SNOMED CT code to map the received treatment directive to the dedicated ICD deactivation treatment directive field or functionality in their user interface. The SNOMED CT code itself should not be displayed to end users.
 This requirement applies only to the treatment directive regarding ICD deactivation and not to other treatment directives categorized as `Other`.
 
+##### Mapping observation codes to ACP profiles
+The data model defines several `Observation` profiles, each constraining a specific ACP concept by fixing a SNOMED CT code in the `Observation.code` element. Client request 5 retrieves these Observations using a code-based search. To support consistent implementation, the association between the SNOMED CT codes and the ACP Observation profiles is made explicit in the table below.
+
+| SNOMED CT Code | ACP Profile |
+| --- | --- |
+| 665671000146101 | [ACP-LegallyCapableTreatmentDecisions](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/StructureDefinition-ACP-LegallyCapableTreatmentDecisions.html) |
+| 153851000146100 | [ACP-SpecificCareWishes](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/StructureDefinition-ACP-SpecificCareWishes.html) |
+| 395091006 | [ACP-PreferredPlaceOfDeath](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/StructureDefinition-ACP-PreferredPlaceOfDeath.html) |
+| 340171000146104 | [ACP-PositionRegardingEuthanasia](https://api.iknl.nl/docs/pzp/r4/StructureDefinition/ACP-PositionRegardingEuthanasia) |
+| 247751003 | [ACP-SenseOfPurpose](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/StructureDefinition-ACP-PositionRegardingEuthanasia.html) |
+| 570801000146104 | [ACP-OrganDonationChoiceRegistration](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/StructureDefinition-ACP-OrganDonationChoiceRegistration.html) |
+
+
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:
 * `_include`: Returns referenced resources in the same `Bundle`, reducing the need for additional API calls.
