@@ -350,10 +350,10 @@ Usage: #example
 * effectiveDateTime = "2025-08-07"
 
 
-Profile: ACPLegallyCapable
+Profile: ACPLegallyCapableTreatmentDecisions
 Parent: Observation
-Id: ACP-LegallyCapable
-Title: "ACP Legally Capable"
+Id: ACP-LegallyCapableTreatmentDecisions
+Title: "ACP Legally Capable Regarding Medical Treatment Decisions"
 Description: "Indicates whether the patient is currently assessed as having the capacity to understand and oversee the consequences of medical treatment decisions. If the patient is not legally capable, there should be a legal representative captured in a RelatedPerson resource. Based on Observation resource."
 * insert MetaRules
 * encounter only Reference(ACPEncounter)
@@ -370,10 +370,10 @@ Description: "Indicates whether the patient is currently assessed as having the 
 * insert ObligationRules(note.text)
 * insert ObligationRules(performer)
 
-Mapping: MapACPLegallyCapable
+Mapping: MapACPLegallyCapableTreatmentDecisions
 Id: pall-izppz-zib2020
 Title: "ACP dataset"
-Source: ACPLegallyCapable
+Source: ACPLegallyCapableTreatmentDecisions
 Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-02-24T09:29:59"
 * -> "761" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
 * valueBoolean -> "762" "Wilsbekwaamheid m.b.t. medische behandelbeslissingen"
@@ -381,9 +381,9 @@ Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.
 * note.text -> "763" "[Toelichting]"
 
 
-Instance: ACP-LegallyCapable-Pat1
-InstanceOf: ACPLegallyCapable
-Title: "ACP Legally Capable - Pat 1"
+Instance: ACP-LegallyCapableTreatmentDecisions-Pat1
+InstanceOf: ACPLegallyCapableTreatmentDecisions
+Title: "ACP Legally Capable Regarding Medical Treatment Decisions - Pat 1"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -397,9 +397,9 @@ Usage: #example
 * effectiveDateTime = "2020-10-01"
 
 
-Instance: ACP-LegallyCapable-Pat2
-InstanceOf: ACPLegallyCapable
-Title: "ACP Legally Capable - Pat 2"
+Instance: ACP-LegallyCapableTreatmentDecisions-Pat2
+InstanceOf: ACPLegallyCapableTreatmentDecisions
+Title: "ACP Legally Capable Regarding Medical Treatment Decisions - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

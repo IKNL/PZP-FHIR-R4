@@ -59,7 +59,7 @@ The below listed search requests show how all the ACP agreements, procedural inf
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
 4. Retrieves `Goal` resources related to advance care planning.
-5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable, as defined by the profiles in the Implementation Guide.
+5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable regarding medical treatment decisions, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
 

@@ -207,7 +207,7 @@ groups:
     name: "Structures: Resource Profiles"
     description: These are ACP profiles based on FHIR core resources.
     resources:
-    - StructureDefinition/ACP-LegallyCapable
+    - StructureDefinition/ACP-LegallyCapableTreatmentDecisions
     - StructureDefinition/ACP-InformRelativesRequest
     - StructureDefinition/ACP-MedicalPolicyGoal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration
