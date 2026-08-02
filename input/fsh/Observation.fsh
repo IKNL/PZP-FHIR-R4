@@ -130,7 +130,7 @@ Usage: #example
 
 Instance: ACP-PreferredPlaceOfDeath-Pat2
 InstanceOf: ACPPreferredPlaceOfDeath
-Title: "ACP Preferred Place Of Death - Pat 2"
+Title: "ACP Preferred Place of Death - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -141,8 +141,9 @@ Usage: #example
 * status = #final
 * code =  $snomed#395091006 "gewenste plek van overlijden"
 * effectiveDateTime = "2025-08-07"
-* valueCodeableConcept = $snomed#264362003 "thuis"
-* note.text = "Het liefst rustig thuis"
+* valueCodeableConcept = $v3-NullFlavor#OTH "Anders"
+* valueCodeableConcept.text = "bijna-thuis-huis"
+* note.text = "Het liefst in een bijna-thuis-huis in de buurt van haar kinderen"
 
 
 Profile: ACPPositionRegardingEuthanasia
@@ -270,7 +271,7 @@ Usage: #example
 
 Instance: ACP-OrganDonationChoiceRegistrationInDonorRegister-Pat2
 InstanceOf: ACPOrganDonationChoiceRegistration
-Title: "ACP Organ Donation Choice Registration In Donor Register - Pat 2"
+Title: "ACP Organ Donation Choice Registration in Donor Register - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
