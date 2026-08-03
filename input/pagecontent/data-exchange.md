@@ -67,7 +67,7 @@ For `RelatedPerson` and `Practitioner` there is no specific query as according t
 
 ##### Distinguishing ICD deactivation from additional 'Other' treatment directives
 The treatment directive regarding ICD deactivation is represented as a treatment directive with code `Other`. The SNOMED CT code `400231000146108` for ICD deactivation cannot be communicated in a structured coding element as the treatment directive `provision.code` element is bound to the national _BehandelingCodelijst_.
-To enable consistent identification of this specific directive, systems are expected to use the SNOMED CT code `400231000146108` in the `provision.code.text` element. Receiving systems are expected to use this SNOMED CT code to map the received treatment directive to the dedicated ICD deactivation treatment directive field or functionality in their user interface. The SNOMED CT code itself should not be displayed to end users.
+To enable consistent identification of this specific directive, systems are expected to use the SNOMED CT code `400231000146108` in the `provision.code.text` element as demonstrated in this [example](https://as-iknl-api-documentatie.azurewebsites.net/docs/pzp/r4/en/Consent-ACP-TreatmentDirective-SwitchOffICD-Pat1.html). Receiving systems are expected to use this SNOMED CT code to map the received treatment directive to the dedicated ICD deactivation treatment directive field or functionality in their user interface. The SNOMED CT code itself should not be displayed to end users.
 This requirement applies only to the treatment directive regarding ICD deactivation and not to other treatment directives categorized as `Other`.
 
 ##### Mapping observation codes to ACP profiles
