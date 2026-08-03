@@ -4,7 +4,7 @@
   "url": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020",
   "version": "1.0.0-rc3",
   "name": "ACPzib2020",
-  "title": "Uniform vastleggen proactieve zorgpanning (PZP) o.b.v. zibs2020 - ReleaseCandidate3 02-06-2026",
+  "title": "Uniform vastleggen proactieve zorgplanning (PZP) o.b.v. zibs2020 - ReleaseCandidate3 02-06-2026",
   "status": "draft",
   "experimental": false,
   "publisher": "Published by PZNL & executed by IKNL",
@@ -1892,6 +1892,25 @@
               "repeats": false,
               "answerValueSet": "https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-PreferredPlaceOfDeathVS",
               "item": [
+                {
+                  "linkId": "1653",
+                  "text": "Anders, namelijk:",
+                  "type": "string",
+                  "enableWhen": [
+                    {
+                      "question": "1191",
+                      "operator": "=",
+                      "answerCoding": {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                        "code": "OTH",
+                        "display": "Anders"
+                      }
+                    }
+                  ],
+                  "enableBehavior": "any",
+                  "required": false,
+                  "repeats": false
+                },
                 {
                   "linkId": "1192",
                   "text": "Toelichting",
