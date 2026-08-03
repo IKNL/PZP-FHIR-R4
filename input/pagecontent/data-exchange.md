@@ -48,9 +48,9 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|665671000146101,http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
 
-6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device:Device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
 
-7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
+7 GET [base]/CommunicationRequest?patient=Patient/[id]&category=http://snomed.info/sct|223449006
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
