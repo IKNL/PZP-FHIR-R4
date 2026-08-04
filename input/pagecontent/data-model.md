@@ -23,7 +23,7 @@ The FHIR profiles in this guide are directly linked to the ACP dataset elements 
 
 Each StructureDefinition includes a `StructureDefinition.mapping.uri` that points to the specific version of the ACP dataset used. Additionally, every element within a profile is individually mapped to its corresponding dataset element using the `ElementDefinition.mapping` property. The mapping table below shows all mappings in one view, while the "Mappings" tab of each profile page displays the mappings consolidated per profile. These mappings provide a straightforward way to highlight the elements that are especially relevant for the ACP use case. 
 
-#### MustSupport and Obligations
+#### MustSupport and Obligation flags
 To indicate which elements are essential for the ACP use case and for which implementations must thus provide support, `mustSupport` flags are placed on all elements mapped to the ACP dataset. For clarification of the expectations associated with these `mustSupport` labels, the <a href="https://hl7.org/fhir/extensions/StructureDefinition-obligation.html">`obligation` element</a> is used.
 
 In this version of the IG, `mustSupport` and `obligation` flags are applied to all mapped elements, regardless of whether the dataset element is mandatory or optional. The `obligations` are defined for the following actors:

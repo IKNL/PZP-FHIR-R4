@@ -141,9 +141,8 @@ Usage: #example
 * status = #final
 * code =  $snomed#395091006 "gewenste plek van overlijden"
 * effectiveDateTime = "2025-08-07"
-* valueCodeableConcept = $v3-NullFlavor#OTH "Anders"
-* valueCodeableConcept.text = "bijna-thuis-huis"
-* note.text = "Het liefst in een bijna-thuis-huis in de buurt van haar kinderen"
+* valueCodeableConcept = $snomed#264362003 "thuis"
+* note.text = "Het liefst rustig thuis"
 
 
 Profile: ACPPositionRegardingEuthanasia
