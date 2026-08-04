@@ -130,7 +130,7 @@ Usage: #example
 
 Instance: ACP-PreferredPlaceOfDeath-Pat2
 InstanceOf: ACPPreferredPlaceOfDeath
-Title: "ACP Preferred Place Of Death - Pat 2"
+Title: "ACP Preferred Place of Death - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"
@@ -270,7 +270,7 @@ Usage: #example
 
 Instance: ACP-OrganDonationChoiceRegistrationInDonorRegister-Pat2
 InstanceOf: ACPOrganDonationChoiceRegistration
-Title: "ACP Organ Donation Choice Registration In Donor Register - Pat 2"
+Title: "ACP Organ Donation Choice Registration in Donor Register - Pat 2"
 Usage: #example
 * identifier.type = $v2-0203#RI "Resource identifier"
 * identifier.system = "https://acme.com/fhir/NamingSystem/resource-business-identifier"

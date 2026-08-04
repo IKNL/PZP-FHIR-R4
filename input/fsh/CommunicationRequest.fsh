@@ -25,7 +25,6 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * insert ObligationRules(authoredOn) // not explicitly required/defined in dataset but important for context
 * insert ObligationRules(requester)
 * insert ObligationRules(sender)
-* insert ObligationRules(recipient)
 * insert ObligationRules(reasonCode) // already 1..1 so may not be needed place under obligation but added for consistency
 
 
