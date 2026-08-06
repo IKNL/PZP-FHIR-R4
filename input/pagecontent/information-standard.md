@@ -13,7 +13,7 @@ The functional design forms the basis for this IG. It entails:
 - A description of the envisioned infrastructure for ACP data exchange;
 - An overview of involved parties and their corresponding roles.
 
-[Functioneel Ontwerp](https://palliaweb.nl/overzichtspagina-hulpmiddelen/uniform-vastleggen-proactieve-zorgplanning-2026)  
+[Functioneel Ontwerp](https://iknl.nl/palliatieve-zorg/informatiestandaard-proactieve-zorgplanning)  
 
 ##### Datasets, Terminology and scenarios 
 Inside the functional design there are links directing to [ART-DECOR](https://decor.nictiz.nl/ad/#/pall-izppz-/project/overview).
@@ -36,7 +36,7 @@ It describes how the ACP information standard is specifically implemented in HL7
 To ensure correct implementation and interoperability, test data are provided.  
 These artefacts support vendors and implementers in validating their systems against the requirements defined in the functional and technical design.
 
-[Testscripts](https://palliaweb.nl/overzichtspagina-hulpmiddelen/uniform-vastleggen-proactieve-zorgplanning-2026)
+[Testscripts](https://iknl.nl/palliatieve-zorg/informatiestandaard-proactieve-zorgplanning)
 
 
 
