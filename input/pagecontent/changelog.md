@@ -1,3 +1,18 @@
+### 1.0.0
+
+| Issue | Short Description |
+|-------|-------------------|
+| [#171](https://github.com/IKNL/PZP-FHIR-R4/issues/171) | Renamed `ACP Legally Capable` profile to `ACP Legally Capable Regarding Medical Treatment Decisions` to better reflect the content of the information. |
+| [#163](https://github.com/IKNL/PZP-FHIR-R4/issues/163) | Added an `Anders, namelijk` item to the to the Preferred Place of Death questionnaire item, enabling users to provide additional details when none of the predefined answer options are applicable. |
+| [#172](https://github.com/IKNL/PZP-FHIR-R4/issues/172) | Corrected outdated ValueSet references in the ACP questionnaire following ValueSet canonical URL changes. |
+| [#144](https://github.com/IKNL/PZP-FHIR-R4/issues/144) | Refined conformance requirements by adding `Must Support` to all elements with obligations and removed the obligation and reference from the ACP Request to Inform Relatives `recipient` element. |
+| [#175](https://github.com/IKNL/PZP-FHIR-R4/issues/175) | Provided guidance on how to distuingish ICD deactivation from other additional 'Other' treatment directive on data exchange page.  |
+| [#176](https://github.com/IKNL/PZP-FHIR-R4/issues/176) | Expanded the data exchange documentation with a code-to-profile mapping table, explicitly linking SNOMED CT observation codes used in search queries to their corresponding ACP Observation profiles. |
+| [#164](https://github.com/IKNL/PZP-FHIR-R4/issues/164) | Corrected an inconsistency in the CommunicationRequest search query by using the typed patient reference (Patient/[id]). |
+| [#170](https://github.com/IKNL/PZP-FHIR-R4/issues/170) | Improved the DeviceUseStatement search query example to use typed reference chaining (device:Device.type). |
+| [#165](https://github.com/IKNL/PZP-FHIR-R4/issues/165) | Removed the obsolete reference to `.extension:legallyCapableMedicalTreatmentDecisions` from the `ACP Patient` - `Changes compared to nl-core` section. |
+| [#158](https://github.com/IKNL/PZP-FHIR-R4/issues/58) | Added `How to Read this Guide` section to homepage. |
+
 ### 1.0.0-rc3
 
 | Issue | Short Description |

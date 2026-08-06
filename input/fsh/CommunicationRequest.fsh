@@ -14,7 +14,6 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * requester only Reference(ACPHealthProfessionalPractitionerRole or ACPHealthProfessionalPractitioner) 
 * sender 1..1
 * sender only Reference(ACPPatient)
-* recipient only Reference(ACPContactPerson)
 * reasonCode 1..*
 * reasonCode = $snomed#713603004 // "advance care planning"
 * obeys cr-date-required
