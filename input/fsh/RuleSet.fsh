@@ -1,5 +1,5 @@
 RuleSet: MetaRules
-* ^version = "1.0.0-rc3"
+* ^version = "1.0.0"
 * ^status = #draft
 * ^experimental = false
 * ^publisher = "IKNL"
@@ -10,8 +10,8 @@ RuleSet: MetaRules
 * ^copyright = "Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise."
 
 RuleSet: MetaRulesDefinitionalArtifact
-* version = "1.0.0-rc3"
-* date = "2026-03-03"
+* version = "1.0.0"
+* date = "2026-08-17"
 * status = #active
 * experimental = false
 * publisher = "IKNL"

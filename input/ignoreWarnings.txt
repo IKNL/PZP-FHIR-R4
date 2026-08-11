@@ -18,8 +18,8 @@
 
 # Manual check in latest version of SNOMED does find the code '1351964001'. The error might be due to a older version of SNOMED available in tx.fhir.org/r4 
 %Unknown code '1351964001' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930'%
-%Geen van de gevonden codings bestaan in waardelijst 'ACP Primary Agreed-upon Goal of Medical Policy Codes' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoalVS|1.0.0-rc3) en een coding uit deze waardelijst is verplicht (codes = http://snomed.info/sct#1351964001)%
-%None of the codings provided are in the value set 'ACP Primary Agreed-upon Goal of Medical Policy Codes' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoalVS|1.0.0-rc3), and a coding from this value set is required) (codes = http://snomed.info/sct#1351964001)%
+%Geen van de gevonden codings bestaan in waardelijst 'ACP Primary Agreed-upon Goal of Medical Policy Codes' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoalVS|1.0.0) en een coding uit deze waardelijst is verplicht (codes = http://snomed.info/sct#1351964001)%
+%None of the codings provided are in the value set 'ACP Primary Agreed-upon Goal of Medical Policy Codes' (https://api.iknl.nl/docs/pzp/r4/ValueSet/ACP-MedicalPolicyGoalVS|1.0.0), and a coding from this value set is required) (codes = http://snomed.info/sct#1351964001)%
 
 # Manual check in latest version of SNOMED does find the code '665671000146101'. The error might be due to a older version of SNOMED available in tx.fhir.org/r4
 %Unknown code '665671000146101' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/11000146104/version/20240930' (Netherlands Edition)%

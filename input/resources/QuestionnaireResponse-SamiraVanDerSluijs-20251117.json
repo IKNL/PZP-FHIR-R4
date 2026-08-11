@@ -10,7 +10,7 @@
   },
   "status": "completed",
   "authored": "2025-11-27T16:15:00.733Z",
-  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0-rc3",
+  "questionnaire": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020|1.0.0",
   "subject": {
     "reference": "Patient/ACP-Patient-SamiraVanDerSluijs-Pat2",
     "display": "Patient, Samira van der Sluijs"

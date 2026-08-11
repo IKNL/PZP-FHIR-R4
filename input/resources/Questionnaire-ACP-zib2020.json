@@ -2,7 +2,7 @@
   "resourceType": "Questionnaire",
   "id": "ACP-zib2020",
   "url": "https://api.iknl.nl/docs/pzp/r4/Questionnaire/ACP-zib2020",
-  "version": "1.0.0-rc3",
+  "version": "1.0.0",
   "name": "ACPzib2020",
   "title": "Uniform vastleggen proactieve zorgplanning (PZP) o.b.v. zibs2020 - Release 17-08-2026",
   "status": "draft",
