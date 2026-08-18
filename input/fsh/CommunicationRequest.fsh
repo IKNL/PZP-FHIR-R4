@@ -2,7 +2,7 @@ Profile: ACPInformRelativesRequest
 Parent: CommunicationRequest
 Id: ACP-InformRelativesRequest
 Title: "ACP Request to Inform Relatives"
-Description: "A CommunicationRequest representing the advice or instruction given to the patient to discuss their advance care planning (ACP) and treatment agreements with their relatives or proxies."
+Description: "A CommunicationRequest representing the advice or instruction given to the patient to discuss their advance care planning (ACP) and treatment agreements with their relatives or proxies. Based on CommunicationRequest resource."
 * insert MetaRules
 * category 1..*
 * category = $snomed#223449006
@@ -14,7 +14,6 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * requester only Reference(ACPHealthProfessionalPractitionerRole or ACPHealthProfessionalPractitioner) 
 * sender 1..1
 * sender only Reference(ACPPatient)
-* recipient only Reference(ACPContactPerson)
 * reasonCode 1..*
 * reasonCode = $snomed#713603004 // "advance care planning"
 * obeys cr-date-required
@@ -25,7 +24,6 @@ Description: "A CommunicationRequest representing the advice or instruction give
 * insert ObligationRules(authoredOn) // not explicitly required/defined in dataset but important for context
 * insert ObligationRules(requester)
 * insert ObligationRules(sender)
-* insert ObligationRules(recipient)
 * insert ObligationRules(reasonCode) // already 1..1 so may not be needed place under obligation but added for consistency
 
 
@@ -39,7 +37,7 @@ Mapping: MapACPInformRelativesRequest
 Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPInformRelativesRequest
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-08-10T10%3A11%3A40"
 * -> "734" "Heeft u patient geïnformeerd over eigen verantwoordelijkheid om deze behandelafspraken met naasten te bespreken?"
 
 

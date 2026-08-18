@@ -48,9 +48,9 @@ The below listed search requests show how all the ACP agreements, procedural inf
 
 5 GET [base]/Observation?patient=Patient/[id]&code=http://snomed.info/sct|665671000146101,http://snomed.info/sct|153851000146100,http://snomed.info/sct|395091006,http://snomed.info/sct|340171000146104,http://snomed.info/sct|247751003,http://snomed.info/sct|570801000146104
 
-6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
+6 GET [base]/DeviceUseStatement?patient=Patient/[id]&device:Device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001&_include=DeviceUseStatement:device
 
-7 GET [base]/CommunicationRequest?patient=[id]&category=http://snomed.info/sct|223449006
+7 GET [base]/CommunicationRequest?patient=Patient/[id]&category=http://snomed.info/sct|223449006
 ```
 
 1. Both requests are designed to retrieve the same information, but with different approaches:
@@ -59,11 +59,29 @@ The below listed search requests show how all the ACP agreements, procedural inf
 2. Retrieves `Consent` resources for Treatment Directives and includes the agreement parties (Patient, ContactPersons, and HealthProfessionals).
 3. Retrieves `Consent` resources for Advance Directives and includes the representatives (ContactPersons).
 4. Retrieves `Goal` resources related to advance care planning.
-5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable, as defined by the profiles in the Implementation Guide.
+5. Retrieves `Observation` resources related to specific wishes, plans and whether the patient is legally capable regarding medical treatment decisions, as defined by the profiles in the Implementation Guide.
 6. Retrieves `DeviceUseStatement` resources for devices representing an ICD, and includes the corresponding `Device` resource.
 7. Retrieves `CommunicationRequest` resources representing all communication requests related to the ACP procedure.
 
 For `RelatedPerson` and `Practitioner` there is no specific query as according to the model there are references made to these resources. If there is a legal representative we expect that to be present in `Patient.contact`. For related persons attending the encounter a reference is expected to be made in `Encounter.participant`.
+
+##### Distinguishing ICD deactivation from additional 'Other' treatment directives
+The treatment directive regarding ICD deactivation is represented as a treatment directive with code `Other`. The SNOMED CT code `400231000146108` for ICD deactivation cannot be communicated in a structured coding element as the treatment directive `provision.code` element is bound to the national _BehandelingCodelijst_.
+To enable consistent identification of this specific directive, systems are expected to use the SNOMED CT code `400231000146108` in the `provision.code.text` element as demonstrated in this <a href="Consent-ACP-TreatmentDirective-SwitchOffICD-Pat1.html">Example</a>. Receiving systems are expected to use this SNOMED CT code to map the received treatment directive to the dedicated ICD deactivation treatment directive field or functionality in their user interface. The SNOMED CT code itself should not be displayed to end users.
+This requirement applies only to the treatment directive regarding ICD deactivation and not to other treatment directives categorized as `Other`.
+
+##### Mapping observation codes to ACP profiles
+The data model defines several `Observation` profiles, each constraining a specific ACP concept by fixing a SNOMED CT code in the `Observation.code` element. Client request 5 retrieves these Observations using a code-based search. To support consistent implementation, the association between the SNOMED CT codes and the ACP Observation profiles is made explicit in the table below.
+
+| SNOMED CT Code | ACP Profile |
+| --- | --- |
+| 665671000146101 | <a href="StructureDefinition-ACP-LegallyCapableTreatmentDecisions.html">ACP-LegallyCapableTreatmentDecisions</a> |
+| 153851000146100 | <a href="StructureDefinition-ACP-SpecificCareWishes.html">ACP-SpecificCareWishes</a> |
+| 395091006 | <a href="StructureDefinition-ACP-PreferredPlaceOfDeath.html">ACP-PreferredPlaceOfDeath</a> |
+| 340171000146104 | <a href="StructureDefinition-ACP-PositionRegardingEuthanasia.html">ACP-PositionRegardingEuthanasia</a> |
+| 247751003 | <a href="StructureDefinition-ACP-SenseOfPurpose.html">ACP-SenseOfPurpose</a> |
+| 570801000146104 | <a href="StructureDefinition-ACP-OrganDonationChoiceRegistration.html">ACP-OrganDonationChoiceRegistration</a> |
+
 
 #### Advanced Search Parameters Supported
 The queries above use several search parameter types and modifiers:

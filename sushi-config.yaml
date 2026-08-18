@@ -9,10 +9,11 @@ name: PZP
 title: Advance Care Planning (PZP)
 description: Advance Care Planning (PZP) IG for FHIR R4 based on zib release 2020
 status: active # draft | active | retired | unknown
-version: 1.0.0-rc3
+version: 1.0.0
+date: 2026-08-17
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2026+
-releaseLabel: trial-use
+releaseLabel: release
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # jurisdiction: urn:iso:std:iso:3166#NL "Netherlands" # https://www.hl7.org/fhir/valueset-jurisdiction.html  -- this drives the SNOMED version selection too.
 publisher:
@@ -207,7 +208,7 @@ groups:
     name: "Structures: Resource Profiles"
     description: These are ACP profiles based on FHIR core resources.
     resources:
-    - StructureDefinition/ACP-LegallyCapable
+    - StructureDefinition/ACP-LegallyCapableTreatmentDecisions
     - StructureDefinition/ACP-InformRelativesRequest
     - StructureDefinition/ACP-MedicalPolicyGoal
     - StructureDefinition/ACP-OrganDonationChoiceRegistration

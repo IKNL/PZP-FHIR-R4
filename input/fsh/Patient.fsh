@@ -45,7 +45,7 @@ Mapping: MapACPPatient
 Id: pall-izppz-zib2020
 Title: "ACP dataset"
 Source: ACPPatient
-Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-05-12T07%3A58%3A08"
+Target: "https://decor.nictiz.nl/exist/apps/api/dataset/2.16.840.1.113883.2.4.3.11.60.117.1.1/2020-07-29T10%3A37%3A48/$view?language=nl-NL&ui=nl-NL&format=html&hidecolumns=3456gh&release=2026-08-10T10%3A11%3A40"
 * -> "351" "Patient"
 * -> "613" "Patient"
 * -> "648" "Patient"
@@ -188,3 +188,9 @@ Usage: #example
 * address.country = "Nederland"
 * address.country.extension.url = "http://nictiz.nl/fhir/StructureDefinition/ext-CodeSpecification"
 * address.country.extension.valueCodeableConcept.coding = urn:iso:std:iso:3166#NL "Netherlands"
+* contact[0].name.text = "Gert-Jan de Jong"
+* contact[=].name.use = #official
+* contact[=].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-GertJanDeJong-Pat2)
+* contact[+].name.text = "Maya van der Sluijs-Mulder"
+* contact[=].name.use = #official
+* contact[=].extension[relatedPerson].valueReference = Reference(ACP-ContactPerson-MayaVanDerSluijsMulder-Pat2)

@@ -41,7 +41,7 @@ sequenceDiagram
             deactivate S
         and
             %% 6. Devices
-            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001<br>&_include=DeviceUseStatement:device
+            C->>S: GET /DeviceUseStatement?patient=Patient/[id]<br>&device:Device.type=http://snomed.info/sct|72506001,http://snomed.info/sct|465460004,http://snomed.info/sct|468542000,http://snomed.info/sct|704707009,http://snomed.info/sct|1263462004,http://snomed.info/sct|1236894001<br>&_include=DeviceUseStatement:device
             activate S
             S-->>C: 200 OK: Bundle (DeviceUseStatement + Device)
             deactivate S
